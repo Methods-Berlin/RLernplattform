@@ -4,13 +4,13 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Page not found | R Lernplattform</title>
+  <title>Chapter 15 Git und GitLab | R Lernplattform</title>
   <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
 The HTML output format for this example is bookdown::gitbook,
 set in the _output.yml file.</p>" />
   <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Page not found | R Lernplattform" />
+  <meta property="og:title" content="Chapter 15 Git und GitLab | R Lernplattform" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
@@ -19,7 +19,7 @@ set in the _output.yml file.</p>" />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Page not found | R Lernplattform" />
+  <meta name="twitter:title" content="Chapter 15 Git und GitLab | R Lernplattform" />
   
   <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
 The HTML output format for this example is bookdown::gitbook,
@@ -36,7 +36,7 @@ set in the _output.yml file.</p>" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
+<link rel="prev" href="outputs---alm---faq.html"/>
 
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -468,18 +468,295 @@ set in the _output.yml file.</p>" />
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="page-not-found" class="section level1">
-<h1>Page not found</h1>
-<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
-<p>You may want to try searching to find the page's new location, or use
-the table of contents to find the page you are looking for.</p>
+<div id="git-und-gitlab" class="section level1 hasAnchor" number="15">
+<h1><span class="header-section-number">Chapter 15</span> Git und GitLab<a href="git-und-gitlab.html#git-und-gitlab" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="git" class="section level2 hasAnchor" number="15.1">
+<h2><span class="header-section-number">15.1</span> Git<a href="git-und-gitlab.html#git" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Git ist ein Programm zur Versionsverwaltung von Dateien. Das bedeutet,
+dass wir damit nachverfolgen können, wie sich Dateien über die Zeit
+verändert haben. Außerdem können wir auch sehen, wer sie verändert hat
+und wir können zu früheren Zuständen des Dokuments zurückkehren. Es gibt
+viele unterschiedliche Systeme zur Versionsverwaltung, aber git ist das
+am weiten verbreitetste und auch die Grundlage für zum Beispiel gitHub
+und gitLab. Git ist kostenlos für Windows, Mac und Linux verfügbar.
+Weitere Informationen zur Installation gibt es
+<a href="https://git-scm.com/book/de/v2/Erste-Schritte-Git-installieren">hier</a>.</p>
+</div>
+<div id="einführung-in-git" class="section level2 hasAnchor" number="15.2">
+<h2><span class="header-section-number">15.2</span> Einführung in Git<a href="git-und-gitlab.html#einführung-in-git" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Wir werden im Folgenden alle Befehle in der command line durchführen. Es
+gibt sehr viele unterschiedliche grafische Oberflächen für git, die
+einem das Leben erleichtern können. Aber wenn wir online nach Hilfe für
+git suchen, werden wir immer auf die command line Befehle stoßen und
+daher wollen wir uns hier auch nur mit diesen beschäftigen.</p>
+<div id="schritt-0" class="section level3 hasAnchor" number="15.2.1">
+<h3><span class="header-section-number">15.2.1</span> Schritt 0<a href="git-und-gitlab.html#schritt-0" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Wir wollen git als erstes sagen, wer wir sind. Das ist wichtig, damit
+später jeder nachvollziehen kann, wer was am Dokument verändert hat.
+Hierfür nutzen wir den <code>git config</code> Befehl.</p>
+<ul>
+<li><code>git config --global user.name Mein Name</code></li>
+<li><code>git config --global user.email MeinName@mail.com</code></li>
+</ul>
+</div>
+<div id="git-init" class="section level3 hasAnchor" number="15.2.2">
+<h3><span class="header-section-number">15.2.2</span> git init<a href="git-und-gitlab.html#git-init" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Der erste Schritt ist, git zu sagen, dass wir eine Versionskontrolle
+starten wollen. Hierfür gehen wir zuerst in den Ordner, in dem die
+Dateien liegen, die wir “nachverfolgen” wollen. Dort starten wir dann
+die Kommandozeile und geben den Befehl <code>git init</code> ein (init steht für
+initialize). Git erstellt nun einen .git-Ordner, der aber nur sichtbar
+ist, wenn wir verborgene Ordner im Betriebssystem anzeigen lassen.
+Diesen brauchen wir aber im Folgenden nicht; es macht also nichts, wenn
+ihr ihn bei euch nicht sehen könnt.</p>
+</div>
+<div id="git-add" class="section level3 hasAnchor" number="15.2.3">
+<h3><span class="header-section-number">15.2.3</span> git add<a href="git-und-gitlab.html#git-add" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Sobald wir git init ausgeführt haben, können wir Dateien zur
+Versionskontrolle hinzufügen. Hierfür geben wir den Befehl “git add”
+gefolgt vom Name der Datei ein. Z.B. <code>git add gitTutorial.tex</code>. Die
+Datei “gitTutorial.tex” wird nun in eine Art “Warteraum” aufgenommen.
+Man spricht hier von “staged”. Wichtig ist: Wir haben die Datei so noch
+nicht in git zur Nachverfolgung hinzugefügt! Dateien aus Unterordnern
+können wir über die relativen Pfadnamen hinzufügen (z.B.
+figures/git/gitLogo.png). Mit <code>git add .</code> werden alle Dateien im Ordner sowie
+in allen Unterordnern hinzugefügt. Wir können auch eine .gitignore-Datei
+anlegen, in der wir festlegen, welche Dateien oder Dateitypen nicht zur
+Nachverfolgung hinzugefügt werden sollen. Diese können wir in einem
+Texteditor erstellen und dann unter .gitignore im Ordner speichern</p>
+<ul>
+<li>Hinweis: Wenn wir versehentlich eine Datei in den “Warteraum” aufgenommen haben,
+können wir sie mit z.B. mit <code>git rm --cached gitTutorial.tex</code> wieder entfernen</li>
+</ul>
+<p>Beispiel für Inhalte einer .gitignore Datei:</p>
+<pre><code># Dateien mit folgenden Dateiendungen werden nicht nachverfolgt:
+.log
+.aux
+.pdf
+.gz
+.out
+# Dateien aus dem Unterordner archive werden nicht nachverfolgt
+/archive</code></pre>
+</div>
+<div id="git-status" class="section level3 hasAnchor" number="15.2.4">
+<h3><span class="header-section-number">15.2.4</span> git status<a href="git-und-gitlab.html#git-status" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Wenn wir <code>git status</code> aufrufen, sehen wir nun unter “Changes to be
+committed” welche Dateien beim nächsten commit gespeichert werden. Das
+ist der “Warteraum”. Darunter sehen wir außerdem, welche Dateien nicht
+hinzugefügt wurden. So können wir noch einmal kontrollieren, ob wir
+alles wichtige mit add aufgenommen haben.</p>
+<p><img src="figures/git/gitStatus.png" /></p>
+</div>
+<div id="git-commit" class="section level3 hasAnchor" number="15.2.5">
+<h3><span class="header-section-number">15.2.5</span> git commit<a href="git-und-gitlab.html#git-commit" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Der wichtigste Befehl ist <code>git commit</code>: Mit commit halten wir die
+aktuelle Version aller Dateien aus dem “Warteraum” fest. Man macht hier
+also im Prinzip einen Schnappschuss der Dateien im aktuellen Zustand. Zu
+diesen Zuständen kann man dann immer wieder zurückkehren, wenn man einen
+Fehler gemacht hat oder schauen möchte, was sich seither verändert hat.
+Wenn man <code>git commit</code> eingibt, wird man dazu aufgefordert, auch eine
+commit message zu schreiben. Hier sollte eine Beschreibung der
+Veränderungen seit dem letzten commit eingetragen werden. Die
+Beschreibung speichert man mit <span class="math display">\[Strg + S\]</span> und schließt das Fenster mit
+<span class="math display">\[Strg + X\]</span>.</p>
+<ul>
+<li>Hinweis: Unter Windows muss man zuerst <code>i</code> klicken, bevor man eine commit message schreiben kann. Nach dem Eingeben der commit message mit <code>Esc</code> den Bearbeitungsmodus schließen und :wq eingeben, um das Fenster zu schließen.</li>
+<li>alternativ kann man auch <code>git commit -m Dies ist meine commit message</code> eingeben; dann öffnet sich kein neues Fenster für die commit message.</li>
+</ul>
+<p><img src="figures/git/commitMessage.png" /></p>
+</div>
+<div id="git-log" class="section level3 hasAnchor" number="15.2.6">
+<h3><span class="header-section-number">15.2.6</span> git log<a href="git-und-gitlab.html#git-log" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Mit <code>git log</code> erhaltet ihr eine Übersicht aller commits. Hier können wir
+auch den “Namen” des commits sehen (die sogenannten Hash-Werte).<br />
+Z.B. d3e1166c891c21ee78dcaf6c7484eaf443957435. Diese brauchen wir, wenn
+wir zu einem früheren Zustand zurück kehren wollen.</p>
+<p><img src="figures/git/gitLog.png" /></p>
+</div>
+<div id="zu-einem-früheren-zustand-zurückkehren" class="section level3 hasAnchor" number="15.2.7">
+<h3><span class="header-section-number">15.2.7</span> Zu einem früheren Zustand zurückkehren<a href="git-und-gitlab.html#zu-einem-früheren-zustand-zurückkehren" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Um zu einem früheren Zustand zurückzukehren, müssen wir zuerst im log
+den Hash-Wert des Commits heraussuchen, zu dem wir zurück wollen (z.B.
+d3e1166c891c21ee78dcaf6c7484eaf443957435). Mit
+<code>git checkout d3e1166c891c21ee78dcaf6c7484eaf443957435</code> können wir dann
+zu diesem Commit zurückkehren. Dabei werden alle Dateien auf den Zustand
+zurück gesetzt, den sie im Commit
+d3e1166c891c21ee78dcaf6c7484eaf443957435 hatten. <strong>Wichtig</strong>: Dabei
+werden die neueren Commits <strong>nicht</strong> überschrieben! Wir können immer
+wieder zur aktuellsten Version zurückkehren (mit <code>git checkout master</code>).</p>
+</div>
+<div id="branches" class="section level3 hasAnchor" number="15.2.8">
+<h3><span class="header-section-number">15.2.8</span> Branches<a href="git-und-gitlab.html#branches" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Branches sind dann wichtig, wenn wir verschiedene Versionen eines
+Dokumentes ausprobieren wollen. Zur Zeit befinden wir uns auf dem
+“master” branch und alle Veränderungen, die wir commiten, landen in
+diesem master branch. Wenn wir größere Veränderungen an einem R-Skript
+oder einem Dokument vornehmen, das wir auch mit anderen teilen, kann das
+aber problematisch sein. Damit wir uns nicht immer den master
+“zerschießen” können wir branches (also Ableger) nutzen. Um einen
+solchen branch zu erstellen, geben wir <code>git branch Branchname</code> ein. Wir
+können zwischen dem master und dem neuen branch mit
+<code>git checkout Branchname</code> wechseln. Wenn wir wieder zum master zurück
+wollen, geben wir <code>git checkout master</code> ein.</p>
+<p><strong>Hinweise</strong>:</p>
+<ul>
+<li>Wenn man einfach nur <code>git branch</code> eingibt, bekommt man eine
+Übersicht über alle existierenden branches. Git markiert außerdem,
+welcher Branch gerade angezeigt wird.</li>
+<li>Wenn man ein Dokument verändert, aber nicht commitet hat, kann man
+den branch nicht wechseln. Andernfalls würde man alle Veränderungen
+verlieren</li>
+</ul>
+</div>
+<div id="mergen" class="section level3 hasAnchor" number="15.2.9">
+<h3><span class="header-section-number">15.2.9</span> Mergen<a href="git-und-gitlab.html#mergen" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Nachdem wir alle Änderungen in einem branch vorgenommen haben, wollen
+wir nun unseren neuen branch und den master vereinen (merge). Hierfür
+gehen wir wieder in den master (<code>git checkout master</code>). Dort geben wir
+nun <code>git merge Branchname</code> ein. Das kann z.B. auch genutzt werden, wenn
+eine andere Person an unserem Manuskript weiter geschrieben hat und wir
+nun diese Veränderungen in unser Dokument übernehmen wollen. Dabei
+schaut Git auch, ob mehrere Personen die selben Textstellen verändert
+haben. In solchen Fällen kommt es zu einem merge conflict. Git wird
+versuchen, diese Konflikte zu lösen, aber manchmal müssen wir auch
+selbst Hand anlegen. Weiter unten wird erklärt, wie man mit merge
+Konflikten in GitLab umgeht.</p>
+</div>
+</div>
+<div id="github-gitlab-gitbucket" class="section level2 hasAnchor" number="15.3">
+<h2><span class="header-section-number">15.3</span> GitHub, GitLab, GitBucket, …<a href="git-und-gitlab.html#github-gitlab-gitbucket" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>GitHub, GitLab, GitBucket und ähnliche Plattformen sind Webseiten, auf
+denen wir unser git-Projekt hochladen können, um es anderen zur
+Verfügung zu stellen oder ein Backup zu haben. Wir werden im Folgenden
+die HU-eigene <a href="https://scm.cms.hu-berlin.de/">GitLab</a> Instanz nutzen.
+<strong>Wichtig</strong>: In GitLab können wir Projekte auch so speichern, dass nur
+wir selbst oder von uns ausgewählte Personen auf die Dokumente Zugriff
+haben!</p>
+<div id="ein-neues-projekt-erstellen" class="section level3 hasAnchor" number="15.3.1">
+<h3><span class="header-section-number">15.3.1</span> Ein neues Projekt erstellen<a href="git-und-gitlab.html#ein-neues-projekt-erstellen" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Auf GitLab können wir unter “New Project” eine neues Projekt erstellen.
+Hier können wir auch einstellen, ob ein Projekt nur für uns oder für
+alle sichtbar sein soll.</p>
+<p><img src="figures/git/newProject.png" /></p>
+<p>Nachdem wir ein neues Projekt erstellt haben, können wir unser
+bestehendes git-Projekt hochladen. Die hierfür notwendigen Schritte
+werden nach dem Erstellen eines neuen Projektes direkt in gitLab
+angezeigt. Sie sind:
+<code>git remote add origin https://scm.cms.hu-berlin.de/Nutzername/Projektname.git git push -u origin master</code></p>
+<ul>
+<li><strong>remote</strong> steht für ein repository, das nicht auf dem eigenen
+Rechner liegt. <code>git remote add origin</code> fügt also ein neues remote
+repository hinzu, das <code>origin</code> heißt und in
+<code>https://scm.cms.hu-berlin.de/Nutzername/Projektname.git</code> liegt.
+Nachfolgend müssen wir nicht mehr die ganze Web-Adresse schreiben,
+sondern es reicht der Name des remote repository (<code>origin</code>). Wir
+können das remote repository auch anders nennen (z.B.
+<code>git remote add GitLabRemote https://scm.cms.hu-berlin.de/Nutzername/Projektname.git</code>).
+Aber origin hat sich als Standard durchgesetzt.</li>
+<li><code>git push -u origin master</code> lässt sich übersetzen als: lade (git
+push) den lokalen master in das remote repository mit dem Namen
+origin. Dabei wird im remote repository ebenfalls der master
+überschrieben.</li>
+<li>Wenn wir ein gemeinsames Projekt erstellen, können wir andere
+Personen auf GitLab gezielt zum Projekt hinzu fügen und ihnen
+bestimmte Rollen zuordnen. Mehr Infos zu den Rollen und ihrer
+Bedeutung gibt es
+<a href="https://scm.cms.hu-berlin.de/help/user/permissions">hier</a>.</li>
+</ul>
+</div>
+<div id="git-clone" class="section level3 hasAnchor" number="15.3.2">
+<h3><span class="header-section-number">15.3.2</span> git clone<a href="git-und-gitlab.html#git-clone" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Häufig wollen wir an einem Projekt einer anderen Person weiterarbeiten.
+Hierfür laden wir das Projekt erst einmal herunter. Zuerst gehen wir in
+den Ordner, in dem wir das git-Projekt speichern wollen. Dann führen wir
+dort in der command-line den folgenden Befehl aus:
+<code>git clone https://scm.cms.hu-berlin.de/orzekjan/git-einfuehrung.git</code></p>
+<p>Git lädt nun das Projekt “git-einfuehrung” herunter und wir können es
+lokal bearbeiten. Dabei sollten wir zuerst einen neuen Branch erstellen.
+So können wir sicherstellen, dass wir Veränderungen im Projekt, die von
+einer anderen Person im origin vorgenommen werden, leichter mit unseren
+Veränderungen integrieren können.</p>
+<ul>
+<li>Um den Link zum Herunterladen eines Projekts zu finden, kann man auf
+der Projektseite auf Clone drücken und den HTTPS Link kopieren.</li>
+<li>den lokalen branch zur Bearbeitung erstellen wir wie oben: z.B. mit
+<code>git branch revisionJO</code>.</li>
+</ul>
+<p><img src="figures/git/cloneProject.png" /></p>
+<p><img src="figures/git/revisionJO.png" /></p>
+</div>
+<div id="push" class="section level3 hasAnchor" number="15.3.3">
+<h3><span class="header-section-number">15.3.3</span> git push<a href="git-und-gitlab.html#push" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Nachdem wir ein Repository herunter geladen und verändert haben, können
+wir es mit <code>git push</code> wieder auf den Server laden. Wenn es sich um ein
+gemeinsames Projekt handelt, sollte man nicht direkt in den master
+pushen; sonst überschreibt man eventuell Veränderungen, die andere
+vorgenommen haben. Stattdessen sollte man den eigenen branch (im
+Beispiel den branch revisionJO) in einen neuen remote branch pushen.
+Dies geht mit dem Befehl:</p>
+<p><code>git push origin revisionJO</code></p>
+<p>Der lokale branch revisionJO wird so in das online-Projekt kopiert. Dort
+gibt es nun ebenfalls einen branch mit dem Namen revisionJO. Wenn der
+Branch mit diesem Namen bereits vorher existierte, wird er nur
+aktualisiert.</p>
+<p><img src="figures/git/branches.png" /></p>
+<p>Bei unseren eigenen Projekten können wir auch direkt in den Master
+pushen. Das geht mit <code>git push origin master</code>.</p>
+<p>In GitLab können wir nun zu unserem branch wechseln und mit “Create
+merge request” ein Zusammenführen des masters und des
+revisionJO-branches anfragen.</p>
+<p><img src="figures/git/revisionJOMerge.png" /></p>
+<p>Hier können wir auch noch einen ausführlicheren Kommentar hinterlassen,
+warum wir eine Veränderung vorgenommen haben.</p>
+<p>Alle Veränderungen werden im Reiter “Changes” detailliert aufgeführt:</p>
+<p><img src="figures/git/revisionJOChanges.png" /></p>
+<p>Im Reiter “Overview” können Projektadministrator_innen nun den Merge
+annehmen und unsere vorgeschlagenen Veränderungen damit übernehmen oder
+ablehnen. Außerdem können dort die Veränderungen auch noch einmal
+diskutiert werden.</p>
+<p><img src="figures/git/mergeRevisionJOAccept.png" /></p>
+</div>
+<div id="pull" class="section level3 hasAnchor" number="15.3.4">
+<h3><span class="header-section-number">15.3.4</span> git pull<a href="git-und-gitlab.html#pull" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Mit pull können wir unser git repository vom Server auf den Rechner
+aktualisieren. Wir können dabei festlegen, welchen branch wir
+herunterladen wollen. Z.B. laden wir mit</p>
+<p><code>git pull origin master</code></p>
+<p>den branch master aus dem Online-Projekt origin herunter. So können wir
+nach dem merge sicherstellen, dass wir auch wieder die aktuelle Version
+des master haben.</p>
+</div>
+<div id="branches-archivieren-und-löschen" class="section level3 hasAnchor" number="15.3.5">
+<h3><span class="header-section-number">15.3.5</span> Branches archivieren und löschen<a href="git-und-gitlab.html#branches-archivieren-und-löschen" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Nachdem man den branch revisionJO in den master gemerged haben, ist
+üblich, den alten branch zu löschen. So vermeidet man, am Ende sehr
+viele branches zu haben, die alle nicht mehr genutzt werden. Den branch
+revisionJO löscht man mit:</p>
+<p><code>git branch -d revisionJO</code></p>
+<p>Wenn man den branch vorher archivieren möchte, geht dies mit:</p>
+<p><code>git tag archive/revisionJO revisionJO</code></p>
+<p>So wird ein Ordner archive erstellt, in dem der branch revisionJO
+gespeichert ist. Wir können den branch nun löschen, aber er ist
+weiterhin im Ordner archive hinterlegt. Um alle tags anzuzeigen, können
+wir einfach <code>git tag</code> eingeben. Dort sehen wir nun auch den neu
+angelegten archive Ordner.</p>
+<p>Um den branch revisionJO wieder herzustellen, können wir
+<code>git checkout -b revisionJO archive/revisionJO</code> eingeben.</p>
+</div>
+</div>
+<div id="weitere-ressourcen" class="section level2 hasAnchor" number="15.4">
+<h2><span class="header-section-number">15.4</span> Weitere Ressourcen<a href="git-und-gitlab.html#weitere-ressourcen" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Einfache Einführung: <a href="https://www.youtube.com/watch?v=SWYqp7iY_Tc">Git &amp; GitHub Crash Course For
+Beginners</a></p>
+
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
+<a href="outputs---alm---faq.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
     </div>
   </div>
