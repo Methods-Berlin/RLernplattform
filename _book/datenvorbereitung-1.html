@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 9 Datenvorbereitung | A Minimal Book Example</title>
+  <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 9 Datenvorbereitung | A Minimal Book Example" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 9 Datenvorbereitung | A Minimal Book Example" />
+  
+  <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  
+
+<meta name="author" content="John Doe" />
+
+
+<meta name="date" content="2022-11-24" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="datenvorbereitung.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> url: your book url like <span>https://bookdown.org/yihui/bookdown</span></a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#usage"><i class="fa fa-check"></i><b>1.1</b> Usage</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#render-book"><i class="fa fa-check"></i><b>1.2</b> Render book</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#preview-book"><i class="fa fa-check"></i><b>1.3</b> Preview book</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="installation-und-aktualisierung-von-r-und-rstudio.html"><a href="installation-und-aktualisierung-von-r-und-rstudio.html"><i class="fa fa-check"></i><b>2</b> Installation und Aktualisierung von R und RStudio</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="installation-und-aktualisierung-von-r-und-rstudio.html"><a href="installation-und-aktualisierung-von-r-und-rstudio.html#windows"><i class="fa fa-check"></i><b>2.1</b> <strong>Windows</strong></a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="installation-und-aktualisierung-von-r-und-rstudio.html"><a href="installation-und-aktualisierung-von-r-und-rstudio.html#installation-von-r"><i class="fa fa-check"></i><b>2.1.1</b> Installation von <span class="r"><strong>R</strong></span></a></li>
+<li class="chapter" data-level="2.1.2" data-path="installation-und-aktualisierung-von-r-und-rstudio.html"><a href="installation-und-aktualisierung-von-r-und-rstudio.html#installation-von-rstudio"><i class="fa fa-check"></i><b>2.1.2</b> Installation von <span class="r"><strong>RStudio</strong></span></a></li>
+<li class="chapter" data-level="2.1.3" data-path="installation-und-aktualisierung-von-r-und-rstudio.html"><a href="installation-und-aktualisierung-von-r-und-rstudio.html#aktualisierung-von-r-mit-übernahme-der-pakete-aus-der-älteren-version-paket-installr"><i class="fa fa-check"></i><b>2.1.3</b> Aktualisierung von <span class="r"><strong>R</strong></span> mit Übernahme der Pakete aus der älteren Version (Paket <strong>installr</strong>)</a></li>
+<li class="chapter" data-level="2.1.4" data-path="installation-und-aktualisierung-von-r-und-rstudio.html"><a href="installation-und-aktualisierung-von-r-und-rstudio.html#aktualisierung-von-rstudio"><i class="fa fa-check"></i><b>2.1.4</b> Aktualisierung von <span class="r"><strong>RStudio</strong></span></a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="installation-und-aktualisierung-von-r-und-rstudio.html"><a href="installation-und-aktualisierung-von-r-und-rstudio.html#mac"><i class="fa fa-check"></i><b>2.2</b> <strong>Mac</strong></a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="installation-und-aktualisierung-von-r-und-rstudio.html"><a href="installation-und-aktualisierung-von-r-und-rstudio.html#installation-von-r-1"><i class="fa fa-check"></i><b>2.2.1</b> Installation von <span class="r"><strong>R</strong></span></a></li>
+<li class="chapter" data-level="2.2.2" data-path="installation-und-aktualisierung-von-r-und-rstudio.html"><a href="installation-und-aktualisierung-von-r-und-rstudio.html#installation-von-rstudio-1"><i class="fa fa-check"></i><b>2.2.2</b> Installation von <span class="r"><strong>RStudio</strong></span></a></li>
+<li class="chapter" data-level="2.2.3" data-path="installation-und-aktualisierung-von-r-und-rstudio.html"><a href="installation-und-aktualisierung-von-r-und-rstudio.html#aktualisierung-von-r"><i class="fa fa-check"></i><b>2.2.3</b> Aktualisierung von <span class="r"><strong>R</strong></span></a></li>
+<li class="chapter" data-level="2.2.4" data-path="installation-und-aktualisierung-von-r-und-rstudio.html"><a href="installation-und-aktualisierung-von-r-und-rstudio.html#aktualisierung-von-rstudio-1"><i class="fa fa-check"></i><b>2.2.4</b> Aktualisierung von <span class="r"><strong>RStudio</strong></span></a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="installation-und-aktualisierung-von-r-und-rstudio.html"><a href="installation-und-aktualisierung-von-r-und-rstudio.html#hinweis-zur-replizierbarkeit-von-analysen"><i class="fa fa-check"></i><b>2.3</b> <strong>Hinweis zur Replizierbarkeit von Analysen</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="einführung-in-r.html"><a href="einführung-in-r.html"><i class="fa fa-check"></i><b>3</b> Einführung in R</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="einführung-in-r.html"><a href="einführung-in-r.html#funktionen-pakete"><i class="fa fa-check"></i><b>3.1</b> <strong>1. Funktionen &amp; Pakete</strong></a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="einführung-in-r.html"><a href="einführung-in-r.html#funktionen"><i class="fa fa-check"></i><b>3.1.1</b> Funktionen</a></li>
+<li class="chapter" data-level="3.1.2" data-path="einführung-in-r.html"><a href="einführung-in-r.html#pakete"><i class="fa fa-check"></i><b>3.1.2</b> Pakete</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="einführung-in-r.html"><a href="einführung-in-r.html#daten"><i class="fa fa-check"></i><b>3.2</b> <strong>2. Daten</strong></a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="einführung-in-r.html"><a href="einführung-in-r.html#datentypen"><i class="fa fa-check"></i><b>3.2.1</b> Datentypen</a></li>
+<li class="chapter" data-level="3.2.2" data-path="einführung-in-r.html"><a href="einführung-in-r.html#datenstrukturen"><i class="fa fa-check"></i><b>3.2.2</b> Datenstrukturen</a></li>
+<li class="chapter" data-level="3.2.3" data-path="einführung-in-r.html"><a href="einführung-in-r.html#objekte"><i class="fa fa-check"></i><b>3.2.3</b> Objekte</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="einführung-in-r.html"><a href="einführung-in-r.html#weitere-hilfen"><i class="fa fa-check"></i><b>3.3</b> <strong>3. Weitere Hilfen</strong></a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="einführung-in-r.html"><a href="einführung-in-r.html#kurzbefehle"><i class="fa fa-check"></i><b>3.3.1</b> Kurzbefehle</a></li>
+<li class="chapter" data-level="3.3.2" data-path="einführung-in-r.html"><a href="einführung-in-r.html#andere-lernplattformen-und-übungen"><i class="fa fa-check"></i><b>3.3.2</b> Andere Lernplattformen und Übungen</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="einführung-in-rstudio.html"><a href="einführung-in-rstudio.html"><i class="fa fa-check"></i><b>4</b> Einführung in RStudio</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="einführung-in-rstudio.html"><a href="einführung-in-rstudio.html#allgemeines-zu-rstudio"><i class="fa fa-check"></i><b>4.1</b> Allgemeines zu <code>RStudio</code></a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="einführung-in-rstudio.html"><a href="einführung-in-rstudio.html#skript"><i class="fa fa-check"></i><b>4.1.1</b> <strong><span class="r script">Skript</span></font></strong></a></li>
+<li class="chapter" data-level="4.1.2" data-path="einführung-in-rstudio.html"><a href="einführung-in-rstudio.html#konsole"><i class="fa fa-check"></i><b>4.1.2</b> <strong><span class="r cons">Konsole</span></font></strong></a></li>
+<li class="chapter" data-level="4.1.3" data-path="einführung-in-rstudio.html"><a href="einführung-in-rstudio.html#environment-history"><i class="fa fa-check"></i><b>4.1.3</b> <strong><span class="r env">Environment &amp; History</span></font></strong></a></li>
+<li class="chapter" data-level="4.1.4" data-path="einführung-in-rstudio.html"><a href="einführung-in-rstudio.html#files-plots-packages-help-viewer"><i class="fa fa-check"></i><b>4.1.4</b> <strong><span class="r help">Files, Plots, Packages, Help &amp; Viewer</span></strong></a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="einführung-in-rstudio.html"><a href="einführung-in-rstudio.html#weitere-hilfen-1"><i class="fa fa-check"></i><b>4.2</b> Weitere Hilfen</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="einführung-in-rstudio.html"><a href="einführung-in-rstudio.html#kurzbefehle-1"><i class="fa fa-check"></i><b>4.2.1</b> Kurzbefehle</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="pakete-1.html"><a href="pakete-1.html"><i class="fa fa-check"></i><b>5</b> Pakete</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="pakete-1.html"><a href="pakete-1.html#was-ist-eine-grafische-benutzeroberfläche"><i class="fa fa-check"></i><b>5.1</b> Was ist eine grafische Benutzeroberfläche?</a></li>
+<li class="chapter" data-level="5.2" data-path="pakete-1.html"><a href="pakete-1.html#was-ist-cran"><i class="fa fa-check"></i><b>5.2</b> Was ist CRAN?</a></li>
+<li class="chapter" data-level="5.3" data-path="pakete-1.html"><a href="pakete-1.html#pakete-installieren"><i class="fa fa-check"></i><b>5.3</b> Pakete Installieren</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="pakete-1.html"><a href="pakete-1.html#über-die-funktion-install.packages"><i class="fa fa-check"></i><b>5.3.1</b> Über die Funktion <code>install.packages()</code></a></li>
+<li class="chapter" data-level="5.3.2" data-path="pakete-1.html"><a href="pakete-1.html#über-das-icon-install-oder-den-menüpunkt-install-packages"><i class="fa fa-check"></i><b>5.3.2</b> Über das Icon <span style="color: #75AADC">Install</span> oder den Menüpunkt <span style="color: #75AADC">Install Packages…</span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="pakete-1.html"><a href="pakete-1.html#pakete-laden"><i class="fa fa-check"></i><b>5.4</b> Pakete Laden</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="pakete-1.html"><a href="pakete-1.html#über-die-funktion-library"><i class="fa fa-check"></i><b>5.4.1</b> Über die Funktion <code>library()</code></a></li>
+<li class="chapter" data-level="5.4.2" data-path="pakete-1.html"><a href="pakete-1.html#über-das-häkchen-setzen-in-der-system-library"><i class="fa fa-check"></i><b>5.4.2</b> Über das Häkchen-Setzen in der <span style="color: #75AADC">System Library</span></a></li>
+<li class="chapter" data-level="5.4.3" data-path="pakete-1.html"><a href="pakete-1.html#maskierung-wenn-verschiedene-pakete-gleich-benannte-funktionen-enthalten"><i class="fa fa-check"></i><b>5.4.3</b> <strong>Maskierung</strong>: Wenn verschiedene Pakete gleich benannte Funktionen enthalten</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="pakete-1.html"><a href="pakete-1.html#pakete-aktualisieren"><i class="fa fa-check"></i><b>5.5</b> Pakete Aktualisieren</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="pakete-1.html"><a href="pakete-1.html#über-die-funktion-update.packages"><i class="fa fa-check"></i><b>5.5.1</b> Über die Funktion <code>update.packages()</code></a></li>
+<li class="chapter" data-level="5.5.2" data-path="pakete-1.html"><a href="pakete-1.html#über-das-icon-update-oder-den-menüpunkt-check-for-package-updates"><i class="fa fa-check"></i><b>5.5.2</b> Über das Icon <span style="color: #75AADC">Update</span> oder den Menüpunkt <span style="color: #75AADC">Check for Package Updates…</span></a></li>
+<li class="chapter" data-level="5.5.3" data-path="pakete-1.html"><a href="pakete-1.html#entwicklerpakete-runterladen"><i class="fa fa-check"></i><b>5.5.3</b> Entwicklerpakete runterladen</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="pakete-1.html"><a href="pakete-1.html#wichtige-hinweise-zur-replizierbarkeit"><i class="fa fa-check"></i><b>5.6</b> Wichtige Hinweise zur Replizierbarkeit</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="pakete-1.html"><a href="pakete-1.html#replizierbarkeit-von-r-skripten"><i class="fa fa-check"></i><b>5.6.1</b> Replizierbarkeit von <code>R</code>-Skripten</a></li>
+<li class="chapter" data-level="5.6.2" data-path="pakete-1.html"><a href="pakete-1.html#replizierbarkeit-von-analysen"><i class="fa fa-check"></i><b>5.6.2</b> Replizierbarkeit von Analysen</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="pakete-1.html"><a href="pakete-1.html#weitere-hilfen-2"><i class="fa fa-check"></i><b>5.7</b> Weitere Hilfen</a>
+<ul>
+<li class="chapter" data-level="5.7.1" data-path="pakete-1.html"><a href="pakete-1.html#probleme-mit-paketen-und-funktionen"><i class="fa fa-check"></i><b>5.7.1</b> Probleme mit Paketen und Funktionen</a></li>
+<li class="chapter" data-level="5.7.2" data-path="pakete-1.html"><a href="pakete-1.html#ältere-paket-versionen-installieren"><i class="fa fa-check"></i><b>5.7.2</b> Ältere Paket-Versionen installieren</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="pakete-1.html"><a href="pakete-1.html#faq"><i class="fa fa-check"></i><b>5.8</b> FAQ</a>
+<ul>
+<li class="chapter" data-level="5.8.1" data-path="pakete-1.html"><a href="pakete-1.html#entwicklerpakete"><i class="fa fa-check"></i><b>5.8.1</b> Entwicklerpakete</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="daten-importieren.html"><a href="daten-importieren.html"><i class="fa fa-check"></i><b>6</b> Daten importieren</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="daten-importieren.html"><a href="daten-importieren.html#vor-dem-einlesen-in-r"><i class="fa fa-check"></i><b>6.1</b> <strong>Vor dem Einlesen in <span class="r">R</span></strong></a></li>
+<li class="chapter" data-level="6.2" data-path="daten-importieren.html"><a href="daten-importieren.html#windows-1"><i class="fa fa-check"></i><b>6.2</b> Windows</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="daten-importieren.html"><a href="daten-importieren.html#datei-herunterladen"><i class="fa fa-check"></i><b>6.2.1</b> Datei herunterladen</a></li>
+<li class="chapter" data-level="6.2.2" data-path="daten-importieren.html"><a href="daten-importieren.html#in-arbeitsordner-verschieben"><i class="fa fa-check"></i><b>6.2.2</b> In Arbeitsordner verschieben</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="daten-importieren.html"><a href="daten-importieren.html#mac-1"><i class="fa fa-check"></i><b>6.3</b> Mac</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="daten-importieren.html"><a href="daten-importieren.html#datei-herunterladen-1"><i class="fa fa-check"></i><b>6.3.1</b> Datei herunterladen</a></li>
+<li class="chapter" data-level="6.3.2" data-path="daten-importieren.html"><a href="daten-importieren.html#in-arbeitsordner-verschieben-1"><i class="fa fa-check"></i><b>6.3.2</b> In Arbeitsordner verschieben</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="daten-importieren.html"><a href="daten-importieren.html#weg-1-environment-import-dataset"><i class="fa fa-check"></i><b>6.4</b> <strong>Weg 1: <span class="rstud">Environment</span> &gt; <span class="rstud">Import Dataset</span></strong></a></li>
+<li class="chapter" data-level="6.5" data-path="daten-importieren.html"><a href="daten-importieren.html#weg-2-files-import-dataset"><i class="fa fa-check"></i><b>6.5</b> <strong>Weg 2: <span class="rstud">Files</span> &gt; <span class="rstud">Import Dataset</span></strong></a></li>
+<li class="chapter" data-level="6.6" data-path="daten-importieren.html"><a href="daten-importieren.html#weg-3-manuell-importieren-mit-funktionen"><i class="fa fa-check"></i><b>6.6</b> <strong>Weg 3: Manuell Importieren mit <code>Funktionen</code></strong></a></li>
+<li class="chapter" data-level="6.7" data-path="daten-importieren.html"><a href="daten-importieren.html#faq-1"><i class="fa fa-check"></i><b>6.7</b> FAQ</a>
+<ul>
+<li class="chapter" data-level="6.7.1" data-path="daten-importieren.html"><a href="daten-importieren.html#csv-.txt-und-.dat"><i class="fa fa-check"></i><b>6.7.1</b> .csv, .txt und .dat</a></li>
+<li class="chapter" data-level="6.7.2" data-path="daten-importieren.html"><a href="daten-importieren.html#xls-und-.xlsx"><i class="fa fa-check"></i><b>6.7.2</b> .xls und .xlsx</a></li>
+<li class="chapter" data-level="6.7.3" data-path="daten-importieren.html"><a href="daten-importieren.html#sav"><i class="fa fa-check"></i><b>6.7.3</b> .sav</a></li>
+<li class="chapter" data-level="6.7.4" data-path="daten-importieren.html"><a href="daten-importieren.html#dateien-via-url-direkt-aus-dem-internet-laden"><i class="fa fa-check"></i><b>6.7.4</b> Dateien via URL direkt aus dem Internet laden</a></li>
+<li class="chapter" data-level="6.7.5" data-path="daten-importieren.html"><a href="daten-importieren.html#r-.rda-und-.rmd"><i class="fa fa-check"></i><b>6.7.5</b> .R, .Rda und .Rmd</a></li>
+</ul></li>
+<li class="chapter" data-level="6.8" data-path="daten-importieren.html"><a href="daten-importieren.html#weiterführende-hilfe"><i class="fa fa-check"></i><b>6.8</b> Weiterführende Hilfe</a></li>
+<li class="chapter" data-level="6.9" data-path="daten-importieren.html"><a href="daten-importieren.html#übung"><i class="fa fa-check"></i><b>6.9</b> Übung</a>
+<ul>
+<li class="chapter" data-level="6.9.1" data-path="daten-importieren.html"><a href="daten-importieren.html#übung-1-.csv"><i class="fa fa-check"></i><b>6.9.1</b> Übung 1: <strong>.csv</strong></a></li>
+<li class="chapter" data-level="6.9.2" data-path="daten-importieren.html"><a href="daten-importieren.html#übung-2-.csv"><i class="fa fa-check"></i><b>6.9.2</b> Übung 2: <strong>.csv</strong></a></li>
+<li class="chapter" data-level="6.9.3" data-path="daten-importieren.html"><a href="daten-importieren.html#übung-3-.sav"><i class="fa fa-check"></i><b>6.9.3</b> Übung 3: <strong>.sav</strong></a></li>
+<li class="chapter" data-level="6.9.4" data-path="daten-importieren.html"><a href="daten-importieren.html#übung-4-.xlsx"><i class="fa fa-check"></i><b>6.9.4</b> Übung 4: <strong>.xlsx</strong></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="fehlermeldungen.html"><a href="fehlermeldungen.html"><i class="fa fa-check"></i><b>7</b> Fehlermeldungen</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="fehlermeldungen.html"><a href="fehlermeldungen.html#tools-die-uns-helfen-fehler-zu-vermeiden"><i class="fa fa-check"></i><b>7.1</b> Tools die uns helfen, Fehler zu vermeiden</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="fehlermeldungen.html"><a href="fehlermeldungen.html#r-dokumentation-1"><i class="fa fa-check"></i><b>7.1.1</b> <span class="r">R</span>-Dokumentation</a></li>
+<li class="chapter" data-level="7.1.2" data-path="fehlermeldungen.html"><a href="fehlermeldungen.html#code-diagnostik"><i class="fa fa-check"></i><b>7.1.2</b> Code Diagnostik</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="fehlermeldungen.html"><a href="fehlermeldungen.html#fehlermeldungen-verstehen"><i class="fa fa-check"></i><b>7.2</b> Fehlermeldungen verstehen</a></li>
+<li class="chapter" data-level="7.3" data-path="fehlermeldungen.html"><a href="fehlermeldungen.html#suchen-im-internet"><i class="fa fa-check"></i><b>7.3</b> Suchen im Internet</a></li>
+<li class="chapter" data-level="7.4" data-path="fehlermeldungen.html"><a href="fehlermeldungen.html#weiterführende-hilfe-1"><i class="fa fa-check"></i><b>7.4</b> Weiterführende Hilfe</a></li>
+<li class="chapter" data-level="7.5" data-path="fehlermeldungen.html"><a href="fehlermeldungen.html#automatische-suche-mit-dem-paket-errorist"><i class="fa fa-check"></i><b>7.5</b> Automatische Suche mit dem Paket <strong>errorist</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html"><i class="fa fa-check"></i><b>8</b> Datenvorbereitung</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#grundlegende-erste-schritte"><i class="fa fa-check"></i><b>8.1</b> Grundlegende erste Schritte</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#recap-kodierung-von-daten"><i class="fa fa-check"></i><b>8.1.1</b> <font color="darkgrey"><strong>Recap</strong>: Kodierung von Daten</font></a></li>
+<li class="chapter" data-level="8.1.2" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#dataframe"><i class="fa fa-check"></i><b>8.1.2</b> Dataframe</a></li>
+<li class="chapter" data-level="8.1.3" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#plausibilitäts-check"><i class="fa fa-check"></i><b>8.1.3</b> Plausibilitäts-Check</a></li>
+<li class="chapter" data-level="8.1.4" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#fehlende-werte"><i class="fa fa-check"></i><b>8.1.4</b> Fehlende Werte</a></li>
+<li class="chapter" data-level="8.1.5" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#faktorisieren"><i class="fa fa-check"></i><b>8.1.5</b> Faktorisieren</a></li>
+<li class="chapter" data-level="8.1.6" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#wide--und-long-format"><i class="fa fa-check"></i><b>8.1.6</b> Wide- und Long-Format</a></li>
+<li class="chapter" data-level="8.1.7" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#selbe-variablen-unterschiedliche-fälle"><i class="fa fa-check"></i><b>8.1.7</b> Selbe Variablen, unterschiedliche Fälle</a></li>
+<li class="chapter" data-level="8.1.8" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#unterschiedliche-variablen-selbe-fälle"><i class="fa fa-check"></i><b>8.1.8</b> Unterschiedliche Variablen, selbe Fälle</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#daten-extrahieren"><i class="fa fa-check"></i><b>8.2</b> Daten extrahieren</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#variablen"><i class="fa fa-check"></i><b>8.2.1</b> Variablen</a></li>
+<li class="chapter" data-level="8.2.2" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#fälle"><i class="fa fa-check"></i><b>8.2.2</b> Fälle</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#daten-sortieren"><i class="fa fa-check"></i><b>8.3</b> Daten sortieren</a></li>
+<li class="chapter" data-level="8.4" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#kodierung-ändern"><i class="fa fa-check"></i><b>8.4</b> Kodierung ändern</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#umkodieren"><i class="fa fa-check"></i><b>8.4.1</b> Umkodieren</a></li>
+<li class="chapter" data-level="8.4.2" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#indikatorvariablen-kodierung-nominaler-merkmale"><i class="fa fa-check"></i><b>8.4.2</b> Indikatorvariablen: Kodierung nominaler Merkmale</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#summary-variablen"><i class="fa fa-check"></i><b>8.5</b> Summary-Variablen</a></li>
+<li class="chapter" data-level="8.6" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#weitere-wichtige-hinweise"><i class="fa fa-check"></i><b>8.6</b> Weitere wichtige Hinweise</a>
+<ul>
+<li class="chapter" data-level="8.6.1" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#cheat-sheet-dplyr"><i class="fa fa-check"></i><b>8.6.1</b> Cheat Sheet <strong>dplyr</strong></a></li>
+<li class="chapter" data-level="8.6.2" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#stichprobengröße"><i class="fa fa-check"></i><b>8.6.2</b> Stichprobengröße</a></li>
+<li class="chapter" data-level="8.6.3" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#replizierbarkeit"><i class="fa fa-check"></i><b>8.6.3</b> Replizierbarkeit</a></li>
+</ul></li>
+<li class="chapter" data-level="8.7" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#übung-1"><i class="fa fa-check"></i><b>8.7</b> Übung</a>
+<ul>
+<li class="chapter" data-level="8.7.1" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#übung-1-erste-schritte"><i class="fa fa-check"></i><b>8.7.1</b> Übung 1: Erste Schritte</a></li>
+<li class="chapter" data-level="8.7.2" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#übung-2-extrahieren-von-daten"><i class="fa fa-check"></i><b>8.7.2</b> Übung 2: Extrahieren von Daten</a></li>
+<li class="chapter" data-level="8.7.3" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#übung-3-sortieren-von-daten"><i class="fa fa-check"></i><b>8.7.3</b> Übung 3: Sortieren von Daten</a></li>
+<li class="chapter" data-level="8.7.4" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#übung-4-änderung-der-kodierung-von-daten"><i class="fa fa-check"></i><b>8.7.4</b> Übung 4: Änderung der Kodierung von Daten</a></li>
+<li class="chapter" data-level="8.7.5" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#übung-5-erstellen-von-summary-variablen"><i class="fa fa-check"></i><b>8.7.5</b> Übung 5: Erstellen von Summary-Variablen</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="datenvorbereitung-1.html"><a href="datenvorbereitung-1.html"><i class="fa fa-check"></i><b>9</b> Datenvorbereitung</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A Minimal Book Example</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="datenvorbereitung-1" class="section level1 hasAnchor" number="9">
+<h1><span class="header-section-number">Chapter 9</span> Datenvorbereitung<a href="datenvorbereitung-1.html#datenvorbereitung-1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Vor jeder statistischen Auswertung ist es notwendig, die Daten entsprechend der angestrebten Analyse aufzubereiten. Beispielsweise kann das beinhalten, Daten zusammenzuführen, zu extrahieren oder zu sortieren, aber auch Variablen umzukodieren oder transformierte Variablen zu erstellen.</p>
+<p>In diesem Kapitel wollen wir uns verschiedene Schritte der Datenvorbereitung anschauen. Wir nutzen dafür größtenteils Funktionen aus zwei verschiedenen Paketen: dem Standardpaket <strong>base</strong> und dem Zusatzpaket <strong>dplyr</strong>. Zweiteres laden wir mit <code>library(dplyr)</code>.</p>
+<p>Wir fangen mit grundsätzlichen Überprüfungen unserer der Daten an. Nachfolgend arbeiten wir uns in spezifischere Aufbereitungsbereiche vor, die wir in Abhängigkeit unserer geplanten Auswertung ggf. benötigen.</p>
+<details class="bsp">
+<summary>
+<a name="data"></a>Beispieldatensätze für dieses Kapitel
+</summary>
+<p>Für das vorliegende Kapitel nutzen wir <strong>mehrere Datensätze</strong>, um die unterschiedlichen Verarbeitungsschritte zu demonstrieren.</p>
+<p>Den Datensatz <span class="highlight">airquality</span> werden wir am meisten nutzen. Dieser enthält Daten aus einer Untersuchung der <strong>Luftqualität in New York</strong>, die von Mai bis September des Jahres 1973 stattfand. Der Datensatz ist standardmäßig in <span class="r">R</span> enthalten und wir bekommen ihn mit der Funktion <code>data()</code> in unser <span class="r">R</span>-Environment:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="datenvorbereitung-1.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(airquality)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="datenvorbereitung-1.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(airquality)</span></code></pre></div>
+<pre><code>##   Ozone Solar.R Wind Temp Month Day
+## 1    41     190  7.4   67     5   1
+## 2    36     118  8.0   72     5   2
+## 3    12     149 12.6   74     5   3
+## 4    18     313 11.5   62     5   4
+## 5    NA      NA 14.3   56     5   5
+## 6    28      NA 14.9   66     5   6</code></pre>
+<p>Der Datensatz enthält 6 Variablen:</p>
+<ul>
+<li><code>Ozone</code>: mittlere Ozonkonzentration in ppb <em>(parts per billion)</em></li>
+<li><code>Solar.R</code>: Sonneneinstrahlung in <a href="https://de.wikipedia.org/wiki/Langley_(Einheit)" target="_blank">Langley (Einheit)</a></li>
+<li><code>Wind</code>: durchschnittliche Windgeschwindigkeit in Meilen pro Stunde</li>
+<li><code>Temp</code>: maximale Temperatur in Grad Fahrenheit</li>
+<li><code>Month</code>: Monatsangabe als Zahl (1-12)</li>
+<li><code>Day</code>: Tagesangabe als Zahl (1-31)</li>
+</ul>
+<p>Mehr Informationen zum Datensatz finden wir <a href="https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/airquality.html" target="_blank">hier</a>.<br />
+</p>
+<p>Den Datensatz <span class="highlight">PWE_data</span>, welcher Daten einer <strong>psychometrischen Erhebung</strong> enthält, werden wir auch häufiger nutzen. Um den Datensatz und das Codebuch herunterzuladen, klicken wir auf diesen <a href="https://openpsychometrics.org/_rawdata/PWE_data.zip">Link</a>. Dann gehen wir in den Ordner <strong>PWE_data</strong> und lesen <strong>data.csv</strong> ein:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="datenvorbereitung-1.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr) <span class="co"># zum Einlesen der csv-Datei</span></span>
+<span id="cb4-2"><a href="datenvorbereitung-1.html#cb4-2" aria-hidden="true" tabindex="-1"></a>PWE_data <span class="ot">&lt;-</span> <span class="fu">read_table</span>(<span class="st">&quot;Dateipfad/data.csv&quot;</span>)</span></code></pre></div>
+<pre><code>## 
+## ── Column specification ────────────────────────────────────────────────────────
+## cols(
+##   .default = col_double(),
+##   country = col_character(),
+##   major = col_character()
+## )
+## ℹ Use `spec()` for the full column specifications.</code></pre>
+<pre><code>## Warning: 361 parsing failures.
+## row col    expected      actual           file
+##   1  -- 102 columns 103 columns &#39;data/PWE.csv&#39;
+##   6  -- 102 columns 103 columns &#39;data/PWE.csv&#39;
+##   8  -- 102 columns 103 columns &#39;data/PWE.csv&#39;
+##  20  -- 102 columns 103 columns &#39;data/PWE.csv&#39;
+##  33  -- 102 columns 103 columns &#39;data/PWE.csv&#39;
+## ... ... ........... ........... ..............
+## See problems(...) for more details.</code></pre>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="datenvorbereitung.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/tmp.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

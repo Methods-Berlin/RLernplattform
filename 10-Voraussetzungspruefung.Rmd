@@ -1,0 +1,1089 @@
+# Annahmen der Multiplen Linearen Regression
+
+<p style="font-weight:600; font-size:36px">Einleitung</p>
+
+Wenn wir uns den gerichteten Zusammenhang von mehr als zwei Variablen anschauen möchten, können wir dafür die multiple lineare Regression nutzen. Bei dieser können wir *eine* abhängige Variable <font size="2">(AV, nachfolgend *Kriterium* genannt)</font> durch *mehrere (multiple)* unabhängige Variablen <font size="2">(UVs, nachfolgend *Prädiktoren* genannt)</font> vorhersagen. Grundsätzlich gilt, dass das Kriterium metrisch sein muss <font size="2">(d.h. mindestens intervallskaliert)</font>. Die Prädiktoren hingegen können auch kategorial <font size="2">(d.h. dichotom, nominal- oder ordinalskaliert)</font> sein, sofern diese korrekt kodiert werden <font size="2">(z.B. als Dummyvariablen)</font>. 
+
+<aside>\
+Wie wir u.a. Dummykodierungen erstellen können erfahren wir im Abschnitt <a href="http://methods-berlin.com/wp-content/uploads/Datenvorbereitung.html#indikatorvariablen-kodierung-nominaler-merkmale" target="_blank">**Indikatorvariablen: Kodierung nominaler Merkmale**</a> im Kapitel Datenvorbereitung.</aside> 
+
+<details><summary class="mtitle q">Wie sieht die Regressionsgleichung aus?</summary><div class="more">
+Nach dem linearen Modell gilt (für Person $i=1, ..., n$ und Prädiktor $k=1, ..., K$):\
+
+**$$y_i = b_0 + b_1x_1 + ... + b_Kx_K + e_i$$** 
+
+**$y$**: Kriterium \
+**$b_0$**: y-Achsenabschnitt (Intercept) \
+**$b_1, ..., b_K$**: Steigungen (Slopes); hier unstandardisiert \
+**$e_i$**: Residuum (Vorhersagefehler); gibt den Teil von y an, der nicht durch die Regressionsgleichung vorhergesagt werden kann
+</div></details>
+
+<p style="line-height:10px;"></p>
+
+Bei der Anwendung der multiplen linearen Regression müssen allerdings bestimmte Annahmen erfüllt sein. Wenn diese verletzt sind, besteht die Gefahr, dass die Parameterschätzungen inkorrekt <font size="2">(verzerrt)</font> sind und/oder wir inkorrekte Schlussfolgerungen über das Vorhandensein von Effekten in der Population ziehen <font size="2">(z.B. wir aufgrund von verzerrten Standardfehlern fälschlicherweise ein signifikantes Ergebnis erhalten)</font>.
+
+Die wichtigsten Annahmen sind: Linearität, Exogenität, Homoskedastizität und die Unabhängigkeit der Residuen. Darüber hinaus sollten wir uns auch immer die Normalverteilung der Residuen, Multikollinearität sowie Ausreißer und einflussreiche Datenpunkte ansehen.
+
+
+<div style="text-align: center"><font size="2">**Gefahren bei Verletzung der Annahmen und weiterer wichtiger Punkte**</font></div> 
+```{r, echo=FALSE, fig.align='center'}
+library(kableExtra)
+library(knitr)
+
+verletzt <- matrix(c("X", "X", "", "", "", "", "X", "X", "X", "X", "X", "X", "X", ""), nrow = 7, ncol = 2)
+rownames(verletzt) <- c("**Linearität**", "**Exogenität**", "**Homoskedastizität**", "**Unabhängigkeit der Residuen**", "Normalverteilung der Residuen", "Multikollinearität", "Einflussreiche Datenpunkte")
+colnames(verletzt) <- c("verzerrte Koeffizienten", "verzerrte Standardfehler")
+
+kable(verletzt) %>% row_spec(0, bold = T, color = "white", background = "#009193") %>%
+  column_spec(1, color = "white", background = "#009193")
+```
+
+
+Bei der Prüfung von Annahmen in der multiplen linearen Regression ist die **Residualdiagnostik** ein wichtiges Verfahren. Residuen $\hat e_i$ sind Abweichungen der vorhergesagten Werte des Kriteriums $\hat y_i$ von den beobachteten Werten des Kriteriums $y_i$ von Person $i$. Man schaut sich anstatt der geplotteten Rohdaten häufig die Residualplots an, weil man Plots mit mehr als zwei Achsen (bei mehr als einem Prädiktor) grafisch nicht gut darstellen kann. Zusätzlich visualisieren Residuen die Abweichungen besser und lassen uns so u.a. nicht-lineare Zusammenhänge besser aufdecken. 
+
+Die verschiedenen Annahmen werden im Verlauf der folgenden Abschnitte kurz erläutert und Möglichkeiten der Überprüfung <font size="2">(v.a. mit Hilfe von Grafiken)</font>, sowie zum Umgang mit Verletzung der Annahmen kurz skizziert. 
+
+<details><summary class="mtitle q">Warum werden bevorzugt Grafiken genutzt, um die Annahmen zu prüfen?</span></summary><div class="more">
+In geplotteten Daten können verschiedenste Verletzungen (z.B. Missspezifikationen der Form des Zusammenhangs zwischen den Variablen) entdeckt werden, denn graphische Darstellungen machen nur geringe Annahmen über die Art des Problems. Statistische Tests hingegen haben häufig einen eingeschränkten Fokus und sie vergleichen nur, was wir vorgegeben haben. Zusätzlich funktionieren sie nur unter bestimmten Annahmen, liefern lediglich eine 0/1-Aussage ohne die Schwere des Annahmeverstoßes zu quantifizieren und hängen stark von der Stichprobengröße ab.
+</div></details>
+
+<p style="line-height:10px;"></p>
+
+<details><summary class="mtitle q">Was ist die <a name="loess">Lowess Fit Line</a>?</span></summary><div class="more">
+```{r, echo=FALSE}
+# C, C, W & A: S.111
+```
+
+Wenn wir Ergebnisse einer linearen Regression mit `plot()` darstellen, wird häufig die sogenannte <font color="red">**Lowess Fit Line**</font> eingezeichnet.
+
+Lowess steht für **lo**cally **we**ighted **s**catterplot **s**moother. Die Lowess (oder auch Loess) Fit Line ist ein Verfahren, welches den besten nonparametrischen Fit für die gegeben Daten anzeigt. Sie ist eine Auswertungshilfe bei der Beurteilung der Form des Zusammenhangs. Dabei macht sie keine Annahmen über die Form des Zusammenhangs zwischen den Variablen. Der Zusammenhang zwischen zwei Variablen wird im Streudiagramm als "smoothe" Linie, die den generellen Trend der Daten beschreibt, dargestellt. Wenn der Zusammenhang zwischen zwei Variablen in der Population linear ist, so sollte sich auch die Lowess Line einer Gerade annähern. Allerdings ist die Lowess Line häufig an den Enden der Verteilung von X weniger präzise, da hier weniger Daten vorhanden sind.
+</div></details>
+
+<p style="line-height:10px;"></p>
+
+<details class ="bsp"><summary>Beispieldatensatz für dieses Kapitel</summary>
+
+Hier sehen wir, wie wir den Datensatz `erstis`, an dem wir in diesem Kapitel arbeiten werden, einlesen können. 
+
+```{r, echo=F}
+load(url("http://www.beltz.de/fileadmin/beltz/downloads/OnlinematerialienPVU/R_fuer_Einsteiger/erstis.rda"))
+```
+
+```{r load data, eval=FALSE}
+load(url("http://www.beltz.de/fileadmin/beltz/downloads/
+         OnlinematerialienPVU/R_fuer_Einsteiger/erstis.rda"))
+# Zeilenumbruch zwischen der ersten und zweiten Zeile noch entfernen!
+```
+
+Die enthaltenen Daten sind aus einer Erhebung mit Erstsemesterstudierenden der Psychologie. Unter diesem <a href="https://www.beltz.de/fileadmin/beltz/downloads/OnlinematerialienPVU/R_fuer_Einsteiger/Datensatz%20Erstis_Codebook.pdf" target="_blank">Link</a> finden wir das Codebuch zum Datensatz.
+
+Exemplarisch schauen wir uns für dieses Kapitel an, wie gut sich **lz.1** (Lebenszufriedenheit T1) durch **zuf.inh.1** (Zufriedenheit mit Studieninhalten T1) und **zuf.bed.1** (Zufriedenheit mit Studienbedingungen T1) vorhersagen lässt. \
+
+Dazu erstellen wir erst einen neuen Datensatz mit diesen Variablen und führen dann die Regression durch.
+
+```{r lm data, results='asis'}
+# Daten aus erstis in neuem Dataframe speichern ...
+daten <- data.frame(erstis$lz.1, erstis$zuf.inh.1, erstis$zuf.bed.1)
+# ... und Spalten umbenennen
+names(daten) <- c("leb_zufr", "zufr_inhalt", "zufr_beding")
+
+# Regression durchführen
+lm_lz <- lm(daten$leb_zufr ~ daten$zufr_inhalt + daten$zufr_beding, 
+    na.action = "na.exclude")
+# mit "na.exclude" schließen wir fehlende Werte aus
+```
+
+Für mehr Informationen dazu, wie `lm()` und andere Funktionen mit Missings umgehen, können wir uns das Kapitel <a href="http://methods-berlin.com/de/r-lernplattform/fehlende-werte" target="_blank">**Fehlende Werte**</a> anschauen.
+
+```{r}
+# Die Residuen brauchen wir später, daher fügen wir sie jetzt ... 
+# ... schon als Variable zum Datensatz hinzu.
+daten$resid <- residuals(lm_lz) 
+# wichtig: residuals() oder resid() nehmen
+# lm_lz$residuals funktioniert hier nicht, 
+# ... weil die Zeilenanzahl geringerer ist ...
+# ... weil Zeilen mit Missings gelöscht werden
+```
+
+Im Rahmen dieses Kapitels liegt der Fokus nicht auf der inhaltlichen Interpretation der Ergebnisse der multiplen linearen Regressions, sondern darauf, **ob die oben genannten Annahmen erfüllt sind**. 
+
+Nachfolgend sehen wir den Output der `lm()`-Funktion (<span class="code"><span class = "ex">lm_lz</span></span>).
+
+```{r summ reg}
+summary(lm_lz)
+```
+
+Wenn die Annahmen für die multiple lineare Regression in unserem Beispiel nicht erfüllt sind, besteht die Gefahr, dass unsere Parameterschätzungen (`Estimate`-Spalte) und/oder Standardfehler (`Std.Error`-Spalte) inkorrekt sind. Damit wären unsere Ergebnisse u.U. untauglich.
+</details>
+
+<p style="line-height:10px;"></p>
+
+> *__Achtung__*:  Um eine (multiple) lineare Regression durchführen zu können, müssen unsere Daten ggf. in einem für unsere Analyse **geeigneten (Tabellen-)Format** vorliegen. Es gibt das **Long-** und das **Wide-Format**. Wie wir beide ineinander überführen können erfahren wir im gleichnamigen <a href="http://methods-berlin.com/r-lernplattform/wide-und-long-format" target="_blank">**Kapitel**</a>.
+
+
+## Linearität
+
+> Mit Linearität ist die **korrekte Spezifikation der Form des Zusammenhangs zwischen Kriterium und Prädiktoren** gemeint. Genauer gesagt, meint die Annahme, dass der **Erwartungswert des Kriteriums** sich als **Linearkombination der Prädiktoren** darstellen lässt.
+
+> *__Achtung__*:  Dies bedeutet jedoch **nicht** notwendigerweise, dass der Zusammenhang der Variablen linear sein muss. 
+
+Es muss sich lediglich um eine linear additive Verknüpfung der Regressionsterme handeln. Beispielsweise spezifiziert die folgende Regressionsgleichung $y=b_0 + b_1x^2 + e$ einen quadratischen Zusammenhang zwischen $Y$ und $X$ mittels einer linear additiven Verknüpfung der Regressionsterme <font size="2">(hier nur ein einziger Prädiktor $X$)</font>. Siehe auch den Abschnitt zum Umgang mit Nicht-Linearität.
+
+Wenn die Form des Zusammenhangs zwischen Kriterium und Prädiktoren nicht richtig spezifiziert wurde, können ernsthafte Probleme auftreten. Dies wäre zum Beispiel dann der Fall, wenn es zwischen Prädiktoren und Kriterium in Wirklichkeit einen quadratischen Zusammenhang gibt, wir in unserem Regressionsmodell aber nur einen linearen Zusammenhang spezifiziert haben. Sowohl die **Regressionskoeffizienten** als auch die **Standardfehler** könnten in einem solchen Fall verzerrt sein.  
+
+### Überprüfung
+
+#### Bivariate Streudiagramme
+
+In einem ersten Schritt schauen wir uns bivariate Streudiagramme an. Das heißt, wir schauen uns nicht das gesamte Modelle (mit mehreren Prädiktoren) an, sondern nur Zusammenhänge zwischen *einzelnen* Prädiktoren und dem Kriterium. 
+
+> *__Achtung__*:  Auch wenn die bivariaten Streudiagramme auf Linearität hinweisen, sollten wir nicht vergessen, dass auch Interkationen zwischen Prädiktoren zu nicht-linearen Zusammenhängen führen können. Die Nutzung von bivariaten Streudiagramen zur Überprüfung der Annahme der Linearität ist **weder eine notwendige, noch eine hinreichende Bedingung**. Sie sind daher mit Vorsicht zu beurteilen.
+
+
+```{r bivariate plot 1, echo=TRUE, collapse=TRUE}
+# Lebenszufriedenheit - Zufriedenheit mit Studieninhalten
+plot(daten$zufr_inhalt, daten$leb_zufr)
+lz_inh <- lm(daten$leb_zufr ~ daten$zufr_inhalt, na.action='na.exclude') # Einfache Regression
+abline(lz_inh) # Einzeichnen Regressionsgerade
+```
+
+<span class = "ex">Der Plot spricht für einen linearen Zusammenhang zwischen Lebenszufriedenheit <font size="2">(Kriterium)</font> und Zufriedenheit mit Studieninhalten <font size="2">(Prädiktor)</font>.</span>
+
+```{r bivariate plot 2, echo=TRUE, collapse=TRUE}
+# Lebenszufriedenheit - Zufriedenheit mit Studienbedingungen
+plot(daten$zufr_beding, daten$leb_zufr)
+lz_bed <- lm(daten$leb_zufr ~ daten$zufr_beding, na.action='na.exclude') # Einfache Regression
+abline(lz_bed) # Einzeichnen Regressionsgerade
+```
+
+<span class = "ex">Der Plot von Lebenszufriedenheit <font size="2">(Kriterium)</font> und Zufriedenheit mit Studienbedingungen <font size="2">(Prädiktor)</font> weist auf einen linearen Zusammenhang hin.</span>
+
+
+#### Residualplot
+
+Das wichtigste Werkzeug zur Prüfung der Linearitätsannahme ist der Residualplot. In einem Residualplot werden die vorhergesagten Werte $\hat y_i$ <font size="2">(auf der $x$-Achse)</font> gegen die Residuen $\hat e_i = y_i - \hat y_i$ <font size="2">(auf der $y$-Achse)</font> abgetragen.
+
+```{r resid plot 1, eval=FALSE, message=FALSE, collapse=TRUE}
+plot(lm_lz, which = 1) 
+# erster Plot der plot()-Funktion für ein lm-Objekt ist der Residualplot
+```
+
+```{r, echo=FALSE}
+plot(lm_lz, which = 1) 
+```
+Die **gestrichelte Linie** bei $y = 0$ zeigt den Erwartungswert der Residuen. Diese ist immer null und die Residuen sollten sich ohne erkennbares Muster, um diese Linie verteilen.
+
+Die rote Linie ist die <span style="color:red">[Lowess Fit Line](#loess)</span>. Diese sollte sich der gestrichelten Linie annähern, wenn der Zusammenhang zwischen Prädiktoren und Kriterium linear ist.
+
+<span class = "ex">In unserem Beispiel legt der Residualplot nahe, dass der Zusammenhang zwischen Lebenszufriedenheit und Zufriedenheit mit Studieninhalten und -bedingungen weitgehend linear ist.</span>
+
+Die Annahme der Linearität wäre z.B. verletzt, wenn die Residuen einen U-förmigen Zusammenhang mit den vorhergesagten Werten aufweisen würden. Das würde nahelegen, dass ein quadratischer Zusammenhang zwischen dem Kriterium und den Prädiktoren besteht, der nicht adäquat modelliert wurde.
+
+```{r simulate non-linearity, out.width = "400px", echo=FALSE, fig.align='center'}
+# x <- rnorm(100, 0, 1)
+# y <- x^2 + rnorm(100, 0, 0.5)
+# data = data.frame(x, y)
+# data = data[-c(94, 60, 33),]
+# lm <- lm(y ~ x, data)
+# plot(lm, which=1)
+
+knitr::include_graphics("figures/Voraussetzungsprüfung/Bilder/non_linearity.png")
+```
+
+
+### Umgang
+
+Um einen angemessen Weg zu finden, um mit nicht-linearen Zusammenhängen zwischen den Variablen umzugehen, können wir die folgenden vier Fragen zur Eingrenzung nutzen:
+
+- _**Gibt es eine Theorie, die einen spezifischen nicht-linearen Zusammenhang zwischen den integrierten Variablen vorhersagt?**_
+  + Wir sollten eine Regressionsgleichung aufstellen, die dem theoretisch implizierten mathematischen Zusammenhang widerspiegelt.
+
+- _**Wie sieht der beobachtete bivariate Zusammenhang zwischen den Variablen aus?**_
+  + Wenn der Zusammenhang zwischen dem Kriterium und einzelnen Prädiktoren oder zwischen einzelnen Prädiktoren untereinander nicht-linear ist, können die Prädiktoren transformiert werden <font size="2">(z.B. $log X_1$)</font>. Die Art der Transformation hängt von der Art des Zusammenhangs ab.
+
+- _**Wie sieht die [Lowess Line](#loess) in den originalen Daten aus?**_ _und_ \
+- _**Bleibt die Varianz der Residuen über den Bereich des Kriteriums hinweg konstant?** <font size="2">(siehe [Homoskedastizität](#homoskedastizität))</font>_
+  + __*Homos*kedastizität__: Hierbei könnten wir einzelne Regressionsterme in Polynomen höherer Ordnung darstellen <font size="2">(z.B. $X_1^2$, $X_2^3$)</font>. In einigen Fällen könnten einfache Potenzfunktionen nicht ausreichend sein. Dann könnten nichtparametrische Funktionen die bessere Lösung sein, um den Zusammenhang zwischen Kriterium und Prädiktoren zu spezifizieren.
+  + __*Heteros*kedastizität__: Wir könnten das Kriterium durch eine nichtlineare mathematische Funktion von $Y$ ersetzen <font size="2">(z.B. $log Y$)</font>. Mit dieser Transformation entsprechen die Residuen nun den *beobachteten* $log Y$ minus den *vorhergesagten* $log \hat Y$.
+
+
+
+## Exogenität der Prädiktoren
+
+> Die **Prädiktoren $X$ sind unabhängig vom Fehlerterm** der Regressionsgleichung $e$: $E(e|X)=0$. 
+
+Das impliziert z.B. perfekte Reliabilität und das alle relevanten Variablen im Modell aufgenommen sind, das heißt, dass es keine <a href="https://de.wikipedia.org/wiki/Störfaktor" target="_blank">konfundierenden Variablen</a> gibt. Das ist ein zentrales Anliegen in der Wissenschaft, jedoch ist Exogenität nicht leicht nachzuweisen. 
+
+<span class = "ex">Für unser Beispiel der Regression von 'Zufriedenheit mit Studieninhalten' und 'Zufriedenheit mit Studienbedingungen' auf 'Lebenszufriedenheit' müssten wir überlegen, ob noch andere Variablen einen Einfluss haben könnten. Beispielsweise könnten auch verschiedene Persönlichkeitsfaktoren mit 'Lebenszufriedenheit' zusammenhängen. Das würde sich dann darin äußern, dass die Prädiktoren noch systematische Varianz mit dem Fehlerterm teilen.</span>
+
+Wenn nicht alle relevanten Prädiktoren im Modell spezifiziert sind *oder* enthaltene Prädiktoren messfehlerbehaftet sind, *können* daraus verzerrte **Regressionskoeffizienten** und **Standardfehler** resultieren. 
+
+### Überprüfung
+
+Vor der Erhebung müssen wir uns sorgfältig Gedanken darüber machen, welche Prädiktoren relevant sind. Diese müssen vollständig in das Modell integriert werden. Beispielsweise sollten wir stets eine Literaturrecherche durchführen, um uns über den derzeitigen Stand der Forschung in einem Themenbereich zu informieren.
+
+Zur Überprüfung der Exogenität könnten wir außerdem eine **hierarchische Regression** durchführen, in der wir schrittweise weitere Variablen aufnehmen. Wenn sich die Regressionsgewichte bei Aufnahme eines neuen Prädiktors ändern, war die Exogenitätsannahme der ursprünglichen Prädiktoren wahrscheinlich nicht erfüllt. Solche **Modellvergleiche** helfen bei der Beurteilung der Exogenität.
+
+Wir sollten uns zusätzlich theoretisch überlegen, ob die gemessenen Prädiktoren messfehlerbehaftet sein könnten. Direkt beobachtbare Variablen <font size="2">(z.B. Alter, höchster Bildungsabschluss oder Körpergröße)</font> stehen *weniger* im Verdacht, messfehlerbehaftet zu sein. Nicht direkt beobachtbare <font size="2">(latente)</font> Variablen hingegen <font size="2">(z.B. Berufserfolg, Kreativität oder Wohlbefinden)</font> können mit *größerer* Wahrscheinlichkeit messfehlerbehaftet sein. 
+
+<span class = "ex">Unsere Variablen 'Lebenszufriedenheit', 'Zufriedenheit mit Studieninhalten' und 'Zufriedenheit mit Studienbedingungen' sind alle latent. Von daher sind Messfehler wahrscheinlicher.</span>
+
+Wir sollten uns außerdem für die reliabelsten Erhebungsinstrumente für die Messung der Prädiktoren entscheiden. Wenn wir nicht an der Erhebung der Variablen beteiligt waren, sollten wir uns nachträglich über die Reliabilität der Erhebungsinstrumente informieren.
+
+<span class = "ex">In unserem Fall des `erstis`-Datensatz gibt es leider keine weiteren Informationen zu den Erhebungsinstrumenten. So können wir leider nicht einschätzen, wie reliabel die Erhebungsinstrumente sind.</span>
+
+Die Reliabilität erhobener Variablen können wir auf verschiedene Arten schätzen. Diese werden in Abhängigkeit des Forschungsdesign und der Fragestellung ausgewählt. 
+
+<span class = "ex">Die Reliabilität der Messungen in unserem Beispiel könnten wir beispielsweise mit McDonald's Omega bzw. dem gewichteten Omega berechnen.</span>
+
+### Umgang
+
+Wenn die Prädiktoren stark messfehlerbehaftet sind, sollten wir auf Regressionsmodelle mit latenten Variablen zurückgreifen. Beispielsweise können wir Messfehler mittels **Strukturgleichungsmodellierung** berücksichtigen.
+
+
+
+## Homoskedastizität
+
+> Die **Varianz der Residuen $s^2_{e}$ an einer bestimmten Stelle des Prädiktors ist für alle Prädiktorwerte gleich**. Diese Varianz entspricht dem quadrierten Standardschätzfehler $\sigma_e^2$ in der Population. 
+
+<aside>Homoskedastizität wird auch Varianzhomogenität genannt.</aside>
+
+Die Annahme wäre beispielsweise verletzt, wenn mit steigenden Prädiktorwerten die Residuen größer, d.h. die Vorhersage mittels der Regressionsgerade ungenauer, werden würde.
+
+Es kann vielfältige Gründe für Varianzheterogenität geben. So können z.B. stark abweichende Werte dafür verantwortlich sein <font size="2">(siehe [Extreme Werte und einflussreiche Datenpunkte](#extreme-werte-und-einflussreiche-datenpunkte))</font>.
+
+Nur unter Gültigkeit der Annahme ist die Berechnung der **Standardfehler** korrekt, aber Heteroskedastizität führt *nicht* zu verzerrten Regressionkoeffizienten.
+
+Andere als die vorgestellten Möglichkeiten zur Überprüfung und zum Umgang mit Heteroskedastizität inklusive der Umsetzung in <span class="r">R</span> finden wir z.B. auf <a href="https://www.r-bloggers.com/how-to-detect-heteroscedasticity-and-rectify-it/" target="_blank"><span class="r">R</span>-bloggers</a>.
+
+### Überprüfung
+
+#### Residualplot
+
+Zur Überprüfung der Homoskedastizität können wir ebenfalls einen Residualplot, wie schon bei der [Überprüfung der Annahme der Linearität](#überprüfung), verwenden. 
+
+```{r resid plot 2, eval=FALSE, message=FALSE, collapse=TRUE}
+plot(lm_lz, which = 1) 
+# erster Plot der plot()-Funktion für ein lm-Objekt ist der Residualplot
+```
+
+```{r, echo=FALSE}
+plot(lm_lz, which = 1)
+abline(v = 22, col = "blue") # zur Illustration für unser Beispiel
+```
+
+
+Die **gestrichelte Linie** bei $y = 0$ zeigt den Erwartungswert der Residuen. Diese ist immer null und die Residuen sollten sich ohne erkennbares Muster, um diese Linie verteilen.
+
+Die Annahme wäre z.B. verletzt, wenn die Residuen einen nach rechts geöffneten Trichter bilden würden. Das würde bedeuten, dass die Varianz mit größer werdenden $X$-Werten wachsen würde wie in nachfolgendem Beispiel illustriert:
+
+```{r simulate hetero, out.width = "400px", echo=FALSE, fig.align='center'}
+# x = rnorm(100,1,1) 
+# b0 = 1 # intercept chosen at your choice 
+# b1 = 1 # coef chosen at your choice 
+# h = function(x) 1+.4*x # h performs heteroscedasticity function (here I used a linear one) 
+# eps = rnorm(100,0,h(x)) 
+# y = b0 + b1*x + eps 
+# lm_het = lm(y ~ x)
+# plot(lm_het, which=1)
+knitr::include_graphics("figures/Voraussetzungsprüfung/Bilder/heteroskedasticity.png")
+```
+
+
+#### Scale Location Plot
+
+Mit dem Scale Location Plot schauen wir, ob die Standardabweichung der standardisierten Residuen $\frac{e_i}{s_e}$ über den Bereich der vorhergesagten Werte hinweg gleich bleibt. 
+
+```{r scale location plot, echo=TRUE, message=FALSE, collapse=TRUE}
+plot(lm_lz, which = 3) 
+# dritter Plot der plot()-Funktion für ein lm-Objekt ist der Scale Location Plot
+```
+
+Die standardisierten Residuen sollten auch hier gleichmäßig <font size="2">(zufällig)</font> über den gesamten Bereich streuen. Außerdem sollte die <span style="color:red">[Lowess Line](#loess)</span> möglichst horizontal zur $x$-Achse sein.
+
+<span class = "ex">Auch der Scale Location Plot weist in unserem Beispiel auf ungefähre Varianzhomogenität hin. Das heißt, dass die standardisierten Residuen des Teils vom Kriterium 'Lebenszufriedenheit', der nicht durch die Prädiktoren 'Zufriedenheit mit Studieninhalten' und 'Zufriedenheit mit Studienbedingungen' vorhergesagt werden kann, gleichmäßig über die vorhergesagten Werte vom Kriterium 'Lebenszufriedenheit' streut.</span> 
+
+<details><summary class = "mtitle">Exkurs: Quantifizieren des Ausmaßes</summary><div class="more">
+Bisher haben wir uns angeschaut, *ob* Heteroskedastizität vorliegt. Diese hat aber erst einen substanziellen Einfluss auf die Regression, wenn das Ausmaß "groß" ist. Wir können die Varianzheterogenität (_wenn_ die graphische Überprüfung darauf hindeutet) quantifizieren, um zu entscheiden, ob wir korrektive Maßnahmen durchführen sollten. Dazu schauen wir uns eine Möglichkeit aus dem Lehrbuch von Cohen, Cohen, West & Aiken (2003, S.146) an.
+
+Dabei betrachten wir die **konditionale (Fehler-)Varianz $s^2_{(e | slice)}$ **in sog. "Slices" (d.h. Gruppen) für einzelne Prädiktoren. Wir schauen uns das exemplarisch bei <span class = "ex">*Zufriedenheit mit Studieninhalten*</span> an. Dazu nutzt man die Ergebnisse der einfachen Regression der Prädiktoren. Diese haben wir im Abschnitt [Bivariate Streudiagramme](#überprüfung) schon einmal berechnet und darauf greifen wir jetzt wieder zurück.
+
+**Das Vorgehen**:
+
+1. **Sortieren der Residuen nach aufsteigendem Prädiktor X** (<span class = "ex">*Zufriedenheit mit Studieninhalten*</span>) 
+2. **in ähnlich große Slices einteilen**\
+Die Wahl der Anzahl der Slices ist ein Tradeoff zwischen stabiler Varianzschätzung in jedem Slice (d.h. wenig Gruppen) und der Begutachtung verschiedener Anteile der Daten (d.h. viele Gruppen).
+3. **konditionale Varianz in den Slices berechnen**\
+Dazu quadrieren wir die einzelnen Residuen, teilen diese jeweils durch die Anzahl der Personen in diesem Slice $n_{slice}$ minus 2, und summieren die Quotienten auf.
+
+**Zur Beurteilung der konditionalen Varianz gibt es zwei Kriterien**:
+
+* der Quotient aus dem Slice mit der größten konditionalen Varianz geteilt durch den Slice mit der kleinsten konditionalen Varianz sollte kleiner als 10 sein\
+* mit größer werdendem X sollte die konditionale Varianz in den Slices nicht systematisch variieren (z.B. konstant kleiner oder größer werden)
+
+__Wenn der Quotient $> 10$ ist *oder* es systematische Variation gibt, sollten wir korrektive Maßnahmen einleiten__ 
+
+
+Nachfolgend schauen wir uns die Umsetzung dazu in <span class="r">R</span> an:
+
+```{r}
+# Objekt erzeugen, ...
+# ... in dem die Residuen nach aufsteigender Größe in X sortiert sind:
+quant <- data.frame(erstis$zuf.inh.1, 
+                    residuals(lz_inh))[order(erstis$zuf.inh.1, 
+                                             residuals(lz_inh)),]
+# data.frame() erstellt einen Dataframe aus den übergebenen Variablen
+# order() sortiert das erste Argument X aufsteigend (Default) ...
+# ... und gleiche Ausprägungen in X werden nach den Ausprägungen ..
+# ... des zweiten Arguments (hier: Residuen) sortiert
+  # das Komma am Ende sagt, dass wir Zeilen sortieren wollen
+  # mit [ ] bekommen wir die Indizes (und nicht die Werte) ausgegeben, ...
+  # ... welche wiederum auf den Dataframe angewendet werden
+```
+
+Standardmäßig wird so die *erste* Variable X aufsteigend sortiert, weil `order(..., decreasing=FALSE)` der Default ist. Mit `decreasing=TRUE` können wir absteigend sortieren.
+
+\
+> *__Achtung__*:  <div class="rows">Bei <span class="code">order(<span class = "ex">X</span>, -<span class = "ex">resid</span>)</span> ändert sich die **Sortierung innerhalb der _gleichen_ Prädiktorwerte X** in Abhängigkeit davon, ob wir bei `order()` vor die *zweite* Variable (<span class="code"><span class = "ex">resid</span></span>) ein `-` setzen oder nicht:\
+Mit <span class="code"><span class = "ex">resid</span></span> (so wie wir es im Beispiel machen) wird innerhalb der gleichen Prädiktorwerte **aufsteigend** sortiert.\
+Mit <span class="code">-<span class = "ex">resid</span></span> wird innerhalb der gleichen Prädiktorwerte **absteigend** sortiert. \
+Dadurch kommen unterschiedliche Residuen in die Slices und folglich werden auch unterschiedliche konditionale Varianzen berechnet!</div>
+\
+
+```{r}
+quant <- na.exclude(quant) # Missings raus
+```
+
+```{r, echo=FALSE}
+library(rmarkdown)
+paged_table(quant)
+```
+
+```{r, results=FALSE}
+# Anzahl der Fälle
+nrow(quant) # 165
+
+# Einteilung: 3 Gruppen á 41 Personen, 1 Gruppe mit 42 Personen
+slice_1 <- quant$residuals.lz_inh.[1:41] 
+slice_2 <- quant$residuals.lz_inh.[42:82]
+slice_3 <- quant$residuals.lz_inh.[83:123]
+slice_4 <- quant$residuals.lz_inh.[124:165]
+
+# konditionale Varianz in Slices berechnen
+var_slice_1 <- sum((slice_1^2/(length(slice_1)-2)))
+var_slice_2 <- sum((slice_2^2/(length(slice_2)-2)))
+var_slice_3 <- sum((slice_3^2/(length(slice_3)-2)))
+var_slice_4 <- sum((slice_4^2/(length(slice_4)-2)))
+
+# konditionale Varianzen in Vektor speichern
+sort_var <- c(var_slice_1 , var_slice_2, var_slice_3, var_slice_4)
+```
+
+```{r}
+sort_var
+```
+
+<span class = "ex">In unserem Beispiel scheint es keine systematischen Zu- oder Abhnahme in den konditionalen Varianzen der Slices zu geben ...</span>
+
+```{r}
+round((var_slice_1 / var_slice_3), 3)
+```
+
+<span class = "ex">... und auch der Quotient zwischem dem Slice mit der größten und der kleinsten konditionalen Varianz ist relativ klein.</span> \
+</div></details>
+
+<p style="line-height:10px;"></p>
+
+### Umgang
+
+Wenn wir heteroskedastische Residuen haben, sollten wir gegen die potentielle Verzerrung der Standardfehler vorgehen. Dazu könnten wir beispielsweise **Methoden zur Korrektur der Standardfehler** oder **varianzstabilisierende Verfahren**, wie die Box-Cox-Transformation, nutzen. Eine andere Alternative wäre es, auf **robustere Verfahren** wie die gewichtete Regression mittels WLS zurückzugreifen.
+
+<details><summary class ="mtitle">Exkurs: WLS-Regression</summary><div class="more">
+Der **w**eighted **l**east **s**quares Schätzer gewichtet jeden Fall (d.h. jede Person) danach, wie präzise die Beobachtung von $Y$ für diesen Fall war. Das bedeutet, dass Beobachtungen mit geringen (Fehler-)Varianzen höher gewichtet werden als Beobachtungen mit großen (Fehler-)Varianzen. Anders ausgedrückt werden Beobachtungen, die näher an der Regressionsgerade sind, stärker gewichtet. Im Vergleich dazu gewichtet der standardmäßig genutzte OLS-Schätzer (Ordinary Least Squares, Methode der kleinsten Quadrate) jede Beobachtung gleich.
+
+Es gibt mehrere Möglichkeiten, die Gewichte $w_i$ zu schätzen. Im Folgenden schauen wir uns exemplarisch eine Methode aus dem Buch von Cohen, Cohen, West & Aiken (2003, S.146-147) an. 
+
+\
+> *__Achtung__*:  <div class="rows">Wenn wir **Ausreißer** in unseren Daten haben, finden wir in der Fußnote 19 auf S.147 des Lehrbuchs eine **geeignetere Methode zur Schätzung der Gewichte $w_i$**.</div>
+\
+Dazu nehmen wir die Residuen aus der OLS-Regression, quadrieren diese und regredieren sie auf unsere Prädiktoren. Die Inversen dieser vorhergesagten quadrierten Residuen sind das unsere Gewichte für die WLS-Regression.
+
+```{r estimate weights}
+weights_lm <- lm(daten$resid ^ 2 ~ daten$zufr_inhalt + daten$zufr_beding,
+     na.action = "na.exclude")
+# wieder na.exclude nutzen
+# sonst hat der Vektor mit den Gewichten wieder eine geringere Länge 
+
+daten$gewichte <- fitted.values(weights_lm)
+```
+
+Zur Modellschätzung können wir wieder `lm()` nutzen. Dafür müssen wir nur zusätzlich den Gewichtsvektor im Argument `weights` spezifizieren.
+
+```{r}
+# WLS-Regression
+lm_wls <- lm(daten$leb_zufr ~ daten$zufr_inhalt + daten$zufr_beding,
+    weights = 1 / daten$gewichte, na.action = "na.exclude")
+
+# Vergleich der OLS- und WLS-Schätzung
+summary(lm_lz)$coefficients
+summary(lm_wls)$coefficients
+```
+
+<span class = "ex">Wir sehen, dass die Schätzungen von WLS denen von OLS sehr nah ist. Relevant wären hier prinzipiell mehr die Standardfehler (die bei Varianzheterogenität und OLS verzerrt wären). Da wir aber von Varianzhomogenität in unserem Beispiel ausgehen, sind auch diese sehr ähnlich.</span>
+
+> *__Achtung__*: <div class="row">Es gibt zwei Schwierigkeiten im Umgang mit dem WLS-Schätzer:
+
+- wir müssen ein angemessenes Gewicht für jede Beobachtung wählen
+  + wenn die Gewichte nicht angemessen sind, ist WLS kein guter Schätzer
+  + daher ist die WLS-Schätzung am besten, wenn die Stichprobengröße $N$ groß ist oder wenn es mehrere Beobachtungen mit identischen $X$-Werten gibt (d.h. mehrere Personen mit den gleichen Ausprägungen auf dem jeweiligen Prädiktor)
+
+- standardisierte Effektgrößen, wie z.B. der Determinationskoeffizient $R^2$, haben keine eindeutige Interpretation (wie bei OLS)</div>
+
+Daher sollten wir eher OLS als WLS nutzen, *außer* wenn die Stichprobengröße sehr groß ist oder es ein großes Problem mit Heteroskedastizität gibt.
+
+</div></details>
+
+<p style="line-height:10px;"></p>
+
+## Unabhängigkeit der Residuen
+
+> Die Höhe des Residuums einer Beobachtung $\hat e_i$ hängt **nicht** von der Höhe des Residuums einer anderen Beobachtung $\hat e_x$ ab.
+
+Wenn Residuen abhängig sind, *kann* sich das auch in Heteroskedastizität äußern.
+
+Residuen sind abhängig, wenn wir z.B. **wiederholte Messungen** oder **Gruppenstrukturen** untersuchen. Ersteres meint, dass mehrere Messungen von *einer Person*, d.h. zu mehreren Zeitpunkten, vorliegen. In diesem Fall sprechen wir auch von seriellen Abhängigkeiten. Zweiteres meint, dass die Daten "geclustert" sind und es somit systematische Zusammenhänge *zwischen Personen* gibt z.B. Schüler in einer Schulklasse. Beide Fälle müssen bei der Modellspezifikation berücksichtigt werden. \
+
+<span class = "ex">In unserem Beispiel könnte beispielsweise das Kriterium 'Lebenszufriedenheit' in Abhängigkeit vom Wohnort variieren. Damit wären die Daten geclustert.</span>
+
+Abhängigkeit der Residuen führt zwar *nicht* zu verzerrten Regressionskoeffizienten, aber es kann zu verzerrten **Standardfehlern** führen.\
+
+### Überprüfung
+
+Ganz grundsätzlich können wir diese Annahme zuerst einmal theoretisch überprüfen, indem wir uns das Studiendesign der erhobenen Daten anschauen. 
+
+Wenn nur zu einem Messzeitpunkt Daten erhoben wurden und jede Person nur einmal zu diesem befragt wurde, können wir serielle Abhängigkeiten ausschließen.
+
+Beim Clustering ist es etwas schwieriger, dieses nur durch Überlegung auszuschließen. Auch wenn im Studiendesign nicht vorgesehen war, dass Daten von unterschiedlichen Gruppen erhoben wurden, könnte es dennoch Ähnlichkeiten zwischen Personen hinsichtlich bestimmter Variablen geben. Um mögliche Verletzungen der Unabhängigkeitsannahme prüfen zu können, benötigen wir eine Vermutung darüber, welche Gruppierungsvariablen relevant sein könnten. \
+
+
+#### Ausmaß serieller Abhängigkeit
+
+Es gibt mehrere Möglichkeiten, das Ausmaß serieller Abhängigkeit zu beurteilen. Im Folgenden werden zwei grafische Visualisierungen vorgestellt. \
+
+##### Index Plot
+
+Einen Eindruck darüber, ob es systematische Abhängigkeiten zwischen den Residuen gibt, können wir mithilfe des Index Plot bekommen. Dieser ist ein Scatterplot, der die Residuen $\hat e_i = y_i - \hat y_i$ <font size="2">($y$-Achse)</font> gegen den Index $i$ <font size="2">($x$-Achse)</font>, der zumeist durch die (aufsteigende) Zeilennummerierung repräsentiert wird, plottet. 
+
+Hierbei können wir u.a. visualisieren, ob es zeitliche Abhängigkeiten gibt, z.B. ob Personen, die später an der Befragung teilgenommen haben, systematische Unterschiede in ihrer Lebenszufriedenheit <font size="2">(Kriterium)</font> zeigen. 
+
+Um das besser beurteilen zu können, können wir auch hier wieder die <span style="color:red">[Lowess Line](#loess)</span> einzeichnen. Diese sollte wieder möglichst horizontal zur $x$-Achse bei $y = 0$ liegen. Beide Linien fügen wir zur Vereinfachung der Beurteilung des Plots hinzu.
+
+
+```{r index plot}
+plot(lm_lz$residuals)
+lines(lowess(lm_lz$residuals), col = "red") # Lowess Line einfügen (in rot)
+abline( # Linie einzeichnen
+  h=0, # h - horizontal, 0 - Schnittpunkt mit y-Achse
+  col="grey", # Farbe
+  lty=3) # Linien-Art: gestrichelt
+```
+
+<span class = "ex">Die Abbildung impliziert, dass die Residuen unabhängig sind. Das entspricht unseren Vorüberlegungen, das wir nur Variablen haben, die zum gleichen Messzeitpunkt erhoben wurden.</span> \
+
+<details><summary class="mtitle">Exkurs: Grafische Interpretationshilfe für den Index Plot</summary><div class="more">
+Falls wir ein Messwiederholungsdesign haben und die Daten im Long-Format (d.h. Messungen einer Person in mehreren Zeilen) vorliegen, können wir die Messungen verschiedener Person farblich unterschiedlich darstellen.
+
+<span class="ex">In unserem Fall haben wir zwar keine Messwiederholung, aber wir illustrieren die farbliche Darstellung einmal am gleichen Beispiel.</span>
+
+Die **Farbe** der geplotteten Elemente können wir mit dem Argument `col` verändern. Um die Farbe ab einer bestimmten Anzahl an Messungen (d.h. Messwiederholungen für eine Person) jeweils zu verändern, können wir `rep()` benutzen. Diese Funktion wiederholt das erste Argument `x` (bzw. die einzelnen Elemente des ersten Arguments) jeweils so oft wie das zweite Argument `each`. 
+
+```{r index plot colored, out.width = "500px"}
+plot(lm_lz$residuals, col = rep(1:17, each = 10))
+lines(lowess(lm_lz$residuals), col = "red")
+abline(h=0, col="darkblue", type="l", lty=3)
+```
+
+Die 10 steht dafür, dass wir 10 Messwiederholungen haben. 1 bis 17 kodiert unterschiedliche Farbe. Alternativ können wir auch die Farbnamen in einem Vektor spezifizieren - dann würden wir anstatt `1:17` z.B. <span class="code">c('<span class = "ex">red</span>', '<span class = "ex">blue</span>', '<span class = "ex">green</span>', ...)</span> einfügen. 
+
+Mit dem Argument `pch` können wir analog die **Form der Punkte** ändern.
+
+```{r index plot forms, out.width = "500px"}
+plot(lm_lz$residuals, pch = rep(1:17, each = 10))
+lines(lowess(lm_lz$residuals), col = "red")
+abline(h=0, col="darkblue", type="l", lty=3)
+```
+
+Wenn es starke serielle Abhängigkeiten geben würde, würden sich die Fälle sichtlich voneinander unterscheiden bzw. Cluster bilden. Illustriert ist das im folgenden Plot:
+
+```{r, out.width = "400px", echo=FALSE, fig.align='center'}
+autocorr = lm_lz$residuals
+autocorr[1:10] = autocorr[1:10] - 10
+autocorr[11:20] = autocorr[11:20] + 10
+autocorr[21:30] = autocorr[21:30] - 20
+plot(autocorr[1:30], col = rep(c("red", "blue", "green"), each = 10), ylab="Residuals")
+lines(lowess(autocorr[1:30]), col = "red")
+abline(h=0, col="darkblue", type="l", lty=3)
+```
+</div></details>
+
+<p style="line-height:10px;"></p>
+
+#### Ausmaß des Clusterings
+
+Zu allererst können wir uns den Intraklassenkoeffizienten <font size="2">(IKK)</font> anschauen. Dieser schätzt den Anteil der Varianz einer Variable, die durch Gruppenzugehörigkeit <font size="2">(Clustering)</font> erklärt wird. 
+
+> *__Achtung__*:  Der IKK sollte allerdings **nicht** als einzige Methode zur Überprüfung des Clusterings herangezogen werden, weil wir uns hier nur Mittelwertsunterschiede anschauen. Daher wird noch eine weitere Methode, die Betrachtung von Boxplots der geclusterten Gruppen, illustriert.
+
+##### Intraklassenkorrelation
+
+Beispielsweise können wir mit Hilfe des IKK beurteilen, wie stark sich Personen innerhalb einer Gruppe ähneln. \
+
+- Je näher der Wert an **$0$** ist, desto geringer ist der relative Anteil an Unterschieden **zwischen** den Gruppen <font size="2">(d.h. desto **weniger Clustering** liegt vor)</font>. 
+- Je näher der Wert an **$1$** ist, desto geringer ist der relative Anteil an Unterschieden **innerhalb** einer Gruppe <font size="2">(d.h. desto **mehr Clustering** liegt vor)</font>. 
+
+Zur Überprüfung können wir z.B. die Funktion `ICCest` aus dem Paket **ICC** nutzen.
+
+<span class = "ex">Für unser Beispiel schauen wir uns exemplarisch an, inwieweit Unterschiede in 'Lebenszufriedenheit' <font size="2">(Kriterium)</font> durch 'Gruppenzugehörigkeit im Wintersemester' <font size="2">(`erstis$gruppe`)</font> erklärt werden können</span>.
+
+Dazu fügen wir diese Variable zu unserem Datensatz hinzu.
+
+```{r}
+daten$gruppe <- erstis$gruppe
+
+library(ICC)
+ICCest(daten$gruppe, daten$leb_zufr)
+```
+
+Die Funktion gibt uns folgende Outputs:
+
+- welche Missings <font size="2">(d.h. Zeilen)</font> entfernt wurden 
+- `$ICC`: die IKK <font size="2">(*Punkt*schätzung)</font>
+- `$LowerCI` und `$UpperCI`: die Grenzen des Konfidenzintervalls für den IKK <font size="2">(*Intervall*schätzung)</font>
+- `$N`: die Anzahl an Gruppen
+- `$k`: die Anzahl der Personen in jeder Gruppe
+- `$varw`: die Varianz innerhalb einer Gruppe
+- `$vara`: die Varianz zwischen den Gruppen
+
+<aside>\
+\
+\
+\
+\
+\
+\
+Bei unbalancierter Gruppengröße ist k, die Anzahl der Personen in jeder Gruppe, kleiner als die mittlere Gruppengröße. Für mehr Informationen dazu schau dir die <span class="r">R</span>-Dokumentation für `ICCest()` an.</aside>
+ 
+
+<span class = "ex">Die IKK weist darauf hin, dass wenig Varianz durch die Kurszugehörigkeit erklärt wird. Es ist also nicht notwendig, dass wir die Gruppenzugehörigkeit in unserem Modell berücksichtigen.</span> 
+
+
+##### Boxplots der geclusterten Gruppen
+
+Zuletzt schauen wir uns die Boxplots der Verteilungen der Residuen in den Gruppen an.
+
+Zur Erleichterung der Interpretation zeichnen wir wieder mit Hilfe von `abline(h=0, col="darkblue", type="l", lty=3)` eine Senkrechte bei $y=0$ <font size="2">(weil der erwartete Mittelwert der Residuen $0$ ist)</font>.
+
+```{r}
+plot(daten$resid ~ daten$gruppe)
+abline(h=0, col="darkblue", type="l", lty=3)
+```
+
+Die Interpretation hier ist ähnlich zu den Resiualplots: Der Median der einzelnen Gruppen sollte jeweils nah an der gestrichelten Linie bei $y=0$ sein. Zusätzlich sollten die Verteilungen sich stark überlappen.
+
+<span class = "ex">Die Verteilungen der Residuen in den Gruppen sieht sehr ähnlich aus. Die Verteilungen überlappen sich deutlich. Es scheint keine systematischen Streuungsunterschiede in den Residuen in Abhängigkeit der Gruppenzugehörigkeit zu geben.</span> 
+
+
+### Umgang
+
+#### Serielle Abhängigkeit
+
+Liegen serielle Abhängigkeiten vor, müssen wir auf geeignete Verfahren zur Analyse von Längsschnittdaten zurückgreifen <font size="2">(z.B. gemischte lineare Modelle)</font>. 
+
+
+#### Clustering
+
+Liegen Abhängigkeiten aufgrund von Gruppenunterschieden vor, können wir versuchen, die Gruppenunterschiede, in Form von weiteren Variablen, ins Modell aufzunehmen. Gelingt dies nicht, müssen wir auf geeignete Verfahren zur Analyse von „geclusterten“ Daten zurückgreifen <font size="2">(z.B. gemischte lineare Modelle)</font>.
+
+
+
+## Weitere wichtige Aspekte
+
+### Normalverteilung der Residuen
+
+Die Annahme, dass die Residuen in der Population normalverteilt sind, ist eigentlich gar keine Annahme im engeren Sinne. Aufgrund des zentralen Grenzwertsatzes sind die Regressionskoeffizienten in großen Stichproben selbst dann asymptotisch normalverteilt, wenn die Annahme nicht erfüllt ist. Daher ist eine Verletzung der Annahme eher in kleineren Stichproben problematisch. Da in der Praxis aber unklar ist, wann eine Stichprobe als groß genug anzusehen ist, ist es ratsam, die Verteilung der Residuen immer auf Abweichung von einer Normalverteilung hin zu prüfen.
+
+Wenn die Normalverteilungsannahme der Residuen verletzt ist, ist der **Standardfehler** womöglich verzerrt, was zu falschen inferenzstatistischen Schlüssen führen kann.
+
+Nicht normalverteilte Residuen können auch auf andere Probleme wie Modellmissspezifikation hinweisen.
+
+
+#### Überprüfung
+
+##### Histogramm
+
+Mit Hilfe eines Histogramms können wir uns die Häufigkeitsverteilung einer metrischen Variable anzeigen lassen. Dafür wird diese in verschiedene Klassen <font size="2">('bins')</font> eingeteilt. Das schauen wir uns für die Residuen an.
+
+```{r}
+hist(lm_lz$residuals)
+```
+
+Optisch sollte ungefähr eine Normalverteilung zu erkennen sein. \
+
+<span class = "ex">In unserem Beispiel sieht es jedoch nach einer linksschiefen (d.h. rechtssteilen) Verteilung der Residuen aus.</span> 
+
+
+<details><summary class="mtitle">Exkurs: Graphische Interpretationshilfe für das Histogramm</summary><div class="more">
+Um die Beurteilung des Histogramms zu erleichtern, können wir zwei Linien einzeichnen - die reale Dichtefunktion der Variablen und die erwartete Dichtefunktion, wenn die Variable normalverteilt wäre. Diese können wir vergleichen, um die Annahme der Normalverteilung zu überprüfen.
+
+Eine wichtige Voraussetzung dafür, dass wir über das Histogramm die Dichtefunktionen legen können, ist dass wir das Argument `prob=TRUE` setzen. \
+
+Dann zeichnen wir die reale Dichtefunktion der Residuen ein. Dafür kombinieren wir `line()` und `density()`. Erstere zeichnet eine Linie in eine Grafik ein und mit zweiterer spezifizieren wir, dass die Linie die geschätzte Dichte (der Residuen) visualisieren soll. 
+
+Für die normalverteilte Dichtefunktion der Residuen nutzen wir `curve()` und `dnorm()`. Mit ersterer wird eine Kurve auf Basis einer mathematischen Funktion eingezeichnet. Mit zweiterer geben wir an, dass es eine Dichtefunktion einer Normalverteilung sein soll, für die wir Mittelwert und Standardabweichung (der Residuen) angeben. Zusätzlich müssen wir hier mit `add=TRUE` festlegen, dass die Kurve über das Histogramm gelegt werden soll. 
+
+Um die Normalverteilung besser anschauen zu können, erweitern wir die $x$-Achse. Das machen wir mit <span class="code">xlim=c(<span class = "ex">-15</span>, <span class = "ex">15</span>)</span>. Die Wahl der Grenzen von $-15$ bis $+ 15$ - ist eine theoretische Überlegung. Bei einer Normalverteilung liegen ~ $99$% der Werte im Bereich $+/- 3$ Standardabweichungen vom Mittelwert entfernt. Die Standardabweichung der Residuen beträgt ~ `r round(sd(lm_lz$residuals), 3)`. 
+
+Für eine bessere Übersichtlichkeit stellen wir die <span style="color:orange">reale Dichtefunktion</span> und die <span style="color:green">erwartete Dichtefunktion</span> farblich dar. 
+
+```{r, hist_advanced}
+hist(lm_lz$residuals, # Histogramm der Residuen ...
+     prob = TRUE, # ... als Dichte ...
+     xlim = c(-20, 20)) # ... mit veränderter X-Achse
+
+lines( # erstellt eine Linie ...
+  density( # ... auf Basis der geschätzten Dichtefunktion ...
+    lm_lz$residuals), # ... der Residuen ...
+  col = "orange")  # ... in orange
+
+
+curve( # erstellt eine Kurve ...
+  dnorm( # ... einer normalverteilten Dichtefunktion ...
+    x, mean = mean(lm_lz$residuals), # ... auf Basis des Mittelwerts ...
+    sd = sd(lm_lz$residuals)), # ... und der Standardabweichung der Residuen ...
+      col = "green", #... in grün ...
+  add = TRUE) # ... die zu bestehendem Plot hinzugefügt wird
+```
+
+<span class = "ex">Anhand dieser beiden Linien wird noch deutlicher, dass die Verteilung der Residuen in unserem Beispiel von einer Normalverteilung abweicht.</span>
+</div></details>
+
+<p style="line-height:10px;"></p>
+
+##### QQ-Plot
+
+Der QQ-Plot <font size="2">(Quantil-Quantil-Plot)</font> plottet die aufsteigend geordneten standardisierten Residuen gegen die korrespondierenden Quantile der Normalverteilung. Dafür werden die Residuen durch den Standardschätzfehler geteilt $\frac {e_i} {\hat {\sigma}}$.
+
+```{r qq plot, echo=TRUE, message=FALSE, collapse=TRUE}
+plot(lm_lz, which = 2) 
+# zweiter Plot der plot()-Funktion für ein lm-Objekt ist der QQ-Plot
+abline(v = 1, col = "blue") # zur Illustration für unser Beispiel
+```
+
+In der obigen Abbildung werden die theoretischen Quantile der Normalverteilung <font size="2">($x$-Achse)</font> gegen die standardisierten Residuen <font size="2">($y$-Achse)</font> abgetragen. Wenn die Residuen normalverteilt sind, sollten die Punkte ungefähr auf der winkelhalbierenden Geraden <font size="2">(gestrichelte Linie)</font> liegen. Kleinere Abweichungen, vor allem an den Enden der Geraden <font size="2">(unten links und oben rechts)</font> sind in der Praxis aber nicht ungewöhnlich und oftmals nicht weiter problematisch.
+
+<span class = "ex"> In unserem Beispiel weichen viele Punkte mit höheren Ausprägungen (rechts von der </span> <span style="color:blue">blauen Linie</span><span class = "ex">) von der winkelhalbierenden Geraden ab, was für eine gewisse Verletzung der Normalverteilungsannahme spricht.</span>
+
+Wenn wir sehen wollen, wie der QQ-Plot bei verschiedenen Verteilungsformen aussehen kann, können wir uns diesen <a href="https://stats.stackexchange.com/questions/101274/how-to-interpret-a-qq-plot" target="_blank">Forumseintrag</a> zu QQ-Plots anschauen.
+
+
+<details><summary class="mtitle">Exkurs: Shapiro-Wilk-Test</summary><div class="more">
+Wir haben eingangs schon angerissen, warum graphische Verfahren besser geeignet sind, um Annahmen zu überprüfen. Für die Überprüfung der Normalverteilung der Residuen mittels statistischer Tests gelten die gleichen Vorbehalte: Wenn die Stichprobe groß ist, haben wir viel Power auch kleinste Abweichungen von der Normalverteilung zu finden. Gerade in dieser Situation (d.h. bei grossem $N$) sind Abweichungen von der Normalverteilung aber gar nicht so problematisch. Bei kleinem $N$ hingegen (wenn Abweichungen potentiell gefährlich sind), fehlt dem Test dann aber oft die Teststärke Abweichungen korrekt zu erkennen.
+
+Mit dem Shapiro-Wilk-Test kann getestet werden, ob Daten normaltverteilt sind ($H_0$) oder nicht ($H_1$).
+
+Der Test wird mit der Funktion `shapiro.test()` durchgeführt. Um die Residuen der Regression zu testen, extrahieren wir diese wieder aus dem Ergebnisobjekt mit `lm_lz$residuals`.
+
+```{r shapiro wilk test}
+shapiro.test(lm_lz$residuals)
+```
+
+<span class = "ex">In unserem Beispiel kann die Nullhypothese abgelehnt werden, d.h. dass die Residuen __nicht__ normalverteilt sind.</span>
+</div></details>
+
+<p style="line-height:10px;"></p>
+
+#### Umgang
+
+Zuerst sollten wir überprüfen, ob die Abweichung von der Normalverteilung auf eine Missspezifikation des Modells zurückzuführen ist.
+
+Wenn das nicht zutrifft und die Stichprobe klein ist, sollten wir korrektive Maßnahmen einleiten. Wir könnten die Daten transformieren, wie bei [Umgang mit Nicht-Linearität](#umgang), allerdings *könnte* das auch die getesteten Hypothesen ändern, z.B. vergleichen wir nach der log-Transformation keine arithmetischen Mittel mehr sondern geometrische Mittel. Alternativ könnten wir auch robuste Testverfahren anwenden.
+
+
+
+### Multikollinearität
+
+> Wenn **Prädiktoren sehr hoch miteinander korrelieren**, spricht man von Multikollinearität. Dabei können wir außerdem zwischen **_non-essentieller_** und **_essentieller_** Mutlikollinearität unterscheiden.
+
+**_Non-essentielle_** Multikollinearität entsteht dadurch, dass Prädiktoren nicht zentriert sind.
+
+**_Essentielle_** Multikollinearität entsteht durch tatsächliche Zusammenhänge zwischen Variablen in der Population. Diese Abhängigkeiten zwischen Prädiktoren äußern sich dadurch, dass die Varianz eines Prädiktors großteilig durch die anderen Prädiktoren erklärt werden kann, er sich also aus einer Linearkombination der anderen Prädiktoren ergibt z.B. $X_1=1,2,3$ und $X_2=2,4,6$. 
+
+<aside>Beispielsweise würde zwischen 'Größe in cm' und 'Größe in m' perfekte Multikollinearität bestehen, weil beide Vielfache voneinander sind.</aside>
+
+Multikollinearität kann aber beispielsweise auch vorliegen, wenn die **Anzahl an Prädiktoren $k$ größer ist als die Größe der Stichprobe $N$** oder wenn wir im Modell versehentlich zweimal den **gleichen Prädiktor spezifiziert** haben. Multikollinearität tritt außerdem häufig bei **Interaktionen zwischen Prädiktoren** auf. Das kommt daher, dass eine Interaktion ein Produkt aus zwei Prädiktoren ist und folglich viel Gemeinsamkeit mit beiden Prädiktoren hat.
+
+Bei sehr hohen Korrelationen zwischen den Prädiktoren, ergeben sich folgende Probleme:
+
+1. **Erschwerte Interpretation der partiellen Korrelationen**. Weil sich die Prädiktoren einen großen Anteil an der erklärten Varianz des Kriteriums teilen ist unklar, welchem Prädiktor welcher Anteil zugeschrieben werden soll. Um die Anteile der Varianzaufklärung besser den Prädiktoren zuordnen zu können, könnten wir die Reihenfolge der Aufnahme der Prädiktoren im Modell ändern <font size="2">(*hierarchisches Vorgehen*)</font>. Dabei schauen wir uns die Differenzen der Determinationskoeffizienten $R^2_{k+m} - R^2_k$ der Modelle (die sich durch einen weiteren Prädiktor $m$ unterscheiden) an.
+2. **Erhöhte Standardfehler**. Die Standardfehler der von Multikollinearität betroffenen Regressionkoeffizienten vergrößern sich <font size="2">(siehe [Toleranz] und Formel des Standardfehlers der Regressionsgewichte)</font>, was wiederum zu breiteren Konfidenzintervallen und einer geringeren Wahrscheinlichkeit führt, die Nullhypothese abzulehnen, wenn tatsächlich ein Effekt vorliegt <font size="2">(d.h. geringere Power)</font>. 
+
+<aside>\
+\
+\
+\
+\
+\
+\
+\
+**Formel des Standardfehlers der Regressionsgewichte**:\
+$SE_{b_k} = \frac{sd_y}{sd_x} \cdot \sqrt{\frac{1}{1-R^2_k}} \cdot \sqrt{\frac{1-R^2_y}{N - K - 1}}$\
+Toleranz: $1-R^2_k$\
+Indeterminationskoeffizient: $1-R^2_y$</aside>
+
+
+#### Überprüfung 
+
+Um festzustellen, ob Prädiktoren hoch miteinander korreliert sind, können wir uns die **Toleranz** und den **Variance Inflation Factor** anschauen. Beide hängen direkt miteinander zusammen, aber ihre Interpretationen sind unterschiedlich. 
+
+Falls wir ein *ernsthaftes* Problem mit Multikollinearität haben, wird uns das in <span class="r">R</span> teilweise mit z.B. `aliased coefficients` oder `1 coefficient not defined because of singularities` angezeigt.
+
+<font size="2">Im Paket **mctest** gibt es zwei Funktionen, die helfen, Multikollinearität zu entdecken - `omctest()` - und zu lokalisieren - `imctest()`. Hierfür werden jeweils verschiedene Maße zu Rate gezogen u.a. auch die Toleranz und der VIF. Da wir die anderen Maße aber nicht vertiefend behandeln, sei an dieser Stelle **nur auf das Paket hingewiesen**. Bei Interesse empfielt es sich, den Artikel der Entwickler *<a href="https://www.researchgate.net/publication/313799182_mctest_An_R_Package_for_Detection_of_Collinearity_among_Regressors" target="_blank">mctest: An R Package for Detection of Multicollinearity among Regressors</a>* zu lesen, in dem die Maße kurz erklärt und weiterführende Quellen angegeben werden.</font>
+
+##### Toleranz
+
+> Die Toleranz sagt uns, **wie viel Varianz in $X_j$ unabhängig von den anderen Prädiktoren** ist. 
+
+Dafür wird eine Regression von Prädiktor $X_j$ auf alle anderen Prädiktoren im Modell gerechnet <font size="2">(d.h. das Kriterium bleibt außen vor)</font> und davon der Kehrwert gebildet. Sie ist somit ein Maß für die **Uniqueness** von $X_j$. Die Tolreanz wird wie folgt berechnet: $1 - R^2_j$
+
+In <span class="r">R</span> können wir die Toleranz z.B. über den Kehrwert des Variance Inflation Factors, mit der Funktion `vif()` aus dem Paket **car**, berechnen. Der Funktion übergeben wir unser lm-Objekt.
+
+```{r}
+library(car)
+1 / vif(lm_lz)
+```
+
+```{r, echo=FALSE}
+tol <-  1 / vif(lm_lz)
+tol_perc <- unname(round(tol[1], 3)) * 100
+```
+
+Je kleiner die Toleranz ist, desto größer das Problem mit Multikollinearität. $Tol_j = 0$ impliziert perfekte Multikollinearität. $Tol_j~ < 0.10$ deutet auf ein ernsthaftes Problem mit Multikollinearität hin.
+
+<span class = "ex">Ungefähr `r tol_perc`% der Varianz in Zufriedenheit mit Studienbedingungen ist unabhängig von Zufriedenheit mit Studieninhalten <font size="2">(für den Fall von genau zwei Prädiktoren, wie in unserem Beispiel, gilt auch die umgekehrte Interpretation)</font>.</span> \
+
+
+##### Variance Inflation Factor
+
+> $VIF_j$ gibt an, **um wie viel die Varianz des Regressionskoeffizients $X_j$ (durch die Korrelation mit den anderen Prädiktoren) erhöht** wird, verglichen mit dem Fall, dass alle Prädiktoren unkorreliert sind. 
+
+$\sqrt {VIF_j}$ gibt an, um welchen Faktor sich der Standardfehler $SE_{b_j}$ durch Einschluss weiterer korrelierter Prädiktoren erhöht (verglichen mit dem Fall, dass alle Prädiktoren unkorreliert sind).
+
+Der VIF wird für jeden Prädiktor im Modell berechnet. Er wird folgendermaßen bestimmt: $\frac{1}{1 - R^2_j}$, wobei $R^2_j$ der Determinationskoeffizient der Regression des $j$-ten Prädiktors auf alle anderen $(k - 1)$ Prädiktoren ist. Das entspricht der quadrierten multiplen Korrelation zwischen $X_j$ und allen anderen Prädiktoren.
+
+> *__Achtung__*:  Im Fall von zwei Prädiktoren bleibt die geteilte Varianz zwischen beiden Variablen gleich; egal welche Variable Kriterium und welche Prädiktor ist. Daher sind beide VIF gleich.
+
+Dazu nutzen wir aus dem Paket **car** die Funktion `vif()`, welcher wir unser lm-Objekt übergeben.
+
+```{r}
+library(car)
+vif(lm_lz)
+```
+
+Als Daumenregel gilt, dass ein VIF größer als 10 auf ein Problem mit Multikollinearit hindeutet.
+
+<span class = "ex">Der VIF in unserem Beispiel ist sehr klein, d.h. dass unsere beiden Prädiktoren Zufriedenheit mit Studieninhalten und Zufriedenheit mit Studienbedingungen nicht viel gemeinsame Varianz teilen.</span> \
+
+#### Umgang
+
+In einer Regression, die auch Interaktionen zwischen den Prädiktoren annimmt, können wir die Prädiktoren zentrieren, um **_non-essentieller_** Multikollinearität beizukommen. Hierbei sollten wir aber bei Vorhandensein von Dummyvariablen vorsichtig sein. Diese *müssen* nicht zentriert werden und eine Zentrierung erschwert zusätzlich ihre Interpretation.
+
+Bei hoher **_essentieller_** Multikollinearität ist es oftmals ratsam, Prädiktoren auszuschließen, wenn diese weitgehend redundante Informationen liefern.
+
+
+
+### Extreme Werte und einflussreiche Datenpunkte
+
+> **Extreme Werte**, auch **Ausreißer** <font size="2">(Outlier)</font> genannt, meinen untypische Datenpunkte, die nicht zum Rest der Daten passen. Diese können sowohl auf dem Kriterium als auch auf den Prädiktoren vorkommen.\
+
+- Wenn ein extremer Wert auf dem **Kriterium** vorkommt, heißt das, dass die Prädiktorwerte einer Person $i$ zwar im Wertebereich der anderen Personen liegen, aber der beobachtete Wert $y_i$ stark vom vorhergesagten $\hat y_i$ abweicht <font size="2">(Abweichung in $Y$)</font>. 
+- Wenn extreme Werte auf den **Prädiktoren** vorkommen, heißt das, dass die Prädiktorwerte einer Person $i$ nicht im Wertebereich der anderen Personen liegen <font size="2">(Abweichung in $X$)</font>, aber der beobachtete Wert $y_i$ dennoch nah am vorhergesagten $\hat y_i$ ist. Extreme Werte auf den Prädiktoren haben zusätzlich eine hohe **Leverage/Hebelwirkung** und damit *potenziell* einen starken Einfluss auf die Regressionsgerade.
+
+<aside>\
+\
+\
+\
+\
+\
+\
+Die **Leverage** ist die absolute Abweichung eines beobachteten Wertes einer Person vom Mittel aller Prädiktoren $X$.</aside>
+
+In den folgenden drei Abbildungen sehen wir verdeutlicht, was mit extremen Abweichungen auf dem Kriterium bzw. den Prädiktoren gemeint ist. Dazu wurden exemplarisch **Lebenszufriedenheit** ($Y$) und **Zufriedenheit mit Studieninhalten** ($X_1$) gegeneinander geplottet. Hierbei wurde jeweils der $Y$- bzw. $X_1$-Wert von <span style="color:red">Person 50</span> geändert. Die <span style="color:blue">gestrichelte Linie</span> stellt dabei jeweils die obere Grenze des Wertebereichs des Kriteriums bzw. des Prädiktors dar.
+
+<aside>[Später](#cooklev) greifen wir nochmal auf das gleiche Beispiel zurück, um den Unterschied und die Konsequenzen von extremen Abweichungen auf dem Kriterium bzw. den Prädiktoren noch mehr zu verdeutlichen.</aside>
+
+```{r, echo=FALSE, out.width = "400px", fig.align="center"}
+plot(daten$zufr_inhalt, daten$leb_zufr, main="Bestehende Daten:", xlab = "Zufriedenheit mit Studieninhalten", ylab = "Lebenszufriedenheit", col=c(rep("black", 49), "red", rep("black", 141)), pch=c(rep(1, 49), 16, rep(1, 141)))
+
+daten_av = daten
+# range(daten$leb_zufr, na.rm=TRUE) # 9-35
+daten_av$leb_zufr[50] = 62 # 31
+# lm_av = lm(daten_av$leb_zufr ~ daten_av$zufr_inhalt + daten_av$zufr_beding)
+# plot(lm_av$fitted.values, daten_av$leb_zufr[-lm_av$na.action], ylab = "Y-Werte", xlab = "Fitted Values")
+plot(daten_av$zufr_inhalt, daten_av$leb_zufr, main="Extremer Wert auf dem Kriterum:", xlab = "Zufriedenheit mit Studieninhalten", ylab = "Lebenszufriedenheit", col=c(rep("black", 49), "red", rep("black", 141)), pch=c(rep(1, 49), 16, rep(1, 141)))
+abline(h=sort(daten_av$leb_zufr, decreasing = T)[2], col="blue", lty = 2)
+
+daten_uv = daten
+# range(daten$zufr_inhalt, na.rm=TRUE) # 1.3-4
+daten_uv$zufr_inhalt[50] = 8 # vorher: 2
+plot(daten_uv$zufr_inhalt, daten_uv$leb_zufr, main="Extremer Wert auf dem Prädiktor:", xlab = "Zufriedenheit mit Studieninhalten", ylab = "Lebenszufriedenheit", col=c(rep("black", 49), "red", rep("black", 141)), pch=c(rep(1, 49), 16, rep(1, 141)))
+abline(v=sort(daten_av$zufr_inhalt, decreasing = T)[2], col="blue", lty = 2)
+```
+
+
+Wenn die Regressionsgerade stark durch einzelne Beobachtungen beeinflusst wird, bezeichnet man diese als **einflussreiche Datenpunkte** <font size="2">(*influentials*)</font>. Der Ausschluss dieser Beobachtungen würde stark abweichende Parameterschätzungen hervorbringen. Das gleichzeitige Vorhandensein von Ausreißern und Beobachtungen mit hoher Leverage könnten die Ursache dafür sein.  
+
+
+#### Überprüfung
+
+Stoßen wir über auffällige Werte in unserem Datensatz, sollte wir zunächst kontrollieren, ob diese durch Eingabefehler oder fehlerhafte Kodierungen fehlender Werte <font size="2">(*Missings*)</font> zustande gekommen sind.
+
+Beispielsweise werden in manchen Anwendungen Missings nicht mit `NA`, sondern z.B. wie bei Unipark mit `99` oder `-99` kodiert. Wir müssen diese *vor* der Auswertung auf `NA` umkodieren, da <span class="r">R</span> diese sonst nicht als Missings erkennt. Für mehr Informationen dazu können wir im <a href="http://methods-berlin.com/de/r-lernplattform/fehlende-werte" target="_blank">**Kapitel zu Fehlenden Werten**</a> nachschauen.
+
+Stark abweichende Werte lassen sich oft einfach mit Hilfe von **Plots** oder **Deskriptivstatistiken** identifizieren. 
+
+##### Extreme Werte auf dem Kriterium
+
+Hierbei schaut man sich vor allem die **Residuen** an.
+
+###### Plot der studentisierten gelöschten Residuen
+
+Zur Exploration von Ausreißern auf dem Kriterium können wir uns die studentisierten gelöschten Residuen, geplottet gegen den Index $i$, anschauen. 
+
+<aside>Studentisierte gelöschte Residuen werden auch als **externally studentized residuals** bezeichnet.</aside>
+
+Studentisierte gelöschte Residuen werden wie folgt berechnet: $\frac {e_i} {\hat {\sigma} \cdot \sqrt{1 - h_m}}$ \ 
+
+Sie sind theoretisch $t$-verteilt mit $df = N − k − 1$ (N = Stichprobengröße, k = Anzahl Prädiktoren). Wir erhalten die Anzahl der Freiheitsgrade aus dem lm-Objekt mittels <span class="code">summary(<span class = "ex">lm_lz</span>)$fstat["dendf"]</span>.
+
+> **Studentisiert** heißt, dass die Residuen durch die geschätzte Populationsstandardabweichung der Residuen an der Stelle $x_m$ <font size="2">(das meint den Hebelwert der Person $h_m$)</font> geteilt werden. 
+
+> **Gelöscht** bedeutet geschätzte Abweichung des vorhergesagten Wertes vom beobachteten Wert <font size="2">(das sind die normalen Residuen)</font> in einem Modell **ohne** die entsprechende Person. Wir sagen also $\hat y_i$ für Person $i$ mit Hilfe eines Modells hervor, für welches Person $i$ nicht in die Parameterschätzung mit eingegangen ist. \
+
+<font size="2"> Für mehr Informationen zu studentisierten gelöschten Residuen *(externally studentized residuals)* siehe S.399ff im Lehrbuch von Cohen, Cohen, West & Aiken (2003).</font>
+
+Wir extrahieren diese mit `rstudent()` aus dem lm-Objekt. 
+
+```{r}
+plot(rstudent(lm_lz))
+```
+
+Es gibt keine einheitlichen Richtlinien darüber, ab wann ein studentisiertes gelöschtes Residuum als extrem groß anzusehen ist. Wir schauen nur, ob einzelne Werte stark vom Cluster der anderen Werte abweichen.
+
+<span class = "ex">In unserem Beispiel gibt es keine Werte, die __extrem__ von der Verteilung der anderen abweichen. Wir schauen uns dennoch exemplarisch einmal die zwei größten Werte an <font size="2">(d.h. die kleiner gleich - 3 sind)</font>.</span>
+
+In folgender Abbildung schauen wir uns an, wie eine <span style="color:red">extreme Abweichung</span> eines studentisierten gelöschten Residuums aussehen könnte. In folgendem Plot wurde nur ein studentisiertes gelöschtes Residuum eingefügt; die anderen Werte sind gleich geblieben.
+
+```{r, echo=FALSE, out.width = "400px", fig.align='center'}
+rstud_big <-  rstudent(lm_lz)
+rstud_big[37] <-  rstud_big[37]-5
+plot(rstud_big, ylab="Studentisierte gelöschte Residuen", col=c(rep("black", 36), "red", rep("black", 154)), pch=c(rep(1, 36), 16, rep(1, 154)))
+```
+
+```{r find outlier}
+which(unname(rstudent(lm_lz) <= -3))  # Indizes aller Werte, die kleiner gleich -3 sind
+```
+
+Mit `which()` lassen wir uns die Indizes derjenigen studentisierten gelöschten Residuen ausgeben, die $\leq-3$ sind. 
+
+Wir nutzen außerdem `unname()`, weil `rstudent()` einen benannten numerischen Vektor <font size="2">(*named num*)</font> erstellt und bei Nutzung von `which()` die Indizes sonst doppelt ausgegeben werden würden. Bei *named nums* werden die Indizes nämlich schon im Vektor mitgespeichert <font size="2">(ohne dass dieser dadurch seine Dimensionalität ändert)</font>.
+
+
+###### Outlier Test
+
+Alternativ könnten wir auch einen Signifikanztest *nur* für das größte studentisierte gelöschte Residuum durchführen. Dabei wird dessen p-Wert mit einer Bonferroni-Korrektur angepasst. Dazu wird der p-Wert mit der Stichprobengröße <font size="2">(hier: $N=164$)</font> multipliziert. Das an der Stichprobengröße relativierte <font size="2">(d.h. durch dieses geteilt)</font> Signifikanzlevel $\alpha$ markiert den kritischen Wert <font size="2">(d.h. das korrigierte Signifkanzlevel)</font>.
+
+Dazu nutzen wir `outlierTest()` aus dem Paket **car**. Wir nutzen konventionell $\alpha=0.05$.
+
+```{r}
+library(car)
+outlierTest(lm_lz)
+```
+
+<span class = "ex">Der Test liefert Evidenz dafür, dass das größte studentisierte gelöschte Residuum nicht extrem von den anderen abweicht.</span> 
+
+
+##### Extreme Werte auf den Prädiktoren
+
+Hierbei schauen wir uns vor allem die **Hebelwerte** $h_{ii}$ einzelner Beobachtungen <font size="2">(engl. leverage oder hatvalues)</font> an. 
+
+> Hebelwerte geben die absolute Abweichung eines beobachteten Wertes einer Person vom Mittel aller Prädiktoren $X$ <font size="2">(dem sog. Schwerpunkt)</font> an. 
+
+Fälle mit großer Hebelwirkung haben *potenziell* einen größeren Einfluss auf die Parameterschätzungen <font size="2">($0 < h_{ii} < 1$)</font>.
+
+
+###### Plot und Histogramm der Hebelwerte
+
+In kleinen bis mittelgroßen Datensätzen ist ein Indexplot der Hebelwerte eine ausreichende Methode, um Ausreißer auf den Prädiktoren zu erkennen. \
+
+Dazu extrahieren wir die Hebelwerte mit Hilfe der Funktion `hatvalues()` aus dem lm-Objekt. Damit fehlende Werte <font size="2">(`NA`)</font> ausgeschlossen werden <font size="2">(ihre Hebelwirkung würde $0$ betragen)</font>, wenden wir außerdem `[!is.na()]` an. `is.na()` evaluiert, ob die Elemente vorhanden sind <font size="2">(`TRUE` oder `FALSE`)</font>, `!` sorgt dafür, dass *keine* Missings angewählt werden, und `[ ]` gibt die Indizes aus.
+
+```{r plot hat values}
+plot(hatvalues(lm_lz)[!is.na(daten$resid)])
+```
+
+In größeren Datensätzen sollten wir die Hebelwerte der Übersichtlichkeit halber in einem Histogramm visualisieren. 
+
+```{r hist hat values}
+hist(hatvalues(lm_lz)[!is.na(daten$resid)])
+```
+
+Wir sollten uns hierbei auf die Inspektion weniger, extremer Werte beschränken und vor allem nur auf solche, die weit entfernt von den restlichen (nah beieinander liegenden Werten) sind.
+
+Den größten Hebelwert und seinen Index können wir uns folgendermaßen ausgeben lassen:
+
+```{r max hat}
+sort((hatvalues(lm_lz)), decreasing=TRUE)[1]
+```
+
+Wenn wir z.B. die größten drei Werte betrachten möchte, schreiben wir `[1:3]` anstatt `[1]`. Wenn wir alle Werte *absteigend* <font size="2">(weil `decreasing=TRUE`)</font> betrachten möchten, lassen wir die eckigen Klammern mit den Indizes komplett weg.
+
+<span class = "ex">Der Hebelwert von Person 151 liegt etwas abseits von der Verteilung der anderen. Noch extremere Werte sollten wir uns immer genauer anschauen. In unserem Beispiel liegen aber keine offensichtlich extremen Hebelwerte vor.</span> 
+
+
+##### Einflussreiche Datenpunkte
+
+###### Residuen-Leverage Plot
+
+Wenn es große Residuen und Hebelwerte gibt, können wir uns weiterführend den Residuen-Leverage Plot anschauen. Dieser plottet die Hebelwerte <font size="2">($x$-Achse)</font> gegen die standardisierten Residuen <font size="2">($y$-Achse)</font>.
+
+Zur Standardisierung werden die Residuen durch den Standardschätzfehler geteilt $\frac {e_i} {\hat {\sigma}}$
+
+```{r resid lev plot, collapse=TRUE}
+plot(lm_lz, which=5)
+# fünfter Plot der plot()-Funktion für ein lm-Objekt ist der Residuen-Leverage Plot
+```
+
+Die <span style="color:red">[Lowess Line](#loess)</span> sollte auch hier wieder flach und nah an der gestrichelten Linie bei $y=0$ sein.
+
+<span class = "ex">Die Werte der Person mit dem Index 50 weisen eine leicht erhöhte hohe Cooks Distance auf. Allerdings sind die Grenzen bei 0.5 und 1 nicht einmal sichtbar, weil alle Werte der Cooks Distance relativ klein sind. Auch die </span><span style="color:red">[Lowess Line](#loess)</span><span class = "ex"> ist flach an nah bei y=0. Beides spricht dafür, dass in unserem Datensatz keine einflussreichen Datenpunkte, die die Parameter verzerren könnten, enthalten sind.</span> \
+
+In diesem <a href="https://stats.stackexchange.com/questions/58141/interpreting-plot-lm" target="_blank">Forumseintrag</a> wird der Residuen-Leverage-Plot noch ausführlicher erklärt.
+
+<details><summary class="mtitle q"><a name="cooklev"></a>Was ist die Cooks Distance? Und wie hängt diese mit den standardisierten Residuen, der Leverage und der Lowess Fit Line zusammen?</summary><div class="more">
+
+> Die Cooks Distance ist ein Maß dafür, wie sich die Regressionsgerade und damit die vorhergesagten Werte ändern würden, wenn wir die Daten einer betrachteten Person $i$ ($Cooks D_i$) ausschliessen würden, wobei $Cooks D_i \geq 0$ ist.
+
+Je größer die $Cooks D_i$, desto größer der Einfluss der Beobachtungen von Person $i$.
+
+Im Residuen-Leverage-Plot werden auch Linien der **Cooks Distance** mit den Werten $0.5$ und $1.0$ abgetragen, **wenn** Beobachtungen in die Nähe dieser Grenzen kommen (was im oberen Beispiel nicht der Fall ist).
+
+Wir können uns folgendermaßen auch nur die Werte der Cooks Distance gegen den Index geplottet anschauen:
+
+```{r plot cd, out.width = "600px", fig.align="center"}
+plot(lm_lz, which=4)
+```
+
+Schauen wir uns den **Residuen-Leverage-Plot** noch einmal an. 
+
+In den folgenden Abbildungen wurden die Werte von **Person 50** auf dem Kriterium und einem Prädiktor (Zufriedenheit mit Studieninhalten) jeweils einzeln und anschließend gemeinsam manipuliert, um den jeweiligen Einfluss im Vergleich zum bestehenden Datensatz (der schon weiter oben dargestellt war) zu veranschaulichen. 
+
+In der Einführung zu [ Extremen Werte und einflussreichen Datenpunkte](#extreme-werte-und-einflussreiche-datenpunkte) haben wir den Unterschied zwischen Ausreißern auf dem Kriterium und den Prädiktoren schon angesprochen. Die Abbildungen sollen deren Implikationen noch verdeutlichen. Bei der Interpretation helfen die durchgezogene <span style="color:red">[Lowess Fit Line](#loess)</span> und die rot gestrichelten Grenzwerte der Cooks Distance.
+
+
+```{r resid lev plot 2, echo=FALSE, out.width = "600px", fig.align="center"}
+plot(lm_lz, which=5, main="Bestehender Datensatz", caption = "", sub="", id.n=1)
+```
+
+```{r sim lev resid plot 1, echo=FALSE, out.width = "600px", fig.align="center"}
+daten_av = daten
+# range(daten$leb_zufr, na.rm=TRUE) # 9-35
+daten_av$leb_zufr[50] = 62 # 31
+lm_av = lm(daten_av$leb_zufr ~ daten_av$zufr_inhalt + daten_av$zufr_beding)
+plot(lm_av, which=5, main="Der Wert auf dem Kriterium wurde erhöht.", caption = "", sub="", id.n=1)
+```
+
+<div style="text-align: center"> Das standardisierte Residuum ist größer; die Leverage ist gleich. \
+Die Lowess Line ist immer noch flach und nah an der gestrichelten Linie bei $y=0$. \
+Die Cooks Distance ist wesentlich größer, sie beträgt fast $1$.</div> \
+
+```{r sim lev resid plot 2, echo=FALSE, out.width = "600px", fig.align="center"}
+daten_uv = daten
+# range(daten$zufr_inhalt, na.rm=TRUE) # 1.3-4
+daten_uv$zufr_inhalt[50] = 8 # vorher: 2
+lm_uv = lm(daten_uv$leb_zufr ~ daten_uv$zufr_inhalt + daten_uv$zufr_beding)
+plot(lm_uv, which=5, main="Der Wert auf einem Prädiktor wurde erhöht.", caption = "", sub="", id.n=1)
+```
+
+<div style="text-align: center">Das standardisierte Residuum ist *vom Betrag* her ähnlich; die Leverage ist größer. \
+Die Lowess Line weicht wesentlich stärker von der gestrichelten Linie bei  $y=0$ ab. \
+Die Cooks Distance ist etwas größer, aber noch $< 0.5$.</div> \
+
+
+```{r sim lev resid plot 3, echo=FALSE, out.width = "600px", fig.align="center"}
+daten_avuv = daten
+daten_avuv$leb_zufr[50] = 62 
+daten_avuv$zufr_inhalt[50] = 8
+lm_avuv = lm(daten_avuv$leb_zufr ~ daten_avuv$zufr_inhalt + daten_avuv$zufr_beding)
+plot(lm_avuv, which=5, main="Der Wert auf dem Kriterium und einem Prädiktor wurden erhöht.", caption = "", sub="", id.n=1)
+```
+
+<div style="text-align: center">Das standardisierte Residuum ist größer; die Leverage ist größer. \
+Die Lowess Line weicht extrem von der gestrichelten Linie bei $y=0$ ab. \
+Die Cooks Distance ist $> 1$.</div> \
+
+```{r plot cooks, include=FALSE}
+plot(cooks.distance(lm_lz))
+krit.cd <- qf(.5, df1 = 5, df2 = 75)
+abline(h = krit.cd, lty = 2)
+```
+</div></details>
+
+<p style="line-height:10px;"></p>
+
+#### Umgang
+
+> *__Achtung__*:  Wir sollten abweichende Beobachtungen nicht unbedacht aus der Analyse entfernen. Sie können nicht nur durch fehlerhafte Messung, sondern auch korrekte, aber seltene Messungen zutande gekommen sein <font size="2">(z.B. weil wenig Leute eine gewisse Ausprägung auf einer bestimmten Variable besitzen)</font>. \
+
+Außerdem gibt es keine einheitlichen Richtlinien darüber, ab wann wir Ausreißer und einflussreiche Datenpunkte entfernen sollten. Wir sollte diese immer mit Hinblick auf die Gesamtverteilung bewerten. Jeder Ausschluss sollte plausibel begründet werden können.
+
+Am besten ist es immer, zu überprüfen, ob wir robuste Ergebnisse vorliegen haben. Wir führen die vorgestellten Analysen mit und ohne kritische Werte durch und schauen uns an, was passiert. Ändern sich die Befunde nicht, sind wir wahrscheinlich auf der sicheren Seite.
+
+
+
+## Literatur & weiterführende Hilfe
+
+Dieses Kapitel basiert größtenteils auf dem in der Vorlesung *Multivariate Verfahren* des Masterstudiengangs Psychologie genutzen Lehrbuch:
+
+> <font size="2">**Cohen**, J., **Cohen**, P., **West**, S. G., & **Aiken**, L. S. (2003). *Applied Multiple Regression/Correlation Analysis for the Behavioral Sciences* Hillsdale, NJ: Erlbaum.\
+Abschnitt 4.3 Assumptions and Ordinary Least Squares Regresion (S.117-125) \
+Abschnitt 4.4 Detecting Violations of Assumptions (S.125-141) \
+Abschnitt 4.5 Remedies: Alternative Approaches When Problems Are Detected (S.141-149) \
+Abschnitt 10.3 Detecting Outliers: Regression Diagnostics" (S.394-411) \
+Abschnitt 10.5 Multicollinearity" (S.419-425)</font> \
+<font size="1">(für HU-Studierende über <a href="http://ub.hu-berlin.de" target="_blank">ub.hu-berlin.de</a> zugänglich)</font></font> \
+
+Für ein **deutschsprachiges** Buch: \ 
+
+> <font size="2">**Gollwitzer**, M., **Eid**, M., & **Schmitt**, M. (2017). *Statistik und Forschungsmethoden.* Weinheim: Beltz Verlagsgruppe.\ **(für HU-Studierende online zugänglich)** \
+Kapitel "Regressionsdiagnostik" (S. 704-725)\
+<font size="1">(für HU-Studierende über <a href="http://ub.hu-berlin.de" target="_blank">ub.hu-berlin.de</a> zugänglich)</font></font>
+
+Zur weiteren **Hilfe bei der Interpretation von Plots**, können wir diesen <a href="https://stats.stackexchange.com/questions/58141/interpreting-plot-lm" target="_blank">Forumseintrag</a> sowie diese <a href="https://data.library.virginia.edu/diagnostic-plots/" target="_blank">Seite</a> nutzen. </font>
+
+---
+
+<font size="2">Um eine möglichst exakte Replikation der Funktionen zu gewährleisten gibt es im folgenden relevante Angaben zum System (**<span class="r">R</span>-Version**, **Betriebssystem**, **geladene Pakete mit Angaben zur Version**), mit welchem diese Seite erstellt wurde.
+
+```{r}
+sessionInfo()
+```
+
+Für Informationen zur Interpretation dieses Outputs schaut auch den Abschnitt <a href="http://methods-berlin.com/wp-content/uploads/Pakete.html#replizierbarkeit-von-analysen" target="_blank">**Replizierbarkeit von Analysen**</a> des Kapitels zu Paketen an.
+</font>
+
+
+
+
+
+
+

@@ -1,0 +1,362 @@
+# Einführung in RStudio
+
+Im Rahmen dieses Kapitels schauen wir uns an, wie die Benutzeroberfläche der <span class="highlight">Entwicklungsumgebung <span class="r">RStudio</span></span> aufgebaut ist und wie sie uns den Umgang mit der (grundlegenden) Software `R` erleichtert. Wir lernen die vier grundlegenden Bereiche <font size="2">(Panels)</font> von <span class="r">RStudio</span> kennen und werden uns besonders die `R`-Dokumentation genauer anschauen. In dieser finden wir viele wertvolle Informationen zu Funktionen. Am Ende finden wir noch eine Übersicht über Kurzbefehle, die uns die Arbeit mit `R` zusätzlich erleichtern.
+
+Es ist von Vorteil, wenn wir die <a href="http://methods-berlin.com/de/r-lernplattform/einfuehrung_in_r" target="_blank">**Einführung in `R`**</a>, in der Funktionen und Pakete, sowie die Speicherung von Daten erklärt werden, bereits durchgearbeitet haben.
+
+> **_Achtung_**: Voraussetzung zur Bearbeitung des Kapitels ist, dass wir [**`R` und `Rstudio` installiert**](Installation.html).
+
+Weiterführend bietet es sich an, das Kapitel zum <a href="http://methods-berlin.com/de/r-lernplattform/daten_einlesen" target="_blank">**Daten einlesen**</a> anzuschauen.
+
+
+```{r, echo=FALSE}
+# http://md.psych.bio.uni-goettingen.de/mv/unit/block_intro/block_intro.html#diese_unterlagen_können_sich_bis_zum_start_der_einführungsblocks_im_april_2020_noch_verändern !!!!!!!!!!!!
+```
+
+## Allgemeines zu `RStudio`
+
+<span class="r highlight">RStudio</span> ist eine **integrierte Entwicklungsumgebung** <font size="2">(*integrated development environment*, IDE)</font> für die Statistiksoftware `R`. Eine IDE bietet uns verschiedene Werkzeuge an, die uns den Umgang mit einer (grundlegenden) Software erleichtern.
+
+In `R` steht uns standardmäßig nur die Konsole und das Skript zur Verfügung.\
+In <span class="r">RStudio</span> gibt es u.a. zusätzlich:
+
+- <span class="highlight">Code Hervorhebung</span>\
+In Abhängigkeit davon, um was für Code es sich handelt <font size="2">(z.B. Funktionen, Datentyp, bestehende Objekte, Kommentare; Fehlermeldungen)</font> wird dieser **farblich** verschieden im Skript und auch in der Konsole hervorgehoben.
+- <span class="highlight">Befehlszeilenergänzung</span> <font color="#009193">(Autovervollständigung)</font>\
+Wenn wir anfangen, Code einzutippen, bekommen wir bereits Vorschläge, welche Funktionen oder bestehenden Objekte wir meinen könnten. Wenn wir mit der Maus über eine vorgeschlagene Funktion fahren, bekommen wir außerdem eine kurze **Erklärung**, was diese macht und welche Parameter sie besitzt. Wir können auf die Vorschläge klicken, um unseren Code <font size="2">(d.h. den Namen der Funktion oder des Objekts)</font> **automatisch vervollständigen** zu lassen. Die Befehlszeilenergänzung können wir sowohl in der Konsole als auch im Skript nutzen.
+- <span class="highlight">Code Diagnostik</span>\
+Wenn wir Code im Skript schreiben, bekommen wir schon **vor der Ausführung Hinweise auf Probleme bzw. Unvollständigkeiten**. Unser Skript muss dazu aber bereits gespeichert sein. Auf die <a href="http://methods-berlin.com/wp-content/uploads/FM.html#code-diagnostik" target="_blank">Code Diagnostik</a> gehen wir im Kapitel zu <a href="http://methods-berlin.com/de/r-lernplattform/fehlermeldungen" target="_blank">Fehlermeldungen</a> noch etwas detaillierter ein.
+
+<aside>\
+Wir können aus verschiedenen Möglichkeiten zur Code Hervorhebung wählen. Diese finden wir in der oberen Menüleiste auf **Tools** > **Global Options...** > **Appearance** > **Editor Theme**.</aside>
+
+<!--Weiterhin sehr hilfreich ist, dass uns die grafische Benutzeroberfläche von <span class="r">RStudio</span> ermöglicht zu sehen, welche Objekte wir erstellt haben, auf die Dokumentation von Funktionen zuzugreifen und mit wenigen Klicks <a href="http://methods-berlin.com/de/r-lernplattform/daten_einlesen" target="_blank">Daten einzulesen</a>. -->
+
+Beim ersten Öffnen sieht <span class="r">RStudio</span> folgendermaßen aus:
+
+```{r, out.width = "700px", fig.align="center", echo=FALSE}
+knitr::include_graphics("figures/Einführung/Bilder/RStudio/RStudio 1.png")
+```
+
+Zu allererst öffnen wir ein **neues Skript**, in das wir unseren Code schreiben werden. Dazu gehen wir in der oberen Leiste ganz links auf <img src="figures/Einführung/Bilder/RStudio/Button.png" style=" width:4%" /> und dann auf **R Script**.
+
+```{r, out.width = "700px", fig.align="center", eval=FALSE, echo=FALSE}
+knitr::include_graphics("figures/Einführung/Bilder/RStudio/RStudio 2.png")
+```
+
+Nun gliedert sich die Entwicklungsumgebung <span class="r">RStudio</span> in **vier verschiedene Bereiche**:\
+In das <span class="r script">**Skript**</span> schreiben wir unseren Code. In der <span class="r" style="color:#0533FF;">**Konsole**</span> wird dieser ausgeführt und die Ergebnisse angezeigt. Bestehende Objekte sehen wir im <span class="r env">**Environment**</span>. Eine Übersicht unserer Pakete finden wir unter <span class="r" style="color:#669C35;">**Packages**</span> und Informationen zu `R` und zu Funktionen finden wir unter <span class="r" style="color:#669C35;">**Help**</span>.
+
+```{r, out.width = "700px", fig.align="center", echo=FALSE}
+knitr::include_graphics("figures/Einführung/Bilder/RStudio/RStudio Aufteilung Farbe.png")
+```
+
+<aside>\
+\
+Die **Größe** der Bereiche lässt sich an den Kanten oder an den Icons in der oberen rechten Ecke verändern. Die **Aufteilung** der Panels können wir über **Tools > Global Options...** und dann im neuen Fenster links unter **Pane Layout** ändern.</aside>
+
+Die verschiedenen Bereiche <font size="2">(Panels)</font> und ihre (für uns wichtigsten) Features schauen wir uns im Folgenden einmal genauer an.
+
+### **<span class="r script">Skript</span></font>**
+
+Hier schreiben wir unseren **Code** und **Kommentare** rein. 
+
+```{r, out.width = "700px", fig.align="center", echo=FALSE}
+knitr::include_graphics("figures/Einführung/Bilder/RStudio/skript.png")
+```
+
+Alle Zeichen, die in einer Zeile nach einem `#` erscheinen, gelten als Kommentar. Von der Kommentarfunktion sollten wir ausgiebig Gebrauch machen. So können wir (und Andere) zu einem späteren Zeitpunkt noch nachvollziehen, was genau wir gemacht haben.
+
+Unsere Skripte sollten wir regelmäßig (oder spätestens vor Beendigung des Programms) **speichern**. Um die Datei anzulegen gehen wir in der oberen Leiste auf **File > Save as...**. Wir geben der `R`-Datei einen Namen und wählen einen Speicherort.
+
+<aside>**Skript Speichern**:\
+<span style="line-height:30px;">Win: <span class="keybord">**Strg**</span> + <span class="keybord">**S**</span>\
+Mac: <span class="keybord">**cmd**</span> + <span class="keybord">**S**</span></span></aside>
+
+Beim allerersten Speichern müssen wir außerdem die Zeichen-Enkodierung festlegen. Wir wählen <a href="https://de.wikipedia.org/wiki/UTF-8" target="_blank">**UTF-8**</a>, das ist die am häufigsten genutzte Kodierung für Unicode-Zeichen. 
+
+```{r, out.width = "300px", fig.align="center", eval=FALSE, echo=FALSE}
+knitr::include_graphics("figures/Einführung/Bilder/RStudio/encoding.png")
+```
+
+Ab dann können wir unser Skript über **File > Save** speichern.
+
+Unseren Code führen wir aus, indem wir ihn markieren und auf **Run** klicken. 
+
+```{r, out.width = "700px", fig.align="center", echo=FALSE}
+knitr::include_graphics("figures/Einführung/Bilder/RStudio/run.png")
+```
+
+<aside>**Aktuelle Linie bzw. markierten Code ausführen:**\
+<span style="line-height:30px;">Win: <span class="keybord">**Strg**</span> + <span class="keybord">**enter**</span>\
+Mac: <span class="keybord">**cmd**</span> + <span class="keybord">**enter**</span></span></aside>
+
+### **<span class="r cons">Konsole</span></font>**
+
+Hier bekommen wir den **Output** unseres Codes ausgegeben. Kommentare werden nicht ausgeführt, sondern nur wiedergegeben. 
+
+```{r, out.width = "700px", fig.align="center", echo=FALSE}
+knitr::include_graphics("figures/Einführung/Bilder/RStudio/Konsole.png")
+```
+
+Wir bekommen in der Konsole einen Hinweis, wenn wir eine **eindeutig unvollständige Funktion**, d.h. wenn wir *nur* am Ende einer Funktion die schließende Klammer vergessen haben, ausführen wollen. Dann wird uns in der Konsole in der nachfolgenden Zeile ein `+` ausgegeben.
+
+```{r, out.width = "90px", echo=FALSE, fig.align='left'}
+knitr::include_graphics("figures/Einführung/Bilder/RStudio/hinweis konsole.png")
+```
+
+In der Konsole bekommen wir manchmal auch **Fehler-** <font size="2">(error)</font> **und Warnmeldungen** <font size="2">(warning)</font> sowie andere **Informationen zu einer Funktion** <font size="2">(message)</font> angezeigt.
+
+Wenn wir einen Fehler in einer Funktion gemacht haben, wird die Ausführung unterbrochen und wir bekommen eine Fehlermeldungen. Wenn wir z.B. ein Komma zwischen den Elementen in `c()` vergessen hätten, bekämen wir folgende Fehlermeldung:
+
+```{r, out.width = "480px", echo=FALSE}
+knitr::include_graphics("figures/Einführung/Bilder/RStudio/fehler.png")
+```
+
+**Mehr Informationen zur Interpretation von Fehlermeldungen** finden wir im gleichnamigen <a href="http://methods-berlin.com/de/r-lernplattform/fehlermeldungen" target="_blank">Kapitel</a>.
+
+Der Inhalt der Konsole wird nach jedem Schließen des Programms gelöscht und kann nicht ohne weiteres gespeichert werden. Deswegen ist es wichtig, die eigene Arbeit in Skripten zu speichern.
+
+
+### **<span class="r env">Environment & History</span></font>**
+
+Im <font color="#942192">**Environment**</font> sehen wir **alle Objekte**, die derzeit in `R` geladen sind. Wenn wir (externe) Datensätze einlesen, sehen wir diese auch hier. Wir bekommen außerdem weitere **Informationen** zu den Objekten und wir sehen ggf. die **ersten Elemente**.
+
+Beispielsweise haben wir gerade das Objekt `vektor` erstellt, welches uns hier angezeigt wird.
+
+```{r, out.width = "420px", fig.align="center", echo=FALSE}
+knitr::include_graphics("figures/Einführung/Bilder/RStudio/environ.png")
+```
+
+Wir sehen, dass es sich um einen numerischen Vektor mit zwei Elementen, 1 und 3, handelt.
+
+Was für Informationen wir zu einem Objekt angezeigt bekommen ist abhängig von seiner Datenstruktur. Schauen wir uns das einmal am Beispiel der Objekte, die wir im Abschnitt zu <a href="http://methods-berlin.com/de/r-lernplattform/einfuehrung_in_r/#daten" target="_blank">Daten</a> im Kapitel <a href="http://methods-berlin.com/de/r-lernplattform/einfuehrung_in_r" target="_blank">Einführung in `R`</a> erstellt haben, an.
+
+```{r, out.width = "420px", fig.align="center", echo=FALSE}
+knitr::include_graphics("figures/Einführung/Bilder/RStudio/environ_bsp.png")
+```
+
+Die Objekte werden in zwei Kategorien aufgeteilt:
+
+- Unter **Data** finden wir *Data Frames*, *Listen* und *Matrizen*. Bei allen bekommen wir die Länge der einzelnen Dimensionen angezeigt <font size="2">(**Dataframe**: obs. = Zeilen, variables = Spalten; **Matrix**: [Zeilen, Spalten]; **Liste**: List of ...)</font>. Data Frames werden mit einem vorangestellten <img src="figures/Einführung/Bilder/RStudio/df.png" style=" width:2%" /> markiert. Bei Matrizen bekommen wir zusätzlich die ersten Elemente angezeigt. Durch Klicken können wir uns diese Objekte im Data Viewer anschauen <font size="2">(alternativ zu `View()`)</font>. 
+- Unter **Values** finden wir *Vektoren.* Wir bekommen die selben Informationen angezeigt, die uns <span class="code">str(<span class="ex">vektor</span>)</span> gibt: Datentyp, Länge, ersten 10 Elemente. Bei Faktoren wird uns de facto nicht der Datentyp sondern die -struktur angezeigt. Der Datentyp ist eigentlich auch irrelevant, weil es nur eine diskrete Anzahl an Ausprägungen gibt, die uns auch angezeigt wird. Die Länge des Faktors erfahren wir auch nicht.
+
+<aside>
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+Den Datentyp eines Faktors können wir mit `typeof()`, die Länge mit `length()` in Erfahrung bringen.</aside>
+
+Zum **Löschen** *aller* Objekte können wir auf <img src="figures/Einführung/Bilder/RStudio/Broom.png" style=" width:3%" /> klicken <font size="2">(alternativ zu `rm(list=ls())`).</font>
+
+Zusätzlich können wir über das <font color="#942192">**Environment**</font> auch externe Datensätze einlesen. Wie wir das machen, schauen wir uns im Kapitel zum <a href="http://methods-berlin.com/de/r-lernplattform/daten_einlesen" target="_blank">**Daten einlesen**</a> im <a href="http://methods-berlin.com/wp-content/uploads/DE.html#weg-1-environment-import-dataset" target="_blank">Abschnitt dazu</a> an.
+
+In der <font color="#942192">**History**</font> sehen wir den **zuletzt ausgeführten Code**.
+
+```{r, out.width = "500px", fig.align="center", echo=FALSE}
+knitr::include_graphics("figures/Einführung/Bilder/RStudio/history.png")
+```
+
+Mit **To Source** bekommen wir den markierten Code in unser Skript; mit **To Console** in die Konsole.
+
+Der Vorteil gegenüber der Konsole ist, dass der Inhalt der History *nicht* mit Beenden einer `R`-Session gelöscht wird, sondern wir auf den Code zugreifen können bis dieser explizit gelöscht wird (auch mit einem <img src="figures/Einführung/Bilder/RStudio/Broom.png" style=" width:3%"/>).
+
+### **<span class="r help">Files, Plots, Packages, Help & Viewer</span>**
+
+Im Folgenden werden wir hauptsächlich die Reiter <span class="r help">**Packages**</span> und <span class="r help">**Help**</span> besprechen. Auf die Dokumentation, auf die wir mit letzerem direkt in <span class="r">RStudio</span> <font size="2">(anstatt im Browser)</font> zugreifen können, gehen wir besonders stark ein. 
+
+Unter <span class="r help">**Packages**</span> sehen wir die Standardpakete und die von uns installierten Add-On Pakete.
+
+```{r, out.width = "500px", fig.align="center", echo=FALSE}
+knitr::include_graphics("figures/Einführung/Bilder/RStudio/packages.png")
+```
+
+Wir sehen eine kurze Beschreibung des Pakets und seine Versionsnummer. Im Kästchen ganz links sehen wir außerdem, ob Pakete derzeit geladen sind. Standardpakete sind immer geladen; Add-On Pakete müssen wir bei jeder Session neu laden (wenn wir sie nutzen wollen).
+
+**Mehr Informationen zum Installieren, Laden und Aktualisieren von Paketen** mit Funktionen sowie der Entwicklungsumgebung `R` finden wir im **gleichnamigen** <a href="http://methods-berlin.com/de/r-lernplattform/pakete" target="_blank">**Kapitel**</a>.
+
+Unter <span class="r help">**Files**</span> sehen wir die Ordner(struktur) auf unserem Rechner. Im Kapitel zu <a href="http://methods-berlin.com/de/r-lernplattform/daten_einlesen" target="_blank">**Daten einlesen**</a> erfahren wir, wie wir <a href="http://methods-berlin.com/wp-content/uploads/DE.html#weg-2-files-import-dataset" target="_blank">diesen Bereich nutzen</a> können.
+
+Unter <span class="r help">**Plots**</span> werden (von uns erstellte) Grafiken angezeigt; unter <span class="r help">**Viewer**</span> (von uns erstellte) Tabellen.
+
+Über <span class="r help">**Help**</span> bekommen wir Zugang zur R-Dokumentation, welche wir uns nachfolgend etwas genauer anschauen wollen.
+
+#### <font color="black">`R`-Dokumentation</font>
+
+Die `R`-Dokumentation bietet uns umfassende Hilfe zum Umgang mit `R` im Allgemeinen und zu Funktionen an. 
+
+```{r, out.width = "500px", fig.align="center", echo=FALSE}
+knitr::include_graphics("figures/Einführung/Bilder/RStudio/help.png")
+```
+
+Den Namen der Funktion geben wir in das <font color="red">Suchfeld</font> ein. Alternativ können wir auch die Funktionen <span class="code">help(<span class="ex">funktion</span>)</span> oder <span class="code">?<span class="ex">funktion</span></span> nutzen. Wenn wir auf <img src="figures/Einführung/Bilder/RStudio/new window.png" style=" width:3%"/> klicken, öffnet sich die Dokumentationsseite in einem neuen Fenster, was die Nutzung wesentlich übersichtlicher gestaltet. 
+
+```{r, out.width = "500px", fig.align="center", echo=FALSE, eval=FALSE}
+knitr::include_graphics("figures/Einführung/Bilder/RStudio/help c.png")
+```
+
+Neben der Informationen, aus welchem Paket eine Funktion stammt, finden wir hier zumeist folgende Abschnitte:
+
++ <span class="r highlight">Description</span>: Beschreibung, was die Funktion macht
++ <span class="r highlight">Usage</span>: Funktionsdefinition <fot size="2">(Parameter der Funktion und ggf. Defaults)</font>
++ <span class="r highlight">Arguments</span>: Beschreibung der Parameter und ihrer möglichen Argumente
++ <span class="r highlight">Details</span>: detaillierte Beschreibung zur Nutzung der Funktion und etwaigen Sonderfällen
++ <span class="r highlight">See Also</span>: verwandte Funktionen <font size="2">(meist aus dem gleichen Paket)</font>
++ <span class="r highlight">Examples</span>: Beispiele zur Nutzung der Funktion
+
+<p style="line-height:10px;"></p>
+
+Im Folgenden schauen wir uns die <span class ="r">R</span>-Dokumentation exemplarisch für die Funktion <span class="ex">`matrix()`</span> an. 
+
+<span class = "ex">Dazu öffnen wir die dazugehörige <span class ="r">R</span>-Dokumentations-Seite, indem wir *matrix* in das <font color ="#FF1D00">Suchfeld</font> eingeben, oder eine der Hilfe-Funktionen, `help(matrix)` oder `?matrix`, ausführen. Folgende Seite sollte sich nun öffnen:</span>
+
+```{r, out.width = "550px", echo=FALSE, fig.align='center'}
+knitr::include_graphics("figures/Einführung/Bilder/RStudio/doc 2.png")
+```
+
+Oben links sehen wir, dass die Funktion aus dem Basispaket **base** stammt.
+
+##### Description
+
+Man findet hier zu einer Funktion bzw. einem Set an verwandten Funktionen kurze Ausführungen zum Zweck einer Funktion.
+
+<span class = "ex">Die Funktion `matrix` erstellt eine Matrix von einem gegebenem Set an Werten. Es gibt noch zwei verwandte Funktionen - `as.matrix` und `is.matrix` - welche ein Objekt in eine Matrix umwandeln bzw. überprüfen, ob das (als Argument) übergebene Objekt eine Matrix ist.</span>
+
+
+##### Usage
+
+Hier sehen wir die **Funktionsdefinition**. Diese zeigt, welche Parameter die Funktion besitzt und ggf. welche dieser Parameter voreingestellte Argumente <font size="2">(Defaults)</font> besitzen.
+
+```{r, out.width = "400px", echo=FALSE, fig.align='center'}
+knitr::include_graphics("figures/Einführung/Bilder/RStudio/doc 3.png")
+```
+
+<span class = "ex">Per Default ...:</span>
+
+* <span class = "ex">... wird an `data` nur ein `NA` (Missing) übergeben</span>
+* <span class = "ex">... gibt es eine Reihe (`nrow=1`)</span>
+* <span class = "ex">... und eine Spalte (`ncol=1`)</span>
+* <span class = "ex">... wird die Matrix spaltenweise <font size="2">(d.h. von oben nach unten)</font> mit Werten befüllt (`byrow=FALSE`)</span>
+* <span class = "ex">... gibt es keine Spalten- und Zeilenbenennung (`dimnames=NULL`)</span>
+
+<span class="ex">Um Defaults besser zu verstehen, führen wir `matrix()` ohne Spezifikation der Parameter aus und schauen uns den Output an.</span>
+
+```{r, echo=FALSE}
+matrix()
+```
+
+<span class = "ex">Bis auf `byrow=FALSE` können wir so alle Voreinstellungen im Output nachvollziehen. Dessen Funktionsweise sieht man erst bei mehreren Elementen in einer Matrix.</span>
+
+<!--Für manche Funktionen gibt es unterschiedliche Defaults (und teils auch unterschiedliche nutzbare Argumente) für verschiedene Datentypen. Diese werden in der R-Dokumentation mit der  Überschrift `S3 method for class ...` versehen.
+<aside>Datentypen sind z.B. Data Frames, Faktoren, Tabellen, Funktionen ...</aside> -->
+
+
+##### Arguments
+
+Argumente sind Einstellungen, die wir für eine Funktion festlegen können. In der <span class ="r">R</span>-Dokumentation sieht man links den Namen des Arguments <font size="2"><span class = "ex">(z.B. `byrow`)</span></font> und rechts eine Beschreibung dazu <font size="2"><span class = "ex">(z.B. `logical`)</span></font> verbunden mit verschiedenen Einstellungsoptionen <font size="2"><span class = "ex">(z.B. `FALSE` - spaltenweise Befüllen der Matrix)</span></font>.
+
+
+##### Details
+
+Im Abschnitt Details stehen weitere Detailinformationen zur Nutzung der Funktion. 
+
+<span class = "ex">**1. Abschnitt von `matrix()`:**\
+Wir erfahren hier, dass wenn `nrow` <font size="2">(Zeilenanzahl)</font> oder `ncol` <font size="2">(Spaltenanzahl)</font> nicht festgelegt wird, versucht wird, auf dessen Länge zu schließen. Das schauen wir uns mal an einem Beispiel an.</span>
+
+```{r}
+# Beispiel 1:
+matrix(data=c(1,1,2,2,3,3,4,4,5,5), nrow=5)
+```
+
+<span class = "ex">Wir haben einen Vektor mit 10 Elementen reingegeben und `nrow=5` festlegt. Daraus kann <span class ="r">R</span> schließen, dass die Matrix zwei Spalten (`ncol=2`) haben muss.</span>
+
+<span class = "ex">**2. Abschnitt `matrix()`:**\
+Wenn die Anzahl der Elemente, die wir an `data` übergeben, kleiner ist, als die Anzahl der gewünschten Elemente in Matrix <font size="2">(`nrow` x `ncol`)</font>, dann wird `data` __recycled__. Das bedeutet, dass `data` nochmal genutzt wird, um die Matrix zu befüllen.</span>
+
+```{r}
+# Beispiel 2:
+matrix(data=c(1,1,2,2,3), nrow=3, ncol=2)
+```
+
+<span class="ex">In Beispiel 1 und 2 können wir auch die Auswirkung des Default `byrow=FALSE` sehen. Bei beiden wurden die Elemente *spaltenweise* in die Matrix eingetragen, *ohne* dass wir das so festgelegt haben.</span>
+
+<img src="figures/Buttons/exclam.png" class="exclam out-rows" alt="exclamation"/> Es ist ratsam, vor der Nutzung einer (unbekannten) Funktionen oder bei einer Fehlermeldung zu einer Funktion im Abschnitt <span class="r">**Details**</span> nachzuschauen. Oftmals findet man hier hilfreiche Erklärungen. 
+
+
+##### See also
+
+In diesem Abschnitt bekommt man Funktionen angezeigt, die mit der vorliegenden Funktion in enger Verbindung stehen. Diese sind häufig mit einer kurzen Erklärung versehen.
+
+Teilweise findet man hier auch Funktionen, die besser für das eigene Vorhaben geeignet sind.
+
+
+##### Examples
+
+Hier findet man einige beispielhafte Anwendungen der Funktion. Anhand der Beispiele bekommt man ein besseres Verständnis von der Syntax und Funktionsweise der Funktion. Was genau gemacht wird ist oftmals in kurzen Kommentaren (`# ...`) erklärt.
+
+<!-- Mehr Informationen zum **<a href="http://methods-berlin.com/wp-content/uploads/FM.html#r-dokumentation" target="_blank">Aufbau der Dokumentation</a>** finden wir im Kapitel **Fehlermeldungen**. -->
+
+
+## Weitere Hilfen
+
+### Kurzbefehle
+
+Nachfolgend finden wir einige Kurzbefehle für die beiden Betriebssysteme Windows und Mac, die unseren Workflow verbessern.
+
+<img src="figures/Buttons/exclam.png" class="exclam out-rows" alt="exclamation"/> Mit dem letzten Kurzbefehl können wir schneller Dateipfade kopieren, was uns das <a href="http://methods-berlin.com/de/r-lernplattform/daten_einlesen" target="_blank">Einlesen von Daten</a> in `R` erleichtert. Dieser Kurzbefehl ist, im Gegensatz zu den anderen, nicht zur Nutzung in `R` geeignet; er funktioniert **nur** im Explorer <font size="2">(Windows)</font> bzw. Finder <font size="2">(Mac)</font>.
+
+
+```{r, echo=FALSE}
+Windows <- c("<span class=\"keybord\">**Strg**</span> + <span class=\"keybord\">**enter**</span>", 
+             "<span class=\"keybord\">**alt**</span> + <span class=\"keybord\">**Strg**</span> + <span class=\"keybord\">**B**</span>",
+             "<span class=\"keybord\">**Strg**</span> + <span class=\"keybord\">**S**</span>", "<span class=\"keybord\">**shift**</span> + *Rechtsklick auf Datei*<br>dann *Als Pfad kopieren*")
+Mac <- c("<span class=\"keybord\">**cmd**</span> + <span class=\"keybord\">**enter**</span>",  
+         "<span class=\"keybord\">**alt**</span> + <span class=\"keybord\">**cmd**</span> + <span class=\"keybord\">**B**</span>", 
+         "<span class=\"keybord\">**cmd**</span> + <span class=\"keybord\">**S**</span>", "<span class=\"keybord\">**alt**</span> + <span class=\"keybord\">**cmd**</span> + <span class=\"keybord\">**C**</span>")
+  
+table_dat <- data.frame(Windows, Mac)
+rownames(table_dat) <- c("Code der aktuellen Linie bzw. markierten Code ausführen",
+                         "Code bis zur aktuellen Linie ausführen",
+                          "Skript speichern", "Dateipfad kopieren")
+
+table_dat %>%
+  kable("html", align="c", escape=FALSE, table.attr = "style='width:100%;'") %>%
+  kable_styling(full_width = T) %>%
+  row_spec(0, color = "white", background = "#009193") %>%   # bold=FALSE funzt nicht
+  column_spec(1, bold=TRUE, color = "white", background = "#009193", width = "10em") %>%
+  row_spec(4, color="black", background = "#ECECEC") %>%
+  column_spec(2:3, width="15em", background="white")
+  
+```
+
+Eine Übersicht weiterer Kurzbefehle für `R` finden wir in der Leiste ganz oben unter **Help > Keyboard Shortcuts Help** <font size="2">(nicht zu verwechseln mit dem Bereich [**Help**](#files-plots-packages-help-viewer), der uns Zugang zur Dokumentation verschafft)</font>.
+
+```{r, echo=FALSE}
+# weitere Shortcuts
+
+## Windows:
+# ganzen Code ausführen: **strg + alt + R** 
+# alle offenen Skripte speichern: **strg + alt + S**
+
+## Max:
+# alle offenen Skripte speichern: **Alt ⌥ + CMD ⌘ + S** a
+```
+
+
+---
+
+<font size="2">Um eine möglichst exakte Replikation der Funktionen zu gewährleisten gibt es im folgenden relevante Angaben zum System (**`R`-Version**, **Betriebssystem**, **geladene Pakete mit Angaben zur Version**), mit welchem diese Seite erstellt wurde.
+
+```{r}
+sessionInfo()
+```
+
+Für Informationen zur Interpretation dieses Outputs schaut auch den Abschnitt <a href="http://methods-berlin.com/wp-content/uploads/Pakete.html#replizierbarkeit-von-analysen" target="_blank">**Replizierbarkeit von Analysen**</a> des Kapitels zu Paketen an.
+</font>

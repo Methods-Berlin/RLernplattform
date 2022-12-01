@@ -1,0 +1,321 @@
+# Pakete
+
+Ein Grund, weshalb `R` von so vielen BenutzerInnen verwendet wird, ist, dass es sich hierbei um eine **Open Source Software** handelt. `R` ist für alle kostenlos, frei verfügbar und der Quellcode ist öffentlich. Dies ermöglicht es WissenschaftlerInnen und EntwicklerInnen auf der ganzen Welt, ständig neue Funktionen in `R` zu implementieren und diese mit anderen NutzerInnen über „Pakete“ zu teilen. Wenn wir diese neu entwickelten Funktionen, die nicht ohnehin grundlegend in `R` vorhanden sind <font size="2">(z.B. über die stets eingeladenen Pakete *base* und *graphics*)</font>, für unsere Analysen verwenden wollen, müssen wir die Pakete, welche die entsprechenden Funktionen beinhalten, installieren und laden. 
+
+> **_Hinweis_**: Pakete, die grundlegend in `R` enthalten sind, nennt man auch **Standard**- oder **Basispakete**.
+
+In diesem Abschnitt schauen wir uns am Beispiel des Pakets `psych` an, wie wir zusätzliche Pakete nutzen können. `psych` ist ein Paket, welches uns ermöglicht, in `R` Analysemethoden umzusetzen, die besonders häufig in psychologisch-empirischer Forschung eingesetzt werden (z.B. können wir mit der Funktion `alpha()` die interne Konsistenz von Items eines Tests mit verschiedenen Methoden schätzen).
+
+Um mit einem zusätzlichen Paket arbeiten zu können, muss dieses eimalig in `R` installiert werden. In jedem Skript, in welchem wir Funktionen aus dem Paket verwenden, müssen wir das Paket dann laden. Eine Analogie, die wir verwenden können, um uns diesen Ablauf besser vorzustellen, wäre, dass Pakete wie Bücher in einer Bibliothek verstanden werden können. Die Bücher müssen nur einmal gekauft werden (**Installation**), aber wir müssen sie vor jeder Nutzung aus dem Regal holen und aufschlagen (**Laden**). Pakete sollten weiterhin bei Bedarf aktualisiert werden, da EntwicklerInnen ständig daran arbeiten und versuchen, sie zu verbessern. 
+
+Im Folgenden wollen wir also am Beispiel des `psych`-Pakets nachvollziehen, wie Pakete installiert, geladen und aktualisiert werden können. Dabei schauen wir uns jeweils die zwei grundlegenden Möglichkeiten an: `Funktionen` ausführen *oder* die **grafische Benutzeroberfläche** von RStudio nutzen. Für beide Möglichkeiten benötigen wir eine **Internetverbindung** zum Herunterladen der Pakete. Am Ende des Kapitels befinden sich noch wichtige Hinweise zur Replizierbarkeit von Skripten und Analysen.
+
+## Was ist eine grafische Benutzeroberfläche?
+Die grafische Benutzeroberfläche, oder auch Benutzungsschnittstelle, wird häufig auch mit GUI (_**G**raphical **U**ser **I**nterface_) abgekürzt. Durch diese können wir mit der Maus auf Symbole und andere Steuerelemente klicken anstatt Funktionen in der Konsole auszuführen. Die grafische Benutzeroberfläche in  <span class ="r">**RStudio**</span> ist viel besser ausgebaut, weswegen wir diese auch nutzen wollen.
+
+## Was ist CRAN?
+CRAN steht für *The Comprehensive R Archive Network*. Von hier laden wir [`R`](https://cran.r-project.org/) sowie alle annerkannten Pakete herunterladen können. Wenn wir diese Pakete installieren oder aktualisieren, greift `R` automatisch auf CRAN zu.
+
+> __*Hinweis*__: Wenn wir versuchen, eine Funktion auszuführen, für welche wir das entsprechende Paket **noch nicht installiert _und/oder_ geladen** haben, erhalten wir eine **Fehlermeldung.**  Wir bekommen beispielsweise folgende Fehlermeldung, wenn wir die Funktion `alpha()` aus dem Paket `psych` nutzen wollen.
+
+```{r, out.width = "420px", echo=FALSE}
+knitr::include_graphics("figures/Pakete/Bilder/alpha.png")
+```
+
+## Pakete Installieren
+
+Zuerst einmal schauen wir uns an, wie wir diese zusätzlichen Pakete in `R` installieren können. Die meisten bekannten Pakete werden über **[CRAN](#cran)** zur Verfügung gestellt und können von dort heruntergeladen werden.
+
+Zur Installation von Paketen schauen wir uns beide Herangehensweisen, das Nutzen von Funktionen sowie der grafischen Benutzeroberfläche, an.
+
+**Vorweg**: Bei beiden Wegen wird uns nach erfolgreicher Installation folgender Output in der Konsole angezeigt:
+
+```{r, out.width = "600px", echo=FALSE}
+knitr::include_graphics("figures/Pakete/Bilder/install konsole.png")
+```
+
+
+### Über die Funktion `install.packages()`
+
+Wir können `psych` installieren, indem wir <span class="code">install.packages("<span class="ex">psych</span>", dependencies = TRUE)</span> ausführen. Hierbei ist darauf zu achten, dass wir den Namen des Pakets in **Anführungszeichen** setzen müssen. Mit `dependencies=TRUE` geben wir an, dass noch nicht installierte Pakete, welche von dem Zielpaket benötigt oder empfohlen werden, ebenfalls installiert werden sollen. 
+
+> __*Hinweis*__: Die Funktion `install.packages()` ist Bestandteil des Standardpakets **utils**.
+
+### Über das Icon <span style="color: #75AADC">Install</span> oder den Menüpunkt <span style="color: #75AADC">Install Packages...</span>
+
+Wir können das Paket auch installieren, indem wir im **Packages-Tab** auf das Icon **Install** ...
+
+```{r, out.width = "275px", echo=FALSE, fig.align='center'}
+knitr::include_graphics("figures/Pakete/Bilder/install button 1.png")
+```
+
+... oder in der Menüleiste am oberen Bildschirmrand auf **Tools** --> **Install Packages...** klicken.
+
+```{r, out.width = "700px", echo=FALSE, fig.align='center'}
+knitr::include_graphics("figures/Pakete/Bilder/install packages.png")
+```
+
+Nun öffnet sich ein neues Fenster, in welchem wir unter dem Reiter **Packages (...)** den Namen des Pakets eingeben können. Anschließen müssen wir noch auf das Icon **Install** klicken.
+
+```{r, out.width = "300px", echo=FALSE, fig.align='center'}
+knitr::include_graphics("figures/Pakete/Bilder/install button 2.png")
+```
+
+Mit dem Häkchen in dem Kästchen bei **Install Dependencies** werden von dem Zielpaket benötigte oder empfohlene bisher nicht installierte Pakete auch heruntergeladen.
+
+## Pakete Laden
+
+Nachdem wir das benötigte Paket installiert haben, müssen wir es noch laden. Nur dann können wir die im Paket enthaltenen Funktionen nutzen. Hierzu schauen wir uns wieder die beiden Herangehensweisen, über eine Funktion oder die grafische Benutzeroberfläche, an.
+
+**Vorweg**: Bei beiden Möglichkeiten erscheint nach erfolgreichem Laden des Pakets folgender Output in der Konsole:
+
+```{r, out.width = "105px", echo=FALSE}
+knitr::include_graphics("figures/Pakete/Bilder/laden konsole.png")
+```
+
+### Über die Funktion `library()`
+
+Wir können das Paket `psych` laden, indem wir <span class="code">library(<span class="ex">psych</span>)</span> ausführen. Hierbei ist es **nicht** wichtig, den Namen des Pakets in Anführungszeichen zu setzen. Wir können diese auch weglassen.
+
+> __*Hinweis*__: Die Funktion `library()` ist Bestandteil des Standardpakets **base.**
+
+Alternativ kann man auch die Syntax <span class="code"><span class="ex">paket</span>::<span class="ex">funktion()</span></span>, z.B. <span class="code"><span class="ex">psych</span>::<span class="ex">alpha()</span></span>, nutzen. Was dieser Weg für Vorteile hat, erfahren wir im Unterabschnitt [**Maskierung**](#maskierung-wenn-verschiedene-pakete-gleich-benannte-funktionen-enthalten).
+
+### Über das Häkchen-Setzen in der <span style="color: #75AADC">System Library</span>
+
+Alternativ können wir im **Packages-Tab** ein Häkchen bei dem Paket setzen, welches wir laden wollen. Um das gewünschte Paket schneller zu finden, können wir das Suchfeld nutzen.
+
+```{r, out.width = "275px", echo=FALSE, fig.align='center'}
+knitr::include_graphics("figures/Pakete/Bilder/laden button.png")
+```
+
+### **Maskierung**: Wenn verschiedene Pakete gleich benannte Funktionen enthalten
+
+Es kann vorkommen, dass Funktionen aus verschiedenen Paketen die gleiche Bezeichnung haben. Beispielsweise gibt es in **psych** und in **ggplot2** eine Funktion mit dem Namen `alpha()`. Wenn wir ein Paket laden, und vorher ein anderes Paket geladen wurde, in dem eine gleichnamige Funktion vorkommt, bekommen wir folgende Meldung in der Konsole ausgegeben:
+
+```{r, out.width = "350px", echo=FALSE}
+knitr::include_graphics("figures/Pakete/Bilder/mask.png")
+```
+
+Die Funktion des zuletzt eingeladenen Pakets wird mit dem gemeinsamen Funktionsnamen <font size="2">(hier: `alpha()` aus dem Paket **psych**)</font> aufgerufen. Die Funktion aus dem anderen Paket wird **maskiert**, d.h. wir können sie jetzt erstmal nicht mehr nutzen. 
+
+Nachfolgend schauen wir uns **drei Möglichkeiten an, Probleme mit dem Maskieren von Funktionen handzuhaben**: 1) deaktivieren und neu laden von Paketen, 2) eindeutige Referenzierung von Funktionen und 3) das Paket **conflicted** nutzen.
+
+Wenn wir die Funktion aus dem anderen Paket <font size="2">(**ggplot2**)</font> nutzen wollen, können wir das Paket erst deaktivieren und dann neu laden. Wir können Pakete deaktivieren, indem wir <span class="code">detach("package:<span class="ex">ggplot2</span>", unload = TRUE)</span> nutzen oder indem wir das [Häkchen neben dem Paket im **Packages-Tab** entfernen](#über-das-häkchen-setzen-in-der-system-library).
+
+Wenn wir das Paket mit der gewünschten Funktion laden, erhalten wir folgende Meldung.
+
+```{r, out.width = "350px", echo=FALSE}
+knitr::include_graphics("figures/Pakete/Bilder/mask 2.png")
+```
+
+Es handelt sich um die gleiche Meldung wie oben, nur das nun das Paket **ggplot2** als zweites Paket eingelesen wurde und entsprechend die Funktionen im Paket **psych** maskiert wurden.
+
+Eine Alternative zu dem Laden und Deaktivieren von Paketen ist die **exakte Referenzierung der Funktion auf das Paket** mittels `::`. Das schreiben wir zwischen das Paket und die Funktion z.B. <span class="code"><span class="ex">psych</span>::<span class="ex">alpha()</span></span> oder <span class="code"><span class="ex">ggplot2</span>::<span class="ex">alpha()</span></span>. So weiß `R` eindeutig, welche Funktion wir nutzen wollen.
+
+> __*Hinweis*__: Es kommt häufiger zu **Problemen bei der Ausführung der Funktionen** `filter()`, `select()` und `summarise()` aus dem Paket **dplyr**, wenn die Pakete **stats** (Basispaket; `filter()`), **MASS** (`select()`) oder **plyr** (`summarise()`) ebenfalls geladen sind. Die eindeutige Auswahl von Funktionen mittels `::` kann bestehende Probleme lösen. Mehr Informationen zur Problematik finden wir in diesem <a href="https://stackoverflow.com/questions/24202120/dplyrselect-function-clashes-with-massselect" target="_blank">Forumseintrag</a>.
+
+Außerdem können wir das Paket **conflicted** nutzen. Wenn wir dieses zu Beginn laden, wird uns jedes Mal, wenn wir eine Funktion nutzen wollen, die nicht eindeutig *einem* geladenen Paket zugeordnet werden kann, eine **detaillierte Fehlermeldung** ausgegeben. So können wir Probleme durch die Nutzung falscher Funktionen und/oder Ratlosigkeit bzgl. missverständlicher Fehlermeldungen vermeiden. Wir haben außerdem die Möglichkeit, einmalig bzw. für das gesamte Skript eine von mehreren gleichnamigen Funktionen festzulegen. Mehr Informationen zum Paket und dessen Anwendung finden wir <a href="https://www.tidyverse.org/blog/2018/06/conflicted/" target="_blank">hier</a>.
+
+
+## Pakete Aktualisieren
+
+Pakete werden von Zeit zu Zeit aktualisiert. Wir sollten hin und wieder überprüfen, ob es Updates für unsere installierten Pakete gibt. Das können wir wieder wahlweise mit Funktionen oder der grafischen Benutzeroberfläche machen.
+
+
+### Über die Funktion `update.packages()`
+
+Wir können `update.packages()` ausführen, und bekommen so für jedes Paket, für das eine aktuellere Version vorliegt, in der Konsole die Frage gestellt, ob wir dieses aktualisieren wollen. Mit `Yes` oder `No` bzw. deren Anfangsbuchstaben können wir antworten.
+
+> __*Hinweis*__: Die Funktion `update.packages()` ist Bestandteil des Standardpakets **utils**.
+
+```{r, out.width = "600px", echo=FALSE}
+knitr::include_graphics("figures/Pakete/Bilder/update function 1.png")
+```
+
+Es kann vorkommen, dass für einige der Pakete, die wir aktualisieren wollen, noch nicht die Binärcodes der aktuellsten Versionen der Pakete für unser Betriebssystem auf CRAN bereit gestellt wurde.
+
+```{r, out.width = "375px", echo=FALSE}
+knitr::include_graphics("figures/Pakete/Bilder/update function 2.png")
+```
+
+<details><summary class="mtitle q">Was sind Binär- und Quellcode?</summary><div class ="more">
+**Binärcode** ist eine Sprache, die zur Verarbeitung digitaler Informationen, d.h. von Rechnern, genutzt wird (Synonym: Maschinencode). Es heißt *binär* weil es zwei mögliche Zeichen gibt: 0 und 1. **Quellcode** bezeichnet für Menschen lesbare Programmiersprachen. Quellcode wird in Binärcode übersetzt und kann dann von Rechnern ausgeführt werden.
+</div></details>
+
+Wir können die jüngsten Binärcodes für die Pakete herunterladen oder die Quellcodes der aktuellsten Versionen kompilieren. Allerdings müssen wir dafür spezielle Tools in `R` installiert haben, welche man **unter Mac OS und einer älteren als <span class="r">R</span>-Version 4.0.0 zusätzlich herunterladen** muss <font size="2">(z.B. <a href="https://cran.r-project.org/bin/macosx/tools/" target="_blank">hier</a>)</font>. Wir können hier auch pauschal **nein** antworten. Es ist ausreichend dafür ein `n` in die Konsole zu tippen. Nach einiger Zeit sollten wir erneut versuchen, die aktuellste Version herunterzuladen, da dann häufig auch die Binärcodes zur Verfügung stehen. 
+
+### Über das Icon <span style="color: #75AADC">Update</span> oder den Menüpunkt <span style="color: #75AADC">Check for Package Updates...</span>
+
+Dazu können wir im **Packages-Tab** auf das Icon **Update** ... 
+
+```{r, out.width = "275px", echo=FALSE, fig.align='center'}
+knitr::include_graphics("figures/Pakete/Bilder/update 1.png")
+```
+
+... oder in der Menüleiste am oberen Bildschirmrand auf **Tools** --> **Check for Package Updates...** klicken.
+
+```{r, out.width = "700px", echo=FALSE, fig.align='center'}
+knitr::include_graphics("figures/Pakete/Bilder/check for package updates.png")
+```
+
+Damit öffnet sich ein neues Fenster, in dem all unsere Pakete angezeigt werden, für die es Aktualisierungen gibt. 
+
+```{r, out.width = "350px", echo=FALSE, fig.align='center'}
+knitr::include_graphics("figures/Pakete/Bilder/update 2.png")
+```
+
+Wir sehen hier welche Version eines Pakets wir haben <font size="2">(**Installed**)</font>, welche neuere Version verfügbar ist (**Available**) und welche Änderungen in der neueren Version vorgenommen wurden <font size="2">(**NEWS**)</font>. Bei letzterem müssen wir das jeweilige Seiten-Symbol klicken und werden auf eine Website verwiesen, in der eine Übersicht der Änderungen zu finden ist.
+
+Wenn wir alle Pakete aktualisieren wollen, wählen wir **Select All**. Dann müssen wir nur noch auf **Install Updates** klicken.
+
+Wenn wir Pakete, die wir installieren wollen, derzeit geladen haben, öffnet sich ein Fenster, in dem werden wir gefragt, ob wir `R` neustarten möchten bevor die gewählten Pakete installiert werden sollen. Wir sollten hier **Ja** anklicken.  Manchmal kann es vorkommen, dass uns dieses Fenster immer wieder angezeigt wird. Wenn das der Fall ist, sollten wir auf **Nein** klicken.
+
+```{r, out.width = "350px", echo=FALSE, fig.align='center'}
+knitr::include_graphics("figures/Pakete/Bilder/aktualisieren warnung.png")
+```
+
+```{r, echo=F, eval=FALSE}
+# Quelle: https://community.rstudio.com/t/meaning-of-common-message-when-install-a-package-there-are-binary-versions-available-but-the-source-versions-are-later/2431
+```
+
+Manchmal werden die Updates nicht einfach installiert, sondern der Vorgang wird unterbrochen und wir bekommen eine Meldung in der Konsole angezeigt.
+
+```{r, out.width = "600px", echo=FALSE}
+knitr::include_graphics("figures/Pakete/Bilder/update gui.png")
+```
+
+Wir werden auch hier darauf hingewiesen, dass für einige der Pakete, die wir aktualisieren wollen, noch nicht die Binärcodes der aktuellsten Versionen der Pakete für unser Betriebssystem auf CRAN bereit gestellt wurden.
+
+Wir sollen uns nun entscheiden, ob wir die betroffenen Pakete mit den Quellcodes der aktuellsten Versionen kompilieren wollen. Dafür müssen wir aber gewisse Tools in `R` implementiert haben, welche man mit Mac OS zusätzlich herunterladen muss <font size="2">(z.B. <a href="https://cran.r-project.org/bin/macosx/tools/" target="_blank">hier</a>)</font> Besser ist es, hier pauschal **nein** anzuwählen. Dafür reicht es auch, ein `n` in die Konsole zu tippen. Wir haben so aber nicht die aktuellste Version der Pakete und sollten in nächster Zeit erneut versuchen, diese zu aktualisieren. 
+
+### Entwicklerpakete runterladen
+
+```{r, echo=F, eval=FALSE}
+# https://www.datacamp.com/community/tutorials/r-packages-guide
+```
+
+Das Paket **devtools** enthält verschiedene Funktion zum Installieren von Paketen von verschiedenen Quellen <font size="2">(engl.: *repositories*, z.B. CRAN)</font>.
+
+Mit diesem können wir u.a. sogenannte **Entwicklerpakete** herunterladen. Das sind Pakete, die man nicht direkt von CRAN runterladen kann <font size="2">(z.B. weil die Dokumentation des Pakets und seiner Funktionen nicht den CRAN-Standards entspricht)</font>.
+
+Solche Entwicklerpakete können häufig von <a href="https://github.com" target="_blank">GitHub</a> runtergeladen werden. Zuerst müssen wir dafür das Paket **devtools** installieren. Dann müssen wir dieses laden und anschließend können wir das gewünschte Zielpaket herunterladen.
+
+```{r, echo=FALSE}
+library(devtools)
+```
+
+
+```{r, eval=FALSE}
+install.packages("devtools")
+library(devtools)
+
+# Beispiel: Paket horst
+install_github("kthorstmann/horst") # EntwicklerIn / Paket
+```
+
+Mit **devtools** kann man auch ältere Versionen von Paketen runterladen. Für mehr Informationen dazu siehe [Ältere Paket-Versionen installieren].
+
+## Wichtige Hinweise zur Replizierbarkeit
+
+### Replizierbarkeit von `R`-Skripten
+
+Wir haben beide Möglichkeiten, die Nutzung von Funktionen und die der grafischen Benutzeroberfläche vorgestellt, aber die Verwendung von **Funktionen** ist mit Hinblick auf die Replizierbarkeit von Skripten **zu bevorzugen**. Wenn man die grafische Benutzeroberfläche nutzt, findet man im Skript keine Hinweise darüber, welche Pakete genutzt wurden, d.h. <span class="code">library(<span class="ex">paket</span>)</span> erscheint *nur* in der Konsole und eben nicht im `R`-Skript.
+
+### Replizierbarkeit von Analysen
+
+Es ist sinnvoll, bei Analysen zu vermerken, mit welcher Version eines Pakets wir diese durchgeführt haben. Wenn sich die Funktionen eines Pakets durch Updates ändern, kann das auch die Ergebnisse unserer Analysen beeinflussen. Gleiches gilt auch für zu der Zeit genutzte Versionen von unserem Betriebssystem und von `R`.
+
+Mit der Funktion `sessionInfo()` aus dem Standardpaket **utils** bekommen wir viele wichtige Informationen auf einen Schlag:
+
+- <span style="color:#FF9B21">**`R`-Version**
+- <span style="color:#0533FF">**Betriebssystem-Version**</span>
+- <span style="color:#669C35">**geladene Pakete mit Angaben zur Version**</span>
+
+```{r, out.width = "700px", echo=FALSE}
+knitr::include_graphics("figures/Pakete/Bilder/sessionInfo.png")
+```
+
+> __*Hinweis*__: Hiermit werden nur Pakete gelistet, die mit `library()` oder mit Hilfe des GUIs geladen wurden. Wenn wir die eindeutige Zuweisung von Funktionen zu Paketen aus dem Abschnitt [Maskierung](#maskierung-wenn-verschiedene-pakete-gleich-benannte-funktionen-enthalten) nutzen z.B. <span class="code"><span class="ex">psych</span>::<span class="ex">alpha()</span></span>, werden unsere genutzten Pakete **nicht** gelistet. In diesem Fall müssten wir die Informationen zu den Versionen der Pakete selbst in Erfahrung bringen.
+
+Für noch detailliertere Informationen zu unseren geladenen Paketen können wir `session_info()` aus dem Paket **devtools** nutzen.
+
+Hier sehen wir z.B. bei **source** wo wir die Paket heruntergeladen haben <font size="2">(z.B. CRAN)</font> und bei **version** mit welcher `R`-Version wir sie erstellt haben <font size="2">(z.B. R 3.6.0)</font>.
+
+```{r, out.width = "350px", echo=FALSE, fig.align='center'}
+knitr::include_graphics("figures/Pakete/Bilder/session_info.png")
+```
+
+## Weitere Hilfen
+
+### Probleme mit Paketen und Funktionen
+
+Bei Problemen mit dem **Installieren bzw. Updaten oder Laden von Paketen** lohnt es sich, in unserem <a href="http://methods-berlin.com/de/r-lernplattform/faq-probleme-pakete" target="_blank">FAQ-Eintrag</a> nachzuschauen.
+
+Wenn wir bestimmte **Funktionen nicht ausführen können**, obwohl wir das notwendige Paket geladen haben, kann das auf [Maskierung](#maskierung-wenn-verschiedene-pakete-gleich-benannte-funktionen-enthalten) von gleichnamigen Funktionen aus verschiedenen geladenen Paketen zurückzuführen sein.
+
+
+### Ältere Paket-Versionen installieren
+
+Manchmal möchten wir ältere Versionen von Paketen nutzen. Das kann z.B. der Fall sein, wenn wir eine Analyse, die mit einer älteren Version eines Pakets durchgeführt wurde, replizieren möchten. [Hier](https://support.rstudio.com/hc/en-us/articles/219949047-Installing-older-versions-of-packages) finden wir eine Anleitung, wie wir dafür `devtools()` oder URLs nutzen können.
+
+## FAQ
+
+Manchmal kann es vorkommen, dass wir bestimmte Pakete nicht laden oder gar nicht erst installieren können. Dafür kann es vielfältige Ursachen geben. Im Folgenden schauen wir uns an, wie man das Problem (mit großer Wahrscheinlichkeit) lösen kann.
+
+*__Wir führen die folgenden drei Möglichkeiten der Reihe nach durch und überprüfen nach jeder Möglichkeit, ob wir das Paket schon nutzen können.__* \
+
+Wir schauen uns das exemplarisch für das Paket **car** an. Du änderst nur noch den Namen des Pakets bzw. der Pakete. Manchmal werden noch weitere Pakete - sog. _**dependencies**_ - geladen. Diese solltest du in die folgenden Lösungswege auch mit einbeziehen.
+
+---
+
+(@) <font color="#009193">**Die Pakete via Befehl deinstallieren und neu installieren**</font>
+
+`remove.packages('car')` bzw. `remove.packages(c('car', 'survey'))` \
+`install.packages('car', dependencies=TRUE)` \
+
+<aside>Hilfe bei der **Installation von Paketen** finden wir im gleichnamigen <a href="http://methods-berlin.com/de/r-lernplattform/pakete" target="_blank">Kapitel</a>.</aside>
+
+(@) <font color="#009193">**Die neuste `R`-Version von <a href="https://cran.r-project.org/" target="_blank">`R`</a> und/oder <a href="https://www.rstudio.com/products/rstudio/download/" target="_blank"><span style="font-family: Consolas,monaco,monospace;">RStudio</span></a> <font size="2">(hierbei die kostenlose Variante)</font> auf dem Computer installieren und dann versuchen, das Paket neu zu installieren bzw. Schritt 1 durchzuführen.**</font>
+
+Achte dabei auf die **Kompatibilität mit deiner Hardware und Software**. Unter Umständen kannst du vielleicht nicht die neueste Version installieren, aber eine neuere als deine aktuelle Version. Ältere Versionen von `R` finden wir auch unter obigem Link. Ältere Versionen von <span style="font-family: Consolas,monaco,monospace;">RStudio</span> finden wir <a href="https://support.rstudio.com/hc/en-us/articles/206569407-Older-Versions-of-RStudio" target="_blank">hier</a>. 
+
+<aside>Hilfe bei der **Installation von `R` und <span style="font-family: Consolas,monaco,monospace;">RStudio</span>** finden wir unserem <a href="http://methods-berlin.com/de/r-lernplattform/installation" target="_blank">Kapitel</a> dazu.</aside>
+
+(@) <font color="#009193">**Die Pakete deinstallieren und _manuell_ neu installieren**</font>
+
+`remove.packages('car')` bzw. `remove.packages(c('car', 'survey'))` \
+
+Das Paket bzw. die Pakete von <a href="https://cran.r-project.org/web/packages/available_packages_by_name.html" target="_blank">CRAN</a> als zip-Datei/en runterladen, dann öffnen <font size="2">(entpacken)</font>, den `R` Library Ordner lokalisieren <font size="2">(in dem werden alle `R`-internen Dateien gespeichert)</font> und den/die Paket-Ordner dorthin verschieben.
+
+
+### Entwicklerpakete
+
+Es gibt auch sog. **Entwicklerpakete**, die man nicht direkt von CRAN runterladen kann. Wie man diese installieren kann, schauen wir uns am Beispiel des Pakets **horst** an.
+
+Mit den im Paket **horst** enthaltenen Funktionen können wir u.a. den Modus einer Variablen oder Omega's W berechnen. <a href="https://github.com/kthorstmann/horst">Hier</a> finden wir eine Übersicht der enthaltenen Funktionen.
+
+Wenn man versucht Entwicklerpakete mit `install.packages()` herunterzuladen, bekommt man eine Fehlermeldung ausgegeben:
+
+```{r, out.width = "400px", echo=FALSE}
+knitr::include_graphics("figures/Pakete/Bilder/warning.png")
+```
+
+Entwicklerpakete erhält man zumeist direkt von den Entwicklern <font size="2">(z.B. als Zusatzmaterial in wissenschaftlichen Publikationen oder zum Download von persönlichen Webseiten)</font>. Häufig können Entwicklerpakete auch von <a href="https://github.com" target="_blank">GitHub</a> runtergeladen werden. Dazu müssen wir zunächst das Paket **devtools**, welches wir zum Herunterladen benötigen, installieren. Dann müssen wir dieses laden und anschließend können wir das gewünschte Zielpaket installieren.
+
+```{r, eval=FALSE}
+install.packages("devtools")
+library(devtools)
+install_github("kthorstmann/horst") # EntwicklerIn / Paket
+```
+
+---
+
+<font size="2">Um eine möglichst exakte Replikation der Funktionen zu gewährleisten gibt es im folgenden relevante Angaben zum System (**`R`-Version**, **Betriebssystem**, **geladene Pakete mit Angaben zur Version**), mit welchem diese Seite erstellt wurde.
+
+```{r}
+sessionInfo()
+```
+
+Für Informationen zur Interpretation dieses Outputs schaut auch den Abschnitt <a href="http://methods-berlin.com/wp-content/uploads/Pakete.html#replizierbarkeit-von-analysen" target="_blank">**Replizierbarkeit von Analysen**</a> des Kapitels zu Paketen an.
+</font>

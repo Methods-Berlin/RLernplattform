@@ -1,0 +1,2569 @@
+# Datenvorbereitung
+
+```{r,include=FALSE}
+library(dplyr)
+library(kableExtra)
+```
+
+
+Vor jeder statistischen Auswertung ist es notwendig, die Daten entsprechend der angestrebten Analyse aufzubereiten. Beispielsweise kann das beinhalten, Daten zusammenzuführen, zu extrahieren oder zu sortieren, aber auch Variablen umzukodieren oder transformierte Variablen zu erstellen.
+
+In diesem Kapitel wollen wir uns verschiedene Schritte der Datenvorbereitung anschauen. Wir nutzen dafür größtenteils Funktionen aus zwei verschiedenen Paketen: dem Standardpaket **base** und dem Zusatzpaket **dplyr**. Zweiteres laden wir mit `library(dplyr)`.
+
+Wir fangen mit grundsätzlichen Überprüfungen unserer der Daten an. Nachfolgend arbeiten wir uns in spezifischere Aufbereitungsbereiche vor, die wir in Abhängigkeit unserer geplanten Auswertung ggf. benötigen.
+
+<details class="bsp"><summary><a name="data"></a>Beispieldatensätze für dieses Kapitel</summary>
+Für das vorliegende Kapitel nutzen wir **mehrere Datensätze**, um die unterschiedlichen Verarbeitungsschritte zu demonstrieren.
+
+Den Datensatz <span class="highlight">airquality</span> werden wir am meisten nutzen. Dieser enthält Daten aus einer Untersuchung der **Luftqualität in New York**, die von Mai bis September des Jahres 1973 stattfand. Der Datensatz ist standardmäßig in <span class ="r">R</span> enthalten und wir bekommen ihn mit der Funktion `data()` in unser <span class ="r">R</span>-Environment:
+
+```{r}
+data(airquality)
+```
+
+```{r}
+head(airquality)
+```
+
+Der Datensatz enthält 6 Variablen:
+
+* `Ozone`: mittlere Ozonkonzentration in ppb *(parts per billion)*
+* `Solar.R`: Sonneneinstrahlung in <a href="https://de.wikipedia.org/wiki/Langley_(Einheit)" target="_blank">Langley (Einheit)</a>
+* `Wind`: durchschnittliche Windgeschwindigkeit in Meilen pro Stunde
+* `Temp`: maximale Temperatur in Grad Fahrenheit
+* `Month`: Monatsangabe als Zahl (1-12)
+* `Day`: Tagesangabe als Zahl (1-31)
+
+Mehr Informationen zum Datensatz finden wir <a href="https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/airquality.html" target="_blank">hier</a>.
+\
+
+
+Den Datensatz <span class="highlight">PWE_data</span>, welcher Daten einer **psychometrischen Erhebung** enthält, werden wir auch häufiger nutzen. Um den Datensatz und das Codebuch herunterzuladen, klicken wir auf diesen <a href="https://openpsychometrics.org/_rawdata/PWE_data.zip">Link</a>. Dann gehen wir in den Ordner **PWE_data** und lesen **data.csv** ein:
+
+```{r, eval=FALSE}
+library(readr) # zum Einlesen der csv-Datei
+PWE_data <- read_table("Dateipfad/data.csv")
+```
+
+```{r, echo=FALSE}
+library(readr)
+PWE_data <- read_table("data/PWE.csv")
+```
+
+```{r}
+names(PWE_data)
+```
+
+Der Datensatz enthält 102 Variablen. Einige davon schauen wir uns im Laufe des Kapitels noch genauer an. Im Codebook, welches sich ebenfalls im Ordner **PWE_data** befindet, finden wir eine Erklärung zu den Variablen. Mehr Informationen zum Erhebungsinstrument, der **P**rotestant **W**ork **E**thic Scale, finden wir in <a href="http://web.a.ebscohost.com/ehost/detail/detail?vid=5&sid=4c4ab98a-bce0-4d67-9d45-085c71a5a277%40sessionmgr4008&bdata=JnNpdGU9ZWhvc3QtbGl2ZQ%3d%3d#AN=1971-09987-001&db=pdh" target="_blank">Mirels & Garrett (1971)</a> <font size="2">(nur über HU-VPN zugänglich)</font>.
+
+> *__Achtung__*:  <div class="rows"> Im Abschnitt [Plausibilitäts-Check] werden die Kodierungen einiger Variablen noch korrigiert. Außerdem müssen die Werte der Variablen `Q9A`, `Q13A` und `Q15A` noch invertiert werden, da diese negativ gepolt sind. Das passiert im Abschnitt [Umkodieren].</div>
+
+<p style="line-height:10px;"></p>
+
+Die Datensätze <span class="highlight">vornamen_13</span> und <span class="highlight">vornamen_14</span> enthalten die **Vornamen der Neugeborenen in München**, jeweils für die Jahre 2013 und 2014. Diese werden wir nur für [**Datensätze zusammenführen**] nutzen.
+
+Zuerst laden wir die csv-Dateien für <a href="https://www.opengov-muenchen.de/dataset/6acc34a9-762e-4e7f-83b0-250654478134/resource/f47ec60f-8839-4e83-9c7c-492c8b17d7b5/download/vornamen-von-neugeborenen2013.csv" target="_blank">2013</a> und <a href="https://www.opengov-muenchen.de/dataset/582aac00-aa2d-4b00-ac90-c4e5be7fa485/resource/cebd2d67-94e6-4667-a850-415f863d3b10/download/vornamen-von-neugeborenen-2014.csv" target="_blank">2014</a> runter und lesen sie dann folgendermaßen in <span class ="r">R</span> ein:
+
+```{r, eval=FALSE}
+vornamen_13 <- read.csv("Dateipfad/vornamen-von-neugeborenen2013.csv")
+vornamen_14 <- read.csv("Dateipfad/vornamen-von-neugeborenen2014.csv")
+```
+
+```{r, echo=FALSE}
+vornamen_13 <- read.csv("data/vornamen-von-neugeborenen2013.csv")
+vornamen_14 <- read.csv("data/vornamen-von-neugeborenen-2014.csv")
+```
+
+```{r}
+head(vornamen_13)
+```
+
+```{r}
+head(vornamen_14)
+```
+
+Die Datensätze enthalten jeweils die gleichen 3 Variablen:
+
+* `vorname`: Vorname (kann doppelt vorkommen, wenn Name für beide Geschlechter gegeben wurde)
+* `anzahl`: Häufigkeit des Vornamens in diesem Jahr
+* `geschlecht`: (binäres) Geschlecht der Kinder mit diesem Vornamen
+
+</details>
+
+<p style="line-height:10px;"></p>
+
+> *__Achtung__*:  Es kommt häufiger zu **Problemen bei der Ausführung der Funktionen** `filter()`, `select()` und `summarise()` aus dem Paket **dpylr**, wenn die Pakete **stats** (Basispaket; `filter()`), **MASS** (`select()`) oder **plyr** (`summarise()`) ebenfalls geladen sind. Auch bei anderen gleichnamigen Funktionen aus verschiedenen geladenen Paketen kann es durch die sogenannte Maskierung zu Problemen kommen. Weil wir auch Pakete mit gleich benannten Funktionen nutzen, greifen wir teils auf die eindeutige Auswahl von Funktionen mittels `::` zurück. Für mehr **Informationen zum Maskieren** können wir im <a href="http://methods-berlin.com/wp-content/uploads/Pakete.html#maskierung-wenn-verschiedene-pakete-gleich-benannte-funktionen-enthalten" target="_blank">gleichnamigen Abschnitt</a> im Kapitel **Pakete** nachschauen. Mehr **Informationen zu dem speziellen Problem mit dpylr** finden wir in diesem <a href="https://stackoverflow.com/questions/24202120/dplyrselect-function-clashes-with-massselect" target="_blank">Forumseintrag</a>.</font>
+
+
+## Grundlegende erste Schritte
+
+Zuerst widmen wir unsere Aufmerksamkeit der Überprüfung wichtiger übergreifender Punkte der Datenvorbereitung. Diese sind: ob unser Datensatz als **[Dataframe]** vorliegt, ob unsere **[Daten plausibel](#plausibilitäts-check)** und **[fehlende Werte korrekt kodiert](#fehlende-werte)** sind, ob nominal- und v.a. ordinalskalierte Variablen **[faktorisiert](#faktorisieren)** sind, und ob wir unser bestehendes **[Tabellenformat ggf. ändern](#wide--und-long-format)** müssen. Die Schritte sind bereits in einer **sinnvollen Abfolge** angeordnet <font size="2">(z.B. ist es vorteilhaft, erst unplausible und fehlende Werte ausfindig zu machen und umzukodieren, bevor man Variablen faktorisiert)</font>.
+
+<font color="darkgrey">Optional können wir vorher unser Wissen zum Messen von Merkmalen und der korrekten Darstellung dieser in <span class ="r">R</span> auffrischen.</font>
+
+<span class="ex">Wir schauen uns nachfolgend nur die Datensätze **airquality** und **PWE_data** an.</span>
+
+### <font color="darkgrey">**Recap**: Kodierung von Daten</font>
+
+Generell wenn wir mit Daten arbeiten, ist es ratsam, sich zuallererst Gedanken darüber zu machen, welche Informationen wir diesen entnehmen können <font size="2">(**Messniveau**)</font> und ob sie so gespeichert sind, dass <span class ="r">R</span> sie richtig erkennt <font size="2">(**Datentypen und -strukturen**)</font>.
+
+Die nachfolgende Wiederholung ist eine verkürzte Variante des Abschnitts <a href="http://methods-berlin.com/wp-content/uploads/Einfuehrung_in_R.html#daten" target="_blank">Daten</a> aus dem Kapitel zu <a href="http://methods-berlin.com/de/r-lernplattform/einfuehrung_in_r" target="_blank">Einführung in <span class="r">R</span></a>.
+
+
+#### <font color="darkgrey">Messniveaus</font>
+
+```{r, echo=FALSE, eval=FALSE}
+#Die allgemeine Definition des Messens in der Sozialwissenschaft nach Stevens lautet:
+#> "Das Messen ist eine Zuordnung von Zahlen zu (Eigenschaften von) Objekten oder Ereignissen, sofern diese Zuordnung eine #homomorphe Abbildung eines empirischen Relativs in ein numerisches Relativ ist." (Orth, 1983, S. 138, zitiert nach Bortz & #Schuster, 2010, S. 16)
+#<aside>Bortz, J. & Schuster, C. (2010). *Statistik für Sozialwissenschaftler* (7. Aufl.). Heidelberg: Springer</aside>
+```
+
+Das Messniveau <font size="2">(oder auch Skalenniveau)</font> ist eine wichtige Eigenschaft von Merkmalen <font size="2">(Variablen)</font> von Untersuchungseinheiten. Es beschreibt, welche Informationen in unseren Messwerten abgebildet werden und damit auch welche mathematischen Transformationen mit den Messwerten sinnvoll sind  <font size="2">(z.B. das Berechnen von Mittelwerten)</font>. Somit begrenzt das Messniveau auch die zulässigen Datenauswertungsverfahren unserer Variablen.
+
+Die Kodierung von <span class="highlight">nominalskalierten</span> Merkmalen ist insofern willkürlich, als dass lediglich auf Gleichheit versus Ungleichheit geachtet werden muss <font size="2">(z.B. `1`, `4`, `9` *oder* `A`, `Y`, `M`)</font>.
+
+<aside>**Mögliche Unterscheidungen**:\
+Gleichheit/Ungleichheit</aside>
+
+<span class="ex">**airquality**: -\
+**PWE_data**: u.a.`school`, `urban`, `gender`</span>
+
+Die Kodierung von <span class="highlight">ordinalskalierten</span> Merkmalen geschieht der Größe nach, d.h. dass die Rangfolge der Kodierungen einzelner Gruppen relevant ist <font size="2">(z.B. `1` < `4` < `9` *oder* `A` < `M` < `Y`)</font>. Man kann aber auch eine eigene Sortierung festlegen, die nicht der "natürlichen" Rangfolge entspricht <font size="2">(z.B. `Y` < `A` < `M`)</font>. Ein Realschulabschluss ist beispielsweise besser als ein Hauptschulabschluss. Wir können aber nicht festlegen, *wie viel besser* er ist. 
+
+<aside>**Mögliche Unterscheidungen**:\
+Gleichheit/Ungleichheit\
+Rangordnung</aside>
+
+<span class="ex">**airquality**: -\
+**PWE_data**: `education`</span>
+
+Bei der Kodierung von <span class="highlight">intervallskalierten</span> Merkmalen sind sowohl die Rangfolge als auch die Abstände zwischen den Ausprägungen relevant <font size="2">(z.B. `1`, `4`, `7`; jeweils mit gleichem Abstand zueinander; *oder* `1.4`, `1.5`, `2.3`; jeweils mit verschiedenen Abständen zueinander)</font>. Ein Beispiel dafür ist die Temperatur in Grad Celsius oder Grad Fahrenheit.
+
+<aside>**Mögliche Unterscheidungen**:\
+Gleichheit/Ungleichheit\
+Rangordnung\
+Abstände</aside>
+
+<span class="ex">**airquality**: `Temp` <font size="2">(Temperatur in Grad Fahrenheit)</span>\
+**PWE_data**: u.a. Antworten (1-5) auf die Items des PWE (`Q1A`, ..., `Q19A`), Antworten (1-7) auf die Items des TIPI (`TIPI1`, ..., `TIPI10`)</font>
+
+Bei der Kodierung von <span class="highlight">verhältnisskalierten</span> Merkmalen ist zusätzlich noch ein Nullpunkt vorhanden. Dieser erlaubt es, dass Quotienten zwischen Werten gebildet werden können. Ein beliebtes Beispiel ist die Kelvin Skala. Bei dieser ist bei 0°K keine Bewegungsenergie mehr vorhanden und 20°K sind doppelt so viel wie 40°K.
+
+<aside>**Mögliche Unterscheidungen**:\
+Gleichheit/Ungleichheit\
+Rangordnung\
+Abstände\
+Verhältnisse</aside>
+
+<span class="ex">**airquality**: `Ozone`, `Solar.R`, `Wind`\
+**PWE_data**: `age`</span>
+
+Zu guter Letzt gibt es noch <span class="highlight">absolutskalierte**</font> Merkmale, welche sowohl einen eindeutigen Nullpunkt als auch eine eindeutige Einheit der Skala <font size="2">(z.B. Anzahl der Kinder)</font> vorweisen kann. Die Kodierung entsprcht der natürlichen Einheit.
+
+<span class="ex">**airquality**: -\
+**PWE_data**: `familysize`</span>
+
+Nachfolgend finden wir eine Tabelle der möglichen Unterscheidungen der jeweiligen Messiniveaus.
+
+```{r, echo=FALSE}
+# https://haozhu233.github.io/kableExtra/awesome_table_in_html.html#column__row_specification
+table <-
+  matrix(
+    c(
+      "X", "", "", "", "",
+      "X", "X", "", "", "",
+      "X", "X", "X", "", "",
+      "X", "X", "X", "X", "",
+      "X", "X", "X", "X", "X"
+    ),
+    nrow = 5,
+    ncol = 5,
+    byrow = T
+  )
+colnames(table) <- c("<span style=\"line-height:0.1;\">(Un-)\nGleichheit</span>", "Rangordnung", "Abstände", "Verhältnisse", "natürliche\nEinheit")
+rownames(table) <- c("Nominal", "Ordinal", "Intervall", "Verhältnis", "Absolut")
+
+kable(table, "html", escape = F) %>%
+  kable_styling(full_width = T) %>%
+  column_spec(2:6, width="7em") %>%
+  column_spec(1,        
+              bold = T,
+              color = "white",
+              background = "#009193") %>%
+  row_spec(0,  extra_css = "line-height:1.5;",
+           bold = T,
+           color = "white",
+           background = "#009193")
+```
+
+#### <font color="darkgrey">Datentypen und Datenstrukturen</font>
+
+> *__Achtung__*:  Die Unterteilung nach "Datentyp" und "Datenstruktur" sind getreu des <a href="https://cran.r-project.org/doc/manuals/r-release/R-intro.html" target="_blank">Manuals von <span class ="r">R</span></a>. Man stößt in anderen Quellen aber auch auf abweichende Unterteilungen bzw. Benennungen.
+
+
+```{r, echo=FALSE}
+# http://www.r-tutor.com/r-introduction/basic-data-types
+# basic datatypes:
+## numeric, integer, complex, logical, character
+
+# https://www.statmethods.net/input/datatypes.html
+# datatypes:
+## scalar, vector (numerical, character, logical), matrices, (arrays), dataframes, lists, factors
+## bei Luhmann 2013: als Objekttypen bezeichnet (leider hier keine richtige Einführung in Datentypen, nur bei Vektor eingehen auf numerisch und character)
+
+```
+
+Der <span class="highlight">Datentyp</span> gibt an, um was für Daten es sich handelt, d.h. welche **Werte**(bereiche) diese haben und welche **Operationen** wir auf sie anwenden können. Wir nutzen zumeist Zeichen, Wahrheitswerte und Zahlen. Diese werden in <span class ="r">R</span> als <span class ="r">**character**</span>, <span class ="r">**logical**</span>, <span class ="r">**integer**</span> und <span class ="r">**double**</span> gespeichert, wobei letztere beiden häufig als <span class ="r">**numeric**</span> zusammengefasst werden.
+
+Die <span class="highlight">Datenstruktur</span> bestimmt die **Organisation** und **Speicherung** von Daten(typen). In <span class ="r">R</span> gibt es z.B. <span class ="r">**Vektoren**</span>, <span class ="r">**Matrizen**</span>, <span class ="r">**Dataframes**</span>, <span class ="r">**Listen**</span> und <span class ="r">**Faktoren**</span>. Beispielsweise können <span class ="r">Vektoren</span> und Matrizen jeweils nur *einen* Datentypen enthalten, während <span class ="r">Dataframes</span> *mehrere* Datentypen enthalten können.
+
+Datentyp und -struktur sind ausschlaggebend dafür, welche Funktionen wir anwenden können bzw. welchen Output wir bekommen.
+
+* __Beispiel 1__:\
+Man kann nur mit <span class ="r">numeric</span> deskriptiv-statistische Kennwerte bilden.
+* __Beispiel 2__:\
+Wenn mir nominal- bzw. ordinalskalierte Daten **nicht** adäquat kodieren, kann es zu ungewollten Konsequenzen kommen.\
+<font size="2">Wenn wir z.B. eine Variable $X$ haben, welche eine Gruppenzugehörigkeit mit 1, 2 und 3 kodiert, und diese als Prädiktor in ein Regressionsmodell aufnehmen, dann wird $X$ als kontinuierliche Variable behandelt und wir würden keine separaten Schätzungen für die Mittelwertsdifferenzen der Gruppen bekommen.</font>
+
+Nachfolgend finden wir eine Übersicht zu den Möglichkeiten der Kodierung von Merkmalen mit verschiedenen Skalenniveaus.
+
+```{r, echo=FALSE}
+De <- rep("Datentyp:", 2)
+D <- c("<span style=\"font-family: Consolas,monaco,monospace;\">character</span>", "<span style=\"font-family: Consolas,monaco,monospace;\">numeric</span>")
+N <- c("X", "X$^1$")
+O <- c("X$^2$", "X$^2$")
+I <- c("", "X")
+V <- c("", "X")
+A <- c("", "X")
+
+table_kat <- data.frame(De, D, N, O, I, V, A)
+colnames(table_kat) <- c("", "", "Nominal-", "Ordinal-", 
+              "Intervall-", "Verhältnis-", "Absolut-")
+
+table_kat %>%
+  kable("html", align="c", escape=FALSE, table.attr = "style='width:100%;'") %>%
+  add_header_above(c("<span style=\"display:none;\">_</span>"=2 , "Art der Skala:" = 5), line=F, color = "white", background = "#009193", escape=FALSE) %>% 
+  kable_styling(full_width = T) %>%
+  row_spec(0, color = "white", background = "#009193") %>%
+  column_spec(1:2, bold=TRUE, color = "white", background = "#009193") %>%
+  collapse_rows(columns = 1, valign = "middle") %>%
+  footnote(general = "<font size=\"1\">$^1$ Faktorisieren (unordered factor) notwendig *wenn* keine Indikatorvariable(n) genutzt $^2$ Faktorisieren (ordered factor) notwendig</font>", general_title = "", escape = FALSE) 
+```
+
+Mit der Funktion `str()` können wir uns eine kompakte Übersicht der enthaltenen Variablen <font size="2">(d.h. ihr Datentyp bzw. die Datenstruktur <span class ="r">Faktor</span> sowie jeweils die ersten 10 Werte)</font> der Datenstruktur <font size="2">(hier: Dataframe)</font> ausgeben lassen. So können wir schauen, ob die Daten auch entsprechend ihres Messniveaus kodiert sind.
+
+```{r}
+str(airquality)
+```
+
+<span class="ex">Für den Beispieldatensatz **airquality** liegen die verhältnisskalierten Variablen `Ozone`,`Solar.R`, `Wind`, `Month` und `Day` korrekterweise als <span class ="r">integer</span> bzw. <span class ="r">numeric</span> vor. Die intervallskalierte Variable `Temp` liegt auch wie erwartet als <span class ="r">integer</span> vor <font size="2">(weil die Temperatur in Fahrenheit und nicht in Kelvin gemessen wurde ist die Variable nicht verhältnisskaliert)</font>.</span>
+
+<span class="ex">Für den Datensatz **PWE_data** schauen wir uns exemplarisch nur die letzten 15 Variablen an:</span>
+
+```{r}
+ls.str(PWE_data[,88:102])
+```
+
+Wir nutzen hier für **PWE_data** die Funktion `ls.str()`, weil der Output für ein <a href="https://tibble.tidyverse.org" target="_blank">Tibble Dataframe</a> so weniger ausführlich ist. Allerdings werden die Variablen mit dieser Funktion alphabetisch sortiert (im Gegensatz zu `str()`, welche die Variablen der Spaltennummerierung nach darstellt).
+
+<span class="ex">Wie wir sehen, liegen fast alle Variablen als <span class ="r">numeric</span> vor, obwohl viele nominalskaliert sind. So würden sie von <span class ="r">R</span> **nicht** entsprechend ihres Messniveaus behandelt werden. Wir müssen diese also entweder in <span class ="r">character</span> umwandeln oder faktorisieren <font size="2">(später mehr dazu)</font>.</span>
+
+
+### Dataframe
+
+```{r, echo=FALSE}
+# http://www.r-tutor.com/r-introduction/data-frame
+```
+
+Für viele Anwendungen in <span class ="r">R</span> <font size="2">(z.B. für das <a href="http://methods-berlin.com/de/r-lernplattform/grafiken-ggplot" target="_blank">Erstellen von Grafiken mit gglot2</a>)</font> ist es notwendig, dass der Datensatz als Dataframe vorliegt. Folgendermaßen können wir **prüfen**, ob ein Datensatz ein Dataframe ist:
+
+```{r}
+is.data.frame(airquality)
+is.data.frame(PWE_data)
+```
+
+<details><summary class ="mtitle q">Was genau ist ein Dataframe?</summary><div class="more">
+Ein Dataframe ist eine **Datenstruktur**, die es uns erlaubt, Daten tabellarisch zu speichern. Der Dataframe ist eine Liste aus Vektoren mit gleicher Länge. Listen können (im Gegensatz zu Matrizen) Variablen mit **unterschiedlichen Datentypen** speichern. 
+
+Mehr Informationen gibt es im vorhergehenden Abschnitt zu [<font color="darkgrey">Datentypen und Datenstrukturen</font>].
+
+```{r, echo=FALSE}
+# https://www.r-bloggers.com/matrix-vs-data-frame-in-r/
+```
+
+</div></details>
+
+<p style="line-height:10px;"></p>
+
+Falls unser Datensatz kein Dataframe ist, können wir ihn folgendermaßen **umwandeln**:
+
+```{r, eval=FALSE}
+airquality <- as.data.frame(airquality)
+```
+
+Die Funktion `as.data.frame()` enthält das Argument `stringsAsFactors`, mit dem wir bestimmen können, ob Zeichenketten (<span class ="r">character</span>) zu <span class ="r">Faktoren</span> umgewandelt werden sollen (`TRUE`). Falls wir **ordinalskalierte Daten** haben, müssen wir den <span class ="r">Faktor</span> dann aber noch zusätzlich ordnen. Generell ist es sinnvoll, erst **nach** der Überprüfung auf unplausible und fehlende Werte zu faktorisieren, damit eventuell vorhandene Fehlkodierungen nicht als Faktorstufen behandelt werden.
+
+
+### Plausibilitäts-Check
+
+Im nächsten Schritt lohnt es sich zu überprüfen, ob in den vorangegangen Schritten der Erhebung und Kodierung unserer Daten, Fehler passiert sind. Das ist wichtig damit wir solche Fehler nicht in unsere Analyse übertragen, wo sie sehr viel unwahrscheinlicher auffallen werden. Dafür überprüfen wir, ob die Messniveaus und Ausprägungen unserer interessierenden Variablen auch unseren Erwartungen entsprechen.
+
+Entweder man hat die Daten selbst erhoben und somit Wissen darüber, welche Werte möglich sind, oder man schaut sich die Dokumentation zu den Daten an.
+
+<span class="ex">Für den Datensatz **airquality** finden wir die Dokumentation <a href="https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/airquality.html" target="_blank">hier</a>.</span>
+
+<span class="ex">Konkretisieren wir einmal einen hypothetischen Fall an der Variable `Day`. Wir wissen, dass diese mit Zahlen von 1-31 kodiert sein kann. Es wäre also unplausibel, wenn andere Werte (z.B. 0 oder 32) vorliegen würden.</span>
+
+Das Auftauchen von unplausiblen Werten ist z.B. wahrscheinlicher, wenn Daten **manuell digitalisiert** (d.h. eingetippt) wurden (z.B. Paper-and-Pencil Tests). Gerade in diesen Fällen sollte man sicher gehen, und die Daten auf unplausible Werte hin überprüfen.
+
+Die Funktion `unique()` gibt uns einen Überblick über **alle enthaltenen Ausprägungen** eines Vektors. Wenn wir diese mit `sapply()` kombinieren, können wir das **für jede Variable im Datensatz anwenden**. Wenn wir den Output wiederum erneut an `sapply()` übergeben, und `sort()` anwenden, werden die **Ausprägungen aufsteigend sortiert** <font size="2">(weil der Default `decreasing = FALSE` ist)</font>, was die Überprüfung erleichtert. In `sort()` können wir außerdem `na.last=TRUE` nutzen, um uns das Vorhandensein von `NA`s am Ende der Ausprägungen anzeigen zu lassen.
+
+
+```{r, layout="l-body-outset"}
+sapply(sapply(airquality, unique), sort, na.last=TRUE)
+```
+
+
+Einen kompakten Überblick über die **Verteilung** der Variablen können wir mit der Funktion `summary()` bekommen. Hierbei interessieren uns vor allem die Extremwerte <font size="2">(Min. und Max.)</font>, d.h. der Range der Variablen, und die Missings <font size="2">(`NA`)</font>.
+
+```{r}
+summary(airquality)
+```
+
+<span class="ex">Insgesamt sehen die Daten plausibel aus. Für eine spezifischere Einschätzung der Wetter-Variablen (`Ozone`, `Solar.R`, `Wind` und `Temp`) könnte man sich zusätzlich Vergleichsdaten von anderen Erhebungen in einem ähnlichen Zeitraum und Gebiet anschauen.</span>
+
+<span class="ex">Für den Datensatz **PWE_data** schauen wir uns hier wieder nur einige Variablen an. Informationen zu den Variablen finden wir in der Codebook, welches sich im Ordner **PWE_data** befindet.</span>
+
+```{r, layout="l-body-outset"}
+sapply(sapply(PWE_data[,88:101], unique), sort)
+```
+
+<span class="ex">Es fällt auf, dass alle dargestellten Variablen (bis auf `age`), die Ausprägung `0` enthalten, obwohl diese im Codebook für diese Variablen **nicht** definiert ist. Auch für die anderen Variablen im Datensatz, mit Ausnahme von `VCL1`, ..., `VCL16`, gilt, dass `0` nicht als mögliche Ausprägung gegeben wird, obwohl sie vorhanden ist. Wir können daher annehmen, dass `0` *wahrscheinlich* eine alternative Kodierung für `NA` ist. Besser wäre es natürlich, wenn wir die Wissenschaftler*innen, welche die Daten erhoben haben, kontaktieren und nachfragen würden.</span>
+
+Wie wir sehen, geht die Überprüfung von plausiblen und fehlenden Werten häufig ineinander über. Werte, die außerhalb des Ranges der betrachteten Variable liegen, können eine Kodierung für fehlende Werte darstellen. 
+
+Wenn wir **unplausible Werte** in unseren Daten finden, können wir zu [**5. Kodierung ändern**] springen, und diese umkodieren. Wenn wir **fehlkodierte Missings** finden, können wir auch `case_when()` oder alternative Möglichkeiten aus dem Abschnitt <a href="http://methods-berlin.com/wp-content/uploads/2019/09/MD.html#sind-die-missings-einheitlich-kodiert" target="_blank">*Sind die Missings einheitlich kodiert?*</a> des Kapitels **Fehlende Werte** nutzen <font size="2">(z.B. die im Folgenden illustrierte Umkodierung des gesamten Datensatzes)</font>.
+
+<span class="ex">Weil wir in **PWE_data** sehr viele Variablen haben und es zu umständlich wäre, alle einzeln umzukodieren, kodieren wir erst im gesamten Datensatz `0` zu `NA` um, und ändern danach wieder die Kodierung für die Variablen `VCL1` bis`VCL16`.</span>
+
+```{r pwe na}
+# Umkodierung für gesamten Datensatz
+PWE_data[PWE_data == 0] <- NA
+
+# "Rückkodierung" für Variablen, die regulär 0 enthalten
+# library(dplyr)
+PWE_data$VCL1 <- case_when(is.na(PWE_data$VCL1) ~ 0, # Umkodierung von NA zu 0
+                           PWE_data$VCL1 == 1 ~ 1) # bleibt gleich
+PWE_data$VCL2 <- case_when(is.na(PWE_data$VCL2) ~ 0, PWE_data$VCL2 == 1 ~ 1)
+PWE_data$VCL3 <- case_when(is.na(PWE_data$VCL3) ~ 0, PWE_data$VCL3 == 1 ~ 1)
+PWE_data$VCL4 <- case_when(is.na(PWE_data$VCL4) ~ 0, PWE_data$VCL4 == 1 ~ 1)
+PWE_data$VCL5 <- case_when(is.na(PWE_data$VCL5) ~ 0, PWE_data$VCL5 == 1 ~ 1)
+PWE_data$VCL6 <- case_when(is.na(PWE_data$VCL6) ~ 0, PWE_data$VCL6 == 1 ~ 1)
+PWE_data$VCL7 <- case_when(is.na(PWE_data$VCL7) ~ 0, PWE_data$VCL7 == 1 ~ 1)
+PWE_data$VCL8 <- case_when(is.na(PWE_data$VCL8) ~ 0, PWE_data$VCL8 == 1 ~ 1)
+PWE_data$VCL9 <- case_when(is.na(PWE_data$VCL9) ~ 0, PWE_data$VCL9 == 1 ~ 1)
+PWE_data$VCL10 <- case_when(is.na(PWE_data$VCL10) ~ 0, PWE_data$VCL10 == 1 ~ 1)
+PWE_data$VCL11 <- case_when(is.na(PWE_data$VCL11) ~ 0, PWE_data$VCL11 == 1 ~ 1)
+PWE_data$VCL12 <- case_when(is.na(PWE_data$VCL12) ~ 0, PWE_data$VCL12 == 1 ~ 1)
+PWE_data$VCL13 <- case_when(is.na(PWE_data$VCL13) ~ 0, PWE_data$VCL13 == 1 ~ 1)
+PWE_data$VCL14 <- case_when(is.na(PWE_data$VCL14) ~ 0, PWE_data$VCL14 == 1 ~ 1)
+PWE_data$VCL15 <- case_when(is.na(PWE_data$VCL15) ~ 0, PWE_data$VCL15 == 1 ~ 1)
+PWE_data$VCL16 <- case_when(is.na(PWE_data$VCL16) ~ 0, PWE_data$VCL16 == 1 ~ 1)
+```
+
+<aside>\
+\
+\
+\
+Die Funktion `case_when()` wird im Abschnitt [**5. Kodierung ändern**] ausführlich erklärt.</aside>
+
+Nun schauen wir uns noch die Verteilungen der Variablen an.
+
+```{r}
+summary(PWE_data[,88:101])
+```
+
+<span class="ex">Hier sehen wir auch, dass für nominalskalierte Merkmale, wie z.B. `urban`, `orientation` und `married`, deskriptiv-statistische Kennwerte wie der Mittelwert gebildet werden <font size="2">(d.h. diese werden als mindestens intervallskaliert behandelt)</font>, weil sie als <span class ="r">numeric</span> vorliegen. Später werden wir diese noch [faktorisieren](#faktorisieren).</span>
+
+
+### Fehlende Werte 
+
+Generell werden fehlende Werte <font size="2">(Missings)</font> in <span class ="r">R</span> mit `NA` dargestellt. In anderen Programmen mag das anders sein <font size="2">(z.B. werden Missings in Unipark mit `99` oder `-99` kodiert)</font>. Wie im vorhergehenden Abschnitt demonstriert, überschneidet sich die Überprüfung von plausiblen und fehlenden Werten häufig.
+
+Neben der im letzten Abschnitt vorgestellten Varianten, Missings mit `summary()` zu finden, gibt es noch weitere Optionen.
+
+Beispielsweise können wir mit der Kombination von `colSums()` und `is.na()` spaltenweise Missings zählen.
+
+```{r}
+colSums(is.na(airquality))
+```
+
+
+```{r}
+colSums(is.na(PWE_data))
+```
+
+> *__Achtung__*:  Wenn wir Variablen mit Missings für unsere Analysen nutzen wollen, sollten wir **überprüfen, ob die Missings zufällig sind** und in Abhängigkeit davon unseren Umgang anpassen, um systematischen Verzerrungen der Analysen entgegenzuwirken.
+
+Einen ausführlichen Überblick zu Missings finden wir im Kapitel <a href="http://methods-berlin.com/de/r-lernplattform/fehlende-werte" target="_blank">**Fehlende Werte**</a>.
+
+
+### Faktorisieren
+
+<span class="ex">Wir schauen uns das Faktorisieren exemplarisch an zwei Variablen aus dem Datensatz **PWE_data** an:
+
+- nominalskaliert: `gender`
+  - *"What is your gender?"*: `1` = Male, `2` = Female, `3` = Other
+- ordinalskaliert: `education`
+  - *"How much education have you completed?"*: `1` = Less than high school, `2` = High school, `3` = University degree, `4` = Graduate degree.</span>
+
+<!-- Wir erstellen uns dafür eine Kopie des Datensatzes und arbeiten mit dieser weiter. -->
+
+<!-- ```{r} -->
+<!-- # Kopie des Datensatzes erstellen -->
+<!-- PWE_data <- PWE_data -->
+<!-- ``` -->
+
+Zuerst erstellen wir einen (neuen) **unsortierten <font size="2">(d.h. nominalskalierten)</font> Faktor**. Dafür benötigen wir nur die Funktion `factor()`, der wir den zu faktorisierenden Vektor übergeben.
+
+```{r}
+# faktorisieren (unsortiert)
+PWE_data$gender_uf <- factor(PWE_data$gender)
+```
+
+Nun erstellen wir einen (neuen) **sortierten <font size="2">(d.h. ordinalskalierten)</font> Faktor**. Dafür ergänzen wir das Argument `ordered=TRUE`.
+
+```{r}
+# faktorisieren (sortiert; natürliche Sortierung)
+PWE_data$education_of <- factor(PWE_data$education, ordered=TRUE)
+```
+
+Mit dem Argument `ordered=TRUE` wird eine Variable nach ihrer **"natürlichen" Rangfolge** sortiert. Bei Zahlen <font size="2">(<span class ="r">integer</span> und <span class ="r">numeric</span>)</font> bedeutet das, dass *größere* Zahlen eine *höhere* Hierarchieebene haben z.B. 1 < 2. Bei einzelnen Buchstaben und Zeichenketten <font size="2">(<span class ="r">character</span>)</font> bedeutet das, dass *später* im Alphabet auftauchende (Anfangs-)Buchstaben eine *höhere* Hierarchiebene haben z.B. "Hans" < "Rene".
+
+Manchmal wollen wir diese Sortierung aber nicht übernehmen, sondern eine **eigene Hierarchie** erstellen, die nicht der natürlichen Rangfolge entspricht. Das können wir machen, indem wir zusätzlich das Argument `levels` spezifizieren, dem wir einen Vektor mit unserer gewünschten Sortierung übergeben.
+
+```{r}
+# faktorisieren (sortiert; eigene "non-sense" Sortierung)
+PWE_data$education_of_s <- factor(PWE_data$education, ordered=TRUE,
+                                levels=c(1,4,2,3))
+```
+
+Abschließend vergleichen wir die ursprüngliche <span class ="r">numeric</span>-Variable (`education`) mit den unsortierten (`education_uf`) und sortierten (`education_of` und `education_of_s`) <span class ="r">Faktor</span>-Variablen.
+
+```{r}
+ls.str(PWE_data[,c(88, 90, 103:105)])
+```
+
+Wir sehen, dass alle Variablen des gleichen Merkmals zwar die **gleichen Werte** <font size="2">(**gender**: 1, 2, 3 und **education**: 1, 2, 3, 4)</font> haben, aber in **unterschiedlichen Datentypen bzw. -strukturen** <font size="2">(<span class ="r">numeric</span>, <span class ="r">factor</span>, <span class ="r">Ordered factor</span>)</font> und **teils unterschiedlichen Sortierungen** vorliegen.
+
+Außerdem sehen wir, dass die selbst sortierten Faktoren *intern* eine neue Kodierung bekommen haben <font size="2">(siehe `education_of_s`)</font>. Wir sehen diese nur mit `str()` bzw. `ls.str()`. Diese interne Kodierung richtet sich danach, wie die Faktorstufen sortiert sind. Die erste Ausprägung (nach der eigenen Sortierung) beginnt mit 1.
+
+
+### Wide- und Long-Format
+
+In Abhängigkeit unserer Daten und der Analyse, die wir durchführen wollen, ist es ggf. erforderlich, dass unsere Daten in ein anderes Tabellenformat überführt werden müssen. Es gibt das Wide- und das Long-Format.
+
+Die Unterscheidung von Wide- und Long-Format ist von Bedeutung, wenn unsere Daten eine genestete Struktur aufweisen, das heisst jeweils mehrere Messungen von derselben Untersuchungseinheit vorliegen <font size="2">(z.B. bei Längsschnitterhebungen, mehrere Ratern oder Schülern in Klassen)</font>.
+
+Im **Wide**-Format liegen Messungen *einer* Untersuchungseinheit in *einer* Zeile vor. Jeder Messzeitpunkt bzw. jede Messung ist eine eigene Variable.\
+
+
+<div style="text-align: center"><font size="2">**Beispiel 1 Wide-Format: Messzeitpunkte**</font></div>
+
+```{r, echo=FALSE}
+# library(dplyr)
+table_wide <- as.data.frame(matrix(c(1,2,4,5,3,2,1,3), nrow = 2))
+colnames(table_wide)<- c("Untersuchungseinheit", "t1", "t2", "t3")
+
+table_wide %>% mutate(
+  t1 = cell_spec(t1, background="grey"),
+  t2 = cell_spec(t2, background="grey"),
+  t3 = cell_spec(t3, background="grey")) %>% 
+  kable("html", align="c", escape=FALSE) %>%
+  row_spec(1, color="darkred") %>% 
+  row_spec(2, color="dodgerblue") %>%
+  kable_styling(position="center")
+```
+
+<aside>\
+<font color="darkred">Untersuchungseinheit 1</font>\
+<font color="dodgerblue">Untersuchungseinheit 2</font>\
+<span style=" border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: grey !important;" >Messwiederholung</span>\
+<span style=" border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lightgrey !important;" >Rater</span></aside>
+
+<div style="text-align: center"><font size="2">**Beispiel 2 Wide-Format: Rater**</font></div>
+
+```{r, echo=FALSE}
+table_wide <- as.data.frame(matrix(c(1,2,2,3,1,4,3,2), nrow = 2))
+colnames(table_wide)<- c("Untersuchungseinheit", "self", "friend", "parent")
+
+table_wide %>% mutate(
+  self = cell_spec(self, background="lightgrey"),
+  friend = cell_spec(friend, background="lightgrey"),
+  parent = cell_spec(parent, background="lightgrey")) %>% 
+  kable("html", align="c", escape=FALSE) %>%
+  row_spec(1, color="darkred") %>% 
+  row_spec(2, color="dodgerblue") %>%
+  kable_styling(position="center")
+```
+
+Im **Long**-Format liegen Messungen *einer* Untersuchungseinheit in *mehreren* Zeilen vor. Alle Messzeitpunkte bzw. Messungen von unterschiedlichen Ratern liegen in einer Variable vor und die Messzeitpunkte bzw. Rater werden in einer separaten Variable kodiert.
+
+<div style="text-align: center"><font size="2">**Beispiel 1 Long-Format: Messzeitpunkte**</font></div>
+
+```{r, echo=FALSE}
+# options(knitr.kable.NA = '')
+Untersuchungseinheit <- c(1,1,1,2,2,2)
+Zeitpunkt <- c(1,2,3,1,2,3)
+Messung <- c(4,3,1,5,2,3)
+table_long <- data.frame(Untersuchungseinheit, Zeitpunkt, Messung)
+
+table_long %>% mutate(Messung = cell_spec(Messung, background="grey")) %>% 
+  knitr::kable("html", align="c", escape=FALSE) %>% # escape=FALSE damit html-code geknittet wird
+  row_spec(1:3, color="darkred") %>% 
+  row_spec(4:6, color="dodgerblue") %>%
+  kable_styling(position="center", full_width = FALSE)
+```
+
+<div style="text-align: center"><font size="2">**Beispiel 2 Long-Format: Rater**</font></div>
+
+```{r, echo=FALSE}
+# options(knitr.kable.NA = '')
+Untersuchungseinheit <- c(1,1,1,2,2,2)
+Rater <- c("self","friend","parent","self","friend","parent")
+Messung <- c(2,1,3,3,4,2)
+table_long <- data.frame(Untersuchungseinheit, Rater, Messung)
+
+table_long %>% mutate(Messung = cell_spec(Messung, background="lightgrey")) %>% 
+  knitr::kable("html", align="c", escape=FALSE) %>% # escape=FALSE damit html-code geknittet wird
+  row_spec(1:3, color="darkred") %>% 
+  row_spec(4:6, color="dodgerblue") %>%
+  kable_styling(position="center", full_width = FALSE)
+```
+
+<span class="ex">Im Beispieldatensatz **PWE_data** gibt es keine wiederholte Messungen. Psychometrische und demographische Daten wurden **einmalig erhoben**. Hierfür gibt es **keine Notwendigkeit der Formatierung vom Long- ins Wide-Format oder vice-versa**.</span>
+
+<span class="ex">Im Beispieldatensatz **airquality** gibt es **wiederholte Messungen** der Untersuchungseinheiten (`Ozone`, `Solar.R`, `Wind` und `Temp`) zu unterschiedlichen Zeiten, die in `Month` und `Day` kodiert werden. Jede dieser Untersuchungseinheiten liegt in mehreren Zeilen vor. Es handelt sich folglich um einen Datensatz im Long-Format. Im Wide-Format hätten wir z.B. die Variablen `Ozone_5_1` <font size="2">(Monat 5, Tag 1)</font>, `Ozone_5_2` <font size="2">(Monat 5, Tag 2)</font>, ..., `Solar.R_5_1` <font size="2">(Monat 5, Tag 1)</font>, etc. **Je nachdem, wie wir die Daten auswerten wollen, ist es notwendig bzw. nicht notwendig, die Daten umzuformatieren**. </span>
+
+Im Kapitel zum <a href="http://methods-berlin.com/r-lernplattform/wide-und-long-format" target="_blank">**Wide- & Long-Format**</a> erfahren wir, wie wir beide Formate ineinander überführen können. Hierzu werden jeweils zwei Möglichkeiten vorgestellt: `reshape()` aus dem Standardpaket **stats** und `spread()` bzw. `gather()` aus dem Paket **tidyr**.
+
+
+## Datensätze zusammenführen
+
+<div style="text-align: center"><font size="2">**Synonyme**: Mergen, Fusionieren, Integrieren </font></div>\
+
+Nicht immer haben wir das Glück, dass die für uns relevanten Daten in einem gemeinsamen Dataframe vorliegen.
+
+Daher schauen wir uns nachfolgend an, wie man Dataframes zusammenführen kann. 
+
+Es gibt dabei zwei Szenarien, die man unterscheiden kann:
+
+- die **selben Variablen** von **verschiedenen Fällen**<font size="2">
+   - z.B. von einer erneuten Aufnahme von Personen in eine Studie
+   - hier werden die **Zeilen** "ergänzt"</font>
+- **verschiedene Variablen** von den **selben Fällen**<font size="2">
+   - z.B. wenn einzelne Abschnitte einer Studie (Tests, Fragebögen) in unterschiedlichen Datensätzen gespeichert wurden
+   - hier werden die **Spalten** "ergänzt"</font>
+
+Wir schauen uns wieder Funktionen aus zwei verschiedenen Paketen an: `merge()` aus dem Basispaket **base** und `bind_rows()` bzw. die `_join()`-Funktionen aus dem Zusatzpaket **dplyr**.
+
+<span class="ex">Wir nutzen dafür die **Datensätze `vornamen_13` und `vornamen_14`**, in denen die Vornamen der Neugeborenen in München, jeweils für die Jahre 2013 und 2014 enthalten sind. Diese Datensätze eignen sich für beide Szenarien, weil sowohl dieselben Variablen (`vorname`, `anzahl` und `geschlecht`) als auch dieselben Fälle <font size="2">(d.h. Vornamen)</font> in beiden Datensätzen vorkommen <font size="2">(z.B. `Maximilian`)</font>. Die Untersuchungseinheiten sind hier also nicht einzelne Personen, sondern Vornamen. Was bei der Untersuchung einzelner Personen die ID-Variable ist, ist hier die Variable `vorname`.</span>
+
+<aside>[Eingangs](#data) wurde gezeigt, wie wir diese Datensätze herunterladen.</aside>
+
+> *__Achtung__*:  Es kann sein, dass wir einen Dataframe **nach** dem Zusammenführen noch in ein anderes Format überführen müssen, um unsere Auswertung durchführen zu können (siehe **[Wide- und Long-Format]**).
+
+### Selbe Variablen, unterschiedliche Fälle
+
+Die beiden nachfolgend vorgestellten Funktionen unterscheiden sich bezüglich einiger Funktionalitäten.
+
+Ein wichtiger Unterschied ist, dass `merge()` beim Zusammenführen der Dataframes gleiche Fälle <font size="2">(d.h. Fälle mit gleichen Ausprägungen in den Variablen)</font> nur einmalig übernimmt <font size="2">(d.h. Dopplungen löscht)</font> während `bind_rows()` alle Fälle übernimmt, auch wenn sich diese doppeln.
+
+In Abhängigkeit der geplanten Nutzung der Daten sollten wir individuell entscheiden, welche Funktion wir nutzen wollen.
+
+<details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193">`merge()`</font></span></summary><p>
+
+Mit `merge()` können wir **zwei Dataframes**, deren Namen wir der Funktion übergeben, vertikal zusammenführen.
+
+Wir müssen dabei unbedingt `all = TRUE` spezifizieren, weil der Default (`all = FALSE`) nur Zeilen behält, die in beiden Dataframes mit genau der gleichen Ausprägung auf den Variablen vorhanden sind (und von diesen jeweils nur eine Version).
+
+<font size="2">Mit `all.x = TRUE` bzw. `all.y = TRUE` würden wir, neben den Fällen mit den gleichen Ausprägungen in beiden Datensätzen, auch alle **nur** im ersten bzw. zweiten Datensatz enthaltenen Fälle behalten.</font>
+
+```{r}
+vornamen_merge_row <- merge(vornamen_13, vornamen_14, all = TRUE)
+```
+
+Die Reihenfolge der Zeilen im gemeinsamen Dataframe richtet sich nach der **natürlichen Sortierung der ersten Variable (im zuerst übergebenen Datensatz)**. <span class="ex">Für unser Beispiel sind die Vornamen nach dem Alphabet <font size="2">(beginnend mit "A")</font> sortiert.</span>
+
+Mit der Funktion `dim()` können wir überprüfen, wie viele Zeilen und Spalten unser Dataframe beinhaltet.
+
+```{r}
+dim(vornamen_merge_row)
+```
+
+Hier sehen wir den eingangs erwähnten Unterschied von `merge()` und `bind_rows()`. `vornamen_13` beinhaltet `r nrow(vornamen_13)` und `vornamen_14` `r nrow(vornamen_14)` Zeilen. Insgesamt würden wir also `r nrow(vornamen_13) + nrow(vornamen_14)` erwarten. Die Funktion übernimmt aber bei komplett gleichen Fällen <font size="2">(d.h. gleichen Ausprägungen auf allen Variablen)</font> in den beiden Dataframes nur eine Version (so dass es keine Dopplung gibt). 
+
+Beispielsweise kommt folgender Fall in beiden Dataframes vor:
+
+```{r, echo=FALSE}
+vornamen_13[vornamen_13$vorname == "Aadhya",]
+```
+
+<aside>`vornamen_13`</aside>
+
+```{r, echo=FALSE}
+vornamen_14[vornamen_14$vorname == "Aadhya",]
+```
+
+<aside>`vornamen_14`</aside>
+
+So verschwindet die gleiche Anzahl an Fällen, die wir mit dem Default-Verhalten der Funktion (`all = FALSE`) behalten hätten.
+
+> *__Achtung__*:  Wir sollten mit `merge()` demnach auch **nur Dataframes zusammenführen, die genau dasselbe Set an Variablen haben** <font size="2">(d.h. ein Dataframe sollte nicht noch eine zusätzliche Variable besitzen)</font> **oder wir sollten eine ID-Variable haben, deren IDs nur einmal vorkommen** <font size="2">(sowohl innerhalb eines Dataframes als auch zwischen den Dataframes)</font>. Sonst kann es zum ungewollten Nicht-Übernehmen von Fällen kommen. 
+
+Schauen wir uns das Problem an einem Beispiel an:
+
+Nehmen wir an, dass ein Dataframe `x` eine zusätzliche Variable `a` hat. Für die Fälle des anderen Dataframe `y` würden auf `a` im zusammengeführten Objekt nur fehlende Werte (`NA`) stehen. So würde die Funktion solche Fälle (im Vergleich der beiden Dataframes), die bis auf die Variable `a` die gleichen Ausprägungen haben, nicht übernehmen.
+
+`x` und `y` haben jeweils drei Fälle. `x` hat drei Variablen; `y` hat zwei.
+
+```{r, echo=FALSE}
+x <- data.frame(c = c(5,6,7), b = c(5,6,7), a = c(5,6,7))
+y <- data.frame(c = c(5,7,6), b = c(7,5,6))
+```
+
+```{r}
+x
+```
+
+```{r}
+y
+```
+
+```{r}
+merge_xy <- merge(x, y, all = TRUE) 
+merge_xy
+```
+
+Man könnte denken, dass 6 Fälle in `merge_xy` zu finden sind. Weil aber jeweils ein Fall (`x`: Zeile 2; `y` Zeile 3) bis auf `a` die gleichen Ausprägungen in den beiden Dataframes hat, wird dieser nicht mit übernommen.
+</p></details>
+
+<p style="line-height:10px;"></p>
+
+<details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193">`bind_rows()`</font></span></summary><p>
+
+```{r, echo=FALSE}
+# https://psyr.org/manipulating-data.html#1661_binding
+```
+
+Der Funktion `bind_rows()` übergeben wir einfach die Dataframes, die wir vertikal aneinander reihen wollen. Die **Reihenfolge der übergebenen Dataframes** entscheidet dabei auch über die Reihenfolge der Zeilen des zusammengeführten Dataframes <font size="2">(z.B. erst alle Zeilen von `vornamen_13`, dann von `vornamen_14`)</font>.
+
+Optional können wir der Funktion das Argument `.id` übergeben, mit dem wir eine ID-Variable erstellen, welche die Datensätze kodiert <font size="2">(beginnend mit 1)</font>.
+
+```{r}
+# library(dplyr)
+vornamen_bind <- bind_rows(vornamen_13, vornamen_14, .id = "id")
+```
+
+```{r, echo=FALSE}
+library(knitr)
+kable(vornamen_bind[c(1,4013),])
+```
+
+<font size="2">Hier sehen wir die ID-Variable. Von den Zeilen 1 bis 4012 ist diese `1`; von den Zeilen 4012 bis 8044 ist sie `2`.</font>
+
+Es ist auch möglich, der Funktion  **mehr als zwei Dataframes** zu übergeben, welche in einem gemeinsamen Dataframe gespeichert werden.
+
+Wir können beliebig viele Dataframes mit `bind_rows()` zusammenführen, solange diese **mindestens eine gemeinsame Variable** haben.
+
+Zur Überprüfung schauen wir uns mit `dim()` wieder die Anzahl der Zeilen und Spalten an.
+
+```{r}
+dim(vornamen_bind)
+```
+
+Die Anzahl der Zeilen stimmt mit der Summe der Zeilen von `vornamen_13` und `vornamen_14` überein, d.h. es wurden alle Fälle übernommen.
+</p></details>
+
+<p style="line-height:10px;"></p>
+
+### Unterschiedliche Variablen, selbe Fälle
+
+Im Gegensatz zu `merge()` und `bind_rows()` unterscheiden sich `merge(..., by)` und die `_join()`-Funktionen nicht in ihrer Funktionalität, sondern nur in der Reihenfolge der Fälle im zusammengeführten Dataframe.
+
+Allerdings kann man die `_join()`-Funktionen auch alternativ zu `bind_rows()` nutzen. Dann unterscheidet sich das Ergebnis im Vergleich zu `merge()` auch lediglich in der Reihenfolge der Fälle. Mehr Infos dazu finden wir im Abschnitt [`_join()`].
+
+
+<details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193">`merge(..., by)`</font></span></summary><p>
+
+Die Funktion `merge()` können wir auch nutzen, um Spalten aneinander zu heften.
+
+Mit dem Argument `by` geben wir an, welche ID-Variable die (selben) Fälle kodiert.
+
+Wenn es unterschiedliche Benennungen der gleichen ID-Variablen in den beiden Datensätzen gibt, müssen wir `by.x` und `by.y` nutzen. Die Benennung von `by.x` wird dann übernommen.
+
+<font size="2">`x` und `y` spielen auf die Reihenfolge an, in welcher wir die Datensätze an die Funktion `merge()` übergeben. `x` ist der zuerst übergebene Datensatz; `y` der als zweites übergebene.</font>
+
+Wir wollen auch hier wieder die Daten aus beiden Dataframes übernehmen, und geben das mit `all = TRUE` an. 
+
+<font size="2">Wir könnten aber hier ebenso `all.x = TRUE` bzw. `all.y = TRUE` oder `all = FALSE` nutzen.</font>
+
+```{r}
+vornamen_merge_col <- merge(vornamen_13, vornamen_14, by = "vorname", all = TRUE)
+```
+
+```{r}
+dim(vornamen_merge_col)
+```
+
+
+Nun schauen wir uns einmal die (ersten 6 Fälle der) neu erstellten Variablen an.
+
+```{r, echo=FALSE}
+library(knitr)
+kable(head(vornamen_merge_col))
+```
+
+<details><summary class ="mtitle q">Wie kommt man auf die Anzahl der Fälle $N = 6371$?</summary><div class="more">
+In den beiden Dataframes `vornamen_13` und `vornamen_14` wurden genau die gleichen drei Variablen (`vorname`, `anzahl` und `geschlecht`) erhoben. Wenn wir die beiden zusammenführen, können **drei unterschiedliche Szenarien** mit Hinblick auf `vorname` und `geschlecht` auftreten. 
+
+Nachfolgend schauen wir uns jeweils ein Beispiel sowie die Anzahl der Fälle dieser Szenarien an.
+
+1. `vorname` und `geschlecht` sind in beiden Dataframes **gleich**
+
+```{r, echo=FALSE}
+vornamen_merge_col[6,]
+```
+
+
+```{r}
+nrow(vornamen_merge_col[which(
+  vornamen_merge_col$geschlecht.x == vornamen_merge_col$geschlecht.y),])
+```
+
+
+2. `geschlecht` bei `vorname`  **unterscheidet sich** zwischen den Dataframes
+
+```{r, echo=FALSE}
+vornamen_merge_col[38,]
+```
+
+
+```{r}
+nrow(vornamen_merge_col[which(
+  vornamen_merge_col$geschlecht.x != vornamen_merge_col$geschlecht.y),])
+```
+
+3. `vorname` und `geschlecht` eines Falles sind **nur in einem Dataframe** enthalten (für die Daten des anderen sind `NA`s angegeben)
+
+```{r}
+vornamen_merge_col[2,]
+```
+
+
+```{r}
+colSums(is.na(vornamen_merge_col)) # spaltenweise Missings gezählt
+```
+
+*Wir können uns hier nur die Missings in den einzelnen Spalten anschauen, um die Häufigkeiten für dieses Szenario zu bekommen, weil es vorher in den einzelnen Dataframes keine Missings gab.*
+
+Wenn wir nun alle Werte aufsummieren, kommen wir auf die Anzahl der Zeilen im gemeinsamen Dataframe:
+
+```{r}
+1672 + 112 + 2305 + 2282
+```
+</div></details>
+</p></details>
+
+<p style="line-height:10px;"></p>
+
+<details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193">`_join()`</font></span></summary><p>
+
+```{r, echo=FALSE}
+# https://psyr.org/manipulating-data.html#1662_joining
+```
+
+Die `_join()`-Funktionen aus **dplyr** sind danach differenziert, welche Daten wir aus den Datensätzen übernehmen möchten. <font size="2">Diese Unterscheidung ist analog zu dem Argument `all` in `merge()`.</font>
+
+Für Daten aus beiden Datensätzen nutzt man `full_join()`.
+<font size="2">Analog zu `all = TRUE` in `merge()`.</font>
+
+Für Daten aus dem ersten bzw. zweiten Datensatz und den überlappenden Fällen nutzt man `left_join()` bzw. `right_join()`.
+<font size="2">Analog zu `all.x = TRUE` bzw. `all.y = TRUE` in `merge()`.</font>
+
+Für Daten, die in beiden Datensätzen überlappen nutzt man `inner_join()`.
+<font size="2">Analog zu `all = FALSE` in `merge()`.</font>
+
+```{r}
+# library(dplyr)
+vornamen_join <- full_join(vornamen_13, vornamen_14, by="vorname")
+```
+
+Nun überprüfen wir wieder die Dimensionen des neu erstellten Dataframes.
+
+```{r}
+dim(vornamen_join)
+```
+
+Wir sehen, dass der mit `full_join(..., by = "vorname")` zusammengeführte Datensatz genau die gleichen Dimensionen hat wie der mit `merge(..., by = "vorname", all = TRUE)` zusammengeführte. Die beiden Funktionen unterscheiden sich nur in der Sortierung der Fälle <font size="2">(welcher Dataframe zuerst eingegeben wurde vs. natürliche Sortierung der Fälle)</font>.
+
+<details><summary class="mtitle">`full_join()` als Alternative zu `bind_rows()`</summary><div class="more">
+Mit `full_join(x, y)` bekommen wir (bis auf die Sortierung der Fälle) das gleiche Ergebnis wie bei `merge(x, y, all = TRUE)`
+
+```{r}
+vornamen_join_row <- full_join(vornamen_13, vornamen_14)
+```
+
+Zur Demonstration der Übereinstimmung schauen wir uns die Dimensionen und den Aufbau des Dataframes (am Beispiel der ersten 6 Zeilen) an. 
+
+```{r}
+dim(vornamen_join_row)
+```
+
+```{r, echo=FALSE}
+library(knitr)
+kable(head(vornamen_join_row))
+```
+
+```{r}
+dim(vornamen_merge_row)
+```
+
+```{r, echo=FALSE}
+kable(head(vornamen_merge_row))
+```
+</div></details>
+</p></details>
+
+<p style="line-height:10px;"></p>
+
+## Daten extrahieren
+
+<div style="text-align: center"><font size="2">**Synonyme**: Splitten, Subsetten, Filtern, Selektieren, Extrahieren</font></div>\
+
+Manchmal möchten wir nur bestimmte Variablen bzw. bestimmte Fälle aus einem Datensatz betrachten. Generell bietet es sich an, dafür **reguläre Ausdrücke** <font size="2">(<a href="https://rstudio.com/wp-content/uploads/2016/09/RegExCheatsheet.pdf" target="_blank">*regular expressions*</a> z.B. die Metacharactere `.*`, `|`, `^` und `$`)</font> und **logische Operatoren** <font size="2">(*logical operators* z.B. `>`, `<` und `==`)</font> zu nutzen. 
+
+Wie wir Variablen (Spalten) und Fälle (Zeilen) selektieren und in einem neuen Dataframe speichern können, schauen wir uns nun an.
+
+
+```{r, echo=FALSE}
+# SUBSET AUS BASE NOCH AUFNEHMEN? 
+# https://www.statmethods.net/management/subset.html
+
+# subset(daten, select=x): Auswahl einer bestimmten Variablen
+# subset(daten, subset=(variable==x)): Auswahl bestimmter Personen
+```
+
+
+### Variablen
+
+Wenn wir nur einige Variablen aus einem bzw. aus mehreren Datensätzen benötigen, können wir diese mit verschiedenen Möglichkeiten entnehmen. Im Folgenden schauen wir uns dafür Möglichkeiten aus dem Standardpacket **base** und dem Zusatzpaket **dplyr** an.
+
+Unten befindet sich eine Übersicht, der wir entnehmen können, welche Methode wir wählen sollten in Abhängigkeit davon, ob die Variablen, die wir extrahieren wollen, ähnlich oder unterschiedlich sind.
+
+```{r, echo=FALSE}
+# https://haozhu233.github.io/kableExtra/awesome_table_in_html.html#column__row_specification
+library(kableExtra)
+library(dplyr)
+table <- matrix(c("`grep()`", "`$`, `select()`",
+                  "z.B. enthalten den Buchstaben 'o':\n`Ozone`, `Solar.R`, `Month`", "z.B. `Month` und `Day`"), nrow = 2, ncol = 2, byrow=T)
+colnames(table) <- c("... sich ähnlich", "... unterschiedlich")
+
+kable(table, table.attr = "style='width:100%;'") %>%
+  add_header_above(c("Die Variablennamen sind ..."=2), line=F, color = "white", background = "#009193") %>%
+  kable_styling(full_width = TRUE) %>%
+  row_spec(2, font_size = 10) %>%
+  row_spec(0, bold = T, color = "white", background = "#009193") 
+```
+
+<details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193"><a name="grep"></a>`grep()`</font></span></summary><p>
+
+Wenn Variablen eines Datensatzes eine **Gemeinsamkeit** <font size="2">(z.B. einen gemeinsamen Wortstamm)</font> aufweisen, können wir diese mit der Funktion `grep()` extrahieren.
+
+<div style="text-align: center"><span class="code">grep(pattern, names(<span class="ex">Datensatz</span>))</span></div>\
+Die Funktion durchsucht die Namen der Variablen eines Dataframes - <span class="code">names(<span class="ex">Datensatz</span>)</span> - nach bestimmten Zahlen- oder Zeichenketten (`pattern`). Diese müssen wir in `" "` angeben <font size="2">(weil Variablennamen als Character gespeichert werden)</font>. 
+
+```{r, echo=FALSE}
+# hier egal ob value=F oder T, man kann beides auf Dataframe anwenden
+```
+
+<span class="ex">Wir wollen beispielshalber alle Variablen extrahieren, die **irgendwo** ein **o** im Namen haben.</span>
+
+```{r}
+# Selektion der Namen
+var_mit_o <- grep(pattern="o", names(airquality)) 
+
+# Anwenden der Selektion auf den Dataframe
+df_var_mit_o <- airquality[var_mit_o]
+```
+
+```{r, echo=FALSE}
+library(rmarkdown)
+paged_table(df_var_mit_o, options(rows.print=5))
+```
+
+Mit dieser Methode haben wir gleich den Vorteil, dass die Namen der Variablen im neuen Datensatz gleich denen im ursprünglichen Datensatz ist.
+
+Wir können unsere Suche mit `grep()` auch noch spezifischer machen, indem wir die **regulären Operatoren** nutzen. Mit `^o` suchen wir Variablen, die mit einem "o" **beginnen**; mit `o$` jene die mit "o" **enden**. Mit `^o|o$` suchen wir Variablen, die entweder mit einem "o" beginnen **oder** enden. Ein Beispiel dazu finden wir im Abschnitt [Fälle mit `grep()` extrahieren](#grep2). Mit `^o.*o$` suchen wir Variablen, die mit einem "o" beginnen **und** enden.
+</p></details>
+
+<p style="line-height:10px;"></p>
+
+<details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193"><a name="dollar"></a>`$`</font></span></summary><p>
+
+Einzelne Variablen, die **keine Gemeinsamkeit** (z.B. einen gemeinsamen Wortstamm) aufweisen, kann man mit dem `$`-Operator extrahieren. 
+
+Diesen wendet man an, indem man die Form <span class="code"><span class="ex">Data Frame</span>$<span class="ex">Variable</span></span> nutzt. Die Variablen können folglich aus unterschiedlichen Datensätzen stammen, da wir jede Variable jeweils neu ansprechen müssen.
+
+<span class="ex">Wir entnehmen die Variablen `Wind` und `Ozone` und speichern diese in einem neuen Dataframe.</span>
+
+```{r}
+df_wind_ozone <- data.frame(airquality$Wind, airquality$Ozone)
+```
+
+```{r, echo=FALSE}
+paged_table(df_wind_ozone, options(rows.print=5))
+```
+
+
+Mit dieser Methode haben wir den Nachteil, dass die Variablen im neu erstellten Dataframe nicht mit ihrem ursprünglichen Namen, sondern in der Form <span class="code"><span class="ex">Datensatz.Variable</span></span> benannt sind.
+
+Wir können den Variablen z.B. <span class="code">colnames(<span class="ex">Datensatz</span>) <- c("<span class="ex">Var1</span>", "<span class="ex">Var2</span>", ...)</span> wieder ihren ursprünglichen (oder einen neuen) Namen geben.
+</p></details>
+
+<p style="line-height:10px;"></p>
+
+<details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193"><a name="select"></a>`select()`</font></span></summary><p>
+
+Die Funktion `select()` kann unterschiedliche Variablen aus dem selben Dataframe extrahieren. Sie ist dabei kompakter zu handhaben als die Extraktion mit `$`.
+
+Man übergibt der Funktion zuerst den Dataframe und anschließend die Namen der Variablen, welche man extrahieren möchte. Man kann diese sogar gleich umbenennen.
+
+<span class="ex">Wir erstellen einen neuen Dataframe mit den Variablen `Month` und `Day`. Die Variable `Month` werden wir zu `Mon` umbenennen.</span>
+
+```{r}
+# library(dplyr)
+df_month_day <- select(airquality, 
+                       Mon = Month, # neuer Name = alter Name
+                       Day)
+```
+
+```{r, echo=FALSE}
+library(rmarkdown)
+paged_table(df_month_day, options(rows.print=5))
+```
+
+Wenn wir **bis auf einige wenige Variablen alle** übernehmen wollen, können wir das realisieren, indem wir jeweils ein `-` vor die ungewollten Variablennamen setzen. Wenn der ersten Variable, die wir `select()` übergeben, ein `-` vorangestellt wurde, übernimmt die Funktion **alle** Variablen mit Ausnahme jener, die mit `-` angegeben werden.
+
+<span class="ex">Schauen wir uns das für den Fall an, dass wir `Month` und `Day` aus dem Dataframe entfernen wollen.</span>
+
+```{r}
+# library(dplyr)
+df_without_month_day <- select(airquality, 
+                       -Month, 
+                       -Day)
+```
+
+```{r, echo=FALSE}
+library(rmarkdown)
+paged_table(df_without_month_day, options(rows.print=5))
+```
+
+</p></details>
+
+<p style="line-height:10px;"></p>
+
+#### Datums-Variablen splitten
+
+```{r, echo=FALSE}
+# https://psyr.org/manipulating-data.html#163_splitting_a_variable
+```
+
+Für den Fall, dass wir eine Datums-Variable in unserem Datensatz haben, welche in einem für uns unangemessenen Format vorliegt, können wir diese mit dem Paket **lubridate** umformatieren. Auf dieser <a href="https://psyr.djnavarro.net/manipulating-data.html#165_processing_dates" target="_blank">Seite</a> wird der Umgang mit den im Paket enthaltenen Funktionen `ymd()` und `mdy()` erklärt.
+
+### Fälle
+
+Wir schauen uns nachfolgend einige Möglichkeiten der Extraktion von Fällen mit spezifischen Ausprägungen <font size="2">(die man z.B. für eine Subgruppenanalyse benötigt)</font> an. Auch hier schauen wir uns wieder sowohl Funktionen aus dem Standardpaket **base** als auch aus dem Zusatzpaket **dplyr** an.
+
+Unten befindet sich eine Übersicht, der wir entnehmen können, welche Methode wir wählen sollten in Abhängigkeit davon, ob die Fälle, die wir extrahieren wollen, ähnlich oder unterschiedlich sind.
+
+```{r, echo=FALSE}
+# https://haozhu233.github.io/kableExtra/awesome_table_in_html.html#column__row_specification
+library(kableExtra)
+library(dplyr)
+table <-
+  matrix(
+    c(
+      "`grep()`",
+      "logische Operatoren, `filter()`",
+      "z.B. enthalten die Zahl 6: 67, 86, ...", "z.B. genau 57 oder >= 15"
+    ),
+    nrow = 2,
+    ncol = 2,
+    byrow = T
+  )
+colnames(table) <- c("... die selben Zeichen", "... einen gemeinsamen Wertebereich")
+
+library(kableExtra)
+library(dplyr)
+
+kable(table, table.attr = "style='width:100%;'") %>%
+  add_header_above(c("Die Ausprägungen der Fälle haben ..." = 2), line = F, color = "white", background = "#009193") %>%
+  kable_styling(full_width = TRUE) %>%
+  row_spec(2, font_size = 10) %>%
+  row_spec(0,
+           bold = T,
+           color = "white",
+           background = "#009193")
+```
+
+<details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193"><a name="grep2"></a>`grep()`</font></span></summary><p>
+
+```{r, echo=FALSE}
+## Quellen: 
+# Diagnostik I Working Directory
+# https://de.wikibooks.org/wiki/GNU_R:_grep
+# https://statisticsglobe.com/grep-grepl-r-function-example
+```
+
+Wenn wir Ausprägungen suchen, die sich nicht durch logische Operatoren, sondern durch Ähnlichkeiten <font size="2">(z.B. ein gleiches Zeichen)</font> filtern lassen, dann können wir dafür `grep()` nutzen.
+
+<div style="text-align: center">`grep(pattern, x, value)`</div>
+
+<p style="line-height:10px;"></p>
+
+Die Funktion durchsucht Elemente eines Vektor (`x`) nach bestimmten Zahlen- oder Zeichenketten (`pattern`). Mit `grep()` werden in Abhängigkeit des Arguments `value` entweder Indizes (`FALSE`; *voreingestellt*), oder konkrete Werte (`TRUE`) ausgegeben. Die Werte schauen wir uns zur Überprüfung an; die Indizes benötigen wir zur Extraktion jener Fälle aus dem Datensatz.
+
+```{r, echo=FALSE}
+# gleich:
+# test[grepl("a|n", test)]
+# grep("a|n", test, value=T)
+# aber grepl wahrscheinllich für Anwendung auf ganzen Datensatz geeigneter!
+```
+
+Unsere gesuchten Zahlen- oder Zeichenketten, die wir an das Argument `pattern` übergeben, sowie die ausgegeben Werte, werden immer als Character behandelt und von daher in `" "` ausgegeben.
+
+Wenn eine Ausprägung **irgendwo** eine bestimmten Zahlen- oder Zeichenketten enthalten soll, geben wir diese einfach ein.
+
+<span class="ex">Wir durchsuchen die Variable `Temp` nach den Tagen, an denen eine 6 im Messwert war.</span>
+
+```{r, echo=FALSE}
+# scheinbar das gleiche wie .*6.*
+```
+
+```{r}
+grep("6", airquality$Temp) # Indizes
+grep("6", airquality$Temp, value=TRUE) # Werte
+```
+
+Wenn eine Ausprägung eine bestimmte Zahlen- oder Zeichenketten **zu Beginn** enthalten soll, setzen wir ein `^` vor diese.
+
+<span class="ex">Wenn wir beispielsweise alle Tage suchen, an denen die Temperatur (`Temp`) im Bereich 60-69°F, dann können wir das folgendermaßen tun:</span>
+
+<font size="2">Diese Suche könnten wir auch mit den [logischen Operatoren](#logop) durchführen.</font>
+
+```{r}
+grep("^6", airquality$Temp) # Indizes
+grep("^6", airquality$Temp, value=TRUE) # Werte
+```
+
+Wenn eine Ausprägung eine bestimmte Zahlen- oder Zeichenketten **am Ende** enthalten soll, setzen wir ein `$` ans Ende.
+
+<span class="ex">Wenn wir beispielsweise alle Tage suchen, an denen die Temperaturangabe (`Temp`) mit einer 6 endet, dann können wir das folgendermaßen tun:</span>
+
+```{r}
+grep("6$", airquality$Temp) # Indizes
+grep("6$", airquality$Temp, value=TRUE) # Werte
+```
+
+Wie beim Extrahieren von Variablen können wir auch hier mit `grep()` verschiedene Bestandteile einer Ausprägung anhand des logischen Operators `|` suchen.
+
+<span class="ex">Als Beispiel suchen wir Temperaturangaben, die zu Beginn eine 5 enthalten oder mit einer 5 enden.</span>
+
+```{r}
+grep("^5|5$", airquality$Temp) # Indizes
+grep("^5|5$", airquality$Temp, value=TRUE) # Werte
+```
+
+> *__Achtung__*:  Die Zahlen bzw. Zeichenketten dürfen **nicht** durch Freizeichen getrennt werden, z.B. würden mit `"6| ^7"` nur Temperaturangaben gefiltert werden, die eine 6 enthalten.
+
+<p style="line-height:10px;"></p>
+
+Die Suche mit <span class="code">"^<span class="ex">x</span>|<span class="ex">x</span>$"</span> ergibt gemeinsam die globale Suche nach <span class="code">"<span class="ex">x</span>"</span>.</font>
+
+Wenn wir hingegen mehrere Bedingungen verknüpfen wollen, z.B. <span class="code">"^<span class="ex">x</span>"</span> **und** <span class="code">"<span class="ex">x</span>\$"</span>, dann nutzen wir `.*`, z.B. <span class="code">"^<span class="ex">x</span>.<span class="ex">x</span>\$"</span> <font size="2">(für ein Beispiel siehe [`mutate()`: Zusammenfassung **aller** Fälle])</font>.
+
+Ähnlich zum Abschnitt zu [Variablen mit `grep()` extrahieren](#grep) wenden wir die Selektion mit der Form <span class="code"><span class="ex">Datensatz</span>[grep(),]</span> an, und speichern diese in einem neuen Objekt.
+
+Wir können hierfür **nur** den **Indizes**-Vektor (`value=FALSE`; Default) nutzen.
+
+```{r}
+df_temp5 <-  airquality[grep("^5|5$", airquality$Temp),]
+```
+
+```{r, echo=FALSE}
+library(rmarkdown)
+paged_table(df_temp5, options(rows.print=5))
+```
+
+</p></details>
+
+<p style="line-height:10px;"></p>
+
+<details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193"><a name="logop"></a>Logische Operatoren</font></span></summary><p>
+
+```{r, echo=FALSE}
+## Quellen: 
+# https://stackoverflow.com/questions/26813667/how-to-use-grep-gsub-to-find-exact-match
+```
+
+Wenn wir logische Operatoren auf einzelne Variablen anwenden, können wir Fälle mit bestimmten Ausprägungen filtern. 
+
+<font size="2"><a href="https://www.phonetik.uni-muenchen.de/~jmh/lehre/sem/ws0809/R/RTeil2.pdf" target="_blank">Hier</a> finden wir eine Einführung zu logischen Operatoren mit Übungsfragen.</font>
+
+Um nur diese Fälle im gesamten Datensatz zu extrahieren, nutzen wir folgende Syntax:\
+
+<div style="text-align: center"><span class="code"><span class="ex">Datensatz</span>[<span class="ex">Variable Operator Ausprägung</span>,]</span></div>
+
+Wenn wir Fälle (d.h. Zeilen) exrahieren wollen, müssen wir *nach den Indizes* immer ein Komma angeben z.B. extrahiert <span class="code">df[<span class="ex">2</span>,]</span> die zweite Zeile aus `df`. Das kommt daher, dass in einem zweidimensionalen Objekt immer erst die Zeilen und dann die Variablen angegeben werden z.B. sehen wir das auch bei der Reihenfolge der Dimensionen unserer Objekte im **Environment** (bei **Data**).
+
+Beispielsweise können wir mit dem Gleichheits-Operator `==` nach exakt einer Ausprägung in einer Variablen suchen.
+
+<span class="ex">Wir filtern die Variable `Temp` (Temperatur in Grad Fahrenheit) nach Fällen mit der Ausprägung `57`.</span>
+
+```{r}
+df_temp57 <- airquality[airquality$Temp == 57,]
+```
+
+```{r, echo=FALSE}
+library(rmarkdown)
+paged_table(df_temp57, options(rows.print=5))
+```
+
+Wir können mittels `|`*(oder)* auch mehrere Ausprägungen gleichzeitig auswählen.
+
+<span class="ex">Nun wollen wir zusätzlich zu nach Fällen mit der Ausprägung `57` auch jene mit der Ausprägung `66` extrahieren.</span>
+
+```{r}
+df_temp57_66 <- airquality[airquality$Temp == 57 | airquality$Temp == 66,]
+```
+
+```{r, echo=FALSE}
+library(rmarkdown)
+paged_table(df_temp57_66, options(rows.print = 6))
+```
+
+Weitere logische Operatoren sind z.B. `!=` *(nicht)*, `<` *(kleiner)* und `>=` *(größer gleich)*.
+</p></details>
+
+<p style="line-height:10px;"></p>
+
+<details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193"><a name="filter"></a>`filter()`</font></span></summary><p>
+
+Mit `filter()` können wir verschiedene Variablen nach bestimmten Kriterien filtern. Dabei greifen wir wieder auf die logischen Operatoren zurück. 
+
+Man übergibt der Funktion zuerst den Dataframe und anschließend die Namen der Variablen mit den Bedingungen, die auf diese jeweils zutreffen sollen.
+
+<span class="ex">Wir wollen nur jene Fälle, die in der zweiten Hälfte des Junis erhoben wurden.</span>
+
+```{r}
+df_month6_day15ff <- dplyr::filter(airquality, Month == 6, Day >= 15)
+```
+
+[Zu Beginn](#mask) haben wir erläutert, warum wir manchmal `::` nutzen sollten.
+
+```{r, echo=FALSE}
+library(rmarkdown)
+paged_table(df_month6_day15ff, options(rows.print=5))
+```
+
+</p></details>
+
+<p style="line-height:10px;"></p>
+
+## Daten sortieren
+
+```{r, echo=FALSE}
+# Luhmann 2013 Buch (Kap. 9, S.97)
+```
+
+Für manche Vorhaben, wie z.B. grafische Darstellungen oder dem Quantifizieren von Heteroskedastizität, benötigt man sortierte Daten.
+
+Wir schauen uns nachfolgend zwei Möglichkeiten an, einen Dataframe nach den Ausprägungen seiner Variablen zu sortieren.
+
+<details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193">`order()`</font></span></summary><p>
+
+Nachfolgend sehen wir, wie man mit `order()` **aufsteigend** sortiert.
+
+Weil mit `order()` nur Zeilenindizes ausgegeben werden, müssen wir diese noch auf den Dataframe anwenden. Das machen wir mit der Form <span class="code"><span class="ex">Datensatz</span>[order(<span class="ex">Variable</span>),]</span>.
+
+```{r}
+df_ascend_temp <- airquality[order(airquality$Temp),]
+```
+
+```{r, echo=FALSE}
+library(rmarkdown)
+paged_table(df_ascend_temp, options(rows.print=5))
+```
+
+\
+<span class="ex">Wenn wir `Temp`-Werte mit der gleichen Ausprägung zusätzlich noch nach der (aufsteigenden) Variable `Wind` sortieren wollen, können wir diese einfach ergänzen.</span>
+
+```{r}
+df_ascend_temp_wind <- airquality[order(airquality$Temp, airquality$Wind),]
+```
+
+```{r, echo=FALSE}
+library(rmarkdown)
+paged_table(df_ascend_temp_wind, options(rows.print=5))
+```
+
+<aside>Beispielsweise sehen wir hier, dass die Fälle 27, 25 und 18 (auf Seite 1 in den Zeilen 2, 3 und 4) anders sortiert sind als oben.</aside>
+
+Wenn wir nach den **absteigenden** Werte der Variablen sortieren wollen, hängen wir jeweils ein `-` vor diese. Alternativ können wir auch das Argument `decreasing=TRUE` setzen (dann werden aber, im Gegensatz zu unserem Beispiel, **alle** Variablen absteigend sortiert).
+
+```{r}
+df_descend_temp_wind_1 <- airquality[order(-airquality$Temp, airquality$Wind),]
+```
+
+```{r, echo=FALSE}
+library(rmarkdown)
+paged_table(df_descend_temp_wind_1, options(rows.print=5))
+```
+
+</p></details>
+
+<p style="line-height:10px;"></p>
+
+<details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193">`arrange()`</font></span></summary><p>
+
+```{r, echo=FALSE}
+# https://r4ds.had.co.nz/transform.html#arrange-rows-with-arrange
+```
+
+Die Funktion `arrange()` aus dem Paket **dplyr** hat ein sehr ähnliches Prinzip wie `order()`. Sie ist dabei in der Handhabung übersichtlicher, weil man der Funktion den Namen des Dataframes einmalig übergibt und nachfolgend nur noch die Variablen angeben muss, nach denen sortiert werden soll. Außerdem muss man den Output nicht zusätzlich auf den Dataframe anwenden, weil `arrange()` das ohnehin macht.
+
+Standardmäßig wird hier ebenso wie bei `order()` aufsteigend sortiert solange man das nicht mit dem Voranstellen eines `-` ändert.
+
+<span class="ex">Schauen wir uns das für das letzte Beispiel im vorhergehenden Abschnitt an. Wir sortieren den Dataframe **absteigend** nach `Temp` und gleiche Werte **aufsteigend** nach `Wind`.</span>
+
+```{r}
+df_ascend_temp_wind_2 <- arrange(airquality, -Temp, Wind)
+```
+
+```{r, echo=FALSE}
+library(rmarkdown)
+paged_table(df_ascend_temp_wind_2, options(rows.print=5))
+```
+
+</p></details>
+
+<p style="line-height:10px;"></p>
+
+## Kodierung ändern
+
+Wenn die Daten nicht in einer angemessenen Kodierung vorliegen, muss man diese nachträglich anpassen bzw. neu erstellen. Die Kodierung einer Variablen ist von ihrem [Messniveau](#Recap:-Kodierung-von-Daten) abhängig.
+
+<span class="ex">Für dieses Kapitel beschränken wir uns auf die Nutzung des Datensatzes **PWE_data**, welchen wir [zu Beginn](#data) heruntergeladen haben.</span>
+
+### Umkodieren
+
+```{r, echo=FALSE}
+# https://psyr.org/manipulating-data.html#1641_using_recode()
+# aber recode aus dpylr
+```
+
+Wenn wir zum Beispiel Messwerte in Meter zu Messwerten in Zentimeter ändern oder negativ gepolte Items umpolen wollen, spricht man von Umkodieren. 
+
+<aside>Rekodieren und Umkodieren wird häufig synonym genutzt.</aside>
+
+Wir können die Kodierung von Merkmalen in <span class ="r">R</span> auf verschiedene Arten ändern. Nachfolgend schauen wir uns zwei Funktionen an, die wir nutzen können.
+
+<p style="line-height:10px;"></p>
+
+<details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193">`recode()`</font></span></summary><p>
+
+In der Funktion `recode()` <font size="2">(auch `Recode()` möglich)</font> aus dem Paket **car** müssen wir grundsätzlich zwei Argumente spezifizieren: `var` und `recodes`. Ersterem übergeben wir die umzukodierende Variable, zweiterem die alte und die neue Kodierung der Variablen. 
+
+Wir müssen hierbei einige syntaktische Besonderheiten von `recodes` beachten:\
+<span class="code">recodes = <font color="red">"</font>alt_1 = neu_k<font color="red">;</font> alt_2 = neu_k-1<font color="red">;</font> ...<font color="red">;</font> alt_k = neu_1<font color="red">"</font></font></span>\
+<font size="1">(Ausprägungen der Kodierung von 1 bis $k$)</font>
+
+* die <span class="code"><span class="ex">Input</span>=<span class="ex">Output</span></span>-Parameter müssen *gemeinsam* als Zeichenkette (d.h. in `" "`) vorliegen
+* die verschiedenen <span class="code"><span class="ex">Input</span>=<span class="ex">Output</span></span>-Parameter müssen mit Semikolon (`;`) getrennt werden
+
+<span class="ex">Wir invertieren im Folgenden die Werte der Variablen `Q9A`, `Q13A` und `Q15A` <font size="2">(<span class="r highlight">numeric</span>)</font>. Die Information, dass die Variablen negativ kodiert sind, finden wir in <a href="http://web.a.ebscohost.com/ehost/detail/detail?vid=5&sid=4c4ab98a-bce0-4d67-9d45-085c71a5a277%40sessionmgr4008&bdata=JnNpdGU9ZWhvc3QtbGl2ZQ%3d%3d#AN=1971-09987-001&db=pdh" target="_blank">Mirels & Garrett (1971)</a> <font size="2">(nur über HU-VPN zugänglich)</font>. Informationen zur Messskala finden wir auch im Codebuch.</span> 
+
+So sehen die Daten (der ersten 10 Personen) bisher aus:
+
+```{r, echo=FALSE, max.print = 10}
+paged_table(PWE_data[,c(25,37,43)], options(rows.print=5))
+```
+Jetzt invertieren wir die Skalen:
+
+```{r}
+library(car)
+PWE_data$Q9A <- recode(var=PWE_data$Q9A,
+                       recodes="1=5; 2=4; 3=3; 4=2; 5=1")
+
+PWE_data$Q13A <- recode(var=PWE_data$Q13A,
+                       recodes="1=5; 2=4; 3=3; 4=2; 5=1")
+
+PWE_data$Q15A <- recode(var=PWE_data$Q15A,
+                       recodes="1=5; 2=4; 3=3; 4=2; 5=1")
+```
+
+Abschließend überprüfen wir (visuell), ob die Umkodierung geklappt hat:
+
+```{r, echo=FALSE, max.print = 10}
+paged_table(PWE_data[,c(25,37,43)], options(rows.print=5))
+```
+\
+
+Wenn die Kodierung aus Zeichenketten <font size="2">(<span class="r highlight">character</span>)</font> besteht, müssen wir diese jeweils noch mit `' '` umschließen.
+
+<span class="ex">Schauen wir uns an, wie man die Ausprägungen von `eduaction` (1`, `2`, `3`, `4`) zu den Beschreibungen (`Less than High School`, `High School`, `University Degree`, `Graduate Degree`) ändert.</span>
+
+Mit dem Parameter `as.factor` legen wir fest, ob die (neue) rekodierte Variable als Faktor gespeichert werden soll. 
+
+> *__Achtung__*:  Leider können wir so aber nur ungeordnete <font size="2">(nominalskaliert)</font> und <u>keine</u> geordneten <font size="2">(ordinalskaliert)</font> Faktoren erstellen. Dafür müssten wir auf die Funktion `factor(..., ordered = TRUE, levels)` zurückgreifen (siehe Abschnitt [Faktorisieren]).\
+
+
+```{r}
+# aus Gründen der Darstellung speichern wir die Kodierungen zuerst in einem String:
+recode <- c("1='Less than High School';2='High School';3='University Degree';4='Graduate Degree'")
+PWE_data$education_new <- recode(var=PWE_data$education,
+                                 as.factor=TRUE,
+                                 recodes=recode)
+```
+
+Abschließend vergleichen wir die Daten (der ersten 10 Personen) von `education` und `education_new`:
+
+```{r, echo=FALSE, max.print = 10}
+paged_table(PWE_data[,c(88, 106)], options(rows.print=5))
+```
+
+</p></details>
+
+<p style="line-height:10px;"></p>
+
+<details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193">`case_when()`</font></span></summary><p>
+
+
+```{r, echo=FALSE}
+# quasi mehrere if_else() (oder ifelse()) Konditionen testbar, effizienter
+```
+
+
+Mit der Funktion `case_when()` aus dem Paket **dplyr** können wir für verschiedene Fälle <font size="2">(d.h. Bedingungen)</font> der ursprünglichen Variable angeben, wie diese umkodiert werden soll. Auf die **linke** Seite schreiben wir eine logische Bedingung <font size="2">(z.B. größer als mit `>`)</font>; auf die **rechte** Seite die neue Kodierung. Verbunden werden beide mit einer Tilde (`~`).
+
+Im Gegensatz zu `recode()` können wir durch die Verwendung von logischen Operatoren <font size="2">(z.B. `>`)</font> ganzen Zahlenintervallen dieselbe Kodierung zuweisen. 
+
+<span class="ex">Als Beispiel bilden wir Kategorien für das intervallskalierte Merkmal `Q1E` <font size="2">(mit Frage **Q1** verbrachte Zeit in Millisekunden)</font>. Den Range des Merkmals erfahren wir mit `range(PWE_data$Q1E, na.rm=TRUE)` (195 - 181.24**6**). Wir teilen `Q1E` in vier gleich breite Kategorien ein: [195, 45457.75), [45457.75, 90720.5), [90720.5, 135983.2), [135983.2, 18124**7**).</span>
+
+<aside>**[** heißt inklusive\
+**)** heißt exklusive\
+Bei der oberen Grenze wird aufgerundet.</aside>
+
+```{r}
+# library(dplyr)
+
+PWE_data$Q1E_kat <- case_when(
+  PWE_data$Q1E < 45457.75 ~ 1, # kleiner damit exklusiv 
+  PWE_data$Q1E < 90720.5 ~ 2, 
+  PWE_data$Q1E < 135983.2 ~ 3, 
+  PWE_data$Q1E < 181247 ~ 4) 
+
+str(PWE_data$Q1E_kat) # Überprüfung Datentyp
+unique(PWE_data$Q1E_kat) # um alle Kategorien zu sehen
+```
+
+<span class="ex">Nun haben wir eine neue Variable `Q1E_kat` erstellt, welche zusammengefasste Informationen aus `Q1E` enthält. Die neu erstellte Variable liegt als <span class ="r">numeric</span> vor, d.h., dass wir diese noch faktorisieren *und* ordnen müssen, damit sie als ordinalskaliert gehandhabt wird.</span>
+
+```{r}
+PWE_data$Q1E_kat <- factor(PWE_data$Q1E_kat, ordered=TRUE)
+
+str(PWE_data$Q1E_kat) # Überprüfung Datentyp
+```
+
+</p></details>
+
+<p style="line-height:10px;"></p>
+
+### Indikatorvariablen: Kodierung nominaler Merkmale
+
+Nominale Merkmale kann man in Form von Dummy-, Effekt- und Kontrastkodierungen repräsentieren. Eine solche Repräsentation ist vor allem im Rahmen des Allgemeinem Linearen Modells <font size="2">(ALM)</font> von Interesse.
+
+Untenstehende Tabelle gibt einen groben Überblick über die Interpretation der Parameter des ALM in Abhängigkeit der Kodierung.
+
+```{r, echo=FALSE, layout="l-body-outset", eval=FALSE}
+# aus: Bortz S. 365ff: Interpretation Schätzungen; S.367: wozu besonders geeignet
+#### ALT
+table <-
+  matrix(
+    c(
+      "Mittelwert in der Referenzgruppe","Differenz des Mittelwerts der j-ten Gruppe zur Referenzgruppe", "*ungewichteter* Mittelwert in der Referenzgruppe", "Differenz des *ungewichteten* Mittelwerts der j-ten Gruppe zur Referenzgruppe",
+      "Mittelwert der Gruppenmittelwerte (Gesamtmittelwert)", "Differenz des Mittelwertes der j-ten Gruppe zum Gesamtmittelwert", "*ungewichteter* Mittelwert der Gruppenmittelwerte", "Differenz des *ungewichteten* Mittelwertes der j-ten Gruppe zum Mittelwert der *ungewichteten* Gruppenmittelwerte",
+      "Mittelwert der Gruppenmittelwerte", "lässt sich als Funktion der Kontrastkoeffizienten darstellen, die den jeweiligen Kontrast kodieren", "*gewichteter* Mittelwert der Gruppenmittelwerte", "lässt sich als Funktion der Kontrastkoeffizienten darstellen, die den jeweiligen *gewichteten* Kontrast kodieren"
+    ),
+    nrow = 3,
+    ncol = 4,
+    byrow = T
+  )
+colnames(table) <- c("Interzept $b_0$", "Steigung $b_j$", 
+                     "Interzept $b_0$", "Steigung $b_j$")
+rownames(table) <- c("**Dummy**", "**Effekt**", "**spezifischer\n Kontrast**")
+
+library(kableExtra)
+library(dplyr)
+
+kable(table) %>%
+  kable_styling("bordered", full_width = TRUE) %>%
+  add_header_above(c("", "gleich *(balanciertes Design)*" = 2, "ungleich *(unbalanciertes Design)*" = 2), line = F,
+                   color = "white", background = "#009193") %>%
+  add_header_above(c("", "Stichprobengrößen der Gruppen" = 4), 
+                   line = F, color = "white", background = "#009193") %>%
+  row_spec(0,
+           bold = T,
+           color = "white",
+           background = "#009193") %>%
+   # save_kable(file = "Vergleich Kodierungen.png", self_contained = F) # %>%
+  #footnote(symbol = "Referenzgruppe: Dummykodierung = durchgängig mit 0 kodiert, Effektkodierung = mit -1 kodiert", fixed_small_size = T) 
+  column_spec(1, bold=TRUE, color = "white", background = "#009193")
+```
+
+```{r, echo=FALSE, layout="l-body-outset"}
+table <-
+  matrix(
+    c(
+      "Mittelwert in der Referenzgruppe","Differenz des Mittelwerts der j-ten Gruppe zur Referenzgruppe", "Vergleich von Experimental- und Kontrollgruppe",
+      "Mittelwert der Gruppenmittelwerte (Gesamtmittelwert)", "Differenz des Mittelwertes der j-ten Gruppe zum Gesamtmittelwert", "Vergleich von Gruppen in varianzanalytischen Designs", 
+      "Mittelwert über die Mittelwerte der Kontrastgruppen", "lässt sich als Funktion der Kontrastkoeffizienten darstellen, die den jeweiligen Kontrast kodieren", "Gezielte Einzelvergleiche von (Kombinationen) von Gruppen"
+    ),
+    nrow = 3,
+    ncol = 3,
+    byrow = T
+  )
+colnames(table) <- c("Interzept $b_0$", "Steigung $b_j$", 
+                     "mögliche Anwendung")
+rownames(table) <- c("**Dummy**", "**Effekt**", "**Kontrast**")
+
+library(kableExtra)
+library(knitr)
+
+kable(table) %>%
+  kable_styling("bordered", full_width = TRUE) %>%
+    footnote(general = "\n<font size=\"2\">Die Interpretation der Mittelwerte und Differenzen hängt zusätzlich davon ab, ob ein **balanciertes** oder **unbalanciertes** Design vorliegt (d.h. ob die Gruppengrößen gleich oder ungleich sind).</font>", general_title = "", escape = FALSE) %>%
+  row_spec(0,
+           bold = T,
+           color = "white",
+           background = "#009193") 
+  
+   # save_kable(file = "Vergleich Kodierungen.png", self_contained = F) # %>%
+  #footnote(symbol = "Referenzgruppe: Dummykodierung = durchgängig mit 0 kodiert, Effektkodierung = mit -1 kodiert", fixed_small_size = T) 
+```
+
+Für mehr Informationen zu Indikatorvariablen können wir z.B. folgende Quelle nutzen:\
+
+> <a name="bortz"></a><font size="2">**Bortz**, J., & **Schuster**, C. (2010). Allgemeines lineares Modell. In J. Bortz, & C. Schuster (Eds.),
+*Statistik für Sozialwissenschaftler* (S.363-384). Heidelberg: Springer</font>\
+<font size="1">(für HU-Studierende über <a href="http://ub.hu-berlin.de" target="_blank">ub.hu-berlin.de</a> zugänglich)</font>
+
+Im Folgenden schauen wir uns an, wie man konkret bei der Erstellung der verschiedenen Arten der Indikatorvariablen vorgehen kann.
+
+<span class="ex">Dafür nutzen wir die im Abschnitt [Faktorisieren] erstellte Variable `gender_uf` aus **PWE\_data\_fac**.</span>
+
+Zusätzlich rechnen wir jeweils eine einfache lineare Regression mit den verschiedenen Kodierungen, um die Unterschiede zwischen den Koderierungsarten zu veranschaulichen.
+
+<span class="ex">Wir regredieren dafür die Zeit in Sekunden, die die Probanden auf der Instruktionsseite verbracht haben (`introelapse`), auf ihr Geschlecht (`gender_uf`).</span>
+
+> *__Achtung__*:  Die nachfolgend vorgestellten Funktionen lassen sich auch auf **ordinalskalierte Merkmale** <font size="2">(d.h. sortierte Faktoren)</font> anwenden. Bei diesen unterscheidet sich aber die Interpretation der geschätzten Koeffizienten der Regression. Wir bekommen Schätzungen für lineare (L), quadratische (Q) und kubische (C) Trends. Daher behandeln wir im folgenden Abschnitt nur die Kodierung von nominalskalierten Merkmalen.
+
+
+<details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193">Dummy-Kodierung</font></span></summary><p>
+
+Viele Funktionen in <span class ="r">R</span> (z.B. `lm()`, `lme()`  und `lmer()`) kodieren nominalskalierte Variablen intern *automatisch* nach der Dummy-Kodierung um, wenn diese vorher [als Faktoren deklariert](#faktorisieren) wurden. Dabei wird die *erste Kategorie als Referenzkategorie* genutzt. Wenn wir eine andere Referenzkategorie haben wollen, können wir dafür die im Folgenden vorgestellten Funktionen (`C(..., contr.treatment(n, base))` oder `relevel()`) nutzen.
+
+```{r, echo=FALSE}
+# dummy coding .. many functions in R do this automatically (lm(), glm(), lme(), lmer(), . . . if the categorical variable has been declared as a ‘factor’)
+
+# F.5 https://personality-project.org/r/tutorials/summerschool.14/rosseel_sem_cat.pdf
+```
+
+Man benötigt für eine Dummykodierung mit $k$-Kategorien $k-1$ Indikatorvariablen. Die jeweils interessierende Gruppe wird in der jeweiligen Indikatorvariablen mit 1 kodiert; die anderen mit 0. Als **Referenzkategorie** (von der die Abweichung berechnet wird) gilt jene, welche in allen Indikatorvariablen mit **0** kodiert wird. 
+
+Die Indikatorvariablen erstellt uns die Funktion `contr.treatment()` automatisch, wenn wir die Anzahl der Faktorstufen (`n`) und die Referenz (`base`) angeben. 
+
+<span class="ex">Um die faktorisierte Variable `gender_uf`, welche 3 Ausprägungen hat, zu kodieren, benötigen wir 2 Dummy-Variablen. Wir wählen die erste Kategorie (`1` = Male) als Referenzkategorie.</span> 
+
+```{r}
+contr.treatment(n=3, base=1)
+```
+
+<span class="code">C(<span class="ex">Faktor</span>, contr.treatment(n, base))</span> setzt die Konstraste für den kategorialen Prädiktor innerhalb von `lm()`:
+
+```{r}
+lm_ct<- lm(introelapse ~ C(gender_uf, contr.treatment(3, 1)), PWE_data) 
+summary(lm_ct)
+```
+
+
+```{r, eval=FALSE, echo=FALSE}
+lm_uf <- lm(introelapse ~ education_of, PWE_data)
+summary(lm_uf)
+
+# Linear 
+# Quadratic
+# Cubic
+## Now the Interzept specifies the value of y at the mean factor level (halfway between 2 and 3); the L (linear) parameter gives a measure of the linear trend (not quite sure I can explain the particular value ...), Q and C specify quadratic and cubic terms (which are close to zero in this case because the pattern is linear); 
+## https://stackoverflow.com/questions/25735636/interpretation-of-ordered-and-non-ordered-factors-vs-numerical-predictors-in-m
+```
+
+Nun vergleichen wir das Regressionsmodell mit den Dummy-kodierten Indikatorariablen (`C(gender_uf, contr.treatment(n=4, base=1)`) mit dem Regressionsmodell mit dem unsortierten Faktor (`gender_uf`), bei dem ebenfalls die erste Kategorie als Referenzkategorie genutzt wird.
+
+```{r}
+lm_uf <- lm(introelapse ~ gender_uf, PWE_data)
+summary(lm_uf)
+```
+
+Da die Referenzkategorie identisch ist, sehen wir, dass wir bei beiden die gleichen Ergebnisse erhalten.
+
+<span class="ex">Bei der Dummykodierung entspricht unser **Interzept $b_0$** dem *ungewichteten* Mittelwert in der Referenzkategorie (`1` = Male). Die **partiellen Steigungsgewichte $b_j$** <font size="2">(`C(...)2` und `C(...)3` bzw. `gender_uf2` und `gender_uf3`)</font> entsprechen den *ungewichteten* Mittelwertsunterschieden zwischen der jeweiligen Gruppe (`2` = Female bzw. `3` = Other) und der Referenzgruppe (`1` = Male).</span>
+
+Alternativ zu `C(..., contr.treatment())` können wir mit der Funktion `relevel()` die Referenzkategorie eines unsortierten Faktors ändern. Standardmäßig ist immer die erste Gruppe nach der natürlichen Reihenfolge <font size="2">(bei Zahlen aufsteigend und bei Buchstaben alphabetisch)</font> die Referenzkategorie.
+
+Dem Argument `ref` übergeben wir die *derzeitige* Position der gewünschten Referenzkategorie.
+
+```{r}
+# Beispiel: Female als Referenzkategorie
+PWE_data$gender_uf_ref <- relevel(PWE_data$gender_uf, ref = 2)
+
+ls.str(PWE_data[,c(103, 106)]) # zum Überprüfen
+```
+</p></details>
+
+<p style="line-height:10px;"></p>
+
+<details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193">Effektkodierung</font></span></summary><p>
+
+```{r, echo=FALSE}
+# Hilfe wie man Effekte macht: http://faculty.cas.usf.edu/mbrannick/regression/anova1.html
+```
+
+Für diese Kodierung benötigen wir ebenfalls $k-1$ Indikatorvariablen. Die jeweils zutreffende Gruppe wird in der jeweiligen Indikatorvariablen mit 1 kodiert; die nicht zutreffende mit 0 </font size="2">(ebenso wie bei der Dummy-Kodierung)</font>. Die **"Referenzkategorie"** <span class="ex"><font size="2">(in unserem Beispiel `No`)</font></span> wird in allen Indikatorvariablen mit **-1** kodiert.
+
+Es gibt eigentlich keine echte Referenzkategorie <font size="2">(wie bei der Dummy-Kodierung)</font>. Vielmehr entspricht der Interzept dem Mittelwert über alle Gruppen hinweg. 
+
+Analog zu `contr.treatment(n, ...)` bei der Dummy-Kodierung können wir `contr.sum(n)` nutzen, um eine effektkodierte Matrix eines Faktors zu erstellen.
+
+```{r}
+contr.sum(n=3)
+```
+
+
+Wir müssen lediglich in `n` spezifizieren, wie viele Faktorstufen es gibt. Auch hier übergeben wir den Output der Funktion an `C()`, wenn wir z.B. eine lineare Regression mit `lm()` berechnen wollen.
+
+
+```{r}
+lm_cs <- lm(introelapse ~ C(gender_uf, contr.sum(3)), PWE_data)
+summary(lm_cs)
+```
+
+<span class="ex">Bei der Effektkodierung entspricht unser **Interzept $b_0$** dem Mittelwert der *ungewichteten* Gruppenmittelwerte. Die **partiellen Steigungsgewichte $b_j$** <font size="2">(`C(...)1` und `C(...)2`)</font> entsprechen der Differenz des  Mittelwerts der jeweiligen Gruppe (`1` = Male bzw. `2` = Female) zum Mittelwert der *ungewichteten* Gruppenmittelwerte.</span>
+
+Leider können wir mit `contr.sum()` **nur die erste Faktorstufe als "Referenzkategorie"** nutzen. Mit `ref()` können wir jedoch wieder die Sortierung der Faktorstufen ändern und den umsortierten Faktor dann wieder an `C(..., contr.sum(n))` übergeben.
+
+```{r, eval=FALSE}
+# Beispiel: Female als Referenzkategorie
+PWE_data$gender_uf_ref <- relevel(PWE_data$gender_uf, ref = 2)
+
+ls.str(PWE_data[,c(103, 106)]) # zum Überprüfen
+```
+
+</font></p></details>
+
+<p style="line-height:10px;"></p>
+
+<details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193">Konstrastkodierung</font></span></summary><p>
+
+```{r, echo=FALSE}
+## ganz interessant v.a. für orthogonale Kontraste
+# http://faculty.cas.usf.edu/mbrannick/regression/anova1.html
+```
+
+```{r, eval=FALSE, echo=FALSE}
+# https://stats.idre.ucla.edu/r/library/r-library-contrast-coding-systems-for-categorical-variables/
+# hieraus 9. User Definied Coding
+
+# contrast function ?
+# https://www.rdocumentation.org/packages/stats/versions/3.4.3/topics/contrast
+```
+
+
+Bei der Kontrastkodierung können wir uns eigens gewählte Kontraste zwischen verschiedenen Gruppen anschauen. Die Gewichte $c_i$ *eines* Kontrastes müssen der Bedingung genügen, dass die Summe der Gewichte über die Anzahl der zu kodierenden Kategorien $i$ null ist, d.h. $\sum\limits_{i} c_i = 0$.
+
+Die jeweilige Kodierung mit 0 in einer Indikatorvariablen sorgt dafür, dass eine Gruppe bzw. ein Fall *nicht* mit in einen Kontrast eingeht.
+
+Bei *multiplen* Kontrasten <font size="2">(d.h. mindestens zwei kontrastkodierten Variablen)</font> können wir **orthogonale** <font size="2">(d.h. unkorrelierte)</font> und **nicht orthogonalen** <font size="2">(d.h. korrelierte)</font> Kontraste unterscheiden. 
+
+Zwei Kontraste $j$ und $j'$ sind orthogonal wenn *zusätzlich* zur oberen Bedingung gilt: $\sum\limits_{i} \, c_{ij} \cdot c_{ij'} = 0$
+
+Im Folgenden werden wir nur einen Kontrast erstellen. Für mehr Informationen zur Orthogonalität von multiplen Kontrasten können wir z.B. bei [Bortz & Schuster (2010)](#bortz) nachschauen.
+
+<span class="ex">Wir kontrastieren Männer und Frauen hinsichtlicher der verbrachten Zeit auf der Instruktionsseite (`introelapse`).</span>
+
+Dafür sortieren wir den Datensatz **PWE_data\_fac** zuerst mit [`order()`](#daten-sortieren) nach `gender_uf`. Die Variable hat eine Zahlen-Kodierung: Männer sind `gender_uf = 1`, Frauen `gender_uf = 2` und Andere `gender_uf = 3`.
+
+
+```{r}
+PWE_data <- PWE_data[order(PWE_data$gender_uf),] 
+# natürliche (aufsteigende) Sortierung: 1, 2, 3, NA
+```
+
+Anschließend erstellen wir mit `rep()` die kontrastkodierte Variable.\
+Alternativ könnten wir auch `recode()` oder `case_when()` nutzen <font size="2">(siehe [Umkodieren])</font>.
+
+```{r}
+# Anzahl der Fälle in den einzelnen Ausprägungen in Erfahrung bringen:
+table(PWE_data$gender_uf, useNA = 'ifany')
+
+# Kontrast erstellen
+PWE_data$gender_kontrast <- c(rep(1/675, 675), # Male (1)
+                                  rep(-1/627, 627), # Female (2)
+                                  rep(0, 48)) # Other (3) & NA; nicht von Interesse
+```
+
+<font size="2"><span class="code">rep(<span class="ex">Gewichtung</span>, <span class="ex">Gruppengröße</span>)</span>: 
+Die jeweilige Gewichtung einer Gruppe (bzw. Kombination von Gruppen) richtet sich nach ihrer Größe.</font>
+
+```{r, echo=FALSE, eval=FALSE}
+paged_table(PWE_data[,107])
+```
+
+<details><summary class ="mtitle q">Wie genau funktioniert `rep()`?</summary><div class="more">
+Für die manuelle Erstellung von Indikatorvariablen kann man die Funktion `rep()` nutzen, welche die ihr übergebenen Zahlen bzw. Zahlenfolgen (oder auch Zeichen bzw. Zeichenketten) beliebig häufg wiederholt.
+
+Schauen wir uns die Funktionsweise der Funktion an einigen Beispielen an.
+
+Die Zahl 1 wird 10 mal (`times`) wiederholt:
+
+```{r}
+rep(1, 10) # das gleiche wie: rep(x=1, times=10)
+```
+
+Die Zahlenfolge `0, 1` wird 10 mal (`times`) wiederholt:
+
+```{r}
+rep(0:1, 10)
+```
+
+Wenn wir *erst* 10 mal die `0` und anschließend 10 mal die `1` haben wollen, nutzen wir das Argument `each`:
+
+```{r}
+rep(0:1, each=10) # das gleiche wie c(rep(0, 10), rep(1, 10))
+```
+</div></details>
+
+<p style="line-height:10px;"></p>
+
+Die Gewichte einer kontrastierten Gruppe <font size="2">(hier: *jeweils* Männer bzw. Frauen)</font> werden so gewählt, dass sie aufsummiert 1 bzw. -1 ergeben. Wenn wir die gleiche Anzahl an Fällen in den zu kontrastierenden Gruppen haben, können wir die einzelnen Gewichte auch zu 1 bzw. -1 vereinfachen.
+
+> *__Achtung__*:  Wenn wir ungleich große Gruppen haben, wie in unserem Beispiel, dann liegen die einzelnen Gewichtungen als Brüche vor z.B. $c_{Männer} = \frac{1}{675}$ und $c_{Frauen} = -\frac{1}{627}$. Wenn wir die Elemente unserer kontrastkodierten Variablen `gender_kontrast` aufsummieren, erhalten wir `r sum(PWE_data$gender_kontrast)`. Damit genügen wir de facto der Bedingung $\sum\limits_{i} c_i = 0$ nicht, aber die Zahl ist so klein (d.h. so nah an 0), dass wir sie vernachlässigen können.
+
+Jetzt nehmen wir die kontrastkodierte Variable als Prädiktor in ein *neues* Regressionsmodell auf.
+
+```{r}
+lm_kontr <- lm(introelapse ~ gender_kontrast, PWE_data)
+summary(lm_kontr)
+```
+
+```{r, echo=FALSE}
+# Wieso ändert sich der Slope von Kontrast 1 wenn man 1 anstatt 1/31 festlegt???
+# Und Interpretation Slope und Interzept korekt?
+```
+
+
+<span class="ex">In unserem Regressionsmodell mit dem Kontrast Männer vs. Frauen entspricht der **Interzept $b_0$** dem Mittelwert der Gruppenmittelwerte der *betrachteten* Gruppen <font size="2">(d.h. Männer und Frauen)</font> und das **partiellen Steigungsgewichte $b_1$** dem Unterschied in den Mittelwerten der betrachteten Gruppen.</span>
+</p></details>
+
+<p style="line-height:10px;"></p>
+
+
+## Summary-Variablen
+
+Wenn wir nicht mit den Rohdaten arbeiten wollen, sondern Informationen von mehreren, aggregierten Variablen <font size="2">(z.B. Summenwerte, Mittelwerte)</font> oder anderweitig transformierten Variablen <font size="2">(z.B. standardisierte Werte)</font> auswerten wollen, müssen wir Summary-Variablen erstellen.
+
+<span class="ex">Wir nutzen zu diesem Zweck den Datensatz **PWE_data**</font>, welcher aus einer psychometrischen Erhebung stammt. [Zu Beginn](#data) des Kapitels haben wir den Datensatz heruntergeladen.</span>
+
+> *__Achtung__*:  Die Werte der Variablen `Q9A`, `Q13A` und `Q15A`, die wir im Folgenden nutzen werden, wurden im Abschnitt [Umkodieren] rekodiert, weil sie negativ gepolt sind.
+
+<p style="line-height:10px;"></p>
+
+<details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193">`rowSums()`</font>, <font color="#009193">`rowMeans()`</font> und <font color="#009193">`select()`</font>: Summen- und Mittelwerte</span></summary><p>
+
+Wir schauen uns im Folgenden an, wie man Summen- und Mittelwerte von mehreren Variablen erstellt. Dieses Vorgehen ist beispielsweise für die Erstellung von Skalenwerten in der Testkonstruktion von großer Relevanz.
+
+<span class="ex">Wir schauen uns den **Summen-** sowie den **Mittelwert** über alle Items der Protestant Work Ethic Scale an. Die Fragen wurden auf einer intervallskalierten Skala - von 1 <font size="2">(stimme nicht zu)</font> bis 5 <font size="2">(stimme zu)</font> - beantwortet und in den Variablen, die mit einem **Q** beginnen und einem **A** enden gespeichert.</span>
+
+Um einen Summenwert, d.h. eine Summe einer Person über mehrere Variablen, zu bilden, können wir auf die Funktion `rowSums()` zurück greifen. Wenn wir fehlende Werte in den Variablen haben, setzen wir das Argument `na.rm=TRUE`.
+
+Es ist zusätzlich sinnvoll, mit einer Kombination aus [`select()`](#select), `matches()` und den regulären Ausdrücken, die relevanten Variablen auszuwählen. Dafür laden wir das Paket **dplyr**.
+
+`matches()` ist eine **select helper** Funktion, welcher man reguläre Ausdrücke übergeben kann. Es gibt noch weitere Hilfsfunktionen, die man auch als Alternative zu regulären Ausdrücken nutzen kann z.B. <span class="code">starts_with(<span class="ex">x</span>)</span> anstatt <span class="code">^<span class="ex">x</span></span>. Wenn wir aber **mehrere Bedingungen** haben, sollten wir `matches()` und den regulären Ausdruck `.*` (zur konjunktiven Verknüpfung) nutzen. 
+
+
+```{r}
+# library(dplyr)
+PWE_data$sum <- rowSums(select(PWE_data, matches("^Q.*A$")), na.rm=TRUE)
+```
+
+Nun schauen wir uns die neu erstellte Variable (für die die ersten 10 Personen) einmal an:
+
+```{r, echo=FALSE, max.print = 10}
+paged_table(PWE_data[,c("sum")], options(rows.print=5))
+```
+
+Wenn wir hingegen nicht den Summen- sondern den **Mittelwert** einer Person über Variablen bilden wollen, nutzen wir `rowMeans()`. Der Rest bleibt analog zum Vorgehen oben.
+
+```{r}
+PWE_data$mean <- rowMeans(select(PWE_data, matches("^Q.*A$")), na.rm=TRUE)
+```
+
+Abschließend schauen wir uns wieder die neu erstellte Variable (für die die ersten 10 Personen) an:
+
+```{r, echo=FALSE, max.print = 10}
+paged_table(PWE_data[,c("mean")], options(rows.print=5))
+```
+
+</p></details>
+
+<p style="line-height:10px;"></p>
+
+
+<details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193">`ifelse()`</font>: Auswahl *bestimmter* Fälle</span></summary><p>
+
+Jetzt schauen wir uns an, wie wir eine Variable **nur** für eine bestimmte Gruppe erstellen können.
+
+Dafür nutzen wir die Funktion `ifelse(test, yes, no)`. Mit dieser testen wir, ob eine oder mehrere Bedingungen (`test`) zutreffen und geben an, was mit den Fällen passieren soll, auf die die Bedingung(en) zutreffen (`yes`) und jene, auf die diese nicht zutreffen (`no`). 
+
+<span class="ex">Für unser Beispiel sollen alle Fälle, auf die die Bedingung(en) nicht zutreffen, ein `NA` auf der neu erstellten Variablen erhalten.</span>
+
+Wenn wir mehrere Bedingungen nutzen wollen, können wir auf die logischen Operatoren zurückgreifen. Mit `&` geben wir an, dass beide Bedingungen zutreffen sollen; mit `|` dass eine Bedingung zutreffen soll. Mit runden Klammern können wir Bedingungen noch differenzierter angeben z.B. `(A | B) & C` heißt, dass entweder A *oder* B eine (noch festzulegende) Ausprägung erfüllen müssen *und* zusätzlich noch C. Mehr Informationen zu logischen Operatoren finden wir im gleichnamigen [Abschnitt](#logop). 
+
+<span class="ex">Wir nutzen das gleiche Beispiel wie im Abschnitt vorher, nur dass wir jetzt **nur den Summenwert für weibliche (`gender == 2`) Buddhistinnen (`religion == 3`)** bilden wollen.</span>
+
+```{r}
+PWE_data$sum_gr <- ifelse(PWE_data$gender == 2 & PWE_data$religion == 3, # test
+                          rowSums(select(PWE_data, matches("^Q.*A$")),   # yes
+                                  na.rm=TRUE),
+                          NA)                                            # no
+                       
+```
+
+Schauen wir uns die neu erstellte Variable sowie die Gruppierungsvariablen (der Personen 687 bis 691 an, unter denen sich 2 von insgesamt `r table(is.na(PWE_data$sum_gr))[1]` weibliche Buddhistinnen befinden) einmal an:
+
+```{r, echo=FALSE, max.print = 10}
+paged_table(PWE_data[687:691,c("gender", "religion", "sum_gr")], options(rows.print=5))
+```
+
+</p></details>
+
+<p style="line-height:10px;"></p>
+
+
+<details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193">`mutate()`</font>: Summary-Variablen als Funktion von anderen Variablen erstellen</span></summary><p>
+
+```{r, echo=FALSE}
+## Quellen: https://r4ds.had.co.nz/transform.html#add-new-variables-with-mutate
+# grep AND: https://www.shellhacks.com/grep-or-grep-and-grep-not-match-multiple-patterns/
+```
+
+Wenn wir neue Variablen erstellen wollen, die Funktionen von bestehenden Variablen sind, können wir die Funktion `mutate()` aus dem Paket **dplyr** nutzen. Besonders nützlich hierbei ist, dass wir mit dem Parameter `.keep` festlegen können, welche Variablen wir im (neu erstellten) Datensatz behalten wollen.
+
+<span class="ex">Nachdem wir schon den Mittelwert der Skale berechnet haben <font size="2">(`mean`)</font>, wollen wir noch eine neue Variable erstellen, die den z-standardisierten Mittelwert der Personen widergibt.</span>
+
+```{r}
+# für z-Standardisierung notwendige Kennwerte berechnen:
+mean_all <- mean(PWE_data$mean, na.rm=TRUE) # Mittelwert über alle Personenmittelwerte
+sd_all <- sd(PWE_data$mean, na.rm=TRUE) # Standardabweichung der Mittelwerte
+# library(dplyr)
+PWE_data_mean <- mutate(PWE_data, 
+                        sw_mean = (mean - mean_all) / sd_all,
+                        .keep = "used") # alle benutzten und neu erstellen Variablen
+```
+
+Abschließend können wir uns den neu erstellten Datensatz `PWE_data_mean` (für die ersten 10 Personen) einmal anschauen:
+
+```{r, echo=FALSE, max.print = 10}
+paged_table(PWE_data_mean, options(rows.print=5))
+```
+
+</p></details>
+
+<p style="line-height:10px;"></p>
+
+
+## Weitere wichtige Hinweise
+
+### Cheat Sheet **dplyr**
+
+Wer Gefallen an den tidyverse-Funktionen `select()`, `filter()`, `mutate()`,  und `summarise()` gefunden hat, kann ein Cheat Sheet zur **Data Transformation mit dplyr** in <a href="https://github.com/rstudio/cheatsheets/raw/master/translations/german/data-transformation-cheatsheet_de.pdf" target="_blank">deutsch</a> oder <a href="https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf" target="_blank">englisch</a> herunterladen.
+
+### Stichprobengröße
+
+Es ist generell sehr wichtig, auch bei der Datenvorbereitung, ein Auge auf die Stichprobengröße zu haben. Teilweise werden bei der Datenvorbereitung einige Untersuchungseinheiten aus der Analyse exkludiert und damit sinkt die Stichprobengröße $N$. 
+
+Wenn wir Auswertungen machen, in denen wir Ergebnisobjekte bekommen <font size="2">(z.B. bei der Regression mit `lm()`)</font>, können wir die Information zu $N$ daraus ablesen. Dazu klicken wir auf das Ergebnisobjekt im <span style="color: #75AADC">Environment</span> <font size="2">(z.B. `lm_kontr`)</font>. Unter `model` sehen wir die Dimensionalität des **genutzten** Teil des Datensatzes und können anhand der Anzahl der Zeilen $N$ ablesen <font size="2">(z.B. bei `lm_kontr`: `[116 x 3]` d.h. 116 Fälle)</font>.
+
+<aside>In `lm()` wird listwise deletion angewendet, d.h. dass jede Zeile, die mindestens ein Missing enthält, aus der Analyse ausgeschlossen wird. Mehr zu Fehlenden Werten im gleichnamigen <a href="http://methods-berlin.com/de/r-lernplattform/fehlende-werte" target="_blank">Kapitel</a>.</aside>
+
+
+### Replizierbarkeit
+
+Wir sollten unsere <span class ="r">R</span>-Skripte generell großzügig **kommentieren** (mit `#`), damit wir (und ggf. auch Dritte) schnell nachvollziehen können, was wir da eigentlich gemacht haben.
+
+Es lohnt sich auch, wenn man einen Datensatz (teil-)aufbereitet hat, diesen zu **speichern**, d.h. als neue Datei außerhalb von <span class ="r">R</span> zu exportieren <font size="2">(z.B. wenn man einen Datensatz vom Wide- ins Long-Format gebracht hat)</font>.
+
+Außerdem ist es sinnvoll, **alle Schritte der Datenvorbereitung sowie Datenauswertung im gleichen Programm** durchzuführen, um möglichen Kompatibilitätsproblemen zwischen verschiedenen Programmen vorzubeugen.
+
+
+## Übung
+
+Im Folgenden wollen wir einige Aufgaben bearbeiten, die in den Bereich der Datenvorbereitung fallen. Dazu gehören u.a. das Extrahieren und Sortieren von Daten, die Änderung der Kodierung von Daten sowie das Erstellen von Summary-Variablen. Zuallererst sollten wir uns jedoch immer mit dem genutzten Datensatz vertraut machen.
+
+<aside><a href="http://methods-berlin.com/de/r-lernplattform/datenvorbereitung" target="_blank" class="highlight">Hier</a> finden wir das Einführungsskript zu Datenvorbereitung.</aside>
+
+Dazu nutzen wir einen Datensatz, der im Rahmen eines Projektes zur Untersuchung des Zusammenhangs des Bedürfnisses nach Privatsphäre und verschiedenen Persönlichkeitseigenschaften erhoben wurde. Mehr Informationen zum Projekt und zur Publikation finden wir <a href="https://osf.io/7ncpk/" target="_blank">hier</a>.
+
+Den <a href="https://osf.io/t4be6/" target="_blank">**Datensatz**</a> sowie das dazugehörige <a href="https://osf.io/38qwz/" target="_blank">**Codebuch**</a> finden wir im **O**pen **S**cience **F**ramework. <font color="gray">Mehr Informationen zu OSF, der Replikationskrise und der Open Science Bewegung finden wir <a href="http://methods-berlin.com/de/replikationskrise_open_science/" target="_blank">hier</a>.</font>
+
+Den Datensatz können wir, nachdem wir ihn heruntergeladen haben, folgendermaßen in <span class="r">R</span> einlesen:
+
+```{r, echo=FALSE}
+data <- read.csv("data/datenvorbereitung_osf.csv")
+```
+
+```{r, eval=FALSE}
+data <- read.csv("Dateipfad/data.csv") # hier den eigenen Dateipfad einfügen
+```
+
+So sollte der Datensatz aussehen:
+
+```{r, echo=FALSE}
+paged_table(data, options(rows.print=5))
+```
+
+
+---
+
+### Übung 1: Erste Schritte
+
+Zuallererst wollen wir uns mit dem Datensatz vertraut machen. Dazu benötigen wir das Codebuch, welches uns Informationen über die erhobenen Variablen sowie deren Messung gibt. Am besten überfliegen wir das Codebuch und den Datensatz einmal, um uns damit vertraut zu machen, bevor wir die nachfolgenden Aufgaben bearbeiten.
+
+> *__Achtung__*: Es sind nicht alle Variablen, die im Codebuch auftauchen, auch im Datensatz. 
+
+<span class="highlight">1.) Es gibt zwei Variablen im Datensatz, die nicht im Codebuch zu finden sind. Welche sind das?
+
+<details><summary class ="stitle">Lösung</summary><div class="sol">
+
+Die Variable `sex` taucht nicht im Datensatz auf. Nur die Variable `male`, welche die Ausprägungen `0` und `1` besitzt. Schätzungsweise soll mit beiden dieselbe Information koderit werden: das biologische Geschlecht der befragten Personen.
+
+Die Variable `time` taucht nicht im Codebuch auf. Möglicherweise ist das die individuelle Bearbeitungszeit für den Fragebogen in Sekunden. Vor der Nutzung der der Variablen `time` müssten wir deren Bedeutung klären. 
+
+</div></details>\
+
+
+<span class="highlight">2.) Wie viele Variablen und Beobachtungen enthält der Datensatz?</span>
+
+<div class="hint"><details><summary>Tipp</summary>
+Standardmäßig sind Variablen die Spalten und Beobachtungen die Zeilen eines Datensatzes.</details></div>
+
+<p style="line-height:10px;"></p>
+
+<details><summary class ="stitle">Lösung</summary><div class="sol">
+
+Wir finden die Information im <span class="r">R Studio</span> Feld **Environment** ...
+
+```{r, out.width = "600px", echo=FALSE, fig.align='left'}
+knitr::include_graphics("figures/Datenvorbereitung/Bilder/data.png")
+```
+
+... oder indem wir folgende Funktionen nutzen:
+
+```{r}
+ncol(data) # Variablen = Anzahl der Spalten
+```
+
+```{r}
+nrow(data) # Beobachtungen (Personen; N) = Anzahl der Zeilen
+```
+
+</div></details>\
+
+
+<span class="highlight">3.) Liegen alle Variablen in einem ihrem Messniveau angemessenen Datentyp vor?</span>
+
+<div class="hint"><details><summary>Tipp</summary>
+Im Codebuch finden wir Informationen zu den Variablen. Über die Funktionen `str()` bekommen wir Informationen zum Datentyp.</div>
+
+<p style="line-height:10px;"></p>
+
+<details><summary class ="stitle">Lösung</summary><div class="sol">
+
+```{r}
+str(data)
+```
+Alle Variablen liegen als <span class="r">integer</span> vor. Für die Fragebogenitems (`pri_nee_`, `soc_`, `itg_`, `anx_`, `ria_` und `tra_`), die intervallskaliert sein sollen, ist das korrekt. Die soziodemographischen Variablen `male` und `inc` hingegen sind nominal- bzw. ordinalskaliert. Das bedeutet, dass sie noch faktorisiert werden müssen, um in <span class="r">R</span> als solche erkannt zu werden.
+
+```{r}
+# nominalskaliert (unsortierter Faktor):
+data$male <- factor(data$male)
+str(data$male)
+```
+
+> *__Achtung__*:  <div class="rows">Nicht verwirren lassen: Der Faktor `male` hat die Kodierungen `0` und `1` (wie schon die <span class="r">integer</span>-Variable vorher), aber die *interne* Kodierung des Faktors ist `1` und `2`.</div>
+
+```{r}
+# ordinalskaliert (sortierter Faktor):
+data$inc <- factor(data$inc, ordered=TRUE)
+str(data$inc)
+levels(data$inc)
+```
+
+> *__Achtung__*:  <div class="rows">Aus dem Codebuch ist leider nicht ersichtlich, welche Kategorie (z.B. `< $500`) für welche Kodierung steht (z.B. `1`). Wir gehen hier davon aus, dass beide aufsteigend gepaart wurden, z.B. `< $500` = `1`, aber die *interne* Kodierung eines Faktors beginnt bei `1`, d.h. in unserem Fall gibt es `1` und `2`.</div>
+
+</div></details>\
+
+
+<!-- <span class="highlight">4.) Was kodiert die Variable `inc`, in welchem Datentyp liegt sie vor und wie viele Ausprägungen dieser Variablen gibt es?</span> -->
+
+
+<!-- <div class="hint"><details><summary>Tipp</summary> -->
+<!-- Die Information, was die Variable kodiert, finden wir im Codebuch. Den Datentyp bringen wir in <span class="r">R</span> in Erfahrung. Die Ausprägungen der Variablen finden wir entweder im Codebuch oder wir nutzen eine Funktion in <span class="r">R</span>.</details></div> -->
+
+<!-- <p style="line-height:10px;"></p> -->
+
+<!-- <details><summary class ="stitle">Lösung</summary><div class="sol"> -->
+
+<!-- `inc`: Das monatlich zur Verfügung stehende Einkommen der befragten Person (Codebuch S.28) -->
+
+<!-- ```{r} -->
+<!-- str(data$inc) -->
+<!-- ``` -->
+
+<!-- `inc` liegt als <span class="r">integer</span> vor ... -->
+
+<!-- ```{r} -->
+<!-- unique(data$inc) -->
+<!-- ``` -->
+
+<!-- ... und hat 5 mögliche Ausprägungen. (Die Kategorie `NA` zählt fehlende Werte.) -->
+
+<!-- </div></details>\ -->
+
+
+<span class="highlight">4.) Wie heißt die Variable, die kodiert, inwieweit die befragte Person gerne viele Menschen um sich herum hat? Welche Antwortoption auf der *Mess*skala <font size="2">(hiermit ist <u>nicht</u> die Kodierung der Daten gemeint)</font> haben die meisten befragten Personen angekreuzt?</span>
+
+<div class="hint"><details><summary>Tipp 1</summary>
+Den Namen der Variablen sowie deren Messskala finden wir im Codebuch. Die Häufigkeiten der jeweiligen Ausprägungen der Variablen bringen wir in <span class="r">R</span> in Erfahrung.</details></div>
+
+<div class="hint"><details><summary>Tipp 2</summary>
+Mit der Funktion `table()` können wir uns die Häufigkeiten der Ausprägungen *einer* Variablen ausgeben lassen. Die Funktion ist auch bereits sehr hilfreich, um einen schnellen Überblick über die möglichen Ausprägungen zu bekommen.</details></div>
+
+<p style="line-height:10px;"></p>
+
+<details><summary class ="stitle">Lösung</summary><div class="sol">
+
+Die Variable heißt `soc_2` und hat eine Messskala, welche von -3 bis 3 (inklusive 0) geht (Codebuch S.20).
+
+```{r}
+table(data$soc_2)
+```
+
+Die Kodierung `5` kommt am häufigsten vor. Die meisten befragten Personen haben damit eine 1 auf der Messskala angegeben.
+
+</div></details>\
+
+
+<span class="highlight">5.) Gibt es Werte von Variablen im Datensatz, die unplausibel erscheinen? Wenn ja, entferne die entsprechenden Personen aus dem Datensatz.</span>
+
+<div class="hint"><details><summary>Tipp 1</summary>
+Hiervoll ist es sinnvoll, sich eine Übersicht der Ausprägungen aller Variablen anzuschauen und diese ggf. mit den Angaben im Codebuch zu vergleichen.</div>
+
+<div class="hint"><details><summary>Tipp 2</summary>
+Es gibt einen Wert einer Variablen der heraussticht.</div>
+
+<p style="line-height:10px;"></p>
+
+<details><summary class ="stitle">Lösung</summary><div class="sol">
+
+```{r}
+sapply(sapply(data, unique), sort, na.last=TRUE) # sortierte Ausprägungen der Variablen
+which(data$age == 9)
+```
+
+Die Person mit der Zeile `r which(data$age == 9)` hat (vermutlich versehentlich) als Alter `9` Jahre angegeben. Wir entfernen diese Person aus dem Datensatz.
+
+```{r}
+data <- data[-which(data$age == 9),]
+```
+
+
+</div></details>\
+
+
+<span class="highlight">6.) Enthält der Datensatz fehlende Werte ("Missings"; `NA`) und wenn ja, wie viele insgesamt und auf welchen Variablen?</span>
+
+<div class="hint"><details><summary>Tipp</summary>
+Das Thema "Fehlende Werte" wird im Kapitel zur Datenvorbereitung nur kurz angerissen, weil es ein <a href="http://methods-berlin.com/de/r-lernplattform/fehlende-werte" target="_blank">eigenständiges Kapitel</a> dazu gibt.</details></div>
+
+<p style="line-height:10px;"></p>
+
+<details><summary class ="stitle">Lösung</summary><div class="sol">
+
+```{r}
+anyNA(data) # prüft ob mind. ein Missing im Datensatz
+```
+Ja, `data` enthält fehlende Werte.
+
+```{r}
+table(is.na(data)) # absolute Anzahl fehlender Werte
+```
+
+```{r, results="hold"}
+table(is.na(data))[2]/(table(is.na(data))[1] + table(is.na(data))[2]) 
+# relative Anzahl fehlender Werte
+```
+
+
+```{r}
+colSums(is.na(data)) # Übersicht über Anzahl Missings für alle Variablen
+```
+
+Jede Variable mit Ausnahme von `id` und `time` enthält fehlende Werte.
+
+
+</div></details>\
+
+<span class="highlight">7.) Was ist die höchste Anzahl an fehlenden Werten von *einer* Person und welche Person hat bzw. welche Personen haben die meisten fehlenden Werte?</span>
+
+<div class="hint"><details><summary>Tipp</summary>
+In der letzten Aufgabe haben wir uns variablenweise Missings angeschaut mit `colSums()`. Nun wollen wir uns *zeilen*weise Missings anschauen. </details></div>
+
+<p style="line-height:10px;"></p>
+
+<details><summary class ="stitle">Lösung</summary><div class="sol">
+
+```{r}
+max(rowSums(is.na(data))) # maximale Anzahl Missings (absoluter Wert)
+```
+
+
+```{r, results='hold'}
+max(rowSums(is.na(data))) / ncol(data)
+# Max-Anzahl Missings einer Person / Anzahl aller Variablen (relativer Wert)
+```
+
+Fehlende Werte auf `r max(rowSums(is.na(data)))` Variablen ist die Höchstzahl an fehlenden Werten pro Person. Das entspricht einem Prozentsatz von ca. `r round(max(rowSums(is.na(data))) / ncol(data), 2) * 100`% fehlenden Werten.
+
+```{r}
+# Personen mit diesen Zeilen haben die meisten Missings:
+names(which(rowSums(is.na(data)) == max(rowSums(is.na(data)))))
+```
+
+Wir müssen hier `names()` nutzen, damit wir die Zeilennamen ausgegeben bekommen da wir sonst einen benannten Vektor ausgegeben bekommen.
+
+Man sollte überlegen, wie mit den Daten dieser `r length(which(rowSums(is.na(data)) == max(rowSums(is.na(data)))))` Personen bei etwaigen Analysen umzugehen wäre. Wenn die Daten MCAR sind, könnten wir diese Personen aus den Analysen entfernen. Mehr Infos zu Fehlenden Werten im <a href="http://methods-berlin.com/de/r-lernplattform/fehlende-werte" target="_blank">gleichnamigen Kapitel</a>.
+
+</div></details>\
+
+
+### Übung 2: Extrahieren von Daten
+
+Nun wollen wir einzelne Daten aus dem Datensatz extrahieren. Dabei interessieren uns entweder Variablen mit bestimmten Ausprägungen (von Personen) oder Personen mit bestimmten Ausprägungen (auf Variablen).
+
+> *__Achtung__*:  Achte darauf, immer auch die `id`-Variable mit zu extrahieren, um Beobachtungseinheiten identifizieren zu können, auch wenn das nicht jedes mal erneut in der Aufgabenbeschreibung steht.
+
+<span class="highlight">1.) Extrahiere alle demographischen Variablen aus `data`.</span>
+
+<div class="hint"><details><summary>Tipp 1</summary>
+Im Codebuch (S. 26ff) steht, welche Variablen zu den demographischen Angaben zählen.
+
+> *__Achtung__*:  <div class="rows">Im Codebuch steht die Variable `sex`, welche im Datensatz <u>nicht</u> enthalten ist. Alternativ gibt es die Variable `male`.</div>
+
+<p style="line-height:10px;"></p>
+</details></div>
+
+<div class="hint"><details><summary>Tipp 2</summary>
+Es gibt drei demographische Variablen in `data` (aber mehr im Codebuch).</details></div>
+
+<p style="line-height:10px;"></p>
+
+<details><summary class ="stitle">Lösung</summary><div class="sol">
+
+```{r, eval=FALSE}
+library(dplyr)
+select(data, id, male, age, inc)
+```
+
+```{r, echo=FALSE}
+library(dplyr)
+paged_table(select(data, id, male, age, inc), options(rows.print=5))
+```
+
+</div></details>\
+
+<span class="highlight">2.) Extrahiere alle Variablen, die grundlegende Bedürfnisse <font size="2">(*General Needs*)</font> erfassen.</span>
+
+<div class="hint"><details><summary>Tipp 1</summary>
+Die Variablen haben denselben Wortstamm: `gen`. </details></div>
+
+<div class="hint"><details><summary>Tipp 2</summary>
+Es gibt vier Items zu grundlegenden Bedürfnissen.</details></div>
+
+<p style="line-height:10px;"></p>
+
+<details><summary class ="stitle">Lösung</summary><div class="sol">
+
+```{r, eval=FALSE}
+data[,c(1, # id
+        grep("gen", names(data)))] # general needs
+```
+
+```{r, echo=FALSE}
+library(dplyr)
+paged_table(data[,c(1, grep("gen", names(data)))], options(rows.print=5))
+```
+
+</div></details>\
+
+
+<span class="highlight">3.) Extrahiere alle Variablen, die gesellschaftliche <font size="2">(*Societal Needs*)</font> und interpersonelle <font size="2">(*Interpersonal Needs*)</font> Bedürfnisse erfassen.</span>
+
+<div class="hint"><details><summary>Tipp 1</summary>
+Die Variablen haben zwar denselben Wortstamm – `nee` – aber den haben die Variablen zu grundlegenden Bedürfnissen <font size="2">(*General Needs*)</font> auch. </details></div>
+
+<div class="hint"><details><summary>Tipp 2</summary>
+Es gibt insgesamt 18 Items zu gesellschaftlichen und interpersonellen Bedürfnissen (jeweils 9).</details></div>
+
+<p style="line-height:10px;"></p>
+
+<details><summary class ="stitle">Lösung</summary><div class="sol">
+
+```{r, echo=FALSE}
+all_needs <- data[,c(1, # id
+                     grep("nee", names(data)))] # alle Bedürfnis-Variablen
+```
+
+```{r, eval=FALSE}
+# Vorauswahl von Bedürfnis-Variablen mittels des gemeinsamen Wortstammes:
+all_needs <- data[,c(1, # id
+                     grep("nee", names(data)))] # alle Bedürfnis-Variablen
+# Auswahl der gewollten Variablen aus den Bedürfnis Variablen (neben "id") ..
+# .. solche, die "c" oder "t" im Namen haben (trifft nur auf General needs nicht zu):
+all_needs[grep("id|c|t", names(all_needs))]
+```
+
+```{r, echo=FALSE}
+library(dplyr)
+paged_table(all_needs[grep("id|c|t", names(all_needs))], options(rows.print=5))
+```
+
+</div></details>\
+
+
+<span class="highlight">4.) Extrahiere alle Personen, die weniger als \$500 oder mehr als \$5.000 monatlich zur Verfügung haben.</span>
+
+<div class="hint"><details><summary>Tipp</summary>
+Um beide Bedingungen (`< $500` und `> $5.000`) abzufragen, können wir den logischen Operator `|` ("oder") nutzen.</details></div>
+
+<p style="line-height:10px;"></p>
+
+<details><summary class ="stitle">Lösung</summary><div class="sol">
+
+Zuerst vergleichen wir die Angaben zu den Ausprägungen von `inc` im Codebuch (S. 28) und der Kodierung in <span class="r">R</span>. Laut Codebuch ist `< $500` die erste Ausprägung; `> $5.000` die letzte. Nun schauen wir, mit welchen Kodierungen diese korrespondieren.
+
+```{r}
+table(data$inc)
+```
+
+DIe beiden werden mit `1` und `5` kodiert. Anschließend wenden wir dieses Wissen auf unsere Selektion an.
+
+```{r, eval=FALSE}
+filter(data, inc == 1 | inc == 5)
+```
+
+```{r, echo=FALSE}
+library(dplyr)
+paged_table(filter(data, inc == 1 | inc == 5), options(rows.print=5))
+```
+
+</div></details>\
+
+
+<span class="highlight">5.) Extrahiere die "Extremkreuzer" <font size="2">(Personen, die nur die niedrigste oder höchste Ausprägung einer Frage ankreuzen)</font> aus dem Geselligkeits-Fragebogen <font size="2">(Sociability)</font>.</span>
+
+<div class="hint"><details><summary>Tipp 1</summary>
+Wir können wieder den logischen Operator `|` ("oder") nutzen, um jeweils Personen mit der niedrigste oder höchsten Ausprägung eines Items auszuwählen.</details></div>
+
+<div class="hint"><details><summary>Tipp 2</summary>
+Es gibt insgesamt zwei Extremkreuzer.</details></div>
+
+<p style="line-height:10px;"></p>
+
+<details><summary class ="stitle">Lösung</summary><div class="sol">
+
+Im Codebuch (S. 20) sehen wir, dass für alle Items des Geselligkeits-Fragebogen dieselbe Skale, welche von -3 bis 3 geht, genutzt wurde. Nun schauen wir uns am Beispiel eines Items an, wie diese in <span class="r">R</span> kodiert werden.
+
+```{r}
+# niedrigste und höchste Ausprägung in Erfahrung bringen:
+table(data$soc_1)
+```
+
+```{r, eval=FALSE}
+# Fall-Selektion anwenden:
+filter(data, soc_1 == 1 | soc_1 == 7,
+             soc_2 == 1 | soc_2 == 7,
+             soc_3 == 1 | soc_3 == 7,
+             soc_4 == 1 | soc_4 == 7,
+             soc_5 == 1 | soc_5 == 7,
+             soc_6 == 1 | soc_6 == 7,
+             soc_7 == 1 | soc_7 == 7,
+             soc_8 == 1 | soc_8 == 7)
+```
+
+```{r, echo=FALSE}
+library(dplyr)
+paged_table(filter(data, soc_1 == 1 | soc_1 == 7,
+                         soc_2 == 1 | soc_2 == 7,
+                         soc_3 == 1 | soc_3 == 7,
+                         soc_4 == 1 | soc_4 == 7,
+                         soc_5 == 1 | soc_5 == 7,
+                         soc_6 == 1 | soc_6 == 7,
+                         soc_7 == 1 | soc_7 == 7,
+                         soc_8 == 1 | soc_8 == 7), options(rows.print=2))
+```
+
+Auf den Seiten 6 bis 7 sehen wir die Items des Geselligkeits-Fragebogens (oben rechts ist der Pfeil).
+
+</div></details>\
+
+
+<span class="highlight">6.) Extrahiere die Items des Fragebogens zu Integrität <font size="2">(Integrity)</font> für alle Personen, die 18 Jahre alt sind.</span>
+
+<div class="hint"><details><summary>Tipp 1</summary>
+Die Reihenfolge der Auswahl, d.h. ob zuerst Variablen oder zuerst Fälle selektiert werden, ist eigentlich irrelevant, aber wenn wir erst die Fälle selektieren und dann die Variablen müssen wir die Variable `age` nicht wieder aus dem finalen Datensatz entfernen.</details></div>
+
+<div class="hint"><details><summary>Tipp 2</summary>
+Der finale Datensatz besteht aus 12 Variablen (davon sind 11 die Integritäts-Items) von 54 Personen.</details></div>
+
+<p style="line-height:10px;"></p>
+
+<details><summary class ="stitle">Lösung</summary><div class="sol">
+
+```{r}
+# Fälle selektieren:
+data_18 <- filter(data, age == 18)
+# Variablen selektietren:
+all_itg_items <- data_18[,c(1, # id
+                         grep("itg", names(data_18)))] # Integrität Items
+```
+
+```{r, echo=FALSE}
+library(dplyr)
+paged_table(all_itg_items, options(rows.print=5))
+```
+
+</div></details>\
+
+
+<span class="highlight">7.) Extrahiere alle Personen, die im Fragebogen zu interpersonellen Bedürfnissen <font size="2">(Needs, Interpersonal)</font> über dem Gesamtmittelwert <font size="2">(Mittelwert über alle Personen im Datensatz)</font> liegen. Entferne Personen mit mindestens einem fehlenden Wert auf diesen Items aus der Analyse.</span>
+
+<aside>Hier muss zusätzlich eine Summary-Variable (Übung 5) erstellt werden.</aside>
+
+> *__Achtung__*:  Unser Vorgehen mit fehlenden Wert hier <font size="2">(casewise deletion)</font> ist stark vereinfacht und sollte in echten Analysen nicht ohne Belege für MCAR durchgeführt werden.
+
+<div class="hint"><details><summary>Tipp 1</summary>
+Wir müssen\
+1) alle Items des Fragebogens extrahieren,\
+2) alle Personen mit mind. einem Missing entfernen,\
+3) die Items jeweils für jede Person aufsummieren (d.h. individuelle Scores bilden),\
+4) diese individuellen Scores über alle Personen aufsummieren, um den Gesamtmittelwert zu berechnen,\
+5) die individuellen Scores mit dem Gesamtmittelwert vergleichen, um nur überdurchschnittliche Personen in unserer finalen Auswahl zu haben.\
+</details></div>
+
+<div class="hint"><details><summary>Tipp 2</summary>
+Im finalen Datensatz befinden sich 140 (von initial 296) Personen.</details></div>
+
+<p style="line-height:10px;"></p>
+
+<details><summary class ="stitle">Lösung</summary><div class="sol">
+
+```{r}
+# 1) Items extrahieren:
+all_int_items <- data[,c(1, # id
+                         grep("int", names(data)))] # Int. Bedürfnisse Items
+# 2) Personen mit mind. einem Missing entfernen:
+all_int_items <- na.omit(all_int_items) # 21 Personen entfernt
+# 3) individuelle Scores bilden:
+library(dplyr)
+all_int_items <- mutate(all_int_items, score = rowSums(all_int_items))
+# 4) Mittelwert individueller Scores berechnen:
+mean_score <- mean(all_int_items$score)
+mean_score
+# 5) überdurchschnittliche Personen extrahieren:
+final_data <- filter(all_int_items, score > mean_score) # 135 Personen entfernt
+```
+
+```{r, echo=FALSE}
+library(dplyr)
+paged_table(final_data, options(rows.print=5))
+```
+
+</div></details>\
+
+### Übung 3: Sortieren von Daten
+
+Im Folgenden wollen wir unseren Datensatz nach den aufsteigenden bzw. absteigenden Ausprägungen auf einer der enthaltenen Variablen sortieren.
+
+<span class="highlight">1.) Sortiere `data` (primär) nach den aufsteigenden Ausprägungen in `age` und (sekundär) nach dem Geschlecht (Frauen zuerst).</span>
+
+> *__Achtung__*:  Da die Kodierung der Variablen `male` im Codebuch nicht geklärt wird, gehen wir hier standarmäßig davon aus, dass `0` für *nein*  und `1` für *ja* steht.
+
+<p style="line-height:10px;"></p>
+
+<details><summary class = "stitle">Lösung</summary><div class="sol">
+
+Da Frauen zuerst in der sekundären Sortierung vorkommen sollen, können wir beide Variablen aufsteigend sortieren.
+
+```{r, eval=FALSE}
+data[order(data$age, data$male),] # Default: aufsteigende Sortierung
+```
+
+```{r, echo=FALSE}
+library(dplyr)
+paged_table(data[order(data$age),], options(rows.print=5))
+```
+
+</div></details>\
+
+
+<span class="highlight">2.) Sortiere `data` (primär) nach absteigendem Einkommen und (sekundär, tertiär, ect.) nach den aufsteigenden Ausprägungen auf den Traditionalismus-Items <font size="2">(Traditionalism)</font> in ihrer natürlichen Reihenfolge <font size="2">(beginnend bei `_1`, endend bei `_8`)</font>.</span>
+
+<div class="hint"><details><summary>Tipp 1</summary>
+Mit der Funktion `order()` können wir nur jeweils auf- *oder* absteigend für *alle* angegebenen Variablen sortieren. Daher sollten wir für diese Aufgabe auf andere Funktionen, z.B. `arrange()` aus dem Paket dplyr zurückgreifen.</details></div>
+
+<div class="hint"><details><summary>Tipp 2</summary>
+Um besser beurteilen zu können, ob die Sortierung erfolgreich war, ist es sinnvoll, zuerst einen neuen Datensatz nur aus den relevanten Variablen (inklusive `id`) zu erstellen.</details></div>
+
+<p style="line-height:10px;"></p>
+
+<details><summary class = "stitle">Lösung</summary><div class="sol">
+
+```{r, eval=FALSE}
+library(dplyr)
+# neuer Datensatz nur mit relevanten Variablen:
+data_tra <- data[,c(1, # id
+                    4, # inc
+                    grep("tra", names(data)))]
+# Sortierung:
+arrange(data_tra, -inc, tra_1, tra_2, tra_3, tra_4, tra_5, tra_6, tra_7, tra_8)
+# mit einem "-" sortieren wir absteigend
+```
+
+
+```{r, echo=FALSE}
+library(dplyr)
+data_tra <- data[,c(1, # id
+                    4, # inc
+                    grep("tra", names(data)))]
+paged_table(arrange(data_tra, -inc, tra_1, tra_2, tra_3, tra_4, tra_5, tra_6, tra_7, tra_8), options(rows.print=5))
+```
+
+</div></details>\
+
+
+### Übung 4: Änderung der Kodierung von Daten
+
+Nun wollen wir die Kodierungen einiger Variablen ändern bzw. Variablen mit neuen Kodierungen erstellen.
+
+<span class="highlight">1.) Erstelle eine neue Variable `income`, die das monatliche Einkommen der befragten Personen kodiert, und dafür die Kategorien aus dem Codebuch <font size="2">(S.28)</font> nutzt.</span>
+
+<div class="hint"><details><summary>Tipp</summary>
+Um besser beurteilen zu können, ob die Kodierung erfolgreich war, ist es sinnvoll, zuerst einen neuen Datensatz bestehend aus `inc` und `id` zu erstellen.</details></div>
+
+<p style="line-height:10px;"></p>
+
+<details><summary class = "stitle">Lösung</summary><div class="sol">
+
+```{r}
+# neuen Datensatz erstellen:
+library(dplyr)
+data_inc <- select(data, id, inc)
+# neue Variable income erstellen:
+rec <- c("1='<$500'; 2='$500-$1000'; 3='$1000-$2000'; 4='$2000-$4000'; 5='>$5000'")
+library(car)
+data_inc$income <- recode(data_inc$inc, recodes=rec)
+```
+
+<font size="1">Die Variable `rec`, welche die Überführung der bestehenden in die neue Kodierung enthält, wurde nur aus darstellerischen Gründen erstellt. Der Inhalt kann auch direkt dem Parameter `recodes` übergeben werden.</font>
+
+```{r, echo=FALSE}
+library(dplyr)
+paged_table(data_inc, options(rows.print=5))
+```
+
+</div></details>\
+
+
+<span class="highlight">2.) Erstelle eine neue Variable `sex`, die analog zur gleichnamigen Variablen im Codebuch das biologische Geschlecht kodiert. Gehe für diese Aufgabe davon aus, dass alle Personen, die einen fehlender Wert auf `male` haben, einer Kategorie `other` <font size="2">(nicht-binäres Geschlecht)</font> zugeordnet werden.</span>
+
+<div class="hint"><details><summary>Tipp</summary>
+Um besser beurteilen zu können, ob die Kodierung erfolgreich war, ist es sinnvoll, zuerst einen neuen Datensatz bestehend aus `male` und `id` zu erstellen.</details></div>
+
+<p style="line-height:10px;"></p>
+
+<details><summary class = "stitle">Lösung</summary><div class="sol">
+
+```{r}
+library(dplyr)
+# neuen Datensatz erstellen:
+data_sex <- select(data, id, male)
+# neue Variable sex erstellen:
+data_sex$sex <- case_when(data_sex$male == 0 ~ "female",
+                          data_sex$male == 1 ~ "male",
+                          is.na(data_sex$male) ~ "other")
+```
+
+
+```{r, echo=FALSE}
+library(dplyr)
+paged_table(data_sex, options(rows.print=5))
+```
+
+</div></details>\
+
+
+<span class="highlight">3.) Rekodiere die negativ kodierten Items des Fragebogens zu Risikovermeidung <font size="2">(Risk Avoidance)</font>.</span>
+
+<div class="hint"><details><summary>Tipp 1</summary>
+Die negativ kodierten Items sind im Codebuch jeweils mit einem **\*** markiert.</details></div>
+
+<div class="hint"><details><summary>Tipp 2</summary>
+Es ist sinnvoll zur Überprüfung der Aufgabe, einen neuen Datensatz bestehend aus den negativ kodierten Items und ihrem rekodierten Pendant (und natürlich `id`) zu erstellen.</details></div>
+
+<p style="line-height:10px;"></p>
+
+<details><summary class = "stitle">Lösung</summary><div class="sol">
+
+```{r}
+# neuen Datensatz erstellen:
+library(dplyr)
+data_ria <- select(data, id, 
+                   ria_1, ria_3, ria_5) # negativ kodierte Items
+# neue rekodierte Variablen erstellen:
+library(car)
+
+data_ria$ria_1_rec <- recode(data_ria$ria_1, recodes="1=7; 2=6; 3=5; 4=4; 5=3; 6=2; 7=1")
+data_ria$ria_3_rec <- recode(data_ria$ria_3, recodes="1=7; 2=6; 3=5; 4=4; 5=3; 6=2; 7=1")
+data_ria$ria_5_rec <- recode(data_ria$ria_5, recodes="1=7; 2=6; 3=5; 4=4; 5=3; 6=2; 7=1")
+```
+
+
+```{r, echo=FALSE}
+library(dplyr)
+paged_table(data_ria, options(rows.print=5))
+```
+
+</div></details>\
+
+### Übung 5: Erstellen von Summary-Variablen
+
+Nachfolgend wollen wir neue Variablen erstellen, die Informationen aus mehreren Variablen des Datensatzes zusammenfassen.
+
+<span class="highlight">1.) Erstelle für die verschiedenen Bereiche von Bedürfnissen – Allgemein <font size="2">(General)</font>, Gesellschaftlich <font size="2">(Societal)</font> und Interpersonell <font size="2">(Interpersonal)</font> – jeweils separate Summenwerte und einen Gesamtsummenwert (über alle drei Bereiche).</span>
+
+<div class="hint"><details><summary>Tipp</summary>
+Die Items aller drei Bedürfnis-Bereiche haben denselben Wortstamm: `nee`.</details></div>
+
+<p style="line-height:10px;"></p>
+
+<details><summary class = "stitle">Lösung</summary><div class="sol">
+
+```{r}
+# neuer Datensatz mit relevanten Variablen:
+data_need <- data[,c(1, # id
+                     grep("nee", names(data)))] # Bedürfnis-Items
+
+# Summenwerte der drei Bedürfnis-Bereiche und Gesamtsummenwert:
+library(dplyr)
+data_need$score_gen <- rowSums(select(data_need, matches("nee_gen")))
+data_need$score_soc <- rowSums(select(data_need, matches("nee_soc")))
+data_need$score_int <- rowSums(select(data_need, matches("nee_int")))
+data_need$score_all <- rowSums(select(data_need, matches("nee")))
+```
+
+
+```{r, echo=FALSE}
+library(dplyr)
+paged_table(data_need, options(rows.print=5))
+```
+
+
+</div></details>\
+
+
+<span class="highlight">2.) Erstelle die personenspezifischen Summenwerte der Items, die interpersonelle Bedürfnisse erfassen <font size="2">(Needs, Interpersonal)</font>, für alle Personen, die ein monatliches Einkommen von mehr als \$1.000 haben. Bei allen Personen, die weniger zur Verfügung haben, soll ein `"/"` in der Summenwert-Variablen stehen.</span>
+
+<div class="hint"><details><summary>Tipp</summary>
+Zur Bearbeitung der Aufgabe können wir `mutate()` mit `ifelse()` kombinieren, um den beiden Bedingungen (monatliches Einkommen von mehr bzw. weniger als $1.000) unterschiedliche Werte zuzuweisen.</details></div>
+
+<p style="line-height:10px;"></p>
+
+<details><summary class = "stitle">Lösung</summary><div class="sol">
+
+```{r}
+# neuer Datensatz mit relevanten Variablen:
+data_int <- data[,c(1, # id
+                    4, # inc
+                     grep("int", names(data)))] # Int. Bedürfnisse Items
+```
+
+Nun vergleichen wir die Angaben zu den Ausprägungen von `inc` im Codebuch (S. 28) und der Kodierung in <span class="r">R</span>. Es gibt insgesamt 5 Ausprägungen. Auf unsere Bedingung (mehr als \$1.000) treffen drei Ausprägungen zu. Daher ist es codesparender, wenn wir die zwei nicht zutreffenden Ausprägungen (`< $500` und `$500 - $1000`) negieren (`!=`). Laut Codebuch ist `< $500` die erste Ausprägung; `$500 - $1000` die zweite. Nun schauen wir, mit welchen Kodierungen diese korrespondieren.
+
+```{r}
+table(data$inc)
+```
+
+Sie haben die Kodierungen `1` und `2`. Diese Information können wir nun anwenden.
+
+```{r}
+# neue Variable mit Summenwert bzw. "/" erstellen
+library(dplyr)
+data_int$score <- ifelse(data_int$inc != 1 & data_int$inc != 2,
+                         rowSums(select(data_need, matches("int"))),
+                         "/") # ifelse(Bedingung, trifft zu, trifft nicht zu)
+```
+
+
+```{r, echo=FALSE}
+library(dplyr)
+paged_table(data_int, options(rows.print=5))
+```
+</div></details>\
+
+---
+
+<font size="2">Um eine möglichst exakte Replikation der Funktionen zu gewährleisten gibt es im folgenden relevante Angaben zum System (**<span class ="r">R</span>-Version**, **Betriebssystem**, **geladene Pakete mit Angaben zur Version**), mit welchem diese Seite erstellt wurde.
+
+```{r}
+sessionInfo()
+```
+
+Für Informationen zur Interpretation dieses Outputs schaut auch den Abschnitt <a href="http://methods-berlin.com/wp-content/uploads/Pakete.html#replizierbarkeit-von-analysen" target="_blank">**Replizierbarkeit von Analysen**</a> des Kapitels zu Paketen an.
+</font>
+
+
+
+
+

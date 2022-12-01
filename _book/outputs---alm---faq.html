@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 14 Outputs - ALM - FAQ | R Lernplattform</title>
+  <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 14 Outputs - ALM - FAQ | R Lernplattform" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 14 Outputs - ALM - FAQ | R Lernplattform" />
+  
+  <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  
+
+<meta name="author" content="Methodengruppe Berlin" />
+
+
+<meta name="date" content="2022-11-25" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="r-markdown.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
+<script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<script src="libs/d3-bundle-5.16.0/d3-bundle.min.js"></script>
+<script src="libs/d3-lasso-0.0.5/d3-lasso.min.js"></script>
+<script src="libs/save-svg-as-png-1.4.17/save-svg-as-png.min.js"></script>
+<script src="libs/flatbush-4.0.0/flatbush.min.js"></script>
+<link href="libs/ggiraphjs-0.4.6/ggiraphjs.min.css" rel="stylesheet" />
+<script src="libs/ggiraphjs-0.4.6/ggiraphjs.min.js"></script>
+<script src="libs/girafe-binding-0.8.4/girafe.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">R Lernplattform</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#usage"><i class="fa fa-check"></i><b>1.1</b> Usage</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#render-book"><i class="fa fa-check"></i><b>1.2</b> Render book</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#preview-book"><i class="fa fa-check"></i><b>1.3</b> Preview book</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="installation-und-aktualisierung-von-r-und-rstudio.html"><a href="installation-und-aktualisierung-von-r-und-rstudio.html"><i class="fa fa-check"></i><b>2</b> Installation und Aktualisierung von R und RStudio</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="installation-und-aktualisierung-von-r-und-rstudio.html"><a href="installation-und-aktualisierung-von-r-und-rstudio.html#windows"><i class="fa fa-check"></i><b>2.1</b> <strong>Windows</strong></a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="installation-und-aktualisierung-von-r-und-rstudio.html"><a href="installation-und-aktualisierung-von-r-und-rstudio.html#installation-von-r"><i class="fa fa-check"></i><b>2.1.1</b> Installation von <span class="r"><strong>R</strong></span></a></li>
+<li class="chapter" data-level="2.1.2" data-path="installation-und-aktualisierung-von-r-und-rstudio.html"><a href="installation-und-aktualisierung-von-r-und-rstudio.html#installation-von-rstudio"><i class="fa fa-check"></i><b>2.1.2</b> Installation von <span class="r"><strong>RStudio</strong></span></a></li>
+<li class="chapter" data-level="2.1.3" data-path="installation-und-aktualisierung-von-r-und-rstudio.html"><a href="installation-und-aktualisierung-von-r-und-rstudio.html#aktualisierung-von-r-mit-übernahme-der-pakete-aus-der-älteren-version-paket-installr"><i class="fa fa-check"></i><b>2.1.3</b> Aktualisierung von <span class="r"><strong>R</strong></span> mit Übernahme der Pakete aus der älteren Version (Paket <strong>installr</strong>)</a></li>
+<li class="chapter" data-level="2.1.4" data-path="installation-und-aktualisierung-von-r-und-rstudio.html"><a href="installation-und-aktualisierung-von-r-und-rstudio.html#aktualisierung-von-rstudio"><i class="fa fa-check"></i><b>2.1.4</b> Aktualisierung von <span class="r"><strong>RStudio</strong></span></a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="installation-und-aktualisierung-von-r-und-rstudio.html"><a href="installation-und-aktualisierung-von-r-und-rstudio.html#mac"><i class="fa fa-check"></i><b>2.2</b> <strong>Mac</strong></a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="installation-und-aktualisierung-von-r-und-rstudio.html"><a href="installation-und-aktualisierung-von-r-und-rstudio.html#installation-von-r-1"><i class="fa fa-check"></i><b>2.2.1</b> Installation von <span class="r"><strong>R</strong></span></a></li>
+<li class="chapter" data-level="2.2.2" data-path="installation-und-aktualisierung-von-r-und-rstudio.html"><a href="installation-und-aktualisierung-von-r-und-rstudio.html#installation-von-rstudio-1"><i class="fa fa-check"></i><b>2.2.2</b> Installation von <span class="r"><strong>RStudio</strong></span></a></li>
+<li class="chapter" data-level="2.2.3" data-path="installation-und-aktualisierung-von-r-und-rstudio.html"><a href="installation-und-aktualisierung-von-r-und-rstudio.html#aktualisierung-von-r"><i class="fa fa-check"></i><b>2.2.3</b> Aktualisierung von <span class="r"><strong>R</strong></span></a></li>
+<li class="chapter" data-level="2.2.4" data-path="installation-und-aktualisierung-von-r-und-rstudio.html"><a href="installation-und-aktualisierung-von-r-und-rstudio.html#aktualisierung-von-rstudio-1"><i class="fa fa-check"></i><b>2.2.4</b> Aktualisierung von <span class="r"><strong>RStudio</strong></span></a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="installation-und-aktualisierung-von-r-und-rstudio.html"><a href="installation-und-aktualisierung-von-r-und-rstudio.html#hinweis-zur-replizierbarkeit-von-analysen"><i class="fa fa-check"></i><b>2.3</b> <strong>Hinweis zur Replizierbarkeit von Analysen</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="einführung-in-r.html"><a href="einführung-in-r.html"><i class="fa fa-check"></i><b>3</b> Einführung in R</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="einführung-in-r.html"><a href="einführung-in-r.html#funktionen-pakete"><i class="fa fa-check"></i><b>3.1</b> <strong>1. Funktionen &amp; Pakete</strong></a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="einführung-in-r.html"><a href="einführung-in-r.html#funktionen"><i class="fa fa-check"></i><b>3.1.1</b> Funktionen</a></li>
+<li class="chapter" data-level="3.1.2" data-path="einführung-in-r.html"><a href="einführung-in-r.html#pakete"><i class="fa fa-check"></i><b>3.1.2</b> Pakete</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="einführung-in-r.html"><a href="einführung-in-r.html#daten"><i class="fa fa-check"></i><b>3.2</b> <strong>2. Daten</strong></a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="einführung-in-r.html"><a href="einführung-in-r.html#datentypen"><i class="fa fa-check"></i><b>3.2.1</b> Datentypen</a></li>
+<li class="chapter" data-level="3.2.2" data-path="einführung-in-r.html"><a href="einführung-in-r.html#datenstrukturen"><i class="fa fa-check"></i><b>3.2.2</b> Datenstrukturen</a></li>
+<li class="chapter" data-level="3.2.3" data-path="einführung-in-r.html"><a href="einführung-in-r.html#objekte"><i class="fa fa-check"></i><b>3.2.3</b> Objekte</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="einführung-in-r.html"><a href="einführung-in-r.html#weitere-hilfen"><i class="fa fa-check"></i><b>3.3</b> <strong>3. Weitere Hilfen</strong></a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="einführung-in-r.html"><a href="einführung-in-r.html#kurzbefehle"><i class="fa fa-check"></i><b>3.3.1</b> Kurzbefehle</a></li>
+<li class="chapter" data-level="3.3.2" data-path="einführung-in-r.html"><a href="einführung-in-r.html#andere-lernplattformen-und-übungen"><i class="fa fa-check"></i><b>3.3.2</b> Andere Lernplattformen und Übungen</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="einführung-in-rstudio.html"><a href="einführung-in-rstudio.html"><i class="fa fa-check"></i><b>4</b> Einführung in RStudio</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="einführung-in-rstudio.html"><a href="einführung-in-rstudio.html#allgemeines-zu-rstudio"><i class="fa fa-check"></i><b>4.1</b> Allgemeines zu <code>RStudio</code></a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="einführung-in-rstudio.html"><a href="einführung-in-rstudio.html#skript"><i class="fa fa-check"></i><b>4.1.1</b> <strong><span class="r script">Skript</span></font></strong></a></li>
+<li class="chapter" data-level="4.1.2" data-path="einführung-in-rstudio.html"><a href="einführung-in-rstudio.html#konsole"><i class="fa fa-check"></i><b>4.1.2</b> <strong><span class="r cons">Konsole</span></font></strong></a></li>
+<li class="chapter" data-level="4.1.3" data-path="einführung-in-rstudio.html"><a href="einführung-in-rstudio.html#environment-history"><i class="fa fa-check"></i><b>4.1.3</b> <strong><span class="r env">Environment &amp; History</span></font></strong></a></li>
+<li class="chapter" data-level="4.1.4" data-path="einführung-in-rstudio.html"><a href="einführung-in-rstudio.html#files-plots-packages-help-viewer"><i class="fa fa-check"></i><b>4.1.4</b> <strong><span class="r help">Files, Plots, Packages, Help &amp; Viewer</span></strong></a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="einführung-in-rstudio.html"><a href="einführung-in-rstudio.html#weitere-hilfen-1"><i class="fa fa-check"></i><b>4.2</b> Weitere Hilfen</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="einführung-in-rstudio.html"><a href="einführung-in-rstudio.html#kurzbefehle-1"><i class="fa fa-check"></i><b>4.2.1</b> Kurzbefehle</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="pakete-1.html"><a href="pakete-1.html"><i class="fa fa-check"></i><b>5</b> Pakete</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="pakete-1.html"><a href="pakete-1.html#was-ist-eine-grafische-benutzeroberfläche"><i class="fa fa-check"></i><b>5.1</b> Was ist eine grafische Benutzeroberfläche?</a></li>
+<li class="chapter" data-level="5.2" data-path="pakete-1.html"><a href="pakete-1.html#was-ist-cran"><i class="fa fa-check"></i><b>5.2</b> Was ist CRAN?</a></li>
+<li class="chapter" data-level="5.3" data-path="pakete-1.html"><a href="pakete-1.html#pakete-installieren"><i class="fa fa-check"></i><b>5.3</b> Pakete Installieren</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="pakete-1.html"><a href="pakete-1.html#über-die-funktion-install.packages"><i class="fa fa-check"></i><b>5.3.1</b> Über die Funktion <code>install.packages()</code></a></li>
+<li class="chapter" data-level="5.3.2" data-path="pakete-1.html"><a href="pakete-1.html#über-das-icon-install-oder-den-menüpunkt-install-packages"><i class="fa fa-check"></i><b>5.3.2</b> Über das Icon <span style="color: #75AADC">Install</span> oder den Menüpunkt <span style="color: #75AADC">Install Packages…</span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="pakete-1.html"><a href="pakete-1.html#pakete-laden"><i class="fa fa-check"></i><b>5.4</b> Pakete Laden</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="pakete-1.html"><a href="pakete-1.html#über-die-funktion-library"><i class="fa fa-check"></i><b>5.4.1</b> Über die Funktion <code>library()</code></a></li>
+<li class="chapter" data-level="5.4.2" data-path="pakete-1.html"><a href="pakete-1.html#über-das-häkchen-setzen-in-der-system-library"><i class="fa fa-check"></i><b>5.4.2</b> Über das Häkchen-Setzen in der <span style="color: #75AADC">System Library</span></a></li>
+<li class="chapter" data-level="5.4.3" data-path="pakete-1.html"><a href="pakete-1.html#maskierung-wenn-verschiedene-pakete-gleich-benannte-funktionen-enthalten"><i class="fa fa-check"></i><b>5.4.3</b> <strong>Maskierung</strong>: Wenn verschiedene Pakete gleich benannte Funktionen enthalten</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="pakete-1.html"><a href="pakete-1.html#pakete-aktualisieren"><i class="fa fa-check"></i><b>5.5</b> Pakete Aktualisieren</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="pakete-1.html"><a href="pakete-1.html#über-die-funktion-update.packages"><i class="fa fa-check"></i><b>5.5.1</b> Über die Funktion <code>update.packages()</code></a></li>
+<li class="chapter" data-level="5.5.2" data-path="pakete-1.html"><a href="pakete-1.html#über-das-icon-update-oder-den-menüpunkt-check-for-package-updates"><i class="fa fa-check"></i><b>5.5.2</b> Über das Icon <span style="color: #75AADC">Update</span> oder den Menüpunkt <span style="color: #75AADC">Check for Package Updates…</span></a></li>
+<li class="chapter" data-level="5.5.3" data-path="pakete-1.html"><a href="pakete-1.html#entwicklerpakete-runterladen"><i class="fa fa-check"></i><b>5.5.3</b> Entwicklerpakete runterladen</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="pakete-1.html"><a href="pakete-1.html#wichtige-hinweise-zur-replizierbarkeit"><i class="fa fa-check"></i><b>5.6</b> Wichtige Hinweise zur Replizierbarkeit</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="pakete-1.html"><a href="pakete-1.html#replizierbarkeit-von-r-skripten"><i class="fa fa-check"></i><b>5.6.1</b> Replizierbarkeit von <code>R</code>-Skripten</a></li>
+<li class="chapter" data-level="5.6.2" data-path="pakete-1.html"><a href="pakete-1.html#replizierbarkeit-von-analysen"><i class="fa fa-check"></i><b>5.6.2</b> Replizierbarkeit von Analysen</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="pakete-1.html"><a href="pakete-1.html#weitere-hilfen-2"><i class="fa fa-check"></i><b>5.7</b> Weitere Hilfen</a>
+<ul>
+<li class="chapter" data-level="5.7.1" data-path="pakete-1.html"><a href="pakete-1.html#probleme-mit-paketen-und-funktionen"><i class="fa fa-check"></i><b>5.7.1</b> Probleme mit Paketen und Funktionen</a></li>
+<li class="chapter" data-level="5.7.2" data-path="pakete-1.html"><a href="pakete-1.html#ältere-paket-versionen-installieren"><i class="fa fa-check"></i><b>5.7.2</b> Ältere Paket-Versionen installieren</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="pakete-1.html"><a href="pakete-1.html#faq"><i class="fa fa-check"></i><b>5.8</b> FAQ</a>
+<ul>
+<li class="chapter" data-level="5.8.1" data-path="pakete-1.html"><a href="pakete-1.html#entwicklerpakete"><i class="fa fa-check"></i><b>5.8.1</b> Entwicklerpakete</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="daten-importieren.html"><a href="daten-importieren.html"><i class="fa fa-check"></i><b>6</b> Daten importieren</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="daten-importieren.html"><a href="daten-importieren.html#vor-dem-einlesen-in-r"><i class="fa fa-check"></i><b>6.1</b> <strong>Vor dem Einlesen in <span class="r">R</span></strong></a></li>
+<li class="chapter" data-level="6.2" data-path="daten-importieren.html"><a href="daten-importieren.html#windows-1"><i class="fa fa-check"></i><b>6.2</b> Windows</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="daten-importieren.html"><a href="daten-importieren.html#datei-herunterladen"><i class="fa fa-check"></i><b>6.2.1</b> Datei herunterladen</a></li>
+<li class="chapter" data-level="6.2.2" data-path="daten-importieren.html"><a href="daten-importieren.html#in-arbeitsordner-verschieben"><i class="fa fa-check"></i><b>6.2.2</b> In Arbeitsordner verschieben</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="daten-importieren.html"><a href="daten-importieren.html#mac-1"><i class="fa fa-check"></i><b>6.3</b> Mac</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="daten-importieren.html"><a href="daten-importieren.html#datei-herunterladen-1"><i class="fa fa-check"></i><b>6.3.1</b> Datei herunterladen</a></li>
+<li class="chapter" data-level="6.3.2" data-path="daten-importieren.html"><a href="daten-importieren.html#in-arbeitsordner-verschieben-1"><i class="fa fa-check"></i><b>6.3.2</b> In Arbeitsordner verschieben</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="daten-importieren.html"><a href="daten-importieren.html#weg-1-environment-import-dataset"><i class="fa fa-check"></i><b>6.4</b> <strong>Weg 1: <span class="rstud">Environment</span> &gt; <span class="rstud">Import Dataset</span></strong></a></li>
+<li class="chapter" data-level="6.5" data-path="daten-importieren.html"><a href="daten-importieren.html#weg-2-files-import-dataset"><i class="fa fa-check"></i><b>6.5</b> <strong>Weg 2: <span class="rstud">Files</span> &gt; <span class="rstud">Import Dataset</span></strong></a></li>
+<li class="chapter" data-level="6.6" data-path="daten-importieren.html"><a href="daten-importieren.html#weg-3-manuell-importieren-mit-funktionen"><i class="fa fa-check"></i><b>6.6</b> <strong>Weg 3: Manuell Importieren mit <code>Funktionen</code></strong></a></li>
+<li class="chapter" data-level="6.7" data-path="daten-importieren.html"><a href="daten-importieren.html#faq-1"><i class="fa fa-check"></i><b>6.7</b> FAQ</a>
+<ul>
+<li class="chapter" data-level="6.7.1" data-path="daten-importieren.html"><a href="daten-importieren.html#csv-.txt-und-.dat"><i class="fa fa-check"></i><b>6.7.1</b> .csv, .txt und .dat</a></li>
+<li class="chapter" data-level="6.7.2" data-path="daten-importieren.html"><a href="daten-importieren.html#xls-und-.xlsx"><i class="fa fa-check"></i><b>6.7.2</b> .xls und .xlsx</a></li>
+<li class="chapter" data-level="6.7.3" data-path="daten-importieren.html"><a href="daten-importieren.html#sav"><i class="fa fa-check"></i><b>6.7.3</b> .sav</a></li>
+<li class="chapter" data-level="6.7.4" data-path="daten-importieren.html"><a href="daten-importieren.html#dateien-via-url-direkt-aus-dem-internet-laden"><i class="fa fa-check"></i><b>6.7.4</b> Dateien via URL direkt aus dem Internet laden</a></li>
+<li class="chapter" data-level="6.7.5" data-path="daten-importieren.html"><a href="daten-importieren.html#r-.rda-und-.rmd"><i class="fa fa-check"></i><b>6.7.5</b> .R, .Rda und .Rmd</a></li>
+</ul></li>
+<li class="chapter" data-level="6.8" data-path="daten-importieren.html"><a href="daten-importieren.html#weiterführende-hilfe"><i class="fa fa-check"></i><b>6.8</b> Weiterführende Hilfe</a></li>
+<li class="chapter" data-level="6.9" data-path="daten-importieren.html"><a href="daten-importieren.html#übung"><i class="fa fa-check"></i><b>6.9</b> Übung</a>
+<ul>
+<li class="chapter" data-level="6.9.1" data-path="daten-importieren.html"><a href="daten-importieren.html#übung-1-.csv"><i class="fa fa-check"></i><b>6.9.1</b> Übung 1: <strong>.csv</strong></a></li>
+<li class="chapter" data-level="6.9.2" data-path="daten-importieren.html"><a href="daten-importieren.html#übung-2-.csv"><i class="fa fa-check"></i><b>6.9.2</b> Übung 2: <strong>.csv</strong></a></li>
+<li class="chapter" data-level="6.9.3" data-path="daten-importieren.html"><a href="daten-importieren.html#übung-3-.sav"><i class="fa fa-check"></i><b>6.9.3</b> Übung 3: <strong>.sav</strong></a></li>
+<li class="chapter" data-level="6.9.4" data-path="daten-importieren.html"><a href="daten-importieren.html#übung-4-.xlsx"><i class="fa fa-check"></i><b>6.9.4</b> Übung 4: <strong>.xlsx</strong></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="fehlermeldungen.html"><a href="fehlermeldungen.html"><i class="fa fa-check"></i><b>7</b> Fehlermeldungen</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="fehlermeldungen.html"><a href="fehlermeldungen.html#tools-die-uns-helfen-fehler-zu-vermeiden"><i class="fa fa-check"></i><b>7.1</b> Tools die uns helfen, Fehler zu vermeiden</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="fehlermeldungen.html"><a href="fehlermeldungen.html#r-dokumentation-1"><i class="fa fa-check"></i><b>7.1.1</b> <span class="r">R</span>-Dokumentation</a></li>
+<li class="chapter" data-level="7.1.2" data-path="fehlermeldungen.html"><a href="fehlermeldungen.html#code-diagnostik"><i class="fa fa-check"></i><b>7.1.2</b> Code Diagnostik</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="fehlermeldungen.html"><a href="fehlermeldungen.html#fehlermeldungen-verstehen"><i class="fa fa-check"></i><b>7.2</b> Fehlermeldungen verstehen</a></li>
+<li class="chapter" data-level="7.3" data-path="fehlermeldungen.html"><a href="fehlermeldungen.html#suchen-im-internet"><i class="fa fa-check"></i><b>7.3</b> Suchen im Internet</a></li>
+<li class="chapter" data-level="7.4" data-path="fehlermeldungen.html"><a href="fehlermeldungen.html#weiterführende-hilfe-1"><i class="fa fa-check"></i><b>7.4</b> Weiterführende Hilfe</a></li>
+<li class="chapter" data-level="7.5" data-path="fehlermeldungen.html"><a href="fehlermeldungen.html#automatische-suche-mit-dem-paket-errorist"><i class="fa fa-check"></i><b>7.5</b> Automatische Suche mit dem Paket <strong>errorist</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html"><i class="fa fa-check"></i><b>8</b> Datenvorbereitung</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#grundlegende-erste-schritte"><i class="fa fa-check"></i><b>8.1</b> Grundlegende erste Schritte</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#recap-kodierung-von-daten"><i class="fa fa-check"></i><b>8.1.1</b> <font color="darkgrey"><strong>Recap</strong>: Kodierung von Daten</font></a></li>
+<li class="chapter" data-level="8.1.2" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#dataframe"><i class="fa fa-check"></i><b>8.1.2</b> Dataframe</a></li>
+<li class="chapter" data-level="8.1.3" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#plausibilitäts-check"><i class="fa fa-check"></i><b>8.1.3</b> Plausibilitäts-Check</a></li>
+<li class="chapter" data-level="8.1.4" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#fehlende-werte"><i class="fa fa-check"></i><b>8.1.4</b> Fehlende Werte</a></li>
+<li class="chapter" data-level="8.1.5" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#faktorisieren"><i class="fa fa-check"></i><b>8.1.5</b> Faktorisieren</a></li>
+<li class="chapter" data-level="8.1.6" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#wide--und-long-format"><i class="fa fa-check"></i><b>8.1.6</b> Wide- und Long-Format</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#datensätze-zusammenführen"><i class="fa fa-check"></i><b>8.2</b> Datensätze zusammenführen</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#selbe-variablen-unterschiedliche-fälle"><i class="fa fa-check"></i><b>8.2.1</b> Selbe Variablen, unterschiedliche Fälle</a></li>
+<li class="chapter" data-level="8.2.2" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#unterschiedliche-variablen-selbe-fälle"><i class="fa fa-check"></i><b>8.2.2</b> Unterschiedliche Variablen, selbe Fälle</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#daten-extrahieren"><i class="fa fa-check"></i><b>8.3</b> Daten extrahieren</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#variablen"><i class="fa fa-check"></i><b>8.3.1</b> Variablen</a></li>
+<li class="chapter" data-level="8.3.2" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#fälle"><i class="fa fa-check"></i><b>8.3.2</b> Fälle</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#daten-sortieren"><i class="fa fa-check"></i><b>8.4</b> Daten sortieren</a></li>
+<li class="chapter" data-level="8.5" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#kodierung-ändern"><i class="fa fa-check"></i><b>8.5</b> Kodierung ändern</a>
+<ul>
+<li class="chapter" data-level="8.5.1" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#umkodieren"><i class="fa fa-check"></i><b>8.5.1</b> Umkodieren</a></li>
+<li class="chapter" data-level="8.5.2" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#indikatorvariablen-kodierung-nominaler-merkmale"><i class="fa fa-check"></i><b>8.5.2</b> Indikatorvariablen: Kodierung nominaler Merkmale</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#summary-variablen"><i class="fa fa-check"></i><b>8.6</b> Summary-Variablen</a></li>
+<li class="chapter" data-level="8.7" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#weitere-wichtige-hinweise"><i class="fa fa-check"></i><b>8.7</b> Weitere wichtige Hinweise</a>
+<ul>
+<li class="chapter" data-level="8.7.1" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#cheat-sheet-dplyr"><i class="fa fa-check"></i><b>8.7.1</b> Cheat Sheet <strong>dplyr</strong></a></li>
+<li class="chapter" data-level="8.7.2" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#stichprobengröße"><i class="fa fa-check"></i><b>8.7.2</b> Stichprobengröße</a></li>
+<li class="chapter" data-level="8.7.3" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#replizierbarkeit"><i class="fa fa-check"></i><b>8.7.3</b> Replizierbarkeit</a></li>
+</ul></li>
+<li class="chapter" data-level="8.8" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#übung-1"><i class="fa fa-check"></i><b>8.8</b> Übung</a>
+<ul>
+<li class="chapter" data-level="8.8.1" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#übung-1-erste-schritte"><i class="fa fa-check"></i><b>8.8.1</b> Übung 1: Erste Schritte</a></li>
+<li class="chapter" data-level="8.8.2" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#übung-2-extrahieren-von-daten"><i class="fa fa-check"></i><b>8.8.2</b> Übung 2: Extrahieren von Daten</a></li>
+<li class="chapter" data-level="8.8.3" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#übung-3-sortieren-von-daten"><i class="fa fa-check"></i><b>8.8.3</b> Übung 3: Sortieren von Daten</a></li>
+<li class="chapter" data-level="8.8.4" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#übung-4-änderung-der-kodierung-von-daten"><i class="fa fa-check"></i><b>8.8.4</b> Übung 4: Änderung der Kodierung von Daten</a></li>
+<li class="chapter" data-level="8.8.5" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#übung-5-erstellen-von-summary-variablen"><i class="fa fa-check"></i><b>8.8.5</b> Übung 5: Erstellen von Summary-Variablen</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="fehlende-werte-1.html"><a href="fehlende-werte-1.html"><i class="fa fa-check"></i><b>9</b> Fehlende Werte</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="fehlende-werte-1.html"><a href="fehlende-werte-1.html#sind-die-missings-einheitlich-kodiert"><i class="fa fa-check"></i><b>9.1</b> Sind die Missings einheitlich kodiert?</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="fehlende-werte-1.html"><a href="fehlende-werte-1.html#wie-kann-ich-prüfen-ob-die-missings-einheitlich-kodiert-sind"><i class="fa fa-check"></i><b>9.1.1</b> Wie kann ich prüfen, ob die Missings einheitlich kodiert sind?</a></li>
+<li class="chapter" data-level="9.1.2" data-path="fehlende-werte-1.html"><a href="fehlende-werte-1.html#wie-kann-ich-die-missings-auf-na-setzen"><i class="fa fa-check"></i><b>9.1.2</b> Wie kann ich die Missings auf <code>NA</code> setzen?</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="fehlende-werte-1.html"><a href="fehlende-werte-1.html#enthält-ein-datensatz-missings"><i class="fa fa-check"></i><b>9.2</b> 2. Enthält ein Datensatz Missings?</a></li>
+<li class="chapter" data-level="9.3" data-path="fehlende-werte-1.html"><a href="fehlende-werte-1.html#wie-kann-man-die-missings-zählen-und-verorten"><i class="fa fa-check"></i><b>9.3</b> 3. Wie kann man die Missings zählen (und verorten)?</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="fehlende-werte-1.html"><a href="fehlende-werte-1.html#alle-missings-eines-datensatzes"><i class="fa fa-check"></i><b>9.3.1</b> Alle Missings eines Datensatzes</a></li>
+<li class="chapter" data-level="9.3.2" data-path="fehlende-werte-1.html"><a href="fehlende-werte-1.html#missings-in-einzelnen-spalten-oder-zeilen"><i class="fa fa-check"></i><b>9.3.2</b> Missings in <em>einzelnen</em> Spalten oder Zeilen</a></li>
+<li class="chapter" data-level="9.3.3" data-path="fehlende-werte-1.html"><a href="fehlende-werte-1.html#missings-in-allen-spalten-oder-zeilen"><i class="fa fa-check"></i><b>9.3.3</b> Missings in <em>allen</em> Spalten oder Zeilen</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="fehlende-werte-1.html"><a href="fehlende-werte-1.html#sind-die-missings-zufällig"><i class="fa fa-check"></i><b>9.4</b> Sind die Missings zufällig?</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="fehlende-werte-1.html"><a href="fehlende-werte-1.html#arten-von-missings"><i class="fa fa-check"></i><b>9.4.1</b> Arten von Missings</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="fehlende-werte-1.html"><a href="fehlende-werte-1.html#wie-kann-man-mit-missings-umgehen"><i class="fa fa-check"></i><b>9.5</b> Wie kann man mit Missings umgehen?</a></li>
+<li class="chapter" data-level="9.6" data-path="fehlende-werte-1.html"><a href="fehlende-werte-1.html#neuen-datensatz-erstellen-der-keine-missings-enthält"><i class="fa fa-check"></i><b>9.6</b> Neuen Datensatz erstellen, der keine Missings enthält</a>
+<ul>
+<li class="chapter" data-level="9.6.1" data-path="fehlende-werte-1.html"><a href="fehlende-werte-1.html#festlegen-wie-funktionen-mit-missings-umgehen-sollen"><i class="fa fa-check"></i><b>9.6.1</b> Festlegen, wie Funktionen mit Missings umgehen sollen</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="fehlende-werte-1.html"><a href="fehlende-werte-1.html#literaturempfehlungen"><i class="fa fa-check"></i><b>9.7</b> Literaturempfehlungen</a></li>
+<li class="chapter" data-level="9.8" data-path="fehlende-werte-1.html"><a href="fehlende-werte-1.html#faq-2"><i class="fa fa-check"></i><b>9.8</b> FAQ</a>
+<ul>
+<li class="chapter" data-level="9.8.1" data-path="fehlende-werte-1.html"><a href="fehlende-werte-1.html#erkennt-r-deine-missings"><i class="fa fa-check"></i><b>9.8.1</b> Erkennt <span class="r">R</span> deine Missings?</a></li>
+<li class="chapter" data-level="9.8.2" data-path="fehlende-werte-1.html"><a href="fehlende-werte-1.html#wie-können-funktionen-mit-missings-umgehen"><i class="fa fa-check"></i><b>9.8.2</b> Wie können Funktionen mit Missings umgehen?</a></li>
+</ul></li>
+<li class="chapter" data-level="9.9" data-path="fehlende-werte-1.html"><a href="fehlende-werte-1.html#übung-2"><i class="fa fa-check"></i><b>9.9</b> Übung</a>
+<ul>
+<li class="chapter" data-level="9.9.1" data-path="fehlende-werte-1.html"><a href="fehlende-werte-1.html#übung-1-korrekte-kodierung"><i class="fa fa-check"></i><b>9.9.1</b> Übung 1: (Korrekte) Kodierung</a></li>
+<li class="chapter" data-level="9.9.2" data-path="fehlende-werte-1.html"><a href="fehlende-werte-1.html#übung-2-verortung"><i class="fa fa-check"></i><b>9.9.2</b> Übung 2: Verortung</a></li>
+<li class="chapter" data-level="9.9.3" data-path="fehlende-werte-1.html"><a href="fehlende-werte-1.html#übung-3-zufälligkeit"><i class="fa fa-check"></i><b>9.9.3</b> Übung 3: Zufälligkeit</a></li>
+<li class="chapter" data-level="9.9.4" data-path="fehlende-werte-1.html"><a href="fehlende-werte-1.html#übung-4-umgang"><i class="fa fa-check"></i><b>9.9.4</b> Übung 4: Umgang</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="wide--long-format.html"><a href="wide--long-format.html"><i class="fa fa-check"></i><b>10</b> Wide- &amp; Long-Format</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="wide--long-format.html"><a href="wide--long-format.html#vom-long--ins-wide-format"><i class="fa fa-check"></i><b>10.1</b> Vom Long- ins Wide-Format</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="wide--long-format.html"><a href="wide--long-format.html#stats-reshape"><i class="fa fa-check"></i><b>10.1.1</b> stats: <code>reshape()</code></a></li>
+<li class="chapter" data-level="10.1.2" data-path="wide--long-format.html"><a href="wide--long-format.html#tidyr-spread"><i class="fa fa-check"></i><b>10.1.2</b> tidyr: <code>spread()</code></a></li>
+<li class="chapter" data-level="10.1.3" data-path="wide--long-format.html"><a href="wide--long-format.html#unterschied-zwischen-reshape-und-spread"><i class="fa fa-check"></i><b>10.1.3</b> Unterschied zwischen <code>reshape()</code> und <code>spread()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="wide--long-format.html"><a href="wide--long-format.html#vom-wide--ins-long-format"><i class="fa fa-check"></i><b>10.2</b> Vom Wide- ins Long-Format</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="wide--long-format.html"><a href="wide--long-format.html#stats-reshape-1"><i class="fa fa-check"></i><b>10.2.1</b> stats: <code>reshape()</code></a></li>
+<li class="chapter" data-level="10.2.2" data-path="wide--long-format.html"><a href="wide--long-format.html#tidyr-gather"><i class="fa fa-check"></i><b>10.2.2</b> tidyr: <code>gather()</code></a></li>
+<li class="chapter" data-level="10.2.3" data-path="wide--long-format.html"><a href="wide--long-format.html#unterschied-zwischen-reshape-und-gather"><i class="fa fa-check"></i><b>10.2.3</b> Unterschied zwischen <code>reshape()</code> und <code>gather()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="wide--long-format.html"><a href="wide--long-format.html#andere-funktionen-zum-umformatieren"><i class="fa fa-check"></i><b>10.3</b> Andere Funktionen zum Umformatieren</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="annahmen-der-multiplen-linearen-regression.html"><a href="annahmen-der-multiplen-linearen-regression.html"><i class="fa fa-check"></i><b>11</b> Annahmen der Multiplen Linearen Regression</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="annahmen-der-multiplen-linearen-regression.html"><a href="annahmen-der-multiplen-linearen-regression.html#linearität"><i class="fa fa-check"></i><b>11.1</b> Linearität</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="annahmen-der-multiplen-linearen-regression.html"><a href="annahmen-der-multiplen-linearen-regression.html#überprüfung"><i class="fa fa-check"></i><b>11.1.1</b> Überprüfung</a></li>
+<li class="chapter" data-level="11.1.2" data-path="annahmen-der-multiplen-linearen-regression.html"><a href="annahmen-der-multiplen-linearen-regression.html#umgang"><i class="fa fa-check"></i><b>11.1.2</b> Umgang</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="annahmen-der-multiplen-linearen-regression.html"><a href="annahmen-der-multiplen-linearen-regression.html#exogenität-der-prädiktoren"><i class="fa fa-check"></i><b>11.2</b> Exogenität der Prädiktoren</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="annahmen-der-multiplen-linearen-regression.html"><a href="annahmen-der-multiplen-linearen-regression.html#überprüfung-1"><i class="fa fa-check"></i><b>11.2.1</b> Überprüfung</a></li>
+<li class="chapter" data-level="11.2.2" data-path="annahmen-der-multiplen-linearen-regression.html"><a href="annahmen-der-multiplen-linearen-regression.html#umgang-1"><i class="fa fa-check"></i><b>11.2.2</b> Umgang</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="annahmen-der-multiplen-linearen-regression.html"><a href="annahmen-der-multiplen-linearen-regression.html#homoskedastizität"><i class="fa fa-check"></i><b>11.3</b> Homoskedastizität</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="annahmen-der-multiplen-linearen-regression.html"><a href="annahmen-der-multiplen-linearen-regression.html#überprüfung-2"><i class="fa fa-check"></i><b>11.3.1</b> Überprüfung</a></li>
+<li class="chapter" data-level="11.3.2" data-path="annahmen-der-multiplen-linearen-regression.html"><a href="annahmen-der-multiplen-linearen-regression.html#umgang-2"><i class="fa fa-check"></i><b>11.3.2</b> Umgang</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="annahmen-der-multiplen-linearen-regression.html"><a href="annahmen-der-multiplen-linearen-regression.html#unabhängigkeit-der-residuen"><i class="fa fa-check"></i><b>11.4</b> Unabhängigkeit der Residuen</a>
+<ul>
+<li class="chapter" data-level="11.4.1" data-path="annahmen-der-multiplen-linearen-regression.html"><a href="annahmen-der-multiplen-linearen-regression.html#überprüfung-3"><i class="fa fa-check"></i><b>11.4.1</b> Überprüfung</a></li>
+<li class="chapter" data-level="11.4.2" data-path="annahmen-der-multiplen-linearen-regression.html"><a href="annahmen-der-multiplen-linearen-regression.html#umgang-3"><i class="fa fa-check"></i><b>11.4.2</b> Umgang</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="annahmen-der-multiplen-linearen-regression.html"><a href="annahmen-der-multiplen-linearen-regression.html#weitere-wichtige-aspekte"><i class="fa fa-check"></i><b>11.5</b> Weitere wichtige Aspekte</a>
+<ul>
+<li class="chapter" data-level="11.5.1" data-path="annahmen-der-multiplen-linearen-regression.html"><a href="annahmen-der-multiplen-linearen-regression.html#normalverteilung-der-residuen"><i class="fa fa-check"></i><b>11.5.1</b> Normalverteilung der Residuen</a></li>
+<li class="chapter" data-level="11.5.2" data-path="annahmen-der-multiplen-linearen-regression.html"><a href="annahmen-der-multiplen-linearen-regression.html#multikollinearität"><i class="fa fa-check"></i><b>11.5.2</b> Multikollinearität</a></li>
+<li class="chapter" data-level="11.5.3" data-path="annahmen-der-multiplen-linearen-regression.html"><a href="annahmen-der-multiplen-linearen-regression.html#extreme-werte-und-einflussreiche-datenpunkte"><i class="fa fa-check"></i><b>11.5.3</b> Extreme Werte und einflussreiche Datenpunkte</a></li>
+</ul></li>
+<li class="chapter" data-level="11.6" data-path="annahmen-der-multiplen-linearen-regression.html"><a href="annahmen-der-multiplen-linearen-regression.html#literatur-weiterführende-hilfe"><i class="fa fa-check"></i><b>11.6</b> Literatur &amp; weiterführende Hilfe</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="grafiken.html"><a href="grafiken.html"><i class="fa fa-check"></i><b>12</b> Grafiken</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="grafiken.html"><a href="grafiken.html#bevor-es-losgeht"><i class="fa fa-check"></i><b>12.1</b> Bevor es losgeht</a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="grafiken.html"><a href="grafiken.html#richtiges-datenformat"><i class="fa fa-check"></i><b>12.1.1</b> Richtiges Datenformat</a></li>
+<li class="chapter" data-level="12.1.2" data-path="grafiken.html"><a href="grafiken.html#welche-grafik-sollte-ich-für-meine-daten-nehmen"><i class="fa fa-check"></i><b>12.1.2</b> Welche Grafik sollte ich für meine Daten nehmen?</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="grafiken.html"><a href="grafiken.html#grundlegender-aufbau-von-ggplot"><i class="fa fa-check"></i><b>12.2</b> Grundlegender Aufbau von ggplot()</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="grafiken.html"><a href="grafiken.html#ebene-grundlegendes-koordinatensystem"><i class="fa fa-check"></i><b>12.2.1</b> 1. Ebene: Grundlegendes Koordinatensystem</a></li>
+<li class="chapter" data-level="12.2.2" data-path="grafiken.html"><a href="grafiken.html#ebene-art-der-grafik"><i class="fa fa-check"></i><b>12.2.2</b> Ebene: Art der Grafik</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="grafiken.html"><a href="grafiken.html#eine-variable"><i class="fa fa-check"></i><b>12.3</b> Eine Variable</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="grafiken.html"><a href="grafiken.html#kategorial"><i class="fa fa-check"></i><b>12.3.1</b> Kategorial</a></li>
+<li class="chapter" data-level="12.3.2" data-path="grafiken.html"><a href="grafiken.html#metrisch"><i class="fa fa-check"></i><b>12.3.2</b> Metrisch</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="grafiken.html"><a href="grafiken.html#zwei-variablen"><i class="fa fa-check"></i><b>12.4</b> Zwei Variablen</a>
+<ul>
+<li class="chapter" data-level="12.4.1" data-path="grafiken.html"><a href="grafiken.html#x-kategorial-y-metrisch"><i class="fa fa-check"></i><b>12.4.1</b> X kategorial, Y metrisch</a></li>
+<li class="chapter" data-level="12.4.2" data-path="grafiken.html"><a href="grafiken.html#x-und-y-metrisch"><i class="fa fa-check"></i><b>12.4.2</b> X und Y metrisch</a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="grafiken.html"><a href="grafiken.html#mehr-als-zwei-variablen"><i class="fa fa-check"></i><b>12.5</b> Mehr als zwei Variablen</a>
+<ul>
+<li class="chapter" data-level="12.5.1" data-path="grafiken.html"><a href="grafiken.html#mindestens-eine-kategoriale-variable"><i class="fa fa-check"></i><b>12.5.1</b> Mindestens eine kategoriale Variable</a></li>
+<li class="chapter" data-level="12.5.2" data-path="grafiken.html"><a href="grafiken.html#nur-kategoriale-variablen"><i class="fa fa-check"></i><b>12.5.2</b> Nur kategoriale Variablen</a></li>
+</ul></li>
+<li class="chapter" data-level="12.6" data-path="grafiken.html"><a href="grafiken.html#modifikationen"><i class="fa fa-check"></i><b>12.6</b> Modifikationen</a>
+<ul>
+<li class="chapter" data-level="12.6.1" data-path="grafiken.html"><a href="grafiken.html#farbe"><i class="fa fa-check"></i><b>12.6.1</b> <strong><font color="#e41a1c">F</font><font color="#377eb8">a</font><font color="#4daf4a">r</font><font color="#984ea3">b</font><font color="#ff7f00">e</font></strong></a></li>
+<li class="chapter" data-level="12.6.2" data-path="grafiken.html"><a href="grafiken.html#legenden-modifizieren"><i class="fa fa-check"></i><b>12.6.2</b> <span style="border:1px; border-style:solid; border-color:black; padding: 3px;">Legenden modifizieren</span></a></li>
+<li class="chapter" data-level="12.6.3" data-path="grafiken.html"><a href="grafiken.html#beschriftung"><i class="fa fa-check"></i><b>12.6.3</b> <strong><span style="font-family: Courier New,Courier,monospace;">Beschriftung</span></strong></a></li>
+</ul></li>
+<li class="chapter" data-level="12.7" data-path="grafiken.html"><a href="grafiken.html#kategoriale-variablen-benennung-und-reihenfolge-der-ausprägungen"><i class="fa fa-check"></i><b>12.7</b> Kategoriale Variablen: Benennung und Reihenfolge der Ausprägungen</a></li>
+<li class="chapter" data-level="12.8" data-path="grafiken.html"><a href="grafiken.html#grafiken-einzelner-gruppen-und-die-anpassung-von-achsengrenzen"><i class="fa fa-check"></i><b>12.8</b> Grafiken einzelner Gruppen und die Anpassung von Achsengrenzen</a></li>
+<li class="chapter" data-level="12.9" data-path="grafiken.html"><a href="grafiken.html#geraden-einzeichnen"><i class="fa fa-check"></i><b>12.9</b> Geraden einzeichnen</a></li>
+<li class="chapter" data-level="12.10" data-path="grafiken.html"><a href="grafiken.html#weitere-statistische-kennwerte-ergänzen"><i class="fa fa-check"></i><b>12.10</b> Weitere statistische Kennwerte ergänzen</a></li>
+<li class="chapter" data-level="12.11" data-path="grafiken.html"><a href="grafiken.html#motive-themes"><i class="fa fa-check"></i><b>12.11</b> Motive (Themes)</a></li>
+<li class="chapter" data-level="12.12" data-path="grafiken.html"><a href="grafiken.html#grafiken-exportieren"><i class="fa fa-check"></i><b>12.12</b> Grafiken exportieren</a>
+<ul>
+<li class="chapter" data-level="12.12.1" data-path="grafiken.html"><a href="grafiken.html#export-button"><i class="fa fa-check"></i><b>12.12.1</b> <span style="color: #75AADC"><strong>Export-Button</strong></span></a></li>
+<li class="chapter" data-level="12.12.2" data-path="grafiken.html"><a href="grafiken.html#ggsave"><i class="fa fa-check"></i><b>12.12.2</b> <code>ggsave()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="12.13" data-path="grafiken.html"><a href="grafiken.html#weiterführende-hilfen"><i class="fa fa-check"></i><b>12.13</b> Weiterführende Hilfen</a>
+<ul>
+<li class="chapter" data-level="12.13.1" data-path="grafiken.html"><a href="grafiken.html#eine-einfache-ggplot-funktion-qplot"><i class="fa fa-check"></i><b>12.13.1</b> Eine einfache ggplot-Funktion: <code>qplot()</code></a></li>
+<li class="chapter" data-level="12.13.2" data-path="grafiken.html"><a href="grafiken.html#mehrere-plots-zusammenführen"><i class="fa fa-check"></i><b>12.13.2</b> Mehrere Plots zusammenführen</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="r-markdown.html"><a href="r-markdown.html"><i class="fa fa-check"></i><b>13</b> R Markdown</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="r-markdown.html"><a href="r-markdown.html#neues-r-markdown-dokument-anlegen"><i class="fa fa-check"></i><b>13.1</b> Neues <span class="r">R Markdown</span> Dokument anlegen</a>
+<ul>
+<li class="chapter" data-level="13.1.1" data-path="r-markdown.html"><a href="r-markdown.html#yaml"><i class="fa fa-check"></i><b>13.1.1</b> YAML</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="r-markdown.html"><a href="r-markdown.html#text"><i class="fa fa-check"></i><b>13.2</b> Text</a>
+<ul>
+<li class="chapter" data-level="13.2.1" data-path="r-markdown.html"><a href="r-markdown.html#überschriften"><i class="fa fa-check"></i><b>13.2.1</b> Überschriften</a></li>
+<li class="chapter" data-level="13.2.2" data-path="r-markdown.html"><a href="r-markdown.html#hervorhebung"><i class="fa fa-check"></i><b>13.2.2</b> Hervorhebung</a></li>
+<li class="chapter" data-level="13.2.3" data-path="r-markdown.html"><a href="r-markdown.html#zeilenumbruch"><i class="fa fa-check"></i><b>13.2.3</b> Zeilenumbruch</a></li>
+<li class="chapter" data-level="13.2.4" data-path="r-markdown.html"><a href="r-markdown.html#verlinkung"><i class="fa fa-check"></i><b>13.2.4</b> Verlinkung</a></li>
+<li class="chapter" data-level="13.2.5" data-path="r-markdown.html"><a href="r-markdown.html#formeln"><i class="fa fa-check"></i><b>13.2.5</b> Formeln</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="r-markdown.html"><a href="r-markdown.html#r-code"><i class="fa fa-check"></i><b>13.3</b> <span class="r">R</span>-Code</a>
+<ul>
+<li class="chapter" data-level="13.3.1" data-path="r-markdown.html"><a href="r-markdown.html#code-chunk"><i class="fa fa-check"></i><b>13.3.1</b> Code Chunk</a></li>
+<li class="chapter" data-level="13.3.2" data-path="r-markdown.html"><a href="r-markdown.html#inline-code"><i class="fa fa-check"></i><b>13.3.2</b> Inline Code</a></li>
+<li class="chapter" data-level="13.3.3" data-path="r-markdown.html"><a href="r-markdown.html#grafiken-bilder-und-tabellen"><i class="fa fa-check"></i><b>13.3.3</b> Grafiken, Bilder und Tabellen</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4" data-path="r-markdown.html"><a href="r-markdown.html#weiterführend"><i class="fa fa-check"></i><b>13.4</b> Weiterführend</a>
+<ul>
+<li class="chapter" data-level="13.4.1" data-path="r-markdown.html"><a href="r-markdown.html#templates"><i class="fa fa-check"></i><b>13.4.1</b> Templates</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="outputs---alm---faq.html"><a href="outputs---alm---faq.html"><i class="fa fa-check"></i><b>14</b> Outputs - ALM - FAQ</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="outputs---alm---faq.html"><a href="outputs---alm---faq.html#github-link"><i class="fa fa-check"></i><b>14.1</b> <span class="math inline">\(t\)</span>-Test</a></li>
+<li class="chapter" data-level="14.2" data-path="outputs---alm---faq.html"><a href="outputs---alm---faq.html#lineare-regression"><i class="fa fa-check"></i><b>14.2</b> Lineare Regression</a></li>
+<li class="chapter" data-level="14.3" data-path="outputs---alm---faq.html"><a href="outputs---alm---faq.html#anova"><i class="fa fa-check"></i><b>14.3</b> ANOVA</a></li>
+<li class="chapter" data-level="14.4" data-path="outputs---alm---faq.html"><a href="outputs---alm---faq.html#github2"><i class="fa fa-check"></i><b>14.4</b> ALM: Zusammenhänge der drei Verfahren</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Lernplattform</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="outputs---alm---faq" class="section level1 hasAnchor" number="14">
+<h1><span class="header-section-number">Chapter 14</span> Outputs - ALM - FAQ<a href="outputs---alm---faq.html#outputs---alm---faq" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Das Allgemeine Lineare Modell <font size="2">(ALM)</font> umfasst verschiedene inferenzstatistische und varianzanalytische Verfahren, darunter <strong><span class="math inline">\(t\)</span>-Test</strong> (<code>t.test()</code>), <strong>ANOVA</strong> (<code>aov()</code>) und <strong>lineare Regression</strong> (<code>lm()</code>).</p>
+<p>Im Folgenden schauen wir uns an, wie die <strong>Outputs</strong> der jeweiligen Funktionen <code>t.test()</code>, <code>aov()</code> und <code>lm()</code> aufgebaut sind und wie diese interpretiert werden. Dafür nutzen wir jeweils dieselben zwei Variablen. Wir werden zudem vor der Durchführung der Methoden deren <strong>Annahmen prüfen</strong>. Abschließend beschäftigen wir uns mit den <strong>Gemeinsamkeiten der Verfahren</strong> (für unseren speziellen Fall von einer metrischen abhängigen Variablen und einer kategorialen unabhängigen Variablen).</p>
+<aside>
+<br />
+<br />
+Wir gehen nur knapp auf die Prüfung der Annahmen ein. Eine ausführlichere Einleitung befindet sich <a href="http://methods-berlin.com/de/r-lernplattform/annahmen-regression" target="_blank">hier</a>.
+</aside>
+<!--Zur Veranschaulichung untersuchen wir, ob sich Studierende mit und ohne Nebenjob signifikant in ihrer Zufriedenheit mit der Bewältigung von Studienbelastungen unterscheiden. Diese ungerichtete $H_1$ überprüfen wir mit einem Signifikanzniveau von $\alpha = 0.05$. -->
+<details class="bsp">
+<summary>
+Beispieldatensatz für dieses Kapitel
+</summary>
+<p>
+<p>Wir schauen uns im folgenden den Datensatz <code>erstis</code> an. Dieser enthalt Daten aus einer Erhebung mit Erstsemesterstudierenden der Psychologie. Das zugehörige Codebook finden wir <a href="https://www.beltz.de/fileadmin/beltz/downloads/OnlinematerialienPVU/R_fuer_Einsteiger/Datensatz%20Erstis_Codebook.pdf" target="_blank">hier</a>.</p>
+<p>Den Datensatz laden wir mit der <code>load()</code>-Funktion in unsere Environment:</p>
+<div class="sourceCode" id="cb892"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb892-1"><a href="outputs---alm---faq.html#cb892-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">url</span>(<span class="st">&quot;http://www.beltz.de/fileadmin/beltz/downloads/</span></span>
+<span id="cb892-2"><a href="outputs---alm---faq.html#cb892-2" aria-hidden="true" tabindex="-1"></a><span class="st">         OnlinematerialienPVU/R_fuer_Einsteiger/erstis.rda&quot;</span>))</span>
+<span id="cb892-3"><a href="outputs---alm---faq.html#cb892-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Zeilenumbruch zwischen der ersten und zweiten Zeile noch entfernen!</span></span></code></pre></div>
+<p>Wir wollen untersuchen, ob sich das Vorhandenseins eines <strong>Nebenjobs</strong> (<code>job</code>) auf die <strong>Zufriedenheit mit der Bewältigung von Studienbelastungen</strong> (<code>zf_belastung</code>, erster Messzeitpunkt) auswirkt.</p>
+<p>Dazu speichern wir beide Variablen in einem neuen Datensatz.</p>
+<div class="sourceCode" id="cb893"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb893-1"><a href="outputs---alm---faq.html#cb893-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Daten aus erstis in neuem Dataframe speichern und umbennenen</span></span>
+<span id="cb893-2"><a href="outputs---alm---faq.html#cb893-2" aria-hidden="true" tabindex="-1"></a>daten <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">job =</span> erstis<span class="sc">$</span>job, <span class="at">zf_belastung =</span> erstis<span class="sc">$</span>zuf.bel<span class="fl">.1</span>)</span></code></pre></div>
+<p>Wir müssen außerdem noch überprüfen, ob die Variablen entsprechend ihres Messniveaus kodiert sind:</p>
+<div class="sourceCode" id="cb894"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb894-1"><a href="outputs---alm---faq.html#cb894-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(daten)</span></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    191 obs. of  2 variables:
+##  $ job         : Factor w/ 2 levels &quot;ja&quot;,&quot;nein&quot;: 2 1 1 2 2 1 NA NA NA 2 ...
+##  $ zf_belastung: num  1.33 2.67 3.67 2.33 NA ...</code></pre>
+<p>Wie erhofft liegt die nominalskalierte Variable <code>job</code> als ungeordneter Faktor und die intervallskalierte Variable <code>zf_belastung</code> als <span class="r">numeric</span> vor.</p>
+<p>Mehr Informationen zu Datentypen und angemessener Kodierung finden wir im Kapitel <a href="http://methods-berlin.com/de/r-lernplattform/einfuehrung_in_r" target="_blank">Einführung in <span class="r">R</span></a>.</p>
+</p>
+</details>
+<p><br />
+</p>
+<div id="github-link" class="section level2 hasAnchor" number="14.1">
+<h2><span class="header-section-number">14.1</span> <span class="math inline">\(t\)</span>-Test<a href="outputs---alm---faq.html#github-link" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<blockquote>
+<p>Der <span class="math inline">\(t\)</span>-Test untersucht, ob es signifikante Mittelwertsunterschiede in der Population hinsichtlich einer metrischen Variablen gibt. Der Begriff umfasst eine Gruppe von Hypothesentests, darunter den <span class="math inline">\(t\)</span>-Test für unabhängige Stichproben und den <span class="math inline">\(t\)</span>-Test für abhängige Stichproben <font size="2">(Beobachtungspaare)</font>.</p>
+</blockquote>
+<p><span class="ex">In unserem Beispiel schauen wir, ob sich Personen mit und ohne <strong>Nebenjob</strong> (<code>job</code>) hinsichtlich der <strong>Zufriedenheit mit der Bewältigung von Studienbelastungen</strong> (<code>zf_belastung</code>) unterscheiden.</span></p>
+<p><span class="ex">Weil es sich bei Studierenden mit und ohne Nebenjob um zwei voneinander unabhängige Stichproben <font size="2">(d.h. unterschiedliche Personen)</font> handelt, verwenden wir den <strong><span class="math inline">\(t\)</span>-Test für unabhängige Stichproben</strong>. </span></p>
+<p style="line-height:10px;">
+</p>
+<details>
+<summary class="mtitle">
+Überprüfung der Annahmen des <span class="math inline">\(t\)</span>-Tests
+</summary>
+<div class="more">
+<p><br />
+</p>
+<blockquote>
+<em><strong>Achtung</strong></em>:
+<div class="rows">
+An dieser Stelle sei wieder auf das <a href="http://methods-berlin.com/de/r-lernplattform/annahmen-regression" target="_blank">ausführlichere Skript</a> zur Annahmenprüfung verwiesen. Im Folgenden schauen wir uns jeweils nur ein mögliches Verfahren zur Überprüfung der spezifischen Annahmen an.
+</div>
+<p><br />
+</p>
+</blockquote>
+<p>Zur Durchführung eines <span class="math inline">\(t\)</span>-Tests für unabhängige Zufallsstichproben müssen folgende Annahmen erfüllt sein:</p>
+<ul>
+<li><font color="green">es muss sich um <strong>einfache, voneinander unabhängige Stichproben</strong> handeln</font></li>
+<li><strong>Normalverteilung</strong> des untersuchten Merkmals in beiden Populationen</li>
+<li><strong>Varianzhomogenität</strong> des untersuchten Merkmals in beiden Populationen</li>
+</ul>
+<p><br />
+<!--
+<span class="highlight">Intervallskalierung</span>
+
+Im Codebook steht zu `zuf.bel.1` <font size="2">(was bei uns `zf_belastung` ist)</font> *"Je höher der Wert, desto stärker die Ausprägung"*, was auf eine Intervallskalierung schließen lässt. 
+
+Jetzt müssen wir noch prüfen, ob das Messniveau auch in <span class="r">R</span> korrekt repräsentiert wird. Intervallskalierte Daten werden mit numerischen Datentypen kodiert. Mit der Funktion `str()` können wir diesen überprüfen.
+
+
+```r
+str(daten$zf_belastung)
+```
+
+```
+##  num [1:191] 1.33 2.67 3.67 2.33 NA ...
+```
+
+<span class="ex">Unser interessierendes Merkmal `zf_belastung` liegt als <span class="r">numeric</span></span> vor.
+
+Mehr zu Datentypen und -strukturen erfahren wir in <a href="http://methods-berlin.com/de/r-lernplattform/einfuehrung_in_r" target="_blank">**Einführung in <span class="r">R</span>**</a>.
+-->
+<span class="highlight">Normalverteilung</span></p>
+<p>Schauen wir uns dazu jeweils für beide Gruppen von <code>job</code> einen <strong>QQ-Plot</strong> an.<br />
+</p>
+<!-- ```{r, warning=FALSE} -->
+<!-- library(ggplot2) -->
+<!-- ggplot(data = daten, aes(x = zf_belastung)) + # Koordinatensystem -->
+<!--   geom_histogram() + # Histogramm -->
+<!--   facet_grid(~ job) # einzelne Plots nach den Ausprägungen von job -->
+<!-- # die Kategorie NA fasst die fehlenden Werte auf der Variablen job zusammen -->
+<!-- # diese können wir hier unbeachtet lassen -->
+<!-- ``` -->
+<div class="sourceCode" id="cb896"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb896-1"><a href="outputs---alm---faq.html#cb896-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb896-2"><a href="outputs---alm---faq.html#cb896-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> daten, <span class="fu">aes</span>(<span class="at">sample =</span> zf_belastung)) <span class="sc">+</span> <span class="co"># Koordinatensystem</span></span>
+<span id="cb896-3"><a href="outputs---alm---faq.html#cb896-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_qq</span>() <span class="sc">+</span> <span class="fu">stat_qq_line</span>() <span class="sc">+</span> <span class="co"># QQ-Plot + Hilfslinie</span></span>
+<span id="cb896-4"><a href="outputs---alm---faq.html#cb896-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(<span class="sc">~</span> job) <span class="co"># einzelne Plots nach den Ausprägungen von job</span></span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-658-1.png" width="672" /></p>
+<div class="sourceCode" id="cb897"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb897-1"><a href="outputs---alm---faq.html#cb897-1" aria-hidden="true" tabindex="-1"></a><span class="co"># die Kategorie NA fasst die fehlenden Werte auf der Variablen job zusammen</span></span>
+<span id="cb897-2"><a href="outputs---alm---faq.html#cb897-2" aria-hidden="true" tabindex="-1"></a><span class="co"># diese können wir hier unbeachtet lassen</span></span></code></pre></div>
+<p>Mehr Informationen zum Erstellen von Grafiken mit dem Paket <strong>ggplot2</strong> finden wir im Kapitel zu <a href="http://methods-berlin.com/de/r-lernplattform/grafiken-ggplot" target="_blank">Grafiken</a>.<br />
+</p>
+<blockquote>
+<em><strong>Achtung</strong></em>:
+<div class="rows">
+Hilfe zur Interpretation von QQ-Plots finden wir <a href="http://methods-berlin.com/wp-content/uploads/VP.html#normalverteilung-der-residuen" target="_blank">hier</a>.<br />
+<strong>Hinweis</strong>: Die Residuen in der linearen Regression sind beim <span class="math inline">\(t\)</span>-Test dasselbe wie in den Gruppen zentrierte Werte der <span class="math inline">\(AV\)</span> (d.h. Abweichungen vom gruppenspezifischen Mittelwert) in unserem Beispiel.
+</div>
+<p><br />
+</p>
+</blockquote>
+<p><span class="ex">In beiden Diagrammen weichen die Punkte leicht von der Linie ab, d.h. dass die Daten nicht perfekt normalverteilt sind. Wir können uns aber auf den zentralen Grenzwertsatz stützen, welcher besagt, dass der Mittelwert eines Merkmals bei wachsender Stichprobengröße approximativ normalverteilt ist. Generell gibt es keinen Richtwert, der besagt, wann Stichproben hinreichend groß sind. Mit unseren Stichprobengrößen (<span class="math inline">\(n_{ja} = 87\)</span> und <span class="math inline">\(n_{nein} = 86\)</span>) und den geringfügigen Abweichungen von einer Normalverteilung in den beiden Gruppen können wir erwarten, dass die Annahme hinreichend erfüllt ist.</span><br />
+</p>
+<p><span class="highlight">Varianzhomogenität</span></p>
+<blockquote>
+<p>Varianzhomogenität bedeutet, dass die Varianzen in den untersuchten Populationen gleich sind. Wenn dies der Fall ist, sollten sich auch die Stichprobenvarianzen ähneln.</p>
+</blockquote>
+<p>Ist diese Annahme nicht erfüllt, müssen wir auf robustere Methoden, z.B. den Welch’s <span class="math inline">\(t\)</span>-Test für unabhängige Stichproben, zurückgreifen.</p>
+<p>Zur Überprüfung der Varianzhomogenität können wir beispielsweise den <strong>Levene Test</strong> nutzen. In diesem wird die Nullhypothese überprüft, dass die Populationsvarianzen homogen sind (<span class="math inline">\(\sigma^2_{ja} = \sigma^2_{nein}\)</span>). Weil die <span class="math inline">\(H_0\)</span> die Wunschhypothese ist, ist es von größerer Relevanz, diese nicht fälschlicherweise abzulehnen, d.h. einen <span class="math inline">\(\beta\)</span>-Fehler zu machen <font size="2">(relativ gesehen zum <span class="math inline">\(\alpha\)</span>-Fehler)</font>. Wir können das Risiko für einen <span class="math inline">\(\beta\)</span>-Fehler nur <em>indirekt</em> kontrollieren, indem wir das <span class="math inline">\(\alpha\)</span>-Level erhöhen. Daher legen wir unser Signifikanzniveau auf <span class="math inline">\(\alpha=.20\)</span> <font size="2">(zweiseitig)</font> fest.</p>
+<p>Wir führen den Test mit der Funktion <code>leveneTest()</code> aus dem Paket <strong>car</strong> durch.</p>
+<div class="sourceCode" id="cb898"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb898-1"><a href="outputs---alm---faq.html#cb898-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span>
+<span id="cb898-2"><a href="outputs---alm---faq.html#cb898-2" aria-hidden="true" tabindex="-1"></a><span class="fu">leveneTest</span>(zf_belastung <span class="sc">~</span> job, daten)</span></code></pre></div>
+<pre><code>## Levene&#39;s Test for Homogeneity of Variance (center = median)
+##        Df F value Pr(&gt;F)
+## group   1   0.807 0.3703
+##       167</code></pre>
+<p><span class="ex">Da der <span class="math inline">\(p\)</span>-Wert (<code>Pr(&gt;F)</code>) größer als unser <span class="math inline">\(\alpha\)</span>-Level ist, können wir die <span class="math inline">\(H_0\)</span> beibehalten.</p>
+<p>Nachdem die Annahmen weitgehend erfüllt erscheinen, können wir den <span class="math inline">\(t\)</span>-Test für unabhängige Stichproben anwenden.</span></p>
+</div>
+</details>
+<p><br />
+</p>
+<p>Mit der Funktion <code>t.test()</code> aus dem Basispaket <strong>stats</strong> können unterschiedliche Arten von <span class="math inline">\(t\)</span>-Tests durchgeführt werden. Welches Verfahren verwendet werden soll, legen wir mit den Parametern <code>paired</code> und <code>var.equal</code> fest.</p>
+<ul>
+<li><p>Mit <code>paired</code> spezifizieren wir, ob eine <strong>Abhängigkeit der Stichproben</strong> besteht.
+<code>TRUE</code> zu einem <span class="math inline">\(t\)</span>-Test für Beobachtungspaare, <code>FALSE</code> führt zur Durchführung eines <span class="math inline">\(t\)</span>-Tests für unabhängige Stichproben.</p></li>
+<li><p>Mit <code>var.equal</code> spezifizieren wir, ob <strong>Varianzhomogenität</strong> vorliegt. Wenn die Annahme nicht erfüllt ist, legen wir mit <code>FALSE</code> fest, dass der Welch’s <span class="math inline">\(t\)</span>-Test durchgeführt werden soll.</p></li>
+</ul>
+<p><span class="ex">Wir wollen einen <em>ungerichteten</em> <span class="math inline">\(t\)</span>-Test für unabhängige Stichproben durchführen und legen unser Signifikanzlevel <span class="math inline">\(\alpha=.05\)</span> fest.</span></p>
+<div class="sourceCode" id="cb900"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb900-1"><a href="outputs---alm---faq.html#cb900-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(<span class="at">formula =</span> zf_belastung <span class="sc">~</span> job, </span>
+<span id="cb900-2"><a href="outputs---alm---faq.html#cb900-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">data =</span> daten,</span>
+<span id="cb900-3"><a href="outputs---alm---faq.html#cb900-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">paired =</span> <span class="cn">FALSE</span>, <span class="co"># unabhängige SP</span></span>
+<span id="cb900-4"><a href="outputs---alm---faq.html#cb900-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">var.equal =</span> <span class="cn">TRUE</span>, <span class="co"># Annahme Varianzhomogenität erfüllt</span></span>
+<span id="cb900-5"><a href="outputs---alm---faq.html#cb900-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">alternative =</span><span class="st">&quot;two.sided&quot;</span>, <span class="co"># zweiseitige (ungerichtete) Testung</span></span>
+<span id="cb900-6"><a href="outputs---alm---faq.html#cb900-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">na.action =</span> <span class="st">&quot;na.exclude&quot;</span>) <span class="co"># Ausschluss fehlender Werte</span></span></code></pre></div>
+<aside>
+<br />
+Mehr Informationen zum Umgang mit fehlenden Werten finden wir im Kapitel <a href="http://methods-berlin.com/de/r-lernplattform/fehlende-werte" target="_blank">Fehlende Werte</a>.
+</aside>
+<p><img src="figures/Voraussetzungspr%C3%BCfung/Bilder/t-test.png" width="550px" /></p>
+<p>Wir erhalten u.a. folgende Informationen:</p>
+<ul>
+<li><font color="#FF2600"><code>t</code></font>: empirische Prüfgröße des <span class="math inline">\(t\)</span>-Tests</li>
+<li><font color="#77BB40"><code>df</code></font>: Anzahl der Freiheitsgerade der <span class="math inline">\(t\)</span>-Verteilung <font size="2">(entspricht <span class="math inline">\(N-2\)</span>)</font><br />
+</li>
+</ul>
+<details class="bsp" style="background:white; border-style: solid; border-color:black; color:black;">
+<summary>
+Wir kommen wir auf <span class="math inline">\(N=169\)</span>?
+</summary>
+<div>
+<p>Wir haben alle Fälle mit fehlenden Werten auf <em>einer</em> der beiden Variablen ausgeschlossen (<em>casewise deletion</em> durch <code>na.action = "na.exclude"</code>). Wir können diese Bedingung folgendermaßen auf unseren Datensatz anwenden, um <span class="math inline">\(N\)</span> für unsere spezifische Analyse zu berechnen:</p>
+<div class="sourceCode" id="cb901"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb901-1"><a href="outputs---alm---faq.html#cb901-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(daten[<span class="sc">!</span><span class="fu">is.na</span>(daten<span class="sc">$</span>job) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(daten<span class="sc">$</span>zf_belastung),])</span></code></pre></div>
+<pre><code>## [1] 169</code></pre>
+<p>Für mehr Informationen siehe das Kapitel zu <a href="http://methods-berlin.com/de/r-lernplattform/fehlende-werte" target="_blank">Fehlenden Werten</a>.</p>
+</div>
+</details>
+<p style="line-height:10px;">
+</p>
+<ul>
+<li><font color="#0533FF"><code>p-value</code></font>: in <span class="math inline">\(p\)</span>-Wert umgerechneter empirischer <span class="math inline">\(t\)</span>-Wert <!--, also die Wahrscheinlichkeit, den gegebenen empirischen $t$-Wert oder einen extremeren zu erhalten, wenn die $H_0$ gilt.--><br />
+Durch den Vergleich mit unserem <span class="math inline">\(\alpha\)</span>-Niveau können wir anhand dieser Information zu einer Testentscheidung gelangen. Ist der <span class="math inline">\(p\)</span>-Wert kleiner als <span class="math inline">\(\alpha\)</span>, verwerfen wir die <span class="math inline">\(H_0\)</span>.</li>
+<li><font color="#FF9300"><code>95 percent confidence interval</code></font>: obere und untere Grenze des 95% Konfidenzintervalls der <em>Mittelwertsdifferenz</em></li>
+<li><font color="#942192"><code>sample estimates</code></font>: Stichprobenmittelwerte der Gruppen</li>
+</ul>
+<p><span class="ex">Durch Betrachtung des <span class="math inline">\(p\)</span>-Wertes stellen wir fest, dass die Wahrscheinlichkeit unter Gültigkeit der <span class="math inline">\(H_O\)</span>, einen empirischen <span class="math inline">\(t\)</span>-Wert von <span class="math inline">\(\mid -1.278 \mid\)</span> oder extremer zu erhalten, bei 20.3% liegt. Da dieser <span class="math inline">\(p\)</span>-Wert deutlich über <span class="math inline">\(\alpha=.05\)</span> liegt, behalten wir die Nullhypothese bei. Wir gehen davon aus, dass Studierende mit und ohne Nebenjob sich <em>nicht</em> statistisch signifikant in ihrer Zufriedenheit mit der Bewältigung von Studienbelastungen unterscheiden.</span></p>
+</div>
+<div id="lineare-regression" class="section level2 hasAnchor" number="14.2">
+<h2><span class="header-section-number">14.2</span> Lineare Regression<a href="outputs---alm---faq.html#lineare-regression" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<blockquote>
+<p>Die lineare Regression ermöglicht es, eine abhängige Variable <font size="2">(AV, Kriterium)</font> durch eine oder mehrere unabhängige Variablen <font size="2">(UVs, Prädiktoren)</font> vorherzusagen. Das Kriterium muss metrisch sein, wohingegen die Prädiktoren auch kategorial sein können, wenn sie adäquat kodiert sind <font size="2">(siehe z.B. <a href="http://methods-berlin.com/wp-content/uploads/Datenvorbereitung.html#indikatorvariablen-kodierung-nominaler-merkmale" target="_blank">Indikatorvariablen: Kodierung nominaler Merkmale</a> im Kapitel Datenvorbereitung)</font>.</p>
+</blockquote>
+<aside>
+<br />
+ein Prädiktor: <em>einfache</em> lineare Regression;<br />
+<br />
+mehrere Prädiktoren: <em>multiple</em> lineare Regression
+</aside>
+<p><span class="ex">Wir führen eine einfache lineare Regression durch, in der wir die <strong>Zufriedenheit mit der Bewältigung von Studienbelastungen</strong> (<code>zf_belastung</code>) auf das Vorhandensein eines <strong>Nebenjobs</strong> (<code>job</code>) zurückführen.</span></p>
+<p><span class="ex">Wir legen unser Signifikanzlevel auf <span class="math inline">\(\alpha=.05\)</span> fest.</span></p>
+<p>Bei der linearen Regression ist die sogenannte Residualdiagnostik ein essentieller Teil der Annahmenprüfung. Allerdings müssen wir dafür die Regression bereits durchgeführt haben. Wir können die Annahmenprüfung also erst <em>nach</em> der Regression machen.</p>
+<p>Mit der Funktion <code>lm()</code> aus dem Basispaket <strong>stats</strong> können wir eine lineare Regression durchführen.</p>
+<div class="sourceCode" id="cb903"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb903-1"><a href="outputs---alm---faq.html#cb903-1" aria-hidden="true" tabindex="-1"></a>lm_belastung <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="at">formula =</span> zf_belastung <span class="sc">~</span> job,</span>
+<span id="cb903-2"><a href="outputs---alm---faq.html#cb903-2" aria-hidden="true" tabindex="-1"></a>                   <span class="at">data =</span> daten, </span>
+<span id="cb903-3"><a href="outputs---alm---faq.html#cb903-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">na.action =</span> <span class="st">&quot;na.exclude&quot;</span>) <span class="co"># Ausschluss fehlender Werte</span></span></code></pre></div>
+<p>Mehr Informationen zum Umgang mit fehlenden Werten finden wir im Kapitel <a href="http://methods-berlin.com/de/r-lernplattform/fehlende-werte" target="_blank">Fehlende Werte</a>.</p>
+<p>Das Ergebnisobjekt <code>lm_belastung</code> schauen wir uns erst <em>nach</em> der Annahmenprüfung an.</p>
+<p style="line-height:10px;">
+</p>
+<details>
+<summary class="mtitle">
+Überprüfung der Annahmen der (einfachen) linearen Regression
+</summary>
+<div class="more">
+<p><br />
+</p>
+<blockquote>
+<em><strong>Achtung</strong></em>:
+<div class="rows">
+Im Rahmen dieses Kapitels besprechen wir die Annahmen und deren Überprüfung nicht im Detail. Mehr Informationen finden wir im Kapitel zur <a href="http://methods-berlin.com/de/r-lernplattform/annahmen-regression" target="_blank">Prüfung der Annahmen der multiplen linearen Regression</a>, die denen der einfachen linearen Regression sehr ähnlich ist.
+</div>
+<p><br />
+</p>
+</blockquote>
+<p>Folgende vier Annahmen sind bei der einfachen linearen Regression mit der inferenzstatistischen Absicherung verbunden:</p>
+<ul>
+<li><strong>Linearität</strong></li>
+<li><strong>Homoskedastizität</strong></li>
+<li><strong>Normalverteilung</strong> der Residuen</li>
+<li><strong>Unabhängigkeit der Residuen</strong></li>
+</ul>
+<p><br />
+</p>
+<p><span class="highlight">Linearität</span></p>
+<blockquote>
+<p>Die Abhängigkeit zwischen Erwartungswert des Kriteriums und Prädiktor ist linear.</p>
+</blockquote>
+<p>Diese Annahme lässt sich mittels eines <strong>Residualplots</strong> untersuchen. Dieser plottet die vorhergesagten Kriteriumswerte <span class="math inline">\(\hat y_i\)</span> gegen die Residuen <span class="math inline">\(\hat e_i\)</span>.</p>
+<div class="sourceCode" id="cb904"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb904-1"><a href="outputs---alm---faq.html#cb904-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lm_belastung, <span class="at">which=</span><span class="dv">1</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/Linearit%C3%A4tsannahme-1.png" width="672" />
+Weil wir nur eine kategoriale <span class="math inline">\(UV\)</span> mit zwei Ausprägungen haben, ordnen sich die Punkte in zwei vertikalen Linien an.</p>
+<p><span class="ex">Da sich die Lowess Fit Line <font size="2">(rote gestrichelte Linie)</font>, welche den generellen (nonparametrischen) Trend der Daten beschreibt, dem Erwartungswert der Residuen bei <span class="math inline">\(y=0\)</span> <font size="2">(schwarze gestrichelten Linie)</font> annähert, können wir annehmen, dass Linearität vorliegt.</span></p>
+<p>Mehr Informationen zur Lowess Fit Line und zum Residuenplot finden wir im Kapitel zur <a href="http://methods-berlin.com/de/r-lernplattform/annahmen-regression" target="_blank">Prüfung der Annahmen der multiplen linearen Regression</a>.</p>
+<p><span class="highlight">Homoskedastizität</span></p>
+<blockquote>
+<p>Die Varianz der <span class="math inline">\(y\)</span>-Werte, die an einer bestimmten Stelle des Prädiktors vorliegt, ist für alle Prädiktorwerte gleich (Varianzhomogenität).</p>
+</blockquote>
+<p>Diese haben wir bereits im Abschnitt zum <a href="outputs---alm---faq.html#github-link"><span class="math inline">\(t\)</span>-Test</a> mittels des <strong>Levene-Tests</strong> überprüft.</p>
+<p>Den Residualplot, den wir gerade zur Überprüfung der Annahme der Linearität genutzt haben, können wir auch zur Überprüfung der Annahme der Homoskedatizität nutzen. Weil die Residuen sich ohne erkennbares Muster um den Erwartungswert der Residuen bei <span class="math inline">\(y=0\)</span> <font size="2">(schwarze gestrichelten Linie)</font> verteilen, nehmen wir Homoskedastizität an.</p>
+<p><span class="highlight">Normalverteilung der Residuen</span></p>
+<blockquote>
+<p>Die Verteilung der <span class="math inline">\(y\)</span>-Werte an einer bestimmten Stelle der <span class="math inline">\(UV\)</span> ist eine Normalverteilung.</p>
+</blockquote>
+<p>Eine Verletzung dieser Annahme ist eher in kleineren Stichproben problematisch. In großen Stichproben sind die Regressionskoeffizienten aufgrund des zentralen Grenzwertsatzes selbst dann asymptotisch normalverteilt, wenn die Annahme nicht erfüllt ist. Es gibt jedoch keinen Richtwert, ab wann eine Stichprobe als hinreichend groß gilt. Wir sollten die Annahme immer überprüfen. Dazu schauen wir uns einen <strong>QQ-Plot</strong> der Residuen an.</p>
+<div class="sourceCode" id="cb905"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb905-1"><a href="outputs---alm---faq.html#cb905-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lm_belastung, <span class="at">which=</span><span class="dv">2</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/Normalit%C3%A4t-1.png" width="672" /></p>
+<p><span class="ex">Unser Kriterium Zufriedenheit mit der Bewältigung von Studienbelastungen scheint in Abhängigkeit der Gruppenzugehörigkeit leicht von einer Normalverteilung abzuweichen. Die Größe unserer Stichprobe, <span class="math inline">\(N = 169\)</span>, legt nahe, dass <font size="2">(nach dem zentralen Grenzwertsatz)</font> die Regressionskoeffizienten approximativ normalverteilt sind und der Standardfehler der Steigung nicht verzerrt ist.</span></p>
+<p><span class="highlight">Unabhängigkeit der Residuen</span></p>
+<blockquote>
+<p>Die Höhe des Residuums einer Beobachtung ist unabhängig von der Höhe des Residuums einer anderen Beobachtung.</p>
+</blockquote>
+<p><span class="ex"><strong>Serielle Abhängigkeit</strong>, d.h. mehrere Messungen von <em>einer</em> Person, können wir ausschließen, da es sich nicht um ein Messwiederholungs-Design handelt.</span></p>
+<p><span class="ex">Zur Überprüfung auf <strong>Clustering</strong>, d.h. systematische Zusammenhänge <em>zwischen</em> Personen einer Gruppe, müssten wir im Verdacht stehende (erhobene) Gruppenvariablen begutachten. Da dies aber den Rahmen dieses Kapitels sprengen würde, lassen wir das außen vor.</span></p>
+<p><span class="ex">Da wir keine Hinweise auf Verletzung der Annahmen gefunden haben, schauen wir uns nun die Ergebnisse der einfachen linearen Regression an.</span></p>
+</div>
+</details>
+<p><br />
+</p>
+<p>Wir schauen uns die Ergebnis unseres Regressionsmodells mittels <code>summary()</code> an:</p>
+<div class="sourceCode" id="cb906"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb906-1"><a href="outputs---alm---faq.html#cb906-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm_belastung)</span></code></pre></div>
+<p><img src="figures/Voraussetzungspr%C3%BCfung/Bilder/lm%20neu.png" width="550px" /></p>
+<p><span class="ex">Der Output sagt uns, inwiefern wir <strong>Zufriedenheit mit der Bewältigung von Studienbelastungen</strong> mit dem <strong>Vorliegen eines Nebenjobs</strong> vorhersagen können.</span></p>
+<p>Wir bekommen Auskunft über:</p>
+<ul>
+<li>die Signifikanztests der geschätzten Populationskoeffizienten <span class="math inline">\(\hat b_0\)</span> und <span class="math inline">\(\hat b_1 ... \hat b_k\)</span> <font size="2">(unserer <span class="math inline">\(k\)</span> Prädiktoren)</font></li>
+<li>den Signifikanztest der insgesamt aufgeklärten Varianz des gesamten Regressionsmodells <span class="math inline">\(R^2\)</span></li>
+</ul>
+<p><span class="ex">In unserem Fall einer einfachen linearen Regression sind die Ergebnisse der Signifikanztestung von Schätzung der Steigung und Schätzung der Varianzaufklärung des Gesamtmodells identisch.</span></p>
+<p>Unter <code>Coefficients</code> finden wir Informationen zu den geschätzten <strong>Regressionskoeffizienten</strong> - Intercept und Steigungskoeffizient(en):</p>
+<p><img src="figures/Voraussetzungspr%C3%BCfung/Bilder/lm%20oben.png" width="450px" /></p>
+<ul>
+<li><font color="#FF2600"><code>Estimate</code></font>: Schätzung der (Populations-)Regressionskoeffizienten
+<ul>
+<li><code>(Intercept)</code>: vorhergesagter Wert des Kriteriums wenn alle Prädiktoren 0 sind <font size="2">(bei metrischen Prädiktoren)</font> bzw. vorhergesagter Wert des Kriteriums in den jeweiligen Referenzgruppen <font size="2">(bei kategorialen Prädiktoren)</font>; <span class="ex">Wert von <code>zf_belastung</code> in der Referenzgruppe <code>job == ja</code></span></li>
+<li><code>jobnein</code>: Steigungskoeffizient, der die erwartete Veränderung im Kriterium angibt, wenn der Prädiktor um eine Einheit erhöht wird <font size="2">(bei metrischen Prädiktoren)</font> bzw. in (einer) der Vergleichsgruppen <font size="2">(bei kategorialen Prädiktoren)</font>; <span class="ex">Unterschied von <code>job == nein</code> im Vergleich zur Referenzgruppe <code>job == ja</code> im Hinblick auf <code>zf_belastung</code></span></li>
+</ul></li>
+<li><font color="#77BB40"><code>Std.Error</code></font>: Standardfehler des Regressionskoeffizienten</li>
+<li><font color="#0533FF"><code>t.value</code></font>: empirischer <span class="math inline">\(t\)</span>-Wert für die Signifikanztestung des (partiellen) Regressionskoeffizienten</li>
+<li><font color="#FF9300"><code>Pr(&gt;|t|)</code></font>: in <span class="math inline">\(p\)</span>-Wert umgerechneter empirischer <span class="math inline">\(t\)</span>-Wert</li>
+<li><font color="#942192"><code>Sign.codes</code></font>: durch Sternchen gekennzeichnete Signifikanzniveaus der geschätzten Regressionskoeffizienten</li>
+</ul>
+<p><span class="ex">Der Intercept <span class="math inline">\(b_0 = 2.679\)</span> gibt uns den Mittelwert der Personen <strong>mit Nebenjob</strong> (<code>job == "ja"</code>, Referenzgruppe) auf der Skala von <strong>Zufriedenheit mit der Bewältigung von Studienbelastungen</strong> (<code>zf_belastung</code>) an. Wir gelangen durch Betrachtung von <span class="math inline">\(p &lt; 2^{-16}\)</span> zu der Testentscheidung, die <span class="math inline">\(H_0\)</span>, dass der Intercept in der Population 0 ist, abzulehnen.</span></p>
+<aside>
+<br />
+<span class="math inline">\(t\)</span>-Test des Intercepts <span class="math inline">\(b_0\)</span>:<br />
+<span class="math inline">\(H_0\)</span>: <span class="math inline">\(\beta_0 = 0\)</span><br />
+<span class="math inline">\(H_1\)</span>: <span class="math inline">\(\beta_0 &gt; 0\)</span>
+</aside>
+<p><span class="ex">Der Steigungskoeffizient <span class="math inline">\(b_1 = 0.131\)</span> sagt uns, dass Personen <strong>ohne Nebenjob</strong> (<code>job == "nein"</code>) sich im Mittel 0.131 Punkte höher auf der Skala von <strong>Zufriedenheit mit der Bewältigung von Studienbelastungen</strong> (<code>zf_belastung</code>) beschreiben. Zudem gelangen wir durch Betrachtung von <span class="math inline">\(p = 0.203\)</span> zu der Testentscheidung, die <span class="math inline">\(H_0\)</span>, dass der Populationskoeffizient <span class="math inline">\(\beta_1 = 0\)</span> ist, beizubehalten.</span></p>
+<aside>
+<br />
+<span class="math inline">\(t\)</span>-Test des Steigungs-koeffizienten <span class="math inline">\(b_1\)</span>:<br />
+<span class="math inline">\(H_0\)</span>: <span class="math inline">\(\beta_1 = 0\)</span><br />
+<span class="math inline">\(H_1\)</span>: <span class="math inline">\(\beta_1 \neq 0\)</span>
+</aside>
+<p style="line-height:10px;">
+</p>
+<p>Im unteren Abschnitt finden wir Informationen bezüglich des <strong>Gesamtmodells</strong>:</p>
+<p><img src="figures/Voraussetzungspr%C3%BCfung/Bilder/lm%20unten.png" width="475px" /></p>
+<ul>
+<li><font color="#FE41FF"><code>Residual Standard Error</code></font>: Standardschätzfehler <span class="math inline">\(s_e\)</span><br />
+Gütemaß für die Genauigkeit der Regressionsvorhersage</li>
+<li><font color="#AA7942"><code>Multiple R-squared</code></font>: Determinationskoeffizient <span class="math inline">\(R^2\)</span><br />
+Gütemaß für die Schätzgenauigkeit</li>
+<li><font color="#AA7942"><code>Adjusted R squared</code></font>: korrigierter Determinationskoeffizient <span class="math inline">\(R_{korr}^2\)</span>; gilt durch Korrektur der Freiheitsgrade als erwartungstreuer Schätzer für die Population</li>
+<li><font color="#00FDFF"><code>F-statistic</code></font>: empirischer Wert des <span class="math inline">\(F\)</span>-Tests des Determinationskoeffizienten <span class="math inline">\(R^2\)</span> <font size="2">(d.h. des Gesamtmodells)</font> mit Anzahl der Zähler- <font size="2">(<span class="math inline">\(k\)</span>)</font> und Nenner-Freiheitsgrade <font size="2">(<span class="math inline">\(N-k-1\)</span>)</font> der <span class="math inline">\(F\)</span>-Verteilung mit zugehörigem <span class="math inline">\(p\)</span>-Wert.</li>
+</ul>
+<aside>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+Handelt es sich um eine einfache lineare Regression mit nur einem Prädiktor <span class="ex">(wie in unserem Fall)</span>, führt der <span class="math inline">\(F\)</span>-Test des Determinations-koeffizienten zum selben Ergebnis wie der <span class="math inline">\(t\)</span>-Test des Steigungs-koeffizienten.
+</aside>
+<!-- <aside> __Beachte: Als Sonderform des Allgemeinen Linearen Modells weist der zuvor besprochene *t*-Test einige Zusammenhänge mit der linearen Regression auf. So entspricht der empirische *t*-Wert von `lm()` immer der empirischen Prüfgröße des t-Tests__ <span class="ex"> __(In unserem Fall t = I0.652I).__ </span> __Potentiell unterschiedliche Vorzeichen haben hierbei keine Bedeutung. Zudem entspricht der *F*-Wert der `lm()`-Funktion (i.d.R.) der quadrierten empirischen Prüfgröße des *t*-Tests (*t²*). Näheres zu den Zusammenhängen des ALM findet ihr [am Ende des Skripts](#github2).__
+</aside> -->
+<p><span class="ex">Der Determinationskoeffizienten <span class="math inline">\(R^2 = 0.009685\)</span> sagt aus, dass in unserer Stichprobe knapp 1% der Variation in der <strong>Zufriedenheit mit der Bewältigung von Studienbelastungen</strong> (<code>zf_belastung</code>) durch das Vorhandensein eines <strong>Nebenjobs</strong> (<code>job</code>) erklärt werden kann. Wir können die <span class="math inline">\(H_0\)</span>, dass der Determinationskoeffizient in der Population <span class="math inline">\(0\)</span> ist (<span class="math inline">\(\rho^2 = 0\)</span>), durch Betrachtung von <span class="math inline">\(p = 0.203\)</span> beibehalten.</span></p>
+<aside>
+<br />
+<span class="math inline">\(F\)</span>-Test des Determinations-koeffizienten <span class="math inline">\(R^2\)</span>:<br />
+<span class="math inline">\(H_0: \rho^2 = 0\)</span><br />
+<span class="math inline">\(H_1: \rho^2 &gt; 0\)</span>
+</aside>
+</div>
+<div id="anova" class="section level2 hasAnchor" number="14.3">
+<h2><span class="header-section-number">14.3</span> ANOVA<a href="outputs---alm---faq.html#anova" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<blockquote>
+<p>Eine ANOVA (Analysis of Variance) überprüft den Einfluss von einer bzw. mehreren kategorialen unabhängigen Variablen <font size="2">(UVs, Faktoren)</font> mit <span class="math inline">\(p\)</span> Faktorstufen auf eine metrische abhängige Variable <font size="2">(AV)</font>. Dazu wird eine Varianzdekomposition durchgeführt, welche die Gesamtvarianz in systematische und Fehlervarianz zerlegt.</p>
+</blockquote>
+<!--Basierend auf dem Prinzip der Varianzdekomposition testet sie, inwiefern die Gesamtunterschiedlichkeit in der $AV$ auf die unterschiedlichen Faktorstufen der $UV(s)$ zurückzuführen ist. Hierbei wird die Gesamtvarianz in die systematische Varianz *zwischen* den Gruppen (*"des Gruppierungsfaktors"*) und die Varianz *innerhalb* der Gruppen (*"der Residuen"*) zerlegt und das Verhältnis dieser beiden Varianzanteile zueinander überprüft: Ist die Varianz zwischen den Gruppen im Verhältnis zur Varianz innerhalb der Gruppen groß, wird die Nullhypothese verworfen. -->
+<p><span class="ex">Wir wollen in unserem Beispiel überprüfen inwiefern Unterschiede in der <strong>Zufriedenheit mit der Bewältigung von Studienbelastungen</strong> (<code>zf_belastung</code>) auf das Vorhandensein eines <strong>Nebenjobs</strong> (<code>job</code>) zurückzuführen ist.</span></p>
+<p><span class="ex">Wir haben ein minimal <strong>unbalanciertes Design</strong>, weil die Anzahl der Beobachtungen in den Faktorstufen von <code>job</code> sich geringfügig unterscheiden mit <span class="math inline">\(n_{ja} = 87\)</span> und <span class="math inline">\(n_{nein} = 86\)</span>.</span></p>
+<p><span class="ex">Unser Signifikanzlevel legen wir auf <span class="math inline">\(\alpha=.05\)</span> fest.</span></p>
+<p style="line-height:10px;">
+</p>
+<details>
+<summary class="mtitle">
+Überprüfung der Annahmen der ANOVA
+</summary>
+<div class="more">
+<p>Vor der Durchführung der ANOVA mit unseren Beispieldaten müssen wir zwei Annahmen prüfen:</p>
+<ul>
+<li><strong>Normalverteilung</strong> des untersuchten Merkmals in beiden Populationen</li>
+<li><strong>Homoskedastizität</strong> des untersuchten Merkmals in beiden Populationen</li>
+</ul>
+<p><br />
+</p>
+<p>Beides haben wir im Rahmen der Durchführung des <a href="outputs---alm---faq.html#github-link"><span class="math inline">\(t\)</span>-Test</a> bereits untersucht und Evidenz dafür gefunden.</p>
+</div>
+</details>
+<p><br />
+</p>
+<p>Zur Durchführung der ANOVA verwenden wir die <code>aov()</code>Funktion.</p>
+<div class="sourceCode" id="cb907"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb907-1"><a href="outputs---alm---faq.html#cb907-1" aria-hidden="true" tabindex="-1"></a>anova <span class="ot">&lt;-</span> <span class="fu">aov</span>(zf_belastung <span class="sc">~</span> job, </span>
+<span id="cb907-2"><a href="outputs---alm---faq.html#cb907-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">data =</span> daten, </span>
+<span id="cb907-3"><a href="outputs---alm---faq.html#cb907-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">na.action =</span> <span class="st">&quot;na.exclude&quot;</span>) <span class="co"># Ausschluss fehlender Werte</span></span>
+<span id="cb907-4"><a href="outputs---alm---faq.html#cb907-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(anova)</span></code></pre></div>
+<aside>
+Mehr Informationen zum Umgang mit fehlenden Werten im <a href="http://methods-berlin.com/de/r-lernplattform/fehlende-werte" target="_blank">gleichnamigen Kapitel</a>.
+</aside>
+<p><img src="figures/Voraussetzungspr%C3%BCfung/Bilder/aov.png" width="400px" style="display: block; margin: auto;" /></p>
+<p>Der Output liefert die folgenden Informationen für den Gruppierungsfaktor (<code>job</code>) und für die Residuen (<code>Residuals</code>):</p>
+<ul>
+<li><font color="#FF2600"><code>Df</code></font>: Anzahl der Freiheitsgrade der <span class="math inline">\(F\)</span>-Verteilung
+<ul>
+<li>… des Gruppierungsfaktor: <span class="math inline">\(df_{job} = p - 1\)</span></li>
+<li>… der Residuen: <span class="math inline">\(df_{e} = N-p\)</span></li>
+</ul></li>
+<li><font color="#77BB40"><code>Sum Sq</code></font>: Quadratsumme
+<ul>
+<li>… des Gruppierungsfaktors (<em>“Treatmentquadratsumme”</em>)</li>
+<li>… der Residuen (<em>“Fehlerquadratsumme”</em>)</li>
+</ul></li>
+<li><font color="#0533FF"><code>Mean Sq</code></font>: Mittlere Quadratsumme <font size="2">(MQ)</font><br />
+relativieren die Quadratsumme eines Effekts an seinen Freiheitsgraden</li>
+<li><font color="#FF9300"><code>F value</code></font>: empirische Prüfgröße des <span class="math inline">\(F\)</span>-Tests<br />
+entspricht dem Quotienten <span class="math inline">\(\frac {MQ_{job}} {MQ_e}\)</span></li>
+<li><font color="#942192"><code>Pr(&gt;F)</code></font>: in <span class="math inline">\(p\)</span>-Wert umgerechneter empirischer <span class="math inline">\(F\)</span>-Wert</li>
+</ul>
+<!-- 
+<aside> __Beachte: Auch die ANOVA weist als Sonderform des Allgemeinen Linearen Modells  Zusammenhänge mit der linearen Regression auf. Hierbei entspricht der empirische *F*-Wert der aov Funktion dem *F*-Wert des globalen Tests der `lm()`-Funktion.__ <span class="ex"> __(In unserem Fall F=0.316).__ </span> __Näheres zu den Zusammenhängen des ALM findet ihr [hier](#github2).__
+</aside> 
+-->
+<p><span class="ex">Unser <span class="math inline">\(p\)</span>-Wert deutet darauf hin, dass unter Gültigkeit der <span class="math inline">\(H_0\)</span> die Wahrscheinlichkeit, den vorliegenden <span class="math inline">\(F\)</span>-Wert von 1.633 oder einen größeren zu erhalten, 20,3% beträgt. Wir kommen somit zu der Testentscheidung, die <span class="math inline">\(H_0\)</span> beizubehalten. Das bedeutet, dass wir davon ausgehen, dass zwischen den Populationen von Studierenden mit und ohne Nebenjob keine überzufälligen Mittelwertsunterschiede bezüglich der Zufriedenheit mit der Bewältigung von Studienbelastungen existieren.</span></p>
+</div>
+<div id="github2" class="section level2 hasAnchor" number="14.4">
+<h2><span class="header-section-number">14.4</span> ALM: Zusammenhänge der drei Verfahren<a href="outputs---alm---faq.html#github2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Wie bereits eingangs erwähnt, gehören <span class="math inline">\(t\)</span>-Test, lineare Regression und ANOVA alle zum Allgemeinen Linearen Modell <font size="2">(ALM)</font>.</p>
+<p>Für den hier betrachteten Spezialfall von nur einer UV mit nur zwei Stufen <font size="2">(und adäquater Kodierung; siehe z.B. <a href="http://methods-berlin.com/wp-content/uploads/Datenvorbereitung.html#indikatorvariablen-kodierung-nominaler-merkmale" target="_blank">Indikatorvariablen: Kodierung nominaler Merkmale</a> aus dem Kapitel Datenvorbereitung)</font> kommen die drei Verfahren zum selben Ergebnis bei der Signifikanztestung, obwohl scheinbar andere Hypothesen getestet werden.</p>
+<table class="table table-condensed" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="empty-cells: hide;border-bottom:hidden;" colspan="2">
+</th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; color: white !important;padding-right: 4px; padding-left: 4px; background-color: #009193 !important;" colspan="3">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Empirische Prüfgröße
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:left;font-weight: bold;color: white !important;background-color: #009193 !important;">
+Verfahren
+</th>
+<th style="text-align:left;font-weight: bold;color: white !important;background-color: #009193 !important;">
+getestete Hypothesen
+</th>
+<th style="text-align:left;font-weight: bold;color: white !important;background-color: #009193 !important;">
+<span class="math inline">\(t\)</span>
+</th>
+<th style="text-align:left;font-weight: bold;color: white !important;background-color: #009193 !important;">
+<span class="math inline">\(F\)</span>
+</th>
+<th style="text-align:left;font-weight: bold;color: white !important;background-color: #009193 !important;">
+<span class="math inline">\(p\)</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;width: 15em; font-weight: bold;color: white !important;background-color: #009193 !important;">
+<span class="math inline">\(t\)</span>-Test für unabhängige Stichproben
+</td>
+<td style="text-align:left;">
+<p>Mittelwertsunterschied in den Gruppen</p>
+<p><span class="math inline">\(H_0\)</span>: <span class="math inline">\(\mu_1 = \mu_2\)</span></p>
+<span class="math inline">\(H_1\)</span>: <span class="math inline">\(\mu_1 \neq \mu_2\)</span> <font size="1">(ungerichtet)</font>
+</td>
+<td style="text-align:left;">
+-1.278
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+0.203
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 15em; font-weight: bold;color: white !important;background-color: #009193 !important;">
+einfache lineare Regression
+</td>
+<td style="text-align:left;">
+<p>Steigungskoeffizient <span class="math inline">\(b_1\)</span></p>
+<p><span class="math inline">\(H_0\)</span>: <span class="math inline">\(\beta_1 = 0\)</span></p>
+<span class="math inline">\(H_1\)</span>: <span class="math inline">\(\beta_1 \neq 0\)</span> <font size="1">(ungerichtet)</font>
+</td>
+<td style="text-align:left;">
+1.278
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+0.203
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 15em; font-weight: bold;color: white !important;background-color: #009193 !important;">
+einfache lineare Regression
+</td>
+<td style="text-align:left;">
+<p>Determinationskoeffizient <span class="math inline">\(R^2\)</span></p>
+<p><span class="math inline">\(H_0\)</span>: <span class="math inline">\(\rho^2 = 0\)</span></p>
+<span class="math inline">\(H_1\)</span>: <span class="math inline">\(\rho^2\)</span> &gt; <span class="math inline">\(0\)</span> <font size="1">(gerichtet)</font>
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+1.633
+</td>
+<td style="text-align:left;">
+0.203
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 15em; font-weight: bold;color: white !important;background-color: #009193 !important;">
+ANOVA
+</td>
+<td style="text-align:left;">
+<p>Mittelwertsunterschied in den Gruppen</p>
+<p><span class="math inline">\(H_0\)</span>: <span class="math inline">\(\mu_1 = \mu_2\)</span></p>
+<span class="math inline">\(H_1\)</span>: <span class="math inline">\(\mu_1 \neq \mu_2\)</span> <font size="1">(ungerichtet)</font>
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+1.633
+</td>
+<td style="text-align:left;">
+0.203
+</td>
+</tr>
+</tbody>
+</table>
+<p>Wir können <span class="math inline">\(t\)</span>- und <span class="math inline">\(F\)</span>-Werte ineinander überführen durch folgende Formel: <span class="math inline">\(F = t^2 \longrightarrow t^2=1.278^2=1.633=F\)</span>.</p>
+<blockquote>
+<em><strong>Achtung</strong></em>:
+<div class="rows">
+Dass der <span class="math inline">\(t\)</span>-Wert einmal negativ <font size="2">(<span class="math inline">\(t\)</span>-Test)</font> und einmal positiv <font size="2">(einfache lineare Regression)</font> ist liegt daran, dass die Gruppen jeweils vertauscht wurden.
+</div>
+<p><br />
+</p>
+</blockquote>
+<p>Das <strong>Allgemeine Lineare Modell</strong> <font size="2">(ALM)</font> umfasst varianzanalytische Verfahren sowie (multiple) Korrelations- und Regressionsrechnung. Dadurch können nicht nur metrische sondern auch kategoriale Merkmale <font size="2">(als <span class="math inline">\(UV\)</span>s)</font> untersucht werden, sofern die kategorialen Merkmale in geeigneter Form kodiert sind.</p>
+<aside>
+<br />
+<br />
+Mehr Informationen zu Kodierung gibt es im Kapitel <a href="http://methods-berlin.com/de/r-lernplattform/einfuehrung_in_r" target="_blank">Einführung in <span class="r">R</span></a>.
+</aside>
+<p>In unserem Fall von einer intervallskalierten <span class="math inline">\(AV\)</span> und einer nominalskalierten <span class="math inline">\(UV\)</span> werden in den drei Verfahren jeweils die Mittelwerte der <span class="math inline">\(AV\)</span> für die jeweiligen <span class="math inline">\(UV\)</span> gebildet. Beim <span class="math inline">\(t\)</span>-Test und der einfachen linearen Regression haben wir diese auch ausgegeben bekommen:</p>
+<ul>
+<li><span class="math inline">\(t\)</span>-Test:<br />
+<code>mean in group ja</code> <span class="math inline">\(= 2.67\)</span><br />
+<code>mean in group nein</code> <span class="math inline">\(= 2.80\)</span></li>
+<li>Einfache lineare Regression:<br />
+<span class="math inline">\(Intercept = 2.67\)</span><br />
+<span class="math inline">\(b_1 = 0.131\)</span><br />
+<span class="math inline">\(Intercept + b_1 = 2.81\)</span></li>
+</ul>
+<p>Dadurch sind die getesteten Hypothesen der drei Verfahren in diesem speziellen Fall <font size="2">(<span class="math inline">\(AV\)</span>: intervallskaliert, <span class="math inline">\(UV\)</span>: nominalskaliert)</font> äquivalent.</p>
+<hr />
+<p><font size="2">Um eine möglichst exakte Replikation der Funktionen zu gewährleisten gibt es im folgenden relevante Angaben zum System (<strong><code>R</code>-Version</strong>, <strong>Betriebssystem</strong>, <strong>geladene Pakete mit Angaben zur Version</strong>), mit welchem diese Seite erstellt wurde.</p>
+<div class="sourceCode" id="cb908"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb908-1"><a href="outputs---alm---faq.html#cb908-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
+<pre><code>## R version 4.2.0 (2022-04-22)
+## Platform: x86_64-pc-linux-gnu (64-bit)
+## Running under: Ubuntu 22.04.1 LTS
+## 
+## Matrix products: default
+## BLAS:   /usr/lib/x86_64-linux-gnu/openblas-pthread/libblas.so.3
+## LAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblasp-r0.3.20.so
+## 
+## locale:
+##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+##  [3] LC_TIME=de_DE.UTF-8        LC_COLLATE=en_US.UTF-8    
+##  [5] LC_MONETARY=de_DE.UTF-8    LC_MESSAGES=en_US.UTF-8   
+##  [7] LC_PAPER=de_DE.UTF-8       LC_NAME=C                 
+##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+## [11] LC_MEASUREMENT=de_DE.UTF-8 LC_IDENTIFICATION=C       
+## 
+## attached base packages:
+## [1] grid      stats     graphics  grDevices utils     datasets  methods  
+## [8] base     
+## 
+## other attached packages:
+##  [1] ggalluvial_0.12.3  ggiraphExtra_0.3.0 lsr_0.5.2          tidyr_1.2.1       
+##  [5] naniar_0.6.1       VIM_6.2.2          readxl_1.3.1       foreign_0.8-82    
+##  [9] devtools_2.4.5     usethis_2.1.6      ICC_2.4.0          readr_2.1.3       
+## [13] Hmisc_4.7-1        Formula_1.2-4      survival_3.2-13    lattice_0.20-45   
+## [17] ggplot2_3.4.0      colorspace_2.0-3   psych_2.2.9        car_3.1-1         
+## [21] carData_3.0-5      kableExtra_1.3.4   dplyr_1.0.10       htmltools_0.5.3   
+## [25] rmarkdown_2.17     knitr_1.40        
+## 
+## loaded via a namespace (and not attached):
+##   [1] uuid_1.0-3          backports_1.4.1     systemfonts_1.0.4  
+##   [4] plyr_1.8.7          sp_1.5-0            splines_4.2.0      
+##   [7] mycor_0.1.1         digest_0.6.30       fansi_1.0.3        
+##  [10] magrittr_2.0.2      checkmate_2.0.0     memoise_2.0.1      
+##  [13] cluster_2.1.2       tzdb_0.3.0          remotes_2.4.2      
+##  [16] svglite_2.1.0       prettyunits_1.1.1   jpeg_0.1-9         
+##  [19] rvest_1.0.2         xfun_0.34           callr_3.7.2        
+##  [22] crayon_1.5.2        jsonlite_1.8.3      zoo_1.8-11         
+##  [25] glue_1.6.2          gtable_0.3.0        ppcor_1.1          
+##  [28] webshot_0.5.4       sjmisc_2.8.9        pkgbuild_1.3.1     
+##  [31] DEoptimR_1.0-11     abind_1.4-5         scales_1.2.1       
+##  [34] DBI_1.1.2           miniUI_0.1.1.1      Rcpp_1.0.9         
+##  [37] viridisLite_0.4.1   xtable_1.8-4        laeken_0.5.2       
+##  [40] htmlTable_2.4.1     proxy_0.4-27        vcd_1.4-10         
+##  [43] profvis_0.3.7       htmlwidgets_1.5.4   httr_1.4.2         
+##  [46] RColorBrewer_1.1-2  ellipsis_0.3.2      urlchecker_1.0.1   
+##  [49] pkgconfig_2.0.3     farver_2.1.1        nnet_7.3-17        
+##  [52] sass_0.4.2          deldir_1.0-6        utf8_1.2.2         
+##  [55] reshape2_1.4.4      tidyselect_1.2.0    labeling_0.4.2     
+##  [58] rlang_1.0.6         later_1.3.0         munsell_0.5.0      
+##  [61] cellranger_1.1.0    tools_4.2.0         cachem_1.0.6       
+##  [64] cli_3.4.1           generics_0.1.2      sjlabelled_1.2.0   
+##  [67] ranger_0.14.1       evaluate_0.15       stringr_1.4.0      
+##  [70] fastmap_1.1.0       yaml_2.3.5          processx_3.8.0     
+##  [73] fs_1.5.2            robustbase_0.95-0   purrr_0.3.4        
+##  [76] visdat_0.5.3        nlme_3.1-155        mime_0.12          
+##  [79] ggiraph_0.8.4       xml2_1.3.3          compiler_4.2.0     
+##  [82] rstudioapi_0.13     png_0.1-7           e1071_1.7-12       
+##  [85] tibble_3.1.8        bslib_0.4.0         stringi_1.7.8      
+##  [88] highr_0.9           ps_1.7.2            Matrix_1.5-1       
+##  [91] vctrs_0.5.0         pillar_1.8.1        norm_1.0-10.0      
+##  [94] lifecycle_1.0.3     lmtest_0.9-40       jquerylib_0.1.4    
+##  [97] insight_0.18.6      data.table_1.14.4   httpuv_1.6.5       
+## [100] R6_2.5.1            latticeExtra_0.6-30 bookdown_0.29      
+## [103] promises_1.2.0.1    gridExtra_2.3       sessioninfo_1.2.2  
+## [106] boot_1.3-28         MASS_7.3-56         assertthat_0.2.1   
+## [109] pkgload_1.3.0       withr_2.5.0         mnormt_2.1.1       
+## [112] mgcv_1.8-39         parallel_4.2.0      hms_1.1.1          
+## [115] rpart_4.1.16        class_7.3-20        shiny_1.7.3        
+## [118] base64enc_0.1-3     interp_1.0-33</code></pre>
+<p>Für Informationen zur Interpretation dieses Outputs schaut auch den Abschnitt <a href="http://methods-berlin.com/wp-content/uploads/Pakete.html#replizierbarkeit-von-analysen" target="_blank"><strong>Replizierbarkeit von Analysen</strong></a> des Kapitels zu Paketen an.</font></p>
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="r-markdown.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
