@@ -199,6 +199,8 @@ Bevor wir uns die einzelnen Konzepte im Detail anschauen, sehen wir nachfolgend 
 
 ```{r, out.width = "500px", fig.align="center", echo=FALSE}
 knitr::include_graphics("figures/Einführung/Bilder/R/veranschaulichung.png")
+library(dplyr)
+library(kableExtra)
 ```
 
 
@@ -209,6 +211,7 @@ knitr::include_graphics("figures/Einführung/Bilder/R/veranschaulichung.png")
 ## R Dev Team: (Data) Types, Data Structures, Objects
 
 library(kableExtra)
+library(dplyr)
 
 table_data <- as.data.frame(matrix(c("Zeichen", "z.B. \"b\" oder '@'", "Vergleich", "<span style=\"font-family: Consolas,monaco,monospace;\">character</span>", 
                                      "Wahrheitswerte", "wahr, falsch", "UND, ODER, NICHT", "<span style=\"font-family: Consolas,monaco,monospace;\">logical</span>", 

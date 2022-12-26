@@ -1,0 +1,39 @@
+Package: RLernplattform
+Title: R-Lernplattform
+Authors@R:
+  - Julia-Kim Walther [aut, cre]
+  - Methodengruppe Berlin [aut]
+Description: Dieses Bookdown Projekt erklärt die Grundlagen der Programmierung in R für Studierende der Psychologie an der HU Berlin.
+License: 
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 5.0.1
+Imports:
+  - bookdown
+  - rmarkdown
+  - dplyr
+  - knitr
+  - pander
+  - psych
+  - kableExtra
+  - devtools
+  - openxlsx
+  - readxl
+  - foreign
+  - readr
+  - haven
+  - Hmisc
+  - errorist
+  - dplyr
+  - car
+  - VIM
+  - naniar
+  - mvnmle
+  - RBtest
+  - tidyr
+  - ICC
+  - ggplot2
+  - lsr
+  - ggiraphExtra
+  - ggalluvial
+  - colorspace

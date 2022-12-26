@@ -4,78 +4,82 @@ author: "Methodengruppe Berlin"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
-bibliography: [book.bib, packages.bib]
-# url: your book url like https://bookdown.org/yihui/bookdown
-# cover-image: path to the social sharing image like images/cover.jpg
+bibliography:
+- book.bib
+- packages.bib
 description: |
   This is a minimal example of using the bookdown package to write a book.
-  The HTML output format for this example is bookdown::gitbook,
   set in the _output.yml file.
+  The HTML output format for this example is bookdown::gitbook,
 link-citations: yes
-github-repo: rstudio/bookdown-demo
+github-repo: "rstudio/bookdown-demo"
 ---
 
 ````{r, include = FALSE}
-required_packages <- c("knitr",
-    "rmarkdown",
-    "htmltools",
-    "dplyr",
-    "kableExtra",
-    "car",
-    "psych",
-    "colorspace",
-    "grid",
-    "ggplot2",
-    "lattice",
-    "survival",
-    "Formula",
-    "Hmisc",
-    "readr",
-    "ICC")
-
-# load
-lapply(required_packages, library, character.only = TRUE)
+# required_packages <- c("knitr",
+#     "rmarkdown",
+#     "htmltools",
+#     "dplyr",
+#     "kableExtra",
+#     "car",
+#     "psych",
+#     "colorspace",
+#     "grid",
+#     "ggplot2",
+#     "lattice",
+#     "survival",
+#     "Formula",
+#     "Hmisc",
+#     "readr",
+#     "ICC")
+# 
+# # load
+# lapply(required_packages, library, character.only = TRUE)
 
 # knitr options
 knitr::opts_chunk$set(echo = TRUE, message = FALSE)
 ````
 
+# Inhalte
 
-# About
-
-This is a _sample_ book written in **Markdown**. You can use anything that Pandoc's Markdown supports; for example, a math equation $a^2 + b^2 = c^2$.
-
-## Usage 
-
-Each **bookdown** chapter is an .Rmd file, and each .Rmd file can contain one (and only one) chapter. A chapter *must* start with a first-level heading: `# A good chapter`, and can contain one (and only one) first-level heading.
-
-Use second-level and higher headings within chapters like: `## A short section` or `### An even shorter section`.
-
-The `index.Rmd` file is required, and is also your first book chapter. It will be the homepage when you render the book.
-
-## Render book
-
-You can render the HTML version of this example book without changing anything:
-
-1. Find the **Build** pane in the RStudio IDE, and
-
-1. Click on **Build Book**, then select your output format, or select "All formats" if you'd like to use multiple formats from the same book source files.
-
-Or build the book from the R console:
-
-```{r, eval=FALSE}
-bookdown::render_book()
-```
-
-To render this example to PDF as a `bookdown::pdf_book`, you'll need to install XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <https://yihui.org/tinytex/>.
-
-## Preview book
-
-As you work, you may start a local server to live preview this HTML book. This preview will update as you edit the book when you save individual .Rmd files. You can start the server in a work session by using the RStudio add-in "Preview book", or from the R console:
-
-```{r eval=FALSE}
-bookdown::serve_book()
-```
+<html>
+<div style="float:left; width:33%;">
+  <figure>
+    <img src="https://www.example.com/figure1.jpg" alt="Figure 1">
+    <figcaption>Figure 1</figcaption>
+  </figure>
+  <p>Short description of figure 1</p>
+  <ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+  </ul>
+</div>
+<div style="float:left; width:33%;">
+  <figure>
+    <img src="https://www.example.com/figure2.jpg" alt="Figure 2">
+    <figcaption>Figure 2</figcaption>
+  </figure>
+  <p>Short description of figure 2</p>
+  <ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+  </ul>
+</div>
+<div style="float:left; width:33%;">
+  <figure>
+    <img src="https://www.example.com/figure3.jpg" alt="Figure 3">
+    <figcaption>Figure 3</figcaption>
+  </figure>
+  <p>Short description of figure 3</p>
+  <ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+  </ul>
+</div>
+</html>
 
 
 ```{r include=FALSE}
