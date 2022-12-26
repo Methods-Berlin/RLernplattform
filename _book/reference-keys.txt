@@ -1,10 +1,6 @@
+tab:unnamed-chunk-457
 tab:unnamed-chunk-459
-tab:unnamed-chunk-461
-fig:unnamed-chunk-648
-about
-usage
-render-book
-preview-book
+fig:unnamed-chunk-646
 installation-und-aktualisierung-von-r-und-rstudio
 windows
 installation-von-r
@@ -43,7 +39,7 @@ environment-history
 files-plots-packages-help-viewer
 r-dokumentation
 description
-usage-1
+usage
 arguments
 details
 see-also
@@ -282,10 +278,6 @@ github-link
 lineare-regression
 anova
 github2
-url-your-book-url-like-httpsbookdown.orgyihuibookdown
-a-gruppenspezifische-regressionsgeraden-in-einem-diagramm
-b-eigene-diagramme-für-jede-gruppe
-weitere-lernplattformen
 git-und-gitlab
 git
 einführung-in-git
@@ -305,3 +297,8 @@ push
 pull
 branches-archivieren-und-löschen
 weitere-ressourcen
+tmp
+a-gruppenspezifische-regressionsgeraden-in-einem-diagramm
+b-eigene-diagramme-für-jede-gruppe
+weitere-lernplattformen
+inhalte
