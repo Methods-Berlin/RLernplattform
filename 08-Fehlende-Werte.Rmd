@@ -684,7 +684,7 @@ data_a <- data_a[,-c(2:7, 9, 145:153)]
 ```
 
 ```{r, echo=FALSE}
-paged_table(data_a, options(rows.print=5))
+rmarkdown::paged_table(data_a, options(rows.print=5))
 ```
 
 > *__Achtung__*:  <div class="rows">Wir gehen im Folgenden davon aus, dass die Variablen `statements..c1.`, `statements..c2.`. `statements..c3.` und `statements..c4.` aus dem Datensatz den Variablen `catch_1`, `catch_2`, `catch_3` und `catch_4` entsprechen.</div>
@@ -729,7 +729,7 @@ data_b <- data_b[, c(1:4, 6:7, # soziodemographische Variablen
 ```
 
 ```{r, echo=FALSE}
-paged_table(data_b, options(rows.print=5))
+rmarkdown::paged_table(data_b, options(rows.print=5))
 # alte Selektion: 75:78, 80:82, 84, 86:97
 ```
 
@@ -821,7 +821,7 @@ data_b_test <- data_b_test[, c(79, 95)] # sias5, sias5_RS
 ```
 
 ```{r, echo=FALSE}
-paged_table(data_b_test, options(rows.print=5))
+rmarkdown::paged_table(data_b_test, options(rows.print=5))
 ```
 
 > *__Achtung__*:  <div class="rows">Wir müssen hier umdenken, da `sias5_RS` die *rekodierte* Version von `sias5` widergibt. Wir wollen allerdings die *allgemeingültige* Zuordnung von Daten und Angaben im Codebuch verstehen.</div>
@@ -1257,7 +1257,7 @@ for (i in 1:nrow(vergleich)){
 ```
 
 ```{r, echo=FALSE}
-paged_table(vergleich, options(rows.print=5))
+rmarkdown::paged_table(vergleich, options(rows.print=5))
 ```
 
 Die Anzahl der in die Berechnungen eingegangenen Datenpunkte unterscheidet sich stark. Während bei *pairwise deletion* zwischen `r min(colSums(!is.na(data_b_num)))` und `r max(colSums(!is.na(data_b_num)))` Beobachtungen für die Berechnungen genutzt wurden, wurden bei *listwise deletion* bei der Berechnung der Mittelwerte aller Variablen (die gleichen) `r nrow(na.omit(data_b))` Beobachtungen genutzt.
@@ -1318,7 +1318,7 @@ listwise_corr <- cor(data_b_num, use="complete.obs")
 
 ```{r, echo=FALSE}
 listwise_corr <- as.data.frame(listwise_corr)
-paged_table(listwise_corr)
+rmarkdown::paged_table(listwise_corr)
 ```
 
 ```{r}
@@ -1327,7 +1327,7 @@ pairwise_corr <- cor(data_b_num, use="pairwise.complete.obs")
 
 ```{r, echo=FALSE}
 pairwise_corr <- as.data.frame(pairwise_corr)
-paged_table(pairwise_corr)
+rmarkdown::paged_table(pairwise_corr)
 ```
 
 ```{r}
@@ -1346,7 +1346,7 @@ for (i in 1:nrow(listwise_corr)){ # über alle Zeilen ...
 ```
 
 ```{r, echo=FALSE}
-paged_table(diff_corr)
+rmarkdown::paged_table(diff_corr)
 ```
 
 ```{r}

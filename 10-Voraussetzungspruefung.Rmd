@@ -356,7 +356,7 @@ quant <- na.exclude(quant) # Missings raus
 
 ```{r, echo=FALSE}
 library(rmarkdown)
-paged_table(quant)
+rmarkdown::paged_table(quant)
 ```
 
 ```{r, results=FALSE}

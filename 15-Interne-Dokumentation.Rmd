@@ -1,0 +1,87 @@
+# Interne Dokumentation
+
+## Neues Thema erstellen
+
+Um ein Thema hinzuzufügen, öffne die Datei RLernplattform.Rproj mit RStudio. 
+Unter Files siehst Du nun alle aktuellen Themen als .Rmd Dateien. Öffne beispielsweise
+die Datei "01-Installation.Rmd". Diese enthält den Text, aus dem das erste Thema
+der Webseite erstellt wird. Um ein neues Thema zu erstellen, kannst Du entweder
+in RStudio Unter File > New File > RMarkdown ein neues RMarkdown erstellen und diese
+Datei im RLernplattform-Ordner speichern oder Du erstellst einfach eine Kopie einer
+bestehende Datei (z.B. "01-Installation.Rmd") und löscht den bisherigen Inhalt.
+Wichtig ist, dass:
+
+1. Deine Datei mit einer Überschrift 1. Ordnung anfängt. Diese erstellst Du mit
+`# Dies ist meine Überschrift`. 
+2. Der Name Deiner RMarkdown Datei mit einer Zahl anfängt. Die Zahl bestimmt, an
+welcher Stelle Dein neues Thema auf der Webseite aufgeführt wird (z.B. ist 01-Installation.Rmd)
+das erste Thema, weil es die kleinste Zahl hat.
+
+Anschließend kannst Du deine RMarkdown Datei mit Inhalten füllen.
+
+## Daten hinzufügen
+
+Wenn Du einen Datensatz für Deine RMarkdown-Datei brauchst, der nicht in R oder
+einem Paket enthalten ist, dann speichere diesen im Ordner "data". Anschließend
+kannst Du ihn folgendermaßen in Deiner RMarkdown Datei einlesen: 
+```{r,eval=FALSE}
+mein_datensatz <- read.csv("data/mein_datensatz.csv")
+```
+
+## Bilder hinzufügen
+
+Wenn Du Bilder für Deine RMarkdown-Datei brauchst, dann speichere diese 
+im Ordner "figures". Anschließend kannst Du diese beispielsweise folgendermaßen
+nutzen:
+
+```
+![](figures/mein_bild.png)
+```
+
+## Links hinzufügen
+
+Wenn Du intern auf ein anderes Thema referenzieren möchtest, kannst Du einen
+Link einfügen. Dies geht mit:
+
+```
+[text, den die Leser:innen sehen][Überschrift des Themas, auf das verlinkt werden soll]
+```
+
+Beispielsweise führt folgender Link zur [R Einführung][Einführung in R].
+Als Rohtext steht hier:
+
+```
+Beispielsweise führt folgender Link zur [R Einführung][Einführung in R].
+```
+
+## Paket hinzufügen
+
+Wenn Dein neues Thema auch ein neues R-Paket benötigt, dann musst Du dieses
+im Dokument `DESCRIPTION` zu `Imports:` hinzufügen (so wie beispielsweise dplyr).
+
+Will nun jemand die Webseite erstellen, dann kann diese Person erst [alle Dependencies
+installieren][Alle Dependencies installieren].
+
+## Webseite erstellen
+
+Um die Webseite zu erstellen, gehe auf Build > Build Book. Wichtig ist, dass 
+eine html Seite erstellt wird und nicht ein pdf. Falls RStudio fälschlicherweise
+versucht ein pdf zu erstellen, dann klicke auf den kleinen Pfeil neben Build Book
+und wähle bookdown::gitbook.
+
+### Alle Dependencies installieren
+
+Solltest Du nicht alle Pakete installiert haben, die auf der Webseite genutzt werden,
+kannst Du entweder die Datei `DESCRIPTION` öffnen und alle dort aufgeführten Pakete 
+installieren oder Du öffnest die Datei `RLernplattform.Rproj` in RStudio und führst
+folgenden Code aus:
+```{r, eval = FALSE}
+if(!require("devtools"))
+  install.packages("devtools")
+library("devtools")
+devtools::install_deps()
+```
+
+## Webseite updaten
+
+TODO: Dokumentation des Updatens der Webseite.

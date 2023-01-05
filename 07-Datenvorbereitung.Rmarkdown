@@ -899,7 +899,7 @@ df_var_mit_o <- airquality[var_mit_o]
 
 ```{r, echo=FALSE}
 library(rmarkdown)
-paged_table(df_var_mit_o, options(rows.print=5))
+rmarkdown::paged_table(df_var_mit_o, options(rows.print=5))
 ```
 
 Mit dieser Methode haben wir gleich den Vorteil, dass die Namen der Variablen im neuen Datensatz gleich denen im ursprünglichen Datensatz ist.
@@ -922,7 +922,7 @@ df_wind_ozone <- data.frame(airquality$Wind, airquality$Ozone)
 ```
 
 ```{r, echo=FALSE}
-paged_table(df_wind_ozone, options(rows.print=5))
+rmarkdown::paged_table(df_wind_ozone, options(rows.print=5))
 ```
 
 
@@ -950,7 +950,7 @@ df_month_day <- select(airquality,
 
 ```{r, echo=FALSE}
 library(rmarkdown)
-paged_table(df_month_day, options(rows.print=5))
+rmarkdown::paged_table(df_month_day, options(rows.print=5))
 ```
 
 Wenn wir **bis auf einige wenige Variablen alle** übernehmen wollen, können wir das realisieren, indem wir jeweils ein `-` vor die ungewollten Variablennamen setzen. Wenn der ersten Variable, die wir `select()` übergeben, ein `-` vorangestellt wurde, übernimmt die Funktion **alle** Variablen mit Ausnahme jener, die mit `-` angegeben werden.
@@ -966,7 +966,7 @@ df_without_month_day <- select(airquality,
 
 ```{r, echo=FALSE}
 library(rmarkdown)
-paged_table(df_without_month_day, options(rows.print=5))
+rmarkdown::paged_table(df_without_month_day, options(rows.print=5))
 ```
 
 </p></details>
@@ -1103,7 +1103,7 @@ df_temp5 <-  airquality[grep("^5|5$", airquality$Temp),]
 
 ```{r, echo=FALSE}
 library(rmarkdown)
-paged_table(df_temp5, options(rows.print=5))
+rmarkdown::paged_table(df_temp5, options(rows.print=5))
 ```
 
 </p></details>
@@ -1137,7 +1137,7 @@ df_temp57 <- airquality[airquality$Temp == 57,]
 
 ```{r, echo=FALSE}
 library(rmarkdown)
-paged_table(df_temp57, options(rows.print=5))
+rmarkdown::paged_table(df_temp57, options(rows.print=5))
 ```
 
 Wir können mittels `|`*(oder)* auch mehrere Ausprägungen gleichzeitig auswählen.
@@ -1150,7 +1150,7 @@ df_temp57_66 <- airquality[airquality$Temp == 57 | airquality$Temp == 66,]
 
 ```{r, echo=FALSE}
 library(rmarkdown)
-paged_table(df_temp57_66, options(rows.print = 6))
+rmarkdown::paged_table(df_temp57_66, options(rows.print = 6))
 ```
 
 Weitere logische Operatoren sind z.B. `!=` *(nicht)*, `<` *(kleiner)* und `>=` *(größer gleich)*.
@@ -1174,7 +1174,7 @@ df_month6_day15ff <- dplyr::filter(airquality, Month == 6, Day >= 15)
 
 ```{r, echo=FALSE}
 library(rmarkdown)
-paged_table(df_month6_day15ff, options(rows.print=5))
+rmarkdown::paged_table(df_month6_day15ff, options(rows.print=5))
 ```
 
 </p></details>
@@ -1203,7 +1203,7 @@ df_ascend_temp <- airquality[order(airquality$Temp),]
 
 ```{r, echo=FALSE}
 library(rmarkdown)
-paged_table(df_ascend_temp, options(rows.print=5))
+rmarkdown::paged_table(df_ascend_temp, options(rows.print=5))
 ```
 
 \
@@ -1215,7 +1215,7 @@ df_ascend_temp_wind <- airquality[order(airquality$Temp, airquality$Wind),]
 
 ```{r, echo=FALSE}
 library(rmarkdown)
-paged_table(df_ascend_temp_wind, options(rows.print=5))
+rmarkdown::paged_table(df_ascend_temp_wind, options(rows.print=5))
 ```
 
 <aside>Beispielsweise sehen wir hier, dass die Fälle 27, 25 und 18 (auf Seite 1 in den Zeilen 2, 3 und 4) anders sortiert sind als oben.</aside>
@@ -1228,7 +1228,7 @@ df_descend_temp_wind_1 <- airquality[order(-airquality$Temp, airquality$Wind),]
 
 ```{r, echo=FALSE}
 library(rmarkdown)
-paged_table(df_descend_temp_wind_1, options(rows.print=5))
+rmarkdown::paged_table(df_descend_temp_wind_1, options(rows.print=5))
 ```
 
 </p></details>
@@ -1253,7 +1253,7 @@ df_ascend_temp_wind_2 <- arrange(airquality, -Temp, Wind)
 
 ```{r, echo=FALSE}
 library(rmarkdown)
-paged_table(df_ascend_temp_wind_2, options(rows.print=5))
+rmarkdown::paged_table(df_ascend_temp_wind_2, options(rows.print=5))
 ```
 
 </p></details>
@@ -1297,7 +1297,7 @@ Wir müssen hierbei einige syntaktische Besonderheiten von `recodes` beachten:\
 So sehen die Daten (der ersten 10 Personen) bisher aus:
 
 ```{r, echo=FALSE, max.print = 10}
-paged_table(PWE_data[,c(25,37,43)], options(rows.print=5))
+rmarkdown::paged_table(PWE_data[,c(25,37,43)], options(rows.print=5))
 ```
 Jetzt invertieren wir die Skalen:
 
@@ -1316,7 +1316,7 @@ PWE_data$Q15A <- recode(var=PWE_data$Q15A,
 Abschließend überprüfen wir (visuell), ob die Umkodierung geklappt hat:
 
 ```{r, echo=FALSE, max.print = 10}
-paged_table(PWE_data[,c(25,37,43)], options(rows.print=5))
+rmarkdown::paged_table(PWE_data[,c(25,37,43)], options(rows.print=5))
 ```
 \
 
@@ -1340,7 +1340,7 @@ PWE_data$education_new <- recode(var=PWE_data$education,
 Abschließend vergleichen wir die Daten (der ersten 10 Personen) von `education` und `education_new`:
 
 ```{r, echo=FALSE, max.print = 10}
-paged_table(PWE_data[,c(88, 106)], options(rows.print=5))
+rmarkdown::paged_table(PWE_data[,c(88, 106)], options(rows.print=5))
 ```
 
 </p></details>
@@ -1637,7 +1637,7 @@ PWE_data$gender_kontrast <- c(rep(1/675, 675), # Male (1)
 Die jeweilige Gewichtung einer Gruppe (bzw. Kombination von Gruppen) richtet sich nach ihrer Größe.</font>
 
 ```{r, echo=FALSE, eval=FALSE}
-paged_table(PWE_data[,107])
+rmarkdown::paged_table(PWE_data[,107])
 ```
 
 <details><summary class ="mtitle q">Wie genau funktioniert `rep()`?</summary><div class="more">
@@ -1720,7 +1720,7 @@ PWE_data$sum <- rowSums(select(PWE_data, matches("^Q.*A$")), na.rm=TRUE)
 Nun schauen wir uns die neu erstellte Variable (für die die ersten 10 Personen) einmal an:
 
 ```{r, echo=FALSE, max.print = 10}
-paged_table(PWE_data[,c("sum")], options(rows.print=5))
+rmarkdown::paged_table(PWE_data[,c("sum")], options(rows.print=5))
 ```
 
 Wenn wir hingegen nicht den Summen- sondern den **Mittelwert** einer Person über Variablen bilden wollen, nutzen wir `rowMeans()`. Der Rest bleibt analog zum Vorgehen oben.
@@ -1732,7 +1732,7 @@ PWE_data$mean <- rowMeans(select(PWE_data, matches("^Q.*A$")), na.rm=TRUE)
 Abschließend schauen wir uns wieder die neu erstellte Variable (für die die ersten 10 Personen) an:
 
 ```{r, echo=FALSE, max.print = 10}
-paged_table(PWE_data[,c("mean")], options(rows.print=5))
+rmarkdown::paged_table(PWE_data[,c("mean")], options(rows.print=5))
 ```
 
 </p></details>
@@ -1763,7 +1763,7 @@ PWE_data$sum_gr <- ifelse(PWE_data$gender == 2 & PWE_data$religion == 3, # test
 Schauen wir uns die neu erstellte Variable sowie die Gruppierungsvariablen (der Personen 687 bis 691 an, unter denen sich 2 von insgesamt `r table(is.na(PWE_data$sum_gr))[1]` weibliche Buddhistinnen befinden) einmal an:
 
 ```{r, echo=FALSE, max.print = 10}
-paged_table(PWE_data[687:691,c("gender", "religion", "sum_gr")], options(rows.print=5))
+rmarkdown::paged_table(PWE_data[687:691,c("gender", "religion", "sum_gr")], options(rows.print=5))
 ```
 
 </p></details>
@@ -1795,7 +1795,7 @@ PWE_data_mean <- mutate(PWE_data,
 Abschließend können wir uns den neu erstellten Datensatz `PWE_data_mean` (für die ersten 10 Personen) einmal anschauen:
 
 ```{r, echo=FALSE, max.print = 10}
-paged_table(PWE_data_mean, options(rows.print=5))
+rmarkdown::paged_table(PWE_data_mean, options(rows.print=5))
 ```
 
 </p></details>
@@ -1850,7 +1850,7 @@ data <- read.csv("Dateipfad/data.csv") # hier den eigenen Dateipfad einfügen
 So sollte der Datensatz aussehen:
 
 ```{r, echo=FALSE}
-paged_table(data, options(rows.print=5))
+rmarkdown::paged_table(data, options(rows.print=5))
 ```
 
 
@@ -2108,7 +2108,7 @@ select(data, id, male, age, inc)
 
 ```{r, echo=FALSE}
 library(dplyr)
-paged_table(select(data, id, male, age, inc), options(rows.print=5))
+rmarkdown::paged_table(select(data, id, male, age, inc), options(rows.print=5))
 ```
 
 </div></details>\
@@ -2132,7 +2132,7 @@ data[,c(1, # id
 
 ```{r, echo=FALSE}
 library(dplyr)
-paged_table(data[,c(1, grep("gen", names(data)))], options(rows.print=5))
+rmarkdown::paged_table(data[,c(1, grep("gen", names(data)))], options(rows.print=5))
 ```
 
 </div></details>\
@@ -2166,7 +2166,7 @@ all_needs[grep("id|c|t", names(all_needs))]
 
 ```{r, echo=FALSE}
 library(dplyr)
-paged_table(all_needs[grep("id|c|t", names(all_needs))], options(rows.print=5))
+rmarkdown::paged_table(all_needs[grep("id|c|t", names(all_needs))], options(rows.print=5))
 ```
 
 </div></details>\
@@ -2195,7 +2195,7 @@ filter(data, inc == 1 | inc == 5)
 
 ```{r, echo=FALSE}
 library(dplyr)
-paged_table(filter(data, inc == 1 | inc == 5), options(rows.print=5))
+rmarkdown::paged_table(filter(data, inc == 1 | inc == 5), options(rows.print=5))
 ```
 
 </div></details>\
@@ -2234,7 +2234,7 @@ filter(data, soc_1 == 1 | soc_1 == 7,
 
 ```{r, echo=FALSE}
 library(dplyr)
-paged_table(filter(data, soc_1 == 1 | soc_1 == 7,
+rmarkdown::paged_table(filter(data, soc_1 == 1 | soc_1 == 7,
                          soc_2 == 1 | soc_2 == 7,
                          soc_3 == 1 | soc_3 == 7,
                          soc_4 == 1 | soc_4 == 7,
@@ -2271,7 +2271,7 @@ all_itg_items <- data_18[,c(1, # id
 
 ```{r, echo=FALSE}
 library(dplyr)
-paged_table(all_itg_items, options(rows.print=5))
+rmarkdown::paged_table(all_itg_items, options(rows.print=5))
 ```
 
 </div></details>\
@@ -2317,7 +2317,7 @@ final_data <- filter(all_int_items, score > mean_score) # 135 Personen entfernt
 
 ```{r, echo=FALSE}
 library(dplyr)
-paged_table(final_data, options(rows.print=5))
+rmarkdown::paged_table(final_data, options(rows.print=5))
 ```
 
 </div></details>\
@@ -2342,7 +2342,7 @@ data[order(data$age, data$male),] # Default: aufsteigende Sortierung
 
 ```{r, echo=FALSE}
 library(dplyr)
-paged_table(data[order(data$age),], options(rows.print=5))
+rmarkdown::paged_table(data[order(data$age),], options(rows.print=5))
 ```
 
 </div></details>\
@@ -2377,7 +2377,7 @@ library(dplyr)
 data_tra <- data[,c(1, # id
                     4, # inc
                     grep("tra", names(data)))]
-paged_table(arrange(data_tra, -inc, tra_1, tra_2, tra_3, tra_4, tra_5, tra_6, tra_7, tra_8), options(rows.print=5))
+rmarkdown::paged_table(arrange(data_tra, -inc, tra_1, tra_2, tra_3, tra_4, tra_5, tra_6, tra_7, tra_8), options(rows.print=5))
 ```
 
 </div></details>\
@@ -2410,7 +2410,7 @@ data_inc$income <- recode(data_inc$inc, recodes=rec)
 
 ```{r, echo=FALSE}
 library(dplyr)
-paged_table(data_inc, options(rows.print=5))
+rmarkdown::paged_table(data_inc, options(rows.print=5))
 ```
 
 </div></details>\
@@ -2438,7 +2438,7 @@ data_sex$sex <- case_when(data_sex$male == 0 ~ "female",
 
 ```{r, echo=FALSE}
 library(dplyr)
-paged_table(data_sex, options(rows.print=5))
+rmarkdown::paged_table(data_sex, options(rows.print=5))
 ```
 
 </div></details>\
@@ -2472,7 +2472,7 @@ data_ria$ria_5_rec <- recode(data_ria$ria_5, recodes="1=7; 2=6; 3=5; 4=4; 5=3; 6
 
 ```{r, echo=FALSE}
 library(dplyr)
-paged_table(data_ria, options(rows.print=5))
+rmarkdown::paged_table(data_ria, options(rows.print=5))
 ```
 
 </div></details>\
@@ -2506,7 +2506,7 @@ data_need$score_all <- rowSums(select(data_need, matches("nee")))
 
 ```{r, echo=FALSE}
 library(dplyr)
-paged_table(data_need, options(rows.print=5))
+rmarkdown::paged_table(data_need, options(rows.print=5))
 ```
 
 
@@ -2548,7 +2548,7 @@ data_int$score <- ifelse(data_int$inc != 1 & data_int$inc != 2,
 
 ```{r, echo=FALSE}
 library(dplyr)
-paged_table(data_int, options(rows.print=5))
+rmarkdown::paged_table(data_int, options(rows.print=5))
 ```
 </div></details>\
 

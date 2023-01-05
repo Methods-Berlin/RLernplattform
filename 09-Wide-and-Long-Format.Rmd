@@ -114,7 +114,7 @@ data(ChickWeight)
 Die Daten stammen aus einem **Längsschnitt**-Experiment, in dem der **Einfluss von verschiedenem Futter auf das Wachstum von Küken** untersucht wurde. 
 
 ```{r, echo=FALSE}
-paged_table(ChickWeight)
+rmarkdown::paged_table(ChickWeight)
 ```
 
 Der Datensatz liegt im **Long-Format** vor und enthält vier Variablen. Mehr Informationen zu den Variablen finden wir  [hier](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/ChickWeight.html).
@@ -169,7 +169,7 @@ reshape_wide <- reshape(data=ChickWeight, # Name des Datensatzes
 ```
 
 ```{r, echo=FALSE}
-paged_table(reshape_wide)
+rmarkdown::paged_table(reshape_wide)
 ```
 
 > *__Achtung__*:  <a name="zeilennum"></a> Ganz links sehen wir die "alte" Zeilennummerierung von `ChickWeight`. Die Zeilennummerierung ändert sich in `reshape_wide`, weil alle Beobachtungen einer Untersuchungseinheit zu unterschiedlichen Messzeitpunkten in __einer__ Zeile vorliegen. Das erkennt man auch daran, dass die Zeilennummerierung von `ChickWeight` (meistens) in 12-er Schritten vorliegt und es genau 12 Messzeitpunkte gibt. Da bei einigen Küken weniger als 12 Messzeitpunkte vorhanden sind, gilt das aber nicht für den ganzen Datensatz `reshape_wide`.
@@ -191,7 +191,7 @@ spread_wide <-  spread(data=ChickWeight, # Name des Datensatzes
 ```
 
 ```{r, echo=FALSE}
-paged_table(spread_wide)
+rmarkdown::paged_table(spread_wide)
 ```
 
 
@@ -267,7 +267,7 @@ reshape_long <- reshape(data=reshape_wide, # Name des Datensatzes
 ```
 
 ```{r, echo=FALSE}
-paged_table(reshape_long)
+rmarkdown::paged_table(reshape_long)
 ```
 
 > *__Achtung__*:  <a name="zeilennum2"></a> Ganz links sehen wir die neue Zeilennummerierung von `reshape_long`. Die Zeilennummerierung hat hier Nachkommastellen <font size="2">(z.B. 1.0)</font>, weil hier ID-Variable und Zeitvariable kombiniert wurden. Die Zahl vor dem Punkt steht für die Untersuchungseinheit <font size="2">(`Chick`)</font>; die Zahl nach dem Komma für den Messzeitpunkt <font size="2">(`Time`)</font>. \
@@ -314,7 +314,7 @@ reshape_dup_long <- reshape(data=reshape_dup,
 ```
 
 ```{r, echo=FALSE}
-paged_table(reshape_dup_long)
+rmarkdown::paged_table(reshape_dup_long)
 ```
 
 </div></details>
@@ -341,7 +341,7 @@ gather_long <- gather(data=spread_wide, # Name des Datensatzes
 ```
 
 ```{r, echo=FALSE}
-paged_table(gather_long)
+rmarkdown::paged_table(gather_long)
 ```
 
 

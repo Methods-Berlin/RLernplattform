@@ -9,31 +9,31 @@ Encoding: UTF-8
 LazyData: true
 RoxygenNote: 5.0.1
 Imports:
-  - bookdown
-  - rmarkdown
-  - dplyr
-  - knitr
-  - pander
-  - psych
-  - kableExtra
-  - devtools
-  - openxlsx
-  - readxl
-  - foreign
-  - readr
-  - haven
-  - Hmisc
-  - errorist
-  - dplyr
-  - car
-  - VIM
-  - naniar
-  - mvnmle
-  - RBtest
-  - tidyr
-  - ICC
-  - ggplot2
-  - lsr
-  - ggiraphExtra
-  - ggalluvial
-  - colorspace
+  bookdown,
+  rmarkdown,
+  dplyr,
+  knitr,
+  pander,
+  psych,
+  kableExtra,
+  devtools,
+  openxlsx,
+  readxl,
+  foreign,
+  readr,
+  haven,
+  Hmisc,
+  errorist,
+  dplyr,
+  car,
+  VIM,
+  naniar,
+  mvnmle,
+  RBtest,
+  tidyr,
+  ICC,
+  ggplot2,
+  lsr,
+  ggiraphExtra,
+  ggalluvial,
+  colorspace
