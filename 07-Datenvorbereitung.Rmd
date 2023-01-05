@@ -1359,7 +1359,7 @@ Mit der Funktion `case_when()` aus dem Paket **dplyr** können wir für verschie
 
 Im Gegensatz zu `recode()` können wir durch die Verwendung von logischen Operatoren <font size="2">(z.B. `>`)</font> ganzen Zahlenintervallen dieselbe Kodierung zuweisen. 
 
-<span class="ex">Als Beispiel bilden wir Kategorien für das intervallskalierte Merkmal `Q1E` <font size="2">(mit Frage **Q1** verbrachte Zeit in Millisekunden)</font>. Den Range des Merkmals erfahren wir mit `range(PWE_data$Q1E, na.rm=TRUE)` (195 - 181.24**6**). Wir teilen `Q1E` in vier gleich breite Kategorien ein: [195, 45457.75), [45457.75, 90720.5), [90720.5, 135983.2), [135983.2, 18124**7**).</span>
+<span class="ex">Als Beispiel bilden wir Kategorien für das intervallskalierte Merkmal `Q1E` <font size="2">(mit Frage **Q1** verbrachte Zeit in Millisekunden)</font>. Den Range des Merkmals erfahren wir mit `range(PWE_data$Q1E, na.rm=TRUE)` (195 - 181.24**6**). Wir teilen `Q1E` in vier gleich breite Kategorien ein: $[195, 45457.75), [45457.75, 90720.5), [90720.5, 135983.2), [135983.2, 181247)$.</span>
 
 <aside>**[** heißt inklusive\
 **)** heißt exklusive\
@@ -1688,6 +1688,7 @@ summary(lm_kontr)
 
 <p style="line-height:10px;"></p>
 
+-->
 
 ## Summary-Variablen
 

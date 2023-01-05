@@ -4,13 +4,13 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 14 Git und GitLab | R Lernplattform</title>
+  <title>Chapter 15 Git und GitLab | R Lernplattform</title>
   <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
 set in the _output.yml file.
 The HTML output format for this example is bookdown::gitbook,</p>" />
   <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 14 Git und GitLab | R Lernplattform" />
+  <meta property="og:title" content="Chapter 15 Git und GitLab | R Lernplattform" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
@@ -19,7 +19,7 @@ The HTML output format for this example is bookdown::gitbook,</p>" />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 14 Git und GitLab | R Lernplattform" />
+  <meta name="twitter:title" content="Chapter 15 Git und GitLab | R Lernplattform" />
   
   <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
 set in the _output.yml file.
@@ -287,207 +287,250 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.4" data-path="fehlermeldungen.html"><a href="fehlermeldungen.html#weiterführende-hilfe-1"><i class="fa fa-check"></i><b>7.4</b> Weiterführende Hilfe</a></li>
 <li class="chapter" data-level="7.5" data-path="fehlermeldungen.html"><a href="fehlermeldungen.html#automatische-suche-mit-dem-paket-errorist"><i class="fa fa-check"></i><b>7.5</b> Automatische Suche mit dem Paket <strong>errorist</strong></a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="fehlende-werte.html"><a href="fehlende-werte.html"><i class="fa fa-check"></i><b>8</b> Fehlende Werte</a>
+<li class="chapter" data-level="8" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html"><i class="fa fa-check"></i><b>8</b> Datenvorbereitung</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="fehlende-werte.html"><a href="fehlende-werte.html#sind-die-missings-einheitlich-kodiert"><i class="fa fa-check"></i><b>8.1</b> Sind die Missings einheitlich kodiert?</a>
+<li class="chapter" data-level="8.1" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#grundlegende-erste-schritte"><i class="fa fa-check"></i><b>8.1</b> Grundlegende erste Schritte</a>
 <ul>
-<li class="chapter" data-level="8.1.1" data-path="fehlende-werte.html"><a href="fehlende-werte.html#wie-kann-ich-prüfen-ob-die-missings-einheitlich-kodiert-sind"><i class="fa fa-check"></i><b>8.1.1</b> Wie kann ich prüfen, ob die Missings einheitlich kodiert sind?</a></li>
-<li class="chapter" data-level="8.1.2" data-path="fehlende-werte.html"><a href="fehlende-werte.html#wie-kann-ich-die-missings-auf-na-setzen"><i class="fa fa-check"></i><b>8.1.2</b> Wie kann ich die Missings auf <code>NA</code> setzen?</a></li>
+<li class="chapter" data-level="8.1.1" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#recap-kodierung-von-daten"><i class="fa fa-check"></i><b>8.1.1</b> <font color="darkgrey"><strong>Recap</strong>: Kodierung von Daten</font></a></li>
+<li class="chapter" data-level="8.1.2" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#dataframe"><i class="fa fa-check"></i><b>8.1.2</b> Dataframe</a></li>
+<li class="chapter" data-level="8.1.3" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#plausibilitäts-check"><i class="fa fa-check"></i><b>8.1.3</b> Plausibilitäts-Check</a></li>
+<li class="chapter" data-level="8.1.4" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#fehlende-werte"><i class="fa fa-check"></i><b>8.1.4</b> Fehlende Werte</a></li>
+<li class="chapter" data-level="8.1.5" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#faktorisieren"><i class="fa fa-check"></i><b>8.1.5</b> Faktorisieren</a></li>
+<li class="chapter" data-level="8.1.6" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#wide--und-long-format"><i class="fa fa-check"></i><b>8.1.6</b> Wide- und Long-Format</a></li>
 </ul></li>
-<li class="chapter" data-level="8.2" data-path="fehlende-werte.html"><a href="fehlende-werte.html#enthält-ein-datensatz-missings"><i class="fa fa-check"></i><b>8.2</b> 2. Enthält ein Datensatz Missings?</a></li>
-<li class="chapter" data-level="8.3" data-path="fehlende-werte.html"><a href="fehlende-werte.html#wie-kann-man-die-missings-zählen-und-verorten"><i class="fa fa-check"></i><b>8.3</b> 3. Wie kann man die Missings zählen (und verorten)?</a>
+<li class="chapter" data-level="8.2" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#datensätze-zusammenführen"><i class="fa fa-check"></i><b>8.2</b> Datensätze zusammenführen</a>
 <ul>
-<li class="chapter" data-level="8.3.1" data-path="fehlende-werte.html"><a href="fehlende-werte.html#alle-missings-eines-datensatzes"><i class="fa fa-check"></i><b>8.3.1</b> Alle Missings eines Datensatzes</a></li>
-<li class="chapter" data-level="8.3.2" data-path="fehlende-werte.html"><a href="fehlende-werte.html#missings-in-einzelnen-spalten-oder-zeilen"><i class="fa fa-check"></i><b>8.3.2</b> Missings in <em>einzelnen</em> Spalten oder Zeilen</a></li>
-<li class="chapter" data-level="8.3.3" data-path="fehlende-werte.html"><a href="fehlende-werte.html#missings-in-allen-spalten-oder-zeilen"><i class="fa fa-check"></i><b>8.3.3</b> Missings in <em>allen</em> Spalten oder Zeilen</a></li>
+<li class="chapter" data-level="8.2.1" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#selbe-variablen-unterschiedliche-fälle"><i class="fa fa-check"></i><b>8.2.1</b> Selbe Variablen, unterschiedliche Fälle</a></li>
+<li class="chapter" data-level="8.2.2" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#unterschiedliche-variablen-selbe-fälle"><i class="fa fa-check"></i><b>8.2.2</b> Unterschiedliche Variablen, selbe Fälle</a></li>
 </ul></li>
-<li class="chapter" data-level="8.4" data-path="fehlende-werte.html"><a href="fehlende-werte.html#sind-die-missings-zufällig"><i class="fa fa-check"></i><b>8.4</b> Sind die Missings zufällig?</a>
+<li class="chapter" data-level="8.3" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#daten-extrahieren"><i class="fa fa-check"></i><b>8.3</b> Daten extrahieren</a>
 <ul>
-<li class="chapter" data-level="8.4.1" data-path="fehlende-werte.html"><a href="fehlende-werte.html#arten-von-missings"><i class="fa fa-check"></i><b>8.4.1</b> Arten von Missings</a></li>
+<li class="chapter" data-level="8.3.1" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#variablen"><i class="fa fa-check"></i><b>8.3.1</b> Variablen</a></li>
+<li class="chapter" data-level="8.3.2" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#fälle"><i class="fa fa-check"></i><b>8.3.2</b> Fälle</a></li>
 </ul></li>
-<li class="chapter" data-level="8.5" data-path="fehlende-werte.html"><a href="fehlende-werte.html#wie-kann-man-mit-missings-umgehen"><i class="fa fa-check"></i><b>8.5</b> Wie kann man mit Missings umgehen?</a></li>
-<li class="chapter" data-level="8.6" data-path="fehlende-werte.html"><a href="fehlende-werte.html#neuen-datensatz-erstellen-der-keine-missings-enthält"><i class="fa fa-check"></i><b>8.6</b> Neuen Datensatz erstellen, der keine Missings enthält</a>
+<li class="chapter" data-level="8.4" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#daten-sortieren"><i class="fa fa-check"></i><b>8.4</b> Daten sortieren</a></li>
+<li class="chapter" data-level="8.5" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#kodierung-ändern"><i class="fa fa-check"></i><b>8.5</b> Kodierung ändern</a>
 <ul>
-<li class="chapter" data-level="8.6.1" data-path="fehlende-werte.html"><a href="fehlende-werte.html#festlegen-wie-funktionen-mit-missings-umgehen-sollen"><i class="fa fa-check"></i><b>8.6.1</b> Festlegen, wie Funktionen mit Missings umgehen sollen</a></li>
+<li class="chapter" data-level="8.5.1" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#umkodieren"><i class="fa fa-check"></i><b>8.5.1</b> Umkodieren</a></li>
+<li class="chapter" data-level="8.5.2" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#indikatorvariablen-kodierung-nominaler-merkmale"><i class="fa fa-check"></i><b>8.5.2</b> Indikatorvariablen: Kodierung nominaler Merkmale</a></li>
 </ul></li>
-<li class="chapter" data-level="8.7" data-path="fehlende-werte.html"><a href="fehlende-werte.html#literaturempfehlungen"><i class="fa fa-check"></i><b>8.7</b> Literaturempfehlungen</a></li>
-<li class="chapter" data-level="8.8" data-path="fehlende-werte.html"><a href="fehlende-werte.html#faq-2"><i class="fa fa-check"></i><b>8.8</b> FAQ</a>
+<li class="chapter" data-level="8.6" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#summary-variablen"><i class="fa fa-check"></i><b>8.6</b> Summary-Variablen</a></li>
+<li class="chapter" data-level="8.7" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#weitere-wichtige-hinweise"><i class="fa fa-check"></i><b>8.7</b> Weitere wichtige Hinweise</a>
 <ul>
-<li class="chapter" data-level="8.8.1" data-path="fehlende-werte.html"><a href="fehlende-werte.html#erkennt-r-deine-missings"><i class="fa fa-check"></i><b>8.8.1</b> Erkennt <span class="r">R</span> deine Missings?</a></li>
-<li class="chapter" data-level="8.8.2" data-path="fehlende-werte.html"><a href="fehlende-werte.html#wie-können-funktionen-mit-missings-umgehen"><i class="fa fa-check"></i><b>8.8.2</b> Wie können Funktionen mit Missings umgehen?</a></li>
+<li class="chapter" data-level="8.7.1" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#cheat-sheet-dplyr"><i class="fa fa-check"></i><b>8.7.1</b> Cheat Sheet <strong>dplyr</strong></a></li>
+<li class="chapter" data-level="8.7.2" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#stichprobengröße"><i class="fa fa-check"></i><b>8.7.2</b> Stichprobengröße</a></li>
+<li class="chapter" data-level="8.7.3" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#replizierbarkeit"><i class="fa fa-check"></i><b>8.7.3</b> Replizierbarkeit</a></li>
 </ul></li>
-<li class="chapter" data-level="8.9" data-path="fehlende-werte.html"><a href="fehlende-werte.html#übung-1"><i class="fa fa-check"></i><b>8.9</b> Übung</a>
+<li class="chapter" data-level="8.8" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#übung-1"><i class="fa fa-check"></i><b>8.8</b> Übung</a>
 <ul>
-<li class="chapter" data-level="8.9.1" data-path="fehlende-werte.html"><a href="fehlende-werte.html#übung-1-korrekte-kodierung"><i class="fa fa-check"></i><b>8.9.1</b> Übung 1: (Korrekte) Kodierung</a></li>
-<li class="chapter" data-level="8.9.2" data-path="fehlende-werte.html"><a href="fehlende-werte.html#übung-2-verortung"><i class="fa fa-check"></i><b>8.9.2</b> Übung 2: Verortung</a></li>
-<li class="chapter" data-level="8.9.3" data-path="fehlende-werte.html"><a href="fehlende-werte.html#übung-3-zufälligkeit"><i class="fa fa-check"></i><b>8.9.3</b> Übung 3: Zufälligkeit</a></li>
-<li class="chapter" data-level="8.9.4" data-path="fehlende-werte.html"><a href="fehlende-werte.html#übung-4-umgang"><i class="fa fa-check"></i><b>8.9.4</b> Übung 4: Umgang</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="9" data-path="wide--long-format.html"><a href="wide--long-format.html"><i class="fa fa-check"></i><b>9</b> Wide- &amp; Long-Format</a>
-<ul>
-<li class="chapter" data-level="9.1" data-path="wide--long-format.html"><a href="wide--long-format.html#vom-long--ins-wide-format"><i class="fa fa-check"></i><b>9.1</b> Vom Long- ins Wide-Format</a>
-<ul>
-<li class="chapter" data-level="9.1.1" data-path="wide--long-format.html"><a href="wide--long-format.html#stats-reshape"><i class="fa fa-check"></i><b>9.1.1</b> stats: <code>reshape()</code></a></li>
-<li class="chapter" data-level="9.1.2" data-path="wide--long-format.html"><a href="wide--long-format.html#tidyr-spread"><i class="fa fa-check"></i><b>9.1.2</b> tidyr: <code>spread()</code></a></li>
-<li class="chapter" data-level="9.1.3" data-path="wide--long-format.html"><a href="wide--long-format.html#unterschied-zwischen-reshape-und-spread"><i class="fa fa-check"></i><b>9.1.3</b> Unterschied zwischen <code>reshape()</code> und <code>spread()</code></a></li>
-</ul></li>
-<li class="chapter" data-level="9.2" data-path="wide--long-format.html"><a href="wide--long-format.html#vom-wide--ins-long-format"><i class="fa fa-check"></i><b>9.2</b> Vom Wide- ins Long-Format</a>
-<ul>
-<li class="chapter" data-level="9.2.1" data-path="wide--long-format.html"><a href="wide--long-format.html#stats-reshape-1"><i class="fa fa-check"></i><b>9.2.1</b> stats: <code>reshape()</code></a></li>
-<li class="chapter" data-level="9.2.2" data-path="wide--long-format.html"><a href="wide--long-format.html#tidyr-gather"><i class="fa fa-check"></i><b>9.2.2</b> tidyr: <code>gather()</code></a></li>
-<li class="chapter" data-level="9.2.3" data-path="wide--long-format.html"><a href="wide--long-format.html#unterschied-zwischen-reshape-und-gather"><i class="fa fa-check"></i><b>9.2.3</b> Unterschied zwischen <code>reshape()</code> und <code>gather()</code></a></li>
-</ul></li>
-<li class="chapter" data-level="9.3" data-path="wide--long-format.html"><a href="wide--long-format.html#andere-funktionen-zum-umformatieren"><i class="fa fa-check"></i><b>9.3</b> Andere Funktionen zum Umformatieren</a></li>
-</ul></li>
-<li class="chapter" data-level="10" data-path="annahmen-der-multiplen-linearen-regression.html"><a href="annahmen-der-multiplen-linearen-regression.html"><i class="fa fa-check"></i><b>10</b> Annahmen der Multiplen Linearen Regression</a>
-<ul>
-<li class="chapter" data-level="10.1" data-path="annahmen-der-multiplen-linearen-regression.html"><a href="annahmen-der-multiplen-linearen-regression.html#linearität"><i class="fa fa-check"></i><b>10.1</b> Linearität</a>
-<ul>
-<li class="chapter" data-level="10.1.1" data-path="annahmen-der-multiplen-linearen-regression.html"><a href="annahmen-der-multiplen-linearen-regression.html#überprüfung"><i class="fa fa-check"></i><b>10.1.1</b> Überprüfung</a></li>
-<li class="chapter" data-level="10.1.2" data-path="annahmen-der-multiplen-linearen-regression.html"><a href="annahmen-der-multiplen-linearen-regression.html#umgang"><i class="fa fa-check"></i><b>10.1.2</b> Umgang</a></li>
-</ul></li>
-<li class="chapter" data-level="10.2" data-path="annahmen-der-multiplen-linearen-regression.html"><a href="annahmen-der-multiplen-linearen-regression.html#exogenität-der-prädiktoren"><i class="fa fa-check"></i><b>10.2</b> Exogenität der Prädiktoren</a>
-<ul>
-<li class="chapter" data-level="10.2.1" data-path="annahmen-der-multiplen-linearen-regression.html"><a href="annahmen-der-multiplen-linearen-regression.html#überprüfung-1"><i class="fa fa-check"></i><b>10.2.1</b> Überprüfung</a></li>
-<li class="chapter" data-level="10.2.2" data-path="annahmen-der-multiplen-linearen-regression.html"><a href="annahmen-der-multiplen-linearen-regression.html#umgang-1"><i class="fa fa-check"></i><b>10.2.2</b> Umgang</a></li>
-</ul></li>
-<li class="chapter" data-level="10.3" data-path="annahmen-der-multiplen-linearen-regression.html"><a href="annahmen-der-multiplen-linearen-regression.html#homoskedastizität"><i class="fa fa-check"></i><b>10.3</b> Homoskedastizität</a>
-<ul>
-<li class="chapter" data-level="10.3.1" data-path="annahmen-der-multiplen-linearen-regression.html"><a href="annahmen-der-multiplen-linearen-regression.html#überprüfung-2"><i class="fa fa-check"></i><b>10.3.1</b> Überprüfung</a></li>
-<li class="chapter" data-level="10.3.2" data-path="annahmen-der-multiplen-linearen-regression.html"><a href="annahmen-der-multiplen-linearen-regression.html#umgang-2"><i class="fa fa-check"></i><b>10.3.2</b> Umgang</a></li>
-</ul></li>
-<li class="chapter" data-level="10.4" data-path="annahmen-der-multiplen-linearen-regression.html"><a href="annahmen-der-multiplen-linearen-regression.html#unabhängigkeit-der-residuen"><i class="fa fa-check"></i><b>10.4</b> Unabhängigkeit der Residuen</a>
-<ul>
-<li class="chapter" data-level="10.4.1" data-path="annahmen-der-multiplen-linearen-regression.html"><a href="annahmen-der-multiplen-linearen-regression.html#überprüfung-3"><i class="fa fa-check"></i><b>10.4.1</b> Überprüfung</a></li>
-<li class="chapter" data-level="10.4.2" data-path="annahmen-der-multiplen-linearen-regression.html"><a href="annahmen-der-multiplen-linearen-regression.html#umgang-3"><i class="fa fa-check"></i><b>10.4.2</b> Umgang</a></li>
-</ul></li>
-<li class="chapter" data-level="10.5" data-path="annahmen-der-multiplen-linearen-regression.html"><a href="annahmen-der-multiplen-linearen-regression.html#weitere-wichtige-aspekte"><i class="fa fa-check"></i><b>10.5</b> Weitere wichtige Aspekte</a>
-<ul>
-<li class="chapter" data-level="10.5.1" data-path="annahmen-der-multiplen-linearen-regression.html"><a href="annahmen-der-multiplen-linearen-regression.html#normalverteilung-der-residuen"><i class="fa fa-check"></i><b>10.5.1</b> Normalverteilung der Residuen</a></li>
-<li class="chapter" data-level="10.5.2" data-path="annahmen-der-multiplen-linearen-regression.html"><a href="annahmen-der-multiplen-linearen-regression.html#multikollinearität"><i class="fa fa-check"></i><b>10.5.2</b> Multikollinearität</a></li>
-<li class="chapter" data-level="10.5.3" data-path="annahmen-der-multiplen-linearen-regression.html"><a href="annahmen-der-multiplen-linearen-regression.html#extreme-werte-und-einflussreiche-datenpunkte"><i class="fa fa-check"></i><b>10.5.3</b> Extreme Werte und einflussreiche Datenpunkte</a></li>
-</ul></li>
-<li class="chapter" data-level="10.6" data-path="annahmen-der-multiplen-linearen-regression.html"><a href="annahmen-der-multiplen-linearen-regression.html#literatur-weiterführende-hilfe"><i class="fa fa-check"></i><b>10.6</b> Literatur &amp; weiterführende Hilfe</a></li>
-</ul></li>
-<li class="chapter" data-level="11" data-path="grafiken.html"><a href="grafiken.html"><i class="fa fa-check"></i><b>11</b> Grafiken</a>
-<ul>
-<li class="chapter" data-level="11.1" data-path="grafiken.html"><a href="grafiken.html#bevor-es-losgeht"><i class="fa fa-check"></i><b>11.1</b> Bevor es losgeht</a>
-<ul>
-<li class="chapter" data-level="11.1.1" data-path="grafiken.html"><a href="grafiken.html#richtiges-datenformat"><i class="fa fa-check"></i><b>11.1.1</b> Richtiges Datenformat</a></li>
-<li class="chapter" data-level="11.1.2" data-path="grafiken.html"><a href="grafiken.html#welche-grafik-sollte-ich-für-meine-daten-nehmen"><i class="fa fa-check"></i><b>11.1.2</b> Welche Grafik sollte ich für meine Daten nehmen?</a></li>
-</ul></li>
-<li class="chapter" data-level="11.2" data-path="grafiken.html"><a href="grafiken.html#grundlegender-aufbau-von-ggplot"><i class="fa fa-check"></i><b>11.2</b> Grundlegender Aufbau von ggplot()</a>
-<ul>
-<li class="chapter" data-level="11.2.1" data-path="grafiken.html"><a href="grafiken.html#ebene-grundlegendes-koordinatensystem"><i class="fa fa-check"></i><b>11.2.1</b> 1. Ebene: Grundlegendes Koordinatensystem</a></li>
-<li class="chapter" data-level="11.2.2" data-path="grafiken.html"><a href="grafiken.html#ebene-art-der-grafik"><i class="fa fa-check"></i><b>11.2.2</b> Ebene: Art der Grafik</a></li>
-</ul></li>
-<li class="chapter" data-level="11.3" data-path="grafiken.html"><a href="grafiken.html#eine-variable"><i class="fa fa-check"></i><b>11.3</b> Eine Variable</a>
-<ul>
-<li class="chapter" data-level="11.3.1" data-path="grafiken.html"><a href="grafiken.html#kategorial"><i class="fa fa-check"></i><b>11.3.1</b> Kategorial</a></li>
-<li class="chapter" data-level="11.3.2" data-path="grafiken.html"><a href="grafiken.html#metrisch"><i class="fa fa-check"></i><b>11.3.2</b> Metrisch</a></li>
-</ul></li>
-<li class="chapter" data-level="11.4" data-path="grafiken.html"><a href="grafiken.html#zwei-variablen"><i class="fa fa-check"></i><b>11.4</b> Zwei Variablen</a>
-<ul>
-<li class="chapter" data-level="11.4.1" data-path="grafiken.html"><a href="grafiken.html#x-kategorial-y-metrisch"><i class="fa fa-check"></i><b>11.4.1</b> X kategorial, Y metrisch</a></li>
-<li class="chapter" data-level="11.4.2" data-path="grafiken.html"><a href="grafiken.html#x-und-y-metrisch"><i class="fa fa-check"></i><b>11.4.2</b> X und Y metrisch</a></li>
-</ul></li>
-<li class="chapter" data-level="11.5" data-path="grafiken.html"><a href="grafiken.html#mehr-als-zwei-variablen"><i class="fa fa-check"></i><b>11.5</b> Mehr als zwei Variablen</a>
-<ul>
-<li class="chapter" data-level="11.5.1" data-path="grafiken.html"><a href="grafiken.html#mindestens-eine-kategoriale-variable"><i class="fa fa-check"></i><b>11.5.1</b> Mindestens eine kategoriale Variable</a></li>
-<li class="chapter" data-level="11.5.2" data-path="grafiken.html"><a href="grafiken.html#nur-kategoriale-variablen"><i class="fa fa-check"></i><b>11.5.2</b> Nur kategoriale Variablen</a></li>
-</ul></li>
-<li class="chapter" data-level="11.6" data-path="grafiken.html"><a href="grafiken.html#modifikationen"><i class="fa fa-check"></i><b>11.6</b> Modifikationen</a>
-<ul>
-<li class="chapter" data-level="11.6.1" data-path="grafiken.html"><a href="grafiken.html#farbe"><i class="fa fa-check"></i><b>11.6.1</b> <strong><font color="#e41a1c">F</font><font color="#377eb8">a</font><font color="#4daf4a">r</font><font color="#984ea3">b</font><font color="#ff7f00">e</font></strong></a></li>
-<li class="chapter" data-level="11.6.2" data-path="grafiken.html"><a href="grafiken.html#legenden-modifizieren"><i class="fa fa-check"></i><b>11.6.2</b> <span style="border:1px; border-style:solid; border-color:black; padding: 3px;">Legenden modifizieren</span></a></li>
-<li class="chapter" data-level="11.6.3" data-path="grafiken.html"><a href="grafiken.html#beschriftung"><i class="fa fa-check"></i><b>11.6.3</b> <strong><span style="font-family: Courier New,Courier,monospace;">Beschriftung</span></strong></a></li>
-</ul></li>
-<li class="chapter" data-level="11.7" data-path="grafiken.html"><a href="grafiken.html#kategoriale-variablen-benennung-und-reihenfolge-der-ausprägungen"><i class="fa fa-check"></i><b>11.7</b> Kategoriale Variablen: Benennung und Reihenfolge der Ausprägungen</a></li>
-<li class="chapter" data-level="11.8" data-path="grafiken.html"><a href="grafiken.html#grafiken-einzelner-gruppen-und-die-anpassung-von-achsengrenzen"><i class="fa fa-check"></i><b>11.8</b> Grafiken einzelner Gruppen und die Anpassung von Achsengrenzen</a></li>
-<li class="chapter" data-level="11.9" data-path="grafiken.html"><a href="grafiken.html#geraden-einzeichnen"><i class="fa fa-check"></i><b>11.9</b> Geraden einzeichnen</a></li>
-<li class="chapter" data-level="11.10" data-path="grafiken.html"><a href="grafiken.html#weitere-statistische-kennwerte-ergänzen"><i class="fa fa-check"></i><b>11.10</b> Weitere statistische Kennwerte ergänzen</a></li>
-<li class="chapter" data-level="11.11" data-path="grafiken.html"><a href="grafiken.html#motive-themes"><i class="fa fa-check"></i><b>11.11</b> Motive (Themes)</a></li>
-<li class="chapter" data-level="11.12" data-path="grafiken.html"><a href="grafiken.html#grafiken-exportieren"><i class="fa fa-check"></i><b>11.12</b> Grafiken exportieren</a>
-<ul>
-<li class="chapter" data-level="11.12.1" data-path="grafiken.html"><a href="grafiken.html#export-button"><i class="fa fa-check"></i><b>11.12.1</b> <span style="color: #75AADC"><strong>Export-Button</strong></span></a></li>
-<li class="chapter" data-level="11.12.2" data-path="grafiken.html"><a href="grafiken.html#ggsave"><i class="fa fa-check"></i><b>11.12.2</b> <code>ggsave()</code></a></li>
-</ul></li>
-<li class="chapter" data-level="11.13" data-path="grafiken.html"><a href="grafiken.html#weiterführende-hilfen"><i class="fa fa-check"></i><b>11.13</b> Weiterführende Hilfen</a>
-<ul>
-<li class="chapter" data-level="11.13.1" data-path="grafiken.html"><a href="grafiken.html#eine-einfache-ggplot-funktion-qplot"><i class="fa fa-check"></i><b>11.13.1</b> Eine einfache ggplot-Funktion: <code>qplot()</code></a></li>
-<li class="chapter" data-level="11.13.2" data-path="grafiken.html"><a href="grafiken.html#mehrere-plots-zusammenführen"><i class="fa fa-check"></i><b>11.13.2</b> Mehrere Plots zusammenführen</a></li>
+<li class="chapter" data-level="8.8.1" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#übung-1-erste-schritte"><i class="fa fa-check"></i><b>8.8.1</b> Übung 1: Erste Schritte</a></li>
+<li class="chapter" data-level="8.8.2" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#übung-2-extrahieren-von-daten"><i class="fa fa-check"></i><b>8.8.2</b> Übung 2: Extrahieren von Daten</a></li>
+<li class="chapter" data-level="8.8.3" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#übung-3-sortieren-von-daten"><i class="fa fa-check"></i><b>8.8.3</b> Übung 3: Sortieren von Daten</a></li>
+<li class="chapter" data-level="8.8.4" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#übung-4-änderung-der-kodierung-von-daten"><i class="fa fa-check"></i><b>8.8.4</b> Übung 4: Änderung der Kodierung von Daten</a></li>
+<li class="chapter" data-level="8.8.5" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#übung-5-erstellen-von-summary-variablen"><i class="fa fa-check"></i><b>8.8.5</b> Übung 5: Erstellen von Summary-Variablen</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="r-markdown.html"><a href="r-markdown.html"><i class="fa fa-check"></i><b>12</b> R Markdown</a>
+<li class="chapter" data-level="9" data-path="fehlende-werte-1.html"><a href="fehlende-werte-1.html"><i class="fa fa-check"></i><b>9</b> Fehlende Werte</a>
 <ul>
-<li class="chapter" data-level="12.1" data-path="r-markdown.html"><a href="r-markdown.html#neues-r-markdown-dokument-anlegen"><i class="fa fa-check"></i><b>12.1</b> Neues <span class="r">R Markdown</span> Dokument anlegen</a>
+<li class="chapter" data-level="9.1" data-path="fehlende-werte-1.html"><a href="fehlende-werte-1.html#sind-die-missings-einheitlich-kodiert"><i class="fa fa-check"></i><b>9.1</b> Sind die Missings einheitlich kodiert?</a>
 <ul>
-<li class="chapter" data-level="12.1.1" data-path="r-markdown.html"><a href="r-markdown.html#yaml"><i class="fa fa-check"></i><b>12.1.1</b> YAML</a></li>
+<li class="chapter" data-level="9.1.1" data-path="fehlende-werte-1.html"><a href="fehlende-werte-1.html#wie-kann-ich-prüfen-ob-die-missings-einheitlich-kodiert-sind"><i class="fa fa-check"></i><b>9.1.1</b> Wie kann ich prüfen, ob die Missings einheitlich kodiert sind?</a></li>
+<li class="chapter" data-level="9.1.2" data-path="fehlende-werte-1.html"><a href="fehlende-werte-1.html#wie-kann-ich-die-missings-auf-na-setzen"><i class="fa fa-check"></i><b>9.1.2</b> Wie kann ich die Missings auf <code>NA</code> setzen?</a></li>
 </ul></li>
-<li class="chapter" data-level="12.2" data-path="r-markdown.html"><a href="r-markdown.html#text"><i class="fa fa-check"></i><b>12.2</b> Text</a>
+<li class="chapter" data-level="9.2" data-path="fehlende-werte-1.html"><a href="fehlende-werte-1.html#enthält-ein-datensatz-missings"><i class="fa fa-check"></i><b>9.2</b> 2. Enthält ein Datensatz Missings?</a></li>
+<li class="chapter" data-level="9.3" data-path="fehlende-werte-1.html"><a href="fehlende-werte-1.html#wie-kann-man-die-missings-zählen-und-verorten"><i class="fa fa-check"></i><b>9.3</b> 3. Wie kann man die Missings zählen (und verorten)?</a>
 <ul>
-<li class="chapter" data-level="12.2.1" data-path="r-markdown.html"><a href="r-markdown.html#überschriften"><i class="fa fa-check"></i><b>12.2.1</b> Überschriften</a></li>
-<li class="chapter" data-level="12.2.2" data-path="r-markdown.html"><a href="r-markdown.html#hervorhebung"><i class="fa fa-check"></i><b>12.2.2</b> Hervorhebung</a></li>
-<li class="chapter" data-level="12.2.3" data-path="r-markdown.html"><a href="r-markdown.html#zeilenumbruch"><i class="fa fa-check"></i><b>12.2.3</b> Zeilenumbruch</a></li>
-<li class="chapter" data-level="12.2.4" data-path="r-markdown.html"><a href="r-markdown.html#verlinkung"><i class="fa fa-check"></i><b>12.2.4</b> Verlinkung</a></li>
-<li class="chapter" data-level="12.2.5" data-path="r-markdown.html"><a href="r-markdown.html#formeln"><i class="fa fa-check"></i><b>12.2.5</b> Formeln</a></li>
+<li class="chapter" data-level="9.3.1" data-path="fehlende-werte-1.html"><a href="fehlende-werte-1.html#alle-missings-eines-datensatzes"><i class="fa fa-check"></i><b>9.3.1</b> Alle Missings eines Datensatzes</a></li>
+<li class="chapter" data-level="9.3.2" data-path="fehlende-werte-1.html"><a href="fehlende-werte-1.html#missings-in-einzelnen-spalten-oder-zeilen"><i class="fa fa-check"></i><b>9.3.2</b> Missings in <em>einzelnen</em> Spalten oder Zeilen</a></li>
+<li class="chapter" data-level="9.3.3" data-path="fehlende-werte-1.html"><a href="fehlende-werte-1.html#missings-in-allen-spalten-oder-zeilen"><i class="fa fa-check"></i><b>9.3.3</b> Missings in <em>allen</em> Spalten oder Zeilen</a></li>
 </ul></li>
-<li class="chapter" data-level="12.3" data-path="r-markdown.html"><a href="r-markdown.html#r-code"><i class="fa fa-check"></i><b>12.3</b> <span class="r">R</span>-Code</a>
+<li class="chapter" data-level="9.4" data-path="fehlende-werte-1.html"><a href="fehlende-werte-1.html#sind-die-missings-zufällig"><i class="fa fa-check"></i><b>9.4</b> Sind die Missings zufällig?</a>
 <ul>
-<li class="chapter" data-level="12.3.1" data-path="r-markdown.html"><a href="r-markdown.html#code-chunk"><i class="fa fa-check"></i><b>12.3.1</b> Code Chunk</a></li>
-<li class="chapter" data-level="12.3.2" data-path="r-markdown.html"><a href="r-markdown.html#inline-code"><i class="fa fa-check"></i><b>12.3.2</b> Inline Code</a></li>
-<li class="chapter" data-level="12.3.3" data-path="r-markdown.html"><a href="r-markdown.html#grafiken-bilder-und-tabellen"><i class="fa fa-check"></i><b>12.3.3</b> Grafiken, Bilder und Tabellen</a></li>
+<li class="chapter" data-level="9.4.1" data-path="fehlende-werte-1.html"><a href="fehlende-werte-1.html#arten-von-missings"><i class="fa fa-check"></i><b>9.4.1</b> Arten von Missings</a></li>
 </ul></li>
-<li class="chapter" data-level="12.4" data-path="r-markdown.html"><a href="r-markdown.html#weiterführend"><i class="fa fa-check"></i><b>12.4</b> Weiterführend</a>
+<li class="chapter" data-level="9.5" data-path="fehlende-werte-1.html"><a href="fehlende-werte-1.html#wie-kann-man-mit-missings-umgehen"><i class="fa fa-check"></i><b>9.5</b> Wie kann man mit Missings umgehen?</a></li>
+<li class="chapter" data-level="9.6" data-path="fehlende-werte-1.html"><a href="fehlende-werte-1.html#neuen-datensatz-erstellen-der-keine-missings-enthält"><i class="fa fa-check"></i><b>9.6</b> Neuen Datensatz erstellen, der keine Missings enthält</a>
 <ul>
-<li class="chapter" data-level="12.4.1" data-path="r-markdown.html"><a href="r-markdown.html#templates"><i class="fa fa-check"></i><b>12.4.1</b> Templates</a></li>
+<li class="chapter" data-level="9.6.1" data-path="fehlende-werte-1.html"><a href="fehlende-werte-1.html#festlegen-wie-funktionen-mit-missings-umgehen-sollen"><i class="fa fa-check"></i><b>9.6.1</b> Festlegen, wie Funktionen mit Missings umgehen sollen</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="13" data-path="outputs---alm---faq.html"><a href="outputs---alm---faq.html"><i class="fa fa-check"></i><b>13</b> Outputs - ALM - FAQ</a>
+<li class="chapter" data-level="9.7" data-path="fehlende-werte-1.html"><a href="fehlende-werte-1.html#literaturempfehlungen"><i class="fa fa-check"></i><b>9.7</b> Literaturempfehlungen</a></li>
+<li class="chapter" data-level="9.8" data-path="fehlende-werte-1.html"><a href="fehlende-werte-1.html#faq-2"><i class="fa fa-check"></i><b>9.8</b> FAQ</a>
 <ul>
-<li class="chapter" data-level="13.1" data-path="outputs---alm---faq.html"><a href="outputs---alm---faq.html#github-link"><i class="fa fa-check"></i><b>13.1</b> <span class="math inline">\(t\)</span>-Test</a></li>
-<li class="chapter" data-level="13.2" data-path="outputs---alm---faq.html"><a href="outputs---alm---faq.html#lineare-regression"><i class="fa fa-check"></i><b>13.2</b> Lineare Regression</a></li>
-<li class="chapter" data-level="13.3" data-path="outputs---alm---faq.html"><a href="outputs---alm---faq.html#anova"><i class="fa fa-check"></i><b>13.3</b> ANOVA</a></li>
-<li class="chapter" data-level="13.4" data-path="outputs---alm---faq.html"><a href="outputs---alm---faq.html#github2"><i class="fa fa-check"></i><b>13.4</b> ALM: Zusammenhänge der drei Verfahren</a></li>
+<li class="chapter" data-level="9.8.1" data-path="fehlende-werte-1.html"><a href="fehlende-werte-1.html#erkennt-r-deine-missings"><i class="fa fa-check"></i><b>9.8.1</b> Erkennt <span class="r">R</span> deine Missings?</a></li>
+<li class="chapter" data-level="9.8.2" data-path="fehlende-werte-1.html"><a href="fehlende-werte-1.html#wie-können-funktionen-mit-missings-umgehen"><i class="fa fa-check"></i><b>9.8.2</b> Wie können Funktionen mit Missings umgehen?</a></li>
 </ul></li>
-<li class="chapter" data-level="14" data-path="git-und-gitlab.html"><a href="git-und-gitlab.html"><i class="fa fa-check"></i><b>14</b> Git und GitLab</a>
+<li class="chapter" data-level="9.9" data-path="fehlende-werte-1.html"><a href="fehlende-werte-1.html#übung-2"><i class="fa fa-check"></i><b>9.9</b> Übung</a>
 <ul>
-<li class="chapter" data-level="14.1" data-path="git-und-gitlab.html"><a href="git-und-gitlab.html#git"><i class="fa fa-check"></i><b>14.1</b> Git</a></li>
-<li class="chapter" data-level="14.2" data-path="git-und-gitlab.html"><a href="git-und-gitlab.html#einführung-in-git"><i class="fa fa-check"></i><b>14.2</b> Einführung in Git</a>
-<ul>
-<li class="chapter" data-level="14.2.1" data-path="git-und-gitlab.html"><a href="git-und-gitlab.html#schritt-0"><i class="fa fa-check"></i><b>14.2.1</b> Schritt 0</a></li>
-<li class="chapter" data-level="14.2.2" data-path="git-und-gitlab.html"><a href="git-und-gitlab.html#git-init"><i class="fa fa-check"></i><b>14.2.2</b> git init</a></li>
-<li class="chapter" data-level="14.2.3" data-path="git-und-gitlab.html"><a href="git-und-gitlab.html#git-add"><i class="fa fa-check"></i><b>14.2.3</b> git add</a></li>
-<li class="chapter" data-level="14.2.4" data-path="git-und-gitlab.html"><a href="git-und-gitlab.html#git-status"><i class="fa fa-check"></i><b>14.2.4</b> git status</a></li>
-<li class="chapter" data-level="14.2.5" data-path="git-und-gitlab.html"><a href="git-und-gitlab.html#git-commit"><i class="fa fa-check"></i><b>14.2.5</b> git commit</a></li>
-<li class="chapter" data-level="14.2.6" data-path="git-und-gitlab.html"><a href="git-und-gitlab.html#git-log"><i class="fa fa-check"></i><b>14.2.6</b> git log</a></li>
-<li class="chapter" data-level="14.2.7" data-path="git-und-gitlab.html"><a href="git-und-gitlab.html#zu-einem-früheren-zustand-zurückkehren"><i class="fa fa-check"></i><b>14.2.7</b> Zu einem früheren Zustand zurückkehren</a></li>
-<li class="chapter" data-level="14.2.8" data-path="git-und-gitlab.html"><a href="git-und-gitlab.html#branches"><i class="fa fa-check"></i><b>14.2.8</b> Branches</a></li>
-<li class="chapter" data-level="14.2.9" data-path="git-und-gitlab.html"><a href="git-und-gitlab.html#mergen"><i class="fa fa-check"></i><b>14.2.9</b> Mergen</a></li>
+<li class="chapter" data-level="9.9.1" data-path="fehlende-werte-1.html"><a href="fehlende-werte-1.html#übung-1-korrekte-kodierung"><i class="fa fa-check"></i><b>9.9.1</b> Übung 1: (Korrekte) Kodierung</a></li>
+<li class="chapter" data-level="9.9.2" data-path="fehlende-werte-1.html"><a href="fehlende-werte-1.html#übung-2-verortung"><i class="fa fa-check"></i><b>9.9.2</b> Übung 2: Verortung</a></li>
+<li class="chapter" data-level="9.9.3" data-path="fehlende-werte-1.html"><a href="fehlende-werte-1.html#übung-3-zufälligkeit"><i class="fa fa-check"></i><b>9.9.3</b> Übung 3: Zufälligkeit</a></li>
+<li class="chapter" data-level="9.9.4" data-path="fehlende-werte-1.html"><a href="fehlende-werte-1.html#übung-4-umgang"><i class="fa fa-check"></i><b>9.9.4</b> Übung 4: Umgang</a></li>
 </ul></li>
-<li class="chapter" data-level="14.3" data-path="git-und-gitlab.html"><a href="git-und-gitlab.html#github-gitlab-gitbucket"><i class="fa fa-check"></i><b>14.3</b> GitHub, GitLab, GitBucket, …</a>
-<ul>
-<li class="chapter" data-level="14.3.1" data-path="git-und-gitlab.html"><a href="git-und-gitlab.html#ein-neues-projekt-erstellen"><i class="fa fa-check"></i><b>14.3.1</b> Ein neues Projekt erstellen</a></li>
-<li class="chapter" data-level="14.3.2" data-path="git-und-gitlab.html"><a href="git-und-gitlab.html#git-clone"><i class="fa fa-check"></i><b>14.3.2</b> git clone</a></li>
-<li class="chapter" data-level="14.3.3" data-path="git-und-gitlab.html"><a href="git-und-gitlab.html#push"><i class="fa fa-check"></i><b>14.3.3</b> git push</a></li>
-<li class="chapter" data-level="14.3.4" data-path="git-und-gitlab.html"><a href="git-und-gitlab.html#pull"><i class="fa fa-check"></i><b>14.3.4</b> git pull</a></li>
-<li class="chapter" data-level="14.3.5" data-path="git-und-gitlab.html"><a href="git-und-gitlab.html#branches-archivieren-und-löschen"><i class="fa fa-check"></i><b>14.3.5</b> Branches archivieren und löschen</a></li>
 </ul></li>
-<li class="chapter" data-level="14.4" data-path="git-und-gitlab.html"><a href="git-und-gitlab.html#weitere-ressourcen"><i class="fa fa-check"></i><b>14.4</b> Weitere Ressourcen</a></li>
-</ul></li>
-<li class="chapter" data-level="15" data-path="interne-dokumentation.html"><a href="interne-dokumentation.html"><i class="fa fa-check"></i><b>15</b> Interne Dokumentation</a>
+<li class="chapter" data-level="10" data-path="wide--long-format.html"><a href="wide--long-format.html"><i class="fa fa-check"></i><b>10</b> Wide- &amp; Long-Format</a>
 <ul>
-<li class="chapter" data-level="15.1" data-path="interne-dokumentation.html"><a href="interne-dokumentation.html#neues-thema-erstellen"><i class="fa fa-check"></i><b>15.1</b> Neues Thema erstellen</a></li>
-<li class="chapter" data-level="15.2" data-path="interne-dokumentation.html"><a href="interne-dokumentation.html#daten-hinzufügen"><i class="fa fa-check"></i><b>15.2</b> Daten hinzufügen</a></li>
-<li class="chapter" data-level="15.3" data-path="interne-dokumentation.html"><a href="interne-dokumentation.html#bilder-hinzufügen"><i class="fa fa-check"></i><b>15.3</b> Bilder hinzufügen</a></li>
-<li class="chapter" data-level="15.4" data-path="interne-dokumentation.html"><a href="interne-dokumentation.html#links-hinzufügen"><i class="fa fa-check"></i><b>15.4</b> Links hinzufügen</a></li>
-<li class="chapter" data-level="15.5" data-path="interne-dokumentation.html"><a href="interne-dokumentation.html#paket-hinzufügen"><i class="fa fa-check"></i><b>15.5</b> Paket hinzufügen</a></li>
-<li class="chapter" data-level="15.6" data-path="interne-dokumentation.html"><a href="interne-dokumentation.html#webseite-erstellen"><i class="fa fa-check"></i><b>15.6</b> Webseite erstellen</a>
+<li class="chapter" data-level="10.1" data-path="wide--long-format.html"><a href="wide--long-format.html#vom-long--ins-wide-format"><i class="fa fa-check"></i><b>10.1</b> Vom Long- ins Wide-Format</a>
 <ul>
-<li class="chapter" data-level="15.6.1" data-path="interne-dokumentation.html"><a href="interne-dokumentation.html#alle-dependencies-installieren"><i class="fa fa-check"></i><b>15.6.1</b> Alle Dependencies installieren</a></li>
+<li class="chapter" data-level="10.1.1" data-path="wide--long-format.html"><a href="wide--long-format.html#stats-reshape"><i class="fa fa-check"></i><b>10.1.1</b> stats: <code>reshape()</code></a></li>
+<li class="chapter" data-level="10.1.2" data-path="wide--long-format.html"><a href="wide--long-format.html#tidyr-spread"><i class="fa fa-check"></i><b>10.1.2</b> tidyr: <code>spread()</code></a></li>
+<li class="chapter" data-level="10.1.3" data-path="wide--long-format.html"><a href="wide--long-format.html#unterschied-zwischen-reshape-und-spread"><i class="fa fa-check"></i><b>10.1.3</b> Unterschied zwischen <code>reshape()</code> und <code>spread()</code></a></li>
 </ul></li>
-<li class="chapter" data-level="15.7" data-path="interne-dokumentation.html"><a href="interne-dokumentation.html#webseite-updaten"><i class="fa fa-check"></i><b>15.7</b> Webseite updaten</a></li>
+<li class="chapter" data-level="10.2" data-path="wide--long-format.html"><a href="wide--long-format.html#vom-wide--ins-long-format"><i class="fa fa-check"></i><b>10.2</b> Vom Wide- ins Long-Format</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="wide--long-format.html"><a href="wide--long-format.html#stats-reshape-1"><i class="fa fa-check"></i><b>10.2.1</b> stats: <code>reshape()</code></a></li>
+<li class="chapter" data-level="10.2.2" data-path="wide--long-format.html"><a href="wide--long-format.html#tidyr-gather"><i class="fa fa-check"></i><b>10.2.2</b> tidyr: <code>gather()</code></a></li>
+<li class="chapter" data-level="10.2.3" data-path="wide--long-format.html"><a href="wide--long-format.html#unterschied-zwischen-reshape-und-gather"><i class="fa fa-check"></i><b>10.2.3</b> Unterschied zwischen <code>reshape()</code> und <code>gather()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="wide--long-format.html"><a href="wide--long-format.html#andere-funktionen-zum-umformatieren"><i class="fa fa-check"></i><b>10.3</b> Andere Funktionen zum Umformatieren</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="annahmen-der-multiplen-linearen-regression.html"><a href="annahmen-der-multiplen-linearen-regression.html"><i class="fa fa-check"></i><b>11</b> Annahmen der Multiplen Linearen Regression</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="annahmen-der-multiplen-linearen-regression.html"><a href="annahmen-der-multiplen-linearen-regression.html#linearität"><i class="fa fa-check"></i><b>11.1</b> Linearität</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="annahmen-der-multiplen-linearen-regression.html"><a href="annahmen-der-multiplen-linearen-regression.html#überprüfung"><i class="fa fa-check"></i><b>11.1.1</b> Überprüfung</a></li>
+<li class="chapter" data-level="11.1.2" data-path="annahmen-der-multiplen-linearen-regression.html"><a href="annahmen-der-multiplen-linearen-regression.html#umgang"><i class="fa fa-check"></i><b>11.1.2</b> Umgang</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="annahmen-der-multiplen-linearen-regression.html"><a href="annahmen-der-multiplen-linearen-regression.html#exogenität-der-prädiktoren"><i class="fa fa-check"></i><b>11.2</b> Exogenität der Prädiktoren</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="annahmen-der-multiplen-linearen-regression.html"><a href="annahmen-der-multiplen-linearen-regression.html#überprüfung-1"><i class="fa fa-check"></i><b>11.2.1</b> Überprüfung</a></li>
+<li class="chapter" data-level="11.2.2" data-path="annahmen-der-multiplen-linearen-regression.html"><a href="annahmen-der-multiplen-linearen-regression.html#umgang-1"><i class="fa fa-check"></i><b>11.2.2</b> Umgang</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="annahmen-der-multiplen-linearen-regression.html"><a href="annahmen-der-multiplen-linearen-regression.html#homoskedastizität"><i class="fa fa-check"></i><b>11.3</b> Homoskedastizität</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="annahmen-der-multiplen-linearen-regression.html"><a href="annahmen-der-multiplen-linearen-regression.html#überprüfung-2"><i class="fa fa-check"></i><b>11.3.1</b> Überprüfung</a></li>
+<li class="chapter" data-level="11.3.2" data-path="annahmen-der-multiplen-linearen-regression.html"><a href="annahmen-der-multiplen-linearen-regression.html#umgang-2"><i class="fa fa-check"></i><b>11.3.2</b> Umgang</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="annahmen-der-multiplen-linearen-regression.html"><a href="annahmen-der-multiplen-linearen-regression.html#unabhängigkeit-der-residuen"><i class="fa fa-check"></i><b>11.4</b> Unabhängigkeit der Residuen</a>
+<ul>
+<li class="chapter" data-level="11.4.1" data-path="annahmen-der-multiplen-linearen-regression.html"><a href="annahmen-der-multiplen-linearen-regression.html#überprüfung-3"><i class="fa fa-check"></i><b>11.4.1</b> Überprüfung</a></li>
+<li class="chapter" data-level="11.4.2" data-path="annahmen-der-multiplen-linearen-regression.html"><a href="annahmen-der-multiplen-linearen-regression.html#umgang-3"><i class="fa fa-check"></i><b>11.4.2</b> Umgang</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="annahmen-der-multiplen-linearen-regression.html"><a href="annahmen-der-multiplen-linearen-regression.html#weitere-wichtige-aspekte"><i class="fa fa-check"></i><b>11.5</b> Weitere wichtige Aspekte</a>
+<ul>
+<li class="chapter" data-level="11.5.1" data-path="annahmen-der-multiplen-linearen-regression.html"><a href="annahmen-der-multiplen-linearen-regression.html#normalverteilung-der-residuen"><i class="fa fa-check"></i><b>11.5.1</b> Normalverteilung der Residuen</a></li>
+<li class="chapter" data-level="11.5.2" data-path="annahmen-der-multiplen-linearen-regression.html"><a href="annahmen-der-multiplen-linearen-regression.html#multikollinearität"><i class="fa fa-check"></i><b>11.5.2</b> Multikollinearität</a></li>
+<li class="chapter" data-level="11.5.3" data-path="annahmen-der-multiplen-linearen-regression.html"><a href="annahmen-der-multiplen-linearen-regression.html#extreme-werte-und-einflussreiche-datenpunkte"><i class="fa fa-check"></i><b>11.5.3</b> Extreme Werte und einflussreiche Datenpunkte</a></li>
+</ul></li>
+<li class="chapter" data-level="11.6" data-path="annahmen-der-multiplen-linearen-regression.html"><a href="annahmen-der-multiplen-linearen-regression.html#literatur-weiterführende-hilfe"><i class="fa fa-check"></i><b>11.6</b> Literatur &amp; weiterführende Hilfe</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="grafiken.html"><a href="grafiken.html"><i class="fa fa-check"></i><b>12</b> Grafiken</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="grafiken.html"><a href="grafiken.html#bevor-es-losgeht"><i class="fa fa-check"></i><b>12.1</b> Bevor es losgeht</a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="grafiken.html"><a href="grafiken.html#richtiges-datenformat"><i class="fa fa-check"></i><b>12.1.1</b> Richtiges Datenformat</a></li>
+<li class="chapter" data-level="12.1.2" data-path="grafiken.html"><a href="grafiken.html#welche-grafik-sollte-ich-für-meine-daten-nehmen"><i class="fa fa-check"></i><b>12.1.2</b> Welche Grafik sollte ich für meine Daten nehmen?</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="grafiken.html"><a href="grafiken.html#grundlegender-aufbau-von-ggplot"><i class="fa fa-check"></i><b>12.2</b> Grundlegender Aufbau von ggplot()</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="grafiken.html"><a href="grafiken.html#ebene-grundlegendes-koordinatensystem"><i class="fa fa-check"></i><b>12.2.1</b> 1. Ebene: Grundlegendes Koordinatensystem</a></li>
+<li class="chapter" data-level="12.2.2" data-path="grafiken.html"><a href="grafiken.html#ebene-art-der-grafik"><i class="fa fa-check"></i><b>12.2.2</b> Ebene: Art der Grafik</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="grafiken.html"><a href="grafiken.html#eine-variable"><i class="fa fa-check"></i><b>12.3</b> Eine Variable</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="grafiken.html"><a href="grafiken.html#kategorial"><i class="fa fa-check"></i><b>12.3.1</b> Kategorial</a></li>
+<li class="chapter" data-level="12.3.2" data-path="grafiken.html"><a href="grafiken.html#metrisch"><i class="fa fa-check"></i><b>12.3.2</b> Metrisch</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="grafiken.html"><a href="grafiken.html#zwei-variablen"><i class="fa fa-check"></i><b>12.4</b> Zwei Variablen</a>
+<ul>
+<li class="chapter" data-level="12.4.1" data-path="grafiken.html"><a href="grafiken.html#x-kategorial-y-metrisch"><i class="fa fa-check"></i><b>12.4.1</b> X kategorial, Y metrisch</a></li>
+<li class="chapter" data-level="12.4.2" data-path="grafiken.html"><a href="grafiken.html#x-und-y-metrisch"><i class="fa fa-check"></i><b>12.4.2</b> X und Y metrisch</a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="grafiken.html"><a href="grafiken.html#mehr-als-zwei-variablen"><i class="fa fa-check"></i><b>12.5</b> Mehr als zwei Variablen</a>
+<ul>
+<li class="chapter" data-level="12.5.1" data-path="grafiken.html"><a href="grafiken.html#mindestens-eine-kategoriale-variable"><i class="fa fa-check"></i><b>12.5.1</b> Mindestens eine kategoriale Variable</a></li>
+<li class="chapter" data-level="12.5.2" data-path="grafiken.html"><a href="grafiken.html#nur-kategoriale-variablen"><i class="fa fa-check"></i><b>12.5.2</b> Nur kategoriale Variablen</a></li>
+</ul></li>
+<li class="chapter" data-level="12.6" data-path="grafiken.html"><a href="grafiken.html#modifikationen"><i class="fa fa-check"></i><b>12.6</b> Modifikationen</a>
+<ul>
+<li class="chapter" data-level="12.6.1" data-path="grafiken.html"><a href="grafiken.html#farbe"><i class="fa fa-check"></i><b>12.6.1</b> <strong><font color="#e41a1c">F</font><font color="#377eb8">a</font><font color="#4daf4a">r</font><font color="#984ea3">b</font><font color="#ff7f00">e</font></strong></a></li>
+<li class="chapter" data-level="12.6.2" data-path="grafiken.html"><a href="grafiken.html#legenden-modifizieren"><i class="fa fa-check"></i><b>12.6.2</b> <span style="border:1px; border-style:solid; border-color:black; padding: 3px;">Legenden modifizieren</span></a></li>
+<li class="chapter" data-level="12.6.3" data-path="grafiken.html"><a href="grafiken.html#beschriftung"><i class="fa fa-check"></i><b>12.6.3</b> <strong><span style="font-family: Courier New,Courier,monospace;">Beschriftung</span></strong></a></li>
+</ul></li>
+<li class="chapter" data-level="12.7" data-path="grafiken.html"><a href="grafiken.html#kategoriale-variablen-benennung-und-reihenfolge-der-ausprägungen"><i class="fa fa-check"></i><b>12.7</b> Kategoriale Variablen: Benennung und Reihenfolge der Ausprägungen</a></li>
+<li class="chapter" data-level="12.8" data-path="grafiken.html"><a href="grafiken.html#grafiken-einzelner-gruppen-und-die-anpassung-von-achsengrenzen"><i class="fa fa-check"></i><b>12.8</b> Grafiken einzelner Gruppen und die Anpassung von Achsengrenzen</a></li>
+<li class="chapter" data-level="12.9" data-path="grafiken.html"><a href="grafiken.html#geraden-einzeichnen"><i class="fa fa-check"></i><b>12.9</b> Geraden einzeichnen</a></li>
+<li class="chapter" data-level="12.10" data-path="grafiken.html"><a href="grafiken.html#weitere-statistische-kennwerte-ergänzen"><i class="fa fa-check"></i><b>12.10</b> Weitere statistische Kennwerte ergänzen</a></li>
+<li class="chapter" data-level="12.11" data-path="grafiken.html"><a href="grafiken.html#motive-themes"><i class="fa fa-check"></i><b>12.11</b> Motive (Themes)</a></li>
+<li class="chapter" data-level="12.12" data-path="grafiken.html"><a href="grafiken.html#grafiken-exportieren"><i class="fa fa-check"></i><b>12.12</b> Grafiken exportieren</a>
+<ul>
+<li class="chapter" data-level="12.12.1" data-path="grafiken.html"><a href="grafiken.html#export-button"><i class="fa fa-check"></i><b>12.12.1</b> <span style="color: #75AADC"><strong>Export-Button</strong></span></a></li>
+<li class="chapter" data-level="12.12.2" data-path="grafiken.html"><a href="grafiken.html#ggsave"><i class="fa fa-check"></i><b>12.12.2</b> <code>ggsave()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="12.13" data-path="grafiken.html"><a href="grafiken.html#weiterführende-hilfen"><i class="fa fa-check"></i><b>12.13</b> Weiterführende Hilfen</a>
+<ul>
+<li class="chapter" data-level="12.13.1" data-path="grafiken.html"><a href="grafiken.html#eine-einfache-ggplot-funktion-qplot"><i class="fa fa-check"></i><b>12.13.1</b> Eine einfache ggplot-Funktion: <code>qplot()</code></a></li>
+<li class="chapter" data-level="12.13.2" data-path="grafiken.html"><a href="grafiken.html#mehrere-plots-zusammenführen"><i class="fa fa-check"></i><b>12.13.2</b> Mehrere Plots zusammenführen</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="r-markdown.html"><a href="r-markdown.html"><i class="fa fa-check"></i><b>13</b> R Markdown</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="r-markdown.html"><a href="r-markdown.html#neues-r-markdown-dokument-anlegen"><i class="fa fa-check"></i><b>13.1</b> Neues <span class="r">R Markdown</span> Dokument anlegen</a>
+<ul>
+<li class="chapter" data-level="13.1.1" data-path="r-markdown.html"><a href="r-markdown.html#yaml"><i class="fa fa-check"></i><b>13.1.1</b> YAML</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="r-markdown.html"><a href="r-markdown.html#text"><i class="fa fa-check"></i><b>13.2</b> Text</a>
+<ul>
+<li class="chapter" data-level="13.2.1" data-path="r-markdown.html"><a href="r-markdown.html#überschriften"><i class="fa fa-check"></i><b>13.2.1</b> Überschriften</a></li>
+<li class="chapter" data-level="13.2.2" data-path="r-markdown.html"><a href="r-markdown.html#hervorhebung"><i class="fa fa-check"></i><b>13.2.2</b> Hervorhebung</a></li>
+<li class="chapter" data-level="13.2.3" data-path="r-markdown.html"><a href="r-markdown.html#zeilenumbruch"><i class="fa fa-check"></i><b>13.2.3</b> Zeilenumbruch</a></li>
+<li class="chapter" data-level="13.2.4" data-path="r-markdown.html"><a href="r-markdown.html#verlinkung"><i class="fa fa-check"></i><b>13.2.4</b> Verlinkung</a></li>
+<li class="chapter" data-level="13.2.5" data-path="r-markdown.html"><a href="r-markdown.html#formeln"><i class="fa fa-check"></i><b>13.2.5</b> Formeln</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="r-markdown.html"><a href="r-markdown.html#r-code"><i class="fa fa-check"></i><b>13.3</b> <span class="r">R</span>-Code</a>
+<ul>
+<li class="chapter" data-level="13.3.1" data-path="r-markdown.html"><a href="r-markdown.html#code-chunk"><i class="fa fa-check"></i><b>13.3.1</b> Code Chunk</a></li>
+<li class="chapter" data-level="13.3.2" data-path="r-markdown.html"><a href="r-markdown.html#inline-code"><i class="fa fa-check"></i><b>13.3.2</b> Inline Code</a></li>
+<li class="chapter" data-level="13.3.3" data-path="r-markdown.html"><a href="r-markdown.html#grafiken-bilder-und-tabellen"><i class="fa fa-check"></i><b>13.3.3</b> Grafiken, Bilder und Tabellen</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4" data-path="r-markdown.html"><a href="r-markdown.html#weiterführend"><i class="fa fa-check"></i><b>13.4</b> Weiterführend</a>
+<ul>
+<li class="chapter" data-level="13.4.1" data-path="r-markdown.html"><a href="r-markdown.html#templates"><i class="fa fa-check"></i><b>13.4.1</b> Templates</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="outputs---alm---faq.html"><a href="outputs---alm---faq.html"><i class="fa fa-check"></i><b>14</b> Outputs - ALM - FAQ</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="outputs---alm---faq.html"><a href="outputs---alm---faq.html#github-link"><i class="fa fa-check"></i><b>14.1</b> <span class="math inline">\(t\)</span>-Test</a></li>
+<li class="chapter" data-level="14.2" data-path="outputs---alm---faq.html"><a href="outputs---alm---faq.html#lineare-regression"><i class="fa fa-check"></i><b>14.2</b> Lineare Regression</a></li>
+<li class="chapter" data-level="14.3" data-path="outputs---alm---faq.html"><a href="outputs---alm---faq.html#anova"><i class="fa fa-check"></i><b>14.3</b> ANOVA</a></li>
+<li class="chapter" data-level="14.4" data-path="outputs---alm---faq.html"><a href="outputs---alm---faq.html#github2"><i class="fa fa-check"></i><b>14.4</b> ALM: Zusammenhänge der drei Verfahren</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="git-und-gitlab.html"><a href="git-und-gitlab.html"><i class="fa fa-check"></i><b>15</b> Git und GitLab</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="git-und-gitlab.html"><a href="git-und-gitlab.html#git"><i class="fa fa-check"></i><b>15.1</b> Git</a></li>
+<li class="chapter" data-level="15.2" data-path="git-und-gitlab.html"><a href="git-und-gitlab.html#einführung-in-git"><i class="fa fa-check"></i><b>15.2</b> Einführung in Git</a>
+<ul>
+<li class="chapter" data-level="15.2.1" data-path="git-und-gitlab.html"><a href="git-und-gitlab.html#schritt-0"><i class="fa fa-check"></i><b>15.2.1</b> Schritt 0</a></li>
+<li class="chapter" data-level="15.2.2" data-path="git-und-gitlab.html"><a href="git-und-gitlab.html#git-init"><i class="fa fa-check"></i><b>15.2.2</b> git init</a></li>
+<li class="chapter" data-level="15.2.3" data-path="git-und-gitlab.html"><a href="git-und-gitlab.html#git-add"><i class="fa fa-check"></i><b>15.2.3</b> git add</a></li>
+<li class="chapter" data-level="15.2.4" data-path="git-und-gitlab.html"><a href="git-und-gitlab.html#git-status"><i class="fa fa-check"></i><b>15.2.4</b> git status</a></li>
+<li class="chapter" data-level="15.2.5" data-path="git-und-gitlab.html"><a href="git-und-gitlab.html#git-commit"><i class="fa fa-check"></i><b>15.2.5</b> git commit</a></li>
+<li class="chapter" data-level="15.2.6" data-path="git-und-gitlab.html"><a href="git-und-gitlab.html#git-log"><i class="fa fa-check"></i><b>15.2.6</b> git log</a></li>
+<li class="chapter" data-level="15.2.7" data-path="git-und-gitlab.html"><a href="git-und-gitlab.html#zu-einem-früheren-zustand-zurückkehren"><i class="fa fa-check"></i><b>15.2.7</b> Zu einem früheren Zustand zurückkehren</a></li>
+<li class="chapter" data-level="15.2.8" data-path="git-und-gitlab.html"><a href="git-und-gitlab.html#branches"><i class="fa fa-check"></i><b>15.2.8</b> Branches</a></li>
+<li class="chapter" data-level="15.2.9" data-path="git-und-gitlab.html"><a href="git-und-gitlab.html#mergen"><i class="fa fa-check"></i><b>15.2.9</b> Mergen</a></li>
+</ul></li>
+<li class="chapter" data-level="15.3" data-path="git-und-gitlab.html"><a href="git-und-gitlab.html#github-gitlab-gitbucket"><i class="fa fa-check"></i><b>15.3</b> GitHub, GitLab, GitBucket, …</a>
+<ul>
+<li class="chapter" data-level="15.3.1" data-path="git-und-gitlab.html"><a href="git-und-gitlab.html#ein-neues-projekt-erstellen"><i class="fa fa-check"></i><b>15.3.1</b> Ein neues Projekt erstellen</a></li>
+<li class="chapter" data-level="15.3.2" data-path="git-und-gitlab.html"><a href="git-und-gitlab.html#git-clone"><i class="fa fa-check"></i><b>15.3.2</b> git clone</a></li>
+<li class="chapter" data-level="15.3.3" data-path="git-und-gitlab.html"><a href="git-und-gitlab.html#push"><i class="fa fa-check"></i><b>15.3.3</b> git push</a></li>
+<li class="chapter" data-level="15.3.4" data-path="git-und-gitlab.html"><a href="git-und-gitlab.html#pull"><i class="fa fa-check"></i><b>15.3.4</b> git pull</a></li>
+<li class="chapter" data-level="15.3.5" data-path="git-und-gitlab.html"><a href="git-und-gitlab.html#branches-archivieren-und-löschen"><i class="fa fa-check"></i><b>15.3.5</b> Branches archivieren und löschen</a></li>
+</ul></li>
+<li class="chapter" data-level="15.4" data-path="git-und-gitlab.html"><a href="git-und-gitlab.html#weitere-ressourcen"><i class="fa fa-check"></i><b>15.4</b> Weitere Ressourcen</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="interne-dokumentation.html"><a href="interne-dokumentation.html"><i class="fa fa-check"></i><b>16</b> Interne Dokumentation</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="interne-dokumentation.html"><a href="interne-dokumentation.html#neues-thema-erstellen"><i class="fa fa-check"></i><b>16.1</b> Neues Thema erstellen</a></li>
+<li class="chapter" data-level="16.2" data-path="interne-dokumentation.html"><a href="interne-dokumentation.html#daten-hinzufügen"><i class="fa fa-check"></i><b>16.2</b> Daten hinzufügen</a></li>
+<li class="chapter" data-level="16.3" data-path="interne-dokumentation.html"><a href="interne-dokumentation.html#bilder-hinzufügen"><i class="fa fa-check"></i><b>16.3</b> Bilder hinzufügen</a></li>
+<li class="chapter" data-level="16.4" data-path="interne-dokumentation.html"><a href="interne-dokumentation.html#links-hinzufügen"><i class="fa fa-check"></i><b>16.4</b> Links hinzufügen</a></li>
+<li class="chapter" data-level="16.5" data-path="interne-dokumentation.html"><a href="interne-dokumentation.html#paket-hinzufügen"><i class="fa fa-check"></i><b>16.5</b> Paket hinzufügen</a></li>
+<li class="chapter" data-level="16.6" data-path="interne-dokumentation.html"><a href="interne-dokumentation.html#webseite-erstellen"><i class="fa fa-check"></i><b>16.6</b> Webseite erstellen</a>
+<ul>
+<li class="chapter" data-level="16.6.1" data-path="interne-dokumentation.html"><a href="interne-dokumentation.html#alle-dependencies-installieren"><i class="fa fa-check"></i><b>16.6.1</b> Alle Dependencies installieren</a></li>
+</ul></li>
+<li class="chapter" data-level="16.7" data-path="interne-dokumentation.html"><a href="interne-dokumentation.html#webseite-updaten"><i class="fa fa-check"></i><b>16.7</b> Webseite updaten</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -509,10 +552,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="git-und-gitlab" class="section level1 hasAnchor" number="14">
-<h1><span class="header-section-number">Chapter 14</span> Git und GitLab<a href="git-und-gitlab.html#git-und-gitlab" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="git" class="section level2 hasAnchor" number="14.1">
-<h2><span class="header-section-number">14.1</span> Git<a href="git-und-gitlab.html#git" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="git-und-gitlab" class="section level1 hasAnchor" number="15">
+<h1><span class="header-section-number">Chapter 15</span> Git und GitLab<a href="git-und-gitlab.html#git-und-gitlab" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="git" class="section level2 hasAnchor" number="15.1">
+<h2><span class="header-section-number">15.1</span> Git<a href="git-und-gitlab.html#git" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Git ist ein Programm zur Versionsverwaltung von Dateien. Das bedeutet,
 dass wir damit nachverfolgen können, wie sich Dateien über die Zeit
 verändert haben. Außerdem können wir auch sehen, wer sie verändert hat
@@ -523,15 +566,15 @@ und gitLab. Git ist kostenlos für Windows, Mac und Linux verfügbar.
 Weitere Informationen zur Installation gibt es
 <a href="https://git-scm.com/book/de/v2/Erste-Schritte-Git-installieren">hier</a>.</p>
 </div>
-<div id="einführung-in-git" class="section level2 hasAnchor" number="14.2">
-<h2><span class="header-section-number">14.2</span> Einführung in Git<a href="git-und-gitlab.html#einführung-in-git" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="einführung-in-git" class="section level2 hasAnchor" number="15.2">
+<h2><span class="header-section-number">15.2</span> Einführung in Git<a href="git-und-gitlab.html#einführung-in-git" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Wir werden im Folgenden alle Befehle in der command line durchführen. Es
 gibt sehr viele unterschiedliche grafische Oberflächen für git, die
 einem das Leben erleichtern können. Aber wenn wir online nach Hilfe für
 git suchen, werden wir immer auf die command line Befehle stoßen und
 daher wollen wir uns hier auch nur mit diesen beschäftigen.</p>
-<div id="schritt-0" class="section level3 hasAnchor" number="14.2.1">
-<h3><span class="header-section-number">14.2.1</span> Schritt 0<a href="git-und-gitlab.html#schritt-0" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="schritt-0" class="section level3 hasAnchor" number="15.2.1">
+<h3><span class="header-section-number">15.2.1</span> Schritt 0<a href="git-und-gitlab.html#schritt-0" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Wir wollen git als erstes sagen, wer wir sind. Das ist wichtig, damit
 später jeder nachvollziehen kann, wer was am Dokument verändert hat.
 Hierfür nutzen wir den <code>git config</code> Befehl.</p>
@@ -540,8 +583,8 @@ Hierfür nutzen wir den <code>git config</code> Befehl.</p>
 <li><code>git config --global user.email MeinName@mail.com</code></li>
 </ul>
 </div>
-<div id="git-init" class="section level3 hasAnchor" number="14.2.2">
-<h3><span class="header-section-number">14.2.2</span> git init<a href="git-und-gitlab.html#git-init" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="git-init" class="section level3 hasAnchor" number="15.2.2">
+<h3><span class="header-section-number">15.2.2</span> git init<a href="git-und-gitlab.html#git-init" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Der erste Schritt ist, git zu sagen, dass wir eine Versionskontrolle
 starten wollen. Hierfür gehen wir zuerst in den Ordner, in dem die
 Dateien liegen, die wir “nachverfolgen” wollen. Dort starten wir dann
@@ -551,8 +594,8 @@ ist, wenn wir verborgene Ordner im Betriebssystem anzeigen lassen.
 Diesen brauchen wir aber im Folgenden nicht; es macht also nichts, wenn
 ihr ihn bei euch nicht sehen könnt.</p>
 </div>
-<div id="git-add" class="section level3 hasAnchor" number="14.2.3">
-<h3><span class="header-section-number">14.2.3</span> git add<a href="git-und-gitlab.html#git-add" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="git-add" class="section level3 hasAnchor" number="15.2.3">
+<h3><span class="header-section-number">15.2.3</span> git add<a href="git-und-gitlab.html#git-add" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Sobald wir git init ausgeführt haben, können wir Dateien zur
 Versionskontrolle hinzufügen. Hierfür geben wir den Befehl “git add”
 gefolgt vom Name der Datei ein. Z.B. <code>git add gitTutorial.tex</code>. Die
@@ -579,8 +622,8 @@ können wir sie mit z.B. mit <code>git rm --cached gitTutorial.tex</code> wie
 # Dateien aus dem Unterordner archive werden nicht nachverfolgt
 /archive</code></pre>
 </div>
-<div id="git-status" class="section level3 hasAnchor" number="14.2.4">
-<h3><span class="header-section-number">14.2.4</span> git status<a href="git-und-gitlab.html#git-status" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="git-status" class="section level3 hasAnchor" number="15.2.4">
+<h3><span class="header-section-number">15.2.4</span> git status<a href="git-und-gitlab.html#git-status" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Wenn wir <code>git status</code> aufrufen, sehen wir nun unter “Changes to be
 committed” welche Dateien beim nächsten commit gespeichert werden. Das
 ist der “Warteraum”. Darunter sehen wir außerdem, welche Dateien nicht
@@ -588,8 +631,8 @@ hinzugefügt wurden. So können wir noch einmal kontrollieren, ob wir
 alles wichtige mit add aufgenommen haben.</p>
 <p><img src="figures/git/gitStatus.png" /></p>
 </div>
-<div id="git-commit" class="section level3 hasAnchor" number="14.2.5">
-<h3><span class="header-section-number">14.2.5</span> git commit<a href="git-und-gitlab.html#git-commit" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="git-commit" class="section level3 hasAnchor" number="15.2.5">
+<h3><span class="header-section-number">15.2.5</span> git commit<a href="git-und-gitlab.html#git-commit" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Der wichtigste Befehl ist <code>git commit</code>: Mit commit halten wir die
 aktuelle Version aller Dateien aus dem “Warteraum” fest. Man macht hier
 also im Prinzip einen Schnappschuss der Dateien im aktuellen Zustand. Zu
@@ -606,16 +649,16 @@ Beschreibung speichert man mit <span class="math display">\[Strg + S\]</span> un
 </ul>
 <p><img src="figures/git/commitMessage.png" /></p>
 </div>
-<div id="git-log" class="section level3 hasAnchor" number="14.2.6">
-<h3><span class="header-section-number">14.2.6</span> git log<a href="git-und-gitlab.html#git-log" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="git-log" class="section level3 hasAnchor" number="15.2.6">
+<h3><span class="header-section-number">15.2.6</span> git log<a href="git-und-gitlab.html#git-log" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Mit <code>git log</code> erhaltet ihr eine Übersicht aller commits. Hier können wir
 auch den “Namen” des commits sehen (die sogenannten Hash-Werte).<br />
 Z.B. d3e1166c891c21ee78dcaf6c7484eaf443957435. Diese brauchen wir, wenn
 wir zu einem früheren Zustand zurück kehren wollen.</p>
 <p><img src="figures/git/gitLog.png" /></p>
 </div>
-<div id="zu-einem-früheren-zustand-zurückkehren" class="section level3 hasAnchor" number="14.2.7">
-<h3><span class="header-section-number">14.2.7</span> Zu einem früheren Zustand zurückkehren<a href="git-und-gitlab.html#zu-einem-früheren-zustand-zurückkehren" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="zu-einem-früheren-zustand-zurückkehren" class="section level3 hasAnchor" number="15.2.7">
+<h3><span class="header-section-number">15.2.7</span> Zu einem früheren Zustand zurückkehren<a href="git-und-gitlab.html#zu-einem-früheren-zustand-zurückkehren" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Um zu einem früheren Zustand zurückzukehren, müssen wir zuerst im log
 den Hash-Wert des Commits heraussuchen, zu dem wir zurück wollen (z.B.
 d3e1166c891c21ee78dcaf6c7484eaf443957435). Mit
@@ -626,8 +669,8 @@ d3e1166c891c21ee78dcaf6c7484eaf443957435 hatten. <strong>Wichtig</strong>: Dabei
 werden die neueren Commits <strong>nicht</strong> überschrieben! Wir können immer
 wieder zur aktuellsten Version zurückkehren (mit <code>git checkout master</code>).</p>
 </div>
-<div id="branches" class="section level3 hasAnchor" number="14.2.8">
-<h3><span class="header-section-number">14.2.8</span> Branches<a href="git-und-gitlab.html#branches" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="branches" class="section level3 hasAnchor" number="15.2.8">
+<h3><span class="header-section-number">15.2.8</span> Branches<a href="git-und-gitlab.html#branches" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Branches sind dann wichtig, wenn wir verschiedene Versionen eines
 Dokumentes ausprobieren wollen. Zur Zeit befinden wir uns auf dem
 “master” branch und alle Veränderungen, die wir commiten, landen in
@@ -649,8 +692,8 @@ den branch nicht wechseln. Andernfalls würde man alle Veränderungen
 verlieren</li>
 </ul>
 </div>
-<div id="mergen" class="section level3 hasAnchor" number="14.2.9">
-<h3><span class="header-section-number">14.2.9</span> Mergen<a href="git-und-gitlab.html#mergen" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="mergen" class="section level3 hasAnchor" number="15.2.9">
+<h3><span class="header-section-number">15.2.9</span> Mergen<a href="git-und-gitlab.html#mergen" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Nachdem wir alle Änderungen in einem branch vorgenommen haben, wollen
 wir nun unseren neuen branch und den master vereinen (merge). Hierfür
 gehen wir wieder in den master (<code>git checkout master</code>). Dort geben wir
@@ -664,8 +707,8 @@ selbst Hand anlegen. Weiter unten wird erklärt, wie man mit merge
 Konflikten in GitLab umgeht.</p>
 </div>
 </div>
-<div id="github-gitlab-gitbucket" class="section level2 hasAnchor" number="14.3">
-<h2><span class="header-section-number">14.3</span> GitHub, GitLab, GitBucket, …<a href="git-und-gitlab.html#github-gitlab-gitbucket" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="github-gitlab-gitbucket" class="section level2 hasAnchor" number="15.3">
+<h2><span class="header-section-number">15.3</span> GitHub, GitLab, GitBucket, …<a href="git-und-gitlab.html#github-gitlab-gitbucket" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>GitHub, GitLab, GitBucket und ähnliche Plattformen sind Webseiten, auf
 denen wir unser git-Projekt hochladen können, um es anderen zur
 Verfügung zu stellen oder ein Backup zu haben. Wir werden im Folgenden
@@ -673,8 +716,8 @@ die HU-eigene <a href="https://scm.cms.hu-berlin.de/">GitLab</a> Instanz nutzen.
 <strong>Wichtig</strong>: In GitLab können wir Projekte auch so speichern, dass nur
 wir selbst oder von uns ausgewählte Personen auf die Dokumente Zugriff
 haben!</p>
-<div id="ein-neues-projekt-erstellen" class="section level3 hasAnchor" number="14.3.1">
-<h3><span class="header-section-number">14.3.1</span> Ein neues Projekt erstellen<a href="git-und-gitlab.html#ein-neues-projekt-erstellen" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="ein-neues-projekt-erstellen" class="section level3 hasAnchor" number="15.3.1">
+<h3><span class="header-section-number">15.3.1</span> Ein neues Projekt erstellen<a href="git-und-gitlab.html#ein-neues-projekt-erstellen" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Auf GitLab können wir unter “New Project” eine neues Projekt erstellen.
 Hier können wir auch einstellen, ob ein Projekt nur für uns oder für
 alle sichtbar sein soll.</p>
@@ -705,8 +748,8 @@ Bedeutung gibt es
 <a href="https://scm.cms.hu-berlin.de/help/user/permissions">hier</a>.</li>
 </ul>
 </div>
-<div id="git-clone" class="section level3 hasAnchor" number="14.3.2">
-<h3><span class="header-section-number">14.3.2</span> git clone<a href="git-und-gitlab.html#git-clone" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="git-clone" class="section level3 hasAnchor" number="15.3.2">
+<h3><span class="header-section-number">15.3.2</span> git clone<a href="git-und-gitlab.html#git-clone" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Häufig wollen wir an einem Projekt einer anderen Person weiterarbeiten.
 Hierfür laden wir das Projekt erst einmal herunter. Zuerst gehen wir in
 den Ordner, in dem wir das git-Projekt speichern wollen. Dann führen wir
@@ -726,8 +769,8 @@ der Projektseite auf Clone drücken und den HTTPS Link kopieren.</li>
 <p><img src="figures/git/cloneProject.png" /></p>
 <p><img src="figures/git/revisionJO.png" /></p>
 </div>
-<div id="push" class="section level3 hasAnchor" number="14.3.3">
-<h3><span class="header-section-number">14.3.3</span> git push<a href="git-und-gitlab.html#push" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="push" class="section level3 hasAnchor" number="15.3.3">
+<h3><span class="header-section-number">15.3.3</span> git push<a href="git-und-gitlab.html#push" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Nachdem wir ein Repository herunter geladen und verändert haben, können
 wir es mit <code>git push</code> wieder auf den Server laden. Wenn es sich um ein
 gemeinsames Projekt handelt, sollte man nicht direkt in den master
@@ -757,8 +800,8 @@ ablehnen. Außerdem können dort die Veränderungen auch noch einmal
 diskutiert werden.</p>
 <p><img src="figures/git/mergeRevisionJOAccept.png" /></p>
 </div>
-<div id="pull" class="section level3 hasAnchor" number="14.3.4">
-<h3><span class="header-section-number">14.3.4</span> git pull<a href="git-und-gitlab.html#pull" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="pull" class="section level3 hasAnchor" number="15.3.4">
+<h3><span class="header-section-number">15.3.4</span> git pull<a href="git-und-gitlab.html#pull" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Mit pull können wir unser git repository vom Server auf den Rechner
 aktualisieren. Wir können dabei festlegen, welchen branch wir
 herunterladen wollen. Z.B. laden wir mit</p>
@@ -767,8 +810,8 @@ herunterladen wollen. Z.B. laden wir mit</p>
 nach dem merge sicherstellen, dass wir auch wieder die aktuelle Version
 des master haben.</p>
 </div>
-<div id="branches-archivieren-und-löschen" class="section level3 hasAnchor" number="14.3.5">
-<h3><span class="header-section-number">14.3.5</span> Branches archivieren und löschen<a href="git-und-gitlab.html#branches-archivieren-und-löschen" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="branches-archivieren-und-löschen" class="section level3 hasAnchor" number="15.3.5">
+<h3><span class="header-section-number">15.3.5</span> Branches archivieren und löschen<a href="git-und-gitlab.html#branches-archivieren-und-löschen" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Nachdem man den branch revisionJO in den master gemerged haben, ist
 üblich, den alten branch zu löschen. So vermeidet man, am Ende sehr
 viele branches zu haben, die alle nicht mehr genutzt werden. Den branch
@@ -785,8 +828,8 @@ angelegten archive Ordner.</p>
 <code>git checkout -b revisionJO archive/revisionJO</code> eingeben.</p>
 </div>
 </div>
-<div id="weitere-ressourcen" class="section level2 hasAnchor" number="14.4">
-<h2><span class="header-section-number">14.4</span> Weitere Ressourcen<a href="git-und-gitlab.html#weitere-ressourcen" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="weitere-ressourcen" class="section level2 hasAnchor" number="15.4">
+<h2><span class="header-section-number">15.4</span> Weitere Ressourcen<a href="git-und-gitlab.html#weitere-ressourcen" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Einfache Einführung: <a href="https://www.youtube.com/watch?v=SWYqp7iY_Tc">Git &amp; GitHub Crash Course For
 Beginners</a></p>
 
