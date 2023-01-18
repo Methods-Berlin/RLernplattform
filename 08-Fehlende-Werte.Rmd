@@ -46,7 +46,7 @@ Fehlende Werte sind grundsätzlich mit **drei Schwierigkeiten** verbunden:
 
 Daher ist es **sehr wichtig, sich <u>vor</u> der Auswertung einen Überblick über die fehlenden Werte zu verschaffen**.
 
-In diesem Kapitel schauen wir uns an, ob und wenn ja, wo und wie viele Missings sich im Datensatz befinden. Außerdem gibt es einen groben Überblick darüber, ob Missings zufällig sind und wie man mit ihnen umgehen kann. \
+In diesem Kapitel schauen wir uns an, ob und wenn ja wo und wie viele Missings sich im Datensatz befinden. Außerdem gibt es einen groben Überblick darüber, ob Missings zufällig sind und wie man mit ihnen umgehen kann. \
 
 Der Umgang mit Missings ist ein komplexes Thema. In diesem Kapitel werden wir uns auf zwei gängige Methoden zum Umgang mit Missings beschränken. In Abhängigkeit der eigenen Fragestellung empfiehlt es sich, passende Methoden zu recherchieren.
 
