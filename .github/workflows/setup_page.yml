@@ -5,7 +5,6 @@ on:
      branches:
        - master
 
-
 name: create_book
 
 jobs:
