@@ -33,7 +33,7 @@ jobs:
           devtools::install_deps()
           bookdown::render_book("index.Rmd")
         shell: Rscript {0}
-      - uses: actions/upload-artifact@v1
+      - uses: actions/upload-artifact@v3
         with:
           name: _book
           path: _book/
