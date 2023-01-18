@@ -1,5 +1,11 @@
-
+# The following builds on:
 # https://medium.com/@delucmat/how-to-publish-bookdown-projects-with-github-actions-on-github-pages-6e6aecc7331e
+
+# NOTE: The page is currently created but not uploaded anywhere! If you want to see the 
+# page, go to "Actions", click on "create_book" and scroll down until you see "Artifacts".
+# There will be an artifact called "_book". This is our webpage. Download the file and 
+# unzip it. Double-Clicking on any of the .html files will open the website locally.
+
 
 name: create_book
 
