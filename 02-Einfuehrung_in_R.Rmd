@@ -1,6 +1,6 @@
 # Einführung in R
 
-<p style="font-weight:600; font-size:36px">Einleitung</p>
+### Einleitung
 
 <span class="r">R</span> ist eine kostenlose und quelloffene Statistiksoftware, die in Wissenschaft und Wirtschaft genutzt wird. Wir finden in <span class="r">R</span> eine Fülle an Funktionen, die uns (statistische) Berechnungen und grafische Visualisierungen ermöglichen.
 
@@ -44,7 +44,7 @@ Fangen wir damit an, was Funktionen und Pakete sind, warum wir diese nutzen und 
 
 Dabei müssen wir die Zahlen aufsummieren und durch deren Anzahl teilen. Wenn wir weiter mit der Zahlenreihe arbeiten wollen, müssen wir sie außerdem wieder eingeben.</span>
 
-Viel einfacher können wir die Aufgabe ausführen indem wir vorgefertigte Funktionen nutzen.
+Viel einfacher können wir die Aufgabe ausführen, indem wir vorgefertigte Funktionen nutzen.
 
 ```{r}
 # Zahlenreihe (Vektor) erstellen
@@ -67,7 +67,7 @@ knitr::include_graphics("figures/Einführung/Bilder/R/mean.png")
 
 <aside>Die Funktionsdefinition finden wir in der Dokumentation, welche wir in <span class="r">RStudio</span> unter <a href="http://methods-berlin.com/wp-content/uploads/Einfuehrung_in_RStudio.html#files-plots-packages-help-viewer" target="_blank">**Help**</a> öffnen können.</aside>
 
-Manche Parameter besitzen *voreingestellte Argumente* <font size="2"><span class="ex">(z.B. `na.rm=FALSE`)</font></span>; diese bezeichnet man als <span class="highlight">Defaults</span>. Funktionen mit (min. einem) Parameter *ohne* Default <span class="ex"><font size="2">(z.B. `mean()`)</font></span> werden ohne Spezifikation dieser nicht ausgeführt. <span class="ex">Beispielsweise *müssen* wir dem Parameter `x` einen Vektor, von dem wir den Mittelwert berechnen wollen, übergeben.</span>
+Manche Parameter besitzen *voreingestellte Argumente* <font size="2"><span class="ex">(z.B. `na.rm=FALSE`)</font></span>, diese bezeichnet man als <span class="highlight">Defaults</span>. Funktionen mit (min. einem) Parameter *ohne* Default <span class="ex"><font size="2">(z.B. `mean()`)</font></span> werden ohne Spezifikation dieser nicht ausgeführt. <span class="ex">Beispielsweise *müssen* wir dem Parameter `x` einen Vektor, von dem wir den Mittelwert berechnen wollen, übergeben.</span>
 
 Parameter ermöglichen uns aber nicht nur, eine Aufgabe mit verschiedenen Daten durchzuführen, sondern auch weitere Optionen zu wählen <span class="ex"><font size="2">(z.B. `na.rm`: Ausschluss von fehlenden Werten; `trim`: trimmen der Enden der Verteilung der Zahlenreihe vor Berechnung des Mittelwerts)</font></span>. 
 
@@ -79,8 +79,8 @@ nums <- c(nums, NA)
 nums
 
 # Mittelwert errechnen lassen
-mean(nums) # funktioniert nicht, weil unklar was mit NA passieren soll
-mean(nums, na.rm=TRUE) # funktioniert, weil NA aus Berechnung entfernt
+mean(nums) # funktioniert nicht, weil unklar ist, was mit NA passieren soll
+mean(nums, na.rm=TRUE) # funktioniert, weil NA aus Berechnung entfernt wird
 ```
 
 <details><summary class="mtitle q">Wann können wir Parameternamen weglassen (wie bei `mean(nums)`)?</summary><div class ="more">
@@ -117,7 +117,7 @@ Weil wir weniger (redundanten) Code haben, können wir schneller Fehler finden <
 - <font color="#009193">**Erweiterbarkeit**</font>\
 Funktionen können erweitert werden, um verschiedene Szenarien zu händeln. Meist hat das schon jemand für uns gemacht. Wir müssen den Parametern einer Funktion nur verschiedene Argumente übergeben <span class="ex"><font size="2">(z.B. `na.rm=TRUE` zum Ausschluss von fehlenden Werten)</font></span>. 
 - <font color="#009193">**Abstraktion**</font>\
-Wir müssen die Funktion nicht im Detail verstehen. Es reicht zu wissen, wie der *Name* der Funktion ist <font size="2"><span class="ex">(`mean()`)</font></span>, welchen *Input* wir übergeben <font size="2"><span class="ex">(`x`; `trim` und `na.rm` optional weil mit Default)</font></span> und welchen *Output* <font size="2"><span class="ex">(arithmetisches Mittel)</font></span> wir bekommen und wo wir sie finden, d.h. aus welchem *Paket* <font size="2"><span class="ex">(base)</font></span> sie stammt. All diese Informationen erhalten wir in der Dokumentation der Funktion z.B. in <span class="r">RStudio</span> unter <a href="http://methods-berlin.com/wp-content/uploads/Einfuehrung_in_RStudio.html#files-plots-packages-help-viewer" target="_blank">**Help**</a>.
+Wir müssen die Funktion nicht im Detail verstehen. Es reicht zu wissen, wie der *Name* der Funktion ist <font size="2"><span class="ex">(`mean()`)</font></span>, welchen *Input* wir übergeben <font size="2"><span class="ex">(`x`; `trim` und `na.rm` optional weil mit Default)</font></span> und welchen *Output* <font size="2"><span class="ex">(arithmetisches Mittel)</font></span> wir bekommen und wo wir die Funktion finden, d.h. aus welchem *Paket* <font size="2"><span class="ex">(base)</font></span> sie stammt. All diese Informationen erhalten wir in der Dokumentation der Funktion z.B. in <span class="r">RStudio</span> unter <a href="http://methods-berlin.com/wp-content/uploads/Einfuehrung_in_RStudio.html#files-plots-packages-help-viewer" target="_blank">**Help**</a>.
 
 Auf <a href="https://www.freecodecamp.org" target="_blank">freecodecamp.org</a> finden wir eine kurze Einführung zu <span class="r">R</span>: <a href="https://www.freecodecamp.org/news/r-programming-language-explained/" target="_blank"><span class="r">R</span> Programming Language explained</a>. Es lohnt sich, **vertiefend den Part zu <a href="https://www.freecodecamp.org/news/r-programming-language-explained/#functions-in-r" target="_blank">Funktionen</a> anzuschauen** <font size="2">(~ 10min)</font>, um ein besseres Verständnis für die Arbeit mit <span class="r">R</span> zu bekommen.
 
@@ -188,7 +188,7 @@ describe(women)
 
 Wenn wir <span class="r">R</span> bzw. <span class="r">RStudio</span> schließen und erneut öffnen, müssen wir zusätzliche Pakete vor der Nutzung erneut laden.
 
-Für **mehr Informationen zu Paketen**, u.a. wie wir diese aktualisieren können, schaut euch unser dazugehöriges <a href="http://methods-berlin.com/de/r-lernplattform/pakete" target="_blank">Kapitel</a> an.
+Für **mehr Informationen zu Paketen**, u.a. wie wir diese aktualisieren können, könnt ihr euch dazugehöriges <a href="http://methods-berlin.com/de/r-lernplattform/pakete" target="_blank">Kapitel</a> anschauen.
 
 
 ## **2. Daten**
