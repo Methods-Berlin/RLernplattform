@@ -14,7 +14,7 @@ on:
 
 permissions:
   contents: write
-
+  
 jobs:
   bookdown:
     runs-on: ${{ matrix.os }}
@@ -43,3 +43,7 @@ jobs:
         with:
           name: _book
           path: _book/
+      - name: Deploy website
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: _book
