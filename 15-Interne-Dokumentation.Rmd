@@ -107,6 +107,9 @@ Als Rohtext steht hier:
 ```
 Beispielsweise führt folgender Link zur [R Einführung][Einführung in R].
 ```
+Für Links zu Subseiten auf derselben Seite (z.B. sind wir bei 06_Fehlermeldungen und wollen auf das Unterkapitel Code Diagnostik innerhalb von 06_Fehlermeldungen verlinken) können wir die Links einfach so lassen.
+
+Wenn wir auf Unterkapitel von anderen Seiten verlinken wollen (z.B. sind wir bei 01_Installation und wollen auf das Unterkapitel Code Diagnostik von 06_Fehlermeldungen verlinken), dann würden wir einfach den Namen des Unterkapitels angeben: [Code Diagnostik][Code Diagnostik].
 
 ### Paket hinzufügen
 
