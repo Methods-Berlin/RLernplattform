@@ -250,7 +250,7 @@ knitr::include_graphics("figures/Pakete/Bilder/session_info.png")
 
 ### Probleme mit Paketen und Funktionen
 
-Bei Problemen mit dem **Installieren bzw. Updaten oder Laden von Paketen** lohnt es sich, in unserem <a href="http://methods-berlin.com/de/r-lernplattform/faq-probleme-pakete" target="_blank">FAQ-Eintrag</a> nachzuschauen.
+Bei Problemen mit dem **Installieren bzw. Updaten oder Laden von Paketen** lohnt es sich, in unserem [FAQ-Eintrag](#FAQ) nachzuschauen.
 
 Wenn wir bestimmte **Funktionen nicht ausführen können**, obwohl wir das notwendige Paket geladen haben, kann das auf [Maskierung](#maskierung-wenn-verschiedene-pakete-gleich-benannte-funktionen-enthalten) von gleichnamigen Funktionen aus verschiedenen geladenen Paketen zurückzuführen sein.
 
@@ -274,13 +274,13 @@ Wir schauen uns das exemplarisch für das Paket **car** an. Du änderst nur noch
 `remove.packages('car')` bzw. `remove.packages(c('car', 'survey'))` \
 `install.packages('car', dependencies=TRUE)` \
 
-<aside>Hilfe bei der **Installation von Paketen** finden wir im gleichnamigen [Kapitel][Pakete]<a href="http://methods-berlin.com/de/r-lernplattform/pakete" target="_blank">Kapitel</a>.</aside>
+<aside>Hilfe bei der **Installation von Paketen** finden wir im gleichnamigen [Kapitel][Pakete][Pakete].</aside>
 
 (@) <font color="#009193">**Die neuste `R`-Version von <a href="https://cran.r-project.org/" target="_blank">`R`</a> und/oder <a href="https://www.rstudio.com/products/rstudio/download/" target="_blank"><span style="font-family: Consolas,monaco,monospace;">RStudio</span></a> <font size="2">(hierbei die kostenlose Variante)</font> auf dem Computer installieren und dann versuchen, das Paket neu zu installieren bzw. Schritt 1 durchzuführen.**</font>
 
 Achte dabei auf die **Kompatibilität mit deiner Hardware und Software**. Unter Umständen kannst du vielleicht nicht die neueste Version installieren, aber eine neuere als deine aktuelle Version. Ältere Versionen von `R` finden wir auch unter obigem Link. Ältere Versionen von <span style="font-family: Consolas,monaco,monospace;">RStudio</span> finden wir <a href="https://support.rstudio.com/hc/en-us/articles/206569407-Older-Versions-of-RStudio" target="_blank">hier</a>. 
 
-<aside>Hilfe bei der **Installation von `R` und <span style="font-family: Consolas,monaco,monospace;">RStudio</span>** finden wir unserem <a href="http://methods-berlin.com/de/r-lernplattform/installation" target="_blank">Kapitel</a> dazu.</aside>
+<aside>Hilfe bei der **Installation von `R` und <span style="font-family: Consolas,monaco,monospace;">RStudio</span>** finden wir unserem [Kapitel][Installation].</aside>
 
 (@) <font color="#009193">**Die Pakete deinstallieren und _manuell_ neu installieren**</font>
 
@@ -317,5 +317,5 @@ install_github("kthorstmann/horst") # EntwicklerIn / Paket
 sessionInfo()
 ```
 
-Für Informationen zur Interpretation dieses Outputs schaut auch den Abschnitt <a href="http://methods-berlin.com/wp-content/uploads/Pakete.html#replizierbarkeit-von-analysen" target="_blank">**Replizierbarkeit von Analysen**</a> des Kapitels zu Paketen an.
+Für Informationen zur Interpretation dieses Outputs schaut auch den Abschnitt **[Replizierbarkeit von Analysen][Replizierbarkeit von Analysen]** des Kapitels zu Paketen an.
 </font>
