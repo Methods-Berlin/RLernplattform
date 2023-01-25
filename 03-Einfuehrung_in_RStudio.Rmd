@@ -1,6 +1,6 @@
 # Einführung in RStudio
 
-Im Rahmen dieses Kapitels schauen wir uns an, wie die Benutzeroberfläche der <span class="highlight">Entwicklungsumgebung <span class="r">RStudio</span></span> aufgebaut ist und wie sie uns den Umgang mit der (grundlegenden) Software `R` erleichtert. Wir lernen die vier grundlegenden Bereiche <font size="2">(Panels)</font> von <span class="r">RStudio</span> kennen und werden uns besonders die `R`-Dokumentation genauer anschauen. In dieser finden wir viele wertvolle Informationen zu Funktionen. Am Ende finden wir noch eine Übersicht über Kurzbefehle, die uns die Arbeit mit `R` zusätzlich erleichtern.
+Im Rahmen dieses Kapitels schauen wir uns an wie die Benutzeroberfläche der <span class="highlight">Entwicklungsumgebung <span class="r">RStudio</span></span> aufgebaut ist und wie sie uns den Umgang mit der (grundlegenden) Software `R` erleichtert. Wir lernen die vier grundlegenden Bereiche <font size="2">(Panels)</font> von <span class="r">RStudio</span> kennen und werden uns besonders die `R`-Dokumentation genauer anschauen. In dieser finden wir viele wertvolle Informationen zu Funktionen. Am Ende finden wir noch eine Übersicht über Kurzbefehle, die uns die Arbeit mit `R` zusätzlich erleichtern.
 
 Es ist von Vorteil, wenn wir die <a href="http://methods-berlin.com/de/r-lernplattform/einfuehrung_in_r" target="_blank">**Einführung in `R`**</a>, in der Funktionen und Pakete, sowie die Speicherung von Daten erklärt werden, bereits durchgearbeitet haben.
 
