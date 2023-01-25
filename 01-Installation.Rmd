@@ -147,7 +147,7 @@ Wir speichern die .exe-Datei und klicken dann auf diese. Wir müssen auch hier w
 knitr::include_graphics("figures/Installation/Bilder/11.png")
 ```
 
-Hier werden ähnliche Einstellungen wie bei der [Installation von <span class ="r">**R**</span>](#installation-von-r) besprochen. Abschließend klicken wir auch hier auf **fertigstellen**.
+Hier werden ähnliche Einstellungen wie bei der [Installation von R] [Installation von R] besprochen. Abschließend klicken wir auch hier auf **fertigstellen**.
 
 ### Aktualisierung von <span class ="r">**R**</span> mit Übernahme der Pakete aus der älteren Version (Paket **installr**)
 
@@ -182,7 +182,7 @@ knitr::include_graphics("figures/Installation/Bilder/install_latest.png")
 
 Wenn wir in <span class ="r">RStudio</span> sind, werden wir gefragt, ob wir die Installation via `updateR()` lieber in <span class ="r">R</span> ausführen wollen. Wir können die Installation aber auch einfach in <span class ="r">RStudio</span> fortführen.
 
-Nun kommen die gleichen Einstellungen und Zustimmungen wie bei der [Installation von <span class ="r">**R**</span>](#installation-von-r). 
+Nun kommen die gleichen Einstellungen und Zustimmungen wie bei der [Installation von R] [Installation von R]. 
 
 Nach Abschluss der Installation werden wir gefragt, ob wir die Pakete unserer alten <span class ="r">R</span>-Version in die neue übernehmen wollen ...
 
@@ -426,7 +426,7 @@ Wir gehen jetzt zurück auf den anderen Tab (der älteren <span class ="r">R</sp
 # https://stackoverflow.com/questions/13656699/update-r-using-rstudio
 ```
 
-**Tipp**: Nach der Aktualisierung von <span class ="r">R</span> können wir mit großer Wahrscheinlichkeit auch einige **Pakete aktualisieren**. Für Hilfe dabei können wir uns das gleichnamige <a href="http://methods-berlin.com/de/r-lernplattform/pakete" target="_blank">Kapitel</a> anschauen.
+**Tipp**: Nach der Aktualisierung von <span class ="r">R</span> können wir mit großer Wahrscheinlichkeit auch einige **Pakete aktualisieren**. Für Hilfe dabei können wir uns das gleichnamige [Kapitel] [Pakete] anschauen.
 
 
 ### Aktualisierung von <span class ="r">**RStudio**</span>
