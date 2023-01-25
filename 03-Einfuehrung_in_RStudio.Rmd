@@ -2,11 +2,11 @@
 
 Im Rahmen dieses Kapitels schauen wir uns an, wie die Benutzeroberfläche der <span class="highlight">Entwicklungsumgebung <span class="r">RStudio</span></span> aufgebaut ist und wie sie uns den Umgang mit der (grundlegenden) Software `R` erleichtert. Wir lernen die vier grundlegenden Bereiche <font size="2">(Panels)</font> von <span class="r">RStudio</span> kennen und werden uns besonders die `R`-Dokumentation genauer anschauen. In dieser finden wir viele wertvolle Informationen zu Funktionen. Am Ende finden wir noch eine Übersicht über Kurzbefehle, die uns die Arbeit mit `R` zusätzlich erleichtern.
 
-Es ist von Vorteil, wenn wir die <a href="http://methods-berlin.com/de/r-lernplattform/einfuehrung_in_r" target="_blank">**Einführung in `R`**</a>, in der Funktionen und Pakete, sowie die Speicherung von Daten erklärt werden, bereits durchgearbeitet haben.
+Es ist von Vorteil, wenn wir die [Einführung in R][Einführung in R], in der Funktionen und Pakete, sowie die Speicherung von Daten erklärt werden, bereits durchgearbeitet haben.
 
-> **_Achtung_**: Voraussetzung zur Bearbeitung des Kapitels ist, dass wir [**`R` und `Rstudio` installiert**](Installation.html).
+> **_Achtung_**: Voraussetzung zur Bearbeitung des Kapitels ist, dass wir [R und RStudio installiert][Installation] haben.
 
-Weiterführend bietet es sich an, das Kapitel zum <a href="http://methods-berlin.com/de/r-lernplattform/daten_einlesen" target="_blank">**Daten einlesen**</a> anzuschauen.
+Weiterführend bietet es sich an, das Kapitel zum [Daten einlesen][Daten importieren] anzuschauen.
 
 
 ```{r, echo=FALSE}
@@ -25,12 +25,12 @@ In Abhängigkeit davon, um was für Code es sich handelt <font size="2">(z.B. Fu
 - <span class="highlight">Befehlszeilenergänzung</span> <font color="#009193">(Autovervollständigung)</font>\
 Wenn wir anfangen, Code einzutippen, bekommen wir bereits Vorschläge, welche Funktionen oder bestehenden Objekte wir meinen könnten. Wenn wir mit der Maus über eine vorgeschlagene Funktion fahren, bekommen wir außerdem eine kurze **Erklärung**, was diese macht und welche Parameter sie besitzt. Wir können auf die Vorschläge klicken, um unseren Code <font size="2">(d.h. den Namen der Funktion oder des Objekts)</font> **automatisch vervollständigen** zu lassen. Die Befehlszeilenergänzung können wir sowohl in der Konsole als auch im Skript nutzen.
 - <span class="highlight">Code Diagnostik</span>\
-Wenn wir Code im Skript schreiben, bekommen wir schon **vor der Ausführung Hinweise auf Probleme bzw. Unvollständigkeiten**. Unser Skript muss dazu aber bereits gespeichert sein. Auf die <a href="http://methods-berlin.com/wp-content/uploads/FM.html#code-diagnostik" target="_blank">Code Diagnostik</a> gehen wir im Kapitel zu <a href="http://methods-berlin.com/de/r-lernplattform/fehlermeldungen" target="_blank">Fehlermeldungen</a> noch etwas detaillierter ein.
+Wenn wir Code im Skript schreiben, bekommen wir schon **vor der Ausführung Hinweise auf Probleme bzw. Unvollständigkeiten**. Unser Skript muss dazu aber bereits gespeichert sein. Auf die [Code Diagnostik][Fehlermeldungen](#Code Diagnostik) gehen wir im Kapitel zu [Fehlermeldungen][Fehlermeldungen] noch etwas detaillierter ein.
 
 <aside>\
 Wir können aus verschiedenen Möglichkeiten zur Code Hervorhebung wählen. Diese finden wir in der oberen Menüleiste auf **Tools** > **Global Options...** > **Appearance** > **Editor Theme**.</aside>
 
-<!--Weiterhin sehr hilfreich ist, dass uns die grafische Benutzeroberfläche von <span class="r">RStudio</span> ermöglicht zu sehen, welche Objekte wir erstellt haben, auf die Dokumentation von Funktionen zuzugreifen und mit wenigen Klicks <a href="http://methods-berlin.com/de/r-lernplattform/daten_einlesen" target="_blank">Daten einzulesen</a>. -->
+<!--Weiterhin sehr hilfreich ist, dass uns die grafische Benutzeroberfläche von <span class="r">RStudio</span> ermöglicht zu sehen, welche Objekte wir erstellt haben, auf die Dokumentation von Funktionen zuzugreifen und mit wenigen Klicks [Daten einlesen][Daten importieren]. -->
 
 Beim ersten Öffnen sieht <span class="r">RStudio</span> folgendermaßen aus:
 
@@ -113,7 +113,7 @@ Wenn wir einen Fehler in einer Funktion gemacht haben, wird die Ausführung unte
 knitr::include_graphics("figures/Einführung/Bilder/RStudio/fehler.png")
 ```
 
-**Mehr Informationen zur Interpretation von Fehlermeldungen** finden wir im gleichnamigen <a href="http://methods-berlin.com/de/r-lernplattform/fehlermeldungen" target="_blank">Kapitel</a>.
+**Mehr Informationen zur Interpretation von Fehlermeldungen** finden wir im gleichnamigen [Kapitel] [Fehlermeldungen].
 
 Der Inhalt der Konsole wird nach jedem Schließen des Programms gelöscht und kann nicht ohne weiteres gespeichert werden. Deswegen ist es wichtig, die eigene Arbeit in Skripten zu speichern.
 
@@ -130,7 +130,7 @@ knitr::include_graphics("figures/Einführung/Bilder/RStudio/environ.png")
 
 Wir sehen, dass es sich um einen numerischen Vektor mit zwei Elementen, 1 und 3, handelt.
 
-Was für Informationen wir zu einem Objekt angezeigt bekommen ist abhängig von seiner Datenstruktur. Schauen wir uns das einmal am Beispiel der Objekte, die wir im Abschnitt zu <a href="http://methods-berlin.com/de/r-lernplattform/einfuehrung_in_r/#daten" target="_blank">Daten</a> im Kapitel <a href="http://methods-berlin.com/de/r-lernplattform/einfuehrung_in_r" target="_blank">Einführung in `R`</a> erstellt haben, an.
+Was für Informationen wir zu einem Objekt angezeigt bekommen ist abhängig von seiner Datenstruktur. Schauen wir uns das einmal am Beispiel der Objekte, die wir im Abschnitt zu [Daten][Einführung in R](#Daten) im Kapitel [Einführung in R][Einführung in R] erstellt haben, an.
 
 ```{r, out.width = "420px", fig.align="center", echo=FALSE}
 knitr::include_graphics("figures/Einführung/Bilder/RStudio/environ_bsp.png")
@@ -156,7 +156,7 @@ Den Datentyp eines Faktors können wir mit `typeof()`, die Länge mit `length()`
 
 Zum **Löschen** *aller* Objekte können wir auf <img src="figures/Einführung/Bilder/RStudio/Broom.png" style=" width:3%" /> klicken <font size="2">(alternativ zu `rm(list=ls())`).</font>
 
-Zusätzlich können wir über das <font color="#942192">**Environment**</font> auch externe Datensätze einlesen. Wie wir das machen, schauen wir uns im Kapitel zum <a href="http://methods-berlin.com/de/r-lernplattform/daten_einlesen" target="_blank">**Daten einlesen**</a> im <a href="http://methods-berlin.com/wp-content/uploads/DE.html#weg-1-environment-import-dataset" target="_blank">Abschnitt dazu</a> an.
+Zusätzlich können wir über das <font color="#942192">**Environment**</font> auch externe Datensätze einlesen. Wie wir das machen, schauen wir uns im Kapitel zum [Daten einlesen][Daten importieren] im [Abschnitt dazu][Daten importieren](#Weg 1 Environment Import Dataset) an.
 
 In der <font color="#942192">**History**</font> sehen wir den **zuletzt ausgeführten Code**.
 
@@ -180,9 +180,9 @@ knitr::include_graphics("figures/Einführung/Bilder/RStudio/packages.png")
 
 Wir sehen eine kurze Beschreibung des Pakets und seine Versionsnummer. Im Kästchen ganz links sehen wir außerdem, ob Pakete derzeit geladen sind. Standardpakete sind immer geladen; Add-On Pakete müssen wir bei jeder Session neu laden (wenn wir sie nutzen wollen).
 
-**Mehr Informationen zum Installieren, Laden und Aktualisieren von Paketen** mit Funktionen sowie der Entwicklungsumgebung `R` finden wir im **gleichnamigen** <a href="http://methods-berlin.com/de/r-lernplattform/pakete" target="_blank">**Kapitel**</a>.
+**Mehr Informationen zum Installieren, Laden und Aktualisieren von Paketen** mit Funktionen sowie der Entwicklungsumgebung `R` finden wir im **gleichnamigen** [Kapitel][Pakete].
 
-Unter <span class="r help">**Files**</span> sehen wir die Ordner(struktur) auf unserem Rechner. Im Kapitel zu <a href="http://methods-berlin.com/de/r-lernplattform/daten_einlesen" target="_blank">**Daten einlesen**</a> erfahren wir, wie wir <a href="http://methods-berlin.com/wp-content/uploads/DE.html#weg-2-files-import-dataset" target="_blank">diesen Bereich nutzen</a> können.
+Unter <span class="r help">**Files**</span> sehen wir die Ordner(struktur) auf unserem Rechner. Im Kapitel zu [Daten einlesen][Daten importieren] erfahren wir, wie wir [diesen bereich nutzen][Daten importieren](#Weg 2 Files Import Dataset) können.
 
 Unter <span class="r help">**Plots**</span> werden (von uns erstellte) Grafiken angezeigt; unter <span class="r help">**Viewer**</span> (von uns erstellte) Tabellen.
 
@@ -301,7 +301,7 @@ Teilweise findet man hier auch Funktionen, die besser für das eigene Vorhaben g
 
 Hier findet man einige beispielhafte Anwendungen der Funktion. Anhand der Beispiele bekommt man ein besseres Verständnis von der Syntax und Funktionsweise der Funktion. Was genau gemacht wird ist oftmals in kurzen Kommentaren (`# ...`) erklärt.
 
-<!-- Mehr Informationen zum **<a href="http://methods-berlin.com/wp-content/uploads/FM.html#r-dokumentation" target="_blank">Aufbau der Dokumentation</a>** finden wir im Kapitel **Fehlermeldungen**. -->
+<!-- Mehr Informationen zum **[Aufbau der Dokumentation][Fehlermeldungen](#R Dokumentation)** finden wir im Kapitel **Fehlermeldungen**. -->
 
 
 ## Weitere Hilfen
@@ -310,7 +310,7 @@ Hier findet man einige beispielhafte Anwendungen der Funktion. Anhand der Beispi
 
 Nachfolgend finden wir einige Kurzbefehle für die beiden Betriebssysteme Windows und Mac, die unseren Workflow verbessern.
 
-<img src="figures/Buttons/exclam.png" class="exclam out-rows" alt="exclamation"/> Mit dem letzten Kurzbefehl können wir schneller Dateipfade kopieren, was uns das <a href="http://methods-berlin.com/de/r-lernplattform/daten_einlesen" target="_blank">Einlesen von Daten</a> in `R` erleichtert. Dieser Kurzbefehl ist, im Gegensatz zu den anderen, nicht zur Nutzung in `R` geeignet; er funktioniert **nur** im Explorer <font size="2">(Windows)</font> bzw. Finder <font size="2">(Mac)</font>.
+<img src="figures/Buttons/exclam.png" class="exclam out-rows" alt="exclamation"/> Mit dem letzten Kurzbefehl können wir schneller Dateipfade kopieren, was uns das [Einlesen von Daten in R][Daten importieren] erleichtert. Dieser Kurzbefehl ist, im Gegensatz zu den anderen, nicht zur Nutzung in `R` geeignet; er funktioniert **nur** im Explorer <font size="2">(Windows)</font> bzw. Finder <font size="2">(Mac)</font>.
 
 
 ```{r, echo=FALSE}
@@ -358,5 +358,5 @@ Eine Übersicht weiterer Kurzbefehle für `R` finden wir in der Leiste ganz oben
 sessionInfo()
 ```
 
-Für Informationen zur Interpretation dieses Outputs schaut auch den Abschnitt <a href="http://methods-berlin.com/wp-content/uploads/Pakete.html#replizierbarkeit-von-analysen" target="_blank">**Replizierbarkeit von Analysen**</a> des Kapitels zu Paketen an.
+Für Informationen zur Interpretation dieses Outputs schaut auch den Abschnitt **[Replizierbarkeit von Analysen][Pakete](#Replizierbarkeit von Analysen)** des Kapitels zu **Paketen** an.
 </font>
