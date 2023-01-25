@@ -8,9 +8,9 @@
 
 Im Verlauf dieses Kapitels lernen wir, was **Funktionen und Pakete** sind und wie wir diese in <span class="r">R</span> nutzen. Danach schauen wir uns an, wie wir **Daten** speichern, um mit ihnen arbeiten zu können. Am Ende des Kapitels finden wir wesentliche **Kurzbefehle** für Windows und Mac und **weiterführende Hilfen**.
 
-> *__Achtung__*: Voraussetzung zur Bearbeitung des Kapitels ist, dass wir (zumindest) [R installiert] [Installation] haben.
+> *__Achtung__*: Voraussetzung zur Bearbeitung des Kapitels ist, dass wir (zumindest) [R installiert][Installation] haben.
 
-Weiterführend ist es sinnvoll, sich die [Einführung in RStudio] [Einführung in RStudio] anzuschauen.
+Weiterführend ist es sinnvoll, sich die [Einführung in RStudio][Einführung in RStudio] anzuschauen.
 
 
 ```{r, echo=FALSE}
@@ -65,7 +65,7 @@ Werfen wir einmal einen Blick in die **Funktionsdefinition von `mean()`**:
 knitr::include_graphics("figures/Einführung/Bilder/R/mean.png")
 ```
 
-<aside>Die Funktionsdefinition finden wir in der Dokumentation, welche wir in <span class="r">RStudio</span> unter <a href="http://methods-berlin.com/wp-content/uploads/Einfuehrung_in_RStudio.html#files-plots-packages-help-viewer" target="_blank">**Help**</a> öffnen können.</aside>
+<aside>Die Funktionsdefinition finden wir in der Dokumentation, welche wir in <span class="r">RStudio</span> unter [Files, Plots, Packages, Help & Viewer][Files, Plots, Packages, Help & Viewer] 
 
 Manche Parameter besitzen *voreingestellte Argumente* <font size="2"><span class="ex">(z.B. `na.rm=FALSE`)</font></span>, diese bezeichnet man als <span class="highlight">Defaults</span>. Funktionen mit (min. einem) Parameter *ohne* Default <span class="ex"><font size="2">(z.B. `mean()`)</font></span> werden ohne Spezifikation dieser nicht ausgeführt. <span class="ex">Beispielsweise *müssen* wir dem Parameter `x` einen Vektor, von dem wir den Mittelwert berechnen wollen, übergeben.</span>
 
@@ -117,7 +117,7 @@ Weil wir weniger (redundanten) Code haben, können wir schneller Fehler finden <
 - <font color="#009193">**Erweiterbarkeit**</font>\
 Funktionen können erweitert werden, um verschiedene Szenarien zu händeln. Meist hat das schon jemand für uns gemacht. Wir müssen den Parametern einer Funktion nur verschiedene Argumente übergeben <span class="ex"><font size="2">(z.B. `na.rm=TRUE` zum Ausschluss von fehlenden Werten)</font></span>. 
 - <font color="#009193">**Abstraktion**</font>\
-Wir müssen die Funktion nicht im Detail verstehen. Es reicht zu wissen, wie der *Name* der Funktion ist <font size="2"><span class="ex">(`mean()`)</font></span>, welchen *Input* wir übergeben <font size="2"><span class="ex">(`x`; `trim` und `na.rm` optional weil mit Default)</font></span> und welchen *Output* <font size="2"><span class="ex">(arithmetisches Mittel)</font></span> wir bekommen und wo wir die Funktion finden, d.h. aus welchem *Paket* <font size="2"><span class="ex">(base)</font></span> sie stammt. All diese Informationen erhalten wir in der Dokumentation der Funktion z.B. in <span class="r">RStudio</span> unter <a href="http://methods-berlin.com/wp-content/uploads/Einfuehrung_in_RStudio.html#files-plots-packages-help-viewer" target="_blank">**Help**</a>.
+Wir müssen die Funktion nicht im Detail verstehen. Es reicht zu wissen, wie der *Name* der Funktion ist <font size="2"><span class="ex">(`mean()`)</font></span>, welchen *Input* wir übergeben <font size="2"><span class="ex">(`x`; `trim` und `na.rm` optional weil mit Default)</font></span> und welchen *Output* <font size="2"><span class="ex">(arithmetisches Mittel)</font></span> wir bekommen und wo wir die Funktion finden, d.h. aus welchem *Paket* <font size="2"><span class="ex">(base)</font></span> sie stammt. All diese Informationen erhalten wir in der Dokumentation der Funktion z.B. in <span class="r">RStudio</span> [unter][Files, Plots, Packages, Help & Viewer]. 
 
 Auf <a href="https://www.freecodecamp.org" target="_blank">freecodecamp.org</a> finden wir eine kurze Einführung zu <span class="r">R</span>: <a href="https://www.freecodecamp.org/news/r-programming-language-explained/" target="_blank"><span class="r">R</span> Programming Language explained</a>. Es lohnt sich, **vertiefend den Part zu <a href="https://www.freecodecamp.org/news/r-programming-language-explained/#functions-in-r" target="_blank">Funktionen</a> anzuschauen** <font size="2">(~ 10min)</font>, um ein besseres Verständnis für die Arbeit mit <span class="r">R</span> zu bekommen.
 
@@ -170,7 +170,7 @@ install.packages("psych") # auf Anführungszeichen achten!
 <span class="ex">Die im Paket enthaltene Funktion `describe()` gibt uns beispielsweise eine kompakte Übersicht relevanter deskriptiv-statistischer Kennwerte von Daten aus. 
 
 <!--Die Daten müssen dafür zweidimensional sein <font size="2">(d.h. als Matrix oder Data Frame vorliegen)</font>.</span>   # laut Dok, aber funktioniert auch bei Vektoren 
-<aside>Mehr Informationen zur Organisation von Daten später unter [Datenstrukturen].</aside>
+<aside>Mehr Informationen zur Organisation von Daten später unter [Datenstrukturen][Datenstrukturen].</aside>
 -->
 
 Wenn wir enthaltene Funktionen nutzen wollen, müssen wir das Paket zuerst **laden**.
@@ -180,15 +180,15 @@ library(psych) # keine Anführungszeichen notwendig
 describe(women)
 ```
 
-<!-- <aside>**women** ist ein Datensatz aus dem Basispaket **datasets**, den wir mit der Funktion `data()`, aus dem Basispaket **utils**, in unser <a href="http://methods-berlin.com/wp-content/uploads/Einfuehrung_in_RStudio.html#environment-history" target="_blank">**Environment**</a> holen können, um damit zu arbeiten.</aside> -->
+<!-- <aside>**women** ist ein Datensatz aus dem Basispaket **datasets**, den wir mit der Funktion `data()`, aus dem Basispaket **utils**, in unser [Environment][Environment & History] holen können, um damit zu arbeiten.</aside> -->
 
 <span class="ex">Mit `describe` erhalten wir folgende Informationen zu jeder Variable im Data Frame bzw. Matrix: Namen, Spaltennummer (`vars`), Anzahl (gültiger) Fälle (`n`), Mittelwert (`mean`), Standarabweichung (`sd`), Median (`median`), getrimmter Mittelwert (`trimmed`), Median Absolute Deviation (`mad`), Minimum (`min`), Maximum (`max`), Schiefe (`skew`), Exzess (`kurtosis`) und Standardfehler des Mittelwerts (`se`).</span>
 
-<aside>Diese Informationen finden wir in der Dokumentation, welche wir unter <a href="http://methods-berlin.com/wp-content/uploads/Einfuehrung_in_RStudio.html#files-plots-packages-help-viewer" target="_blank">**Help**</a> in <span class="r">RStudio</span> ansehen können.</aside>
+<aside>Diese Informationen finden wir in der Dokumentation, welche wir [unter][Files, Plots, Packages, Help & Viewer] in <span class="r">RStudio</span> ansehen können.</aside>
 
 Wenn wir <span class="r">R</span> bzw. <span class="r">RStudio</span> schließen und erneut öffnen, müssen wir zusätzliche Pakete vor der Nutzung erneut laden.
 
-Für **mehr Informationen zu Paketen**, u.a. wie wir diese aktualisieren können, könnt ihr euch dazugehöriges [Kapitel] [Pakete] anschauen.
+Für **mehr Informationen zu Paketen**, u.a. wie wir diese aktualisieren können, könnt ihr euch dazugehöriges [Kapitel][Pakete] anschauen.
 
 
 ## **2. Daten**
@@ -299,7 +299,7 @@ tab %>%
   column_spec(3, background = "#ECECEC") %>%
   column_spec(1:2, background = "white")
 
-# wir schauen uns hier nur solche logischen vektoren an, die Vektoren beliebiger Länge annehmen können z.B. & anstatt &&; zweiteres bewertet nur das erste Element in jedem Argument
+# wir schauen uns hier nur solche logischen Vektoren an, die Vektoren beliebiger Länge annehmen können z.B. & anstatt &&; zweiteres bewertet nur das erste Element in jedem Argument
 ## https://riptutorial.com/de/r/example/13276/logische-operatoren
 ```
 
@@ -537,7 +537,7 @@ Bei Betrachtung der numerischen Vektoren fällt auf, dass `vek_4` und `vek_5` al
 
 **Aber warum wurden `vek_4` und `vek_5` als <span class="r">numeric</span> gespeichert, obwohl wir <span class="r">integer</span> (ganze Zahlen) bzw. <span class="r">double</span> (Kommazahlen) erwartet hätten?**
 
-Das liegt daran, dass <span class="r">R</span> *alle Zahlen* (d.h. ganze, reelle und komplexe Zahlen) als <span class="r">numeric</span> zusammenfasst (wie bereits in der Einführung zu [Datentypen] erwähnt), *solange* wir diese nicht explizit (als <span class="r">integer</span>) definieren.
+Das liegt daran, dass <span class="r">R</span> *alle Zahlen* (d.h. ganze, reelle und komplexe Zahlen) als <span class="r">numeric</span> zusammenfasst (wie bereits in der Einführung zu [Datentypen][Datentypen] erwähnt), *solange* wir diese nicht explizit (als <span class="r">integer</span>) definieren.
 
 Genau genommen lautete der **exakte Datentyp** von ganzen und reellen Zahlen, die als <span class="r">numeric</span> zusammengefasst sind, <span class="r">double</span>. Mit `typeof()` sehen wir diesen. 
 
@@ -873,7 +873,7 @@ Bestehende Objekte können de facto nicht mehr umbenannt werden. Wir können sie
 
 Nachfolgend finden wir einige Kurzbefehle für die beiden Betriebssysteme Windows und Mac, die unseren Workflow verbessern.
 
-> *__Achtung__*:  Mit dem letzten Kurzbefehl können wir schneller Dateipfade kopieren, was uns das [Einlesen von Daten in R] [Daten importieren] erleichtert. Dieser Kurzbefehl ist, im Gegensatz zu den anderen, nicht zur Nutzung in <span class="r">R</span> geeignet; er funktioniert **nur** im Explorer <font size="2">(Windows)</font> bzw. Finder <font size="2">(Mac)</font>.
+> *__Achtung__*:  Mit dem letzten Kurzbefehl können wir schneller Dateipfade kopieren, was uns das [Einlesen von Daten in R][Daten importieren] erleichtert. Dieser Kurzbefehl ist, im Gegensatz zu den anderen, nicht zur Nutzung in <span class="r">R</span> geeignet; er funktioniert **nur** im Explorer <font size="2">(Windows)</font> bzw. Finder <font size="2">(Mac)</font>.
 
 
 ```{r, echo=FALSE}
@@ -899,7 +899,7 @@ table_dat %>%
   
 ```
 
-Eine Übersicht weiterer Kurzbefehle für <span class="r">R</span> finden wir in der Leiste ganz oben unter **Help > Keyboard Shortcuts Help** <font size="2">(nicht zu verwechseln mit dem Bereich <a href="http://methods-berlin.com/wp-content/uploads/Einfuehrung_in_RStudio.html#files-plots-packages-help-viewer" target="_blank">**Help**</a>, der uns Zugang zur Dokumentation verschafft)</font>.
+Eine Übersicht weiterer Kurzbefehle für <span class="r">R</span> finden wir in der Leiste ganz oben unter **Help > Keyboard Shortcuts Help** <font size="2">(nicht zu verwechseln mit dem Bereich [Help][Files, Plots, Packages, Help & Viewer], der uns Zugang zur Dokumentation verschafft)</font>.
 
 ```{r, echo=FALSE}
 # weitere Shortcuts
@@ -931,7 +931,7 @@ Wenn ihr den <span class="highlight">**Umgang mit <span class="r">R</span> direk
 sessionInfo()
 ```
 
-Für Informationen zur Interpretation dieses Outputs schaut auch den Abschnitt <a href="http://methods-berlin.com/wp-content/uploads/Pakete.html#replizierbarkeit-von-analysen" target="_blank">**Replizierbarkeit von Analysen**</a> des Kapitels zu Paketen an.
+Für Informationen zur Interpretation dieses Outputs schaut auch den Abschnitt [Replizierbarkeit von Analysen][Replizierbarkeit von Analysen] des Kapitels zu Paketen an.
 </font>
 
 
