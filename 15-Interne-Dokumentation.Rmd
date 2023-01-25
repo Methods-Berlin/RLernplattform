@@ -1,5 +1,55 @@
 # Interne Dokumentation
 
+Dieses Repository enthält alle Dateien, die für die Erstellung der RLernplattform notwendig sind.
+Die Webseite ist als Bookdown Projekt angelegt und kann beliebig erweitert und überarbeitet werden.
+
+## Was finde ich im Projekt?
+
+Die wichtigsten Dokumente sind die RMarkdown-Dateien. Diese enden mit .Rmd und in ihnen sind die 
+tatsächlichen Inhalte der Website gespeichert. Beispielsweise findest Du in "01-Installation.Rmd"
+die Infos zur Installation von R und RStudio. Im Dokument "02-Einfuehrung_in_R.Rmd" befinden sich   
+dann die Einführung in R. Die Dateinamen der Rmd Dateien beginnen immer mit einer Zahl (01, 02, ...).
+Diese Zahl gibt an, in welcher Reihenfolge die Themen auf unserer Webseite auftauchen sollen. So kann 
+man durch einfaches Umbenennen der Dateien auch die Reihenfolge der Themen verändern oder neue Themen einfügen.
+
+Im Ordner "figures" befinden sich alle Bilder, die in der Webseite eingebunden sind. Beispielsweise befinden 
+sich im Unterornder Daten-importieren/Bilder alle Bilder des Themas Daten importieren.
+
+Im Ordner "data" befinden sich alle Datensätze, die zur Erstellung der Webseite notwendig sind. Diese werden 
+in den Beispiel-Analysen verwendet (z.B. um das Einlesen von Datensätzen zu veanschaulichen).
+
+Die restlichen Dateien sind notwendig für Bookdown. Den größten Teil hiervon können wir ignorieren. Für uns 
+(manchmal) relevant sind hier eigentlich nur "style.css" und "DESCRIPTION". In "style.css" wird das Aussehen der 
+Webseite definiert. Diese Datei ist aktuell einfach von der alten Webseite übernommen, was dazu führt, dass der
+bisherige Stil beibehalten wird. In "DESCRIPTION" geben wir (unter anderem) an, welche R Pakete wir 
+in den einzelnen .Rmd Dateien nutzen. Wenn wir beispielsweise lavaan nutzen wollen, müssen wir hier lavaan zu
+den Paketen hinzufügen (siehe unten). Wenn wir das vergessen, kommt es zu Fehlern beim erstellen der Webseite!
+
+## Themen bearbeiten
+
+Themen können entweder direkt auf GitHub bearbeitet werden oder lokal auf dem eigenen Rechner. Wenn Du 
+Themen auf Deinem Rechner bearbeiten möchtest, musst Du Dich mit git und GitHub auskennen. Im Folgenden 
+werden wir uns auf die Bearbeitung direkt in GitHub konzentrieren. 
+
+Angenommen Dir fällt ein Fehler in der Einführung in R auf. Um den Fehler zu beheben, öffne das Dokument 
+"02-Einfuehrung_in_R.Rmd" in GitHub. 
+
+![](figures/documentation/open_rmd.png)
+
+Anschließend kannst Du die Datei bearbeiten, indem Du auf den Stift klickst:
+
+![](figures/documentation/change_rmd.png)
+
+Du kannst nun das Dokument verändern. Wenn Du alle Veränderungen vorgenommen hast, dann klicke auf commit (scrolle nach ganz unten).
+
+![](figures/documentation/commit_rmd.png)
+
+Die Veränderungen sind nun gespeichert! **Wichtig**: Die Webseite wird nicht automatisch aktualisiert. 
+Hier ist zur Zeit noch etwas Handarbeit erfordert.
+
+### Bilder einfügen
+
+
 ## Neues Thema erstellen
 
 Um ein Thema hinzuzufügen, öffne die Datei RLernplattform.Rproj mit RStudio. 
