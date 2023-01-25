@@ -6,7 +6,7 @@ in die finale Webseite übernommen werden!
 
 - @BRITTA: entferne die zusätzlichen Kommas im folgenden Text:
 
-Eine lineare Regression ist ein statistisches Modell,,, das verwendet wird,,, um eine lineare Beziehung zwischen einer abhängigen Variablen und einer oder mehreren unabhängigen Variablen zu beschreiben. Eine lineare Regression versucht, eine gerade Linie zu finden, die am besten die Beziehung zwischen den Variablen beschreibt....
+Eine lineare Regression ist ein statistisches Modell, das verwendet wird, um eine lineare Beziehung zwischen einer abhängigen Variablen und einer oder mehreren unabhängigen Variablen zu beschreiben. Eine lineare Regression versucht eine gerade Linie zu finden, die am besten die Beziehung zwischen den Variablen beschreibt.
 
 - @Vivian: Füge ein Komma zwischen "sein" und "dass" ein.
 
