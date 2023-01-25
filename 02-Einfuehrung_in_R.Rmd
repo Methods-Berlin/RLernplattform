@@ -8,9 +8,9 @@
 
 Im Verlauf dieses Kapitels lernen wir, was **Funktionen und Pakete** sind und wie wir diese in <span class="r">R</span> nutzen. Danach schauen wir uns an, wie wir **Daten** speichern, um mit ihnen arbeiten zu können. Am Ende des Kapitels finden wir wesentliche **Kurzbefehle** für Windows und Mac und **weiterführende Hilfen**.
 
-> *__Achtung__*: Voraussetzung zur Bearbeitung des Kapitels ist, dass wir (zumindest) <a href="http://methods-berlin.com/de/r-lernplattform/installation_und_aktualisierung" target="_blank">**<span class="r">R</span> installiert**</a> haben.
+> *__Achtung__*: Voraussetzung zur Bearbeitung des Kapitels ist, dass wir (zumindest) [R installiert] [Installation] haben.
 
-Weiterführend ist es sinnvoll, sich die <a href="http://methods-berlin.com/de/r-lernplattform/einfuehrung_in_rstudio" target="_blank">**Einführung in <span class="r">RStudio</span>**</a> anzuschauen.
+Weiterführend ist es sinnvoll, sich die [Einführung in RStudio] [Einführung in RStudio] anzuschauen.
 
 
 ```{r, echo=FALSE}
@@ -188,7 +188,7 @@ describe(women)
 
 Wenn wir <span class="r">R</span> bzw. <span class="r">RStudio</span> schließen und erneut öffnen, müssen wir zusätzliche Pakete vor der Nutzung erneut laden.
 
-Für **mehr Informationen zu Paketen**, u.a. wie wir diese aktualisieren können, könnt ihr euch dazugehöriges <a href="http://methods-berlin.com/de/r-lernplattform/pakete" target="_blank">Kapitel</a> anschauen.
+Für **mehr Informationen zu Paketen**, u.a. wie wir diese aktualisieren können, könnt ihr euch dazugehöriges [Kapitel] [Pakete] anschauen.
 
 
 ## **2. Daten**
@@ -873,7 +873,7 @@ Bestehende Objekte können de facto nicht mehr umbenannt werden. Wir können sie
 
 Nachfolgend finden wir einige Kurzbefehle für die beiden Betriebssysteme Windows und Mac, die unseren Workflow verbessern.
 
-> *__Achtung__*:  Mit dem letzten Kurzbefehl können wir schneller Dateipfade kopieren, was uns das <a href="http://methods-berlin.com/de/r-lernplattform/daten_einlesen" target="_blank">Einlesen von Daten</a> in <span class="r">R</span> erleichtert. Dieser Kurzbefehl ist, im Gegensatz zu den anderen, nicht zur Nutzung in <span class="r">R</span> geeignet; er funktioniert **nur** im Explorer <font size="2">(Windows)</font> bzw. Finder <font size="2">(Mac)</font>.
+> *__Achtung__*:  Mit dem letzten Kurzbefehl können wir schneller Dateipfade kopieren, was uns das [Einlesen von Daten in R] [Daten importieren] erleichtert. Dieser Kurzbefehl ist, im Gegensatz zu den anderen, nicht zur Nutzung in <span class="r">R</span> geeignet; er funktioniert **nur** im Explorer <font size="2">(Windows)</font> bzw. Finder <font size="2">(Mac)</font>.
 
 
 ```{r, echo=FALSE}
