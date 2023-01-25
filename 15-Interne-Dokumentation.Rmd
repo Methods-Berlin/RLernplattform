@@ -150,10 +150,51 @@ Unser neues Thema wurde nun hinzugefügt!
 
 ## Webseite erstellen
 
-Um die Webseite zu erstellen, gehe auf Build > Build Book. Wichtig ist, dass 
-eine html Seite erstellt wird und nicht ein pdf. Falls RStudio fälschlicherweise
-versucht ein pdf zu erstellen, dann klicke auf den kleinen Pfeil neben Build Book
-und wähle bookdown::gitbook.
+**Aktuell ist die Webseite noch nicht online!** Wir können aber eine offline-Version 
+erstellen, die wir dann herunterlagen und auf unserem Computer anschauen können.
+Hierfür werden GitHub Actions genutzt. 
+
+> Hinweis: Wir haben nur eine begrenzte Rechenkapazität auf GitHub. Bitte erstelle
+die Webseite nur dann neu, wenn Du alle Änderungen vorgenommen hast, die Du vornehmen
+wolltest.
+
+Das Vorgehen ist aktuell:
+
+1. Klicke auf Actions
+
+![](figures/documentation/actions.png)
+
+2. Klicke auf create_book
+
+![](figures/documentation/create_book_1.png)
+
+3. Klicke auf Run workflow
+
+![](figures/documentation/create_book_2.png)
+
+4. Wähle Run workflow
+
+![](figures/documentation/create_book_3.png)
+
+Das Bookdown Projekt wird nun in eine Webseite übersetzt. Diese ist allerdings nicht online!
+
+Um die Webseite herunter zu laden, ist das Vorgehen:
+
+1. Klicke auf Actions
+
+![](figures/documentation/actions.png)
+
+2. Klicke auf den neuesten Durchgang der create_book Action
+
+![](figures/documentation/create_book_4.png)
+
+3. Scrolle ganz nach unten. Dort findest Du den Ordner _book unter Artefacts
+
+![](figures/documentation/create_book_5.png)
+
+Lade die Datei herunter und entpacke sie auf Deinem Computer. Im Ordner wirst Du unter 
+anderem mehrere .html Dateien finden. Öffne eine beliebige dieser Dateien mit Deinem 
+Browser, um die lokale Version der Webseite anzuzeigen.
 
 ### Alle Dependencies installieren
 
@@ -168,6 +209,3 @@ library("devtools")
 devtools::install_deps()
 ```
 
-## Webseite updaten
-
-TODO: Dokumentation des Updatens der Webseite.
