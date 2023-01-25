@@ -45,31 +45,10 @@ Du kannst nun das Dokument verändern. Wenn Du alle Veränderungen vorgenommen h
 ![](figures/documentation/commit_rmd.png)
 
 Die Veränderungen sind nun gespeichert! **Wichtig**: Die Webseite wird nicht automatisch aktualisiert. 
-Hier ist zur Zeit noch etwas Handarbeit erfordert.
+Hier ist zur Zeit noch etwas Handarbeit erfordert. Das ist eine bewusste Entscheidung, um sicher zu stellen,
+dass keine unfertigen Seiten aus Versehen online gehen.
 
-### Bilder einfügen
-
-
-## Neues Thema erstellen
-
-Um ein Thema hinzuzufügen, öffne die Datei RLernplattform.Rproj mit RStudio. 
-Unter Files siehst Du nun alle aktuellen Themen als .Rmd Dateien. Öffne beispielsweise
-die Datei "01-Installation.Rmd". Diese enthält den Text, aus dem das erste Thema
-der Webseite erstellt wird. Um ein neues Thema zu erstellen, kannst Du entweder
-in RStudio Unter File > New File > RMarkdown ein neues RMarkdown erstellen und diese
-Datei im RLernplattform-Ordner speichern oder Du erstellst einfach eine Kopie einer
-bestehende Datei (z.B. "01-Installation.Rmd") und löscht den bisherigen Inhalt.
-Wichtig ist, dass:
-
-1. Deine Datei mit einer Überschrift 1. Ordnung anfängt. Diese erstellst Du mit
-`# Dies ist meine Überschrift`. 
-2. Der Name Deiner RMarkdown Datei mit einer Zahl anfängt. Die Zahl bestimmt, an
-welcher Stelle Dein neues Thema auf der Webseite aufgeführt wird (z.B. ist 01-Installation.Rmd)
-das erste Thema, weil es die kleinste Zahl hat.
-
-Anschließend kannst Du deine RMarkdown Datei mit Inhalten füllen.
-
-## Daten hinzufügen
+### Daten hinzufügen
 
 Wenn Du einen Datensatz für Deine RMarkdown-Datei brauchst, der nicht in R oder
 einem Paket enthalten ist, dann speichere diesen im Ordner "data". Anschließend
@@ -78,17 +57,42 @@ kannst Du ihn folgendermaßen in Deiner RMarkdown Datei einlesen:
 mein_datensatz <- read.csv("data/mein_datensatz.csv")
 ```
 
-## Bilder hinzufügen
+### Bilder hinzufügen
 
 Wenn Du Bilder für Deine RMarkdown-Datei brauchst, dann speichere diese 
 im Ordner "figures". Anschließend kannst Du diese beispielsweise folgendermaßen
 nutzen:
 
 ```
-![](figures/mein_bild.png)
+![](figures/mein_thema/mein_bild.png)
 ```
 
-## Links hinzufügen
+Eventuell musst du auch hierfür auch einen neuen Ordner erstellen (hier: den Ordner mein_thema). 
+Wenn Du diesen online in GitHub erstellen willst, dann musst Du aktuell folgendermaßen vorgehen:
+
+1. Gehe auf "create new file" oben rechts:
+
+![](figures/documentation/create_new_file.png)
+
+2. Schreibe den Pfad "mein_thema" in den Dateinamen:
+
+![](figures/documentation/add_folder.png)
+
+3. Füge eine backslash "/" hinzu. Dann wird GitHub einen Ordner erstellen:
+
+![](figures/documentation/add_folder_2.png)
+
+4. Weil GitHub uns nicht erlaubt, einfach nur den Ordner zu commiten, müssen wir 
+zudem eine neue Datei erstellen. Ich nenne diese beispielsweise einfach temp.txt:
+
+![](figures/documentation/add_folder_3.png)
+
+Anschließend können wir auf Commit klicken und haben nun einen neuen Ordner. Unsere Bilder
+können wir über "Upload files" einfach von unserem PC hochladen.
+
+![](figures/documentation/upload_file.png)
+
+### Links hinzufügen
 
 Wenn Du intern auf ein anderes Thema referenzieren möchtest, kannst Du einen
 Link einfügen. Dies geht mit:
@@ -104,13 +108,45 @@ Als Rohtext steht hier:
 Beispielsweise führt folgender Link zur [R Einführung][Einführung in R].
 ```
 
-## Paket hinzufügen
+### Paket hinzufügen
 
 Wenn Dein neues Thema auch ein neues R-Paket benötigt, dann musst Du dieses
 im Dokument `DESCRIPTION` zu `Imports:` hinzufügen (so wie beispielsweise dplyr).
 
-Will nun jemand die Webseite erstellen, dann kann diese Person erst [alle Dependencies
-installieren][Alle Dependencies installieren].
+> **Wichtig**: Wenn wir ein R Paket verwenden und dieses *nicht* zur DESCRIPTION hinzufügen,
+dann kann die Webseite nicht erstellt werden! Die Webseite wird von GitHub erstellt und dafür
+muss GitHub wissen, welche Pakete installiert werden müssen.
+
+Wenn wir die Webseite auf unserem eigenen Rechner erstellen wollen, können wir wie
+[hier][Alle Dependencies installieren] beschrieben vorgehen.
+
+## Neues Thema erstellen
+
+Es gibt mehrere Wege, ein neues Thema zu erstellen. Wir können, wie oben beschrieben,
+eine neue Datei direkt in GitHub erstellen.
+
+![](figures/documentation/create_new_file.png)
+
+Dieser können wir nun beispielsweise den Namen "20-mein-neues-Thema.Rmd" geben und
+sie direkt in GitHub bearbeiten. Wenn wir dies tun, können wir aber den R Code nicht 
+ausführen; das geschieht erst, wenn die Webseite erstellt wird.
+
+Ein einfacherer Web ist folgender:
+
+1. Wir erstellen auf unserem Computer in RStudio eine neue RMarkdown Datei und nennen diese 
+"20-mein-neues-Thema.Rmd".
+2. Wir entfernen den gesamten Inhalt der Datei und fangen direkt mit einer Überschrift an 
+(wichtig: es muss eine Überschrift mit nur einem Hashtag sein; siehe beispielsweise Zeile 1
+in https://github.com/Methods-Berlin/RLernplattform/blob/main/04-Pakete.Rmd).
+3. Jetzt können wir wie gewohnt unsere Inhalte in das RMarkdown file schreiben und den code
+auch lokal laufen lassen.
+
+Wenn wir fertig mit dem Erstellen der neuen Datei sind, können wir sie direkt auf GitHub
+hochladen:
+
+![](figures/documentation/upload_file.png)
+
+Unser neues Thema wurde nun hinzugefügt!
 
 ## Webseite erstellen
 
