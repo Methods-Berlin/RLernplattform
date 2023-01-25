@@ -214,7 +214,7 @@ library(devtools)
 install_github("kthorstmann/horst") # EntwicklerIn / Paket
 ```
 
-Mit **devtools** kann man auch ältere Versionen von Paketen runterladen. Für mehr Informationen dazu siehe [Ältere Paket-Versionen installieren].
+Mit **devtools** kann man auch ältere Versionen von Paketen runterladen. Für mehr Informationen dazu siehe [Ältere Paket-Versionen installieren][Ältere Paket-Versionen installieren].
 
 ## Wichtige Hinweise zur Replizierbarkeit
 
@@ -274,7 +274,7 @@ Wir schauen uns das exemplarisch für das Paket **car** an. Du änderst nur noch
 `remove.packages('car')` bzw. `remove.packages(c('car', 'survey'))` \
 `install.packages('car', dependencies=TRUE)` \
 
-<aside>Hilfe bei der **Installation von Paketen** finden wir im gleichnamigen <a href="http://methods-berlin.com/de/r-lernplattform/pakete" target="_blank">Kapitel</a>.</aside>
+<aside>Hilfe bei der **Installation von Paketen** finden wir im gleichnamigen [Kapitel][Pakete]<a href="http://methods-berlin.com/de/r-lernplattform/pakete" target="_blank">Kapitel</a>.</aside>
 
 (@) <font color="#009193">**Die neuste `R`-Version von <a href="https://cran.r-project.org/" target="_blank">`R`</a> und/oder <a href="https://www.rstudio.com/products/rstudio/download/" target="_blank"><span style="font-family: Consolas,monaco,monospace;">RStudio</span></a> <font size="2">(hierbei die kostenlose Variante)</font> auf dem Computer installieren und dann versuchen, das Paket neu zu installieren bzw. Schritt 1 durchzuführen.**</font>
 
