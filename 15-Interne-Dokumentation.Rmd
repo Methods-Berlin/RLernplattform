@@ -91,12 +91,12 @@ Wenn Du diesen online in GitHub erstellen willst, dann musst Du aktuell folgende
 ![](figures/documentation/add_folder_2.png)
 
 4. Weil GitHub uns nicht erlaubt, einfach nur den Ordner zu commiten, müssen wir 
-zudem eine neue Datei erstellen. Ich nenne diese beispielsweise einfach temp.txt:
+zudem eine neue Datei erstellen. Am besten schreibt man dafür einfach irgendwas in den File, den Github schon aufmacht. Ich nenne diese beispielsweise einfach temp.txt:
 
 ![](figures/documentation/add_folder_3.png)
 
 Anschließend können wir auf Commit klicken und haben nun einen neuen Ordner. Unsere Bilder
-können wir über "Upload files" einfach von unserem PC hochladen.
+können wir über "Upload files" einfach von unserem PC hochladen. Oder per Drag & Drop einfügen.
 
 ![](figures/documentation/upload_file.png)
 
