@@ -10,7 +10,7 @@ Eine lineare Regression ist ein statistisches Modell, das verwendet wird, um ein
 
 - @Vivian: Füge ein Komma zwischen "sein" und "dass" ein.
 
-Ein einfaches Beispiel in R könnte sein dass wir die Beziehung zwischen der Anzahl der Stunden, die ein Schüler lernt, und seiner abschließenden Note untersuchen wollen. Wir könnten einen Datensatz mit den Stunden, die jeder Schüler lernt, und seiner abschließenden Note erstellen und dann die lineare Regression verwenden, um die beste gerade Linie zu finden, die diese Daten beschreibt.
+Ein einfaches Beispiel in R könnte sein, dass wir die Beziehung zwischen der Anzahl der Stunden, die ein Schüler lernt, und seiner abschließenden Note untersuchen wollen. Wir könnten einen Datensatz mit den Stunden, die jeder Schüler lernt, und seiner abschließenden Note erstellen und dann die lineare Regression verwenden, um die beste gerade Linie zu finden, die diese Daten beschreibt.
 
 Hier ist ein Beispiel für R Code, um eine lineare Regression durchzuführen:
 
@@ -19,18 +19,21 @@ lineare Regression gerechnet und ein Plot erstellt. Teile den Code in drei Blöc
 mit kurzen Beschreibungen im Text anstelle der Kommentare im Code. Ein Block erstellt
 die Daten, einer fittet die lineare Regression und einer plottet die Linie
 
+1. Erstellen Sie ein Beispieldatensatz
 ```{r}
 # Erstellen Sie ein Beispieldatensatz
 stunden <- c(10, 20, 30, 40, 50)
 noten <- c(3, 2, 4, 3, 5)
+```
 
-# Erstellen Sie ein lineares Modell
+2. Erstellen Sie ein lineares Modell
+```{r}
 modell <- lm(noten ~ stunden)
+summary(modell) # Anzeigen der Modellparameter
+```
 
-# Anzeigen der Modellparameter
-summary(modell)
-
-# Visualisieren Sie das Modell mit den Daten
+3. Visualisieren Sie das Modell mit den Daten
+```{r}
 plot(stunden, noten)
 abline(modell)
 ```
