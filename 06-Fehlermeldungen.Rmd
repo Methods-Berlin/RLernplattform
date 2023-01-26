@@ -73,14 +73,14 @@ Wir bekommen hier (zumeist) folgende Informationen: aus welchem Paket die Funkti
 
 Ohne explizite Spezifikation des Parameters unsererseits wird (wenn vorhanden) der Default verwendet. Wir könnten natürlich auch ein anderes (als das voreingestellte) Argument festlegen.
 
-Funktionen, die ausschließlich Parameter mit Defaults besitzen, (z.B. `matrix()`) werden auch ohne Spezifikation ausgeführt. Funktionen mit (min. einem) Parameter ohne Default (z.B. `mean()`) werden ohne Spezifikation dieser nicht ausgeführt (wir müssen dem Parameter `x` einen Vektor, von dem wir den Mittelwert berechnen wollen, übergeben). Mehr Informationen zu Funktionsdefinition und etwaigen Defaults finden wir im Abschnitt <a href="http://methods-berlin.com/wp-content/uploads/Einfuehrung_in_RStudio.html#usage" target="_blank">Usage</a> in der <span class="r">R</span>-Dokumentation.
+Funktionen, die ausschließlich Parameter mit Defaults besitzen, (z.B. `matrix()`) werden auch ohne Spezifikation ausgeführt. Funktionen mit (min. einem) Parameter ohne Default (z.B. `mean()`) werden ohne Spezifikation dieser nicht ausgeführt (wir müssen dem Parameter `x` einen Vektor, von dem wir den Mittelwert berechnen wollen, übergeben). Mehr Informationen zu Funktionsdefinition und etwaigen Defaults finden wir im Abschnitt [Usage][Usage] in der <span class="r">R</span>-Dokumentation.
 
-Mehr Informationen zum Aufbau von Funktionen finden wir in der <a href="http://methods-berlin.com/de/r-lernplattform/einfuehrung_in_r" target="_blank">**Einführung in <span class="r">R</span>**</a>
+Mehr Informationen zum Aufbau von Funktionen finden wir in der [Einführung in R][Einführung in R]
 </div></details>
 
 <p style="line-height:10px;"></p>
 
-Eine <a href="http://methods-berlin.com/wp-content/uploads/Einfuehrung_in_RStudio.html#r-dokumentation" target="_blank">detailliertere Einführung zur Nutzung der Dokumentation</a> befindet sich im Kapitel <a href="http://methods-berlin.com/de/r-lernplattform/einfuehrung_in_rstudio" target="_blank">**Einführung in <span class="r">RStudio</span>**</a>.
+Eine [detaillierte Einführung zur Nutzung der Dokumentation][R Dokumentation] befindet sich im Kapitel [Einführung in R Studio][Einführung in R Studio].
 
 ### Code Diagnostik
 
@@ -391,7 +391,7 @@ Ob ihr das Paket nutzen möchtet oder lieber analog sucht bleibt euch überlasse
 sessionInfo()
 ```
 
-Für Informationen zur Interpretation dieses Outputs schaut auch den Abschnitt <a href="http://methods-berlin.com/wp-content/uploads/Pakete.html#replizierbarkeit-von-analysen" target="_blank">**Replizierbarkeit von Analysen**</a> des Kapitels zu Paketen an.
+Für Informationen zur Interpretation dieses Outputs schaut auch den Abschnitt [Replizierbarkeit von Analysen][Replizierbarkeit von Analysen] des Kapitels zu Paketen an.
 </font>
 
 
