@@ -6,7 +6,7 @@ Im Folgenden schauen wir uns an, wie die **Outputs** der jeweiligen Funktionen `
 
 <aside>\
 \
-Wir gehen nur knapp auf die Prüfung der Annahmen ein. Eine ausführlichere Einleitung  befindet sich <a href="http://methods-berlin.com/de/r-lernplattform/annahmen-regression" target="_blank">hier</a>.</aside>
+Wir gehen nur knapp auf die Prüfung der Annahmen ein. Eine ausführlichere Einleitung  befindet sich [hier][Multiple lineare Regression].</aside>
 
 <!--Zur Veranschaulichung untersuchen wir, ob sich Studierende mit und ohne Nebenjob signifikant in ihrer Zufriedenheit mit der Bewältigung von Studienbelastungen unterscheiden. Diese ungerichtete $H_1$ überprüfen wir mit einem Signifikanzniveau von $\alpha = 0.05$. -->
 
@@ -43,7 +43,7 @@ str(daten)
 
 Wie erhofft liegt die nominalskalierte Variable `job` als ungeordneter Faktor und die intervallskalierte Variable `zf_belastung` als <span class="r">numeric</span> vor.
 
-Mehr Informationen zu Datentypen und angemessener Kodierung finden wir im Kapitel <a href="http://methods-berlin.com/de/r-lernplattform/einfuehrung_in_r" target="_blank">Einführung in <span class="r">R</span></a>.
+Mehr Informationen zu Datentypen und angemessener Kodierung finden wir im Kapitel [Einführung in R][Einführung in R].
 
 </p></details>
 \
@@ -60,7 +60,7 @@ Mehr Informationen zu Datentypen und angemessener Kodierung finden wir im Kapite
 
 <details><summary class="mtitle">Überprüfung der Annahmen des $t$-Tests</summary><div class="more">\
 
-> *__Achtung__*:  <div class="rows">An dieser Stelle sei wieder auf das <a href="http://methods-berlin.com/de/r-lernplattform/annahmen-regression" target="_blank">ausführlichere Skript</a> zur Annahmenprüfung verwiesen. Im Folgenden schauen wir uns jeweils nur ein mögliches Verfahren zur Überprüfung der spezifischen Annahmen an.</div>\
+> *__Achtung__*:  <div class="rows">An dieser Stelle sei wieder auf das [ausführliche Skript][Multiple lineare Regression] zur Annahmenprüfung verwiesen. Im Folgenden schauen wir uns jeweils nur ein mögliches Verfahren zur Überprüfung der spezifischen Annahmen an.</div>\
 
 Zur Durchführung eines $t$-Tests für unabhängige Zufallsstichproben müssen folgende Annahmen erfüllt sein: 
 
@@ -82,7 +82,7 @@ str(daten$zf_belastung)
 
 <span class="ex">Unser interessierendes Merkmal `zf_belastung` liegt als <span class="r">numeric</span></span> vor.
 
-Mehr zu Datentypen und -strukturen erfahren wir in <a href="http://methods-berlin.com/de/r-lernplattform/einfuehrung_in_r" target="_blank">**Einführung in <span class="r">R</span>**</a>.
+Mehr zu Datentypen und -strukturen erfahren wir in [Einführung in R][Einführung in R].
 -->
 <span class="highlight">Normalverteilung</span>
 
@@ -106,9 +106,9 @@ ggplot(data = daten, aes(sample = zf_belastung)) + # Koordinatensystem
 # diese können wir hier unbeachtet lassen
 ```
 
-Mehr Informationen zum Erstellen von Grafiken mit dem Paket **ggplot2** finden wir im Kapitel zu <a href="http://methods-berlin.com/de/r-lernplattform/grafiken-ggplot" target="_blank">Grafiken</a>.\
+Mehr Informationen zum Erstellen von Grafiken mit dem Paket **ggplot2** finden wir im Kapitel zu [Grafiken][Grafiken].\
 
-> *__Achtung__*:  <div class="rows">Hilfe zur Interpretation von QQ-Plots finden wir <a href="http://methods-berlin.com/wp-content/uploads/VP.html#normalverteilung-der-residuen" target="_blank">hier</a>.\
+> *__Achtung__*:  <div class="rows">Hilfe zur Interpretation von QQ-Plots finden wir [hier][5.1. Normalverteilung der Residuen].\
 **Hinweis**: Die Residuen in der linearen Regression sind beim $t$-Test dasselbe wie in den Gruppen zentrierte Werte der $AV$ (d.h. Abweichungen vom gruppenspezifischen Mittelwert) in unserem Beispiel.</div>\
 
 <span class="ex">In beiden Diagrammen weichen die Punkte leicht von der Linie ab, d.h. dass die Daten nicht perfekt normalverteilt sind. Wir können uns aber auf den zentralen Grenzwertsatz stützen, welcher besagt, dass der Mittelwert eines Merkmals bei wachsender Stichprobengröße approximativ normalverteilt ist. Generell gibt es keinen Richtwert, der besagt, wann Stichproben hinreichend groß sind. Mit unseren Stichprobengrößen ($n_{ja} = 87$ und $n_{nein} = 86$) und den geringfügigen Abweichungen von einer Normalverteilung in den beiden Gruppen können wir erwarten, dass die Annahme hinreichend erfüllt ist.</span>\
@@ -155,7 +155,7 @@ t.test(formula = zf_belastung ~ job,
 ```
 
 <aside>\
-Mehr Informationen zum Umgang mit fehlenden Werten finden wir im Kapitel <a href="http://methods-berlin.com/de/r-lernplattform/fehlende-werte" target="_blank">Fehlende Werte</a>.</aside>
+Mehr Informationen zum Umgang mit fehlenden Werten finden wir im Kapitel [Fehlende Werte][Fehlende Werte].</aside>
 
 ```{r t-test out, out.width = "550px", echo=FALSE}
 knitr::include_graphics("figures/Voraussetzungsprüfung/Bilder/t-test.png")
@@ -173,7 +173,7 @@ Wir haben alle Fälle mit fehlenden Werten auf *einer* der beiden Variablen ausg
 nrow(daten[!is.na(daten$job) & !is.na(daten$zf_belastung),])
 ```
 
-Für mehr Informationen siehe das Kapitel zu <a href="http://methods-berlin.com/de/r-lernplattform/fehlende-werte" target="_blank">Fehlenden Werten</a>.
+Für mehr Informationen siehe das Kapitel zu [Fehlenden Werten][Fehlende Werte].
 </div></details>
 
 <p style="line-height:10px;"></p>
@@ -188,7 +188,7 @@ Durch den Vergleich mit unserem $\alpha$-Niveau können wir anhand dieser Inform
 
 ## Lineare Regression
 
-> Die lineare Regression ermöglicht es, eine abhängige Variable <font size="2">(AV, Kriterium)</font> durch eine oder mehrere unabhängige Variablen <font size="2">(UVs, Prädiktoren)</font> vorherzusagen. Das Kriterium muss metrisch sein, wohingegen die Prädiktoren auch kategorial sein können, wenn sie adäquat kodiert sind <font size="2">(siehe z.B. <a href="http://methods-berlin.com/wp-content/uploads/Datenvorbereitung.html#indikatorvariablen-kodierung-nominaler-merkmale" target="_blank">Indikatorvariablen: Kodierung nominaler Merkmale</a> im Kapitel Datenvorbereitung)</font>.
+> Die lineare Regression ermöglicht es, eine abhängige Variable <font size="2">(AV, Kriterium)</font> durch eine oder mehrere unabhängige Variablen <font size="2">(UVs, Prädiktoren)</font> vorherzusagen. Das Kriterium muss metrisch sein, wohingegen die Prädiktoren auch kategorial sein können, wenn sie adäquat kodiert sind <font size="2">(siehe z.B. [Indikatorvariablen: Kodierung nominaler Merkmale][Indikatorvariablen: Kodierung nominaler Merkmale] im Kapitel Datenvorbereitung)</font>.
 
 <aside>\
 ein Prädiktor: *einfache* lineare Regression;\
@@ -209,7 +209,7 @@ lm_belastung <- lm(formula = zf_belastung ~ job,
                    na.action = "na.exclude") # Ausschluss fehlender Werte
 ```
 
-Mehr Informationen zum Umgang mit fehlenden Werten finden wir im Kapitel <a href="http://methods-berlin.com/de/r-lernplattform/fehlende-werte" target="_blank">Fehlende Werte</a>.
+Mehr Informationen zum Umgang mit fehlenden Werten finden wir im Kapitel [Fehlende Werte][Fehlende Werte]>.
 
 Das Ergebnisobjekt `lm_belastung` schauen wir uns erst *nach* der Annahmenprüfung an.
 
@@ -217,7 +217,7 @@ Das Ergebnisobjekt `lm_belastung` schauen wir uns erst *nach* der Annahmenprüfu
 
 <details><summary class="mtitle">Überprüfung der Annahmen der (einfachen) linearen Regression</summary><div class="more">\
 
-> *__Achtung__*:  <div class="rows">Im Rahmen dieses Kapitels besprechen wir die Annahmen und deren Überprüfung nicht im Detail. Mehr Informationen finden wir im Kapitel zur <a href="http://methods-berlin.com/de/r-lernplattform/annahmen-regression" target="_blank">Prüfung der Annahmen der multiplen linearen Regression</a>, die denen der einfachen linearen Regression sehr ähnlich ist.</div>\
+> *__Achtung__*:  <div class="rows">Im Rahmen dieses Kapitels besprechen wir die Annahmen und deren Überprüfung nicht im Detail. Mehr Informationen finden wir im Kapitel zur [Prüfung der Annahmen der multiplen linearen Regression][Multiple lineare Regression], die denen der einfachen linearen Regression sehr ähnlich ist.</div>\
 
 ```{r, echo=F}
 # aus Bortz S. 192f
@@ -247,7 +247,7 @@ Weil wir nur eine kategoriale $UV$ mit zwei Ausprägungen haben, ordnen sich die
 
 <span class="ex">Da sich die Lowess Fit Line <font size="2">(rote gestrichelte Linie)</font>, welche den generellen (nonparametrischen) Trend der Daten beschreibt, dem Erwartungswert der Residuen bei $y=0$ <font size="2">(schwarze gestrichelten Linie)</font> annähert, können wir annehmen, dass Linearität vorliegt.</span>
 
-Mehr Informationen zur Lowess Fit Line und zum Residuenplot finden wir im Kapitel zur <a href="http://methods-berlin.com/de/r-lernplattform/annahmen-regression" target="_blank">Prüfung der Annahmen der multiplen linearen Regression</a>.
+Mehr Informationen zur Lowess Fit Line und zum Residuenplot finden wir im Kapitel zur [Prüfung der Annahmen der multiplen linearen Regression][Multiple lineare Regression].
 
 
 <span class="highlight">Homoskedastizität</span>
@@ -409,7 +409,7 @@ anova <- aov(zf_belastung ~ job,
 summary(anova)
 ```
 
-<aside>Mehr Informationen zum Umgang mit fehlenden Werten im <a href="http://methods-berlin.com/de/r-lernplattform/fehlende-werte" target="_blank">gleichnamigen Kapitel</a>.</aside>
+<aside>Mehr Informationen zum Umgang mit fehlenden Werten im [gleichnamigen Kapitel][Fehlende Werte].</aside>
 
 ```{r aov out, out.width = "400px", echo=FALSE, fig.align='center'}
 # man bekommt auch nur mit anova Ouput, aber wesentlich weniger Details
@@ -443,7 +443,7 @@ entspricht dem Quotienten $\frac {MQ_{job}} {MQ_e}$
 
 Wie bereits eingangs erwähnt, gehören $t$-Test, lineare Regression und ANOVA alle zum Allgemeinen Linearen Modell <font size="2">(ALM)</font>.
 
-Für den hier betrachteten Spezialfall von nur einer UV mit nur zwei Stufen <font size="2">(und adäquater Kodierung; siehe z.B. <a href="http://methods-berlin.com/wp-content/uploads/Datenvorbereitung.html#indikatorvariablen-kodierung-nominaler-merkmale" target="_blank">Indikatorvariablen: Kodierung nominaler Merkmale</a> aus dem Kapitel Datenvorbereitung)</font> kommen die drei Verfahren zum selben Ergebnis bei der Signifikanztestung, obwohl scheinbar andere Hypothesen getestet werden.
+Für den hier betrachteten Spezialfall von nur einer UV mit nur zwei Stufen <font size="2">(und adäquater Kodierung; siehe z.B. [Indikatorvariablen: Kodierung nominaler Merkmale][Indikatorvariablen: Kodierung nominaler Merkmale] aus dem Kapitel Datenvorbereitung)</font> kommen die drei Verfahren zum selben Ergebnis bei der Signifikanztestung, obwohl scheinbar andere Hypothesen getestet werden.
 
 ```{r, echo=FALSE, layout="l-body-outset"}
 library(kableExtra)
@@ -477,7 +477,7 @@ Das __Allgemeine Lineare Modell__ <font size="2">(ALM)</font> umfasst varianzana
 
 <aside>\
 \
-Mehr Informationen zu Kodierung gibt es im Kapitel <a href="http://methods-berlin.com/de/r-lernplattform/einfuehrung_in_r" target="_blank">Einführung in <span class="r">R</span></a>.</aside>
+Mehr Informationen zu Kodierung gibt es im Kapitel [Einführung in R][Einführung in R].</aside>
 
 In unserem Fall von einer intervallskalierten $AV$ und einer nominalskalierten $UV$ werden in den drei Verfahren jeweils die Mittelwerte der $AV$ für die jeweiligen $UV$ gebildet. Beim $t$-Test und der einfachen linearen Regression haben wir diese auch ausgegeben bekommen:
 
@@ -499,7 +499,7 @@ Dadurch sind die getesteten Hypothesen der drei Verfahren in diesem speziellen F
 sessionInfo()
 ```
 
-Für Informationen zur Interpretation dieses Outputs schaut auch den Abschnitt <a href="http://methods-berlin.com/wp-content/uploads/Pakete.html#replizierbarkeit-von-analysen" target="_blank">**Replizierbarkeit von Analysen**</a> des Kapitels zu Paketen an.</font>
+Für Informationen zur Interpretation dieses Outputs schaut auch den Abschnitt [Replizierbarkeit von Analysen][Replizierbarkeit von Analysen] des Kapitels zu Paketen an.</font>
 
 
 
