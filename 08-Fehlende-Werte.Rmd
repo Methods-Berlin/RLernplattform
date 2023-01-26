@@ -109,7 +109,7 @@ Da wir zwei Funktionen auf den Datensatz anwenden wollen - `unique()` und `sort(
 sapply(sapply(daten, unique), sort, na.last=TRUE)
 ```
 
-<aside>Die hier durchgeführte Überprüfung ist analog zum <a href="http://methods-berlin.com/wp-content/uploads/Datenvorbereitung.html#plausibilit%C3%A4ts-check" target="_blank">Plausibilitätscheck</a> im Kapitel zur <a href="http://methods-berlin.com/de/r-lernplattform/datenvorbereitung" target="_blank">Datenvorbereitung</a>.</aside>
+<aside>Die hier durchgeführte Überprüfung ist analog zum [Plausibilitätscheck][[Plausibilitätscheck] im Kapitel zur [Datenvorbereitung][Datenvorbereitung].</aside>
 
 <span class ="ex">In `Var_1` gibt es die Ausprägung `-99` und in `Var_5` die Ausprägung `99`, welche keine möglichen Ausprägungen sind. Es ist davon auszugehen, dass das ebenso Kodierungen für fehlende Werte sind.</span>
 
@@ -253,7 +253,7 @@ table(is.na(daten[1,])) # Datensatz[,Zeilenindex]
 
 > *__Achtung__*:  Die ersten drei vorgestellten Möglichkeiten, `$` und <span class="code"><span class="ex">Datensatz</span>["<span class="ex">Spalten- bzw. Zeilenname</span>"]</span>,  funktionieren nur bei __Dataframes__, und nicht bei Matrizen. Die Möglichkeit der **Indexierung** können wir auch bei **Matrizen** nutzen. 
 
-<aside>Mehr Informationen zu Datenstrukturen finden wir im Kapitel <a href="http://methods-berlin.com/de/r-lernplattform/einfuehrung_in_r" target="_blank">**Einführung in <span class="r">R</span>**</a>.</aside>
+<aside>Mehr Informationen zu Datenstrukturen finden wir im Kapitel [Einführung in R][Einführung in R].</aside>
 
 ### Missings in *allen* Spalten oder Zeilen
 
@@ -499,7 +499,7 @@ In manchen Situationen ist es wichtig, **Informationen darüber zu haben, _wo_ M
 <aside>\
 \
 \
-Hier gehts zur <a href="http://methods-berlin.com/wp-content/uploads/VP.html#boxplots-der-geclusterten-gruppen" target="_blank">Überprüfung der Unabhängigkeit der Fehlerterme mittels Boxplots</a> aus dem Kapitel zu <a href="http://methods-berlin.com/de/r-lernplattform/annahmen-regression" target="_blank">Annahmen der Regression</a>.</aside>
+Hier gehts zur [Überprüfung der Unabhängigkeit der Fehlerterme mittels Boxplots][Boxplots der geclusterten Gruppen] aus dem Kapitel zu [Annahmen der Regression][Multiple lineare Regression].</aside>
 
 
 #### mean(..., na.rm)
@@ -611,7 +611,7 @@ Für ein tiefergehenden Einblick empfehlen wir Euch die folgenden Arbeiten:
 
 Wir haben fehlende Werte <font size="2">(sog. Missings)</font> in unserem Datensatz und wissen nicht, wie wir damit umgehen sollen? In diesem Abschnitt bekommen wir eine kurze Antwort darauf. \
 
-Wenn dieser Abschnitt nicht ausreicht, oder wir mehr zu fehlenden Daten wissen möchtest, können wir uns das detaillierte <a href="http://methods-berlin.com/de/r-lernplattform/fehlende-werte" target="_blank">**Einführungskapitel**</a> dazu anschauen.
+Wenn dieser Abschnitt nicht ausreicht, oder wir mehr zu fehlenden Daten wissen möchtest, können wir uns das detaillierte [Einführungskapitel][Fehlende Werte] dazu anschauen.
 
 > *__Achtung__*:   Wenn wir Variablen, die Missings enthalten, für eine Analyse nutzen wollen, sollten wir immer daran denken, dass sich damit auch die **Stichprobengröße $N$ für diese _spezifische_ Auswertung ändert**.
 
@@ -635,7 +635,7 @@ Wenn die Missings z.B. mit `99` kodiert sind, können wir sie folgendermaßen au
 Bei vielen Funktionen muss man festlegen, wie diese mit Missings umgehen sollen.
 Exemplarisch schauen wir uns das einmal an zwei Funktionen an.
 
-Wenn du wissen möchtest, wie du in anderen Funktionen mit Missings umgehen kannst, schau dir entweder die <span class="r">R</span>-Dokumentation dazu an <font size="2">(unteres rechtes Panel bei Help oder alternativ `?mean`)</font> oder suche im Internet. In unserem Kapitel zu Fehlermeldungen findest du sowohl einen Abschnitt zum Aufbau der <a href="http://methods-berlin.com/wp-content/uploads/FM.html#r-dokumentation" target="_blank"><span class="r">**R</span>-Dokumentation**</a> sowie einen Abschnitt zum <a href="http://methods-berlin.com/wp-content/uploads/FM.html#suchen-im-internet" target="_blank">**Suchen im Internet**</a>. \
+Wenn du wissen möchtest, wie du in anderen Funktionen mit Missings umgehen kannst, schau dir entweder die <span class="r">R</span>-Dokumentation dazu an <font size="2">(unteres rechtes Panel bei Help oder alternativ `?mean`)</font> oder suche im Internet. In unserem Kapitel zu Fehlermeldungen findest du sowohl einen Abschnitt zum Aufbau der [R-Dokumentation][R-Dokumentation] sowie einen Abschnitt zum [Suchen im Internet][3. Suchen im Internet]. \
 
 - `mean( )`
 
@@ -651,9 +651,9 @@ Bei der Regressionsrechnung ist voreingestellt <font size="2">(*"defaulted"*)</f
 
 Im Folgenden wollen wir einen Datensatz hinsichtlich der fehlenden Werte <font size="2">(Missings)</font> beurteilen. Dazu schauen wir, ob die fehlenden Werte korrekt kodiert sind, wie viele und auf welchen Variablen bzw. in welchen Fällen diese vorhanden sind, ob sie zufällig sind und wie wir mit ihnen umgehen können.
 
-<aside><a href="http://methods-berlin.com/de/r-lernplattform/fehlende-werte" target="_blank" class="highlight">Hier</a> finden wir das Einführungsskript zu Fehlenden Werten.</aside>
+<aside>[Hier][Fehlende Werte] finden wir das Einführungsskript zu Fehlenden Werten.</aside>
 
-> *__Achtung__*:  Die Aufgabenstellungen hier überschneiden sich teilweise mit denen aus der <a href="http://methods-berlin.com/de/r-lernplattform/uebung-datenvorbereitung" target="_blank">Übung zur Datenvorbereitung</a>. Wir arbeiten hier aber mit anderen Datensätzen.
+> *__Achtung__*:  Die Aufgabenstellungen hier überschneiden sich teilweise mit denen aus der [Übung zur Datenvorbereitung][Übung Datenvorbereitung]. Wir arbeiten hier aber mit anderen Datensätzen.
 
 <p style="line-height:10px;"></p>
 
@@ -1377,7 +1377,7 @@ Die Korrelation mit dem größten Unterschied zwischen der *listwise* und der *p
 sessionInfo()
 ```
 
-Für Informationen zur Interpretation dieses Outputs schaut auch den Abschnitt <a href="http://methods-berlin.com/wp-content/uploads/Pakete.html#replizierbarkeit-von-analysen" target="_blank">**Replizierbarkeit von Analysen**</a> des Kapitels zu Paketen an.
+Für Informationen zur Interpretation dieses Outputs schaut auch den Abschnitt [Replizierbarkeit von Analysen][Replizierbarkeit von Analysen] des Kapitels zu Paketen an.
 </font>
 
 
