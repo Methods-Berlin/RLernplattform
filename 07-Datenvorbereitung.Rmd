@@ -92,7 +92,7 @@ Die Datensätze enthalten jeweils die gleichen 3 Variablen:
 
 <p style="line-height:10px;"></p>
 
-> *__Achtung__*:  Es kommt häufiger zu **Problemen bei der Ausführung der Funktionen** `filter()`, `select()` und `summarise()` aus dem Paket **dpylr**, wenn die Pakete **stats** (Basispaket; `filter()`), **MASS** (`select()`) oder **plyr** (`summarise()`) ebenfalls geladen sind. Auch bei anderen gleichnamigen Funktionen aus verschiedenen geladenen Paketen kann es durch die sogenannte Maskierung zu Problemen kommen. Weil wir auch Pakete mit gleich benannten Funktionen nutzen, greifen wir teils auf die eindeutige Auswahl von Funktionen mittels `::` zurück. Für mehr **Informationen zum Maskieren** können wir im <a href="http://methods-berlin.com/wp-content/uploads/Pakete.html#maskierung-wenn-verschiedene-pakete-gleich-benannte-funktionen-enthalten" target="_blank">gleichnamigen Abschnitt</a> im Kapitel **Pakete** nachschauen. Mehr **Informationen zu dem speziellen Problem mit dpylr** finden wir in diesem <a href="https://stackoverflow.com/questions/24202120/dplyrselect-function-clashes-with-massselect" target="_blank">Forumseintrag</a>.</font>
+> *__Achtung__*:  Es kommt häufiger zu **Problemen bei der Ausführung der Funktionen** `filter()`, `select()` und `summarise()` aus dem Paket **dpylr**, wenn die Pakete **stats** (Basispaket; `filter()`), **MASS** (`select()`) oder **plyr** (`summarise()`) ebenfalls geladen sind. Auch bei anderen gleichnamigen Funktionen aus verschiedenen geladenen Paketen kann es durch die sogenannte Maskierung zu Problemen kommen. Weil wir auch Pakete mit gleich benannten Funktionen nutzen, greifen wir teils auf die eindeutige Auswahl von Funktionen mittels `::` zurück. Für mehr **Informationen zum Maskieren** können wir im [gleichnamigen Abschnitt][Maskierung wenn verschiedene Pakete gleich benannte Funktionien enthalten] im Kapitel **Pakete** nachschauen. Mehr **Informationen zu dem speziellen Problem mit dpylr** finden wir in diesem <a href="https://stackoverflow.com/questions/24202120/dplyrselect-function-clashes-with-massselect" target="_blank">Forumseintrag</a>.</font>
 
 
 ## Grundlegende erste Schritte
@@ -107,7 +107,7 @@ Zuerst widmen wir unsere Aufmerksamkeit der Überprüfung wichtiger übergreifen
 
 Generell wenn wir mit Daten arbeiten, ist es ratsam, sich zuallererst Gedanken darüber zu machen, welche Informationen wir diesen entnehmen können <font size="2">(**Messniveau**)</font> und ob sie so gespeichert sind, dass <span class ="r">R</span> sie richtig erkennt <font size="2">(**Datentypen und -strukturen**)</font>.
 
-Die nachfolgende Wiederholung ist eine verkürzte Variante des Abschnitts <a href="http://methods-berlin.com/wp-content/uploads/Einfuehrung_in_R.html#daten" target="_blank">Daten</a> aus dem Kapitel zu <a href="http://methods-berlin.com/de/r-lernplattform/einfuehrung_in_r" target="_blank">Einführung in <span class="r">R</span></a>.
+Die nachfolgende Wiederholung ist eine verkürzte Variante des Abschnitts [Daten][Daten] aus dem Kapitel zu [Einführung in R][Einführung in R].
 
 
 #### <font color="darkgrey">Messniveaus</font>
@@ -275,7 +275,7 @@ Wir nutzen hier für **PWE_data** die Funktion `ls.str()`, weil der Output für 
 # http://www.r-tutor.com/r-introduction/data-frame
 ```
 
-Für viele Anwendungen in <span class ="r">R</span> <font size="2">(z.B. für das <a href="http://methods-berlin.com/de/r-lernplattform/grafiken-ggplot" target="_blank">Erstellen von Grafiken mit gglot2</a>)</font> ist es notwendig, dass der Datensatz als Dataframe vorliegt. Folgendermaßen können wir **prüfen**, ob ein Datensatz ein Dataframe ist:
+Für viele Anwendungen in <span class ="r">R</span> <font size="2">(z.B. für das [Erstellen von Grafiken mit ggplot2[Grafiken ggplot] </font> ist es notwendig, dass der Datensatz als Dataframe vorliegt. Folgendermaßen können wir **prüfen**, ob ein Datensatz ein Dataframe ist:
 
 ```{r}
 is.data.frame(airquality)
@@ -342,7 +342,7 @@ sapply(sapply(PWE_data[,88:101], unique), sort)
 
 Wie wir sehen, geht die Überprüfung von plausiblen und fehlenden Werten häufig ineinander über. Werte, die außerhalb des Ranges der betrachteten Variable liegen, können eine Kodierung für fehlende Werte darstellen. 
 
-Wenn wir **unplausible Werte** in unseren Daten finden, können wir zu [**5. Kodierung ändern**] springen, und diese umkodieren. Wenn wir **fehlkodierte Missings** finden, können wir auch `case_when()` oder alternative Möglichkeiten aus dem Abschnitt <a href="http://methods-berlin.com/wp-content/uploads/2019/09/MD.html#sind-die-missings-einheitlich-kodiert" target="_blank">*Sind die Missings einheitlich kodiert?*</a> des Kapitels **Fehlende Werte** nutzen <font size="2">(z.B. die im Folgenden illustrierte Umkodierung des gesamten Datensatzes)</font>.
+Wenn wir **unplausible Werte** in unseren Daten finden, können wir zu [**5. Kodierung ändern**] springen, und diese umkodieren. Wenn wir **fehlkodierte Missings** finden, können wir auch `case_when()` oder alternative Möglichkeiten aus dem Abschnitt [Sind die Missings einheitlich kodiert][1. Sind die Missings einheitlich kodiert?] des Kapitels **Fehlende Werte** nutzen <font size="2">(z.B. die im Folgenden illustrierte Umkodierung des gesamten Datensatzes)</font>.
 
 <span class="ex">Weil wir in **PWE_data** sehr viele Variablen haben und es zu umständlich wäre, alle einzeln umzukodieren, kodieren wir erst im gesamten Datensatz `0` zu `NA` um, und ändern danach wieder die Kodierung für die Variablen `VCL1` bis`VCL16`.</span>
 
@@ -405,7 +405,7 @@ colSums(is.na(PWE_data))
 
 > *__Achtung__*:  Wenn wir Variablen mit Missings für unsere Analysen nutzen wollen, sollten wir **überprüfen, ob die Missings zufällig sind** und in Abhängigkeit davon unseren Umgang anpassen, um systematischen Verzerrungen der Analysen entgegenzuwirken.
 
-Einen ausführlichen Überblick zu Missings finden wir im Kapitel <a href="http://methods-berlin.com/de/r-lernplattform/fehlende-werte" target="_blank">**Fehlende Werte**</a>.
+Einen ausführlichen Überblick zu Missings finden wir im Kapitel [Fehlende Werte][Fehlende Werte].
 
 
 ### Faktorisieren
@@ -545,7 +545,7 @@ table_long %>% mutate(Messung = cell_spec(Messung, background="lightgrey")) %>%
 
 <span class="ex">Im Beispieldatensatz **airquality** gibt es **wiederholte Messungen** der Untersuchungseinheiten (`Ozone`, `Solar.R`, `Wind` und `Temp`) zu unterschiedlichen Zeiten, die in `Month` und `Day` kodiert werden. Jede dieser Untersuchungseinheiten liegt in mehreren Zeilen vor. Es handelt sich folglich um einen Datensatz im Long-Format. Im Wide-Format hätten wir z.B. die Variablen `Ozone_5_1` <font size="2">(Monat 5, Tag 1)</font>, `Ozone_5_2` <font size="2">(Monat 5, Tag 2)</font>, ..., `Solar.R_5_1` <font size="2">(Monat 5, Tag 1)</font>, etc. **Je nachdem, wie wir die Daten auswerten wollen, ist es notwendig bzw. nicht notwendig, die Daten umzuformatieren**. </span>
 
-Im Kapitel zum <a href="http://methods-berlin.com/r-lernplattform/wide-und-long-format" target="_blank">**Wide- & Long-Format**</a> erfahren wir, wie wir beide Formate ineinander überführen können. Hierzu werden jeweils zwei Möglichkeiten vorgestellt: `reshape()` aus dem Standardpaket **stats** und `spread()` bzw. `gather()` aus dem Paket **tidyr**.
+Im Kapitel zum [Wide- und Long-Format][Wide and Long Format] erfahren wir, wie wir beide Formate ineinander überführen können. Hierzu werden jeweils zwei Möglichkeiten vorgestellt: `reshape()` aus dem Standardpaket **stats** und `spread()` bzw. `gather()` aus dem Paket **tidyr**.
 
 
 ## Datensätze zusammenführen
@@ -1696,7 +1696,7 @@ Wenn wir nicht mit den Rohdaten arbeiten wollen, sondern Informationen von mehre
 
 <span class="ex">Wir nutzen zu diesem Zweck den Datensatz **PWE_data**</font>, welcher aus einer psychometrischen Erhebung stammt. [Zu Beginn](#data) des Kapitels haben wir den Datensatz heruntergeladen.</span>
 
-> *__Achtung__*:  Die Werte der Variablen `Q9A`, `Q13A` und `Q15A`, die wir im Folgenden nutzen werden, wurden im Abschnitt [Umkodieren] rekodiert, weil sie negativ gepolt sind.
+> *__Achtung__*:  Die Werte der Variablen `Q9A`, `Q13A` und `Q15A`, die wir im Folgenden nutzen werden, wurden im Abschnitt [Umkodieren][Umkodieren] rekodiert, weil sie negativ gepolt sind.
 
 <p style="line-height:10px;"></p>
 
@@ -1816,7 +1816,7 @@ Es ist generell sehr wichtig, auch bei der Datenvorbereitung, ein Auge auf die S
 
 Wenn wir Auswertungen machen, in denen wir Ergebnisobjekte bekommen <font size="2">(z.B. bei der Regression mit `lm()`)</font>, können wir die Information zu $N$ daraus ablesen. Dazu klicken wir auf das Ergebnisobjekt im <span style="color: #75AADC">Environment</span> <font size="2">(z.B. `lm_kontr`)</font>. Unter `model` sehen wir die Dimensionalität des **genutzten** Teil des Datensatzes und können anhand der Anzahl der Zeilen $N$ ablesen <font size="2">(z.B. bei `lm_kontr`: `[116 x 3]` d.h. 116 Fälle)</font>.
 
-<aside>In `lm()` wird listwise deletion angewendet, d.h. dass jede Zeile, die mindestens ein Missing enthält, aus der Analyse ausgeschlossen wird. Mehr zu Fehlenden Werten im gleichnamigen <a href="http://methods-berlin.com/de/r-lernplattform/fehlende-werte" target="_blank">Kapitel</a>.</aside>
+<aside>In `lm()` wird listwise deletion angewendet, d.h. dass jede Zeile, die mindestens ein Missing enthält, aus der Analyse ausgeschlossen wird. Mehr zu Fehlenden Werten im gleichnamigen [Kapitel][Fehlende Werte].</aside>
 
 
 ### Replizierbarkeit
@@ -1832,7 +1832,7 @@ Außerdem ist es sinnvoll, **alle Schritte der Datenvorbereitung sowie Datenausw
 
 Im Folgenden wollen wir einige Aufgaben bearbeiten, die in den Bereich der Datenvorbereitung fallen. Dazu gehören u.a. das Extrahieren und Sortieren von Daten, die Änderung der Kodierung von Daten sowie das Erstellen von Summary-Variablen. Zuallererst sollten wir uns jedoch immer mit dem genutzten Datensatz vertraut machen.
 
-<aside><a href="http://methods-berlin.com/de/r-lernplattform/datenvorbereitung" target="_blank" class="highlight">Hier</a> finden wir das Einführungsskript zu Datenvorbereitung.</aside>
+<aside><[Hier][Datenvorbereitung] finden wir das Einführungsskript zu Datenvorbereitung.</aside>
 
 Dazu nutzen wir einen Datensatz, der im Rahmen eines Projektes zur Untersuchung des Zusammenhangs des Bedürfnisses nach Privatsphäre und verschiedenen Persönlichkeitseigenschaften erhoben wurde. Mehr Informationen zum Projekt und zur Publikation finden wir <a href="https://osf.io/7ncpk/" target="_blank">hier</a>.
 
@@ -2016,7 +2016,7 @@ data <- data[-which(data$age == 9),]
 <span class="highlight">6.) Enthält der Datensatz fehlende Werte ("Missings"; `NA`) und wenn ja, wie viele insgesamt und auf welchen Variablen?</span>
 
 <div class="hint"><details><summary>Tipp</summary>
-Das Thema "Fehlende Werte" wird im Kapitel zur Datenvorbereitung nur kurz angerissen, weil es ein <a href="http://methods-berlin.com/de/r-lernplattform/fehlende-werte" target="_blank">eigenständiges Kapitel</a> dazu gibt.</details></div>
+Das Thema "Fehlende Werte" wird im Kapitel zur Datenvorbereitung nur kurz angerissen, weil es ein [eigenständiges Kapitel][Fehlende Werte] dazu gibt.</details></div>
 
 <p style="line-height:10px;"></p>
 
@@ -2074,7 +2074,7 @@ names(which(rowSums(is.na(data)) == max(rowSums(is.na(data)))))
 
 Wir müssen hier `names()` nutzen, damit wir die Zeilennamen ausgegeben bekommen da wir sonst einen benannten Vektor ausgegeben bekommen.
 
-Man sollte überlegen, wie mit den Daten dieser `r length(which(rowSums(is.na(data)) == max(rowSums(is.na(data)))))` Personen bei etwaigen Analysen umzugehen wäre. Wenn die Daten MCAR sind, könnten wir diese Personen aus den Analysen entfernen. Mehr Infos zu Fehlenden Werten im <a href="http://methods-berlin.com/de/r-lernplattform/fehlende-werte" target="_blank">gleichnamigen Kapitel</a>.
+Man sollte überlegen, wie mit den Daten dieser `r length(which(rowSums(is.na(data)) == max(rowSums(is.na(data)))))` Personen bei etwaigen Analysen umzugehen wäre. Wenn die Daten MCAR sind, könnten wir diese Personen aus den Analysen entfernen. Mehr Infos zu Fehlenden Werten im [gleichnamigen Kapitel][Fehlende Werte].
 
 </div></details>\
 
@@ -2561,7 +2561,7 @@ rmarkdown::paged_table(data_int, options(rows.print=5))
 sessionInfo()
 ```
 
-Für Informationen zur Interpretation dieses Outputs schaut auch den Abschnitt <a href="http://methods-berlin.com/wp-content/uploads/Pakete.html#replizierbarkeit-von-analysen" target="_blank">**Replizierbarkeit von Analysen**</a> des Kapitels zu Paketen an.
+Für Informationen zur Interpretation dieses Outputs schaut auch den Abschnitt [Replizierbarkeit von Analysen][Replizierbarkeit von Analysen] des Kapitels zu Paketen an.
 </font>
 
 
