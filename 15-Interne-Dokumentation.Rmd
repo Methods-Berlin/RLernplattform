@@ -48,6 +48,14 @@ Die Veränderungen sind nun gespeichert! **Wichtig**: Die Webseite wird nicht au
 Hier ist zur Zeit noch etwas Handarbeit erfordert. Das ist eine bewusste Entscheidung, um sicher zu stellen,
 dass keine unfertigen Seiten aus Versehen online gehen.
 
+### Code hinzufügen
+
+Wenn man Code hinzufügen möchte, funktioniert das identisch wie in RMarkdown also, z.B. so:
+```{r}
+modell <- lm(noten ~ stunden)
+summary(modell) # Anzeigen der Modellparameter
+```
+
 ### Daten hinzufügen
 
 Wenn Du einen Datensatz für Deine RMarkdown-Datei brauchst, der nicht in R oder
