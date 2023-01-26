@@ -77,8 +77,8 @@ summary(model)
 
 Wir können die Interaktion auch graphisch darstellen:
 
-- @Vivian: Im folgenden wird eine Figure (interaction_plot.png) eingefügt, die es bisher noch nicht gibt. Diese soll im Ordner figures/lineare_regression/Bilder liegen. Füge die Ordner lineare_regression/Bilder hinzu. Speichere die Datei "interaction_plot.png" im neuen Ordner.
+- @Vivian: Im folgenden wird eine Figure (interaction_plot.png) eingefügt, die es bisher noch nicht gibt. Diese soll im Ordner figures/lineare_regression/bilder liegen. Füge die Ordner lineare_regression/bilder hinzu. Speichere die Datei "interaction_plot.png" im neuen Ordner.
 
 ```{r, out.width = "500px", echo=FALSE, fig.align='center'}
-knitr::include_graphics("figures/lineare_regression/Bilder/interaction_plot.png")
+knitr::include_graphics("figures/lineare_regression/bilder/interaction_plot.png")
 ```
