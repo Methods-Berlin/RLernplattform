@@ -51,10 +51,11 @@ dass keine unfertigen Seiten aus Versehen online gehen.
 ### Code hinzufügen
 
 Wenn man Code hinzufügen möchte, funktioniert das identisch wie in RMarkdown also, z.B. so:
-```{r}
+```{r, eval = FALSE}
 modell <- lm(noten ~ stunden)
 summary(modell) # Anzeigen der Modellparameter
 ```
+Wir können mit zusätzlichen Code chunk options festlegen, ob der Code z.B. ausgeführt (eval=TRUE oder eval=FALSE) oder überhaupt angezeigt (echo=TRUE oder echo=FALSE) werden soll. Im obigen Fall haben wir keine Variablen `noten` und `stunden`. Daher kann der Code nicht ausgeführt werden; sonst kommt es zu einem Fehler. Deshalb setzen wir `eval=FALSE`. Mehr infos gibt es [hier](https://bookdown.org/yihui/rmarkdown/r-code.html).
 
 ### Daten hinzufügen
 
