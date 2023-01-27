@@ -212,16 +212,16 @@ Browser, um die lokale Version der Webseite anzuzeigen.
 
 Es kommt immer wieder vor, dass beim erstellen der Webseite Fehler auftreten. Diese sehen in RStudio beispielsweise so aus: 
 
-![](figures/documentation/error_1.png)
+![](figures/documentation/fehler_1.png)
 
 Wir sehen hier auf der rechten Seite den Hinweis:
 
-![](figures/documentation/error_2.png)
+![](figures/documentation/fehler_2.png)
 
 Dieser Fehler sagt uns, dass wir im Dokument `_main.Rmd` in Zeile 11731-11733 nach einem Fehler ausschau halten
 müssen. Noch spezifischer sagt uns der Fehler, dass es das Objekt "noten" nicht gibt. Wenn wir das Dokument `_main.Rmd`
 öffnen, finden wir dort in den angegebenen Zeilen:
-![](figures/documentation/error_3.png)
+![](figures/documentation/fehler_3.png)
 Dieser Teil des Dokuments `_main.Rmd` kommt aus dem Dokument `15-Interne-Dokumentation.Rmd`. Schauen wir dort noch mal 
 genauer nach, dann sehen wir, dass die Variablen `noten` und `stunden` gar nicht erstellt wurden und deshalb der Code
 nicht funktionieren kann. Wir können das Problem lösen, indem wir `eval=FALSE` hinzufügen.
