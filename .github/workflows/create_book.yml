@@ -6,6 +6,8 @@
 # There will be an artifact called "_book". This is our webpage. Download the file and
 # unzip it. Double-Clicking on any of the .html files will open the website locally.
 
+name: create_quarto_book
+
 on:
   workflow_dispatch
 
