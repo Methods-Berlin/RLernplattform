@@ -51,7 +51,8 @@ dass keine unfertigen Seiten aus Versehen online gehen.
 ### Code hinzufügen
 
 Wenn man Code hinzufügen möchte, funktioniert das identisch wie in RMarkdown also, z.B. so:
-```{r, eval = FALSE}
+```{r}
+#| eval: false
 modell <- lm(noten ~ stunden)
 summary(modell) # Anzeigen der Modellparameter
 ```
@@ -62,7 +63,8 @@ Wir können mit zusätzlichen Code chunk options festlegen, ob der Code z.B. aus
 Wenn Du einen Datensatz für Deine RMarkdown-Datei brauchst, der nicht in R oder
 einem Paket enthalten ist, dann speichere diesen im Ordner "data". Anschließend
 kannst Du ihn folgendermaßen in Deiner RMarkdown Datei einlesen: 
-```{r,eval=FALSE}
+```{r}
+#| eval: false
 mein_datensatz <- read.csv("data/mein_datensatz.csv")
 ```
 
@@ -232,7 +234,8 @@ Solltest Du nicht alle Pakete installiert haben, die auf der Webseite genutzt we
 kannst Du entweder die Datei `DESCRIPTION` öffnen und alle dort aufgeführten Pakete 
 installieren oder Du öffnest die Datei `RLernplattform.Rproj` in RStudio und führst
 folgenden Code aus:
-```{r, eval = FALSE}
+```{r}
+#| eval: false
 if(!require("devtools"))
   install.packages("devtools")
 library("devtools")

@@ -1,3 +1,5 @@
+/*-- scss:rules --*/
+
 p.caption {
   color: #777;
   margin-top: 10px;
@@ -14,35 +16,35 @@ pre code {
 }
 
 .logo {
-  position: absolute; 
-  top: 8%; 
-  left: 88%; 
-  transform: translate(-50%, -50%); 
+  position: absolute;
+  top: 8%;
+  left: 88%;
+  transform: translate(-50%, -50%);
   width:20%;
 }
 
 .darrow {
-  position: fixed; 
-  bottom: 62%; 
-  left: 3%; 
+  position: fixed;
+  bottom: 62%;
+  left: 3%;
   width: 6%;
   min-width:60px;
   max-width: 80px;
 }
 
 .rlp_startseite {
-  position: fixed; 
+  position: fixed;
   bottom: 50%;
-  left: 3%; 
+  left: 3%;
   width:6%;
   min-width:60px;
   max-width:80px;
 }
 
 .feedback {
-  position: fixed; 
-  bottom: 38%; 
-  left: 3%; 
+  position: fixed;
+  bottom: 38%;
+  left: 3%;
   width:6%;
   min-width:60px;
   max-width: 80px;
@@ -86,7 +88,7 @@ h2 {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
 }
 
-h3 { 
+h3 {
     color: #009193;
     font-weight: bold;
     font-size: 24px !important;
@@ -94,7 +96,7 @@ h3 {
     padding-bottom: -2rem;
 }
 
-h4 { 
+h4 {
     color: #009193;
     font-size: 24px !important;
     font-weight: lighter !important;
@@ -104,14 +106,14 @@ h4 {
     padding-bottom: -2rem;
 }
 
-h5 { 
+h5 {
     font-size: 18px !important;
     color: #009193;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     padding-bottom: -2rem;
 }
 
-h6 { 
+h6 {
     font-size: 18px !important;
     font-weight: lighter !important;
     color: #009193;
@@ -131,19 +133,19 @@ h6 {
 }
 
 .out-row {
-  position: relative; 
+  position: relative;
   float: left;
-  left:-5vw; 
+  left:-5vw;
   margin-right:-2.7rem;
-} 
+}
 
 .out-rows {
-  position: relative; 
+  position: relative;
   float: left;
-  left:-5vw; 
+  left:-5vw;
   margin-right:-2.7rem;
   margin-top: 0.5rem;
-} 
+}
 
 /* folgenden beiden für Klapptexte: */
 
@@ -174,7 +176,7 @@ summary {
 }
 
 .bsp {
-  color: #004793; /*anstatt darkblue*/ 
+  color: #004793; /*anstatt darkblue*/
   border-radius:15px 15px 15px 15px;
   border-color: black;
   border-width: 2px;
@@ -192,7 +194,7 @@ summary {
 }
 
 .more {
-  border-radius: 0 0 15px 15px; 
+  border-radius: 0 0 15px 15px;
   border-color: #8AC9CB;
   border-style: solid;
   padding: 1% 3% 2% 3%;
@@ -204,7 +206,7 @@ summary {
 }
 
 .hint {
-  font-size:80%; 
+  font-size:80%;
 }
 
 .stitle {
@@ -240,14 +242,14 @@ summary {
   font-size: 80%;
   /*background-color: lightgrey;*/
 }
-  
+
 /* Hover, Selektion */
 
 a:hover {
   color: #009193;
   color: hsl(181, 100%, 29%);
 }
-  
+
 ::selection {
   color: #009193;
   color: hsl(181, 100%, 29%);
@@ -258,18 +260,18 @@ tbody tr:hover {
   color: #009193;
   color: hsl(181, 100%, 29%);
   background: #FFF168;
-} 
+}
 
 /* für Keybord-Shortcuts o.ä. */
 
 .keybord {
-  border-radius: 5px; 
+  border-radius: 5px;
   background: white;
   padding: 5px;
   border-color:black;
   border-style:solid;
   border-width:0.5px;
-  font-weight: bold;  
+  font-weight: bold;
 }
 
 /* Highlight within text: */
@@ -319,7 +321,7 @@ code {
   padding: 0.2em;
 }
 
-/* Code Chunk: 
+/* Code Chunk:
 
 d-code {
 ...

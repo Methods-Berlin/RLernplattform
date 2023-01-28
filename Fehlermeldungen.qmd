@@ -41,7 +41,8 @@ daten <- data.frame(daten)
 colnames(daten) <- c("Var_1", "Var_2", "Var_3", "Var_4")
 ```
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 print(daten)
 ```
 </details>
@@ -62,7 +63,10 @@ Mit Klick auf das <font color ="#FD9612">eingekreiste Icon</font> kann man sich 
 
 <aside>Wir finden die <span class ="r">R</span>-Dokumentation auch im Internet, allerdings ermöglicht uns <span class ="r">RStudio</span>, diese ohne Internetverbindung und direkt in der Entwicklungsumgebung zu öffnen.</aside>
 
-```{r, out.width = "550px", echo=FALSE, fig.align='center'}
+```{r}
+#| out.width: 550px
+#| echo: false
+#| fig.align: center
 knitr::include_graphics("figures/Fehlermeldungen/Bilder/doc.png")
 ```
 
@@ -90,11 +94,17 @@ Vor Ausführung unseres Codes erhalten wir Hinweise, beispielsweise wenn Argumen
 
 Der Fehler wird **unterstrichen** und es erscheint außerdem ein **Symbol** links neben der Zeilennummerierung. Zusätzlich erhalten wir einen **ausformulierten Hinweis**, wenn wir mit der Maus über das Symbol fahren.
 
-```{r, out.width = "280px", echo=FALSE, fig.align="left"}
+```{r}
+#| out.width: 280px
+#| echo: false
+#| fig.align: left
 knitr::include_graphics("figures/Fehlermeldungen/Bilder/cd dreieck 1.png")
 ```
 
-```{r, out.width = "400px", echo=FALSE, fig.align="left"}
+```{r}
+#| out.width: 400px
+#| echo: false
+#| fig.align: left
 knitr::include_graphics("figures/Fehlermeldungen/Bilder/cd dreieck 2.png")
 ```
 
@@ -106,11 +116,17 @@ Das dritte Argument, welches nach dem zweiten Komma in `c()` folgen sollte, ist 
 
 </div></details>\
 
-```{r, out.width = "260px", echo=FALSE, fig.align="left"}
+```{r}
+#| out.width: 260px
+#| echo: false
+#| fig.align: left
 knitr::include_graphics("figures/Fehlermeldungen/Bilder/cd kreis 1.png")
 ```
 
-```{r, out.width = "400px", echo=FALSE, fig.align="left"}
+```{r}
+#| out.width: 400px
+#| echo: false
+#| fig.align: left
 knitr::include_graphics("figures/Fehlermeldungen/Bilder/cd kreis 2.png")
 ```
 
@@ -128,7 +144,11 @@ Auf dieser <a href="https://support.rstudio.com/hc/en-us/articles/205753617-Code
 
 Schauen wir uns einmal den typischen Aufbau von Fehlermeldungen an:\
 
-```{r, out.width = "600px", echo=FALSE, fig.align='left', collapse=TRUE}
+```{r}
+#| out.width: 600px
+#| echo: false
+#| fig.align: left
+#| collapse: true
 knitr::include_graphics("figures/Fehlermeldungen/Bilder/fehl.png")
 ```
 
@@ -148,7 +168,10 @@ Schauen wir uns nun einige Beispiele an:
 
 Wenn **ein oder mehrere Zeichen überflüssig sind bzw. fehlen**, dann bekommt man <font color ="#C6180B">`Unerwartete(s) '...' in "..."`</font> ausgegeben. Hierbei teilt uns die Meldung mit, *wo* der Fehler liegt: In den Anführungszeichen <font color ="#C6180B">`"..."`</font> wird nur ein Teil des Codes ausgegeben und der Fehler ist zumeist das zuletzt ausgegebene Zeichen (oder es liegt unmittelbar davor).
 
-```{r, out.width = "440px", echo=FALSE, fig.align='left'}
+```{r}
+#| out.width: 440px
+#| echo: false
+#| fig.align: left
 knitr::include_graphics("figures/Fehlermeldungen/Bilder/fm 1.png")
 ```
 
@@ -160,7 +183,10 @@ Damit extrahiert man auch die zweite Spalte aus `daten`, aber hier wird der Name
 
 Wenn mehrere Syntaxfehler enthalten sind, und man nicht gleich alle erkennt, muss man diese nach und nach beseitigen. 
 
-```{r, out.width = "430px", echo=FALSE, fig.align='left'}
+```{r}
+#| out.width: 430px
+#| echo: false
+#| fig.align: left
 knitr::include_graphics("figures/Fehlermeldungen/Bilder/fm 2.png")
 ```
 
@@ -172,7 +198,10 @@ Zuerst wurde nur auf das fehlerhafte `$` hingewiesen. Nachdem dieses gelöscht w
 
 Manchmal bekommt man auch nur <font color ="#C6180B">`unerwartetes Symbol in: "..."`</font> ausgegeben. In den Anführungszeichen <font color ="#C6180B">`"..."`</font> wird hier nur der Teil des Codes ausgegeben, in dem der Fehler ist, nicht aber (wie oben), auch das problematische Zeichen.
 
-```{r, out.width = "350px", echo=FALSE, fig.align='left'}
+```{r}
+#| out.width: 350px
+#| echo: false
+#| fig.align: left
 knitr::include_graphics("figures/Fehlermeldungen/Bilder/fm 3.png")
 ```
 
@@ -184,7 +213,10 @@ Hier wurde nicht bemerkt, dass bei der ersten Funktion `daten[,2` noch ein `]` f
 
 Wenn man Komma-Fehler hat, bekommt man beispielsweise folgende Meldung angezeigt.
 
-```{r, out.width = "500px", echo=FALSE, fig.align='left'}
+```{r}
+#| out.width: 500px
+#| echo: false
+#| fig.align: left
 knitr::include_graphics("figures/Fehlermeldungen/Bilder/fm 4.png")
 ```
 
@@ -207,7 +239,11 @@ Im Folgenden schauen wir uns einige **wichtige Aspekte an, auf die man achten so
 
 Dafür schauen wir uns folgendes Beispiel an: Wir wollen eine Korrelationstabelle erstellen, in der wir aus `daten` die ersten beiden Spalten `[1:2]` mit den letzten beiden Spalten `[3:4]` korrelieren. Dazu wurde die Funktion `cor.test()` genutzt. Wir bekommen folgende Fehlermeldung:
 
-```{r, out.width = "600px", echo=FALSE, fig.align='left', collapse=TRUE}
+```{r}
+#| out.width: 600px
+#| echo: false
+#| fig.align: left
+#| collapse: true
 knitr::include_graphics("figures/Fehlermeldungen/Bilder/fehler.png")
 ```
 
@@ -224,7 +260,10 @@ Sinnvoll ist es im Suchtext drei Aspekte miteinzubeziehen:
 
 Unsere Suche könnte folgendermaßen aussehen:
 
-```{r, out.width = "500px", echo=FALSE, fig.align='left'}
+```{r}
+#| out.width: 500px
+#| echo: false
+#| fig.align: left
 knitr::include_graphics("figures/Fehlermeldungen/Bilder/search words.png")
 ```
 
@@ -235,7 +274,10 @@ Anstatt eine globale Suchmaschine wie google oder ecosia zu nutzen, kann man auc
 
 Nachfolgend sehen wir die ersten fünf Ergebnisse der Suche.
 
-```{r, out.width = "500px", echo=FALSE, fig.align='left'}
+```{r}
+#| out.width: 500px
+#| echo: false
+#| fig.align: left
 knitr::include_graphics("figures/Fehlermeldungen/Bilder/search links.png")
 ```
 
@@ -266,7 +308,10 @@ Bei uns scheinen alle Spalten numerisch (`num`) zu sein. Diese Lösung scheint a
 
 Gehen wir also zurück zu unserer Suche und schauen uns andere Seiten an. So sehen die nächsten fünf Ergebnisse der Suche aus.
 
-```{r, out.width = "500px", echo=FALSE, fig.align='left'}
+```{r}
+#| out.width: 500px
+#| echo: false
+#| fig.align: left
 knitr::include_graphics("figures/Fehlermeldungen/Bilder/search links 2.png")
 ```
 
@@ -279,13 +324,19 @@ Die Antwort hat uns schon weitergeholfen: Wir haben eine Vorstellung davon, wo d
 
 Hier kombinieren wir Suchwörter zum <font color ="#649B32">**Programm**</font> und zu dem, was die <font color ="#FF230C">**Funktion**</font>, die wir suchen, leisten soll.
 
-```{r, out.width = "500px", echo=FALSE, fig.align='left'}
+```{r}
+#| out.width: 500px
+#| echo: false
+#| fig.align: left
 knitr::include_graphics("figures/Fehlermeldungen/Bilder/search words 2.png")
 ```
 
 Dann schauen wir uns wieder die ersten 5 Vorschläge dazu an:
 
-```{r, out.width = "500px", echo=FALSE, fig.align='left'}
+```{r}
+#| out.width: 500px
+#| echo: false
+#| fig.align: left
 knitr::include_graphics("figures/Fehlermeldungen/Bilder/search links neu.png")
 ```
 
@@ -331,7 +382,8 @@ Ein weiterer Tipp ist es, **in englisch zu suchen**. Die Wahrscheinlichkeit ist 
 
 Wenn man, wie in diesem Kapitel zu sehen, die Fehlermeldungen auf deutsch ausgegeben bekommt, kann man das folgendermaßen auf englisch ändern:
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 Sys.setenv(LANGUAGE="en")
 ```
 
@@ -356,20 +408,25 @@ Es gibt das Paket **errorist**, mit dem bei jeder Fehler- und Warnmeldung eine *
 
 Zuerst installieren wir das Paket:
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 install.packages("errorist", dependencies=TRUE)
 ```
 
 Dann laden wir das Paket und schauen uns an, was bei Ausführung unseres fehlerhaften Codes passiert.
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 library(errorist)
 cor.test(daten[1:2], daten[3:4])
 ```
 
 Sofort öffnet sich ein neues Fenster im Browser, in dem in Google folgender Text gesucht wird: *"Fehler in cor.test.default(daten[1:2], daten[3:4]) :   'x' muss ein numerischer Vektor sein r programming"*.
 
-```{r, out.width = "500px", echo=FALSE, fig.align='left'}
+```{r}
+#| out.width: 500px
+#| echo: false
+#| fig.align: left
 knitr::include_graphics("figures/Fehlermeldungen/Bilder/errorist.png")
 ```
 

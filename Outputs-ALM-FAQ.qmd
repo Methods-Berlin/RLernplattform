@@ -16,11 +16,13 @@ Wir schauen uns im folgenden den Datensatz `erstis` an. Dieser enthalt Daten aus
 
 Den Datensatz laden wir mit der `load()`-Funktion in unsere Environment: 
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 load(url("http://www.beltz.de/fileadmin/beltz/downloads/OnlinematerialienPVU/R_fuer_Einsteiger/erstis.rda"))
 ```
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 load(url("http://www.beltz.de/fileadmin/beltz/downloads/
          OnlinematerialienPVU/R_fuer_Einsteiger/erstis.rda"))
 # Zeilenumbruch zwischen der ersten und zweiten Zeile noch entfernen!
@@ -30,7 +32,8 @@ Wir wollen untersuchen, ob sich das Vorhandenseins eines **Nebenjobs** (`job`) a
  
 Dazu speichern wir beide Variablen in einem neuen Datensatz. 
  
-```{r, eval=TRUE}
+```{r}
+#| eval: true
 # Daten aus erstis in neuem Dataframe speichern und umbennenen
 daten <- data.frame(job = erstis$job, zf_belastung = erstis$zuf.bel.1)
 ```
@@ -97,7 +100,8 @@ Schauen wir uns dazu jeweils für beide Gruppen von `job` einen **QQ-Plot** an.\
 <!-- # diese können wir hier unbeachtet lassen -->
 <!-- ``` -->
 
-```{r, warning=FALSE}
+```{r}
+#| warning: false
 library(ggplot2)
 ggplot(data = daten, aes(sample = zf_belastung)) + # Koordinatensystem
   stat_qq() + stat_qq_line() + # QQ-Plot + Hilfslinie
@@ -123,7 +127,9 @@ Zur Überprüfung der Varianzhomogenität können wir beispielsweise den __Leven
 
 Wir führen den Test mit der Funktion `leveneTest()` aus dem Paket **car** durch.
 
-```{r, results="markup",eval=T}
+```{r}
+#| results: markup
+#| eval: !expr T
 library(car)
 leveneTest(zf_belastung ~ job, daten)
 ```
@@ -145,7 +151,9 @@ Mit der Funktion `t.test()` aus dem Basispaket **stats** können unterschiedlich
 
 <span class="ex">Wir wollen einen *ungerichteten* $t$-Test für unabhängige Stichproben durchführen und legen unser Signifikanzlevel $\alpha=.05$ fest.</span> 
 
-```{r t-Test, eval=FALSE}
+```{r}
+#| label: t-Test
+#| eval: false
 t.test(formula = zf_belastung ~ job, 
        data = daten,
        paired = FALSE, # unabhängige SP
@@ -157,7 +165,10 @@ t.test(formula = zf_belastung ~ job,
 <aside>\
 Mehr Informationen zum Umgang mit fehlenden Werten finden wir im Kapitel [Fehlende Werte][Fehlende Werte].</aside>
 
-```{r t-test out, out.width = "550px", echo=FALSE}
+```{r}
+#| label: t-test out
+#| out.width: 550px
+#| echo: false
 knitr::include_graphics("figures/Voraussetzungsprüfung/Bilder/t-test.png")
 ```
 
@@ -203,7 +214,8 @@ Bei der linearen Regression ist die sogenannte Residualdiagnostik ein essentiell
 
 Mit der Funktion `lm()` aus dem Basispaket **stats** können wir eine lineare Regression durchführen.
 
-```{r, eval=T}
+```{r}
+#| eval: !expr T
 lm_belastung <- lm(formula = zf_belastung ~ job,
                    data = daten, 
                    na.action = "na.exclude") # Ausschluss fehlender Werte
@@ -219,7 +231,8 @@ Das Ergebnisobjekt `lm_belastung` schauen wir uns erst *nach* der Annahmenprüfu
 
 > *__Achtung__*:  <div class="rows">Im Rahmen dieses Kapitels besprechen wir die Annahmen und deren Überprüfung nicht im Detail. Mehr Informationen finden wir im Kapitel zur [Prüfung der Annahmen der multiplen linearen Regression][Multiple lineare Regression], die denen der einfachen linearen Regression sehr ähnlich ist.</div>\
 
-```{r, echo=F}
+```{r}
+#| echo: !expr F
 # aus Bortz S. 192f
 # drei Annahmen: Linearität, Homoskedastizität, Normalität
 # aus Folien Meth II: Normlaverteilung y-Werte, + Unabhängigkeit der Residuen
@@ -240,7 +253,9 @@ Folgende vier Annahmen sind bei der einfachen linearen Regression mit der infere
 
 Diese Annahme lässt sich mittels eines **Residualplots** untersuchen. Dieser plottet die vorhergesagten Kriteriumswerte $\hat y_i$ gegen die Residuen $\hat e_i$.
 
-```{r Linearitätsannahme, eval=T}
+```{r}
+#| label: Linearitätsannahme
+#| eval: !expr T
 plot(lm_belastung, which=1)
 ```
 Weil wir nur eine kategoriale $UV$ mit zwei Ausprägungen haben, ordnen sich die Punkte in zwei vertikalen Linien an.
@@ -262,13 +277,16 @@ Den Residualplot, den wir gerade zur Überprüfung der Annahme der Linearität g
 
 > Die Verteilung der $y$-Werte an einer bestimmten Stelle der $UV$ ist eine Normalverteilung.
 
-```{r, echo=F}
+```{r}
+#| echo: !expr F
 # asymptotisch normalverteilt aus Master VL
 ```
 
 Eine Verletzung dieser Annahme ist eher in kleineren Stichproben problematisch. In großen Stichproben sind die Regressionskoeffizienten aufgrund des zentralen Grenzwertsatzes selbst dann asymptotisch normalverteilt, wenn die Annahme nicht erfüllt ist. Es gibt jedoch keinen Richtwert, ab wann eine Stichprobe als hinreichend groß gilt. Wir sollten die Annahme immer überprüfen. Dazu schauen wir uns einen **QQ-Plot** der Residuen an.
 
-```{r Normalität, eval=T}
+```{r}
+#| label: Normalität
+#| eval: !expr T
 plot(lm_belastung, which=2)
 ```
 
@@ -289,11 +307,16 @@ plot(lm_belastung, which=2)
 
 Wir schauen uns die Ergebnis unseres Regressionsmodells mittels `summary()` an:
 
-```{r lineare Regression, eval=FALSE}
+```{r}
+#| label: lineare Regression
+#| eval: false
 summary(lm_belastung)
 ```
 
-```{r lm out, out.width = "550px", echo=FALSE}
+```{r}
+#| label: lm out
+#| out.width: 550px
+#| echo: false
 knitr::include_graphics("figures/Voraussetzungsprüfung/Bilder/lm neu.png")
 ```
 
@@ -308,7 +331,10 @@ Wir bekommen Auskunft über:
 
 Unter `Coefficients` finden wir Informationen zu den geschätzten **Regressionskoeffizienten** - Intercept und Steigungskoeffizient(en): 
 
-```{r lm out o, out.width = "450px", echo=FALSE}
+```{r}
+#| label: lm out o
+#| out.width: 450px
+#| echo: false
 knitr::include_graphics("figures/Voraussetzungsprüfung/Bilder/lm oben.png")
 ```
 
@@ -338,7 +364,10 @@ $H_1$: $\beta_1 \neq 0$</aside>
 
 Im unteren Abschnitt finden wir Informationen bezüglich des **Gesamtmodells**:
 
-```{r lm out u, out.width = "475px", echo=FALSE}
+```{r}
+#| label: lm out u
+#| out.width: 475px
+#| echo: false
 knitr::include_graphics("figures/Voraussetzungsprüfung/Bilder/lm unten.png")
 ```
 
@@ -381,7 +410,8 @@ $H_1: \rho^2 > 0$</aside>
 
 <span class="ex">Unser Signifikanzlevel legen wir auf $\alpha=.05$ fest.</span>
 
-```{r, echo=F}
+```{r}
+#| echo: !expr F
 # auch im Bortz keine Hinweise auf Annahmenprüfung für ANOVA
 ```
 
@@ -402,7 +432,8 @@ Beides haben wir im Rahmen der Durchführung des [$t$-Test](#github-link) bereit
 
 Zur Durchführung der ANOVA verwenden wir die `aov()`Funktion. 
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 anova <- aov(zf_belastung ~ job, 
              data = daten, 
              na.action = "na.exclude") # Ausschluss fehlender Werte
@@ -411,7 +442,11 @@ summary(anova)
 
 <aside>Mehr Informationen zum Umgang mit fehlenden Werten im [gleichnamigen Kapitel][Fehlende Werte].</aside>
 
-```{r aov out, out.width = "400px", echo=FALSE, fig.align='center'}
+```{r}
+#| label: aov out
+#| out.width: 400px
+#| echo: false
+#| fig.align: center
 # man bekommt auch nur mit anova Ouput, aber wesentlich weniger Details
 # aber dafür Standardschätzfehler
 knitr::include_graphics("figures/Voraussetzungsprüfung/Bilder/aov.png")
@@ -445,7 +480,9 @@ Wie bereits eingangs erwähnt, gehören $t$-Test, lineare Regression und ANOVA a
 
 Für den hier betrachteten Spezialfall von nur einer UV mit nur zwei Stufen <font size="2">(und adäquater Kodierung; siehe z.B. [Indikatorvariablen: Kodierung nominaler Merkmale][Indikatorvariablen: Kodierung nominaler Merkmale] aus dem Kapitel Datenvorbereitung)</font> kommen die drei Verfahren zum selben Ergebnis bei der Signifikanztestung, obwohl scheinbar andere Hypothesen getestet werden.
 
-```{r, echo=FALSE, layout="l-body-outset"}
+```{r}
+#| echo: false
+#| column: l-body-outset
 library(kableExtra)
 library(knitr)
 

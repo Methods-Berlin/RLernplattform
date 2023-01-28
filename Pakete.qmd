@@ -18,7 +18,9 @@ CRAN steht für *The Comprehensive R Archive Network*. Von hier laden wir [`R`](
 
 > __*Hinweis*__: Wenn wir versuchen, eine Funktion auszuführen, für welche wir das entsprechende Paket **noch nicht installiert _und/oder_ geladen** haben, erhalten wir eine **Fehlermeldung.**  Wir bekommen beispielsweise folgende Fehlermeldung, wenn wir die Funktion `alpha()` aus dem Paket `psych` nutzen wollen.
 
-```{r, out.width = "420px", echo=FALSE}
+```{r}
+#| out.width: 420px
+#| echo: false
 knitr::include_graphics("figures/Pakete/Bilder/alpha.png")
 ```
 
@@ -30,7 +32,9 @@ Zur Installation von Paketen schauen wir uns beide Herangehensweisen, das Nutzen
 
 **Vorweg**: Bei beiden Wegen wird uns nach erfolgreicher Installation folgender Output in der Konsole angezeigt:
 
-```{r, out.width = "600px", echo=FALSE}
+```{r}
+#| out.width: 600px
+#| echo: false
 knitr::include_graphics("figures/Pakete/Bilder/install konsole.png")
 ```
 
@@ -45,19 +49,28 @@ Wir können `psych` installieren, indem wir <span class="code">install.packages(
 
 Wir können das Paket auch installieren, indem wir im **Packages-Tab** auf das Icon **Install** ...
 
-```{r, out.width = "275px", echo=FALSE, fig.align='center'}
+```{r}
+#| out.width: 275px
+#| echo: false
+#| fig.align: center
 knitr::include_graphics("figures/Pakete/Bilder/install button 1.png")
 ```
 
 ... oder in der Menüleiste am oberen Bildschirmrand auf **Tools** --> **Install Packages...** klicken.
 
-```{r, out.width = "700px", echo=FALSE, fig.align='center'}
+```{r}
+#| out.width: 700px
+#| echo: false
+#| fig.align: center
 knitr::include_graphics("figures/Pakete/Bilder/install packages.png")
 ```
 
 Nun öffnet sich ein neues Fenster, in welchem wir unter dem Reiter **Packages (...)** den Namen des Pakets eingeben können. Anschließen müssen wir noch auf das Icon **Install** klicken.
 
-```{r, out.width = "300px", echo=FALSE, fig.align='center'}
+```{r}
+#| out.width: 300px
+#| echo: false
+#| fig.align: center
 knitr::include_graphics("figures/Pakete/Bilder/install button 2.png")
 ```
 
@@ -69,7 +82,9 @@ Nachdem wir das benötigte Paket installiert haben, müssen wir es noch laden. N
 
 **Vorweg**: Bei beiden Möglichkeiten erscheint nach erfolgreichem Laden des Pakets folgender Output in der Konsole:
 
-```{r, out.width = "105px", echo=FALSE}
+```{r}
+#| out.width: 105px
+#| echo: false
 knitr::include_graphics("figures/Pakete/Bilder/laden konsole.png")
 ```
 
@@ -85,7 +100,10 @@ Alternativ kann man auch die Syntax <span class="code"><span class="ex">paket</s
 
 Alternativ können wir im **Packages-Tab** ein Häkchen bei dem Paket setzen, welches wir laden wollen. Um das gewünschte Paket schneller zu finden, können wir das Suchfeld nutzen.
 
-```{r, out.width = "275px", echo=FALSE, fig.align='center'}
+```{r}
+#| out.width: 275px
+#| echo: false
+#| fig.align: center
 knitr::include_graphics("figures/Pakete/Bilder/laden button.png")
 ```
 
@@ -93,7 +111,9 @@ knitr::include_graphics("figures/Pakete/Bilder/laden button.png")
 
 Es kann vorkommen, dass Funktionen aus verschiedenen Paketen die gleiche Bezeichnung haben. Beispielsweise gibt es in **psych** und in **ggplot2** eine Funktion mit dem Namen `alpha()`. Wenn wir ein Paket laden, und vorher ein anderes Paket geladen wurde, in dem eine gleichnamige Funktion vorkommt, bekommen wir folgende Meldung in der Konsole ausgegeben:
 
-```{r, out.width = "350px", echo=FALSE}
+```{r}
+#| out.width: 350px
+#| echo: false
 knitr::include_graphics("figures/Pakete/Bilder/mask.png")
 ```
 
@@ -105,7 +125,9 @@ Wenn wir die Funktion aus dem anderen Paket <font size="2">(**ggplot2**)</font> 
 
 Wenn wir das Paket mit der gewünschten Funktion laden, erhalten wir folgende Meldung.
 
-```{r, out.width = "350px", echo=FALSE}
+```{r}
+#| out.width: 350px
+#| echo: false
 knitr::include_graphics("figures/Pakete/Bilder/mask 2.png")
 ```
 
@@ -129,13 +151,17 @@ Wir können `update.packages()` ausführen, und bekommen so für jedes Paket, f�
 
 > __*Hinweis*__: Die Funktion `update.packages()` ist Bestandteil des Standardpakets **utils**.
 
-```{r, out.width = "600px", echo=FALSE}
+```{r}
+#| out.width: 600px
+#| echo: false
 knitr::include_graphics("figures/Pakete/Bilder/update function 1.png")
 ```
 
 Es kann vorkommen, dass für einige der Pakete, die wir aktualisieren wollen, noch nicht die Binärcodes der aktuellsten Versionen der Pakete für unser Betriebssystem auf CRAN bereit gestellt wurde.
 
-```{r, out.width = "375px", echo=FALSE}
+```{r}
+#| out.width: 375px
+#| echo: false
 knitr::include_graphics("figures/Pakete/Bilder/update function 2.png")
 ```
 
@@ -149,19 +175,28 @@ Wir können die jüngsten Binärcodes für die Pakete herunterladen oder die Que
 
 Dazu können wir im **Packages-Tab** auf das Icon **Update** ... 
 
-```{r, out.width = "275px", echo=FALSE, fig.align='center'}
+```{r}
+#| out.width: 275px
+#| echo: false
+#| fig.align: center
 knitr::include_graphics("figures/Pakete/Bilder/update 1.png")
 ```
 
 ... oder in der Menüleiste am oberen Bildschirmrand auf **Tools** --> **Check for Package Updates...** klicken.
 
-```{r, out.width = "700px", echo=FALSE, fig.align='center'}
+```{r}
+#| out.width: 700px
+#| echo: false
+#| fig.align: center
 knitr::include_graphics("figures/Pakete/Bilder/check for package updates.png")
 ```
 
 Damit öffnet sich ein neues Fenster, in dem all unsere Pakete angezeigt werden, für die es Aktualisierungen gibt. 
 
-```{r, out.width = "350px", echo=FALSE, fig.align='center'}
+```{r}
+#| out.width: 350px
+#| echo: false
+#| fig.align: center
 knitr::include_graphics("figures/Pakete/Bilder/update 2.png")
 ```
 
@@ -171,17 +206,24 @@ Wenn wir alle Pakete aktualisieren wollen, wählen wir **Select All**. Dann müs
 
 Wenn wir Pakete, die wir installieren wollen, derzeit geladen haben, öffnet sich ein Fenster, in dem werden wir gefragt, ob wir `R` neustarten möchten bevor die gewählten Pakete installiert werden sollen. Wir sollten hier **Ja** anklicken.  Manchmal kann es vorkommen, dass uns dieses Fenster immer wieder angezeigt wird. Wenn das der Fall ist, sollten wir auf **Nein** klicken.
 
-```{r, out.width = "350px", echo=FALSE, fig.align='center'}
+```{r}
+#| out.width: 350px
+#| echo: false
+#| fig.align: center
 knitr::include_graphics("figures/Pakete/Bilder/aktualisieren warnung.png")
 ```
 
-```{r, echo=F, eval=FALSE}
+```{r}
+#| echo: !expr F
+#| eval: false
 # Quelle: https://community.rstudio.com/t/meaning-of-common-message-when-install-a-package-there-are-binary-versions-available-but-the-source-versions-are-later/2431
 ```
 
 Manchmal werden die Updates nicht einfach installiert, sondern der Vorgang wird unterbrochen und wir bekommen eine Meldung in der Konsole angezeigt.
 
-```{r, out.width = "600px", echo=FALSE}
+```{r}
+#| out.width: 600px
+#| echo: false
 knitr::include_graphics("figures/Pakete/Bilder/update gui.png")
 ```
 
@@ -191,7 +233,9 @@ Wir sollen uns nun entscheiden, ob wir die betroffenen Pakete mit den Quellcodes
 
 ### Entwicklerpakete runterladen
 
-```{r, echo=F, eval=FALSE}
+```{r}
+#| echo: !expr F
+#| eval: false
 # https://www.datacamp.com/community/tutorials/r-packages-guide
 ```
 
@@ -201,12 +245,14 @@ Mit diesem können wir u.a. sogenannte **Entwicklerpakete** herunterladen. Das s
 
 Solche Entwicklerpakete können häufig von <a href="https://github.com" target="_blank">GitHub</a> runtergeladen werden. Zuerst müssen wir dafür das Paket **devtools** installieren. Dann müssen wir dieses laden und anschließend können wir das gewünschte Zielpaket herunterladen.
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 library(devtools)
 ```
 
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 install.packages("devtools")
 library(devtools)
 
@@ -232,7 +278,9 @@ Mit der Funktion `sessionInfo()` aus dem Standardpaket **utils** bekommen wir vi
 - <span style="color:#0533FF">**Betriebssystem-Version**</span>
 - <span style="color:#669C35">**geladene Pakete mit Angaben zur Version**</span>
 
-```{r, out.width = "700px", echo=FALSE}
+```{r}
+#| out.width: 700px
+#| echo: false
 knitr::include_graphics("figures/Pakete/Bilder/sessionInfo.png")
 ```
 
@@ -242,7 +290,10 @@ Für noch detailliertere Informationen zu unseren geladenen Paketen können wir 
 
 Hier sehen wir z.B. bei **source** wo wir die Paket heruntergeladen haben <font size="2">(z.B. CRAN)</font> und bei **version** mit welcher `R`-Version wir sie erstellt haben <font size="2">(z.B. R 3.6.0)</font>.
 
-```{r, out.width = "350px", echo=FALSE, fig.align='center'}
+```{r}
+#| out.width: 350px
+#| echo: false
+#| fig.align: center
 knitr::include_graphics("figures/Pakete/Bilder/session_info.png")
 ```
 
@@ -297,13 +348,16 @@ Mit den im Paket **horst** enthaltenen Funktionen können wir u.a. den Modus ein
 
 Wenn man versucht Entwicklerpakete mit `install.packages()` herunterzuladen, bekommt man eine Fehlermeldung ausgegeben:
 
-```{r, out.width = "400px", echo=FALSE}
+```{r}
+#| out.width: 400px
+#| echo: false
 knitr::include_graphics("figures/Pakete/Bilder/warning.png")
 ```
 
 Entwicklerpakete erhält man zumeist direkt von den Entwicklern <font size="2">(z.B. als Zusatzmaterial in wissenschaftlichen Publikationen oder zum Download von persönlichen Webseiten)</font>. Häufig können Entwicklerpakete auch von <a href="https://github.com" target="_blank">GitHub</a> runtergeladen werden. Dazu müssen wir zunächst das Paket **devtools**, welches wir zum Herunterladen benötigen, installieren. Dann müssen wir dieses laden und anschließend können wir das gewünschte Zielpaket installieren.
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 install.packages("devtools")
 library(devtools)
 install_github("kthorstmann/horst") # EntwicklerIn / Paket

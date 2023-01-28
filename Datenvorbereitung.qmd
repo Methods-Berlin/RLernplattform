@@ -1,6 +1,7 @@
 # Datenvorbereitung
 
-```{r,include=FALSE}
+```{r}
+#| include: false
 library(dplyr)
 library(kableExtra)
 ```
@@ -40,12 +41,14 @@ Mehr Informationen zum Datensatz finden wir <a href="https://stat.ethz.ch/R-manu
 
 Den Datensatz <span class="highlight">PWE_data</span>, welcher Daten einer **psychometrischen Erhebung** enthält, werden wir auch häufiger nutzen. Um den Datensatz und das Codebuch herunterzuladen, klicken wir auf diesen <a href="https://openpsychometrics.org/_rawdata/PWE_data.zip">Link</a>. Dann gehen wir in den Ordner **PWE_data** und lesen **data.csv** ein:
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 library(readr) # zum Einlesen der csv-Datei
 PWE_data <- read_table("Dateipfad/data.csv")
 ```
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 library(readr)
 PWE_data <- read_table("data/PWE.csv")
 ```
@@ -64,12 +67,14 @@ Die Datensätze <span class="highlight">vornamen_13</span> und <span class="high
 
 Zuerst laden wir die csv-Dateien für <a href="https://www.opengov-muenchen.de/dataset/6acc34a9-762e-4e7f-83b0-250654478134/resource/f47ec60f-8839-4e83-9c7c-492c8b17d7b5/download/vornamen-von-neugeborenen2013.csv" target="_blank">2013</a> und <a href="https://www.opengov-muenchen.de/dataset/582aac00-aa2d-4b00-ac90-c4e5be7fa485/resource/cebd2d67-94e6-4667-a850-415f863d3b10/download/vornamen-von-neugeborenen-2014.csv" target="_blank">2014</a> runter und lesen sie dann folgendermaßen in <span class ="r">R</span> ein:
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 vornamen_13 <- read.csv("Dateipfad/vornamen-von-neugeborenen2013.csv")
 vornamen_14 <- read.csv("Dateipfad/vornamen-von-neugeborenen2014.csv")
 ```
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 vornamen_13 <- read.csv("data/vornamen-von-neugeborenen2013.csv")
 vornamen_14 <- read.csv("data/vornamen-von-neugeborenen-2014.csv")
 ```
@@ -107,12 +112,14 @@ Zuerst widmen wir unsere Aufmerksamkeit der Überprüfung wichtiger übergreifen
 
 Generell wenn wir mit Daten arbeiten, ist es ratsam, sich zuallererst Gedanken darüber zu machen, welche Informationen wir diesen entnehmen können <font size="2">(**Messniveau**)</font> und ob sie so gespeichert sind, dass <span class ="r">R</span> sie richtig erkennt <font size="2">(**Datentypen und -strukturen**)</font>.
 
-Die nachfolgende Wiederholung ist eine verkürzte Variante des Abschnitts [Daten][Daten] aus dem Kapitel zu [Einführung in R][Einführung in R].
+Die nachfolgende Wiederholung ist eine verkürzte Variante des Abschnitts [Daten](Einführung in R#Daten) aus dem Kapitel zu [Einführung in R](Einführung in R).
 
 
 #### <font color="darkgrey">Messniveaus</font>
 
-```{r, echo=FALSE, eval=FALSE}
+```{r}
+#| echo: false
+#| eval: false
 #Die allgemeine Definition des Messens in der Sozialwissenschaft nach Stevens lautet:
 #> "Das Messen ist eine Zuordnung von Zahlen zu (Eigenschaften von) Objekten oder Ereignissen, sofern diese Zuordnung eine #homomorphe Abbildung eines empirischen Relativs in ein numerisches Relativ ist." (Orth, 1983, S. 138, zitiert nach Bortz & #Schuster, 2010, S. 16)
 #<aside>Bortz, J. & Schuster, C. (2010). *Statistik für Sozialwissenschaftler* (7. Aufl.). Heidelberg: Springer</aside>
@@ -165,7 +172,8 @@ Zu guter Letzt gibt es noch <span class="highlight">absolutskalierte**</font> Me
 
 Nachfolgend finden wir eine Tabelle der möglichen Unterscheidungen der jeweiligen Messiniveaus.
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 # https://haozhu233.github.io/kableExtra/awesome_table_in_html.html#column__row_specification
 table <-
   matrix(
@@ -201,7 +209,8 @@ kable(table, "html", escape = F) %>%
 > *__Achtung__*:  Die Unterteilung nach "Datentyp" und "Datenstruktur" sind getreu des <a href="https://cran.r-project.org/doc/manuals/r-release/R-intro.html" target="_blank">Manuals von <span class ="r">R</span></a>. Man stößt in anderen Quellen aber auch auf abweichende Unterteilungen bzw. Benennungen.
 
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 # http://www.r-tutor.com/r-introduction/basic-data-types
 # basic datatypes:
 ## numeric, integer, complex, logical, character
@@ -227,7 +236,8 @@ Wenn mir nominal- bzw. ordinalskalierte Daten **nicht** adäquat kodieren, kann 
 
 Nachfolgend finden wir eine Übersicht zu den Möglichkeiten der Kodierung von Merkmalen mit verschiedenen Skalenniveaus.
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 De <- rep("Datentyp:", 2)
 D <- c("<span style=\"font-family: Consolas,monaco,monospace;\">character</span>", "<span style=\"font-family: Consolas,monaco,monospace;\">numeric</span>")
 N <- c("X", "X$^1$")
@@ -271,7 +281,8 @@ Wir nutzen hier für **PWE_data** die Funktion `ls.str()`, weil der Output für 
 
 ### Dataframe
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 # http://www.r-tutor.com/r-introduction/data-frame
 ```
 
@@ -287,7 +298,8 @@ Ein Dataframe ist eine **Datenstruktur**, die es uns erlaubt, Daten tabellarisch
 
 Mehr Informationen gibt es im vorhergehenden Abschnitt zu [<font color="darkgrey">Datentypen und Datenstrukturen</font>].
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 # https://www.r-bloggers.com/matrix-vs-data-frame-in-r/
 ```
 
@@ -297,7 +309,8 @@ Mehr Informationen gibt es im vorhergehenden Abschnitt zu [<font color="darkgrey
 
 Falls unser Datensatz kein Dataframe ist, können wir ihn folgendermaßen **umwandeln**:
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 airquality <- as.data.frame(airquality)
 ```
 
@@ -319,7 +332,8 @@ Das Auftauchen von unplausiblen Werten ist z.B. wahrscheinlicher, wenn Daten **m
 Die Funktion `unique()` gibt uns einen Überblick über **alle enthaltenen Ausprägungen** eines Vektors. Wenn wir diese mit `sapply()` kombinieren, können wir das **für jede Variable im Datensatz anwenden**. Wenn wir den Output wiederum erneut an `sapply()` übergeben, und `sort()` anwenden, werden die **Ausprägungen aufsteigend sortiert** <font size="2">(weil der Default `decreasing = FALSE` ist)</font>, was die Überprüfung erleichtert. In `sort()` können wir außerdem `na.last=TRUE` nutzen, um uns das Vorhandensein von `NA`s am Ende der Ausprägungen anzeigen zu lassen.
 
 
-```{r, layout="l-body-outset"}
+```{r}
+#| column: l-body-outset
 sapply(sapply(airquality, unique), sort, na.last=TRUE)
 ```
 
@@ -334,7 +348,8 @@ summary(airquality)
 
 <span class="ex">Für den Datensatz **PWE_data** schauen wir uns hier wieder nur einige Variablen an. Informationen zu den Variablen finden wir in der Codebook, welches sich im Ordner **PWE_data** befindet.</span>
 
-```{r, layout="l-body-outset"}
+```{r}
+#| column: l-body-outset
 sapply(sapply(PWE_data[,88:101], unique), sort)
 ```
 
@@ -346,7 +361,8 @@ Wenn wir **unplausible Werte** in unseren Daten finden, können wir zu [**5. Kod
 
 <span class="ex">Weil wir in **PWE_data** sehr viele Variablen haben und es zu umständlich wäre, alle einzeln umzukodieren, kodieren wir erst im gesamten Datensatz `0` zu `NA` um, und ändern danach wieder die Kodierung für die Variablen `VCL1` bis`VCL16`.</span>
 
-```{r pwe na}
+```{r}
+#| label: pwe na
 # Umkodierung für gesamten Datensatz
 PWE_data[PWE_data == 0] <- NA
 
@@ -470,7 +486,8 @@ Im **Wide**-Format liegen Messungen *einer* Untersuchungseinheit in *einer* Zeil
 
 <div style="text-align: center"><font size="2">**Beispiel 1 Wide-Format: Messzeitpunkte**</font></div>
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 # library(dplyr)
 table_wide <- as.data.frame(matrix(c(1,2,4,5,3,2,1,3), nrow = 2))
 colnames(table_wide)<- c("Untersuchungseinheit", "t1", "t2", "t3")
@@ -493,7 +510,8 @@ table_wide %>% mutate(
 
 <div style="text-align: center"><font size="2">**Beispiel 2 Wide-Format: Rater**</font></div>
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 table_wide <- as.data.frame(matrix(c(1,2,2,3,1,4,3,2), nrow = 2))
 colnames(table_wide)<- c("Untersuchungseinheit", "self", "friend", "parent")
 
@@ -511,7 +529,8 @@ Im **Long**-Format liegen Messungen *einer* Untersuchungseinheit in *mehreren* Z
 
 <div style="text-align: center"><font size="2">**Beispiel 1 Long-Format: Messzeitpunkte**</font></div>
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 # options(knitr.kable.NA = '')
 Untersuchungseinheit <- c(1,1,1,2,2,2)
 Zeitpunkt <- c(1,2,3,1,2,3)
@@ -527,7 +546,8 @@ table_long %>% mutate(Messung = cell_spec(Messung, background="grey")) %>%
 
 <div style="text-align: center"><font size="2">**Beispiel 2 Long-Format: Rater**</font></div>
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 # options(knitr.kable.NA = '')
 Untersuchungseinheit <- c(1,1,1,2,2,2)
 Rater <- c("self","friend","parent","self","friend","parent")
@@ -605,13 +625,15 @@ Hier sehen wir den eingangs erwähnten Unterschied von `merge()` und `bind_rows(
 
 Beispielsweise kommt folgender Fall in beiden Dataframes vor:
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 vornamen_13[vornamen_13$vorname == "Aadhya",]
 ```
 
 <aside>`vornamen_13`</aside>
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 vornamen_14[vornamen_14$vorname == "Aadhya",]
 ```
 
@@ -627,7 +649,8 @@ Nehmen wir an, dass ein Dataframe `x` eine zusätzliche Variable `a` hat. Für d
 
 `x` und `y` haben jeweils drei Fälle. `x` hat drei Variablen; `y` hat zwei.
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 x <- data.frame(c = c(5,6,7), b = c(5,6,7), a = c(5,6,7))
 y <- data.frame(c = c(5,7,6), b = c(7,5,6))
 ```
@@ -652,7 +675,8 @@ Man könnte denken, dass 6 Fälle in `merge_xy` zu finden sind. Weil aber jeweil
 
 <details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193">`bind_rows()`</font></span></summary><p>
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 # https://psyr.org/manipulating-data.html#1661_binding
 ```
 
@@ -665,7 +689,8 @@ Optional können wir der Funktion das Argument `.id` übergeben, mit dem wir ein
 vornamen_bind <- bind_rows(vornamen_13, vornamen_14, .id = "id")
 ```
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 library(knitr)
 kable(vornamen_bind[c(1,4013),])
 ```
@@ -719,7 +744,8 @@ dim(vornamen_merge_col)
 
 Nun schauen wir uns einmal die (ersten 6 Fälle der) neu erstellten Variablen an.
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 library(knitr)
 kable(head(vornamen_merge_col))
 ```
@@ -731,7 +757,8 @@ Nachfolgend schauen wir uns jeweils ein Beispiel sowie die Anzahl der Fälle die
 
 1. `vorname` und `geschlecht` sind in beiden Dataframes **gleich**
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 vornamen_merge_col[6,]
 ```
 
@@ -744,7 +771,8 @@ nrow(vornamen_merge_col[which(
 
 2. `geschlecht` bei `vorname`  **unterscheidet sich** zwischen den Dataframes
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 vornamen_merge_col[38,]
 ```
 
@@ -779,7 +807,8 @@ Wenn wir nun alle Werte aufsummieren, kommen wir auf die Anzahl der Zeilen im ge
 
 <details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193">`_join()`</font></span></summary><p>
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 # https://psyr.org/manipulating-data.html#1662_joining
 ```
 
@@ -820,7 +849,8 @@ Zur Demonstration der Übereinstimmung schauen wir uns die Dimensionen und den A
 dim(vornamen_join_row)
 ```
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 library(knitr)
 kable(head(vornamen_join_row))
 ```
@@ -829,7 +859,8 @@ kable(head(vornamen_join_row))
 dim(vornamen_merge_row)
 ```
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 kable(head(vornamen_merge_row))
 ```
 </div></details>
@@ -846,7 +877,8 @@ Manchmal möchten wir nur bestimmte Variablen bzw. bestimmte Fälle aus einem Da
 Wie wir Variablen (Spalten) und Fälle (Zeilen) selektieren und in einem neuen Dataframe speichern können, schauen wir uns nun an.
 
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 # SUBSET AUS BASE NOCH AUFNEHMEN? 
 # https://www.statmethods.net/management/subset.html
 
@@ -861,7 +893,8 @@ Wenn wir nur einige Variablen aus einem bzw. aus mehreren Datensätzen benötige
 
 Unten befindet sich eine Übersicht, der wir entnehmen können, welche Methode wir wählen sollten in Abhängigkeit davon, ob die Variablen, die wir extrahieren wollen, ähnlich oder unterschiedlich sind.
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 # https://haozhu233.github.io/kableExtra/awesome_table_in_html.html#column__row_specification
 library(kableExtra)
 library(dplyr)
@@ -883,7 +916,8 @@ Wenn Variablen eines Datensatzes eine **Gemeinsamkeit** <font size="2">(z.B. ein
 <div style="text-align: center"><span class="code">grep(pattern, names(<span class="ex">Datensatz</span>))</span></div>\
 Die Funktion durchsucht die Namen der Variablen eines Dataframes - <span class="code">names(<span class="ex">Datensatz</span>)</span> - nach bestimmten Zahlen- oder Zeichenketten (`pattern`). Diese müssen wir in `" "` angeben <font size="2">(weil Variablennamen als Character gespeichert werden)</font>. 
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 # hier egal ob value=F oder T, man kann beides auf Dataframe anwenden
 ```
 
@@ -897,7 +931,8 @@ var_mit_o <- grep(pattern="o", names(airquality))
 df_var_mit_o <- airquality[var_mit_o]
 ```
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 library(rmarkdown)
 rmarkdown::paged_table(df_var_mit_o, options(rows.print=5))
 ```
@@ -921,7 +956,8 @@ Diesen wendet man an, indem man die Form <span class="code"><span class="ex">Dat
 df_wind_ozone <- data.frame(airquality$Wind, airquality$Ozone)
 ```
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 rmarkdown::paged_table(df_wind_ozone, options(rows.print=5))
 ```
 
@@ -948,7 +984,8 @@ df_month_day <- select(airquality,
                        Day)
 ```
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 library(rmarkdown)
 rmarkdown::paged_table(df_month_day, options(rows.print=5))
 ```
@@ -964,7 +1001,8 @@ df_without_month_day <- select(airquality,
                        -Day)
 ```
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 library(rmarkdown)
 rmarkdown::paged_table(df_without_month_day, options(rows.print=5))
 ```
@@ -975,7 +1013,8 @@ rmarkdown::paged_table(df_without_month_day, options(rows.print=5))
 
 #### Datums-Variablen splitten
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 # https://psyr.org/manipulating-data.html#163_splitting_a_variable
 ```
 
@@ -987,7 +1026,8 @@ Wir schauen uns nachfolgend einige Möglichkeiten der Extraktion von Fällen mit
 
 Unten befindet sich eine Übersicht, der wir entnehmen können, welche Methode wir wählen sollten in Abhängigkeit davon, ob die Fälle, die wir extrahieren wollen, ähnlich oder unterschiedlich sind.
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 # https://haozhu233.github.io/kableExtra/awesome_table_in_html.html#column__row_specification
 library(kableExtra)
 library(dplyr)
@@ -1019,7 +1059,8 @@ kable(table, table.attr = "style='width:100%;'") %>%
 
 <details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193"><a name="grep2"></a>`grep()`</font></span></summary><p>
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 ## Quellen: 
 # Diagnostik I Working Directory
 # https://de.wikibooks.org/wiki/GNU_R:_grep
@@ -1034,7 +1075,8 @@ Wenn wir Ausprägungen suchen, die sich nicht durch logische Operatoren, sondern
 
 Die Funktion durchsucht Elemente eines Vektor (`x`) nach bestimmten Zahlen- oder Zeichenketten (`pattern`). Mit `grep()` werden in Abhängigkeit des Arguments `value` entweder Indizes (`FALSE`; *voreingestellt*), oder konkrete Werte (`TRUE`) ausgegeben. Die Werte schauen wir uns zur Überprüfung an; die Indizes benötigen wir zur Extraktion jener Fälle aus dem Datensatz.
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 # gleich:
 # test[grepl("a|n", test)]
 # grep("a|n", test, value=T)
@@ -1047,7 +1089,8 @@ Wenn eine Ausprägung **irgendwo** eine bestimmten Zahlen- oder Zeichenketten en
 
 <span class="ex">Wir durchsuchen die Variable `Temp` nach den Tagen, an denen eine 6 im Messwert war.</span>
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 # scheinbar das gleiche wie .*6.*
 ```
 
@@ -1101,7 +1144,8 @@ Wir können hierfür **nur** den **Indizes**-Vektor (`value=FALSE`; Default) nut
 df_temp5 <-  airquality[grep("^5|5$", airquality$Temp),]
 ```
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 library(rmarkdown)
 rmarkdown::paged_table(df_temp5, options(rows.print=5))
 ```
@@ -1112,7 +1156,8 @@ rmarkdown::paged_table(df_temp5, options(rows.print=5))
 
 <details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193"><a name="logop"></a>Logische Operatoren</font></span></summary><p>
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 ## Quellen: 
 # https://stackoverflow.com/questions/26813667/how-to-use-grep-gsub-to-find-exact-match
 ```
@@ -1135,7 +1180,8 @@ Beispielsweise können wir mit dem Gleichheits-Operator `==` nach exakt einer Au
 df_temp57 <- airquality[airquality$Temp == 57,]
 ```
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 library(rmarkdown)
 rmarkdown::paged_table(df_temp57, options(rows.print=5))
 ```
@@ -1148,7 +1194,8 @@ Wir können mittels `|`*(oder)* auch mehrere Ausprägungen gleichzeitig auswähl
 df_temp57_66 <- airquality[airquality$Temp == 57 | airquality$Temp == 66,]
 ```
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 library(rmarkdown)
 rmarkdown::paged_table(df_temp57_66, options(rows.print = 6))
 ```
@@ -1172,7 +1219,8 @@ df_month6_day15ff <- dplyr::filter(airquality, Month == 6, Day >= 15)
 
 [Zu Beginn](#mask) haben wir erläutert, warum wir manchmal `::` nutzen sollten.
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 library(rmarkdown)
 rmarkdown::paged_table(df_month6_day15ff, options(rows.print=5))
 ```
@@ -1183,7 +1231,8 @@ rmarkdown::paged_table(df_month6_day15ff, options(rows.print=5))
 
 ## Daten sortieren
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 # Luhmann 2013 Buch (Kap. 9, S.97)
 ```
 
@@ -1201,7 +1250,8 @@ Weil mit `order()` nur Zeilenindizes ausgegeben werden, müssen wir diese noch a
 df_ascend_temp <- airquality[order(airquality$Temp),]
 ```
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 library(rmarkdown)
 rmarkdown::paged_table(df_ascend_temp, options(rows.print=5))
 ```
@@ -1213,7 +1263,8 @@ rmarkdown::paged_table(df_ascend_temp, options(rows.print=5))
 df_ascend_temp_wind <- airquality[order(airquality$Temp, airquality$Wind),]
 ```
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 library(rmarkdown)
 rmarkdown::paged_table(df_ascend_temp_wind, options(rows.print=5))
 ```
@@ -1226,7 +1277,8 @@ Wenn wir nach den **absteigenden** Werte der Variablen sortieren wollen, hängen
 df_descend_temp_wind_1 <- airquality[order(-airquality$Temp, airquality$Wind),]
 ```
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 library(rmarkdown)
 rmarkdown::paged_table(df_descend_temp_wind_1, options(rows.print=5))
 ```
@@ -1237,7 +1289,8 @@ rmarkdown::paged_table(df_descend_temp_wind_1, options(rows.print=5))
 
 <details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193">`arrange()`</font></span></summary><p>
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 # https://r4ds.had.co.nz/transform.html#arrange-rows-with-arrange
 ```
 
@@ -1251,7 +1304,8 @@ Standardmäßig wird hier ebenso wie bei `order()` aufsteigend sortiert solange 
 df_ascend_temp_wind_2 <- arrange(airquality, -Temp, Wind)
 ```
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 library(rmarkdown)
 rmarkdown::paged_table(df_ascend_temp_wind_2, options(rows.print=5))
 ```
@@ -1268,7 +1322,8 @@ Wenn die Daten nicht in einer angemessenen Kodierung vorliegen, muss man diese n
 
 ### Umkodieren
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 # https://psyr.org/manipulating-data.html#1641_using_recode()
 # aber recode aus dpylr
 ```
@@ -1296,7 +1351,9 @@ Wir müssen hierbei einige syntaktische Besonderheiten von `recodes` beachten:\
 
 So sehen die Daten (der ersten 10 Personen) bisher aus:
 
-```{r, echo=FALSE, max.print = 10}
+```{r}
+#| echo: false
+#| max.print: 10.0
 rmarkdown::paged_table(PWE_data[,c(25,37,43)], options(rows.print=5))
 ```
 Jetzt invertieren wir die Skalen:
@@ -1315,7 +1372,9 @@ PWE_data$Q15A <- recode(var=PWE_data$Q15A,
 
 Abschließend überprüfen wir (visuell), ob die Umkodierung geklappt hat:
 
-```{r, echo=FALSE, max.print = 10}
+```{r}
+#| echo: false
+#| max.print: 10.0
 rmarkdown::paged_table(PWE_data[,c(25,37,43)], options(rows.print=5))
 ```
 \
@@ -1339,7 +1398,9 @@ PWE_data$education_new <- recode(var=PWE_data$education,
 
 Abschließend vergleichen wir die Daten (der ersten 10 Personen) von `education` und `education_new`:
 
-```{r, echo=FALSE, max.print = 10}
+```{r}
+#| echo: false
+#| max.print: 10.0
 rmarkdown::paged_table(PWE_data[,c(88, 106)], options(rows.print=5))
 ```
 
@@ -1350,7 +1411,8 @@ rmarkdown::paged_table(PWE_data[,c(88, 106)], options(rows.print=5))
 <details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193">`case_when()`</font></span></summary><p>
 
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 # quasi mehrere if_else() (oder ifelse()) Konditionen testbar, effizienter
 ```
 
@@ -1396,7 +1458,10 @@ Nominale Merkmale kann man in Form von Dummy-, Effekt- und Kontrastkodierungen r
 
 Untenstehende Tabelle gibt einen groben Überblick über die Interpretation der Parameter des ALM in Abhängigkeit der Kodierung.
 
-```{r, echo=FALSE, layout="l-body-outset", eval=FALSE}
+```{r}
+#| echo: false
+#| column: l-body-outset
+#| eval: false
 # aus: Bortz S. 365ff: Interpretation Schätzungen; S.367: wozu besonders geeignet
 #### ALT
 table <-
@@ -1432,7 +1497,9 @@ kable(table) %>%
   column_spec(1, bold=TRUE, color = "white", background = "#009193")
 ```
 
-```{r, echo=FALSE, layout="l-body-outset"}
+```{r}
+#| echo: false
+#| column: l-body-outset
 table <-
   matrix(
     c(
@@ -1484,7 +1551,8 @@ Zusätzlich rechnen wir jeweils eine einfache lineare Regression mit den verschi
 
 Viele Funktionen in <span class ="r">R</span> (z.B. `lm()`, `lme()`  und `lmer()`) kodieren nominalskalierte Variablen intern *automatisch* nach der Dummy-Kodierung um, wenn diese vorher [als Faktoren deklariert](#faktorisieren) wurden. Dabei wird die *erste Kategorie als Referenzkategorie* genutzt. Wenn wir eine andere Referenzkategorie haben wollen, können wir dafür die im Folgenden vorgestellten Funktionen (`C(..., contr.treatment(n, base))` oder `relevel()`) nutzen.
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 # dummy coding .. many functions in R do this automatically (lm(), glm(), lme(), lmer(), . . . if the categorical variable has been declared as a ‘factor’)
 
 # F.5 https://personality-project.org/r/tutorials/summerschool.14/rosseel_sem_cat.pdf
@@ -1508,7 +1576,9 @@ summary(lm_ct)
 ```
 
 
-```{r, eval=FALSE, echo=FALSE}
+```{r}
+#| eval: false
+#| echo: false
 lm_uf <- lm(introelapse ~ education_of, PWE_data)
 summary(lm_uf)
 
@@ -1546,7 +1616,8 @@ ls.str(PWE_data[,c(103, 106)]) # zum Überprüfen
 
 <details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193">Effektkodierung</font></span></summary><p>
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 # Hilfe wie man Effekte macht: http://faculty.cas.usf.edu/mbrannick/regression/anova1.html
 ```
 
@@ -1573,7 +1644,8 @@ summary(lm_cs)
 
 Leider können wir mit `contr.sum()` **nur die erste Faktorstufe als "Referenzkategorie"** nutzen. Mit `ref()` können wir jedoch wieder die Sortierung der Faktorstufen ändern und den umsortierten Faktor dann wieder an `C(..., contr.sum(n))` übergeben.
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 # Beispiel: Female als Referenzkategorie
 PWE_data$gender_uf_ref <- relevel(PWE_data$gender_uf, ref = 2)
 
@@ -1586,12 +1658,15 @@ ls.str(PWE_data[,c(103, 106)]) # zum Überprüfen
 
 <details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193">Konstrastkodierung</font></span></summary><p>
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 ## ganz interessant v.a. für orthogonale Kontraste
 # http://faculty.cas.usf.edu/mbrannick/regression/anova1.html
 ```
 
-```{r, eval=FALSE, echo=FALSE}
+```{r}
+#| eval: false
+#| echo: false
 # https://stats.idre.ucla.edu/r/library/r-library-contrast-coding-systems-for-categorical-variables/
 # hieraus 9. User Definied Coding
 
@@ -1636,7 +1711,9 @@ PWE_data$gender_kontrast <- c(rep(1/675, 675), # Male (1)
 <font size="2"><span class="code">rep(<span class="ex">Gewichtung</span>, <span class="ex">Gruppengröße</span>)</span>: 
 Die jeweilige Gewichtung einer Gruppe (bzw. Kombination von Gruppen) richtet sich nach ihrer Größe.</font>
 
-```{r, echo=FALSE, eval=FALSE}
+```{r}
+#| echo: false
+#| eval: false
 rmarkdown::paged_table(PWE_data[,107])
 ```
 
@@ -1677,7 +1754,8 @@ lm_kontr <- lm(introelapse ~ gender_kontrast, PWE_data)
 summary(lm_kontr)
 ```
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 # Wieso ändert sich der Slope von Kontrast 1 wenn man 1 anstatt 1/31 festlegt???
 # Und Interpretation Slope und Interzept korekt?
 ```
@@ -1720,7 +1798,9 @@ PWE_data$sum <- rowSums(select(PWE_data, matches("^Q.*A$")), na.rm=TRUE)
 
 Nun schauen wir uns die neu erstellte Variable (für die die ersten 10 Personen) einmal an:
 
-```{r, echo=FALSE, max.print = 10}
+```{r}
+#| echo: false
+#| max.print: 10.0
 rmarkdown::paged_table(PWE_data[,c("sum")], options(rows.print=5))
 ```
 
@@ -1732,7 +1812,9 @@ PWE_data$mean <- rowMeans(select(PWE_data, matches("^Q.*A$")), na.rm=TRUE)
 
 Abschließend schauen wir uns wieder die neu erstellte Variable (für die die ersten 10 Personen) an:
 
-```{r, echo=FALSE, max.print = 10}
+```{r}
+#| echo: false
+#| max.print: 10.0
 rmarkdown::paged_table(PWE_data[,c("mean")], options(rows.print=5))
 ```
 
@@ -1763,7 +1845,9 @@ PWE_data$sum_gr <- ifelse(PWE_data$gender == 2 & PWE_data$religion == 3, # test
 
 Schauen wir uns die neu erstellte Variable sowie die Gruppierungsvariablen (der Personen 687 bis 691 an, unter denen sich 2 von insgesamt `r table(is.na(PWE_data$sum_gr))[1]` weibliche Buddhistinnen befinden) einmal an:
 
-```{r, echo=FALSE, max.print = 10}
+```{r}
+#| echo: false
+#| max.print: 10.0
 rmarkdown::paged_table(PWE_data[687:691,c("gender", "religion", "sum_gr")], options(rows.print=5))
 ```
 
@@ -1774,7 +1858,8 @@ rmarkdown::paged_table(PWE_data[687:691,c("gender", "religion", "sum_gr")], opti
 
 <details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193">`mutate()`</font>: Summary-Variablen als Funktion von anderen Variablen erstellen</span></summary><p>
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 ## Quellen: https://r4ds.had.co.nz/transform.html#add-new-variables-with-mutate
 # grep AND: https://www.shellhacks.com/grep-or-grep-and-grep-not-match-multiple-patterns/
 ```
@@ -1795,7 +1880,9 @@ PWE_data_mean <- mutate(PWE_data,
 
 Abschließend können wir uns den neu erstellten Datensatz `PWE_data_mean` (für die ersten 10 Personen) einmal anschauen:
 
-```{r, echo=FALSE, max.print = 10}
+```{r}
+#| echo: false
+#| max.print: 10.0
 rmarkdown::paged_table(PWE_data_mean, options(rows.print=5))
 ```
 
@@ -1840,17 +1927,20 @@ Den <a href="https://osf.io/t4be6/" target="_blank">**Datensatz**</a> sowie das 
 
 Den Datensatz können wir, nachdem wir ihn heruntergeladen haben, folgendermaßen in <span class="r">R</span> einlesen:
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 data <- read.csv("data/datenvorbereitung_osf.csv")
 ```
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 data <- read.csv("Dateipfad/data.csv") # hier den eigenen Dateipfad einfügen
 ```
 
 So sollte der Datensatz aussehen:
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 rmarkdown::paged_table(data, options(rows.print=5))
 ```
 
@@ -1885,7 +1975,10 @@ Standardmäßig sind Variablen die Spalten und Beobachtungen die Zeilen eines Da
 
 Wir finden die Information im <span class="r">R Studio</span> Feld **Environment** ...
 
-```{r, out.width = "600px", echo=FALSE, fig.align='left'}
+```{r}
+#| out.width: 600px
+#| echo: false
+#| fig.align: left
 knitr::include_graphics("figures/Datenvorbereitung/Bilder/data.png")
 ```
 
@@ -2031,7 +2124,8 @@ Ja, `data` enthält fehlende Werte.
 table(is.na(data)) # absolute Anzahl fehlender Werte
 ```
 
-```{r, results="hold"}
+```{r}
+#| results: hold
 table(is.na(data))[2]/(table(is.na(data))[1] + table(is.na(data))[2]) 
 # relative Anzahl fehlender Werte
 ```
@@ -2060,7 +2154,8 @@ max(rowSums(is.na(data))) # maximale Anzahl Missings (absoluter Wert)
 ```
 
 
-```{r, results='hold'}
+```{r}
+#| results: hold
 max(rowSums(is.na(data))) / ncol(data)
 # Max-Anzahl Missings einer Person / Anzahl aller Variablen (relativer Wert)
 ```
@@ -2102,12 +2197,14 @@ Es gibt drei demographische Variablen in `data` (aber mehr im Codebuch).</detail
 
 <details><summary class ="stitle">Lösung</summary><div class="sol">
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 library(dplyr)
 select(data, id, male, age, inc)
 ```
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 library(dplyr)
 rmarkdown::paged_table(select(data, id, male, age, inc), options(rows.print=5))
 ```
@@ -2126,12 +2223,14 @@ Es gibt vier Items zu grundlegenden Bedürfnissen.</details></div>
 
 <details><summary class ="stitle">Lösung</summary><div class="sol">
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 data[,c(1, # id
         grep("gen", names(data)))] # general needs
 ```
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 library(dplyr)
 rmarkdown::paged_table(data[,c(1, grep("gen", names(data)))], options(rows.print=5))
 ```
@@ -2151,12 +2250,14 @@ Es gibt insgesamt 18 Items zu gesellschaftlichen und interpersonellen Bedürfnis
 
 <details><summary class ="stitle">Lösung</summary><div class="sol">
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 all_needs <- data[,c(1, # id
                      grep("nee", names(data)))] # alle Bedürfnis-Variablen
 ```
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 # Vorauswahl von Bedürfnis-Variablen mittels des gemeinsamen Wortstammes:
 all_needs <- data[,c(1, # id
                      grep("nee", names(data)))] # alle Bedürfnis-Variablen
@@ -2165,7 +2266,8 @@ all_needs <- data[,c(1, # id
 all_needs[grep("id|c|t", names(all_needs))]
 ```
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 library(dplyr)
 rmarkdown::paged_table(all_needs[grep("id|c|t", names(all_needs))], options(rows.print=5))
 ```
@@ -2190,11 +2292,13 @@ table(data$inc)
 
 DIe beiden werden mit `1` und `5` kodiert. Anschließend wenden wir dieses Wissen auf unsere Selektion an.
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 filter(data, inc == 1 | inc == 5)
 ```
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 library(dplyr)
 rmarkdown::paged_table(filter(data, inc == 1 | inc == 5), options(rows.print=5))
 ```
@@ -2221,7 +2325,8 @@ Im Codebuch (S. 20) sehen wir, dass für alle Items des Geselligkeits-Fragebogen
 table(data$soc_1)
 ```
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 # Fall-Selektion anwenden:
 filter(data, soc_1 == 1 | soc_1 == 7,
              soc_2 == 1 | soc_2 == 7,
@@ -2233,7 +2338,8 @@ filter(data, soc_1 == 1 | soc_1 == 7,
              soc_8 == 1 | soc_8 == 7)
 ```
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 library(dplyr)
 rmarkdown::paged_table(filter(data, soc_1 == 1 | soc_1 == 7,
                          soc_2 == 1 | soc_2 == 7,
@@ -2270,7 +2376,8 @@ all_itg_items <- data_18[,c(1, # id
                          grep("itg", names(data_18)))] # Integrität Items
 ```
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 library(dplyr)
 rmarkdown::paged_table(all_itg_items, options(rows.print=5))
 ```
@@ -2316,7 +2423,8 @@ mean_score
 final_data <- filter(all_int_items, score > mean_score) # 135 Personen entfernt
 ```
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 library(dplyr)
 rmarkdown::paged_table(final_data, options(rows.print=5))
 ```
@@ -2337,11 +2445,13 @@ Im Folgenden wollen wir unseren Datensatz nach den aufsteigenden bzw. absteigend
 
 Da Frauen zuerst in der sekundären Sortierung vorkommen sollen, können wir beide Variablen aufsteigend sortieren.
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 data[order(data$age, data$male),] # Default: aufsteigende Sortierung
 ```
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 library(dplyr)
 rmarkdown::paged_table(data[order(data$age),], options(rows.print=5))
 ```
@@ -2361,7 +2471,8 @@ Um besser beurteilen zu können, ob die Sortierung erfolgreich war, ist es sinnv
 
 <details><summary class = "stitle">Lösung</summary><div class="sol">
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 library(dplyr)
 # neuer Datensatz nur mit relevanten Variablen:
 data_tra <- data[,c(1, # id
@@ -2373,7 +2484,8 @@ arrange(data_tra, -inc, tra_1, tra_2, tra_3, tra_4, tra_5, tra_6, tra_7, tra_8)
 ```
 
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 library(dplyr)
 data_tra <- data[,c(1, # id
                     4, # inc
@@ -2409,7 +2521,8 @@ data_inc$income <- recode(data_inc$inc, recodes=rec)
 
 <font size="1">Die Variable `rec`, welche die Überführung der bestehenden in die neue Kodierung enthält, wurde nur aus darstellerischen Gründen erstellt. Der Inhalt kann auch direkt dem Parameter `recodes` übergeben werden.</font>
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 library(dplyr)
 rmarkdown::paged_table(data_inc, options(rows.print=5))
 ```
@@ -2437,7 +2550,8 @@ data_sex$sex <- case_when(data_sex$male == 0 ~ "female",
 ```
 
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 library(dplyr)
 rmarkdown::paged_table(data_sex, options(rows.print=5))
 ```
@@ -2471,7 +2585,8 @@ data_ria$ria_5_rec <- recode(data_ria$ria_5, recodes="1=7; 2=6; 3=5; 4=4; 5=3; 6
 ```
 
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 library(dplyr)
 rmarkdown::paged_table(data_ria, options(rows.print=5))
 ```
@@ -2505,7 +2620,8 @@ data_need$score_all <- rowSums(select(data_need, matches("nee")))
 ```
 
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 library(dplyr)
 rmarkdown::paged_table(data_need, options(rows.print=5))
 ```
@@ -2547,7 +2663,8 @@ data_int$score <- ifelse(data_int$inc != 1 & data_int$inc != 2,
 ```
 
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 library(dplyr)
 rmarkdown::paged_table(data_int, options(rows.print=5))
 ```

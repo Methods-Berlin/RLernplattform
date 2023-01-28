@@ -1,6 +1,8 @@
 # R Markdown
 
-```{r weiteres material, echo=FALSE}
+```{r}
+#| label: weiteres material
+#| echo: false
 # http://md.psych.bio.uni-goettingen.de/mv/unit/rmd/rmd.html !!!!!!!!!!!!!!!!!!!
 # https://rmarkdown.rstudio.com/lesson-2.html !!!!!!!!!!!!
 ```
@@ -21,7 +23,8 @@ Im Rahmen dieses Kapitels lernen wir, wie wir <span class="r">R Markdown</span> 
 
 Bevor es los gehen kann müssen wir zuerst das Paket **rmarkdown** installieren, um <span class="r">R Markdown</span> Dokumente erstellen zu können
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 install.packages("rmarkdown")
 ```
 
@@ -30,13 +33,19 @@ install.packages("rmarkdown")
 
 Nachfolgend sehen wir, wie wir ein neues <span class="r">R Markdown</span> Dokument <font size="2">(Rmd)</font> anlegen können.
 
-```{r, out.width = "800px", echo=FALSE, fig.align='center'}
+```{r}
+#| out.width: 800px
+#| echo: false
+#| fig.align: center
 knitr::include_graphics("figures/Markdown/Bilder/1.png")
 ```
 
 Wir können zwischen verschiedenen Outputformaten, u.a. html, pdf und Word, wählen.
 
-```{r, out.width = "400px", echo=FALSE, fig.align='center'}
+```{r}
+#| out.width: 400px
+#| echo: false
+#| fig.align: center
 knitr::include_graphics("figures/Markdown/Bilder/2.png")
 ```
 
@@ -44,7 +53,10 @@ knitr::include_graphics("figures/Markdown/Bilder/2.png")
 
 So sieht das neu geöffnete <span class="highlight">Rmd</span> aus.
 
-```{r, out.width = "800px", echo=FALSE, fig.align='center'}
+```{r}
+#| out.width: 800px
+#| echo: false
+#| fig.align: center
 knitr::include_graphics("figures/Markdown/Bilder/3.png")
 ```
 
@@ -60,7 +72,10 @@ Alternativ können wir zum Knitten einen Kurzbefehl nutzen:
 
 Für die Outputformate html und pdf bekommen wir in einem neuen Fenster in <span class="r">R</span> eine Vorschau davon. Für Word Dokumente öffnet sich (ggf.) Microsoft Word.
 
-```{r, out.width = "800px", echo=FALSE, fig.align='center'}
+```{r}
+#| out.width: 800px
+#| echo: false
+#| fig.align: center
 knitr::include_graphics("figures/Markdown/Bilder/vorschau.png")
 ```
 
@@ -68,7 +83,10 @@ knitr::include_graphics("figures/Markdown/Bilder/vorschau.png")
 \
 html</aside>
 
-```{r, out.width = "800px", echo=FALSE, fig.align='center'}
+```{r}
+#| out.width: 800px
+#| echo: false
+#| fig.align: center
 knitr::include_graphics("figures/Markdown/Bilder/pdf.png")
 ```
 
@@ -76,7 +94,10 @@ knitr::include_graphics("figures/Markdown/Bilder/pdf.png")
 \
 pdf</aside>
 
-```{r, out.width = "800px", echo=FALSE, fig.align='center'}
+```{r}
+#| out.width: 800px
+#| echo: false
+#| fig.align: center
 knitr::include_graphics("figures/Markdown/Bilder/word.png")
 ```
 
@@ -90,7 +111,10 @@ Dies ist nur die erste Seite des Word Dokuments. Die anderen Inhalte sind auf di
 
 Gehen wir nochmal einen Schritt zurück und schauen uns das Rmd genauer an. Der Code ganz oben im Dokument ist der <span class="highlight">YAML Header</span>. In diesem legen wir **globale Dokument-Optionen** fest. Nachfolgend sehen wir einige.
 
-```{r, out.width = "250px", echo=FALSE, fig.align='left'}
+```{r}
+#| out.width: 250px
+#| echo: false
+#| fig.align: left
 knitr::include_graphics("figures/Markdown/Bilder/4.png")
 ```
 
@@ -98,7 +122,10 @@ knitr::include_graphics("figures/Markdown/Bilder/4.png")
 
 Mit `toc: true` können wir eine Gliederung <font size="2">(table of contents)</font> einfügen.
 
-```{r, out.width = "800px", echo=FALSE, fig.align='center'}
+```{r}
+#| out.width: 800px
+#| echo: false
+#| fig.align: center
 knitr::include_graphics("figures/Markdown/Bilder/toc.png")
 ```
 
@@ -106,13 +133,20 @@ Diese können wir permanent anzeigen lassen, sodass sie trotz Scrollen immer an 
 
 > *__Achtung__*: Diese Option funktioniert nur in **html**.
 
-```{r toc float, out.width = "800px", echo=FALSE, fig.align='center'}
+```{r}
+#| label: toc float
+#| out.width: 800px
+#| echo: false
+#| fig.align: center
 knitr::include_graphics("figures/Markdown/Bilder/toc float.png")
 ```
 
 Wir können unsere Überschriften auch automatisch nummerieren lassen indem wir `number_sections: true` nutzen.
 
-```{r, out.width = "800px", echo=FALSE, fig.align='center'}
+```{r}
+#| out.width: 800px
+#| echo: false
+#| fig.align: center
 knitr::include_graphics("figures/Markdown/Bilder/numbered.png")
 ```
 
@@ -120,7 +154,10 @@ Die Gestaltung können wir mit der Option `theme` anpassen. Hier wurde das Theme
 
 > *__Achtung__*: Diese Option funktioniert nur in **html**.
 
-```{r, out.width = "800px", echo=FALSE, fig.align='center'}
+```{r}
+#| out.width: 800px
+#| echo: false
+#| fig.align: center
 knitr::include_graphics("figures/Markdown/Bilder/theme.png")
 ```
 
@@ -147,11 +184,17 @@ Um Überschriften zu setzen, schreiben wir ein bzw. mehrere **#** an den Anfang 
 <aside><font color="grey">\
 Markdown</font></aside>
 
-```{r headers 1, out.width = "175px", echo=FALSE}
+```{r}
+#| label: headers 1
+#| out.width: 175px
+#| echo: false
 knitr::include_graphics("figures/Markdown/Bilder/headers 1.png")
 ```
 
-```{r headers 2, out.width = "100px", echo=FALSE}
+```{r}
+#| label: headers 2
+#| out.width: 100px
+#| echo: false
 knitr::include_graphics("figures/Markdown/Bilder/headers 2.png")
 ```
 
@@ -169,11 +212,17 @@ Wir können unseren Text auch fett und kursiv schreiben.
 <aside><font color="grey">\
 Markdown</font></aside>
 
-```{r hervor 1, out.width = "250px", echo=FALSE}
+```{r}
+#| label: hervor 1
+#| out.width: 250px
+#| echo: false
 knitr::include_graphics("figures/Markdown/Bilder/hervor 1.png")
 ```
 
-```{r hervor 2, out.width = "150px", echo=FALSE}
+```{r}
+#| label: hervor 2
+#| out.width: 150px
+#| echo: false
 knitr::include_graphics("figures/Markdown/Bilder/hervor 2.png")
 ```
 
@@ -182,7 +231,8 @@ Es gibt zwei verschiedenen Optionen (* oder \_) damit wir beide kombinieren kön
 
 ### Zeilenumbruch
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 # https://gist.github.com/shaunlebron/746476e6e7a4d698b373
 # am besten wohl \ nutzen
 ```
@@ -218,7 +268,8 @@ In <span class="highlight">html</span> haben wir zusätzlich die Möglichkeit, *
 
 ### Formeln
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 # https://www.calvin.edu/~rpruim/courses/s341/S17/from-class/MathinRmd.html
 ```
 
@@ -249,7 +300,10 @@ Allen Code, denn wir sonst in ein <span class="r">R</span>-Skript geschrieben ha
 
 Wir können Code Chunks einfügen indem wir auf **Insert** > **R** klicken ...
 
-```{r, out.width = "600px", echo=FALSE, fig.align='center'}
+```{r}
+#| out.width: 600px
+#| echo: false
+#| fig.align: center
 knitr::include_graphics("figures/Markdown/Bilder/insert chunk.png")
 ```
 
@@ -262,7 +316,10 @@ knitr::include_graphics("figures/Markdown/Bilder/insert chunk.png")
 
 Im Rmd sind die Code Chunks (in der Standardeinstellung) grau hinterlegt. 
 
-```{r, out.width = "500px", echo=FALSE, fig.align='left'}
+```{r}
+#| out.width: 500px
+#| echo: false
+#| fig.align: left
 knitr::include_graphics("figures/Markdown/Bilder/chunk.png")
 ```
 
@@ -295,7 +352,11 @@ Mit `echo` legen wir fest, ob wir den Code im Output-Dokument **an´zeigen** wol
 
 Es gibt auch die Möglichkeit, **globale Optionen** für das Verhalten der Chunks festzulegen. Diese werden auf *jeden* Code Chunk angewendet (außer wenn wir in einem Code Chunk eine andere Option spezifizieren) und verhindern dadurch überflüssige Wiederholungen. Globale Optionen legen wir mit `knitr::opts_chunk$set(...)` fest. Die Funktion kommt direkt in den Code Chunk (und nicht wie bei den Chunk-spezifischen Optionen in `{r}`).
 
-```{r global chunk, out.width = "650px", echo=FALSE, fig.align='left'}
+```{r}
+#| label: global chunk
+#| out.width: 650px
+#| echo: false
+#| fig.align: left
 knitr::include_graphics("figures/Markdown/Bilder/global chunk.png")
 ```
 
@@ -305,7 +366,10 @@ Code Chunks können auch benannt werden, indem in den geschweiften Klammern nach
 
 <aside>Eigentlich benennen wir einen Chunk mit einem Tag: <span class="code">{r **label=**setup, ...}</span>. Diesen können wir aber weglassen, solange wir den Namen an die erste Stelle schreiben.</aside>
 
-```{r, out.width = "800px", echo=FALSE, fig.align='center'}
+```{r}
+#| out.width: 800px
+#| echo: false
+#| fig.align: center
 knitr::include_graphics("figures/Markdown/Bilder/overview.png")
 ```
 
@@ -334,13 +398,15 @@ Wenn wir lokal gespeicherte <span class="highlight">Bilder</span> integrieren wo
 **knitr** ist das Paket, welches unseren <span class="r">R</span>-Code im Rmd ausführt.</aside>
 
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 library(knitr)
 include_graphics("dateipfad")
 ```
 
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 # https://haozhu233.github.io/kableExtra/awesome_table_in_html.html#save_html_table_directly
 ```
 
@@ -371,13 +437,15 @@ women
 
 So sieht es aus, wenn wir den Datensatz einfach ausgeben. Schönere Tabellen erhalten wir mit der Funktion `kable()` aus dem Paket **kableExtra**.
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 install.packages("kableExtra")
 library(kableExtra)
 kable(women)
 ```
 
-```{r, echo=F}
+```{r}
+#| echo: !expr F
 library(kableExtra)
 kable(women)
 ```
@@ -402,11 +470,17 @@ Wir wollen nun noch zwei Templates vorstellen, die für Projektdokumentation bzw
 
 Nach der Installation der Pakete finden wir die Templates hier:
 
-```{r, out.width = "800px", echo=FALSE, fig.align='center'}
+```{r}
+#| out.width: 800px
+#| echo: false
+#| fig.align: center
 knitr::include_graphics("figures/Markdown/Bilder/1.png")
 ```
 
-```{r, out.width = "400px", echo=FALSE, fig.align='center'}
+```{r}
+#| out.width: 400px
+#| echo: false
+#| fig.align: center
 knitr::include_graphics("figures/Markdown/Bilder/template.png")
 ```
 
@@ -415,13 +489,17 @@ knitr::include_graphics("figures/Markdown/Bilder/template.png")
 
 Mit dem Template **Distill Article** aus dem Paket **distill** können wir <span class="highlight">html</span> Dokumente erstellen. 
 
-```{r, out.width = "600px", echo=FALSE, fig.align='center'}
+```{r}
+#| out.width: 600px
+#| echo: false
+#| fig.align: center
 knitr::include_graphics("figures/Markdown/Bilder/distill.png")
 ```
 
 Die Inhalte der <span class="r">R</span> Lernplattform basieren auch auf diesem Template. Allerdings wurden einige Designänderungen vorgenommen und zusätzliche Funktionen eingefügt.
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 install.packages("distill")
 ```
 
@@ -438,7 +516,11 @@ In diesem haben wir u.a. folgende zusätzliche (bzw. geänderte) Funktionalität
 
 Eine **ausführliche Dokumentation** zu den Funktionalitäten des Templates und ihrer Nutzung finden wir <a href="https://rstudio.github.io/distill/" target="_blank">hier</a>.
 
-```{r, echo=FALSE, layout="l-body-outset", fig.link='http://methods-berlin.com/de/r-lernplattform/grafiken-ggplot', fig.cap="Bildquelle: https://psyteachr.github.io/msc-data-skills/images/memes/better_graphs.png"}
+```{r}
+#| echo: false
+#| column: l-body-outset
+#| fig.link: http://methods-berlin.com/de/r-lernplattform/grafiken-ggplot
+#| fig.cap: 'Bildquelle: https://psyteachr.github.io/msc-data-skills/images/memes/better_graphs.png'
 knitr::include_graphics("figures/Markdown/Bilder/better_graphs.png")
 ```
 
@@ -447,7 +529,10 @@ knitr::include_graphics("figures/Markdown/Bilder/better_graphs.png")
 
 Mit dem Paket **papaja** <font size="2">(**P**reparing **APA** **J**ournal **A**rticles)</font> bekommen wir ein Template, um Artikel ganz einfach im APA-Style zu schreiben. Das Outputformat ist <span class="highlight">pdf</span>.
 
-```{r, out.width = "600px", echo=FALSE, fig.align='center'}
+```{r}
+#| out.width: 600px
+#| echo: false
+#| fig.align: center
 knitr::include_graphics("figures/Markdown/Bilder/papaja.png")
 ```
 
@@ -460,7 +545,8 @@ knitr::include_graphics("figures/Markdown/Bilder/papaja.png")
 
 Weil das Paket noch nicht über den CRAN Mirror verfügbar ist, müssen wir es über die Github-Seite des Entwicklers herunterladen. Dazu benötigen wir wiederum das Paket **devtools**.
 
-```{r, eval = FALSE}
+```{r}
+#| eval: false
 install.packages("devtools")
 library(devtools)
 install_github("crsh/papaja")
@@ -470,7 +556,8 @@ In diesem <a href="https://www.youtube.com/watch?v=I_HW5Rraqg8" target="_blank">
 
 Wenn wir das kostenlose Literaturverwaltungsprogramm  <a href="https://www.zotero.org/" target="_blank">**Zotero**</a> nutzen, können wir zusätzlich direkt daraus unsere Zitationen importieren. Damit wird auch automatisch eine Bibliographie erstellt. Um Zotero und <span class="r">R Makrdown</span> gemeinsam nutzen zu können, müssen wir das Paket **citr** <font size="2">(in <span class="r">R</span>)</font> sowie die Software <a href="https://retorque.re/zotero-better-bibtex/installation/" target="_blank">**Better BibTex**</a> <font size="2">(auf unserem Rechner)</font> installieren.
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 # Installation von citr:
 install.packages("citr")
 # Installation von Better BibTex siehe Link

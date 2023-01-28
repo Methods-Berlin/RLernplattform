@@ -26,7 +26,9 @@ Die wichtigsten Annahmen sind: Linearität, Exogenität, Homoskedastizität und 
 
 
 <div style="text-align: center"><font size="2">**Gefahren bei Verletzung der Annahmen und weiterer wichtiger Punkte**</font></div> 
-```{r, echo=FALSE, fig.align='center'}
+```{r}
+#| echo: false
+#| fig.align: center
 library(kableExtra)
 library(knitr)
 
@@ -50,7 +52,8 @@ In geplotteten Daten können verschiedenste Verletzungen (z.B. Missspezifikation
 <p style="line-height:10px;"></p>
 
 <details><summary class="mtitle q">Was ist die <a name="loess">Lowess Fit Line</a>?</span></summary><div class="more">
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 # C, C, W & A: S.111
 ```
 
@@ -65,11 +68,14 @@ Lowess steht für **lo**cally **we**ighted **s**catterplot **s**moother. Die Low
 
 Hier sehen wir, wie wir den Datensatz `erstis`, an dem wir in diesem Kapitel arbeiten werden, einlesen können. 
 
-```{r, echo=F}
+```{r}
+#| echo: !expr F
 load(url("http://www.beltz.de/fileadmin/beltz/downloads/OnlinematerialienPVU/R_fuer_Einsteiger/erstis.rda"))
 ```
 
-```{r load data, eval=FALSE}
+```{r}
+#| label: load data
+#| eval: false
 load(url("http://www.beltz.de/fileadmin/beltz/downloads/
          OnlinematerialienPVU/R_fuer_Einsteiger/erstis.rda"))
 # Zeilenumbruch zwischen der ersten und zweiten Zeile noch entfernen!
@@ -81,7 +87,9 @@ Exemplarisch schauen wir uns für dieses Kapitel an, wie gut sich **lz.1** (Lebe
 
 Dazu erstellen wir erst einen neuen Datensatz mit diesen Variablen und führen dann die Regression durch.
 
-```{r lm data, results='asis'}
+```{r}
+#| label: lm data
+#| results: asis
 # Daten aus erstis in neuem Dataframe speichern ...
 daten <- data.frame(erstis$lz.1, erstis$zuf.inh.1, erstis$zuf.bed.1)
 # ... und Spalten umbenennen
@@ -109,7 +117,8 @@ Im Rahmen dieses Kapitels liegt der Fokus nicht auf der inhaltlichen Interpretat
 
 Nachfolgend sehen wir den Output der `lm()`-Funktion (<span class="code"><span class = "ex">lm_lz</span></span>).
 
-```{r summ reg}
+```{r}
+#| label: summ reg
 summary(lm_lz)
 ```
 
@@ -140,7 +149,10 @@ In einem ersten Schritt schauen wir uns bivariate Streudiagramme an. Das heißt,
 > *__Achtung__*:  Auch wenn die bivariaten Streudiagramme auf Linearität hinweisen, sollten wir nicht vergessen, dass auch Interkationen zwischen Prädiktoren zu nicht-linearen Zusammenhängen führen können. Die Nutzung von bivariaten Streudiagramen zur Überprüfung der Annahme der Linearität ist **weder eine notwendige, noch eine hinreichende Bedingung**. Sie sind daher mit Vorsicht zu beurteilen.
 
 
-```{r bivariate plot 1, echo=TRUE, collapse=TRUE}
+```{r}
+#| label: bivariate plot 1
+#| echo: true
+#| collapse: true
 # Lebenszufriedenheit - Zufriedenheit mit Studieninhalten
 plot(daten$zufr_inhalt, daten$leb_zufr)
 lz_inh <- lm(daten$leb_zufr ~ daten$zufr_inhalt, na.action='na.exclude') # Einfache Regression
@@ -149,7 +161,10 @@ abline(lz_inh) # Einzeichnen Regressionsgerade
 
 <span class = "ex">Der Plot spricht für einen linearen Zusammenhang zwischen Lebenszufriedenheit <font size="2">(Kriterium)</font> und Zufriedenheit mit Studieninhalten <font size="2">(Prädiktor)</font>.</span>
 
-```{r bivariate plot 2, echo=TRUE, collapse=TRUE}
+```{r}
+#| label: bivariate plot 2
+#| echo: true
+#| collapse: true
 # Lebenszufriedenheit - Zufriedenheit mit Studienbedingungen
 plot(daten$zufr_beding, daten$leb_zufr)
 lz_bed <- lm(daten$leb_zufr ~ daten$zufr_beding, na.action='na.exclude') # Einfache Regression
@@ -163,12 +178,17 @@ abline(lz_bed) # Einzeichnen Regressionsgerade
 
 Das wichtigste Werkzeug zur Prüfung der Linearitätsannahme ist der Residualplot. In einem Residualplot werden die vorhergesagten Werte $\hat y_i$ <font size="2">(auf der $x$-Achse)</font> gegen die Residuen $\hat e_i = y_i - \hat y_i$ <font size="2">(auf der $y$-Achse)</font> abgetragen.
 
-```{r resid plot 1, eval=FALSE, message=FALSE, collapse=TRUE}
+```{r}
+#| label: resid plot 1
+#| eval: false
+#| message: false
+#| collapse: true
 plot(lm_lz, which = 1) 
 # erster Plot der plot()-Funktion für ein lm-Objekt ist der Residualplot
 ```
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 plot(lm_lz, which = 1) 
 ```
 Die **gestrichelte Linie** bei $y = 0$ zeigt den Erwartungswert der Residuen. Diese ist immer null und die Residuen sollten sich ohne erkennbares Muster, um diese Linie verteilen.
@@ -179,7 +199,11 @@ Die rote Linie ist die <span style="color:red">[Lowess Fit Line](#loess)</span>.
 
 Die Annahme der Linearität wäre z.B. verletzt, wenn die Residuen einen U-förmigen Zusammenhang mit den vorhergesagten Werten aufweisen würden. Das würde nahelegen, dass ein quadratischer Zusammenhang zwischen dem Kriterium und den Prädiktoren besteht, der nicht adäquat modelliert wurde.
 
-```{r simulate non-linearity, out.width = "400px", echo=FALSE, fig.align='center'}
+```{r}
+#| label: simulate non-linearity
+#| out.width: 400px
+#| echo: false
+#| fig.align: center
 # x <- rnorm(100, 0, 1)
 # y <- x^2 + rnorm(100, 0, 0.5)
 # data = data.frame(x, y)
@@ -262,12 +286,17 @@ Andere als die vorgestellten Möglichkeiten zur Überprüfung und zum Umgang mit
 
 Zur Überprüfung der Homoskedastizität können wir ebenfalls einen Residualplot, wie schon bei der [Überprüfung der Annahme der Linearität](#überprüfung), verwenden. 
 
-```{r resid plot 2, eval=FALSE, message=FALSE, collapse=TRUE}
+```{r}
+#| label: resid plot 2
+#| eval: false
+#| message: false
+#| collapse: true
 plot(lm_lz, which = 1) 
 # erster Plot der plot()-Funktion für ein lm-Objekt ist der Residualplot
 ```
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 plot(lm_lz, which = 1)
 abline(v = 22, col = "blue") # zur Illustration für unser Beispiel
 ```
@@ -277,7 +306,11 @@ Die **gestrichelte Linie** bei $y = 0$ zeigt den Erwartungswert der Residuen. Di
 
 Die Annahme wäre z.B. verletzt, wenn die Residuen einen nach rechts geöffneten Trichter bilden würden. Das würde bedeuten, dass die Varianz mit größer werdenden $X$-Werten wachsen würde wie in nachfolgendem Beispiel illustriert:
 
-```{r simulate hetero, out.width = "400px", echo=FALSE, fig.align='center'}
+```{r}
+#| label: simulate hetero
+#| out.width: 400px
+#| echo: false
+#| fig.align: center
 # x = rnorm(100,1,1) 
 # b0 = 1 # intercept chosen at your choice 
 # b1 = 1 # coef chosen at your choice 
@@ -294,7 +327,11 @@ knitr::include_graphics("figures/Voraussetzungsprüfung/Bilder/heteroskedasticit
 
 Mit dem Scale Location Plot schauen wir, ob die Standardabweichung der standardisierten Residuen $\frac{e_i}{s_e}$ über den Bereich der vorhergesagten Werte hinweg gleich bleibt. 
 
-```{r scale location plot, echo=TRUE, message=FALSE, collapse=TRUE}
+```{r}
+#| label: scale location plot
+#| echo: true
+#| message: false
+#| collapse: true
 plot(lm_lz, which = 3) 
 # dritter Plot der plot()-Funktion für ein lm-Objekt ist der Scale Location Plot
 ```
@@ -354,12 +391,14 @@ Dadurch kommen unterschiedliche Residuen in die Slices und folglich werden auch 
 quant <- na.exclude(quant) # Missings raus
 ```
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 library(rmarkdown)
 rmarkdown::paged_table(quant)
 ```
 
-```{r, results=FALSE}
+```{r}
+#| results: false
 # Anzahl der Fälle
 nrow(quant) # 165
 
@@ -408,7 +447,8 @@ Es gibt mehrere Möglichkeiten, die Gewichte $w_i$ zu schätzen. Im Folgenden sc
 \
 Dazu nehmen wir die Residuen aus der OLS-Regression, quadrieren diese und regredieren sie auf unsere Prädiktoren. Die Inversen dieser vorhergesagten quadrierten Residuen sind das unsere Gewichte für die WLS-Regression.
 
-```{r estimate weights}
+```{r}
+#| label: estimate weights
 weights_lm <- lm(daten$resid ^ 2 ~ daten$zufr_inhalt + daten$zufr_beding,
      na.action = "na.exclude")
 # wieder na.exclude nutzen
@@ -479,7 +519,8 @@ Hierbei können wir u.a. visualisieren, ob es zeitliche Abhängigkeiten gibt, z.
 Um das besser beurteilen zu können, können wir auch hier wieder die <span style="color:red">[Lowess Line](#loess)</span> einzeichnen. Diese sollte wieder möglichst horizontal zur $x$-Achse bei $y = 0$ liegen. Beide Linien fügen wir zur Vereinfachung der Beurteilung des Plots hinzu.
 
 
-```{r index plot}
+```{r}
+#| label: index plot
 plot(lm_lz$residuals)
 lines(lowess(lm_lz$residuals), col = "red") # Lowess Line einfügen (in rot)
 abline( # Linie einzeichnen
@@ -497,7 +538,9 @@ Falls wir ein Messwiederholungsdesign haben und die Daten im Long-Format (d.h. M
 
 Die **Farbe** der geplotteten Elemente können wir mit dem Argument `col` verändern. Um die Farbe ab einer bestimmten Anzahl an Messungen (d.h. Messwiederholungen für eine Person) jeweils zu verändern, können wir `rep()` benutzen. Diese Funktion wiederholt das erste Argument `x` (bzw. die einzelnen Elemente des ersten Arguments) jeweils so oft wie das zweite Argument `each`. 
 
-```{r index plot colored, out.width = "500px"}
+```{r}
+#| label: index plot colored
+#| out.width: 500px
 plot(lm_lz$residuals, col = rep(1:17, each = 10))
 lines(lowess(lm_lz$residuals), col = "red")
 abline(h=0, col="darkblue", type="l", lty=3)
@@ -507,7 +550,9 @@ Die 10 steht dafür, dass wir 10 Messwiederholungen haben. 1 bis 17 kodiert unte
 
 Mit dem Argument `pch` können wir analog die **Form der Punkte** ändern.
 
-```{r index plot forms, out.width = "500px"}
+```{r}
+#| label: index plot forms
+#| out.width: 500px
 plot(lm_lz$residuals, pch = rep(1:17, each = 10))
 lines(lowess(lm_lz$residuals), col = "red")
 abline(h=0, col="darkblue", type="l", lty=3)
@@ -515,7 +560,10 @@ abline(h=0, col="darkblue", type="l", lty=3)
 
 Wenn es starke serielle Abhängigkeiten geben würde, würden sich die Fälle sichtlich voneinander unterscheiden bzw. Cluster bilden. Illustriert ist das im folgenden Plot:
 
-```{r, out.width = "400px", echo=FALSE, fig.align='center'}
+```{r}
+#| out.width: 400px
+#| echo: false
+#| fig.align: center
 autocorr = lm_lz$residuals
 autocorr[1:10] = autocorr[1:10] - 10
 autocorr[11:20] = autocorr[11:20] + 10
@@ -645,7 +693,8 @@ Um die Normalverteilung besser anschauen zu können, erweitern wir die $x$-Achse
 
 Für eine bessere Übersichtlichkeit stellen wir die <span style="color:orange">reale Dichtefunktion</span> und die <span style="color:green">erwartete Dichtefunktion</span> farblich dar. 
 
-```{r, hist_advanced}
+```{r}
+#| label: hist_advanced
 hist(lm_lz$residuals, # Histogramm der Residuen ...
      prob = TRUE, # ... als Dichte ...
      xlim = c(-20, 20)) # ... mit veränderter X-Achse
@@ -673,7 +722,11 @@ curve( # erstellt eine Kurve ...
 
 Der QQ-Plot <font size="2">(Quantil-Quantil-Plot)</font> plottet die aufsteigend geordneten standardisierten Residuen gegen die korrespondierenden Quantile der Normalverteilung. Dafür werden die Residuen durch den Standardschätzfehler geteilt $\frac {e_i} {\hat {\sigma}}$.
 
-```{r qq plot, echo=TRUE, message=FALSE, collapse=TRUE}
+```{r}
+#| label: qq plot
+#| echo: true
+#| message: false
+#| collapse: true
 plot(lm_lz, which = 2) 
 # zweiter Plot der plot()-Funktion für ein lm-Objekt ist der QQ-Plot
 abline(v = 1, col = "blue") # zur Illustration für unser Beispiel
@@ -693,7 +746,8 @@ Mit dem Shapiro-Wilk-Test kann getestet werden, ob Daten normaltverteilt sind ($
 
 Der Test wird mit der Funktion `shapiro.test()` durchgeführt. Um die Residuen der Regression zu testen, extrahieren wir diese wieder aus dem Ergebnisobjekt mit `lm_lz$residuals`.
 
-```{r shapiro wilk test}
+```{r}
+#| label: shapiro wilk test
 shapiro.test(lm_lz$residuals)
 ```
 
@@ -762,7 +816,8 @@ library(car)
 1 / vif(lm_lz)
 ```
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 tol <-  1 / vif(lm_lz)
 tol_perc <- unname(round(tol[1], 3)) * 100
 ```
@@ -821,7 +876,10 @@ In den folgenden drei Abbildungen sehen wir verdeutlicht, was mit extremen Abwei
 
 <aside>[Später](#cooklev) greifen wir nochmal auf das gleiche Beispiel zurück, um den Unterschied und die Konsequenzen von extremen Abweichungen auf dem Kriterium bzw. den Prädiktoren noch mehr zu verdeutlichen.</aside>
 
-```{r, echo=FALSE, out.width = "400px", fig.align="center"}
+```{r}
+#| echo: false
+#| out.width: 400px
+#| fig.align: center
 plot(daten$zufr_inhalt, daten$leb_zufr, main="Bestehende Daten:", xlab = "Zufriedenheit mit Studieninhalten", ylab = "Lebenszufriedenheit", col=c(rep("black", 49), "red", rep("black", 141)), pch=c(rep(1, 49), 16, rep(1, 141)))
 
 daten_av = daten
@@ -883,13 +941,17 @@ Es gibt keine einheitlichen Richtlinien darüber, ab wann ein studentisiertes ge
 
 In folgender Abbildung schauen wir uns an, wie eine <span style="color:red">extreme Abweichung</span> eines studentisierten gelöschten Residuums aussehen könnte. In folgendem Plot wurde nur ein studentisiertes gelöschtes Residuum eingefügt; die anderen Werte sind gleich geblieben.
 
-```{r, echo=FALSE, out.width = "400px", fig.align='center'}
+```{r}
+#| echo: false
+#| out.width: 400px
+#| fig.align: center
 rstud_big <-  rstudent(lm_lz)
 rstud_big[37] <-  rstud_big[37]-5
 plot(rstud_big, ylab="Studentisierte gelöschte Residuen", col=c(rep("black", 36), "red", rep("black", 154)), pch=c(rep(1, 36), 16, rep(1, 154)))
 ```
 
-```{r find outlier}
+```{r}
+#| label: find outlier
 which(unname(rstudent(lm_lz) <= -3))  # Indizes aller Werte, die kleiner gleich -3 sind
 ```
 
@@ -927,13 +989,15 @@ In kleinen bis mittelgroßen Datensätzen ist ein Indexplot der Hebelwerte eine 
 
 Dazu extrahieren wir die Hebelwerte mit Hilfe der Funktion `hatvalues()` aus dem lm-Objekt. Damit fehlende Werte <font size="2">(`NA`)</font> ausgeschlossen werden <font size="2">(ihre Hebelwirkung würde $0$ betragen)</font>, wenden wir außerdem `[!is.na()]` an. `is.na()` evaluiert, ob die Elemente vorhanden sind <font size="2">(`TRUE` oder `FALSE`)</font>, `!` sorgt dafür, dass *keine* Missings angewählt werden, und `[ ]` gibt die Indizes aus.
 
-```{r plot hat values}
+```{r}
+#| label: plot hat values
 plot(hatvalues(lm_lz)[!is.na(daten$resid)])
 ```
 
 In größeren Datensätzen sollten wir die Hebelwerte der Übersichtlichkeit halber in einem Histogramm visualisieren. 
 
-```{r hist hat values}
+```{r}
+#| label: hist hat values
 hist(hatvalues(lm_lz)[!is.na(daten$resid)])
 ```
 
@@ -941,7 +1005,8 @@ Wir sollten uns hierbei auf die Inspektion weniger, extremer Werte beschränken 
 
 Den größten Hebelwert und seinen Index können wir uns folgendermaßen ausgeben lassen:
 
-```{r max hat}
+```{r}
+#| label: max hat
 sort((hatvalues(lm_lz)), decreasing=TRUE)[1]
 ```
 
@@ -958,7 +1023,9 @@ Wenn es große Residuen und Hebelwerte gibt, können wir uns weiterführend den 
 
 Zur Standardisierung werden die Residuen durch den Standardschätzfehler geteilt $\frac {e_i} {\hat {\sigma}}$
 
-```{r resid lev plot, collapse=TRUE}
+```{r}
+#| label: resid lev plot
+#| collapse: true
 plot(lm_lz, which=5)
 # fünfter Plot der plot()-Funktion für ein lm-Objekt ist der Residuen-Leverage Plot
 ```
@@ -979,7 +1046,10 @@ Im Residuen-Leverage-Plot werden auch Linien der **Cooks Distance** mit den Wert
 
 Wir können uns folgendermaßen auch nur die Werte der Cooks Distance gegen den Index geplottet anschauen:
 
-```{r plot cd, out.width = "600px", fig.align="center"}
+```{r}
+#| label: plot cd
+#| out.width: 600px
+#| fig.align: center
 plot(lm_lz, which=4)
 ```
 
@@ -990,11 +1060,19 @@ In den folgenden Abbildungen wurden die Werte von **Person 50** auf dem Kriteriu
 In der Einführung zu [ Extremen Werte und einflussreichen Datenpunkte](#extreme-werte-und-einflussreiche-datenpunkte) haben wir den Unterschied zwischen Ausreißern auf dem Kriterium und den Prädiktoren schon angesprochen. Die Abbildungen sollen deren Implikationen noch verdeutlichen. Bei der Interpretation helfen die durchgezogene <span style="color:red">[Lowess Fit Line](#loess)</span> und die rot gestrichelten Grenzwerte der Cooks Distance.
 
 
-```{r resid lev plot 2, echo=FALSE, out.width = "600px", fig.align="center"}
+```{r}
+#| label: resid lev plot 2
+#| echo: false
+#| out.width: 600px
+#| fig.align: center
 plot(lm_lz, which=5, main="Bestehender Datensatz", caption = "", sub="", id.n=1)
 ```
 
-```{r sim lev resid plot 1, echo=FALSE, out.width = "600px", fig.align="center"}
+```{r}
+#| label: sim lev resid plot 1
+#| echo: false
+#| out.width: 600px
+#| fig.align: center
 daten_av = daten
 # range(daten$leb_zufr, na.rm=TRUE) # 9-35
 daten_av$leb_zufr[50] = 62 # 31
@@ -1006,7 +1084,11 @@ plot(lm_av, which=5, main="Der Wert auf dem Kriterium wurde erhöht.", caption =
 Die Lowess Line ist immer noch flach und nah an der gestrichelten Linie bei $y=0$. \
 Die Cooks Distance ist wesentlich größer, sie beträgt fast $1$.</div> \
 
-```{r sim lev resid plot 2, echo=FALSE, out.width = "600px", fig.align="center"}
+```{r}
+#| label: sim lev resid plot 2
+#| echo: false
+#| out.width: 600px
+#| fig.align: center
 daten_uv = daten
 # range(daten$zufr_inhalt, na.rm=TRUE) # 1.3-4
 daten_uv$zufr_inhalt[50] = 8 # vorher: 2
@@ -1019,7 +1101,11 @@ Die Lowess Line weicht wesentlich stärker von der gestrichelten Linie bei  $y=0
 Die Cooks Distance ist etwas größer, aber noch $< 0.5$.</div> \
 
 
-```{r sim lev resid plot 3, echo=FALSE, out.width = "600px", fig.align="center"}
+```{r}
+#| label: sim lev resid plot 3
+#| echo: false
+#| out.width: 600px
+#| fig.align: center
 daten_avuv = daten
 daten_avuv$leb_zufr[50] = 62 
 daten_avuv$zufr_inhalt[50] = 8
@@ -1031,7 +1117,9 @@ plot(lm_avuv, which=5, main="Der Wert auf dem Kriterium und einem Prädiktor wur
 Die Lowess Line weicht extrem von der gestrichelten Linie bei $y=0$ ab. \
 Die Cooks Distance ist $> 1$.</div> \
 
-```{r plot cooks, include=FALSE}
+```{r}
+#| label: plot cooks
+#| include: false
 plot(cooks.distance(lm_lz))
 krit.cd <- qf(.5, df1 = 5, df2 = 75)
 abline(h = krit.cd, lty = 2)

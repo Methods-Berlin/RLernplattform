@@ -70,7 +70,8 @@ colnames(daten) <- c("Var_1", "Var_2", "Var_3", "Var_4", "Var_5")
 rownames(daten) <- c("Vpn_1", "Vpn_2", "Vpn_3", "Vpn_4", "Vpn_5")
 ```
 
-```{r, echo = FALSE}
+```{r}
+#| echo: false
 print(daten)
 ```
 *Anmerkung: Die Variablen sind intervallskaliert mit einer Skala von 0-3.*
@@ -119,7 +120,8 @@ Nun wollen wir diese Missings umkodieren. Vorher wollen wir uns noch einmal ansc
 
 Wenn man Missings im Datensatz nicht einheitlich auf `NA` kodiert, nimmt <span class="r">R</span> an, dass es sich um gültige Werte handelt. Das führt dann zu falschen Ergebnissen. <span class ="ex">Das schauen wir uns exemplarisch einmal am Mittelwert der Spalte `Var_3` an.</font>
 
-```{r, echo = FALSE}
+```{r}
+#| echo: false
 print(daten)
 ```
 
@@ -141,7 +143,8 @@ daten$Var_3[daten$Var_3 == 99] <- NA
 
 Der Befehl ersetzt in <span class="code"><span class ="ex">daten</span></span> Elemente der Spalte <span class="code"><span class ="ex">Var_3</span></span>, welche die Ausprägung `99` besitzen, mit `NA`.
 
-```{r, echo = FALSE}
+```{r}
+#| echo: false
 print(daten)
 ```
 
@@ -179,14 +182,16 @@ Wenn wir wissen wie unsere fehlenden Werte kodiert sind, wollen wir in einem nä
 
 Bei kleineren Datensätzen ist eine **visuelle Inspektion** möglich. Dafür nutzt man entweder `View()` (Großbuchstabe am Anfang beachten!) oder man klickt auf den Datensatz im Environment (oberes rechtes Panel).
 
-```{r, echo = FALSE}
+```{r}
+#| echo: false
 print(daten)
 ```
 
 
 Um zu überprüfen, ob ein Datensatz **mindestens einen fehlenden Wert** enthält, kann man `anyNA()` nutzen. Man bekommt ein `TRUE` <font size="2">(d.h. ja, mindestens ein Missing enthalten)</font> oder `FALSE` <font size="2">(d.h. nein, keine Missings enthalten)</font> ausgegeben.
 
-```{r, include = TRUE}
+```{r}
+#| include: true
 anyNA(daten)
 ```
 
@@ -220,7 +225,8 @@ Die genaue Anzahl der Missings zu kennen ist wichtig, um ein Gefühl dafür zu k
 
 Zuerst schauen wir uns die Gesamtanzahl der Missings aller Elemente im Datensatz an.
 
-```{r, include = TRUE}
+```{r}
+#| include: true
 table(is.na(daten))
 ```
 
@@ -243,7 +249,8 @@ Wenn wir **eine** bestimmte Spalte oder Zeile betrachten möchten, können wir d
 
 Wir können auf verschiedenem Wege auf eine Spalte bzw. Zeile eines Datensatzes referenzieren.
 
-```{r, include = TRUE}
+```{r}
+#| include: true
 table(is.na(daten$Var_1)) # Datensatz$Spaltenname
 table(is.na(daten["Var_1"])) # Datensatz["Spaltenname"]
 table(is.na(daten["Vpn_1",])) # Datensatz["Zeilenname"]
@@ -261,14 +268,16 @@ Wenn man sich  einen Überblick über die Missings in allen Variablen bzw. bei a
 
 Um die Größenordnung der Missings besser beurteilen zu können, sollte man sich der maximal möglichen Anzahl der Elemente in einer Spalte bzw. Zeile bewusst sein. Diese können wir mit `nrow()` bzw. `ncol()` in Erfahrung bringen. 
 
-```{r, include = TRUE}
+```{r}
+#| include: true
 # Übersicht der Missings in allen Variablen (Spalten)
 colSums(is.na(daten))
 # ... im Vergleich zur maximalen Anzahl an Beantwortungen
 nrow(daten)
 ```
 
-```{r, include = TRUE}
+```{r}
+#| include: true
 # Übersicht der Missings in allen Personen (Zeilen)
 rowSums(is.na(daten))
 # ... im Vergleich zur maximalen Anzahl der beantwortbaren Fragen
@@ -288,7 +297,8 @@ Mit der Funktion `aggr()` aus dem Paket **VIM** kann man sich zwei Plots ausgebe
 
 Wenn man `summary(aggr())` nutzt, bekommt man sowohl die grafische Visualisierung als auch eine Übersicht der Häufigkeiten.
 
-```{r aggr plot}
+```{r}
+#| label: aggr plot
 # install.packages("VIM")
 library(VIM)
 summary(aggr(daten))
@@ -303,14 +313,16 @@ Am Anfang des Kapitels wurde bereits erwähnt, dass systematische Missings eine 
 
 ### Arten von Missings
 
-```{r, echo=F}
+```{r}
+#| echo: !expr F
 # aus Allison (2002)
 # weitere gute Erklärung zu Annahmen:
 # https://www.displayr.com/different-types-of-missing-data/
 ```
 
 
-```{r, echo=F}
+```{r}
+#| echo: !expr F
 ## Allison (S. 73)
 # A common question is: what variables have to be in X in order for the MCAR assumption to be satisfied? All variables in the data set? All possible variables, whether in the data set or not? The answer is: only the VARIABLES IN THE MODEL to be estimated. If you are estimating a multiple regression and Z is one of the predictors, then the vector X must include all the other variables in the model. But missingness on Z could depend on some other variable (whether in the data set or not), and it would not be a violation of MCAR. On the other hand, if you are merely estimating the mean of Z , then all that is necessary for MCAR is Pr(RZ = 1|Z) = Pr(RZ = 1). That is, missingness on Z does not depend on Z itself.
 # --> u.U. verzerrte Schätzer weil falsches MODELL
@@ -356,7 +368,9 @@ Die Auffassung darüber, von welchen "anderen Variablen" die Missings in einer V
 
 <div style="text-align: center"><font size="2">**Übersicht der Arten von Missings**</font></div> 
 
-```{r, echo=F, fig.align='center'}
+```{r}
+#| echo: !expr F
+#| fig.align: center
 library(knitr)
 library(kableExtra)
 
@@ -378,7 +392,9 @@ MCAR ist eine strengere Annahme als MAR. Wenn die Daten MCAR sind, dann sind sie
 
 Schematisch könnte unser **Vorgehen bei der Exploration der Zufälligkeit von Missings** folgendermaßen aussehen:\
 
-```{r, out.width="800px", echo=FALSE}
+```{r}
+#| out.width: 800px
+#| echo: false
 knitr::include_graphics("figures/Fehlende-Werte/Bilder/Abb.png")
 ```
 
@@ -465,11 +481,13 @@ Nachteil von beiden <font size="2">(d.h. kompletter bzw. partieller Ausschluss v
 
 Mit `na.omit()` löscht man <span class="highlight">*listwise/casewise*</span>, d.h. Fälle, die mindestens ein Missing aufweisen werden komplett gelöscht. Es ist ratsam, den damit neu erstellten Datensatz als ein neues Objekt zu speichern (anstatt den originalen Satensatz zu überschreiben):
 
-```{r, include = TRUE}
+```{r}
+#| include: true
 daten_cw <- na.omit(daten)
 ```
 
-```{r, echo = FALSE}
+```{r}
+#| echo: false
 print(daten_cw)
 ```
 
@@ -520,26 +538,31 @@ Die Funktion `colMeans()`, mit der wir Spaltenmittelwerte von mehrdimensionalen 
 
 <span class="ex">Exemplarisch begrenzen wir uns auf die ersten drei Spalten von `daten` mittels `[, 1:3]`.</span>
 
-```{r, results='hold'}
+```{r}
+#| results: hold
 mean(daten[, 1], na.rm = TRUE)
 mean(daten[, 2]) # na.rm=TRUE nicht notwendig
 mean(daten[, 3], na.rm = TRUE)
 ```
 
-```{r colMeans 1}
+```{r}
+#| label: colMeans 1
 colMeans(daten[, 1:3], na.rm = TRUE)
 ```
 
 Wie wir sehen, bekommen wir die gleichen Ergebnisse bei `mean()` und `colMeans()`. Beide nutzen (quasi) <span class="highlight">*pairwise deletion*</span>. Allerdings sprechen wir nur im Fall von `colMeans()` davon, weil es bei `mean()` keine andere Möglichkeit gibt, als jeweils die fehlende Werte eines Vektors <font size="2">(*ein*dimensionale Datenstruktur)</font> zu entfernen oder eben nicht.
 
-```{r colMeans 2, results='hold'}
+```{r}
+#| label: colMeans 2
+#| results: hold
 colMeans(daten_cw[, 1:3])
 # daten_cw sind die mit na.omit() bereinigten Daten (listwise deletion)
 ```
 
 <span class ="ex">Vergleichen wir diese Ergebnisse nun mit denen von oben, sehen wir, dass nur der Mittelwert von <span class="code"><span class ="ex">Var_3</span></span> gleich. Bei den Mittelwerten der beiden anderen Spalten unterscheiden sich die Ergebnisse.</span> 
 
-```{r, echo = FALSE}
+```{r}
+#| echo: false
 print(daten[1:3])
 ```
 
@@ -554,12 +577,16 @@ Um den Unterschied zwischen beiden Möglichkeiten besser zu verstehen, schauen w
 
 <font size="2">Da die Korrelationsmatrizen symmetrisch sind (d.h. ober- und unterhalb der Diagonalen gleich sind) wird jeweils die obere Diagonale für die Tabellen ausgeblendet.</font> 
 
-```{r, include = TRUE, warning = FALSE}
+```{r}
+#| include: true
+#| warning: false
 cor_co <- cor(daten[, 1:3], use = "complete.obs")
 cor_co <- round(cor_co, 3) 
 ```
 
-```{r, echo = FALSE, results = 'asis'}
+```{r}
+#| echo: false
+#| results: asis
 options(knitr.kable.NA = '')
 
 cor_co[upper.tri(cor_co)] <- NA
@@ -568,12 +595,16 @@ knitr::kable(cor_co, caption  =  "Korrelation mit complete.obs",
              table.attr = "style='width:100%;'")
 ```
 
-```{r, include = TRUE, warning = FALSE}
+```{r}
+#| include: true
+#| warning: false
 cor_pco <- cor(daten[, 1:3],  use = "pairwise.complete.obs")
 cor_pco <- round(cor_pco, 3)
 ```
 
-```{r, echo = FALSE, results = 'asis'}
+```{r}
+#| echo: false
+#| results: asis
 cor_pco[upper.tri(cor_pco)] <- NA
 diag(cor_pco) <- "1"
 knitr::kable(cor_pco, caption  =  "Korrelation mit pairwise.complete.obs",
@@ -582,7 +613,8 @@ knitr::kable(cor_pco, caption  =  "Korrelation mit pairwise.complete.obs",
 
 <span class ="ex">Wenn man die beiden Korrelationstabellen vergleicht, sieht man, dass sich die Korrelation zwischen <span class="code"><span class ="ex">Var_1</span></span> und <span class="code"><span class ="ex">Var_2</span></span> unterscheidet. Das liegt daran, dass <span class="code"><span class ="ex">Vpn_4</span></span> in allen Berechnungen mit `complete.obs` ausgeschlossen wurde, weil <span class="code"><span class ="ex">Var_3</span></span> dort ein Missing enthält, während `pairwise.complete.obs` diese Zeile bei der Korrelation von <span class="code"><span class ="ex">Var_1</span></span> und <span class="code"><span class ="ex">Var_2</span></span> miteinbezogen hat.</span> 
 
-```{r, echo = FALSE}
+```{r}
+#| echo: false
 print(daten[1:3])
 ```
 
@@ -669,11 +701,13 @@ Mehr Informationen zur Studie befinden sich auf der <a href="https://osf.io/bvzv
 
 Nach dem Herunterladen, können wir den Datensatz folgendermaßen in <span class="r">R</span> einlesen:
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 data_a <- read.csv("figures/Fehlende-Werte/Daten/group_a.csv")
 ```
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 data_a <- read.csv("Dateipfad/group_a.csv") # hier den eigenen Dateipfad einfügen
 ```
 
@@ -683,7 +717,8 @@ Wir entfernen noch einige für uns irrelevante Informationen zur Erhebung:
 data_a <- data_a[,-c(2:7, 9, 145:153)]
 ```
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 rmarkdown::paged_table(data_a, options(rows.print=5))
 ```
 
@@ -705,13 +740,15 @@ Den Datensatz finden wir <a href="https://osf.io/jv67g/" target="_blank">hier</a
 
 Den Datensatz können wir, nachdem wir ihn heruntergeladen haben, folgendermaßen in <span class="r">R</span> einlesen:
 
-```{r, echo=F}
+```{r}
+#| echo: !expr F
 library(foreign)
 data_b <- read.spss("figures/Fehlende-Werte/Daten/AffectiveForecasting_0707017.sav", 
                     to.data.frame = TRUE)
 ```
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 # install.packages("foreign")
 library(foreign)
 data_b <- read.spss("Dateipfad/AffectiveForecasting_0707017.sav", to.data.frame = TRUE) 
@@ -728,14 +765,17 @@ data_b <- data_b[, c(1:4, 6:7, # soziodemographische Variablen
 # d.h. jene ohne "_orig"
 ```
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 rmarkdown::paged_table(data_b, options(rows.print=5))
 # alte Selektion: 75:78, 80:82, 84, 86:97
 ```
 
 <!-- > *__Achtung__*:  <div class="rows">Die Variablen `preselect_outcome_predict` und `preselect_outcome_predict_old`, welche im Datensatz vorkommen, werden im Codebuch nicht direkt aufgeführt. Wir orientieren uns hier an den Informationen zu den Variablen `pre_outcome` und `pre_outcome_old` auf Seite 20 im Codebuch.</div> -->
 
-```{r, echo=FALSE, eval=FALSE}
+```{r}
+#| echo: false
+#| eval: false
 # Seite: preselect_
 # 8: curr
 # 12: ave, e, neg, pos
@@ -808,19 +848,22 @@ sapply(data_b[, grep("sias", colnames(data_b))], table, useNA="always")
 ```
 Es fällt auf, dass Die Ausprägung `5=...` in keiner der Variablen vorkommt (Häufigkeit $0$). Um zu überprüfen, wie die Kodierung im Datensatz zur Skala im Codebuch in Bezug zu setzen ist, schauen wir uns ein Item an, welches im Originaldatensatz eine rekodierte Version enthält: `sias5` und `sias5_RS`. Wir speichern beide Variablen in einem neuen Datensatz.
 
-```{r, echo=F}
+```{r}
+#| echo: !expr F
 data_b_test <- read.spss("figures/Fehlende-Werte/Daten/AffectiveForecasting_0707017.sav", 
                          to.data.frame = TRUE)
 data_b_test <- data_b_test[, c(79, 95)]
 ```
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 data_b <- read.spss("Dateipfad/AffectiveForecasting_0707017.sav", to.data.frame = TRUE) 
 # noch den eigenen Dateipfad einfügen
 data_b_test <- data_b_test[, c(79, 95)] # sias5, sias5_RS
 ```
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 rmarkdown::paged_table(data_b_test, options(rows.print=5))
 ```
 
@@ -860,14 +903,16 @@ Wir kodieren mittels `<- NA` jene Ausprägungen um, die falsch kodierte fehlende
 
 In der vorhergehenden Aufgabe haben wir jene Ausprägungen von Variablen identifiziert, die auch fehlende Werte kodieren sollen: `""` und `N/A`. Diese kodieren wir nun um.
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 data_a[data_a == "" | data_a == "N/A" ] <- NA 
 # Überprüfung:
 sapply(sapply(data_a[c(2, 4 ,5)], unique), sort, na.last=TRUE)
 # data_a[c(2, 4 ,5)] ist die Auswahl der Variablen, die die falschen Kodierungen enthielten
 ```
 
-```{r, echo=F}
+```{r}
+#| echo: !expr F
 data_a[data_a == "" | data_a == "N/A" ] <- NA 
 sapply(sapply(data_a[c(2, 4 ,5)], unique), sort, na.last=TRUE)
 ```
@@ -1080,12 +1125,14 @@ library(VIM)
 summary(aggr(data_b))
 ```
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 # Anzahl der Patterns (minus eins, weil das nur vorhandene Werte enthält):
 length(summary(aggr(data_b))[["combinations"]][["Combinations"]]) - 1
 ```
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 114
 ```
 
@@ -1127,14 +1174,16 @@ Außerdem können keine qualitativen Daten ausgewertet werden. Es gab eine quali
 
 Die Funktion `mcar_test()` kann nicht mit Daten vom Typ <span class="r">character</span> umgehen. Daher müssen wir die nominalskalierten Variablen `gender` und `consent` zuerst faktorisieren:
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 data_a$gender <- factor(data_a$gender)
 data_a$consent <- factor(data_a$consent)
 ```
 
 Das Signifikanzniveau für den Test legen wir auf $\alpha = 0.05$ fest.
 
-```{r, error=TRUE}
+```{r}
+#| error: true
 # install.packages("remotes") 
 # remotes::install_github("njtierney/naniar") 
 library(naniar)
@@ -1179,7 +1228,9 @@ Beispiele: Wir können keine Fälle löschen wenn die Daten MAR oder MNAR sind. 
 
 Wie bereits oben beschrieben können wir nicht (einfach) weiter an <span class="highlight">Datensatz A</span> arbeiten, solange wir nicht testen konnten, ob die Daten MCAR sind. Eine Möglichkeit wäre es, die Daten mit einer anderen Statistiksoftware auszuwerten, in der es einen implementierten MCAR-Test gibt. Es ist aber nicht ausgeschlossen, dass dieser auf dem gleichen Algorithmus wie `mcar_test()` beruht und wir das gleiche Problem haben würden.
 
-```{r, echo=FALSE, eval=FALSE}
+```{r}
+#| echo: false
+#| eval: false
 # auch probleme mit anderen Funktionen (scheinbar nur ein Missing Pattern vorhanden)
 # mcar: https://github.com/rcst/little-test/blob/master/mcar.R
 #RBtest (regression based approach): https://mran.microsoft.com/web/packages/RBtest/RBtest.pdf
@@ -1256,7 +1307,8 @@ for (i in 1:nrow(vergleich)){
 }
 ```
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 rmarkdown::paged_table(vergleich, options(rows.print=5))
 ```
 
@@ -1316,7 +1368,8 @@ data_b_num <- data_b_num[, -c(1, # P_ID (nominalskaliert)
 listwise_corr <- cor(data_b_num, use="complete.obs") 
 ```
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 listwise_corr <- as.data.frame(listwise_corr)
 rmarkdown::paged_table(listwise_corr)
 ```
@@ -1325,7 +1378,8 @@ rmarkdown::paged_table(listwise_corr)
 pairwise_corr <- cor(data_b_num, use="pairwise.complete.obs") 
 ```
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 pairwise_corr <- as.data.frame(pairwise_corr)
 rmarkdown::paged_table(pairwise_corr)
 ```
@@ -1345,7 +1399,8 @@ for (i in 1:nrow(listwise_corr)){ # über alle Zeilen ...
 }
 ```
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 rmarkdown::paged_table(diff_corr)
 ```
 
