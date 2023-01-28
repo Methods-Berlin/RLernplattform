@@ -77,14 +77,14 @@ Wir bekommen hier (zumeist) folgende Informationen: aus welchem Paket die Funkti
 
 Ohne explizite Spezifikation des Parameters unsererseits wird (wenn vorhanden) der Default verwendet. Wir könnten natürlich auch ein anderes (als das voreingestellte) Argument festlegen.
 
-Funktionen, die ausschließlich Parameter mit Defaults besitzen, (z.B. `matrix()`) werden auch ohne Spezifikation ausgeführt. Funktionen mit (min. einem) Parameter ohne Default (z.B. `mean()`) werden ohne Spezifikation dieser nicht ausgeführt (wir müssen dem Parameter `x` einen Vektor, von dem wir den Mittelwert berechnen wollen, übergeben). Mehr Informationen zu Funktionsdefinition und etwaigen Defaults finden wir im Abschnitt [Usage][Usage] in der <span class="r">R</span>-Dokumentation.
+Funktionen, die ausschließlich Parameter mit Defaults besitzen, (z.B. `matrix()`) werden auch ohne Spezifikation ausgeführt. Funktionen mit (min. einem) Parameter ohne Default (z.B. `mean()`) werden ohne Spezifikation dieser nicht ausgeführt (wir müssen dem Parameter `x` einen Vektor, von dem wir den Mittelwert berechnen wollen, übergeben). Mehr Informationen zu Funktionsdefinition und etwaigen Defaults finden wir im Abschnitt Usage in der <span class="r">R</span>-Dokumentation.
 
-Mehr Informationen zum Aufbau von Funktionen finden wir in der [Einführung in R][Einführung in R]
+Mehr Informationen zum Aufbau von Funktionen finden wir in der [Einführung in R](Einfuehrung_in_R.qmd)
 </div></details>
 
 <p style="line-height:10px;"></p>
 
-Eine [detaillierte Einführung zur Nutzung der Dokumentation][R Dokumentation] befindet sich im Kapitel [Einführung in R Studio][Einführung in R Studio].
+Eine [detaillierte Einführung zur Nutzung der Dokumentation](Einfuehrung_in_RStudio.qmd#R Dokumentation) befindet sich im Kapitel [Einführung in R Studio](Einfuehrung_in_RStudio.qmd).
 
 ### Code Diagnostik
 

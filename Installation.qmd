@@ -7,7 +7,7 @@
 <span class ="r">R</span> selbst ist relativ spartanisch und die meisten AnwenderInnen nutzen daher die <span class="highlight">Entwicklungsumgebung <span class ="r">RStudio</span></span>, welche auch eine umfassendere Benutzeroberfläche besitzt. Mit dieser können wir z.B. **Skripte** nutzen, in denen wir unsere Analysen speichern können. Außerdem gibt es ein **Environment**, das uns anzeigt, welche Objekte in <span class ="r">R</span> vorhanden sind (d.h. die wir eingelesen oder direkt in <span class ="r">R</span> erstellt haben). Hier finden wir zusätzlich einen Reiter **Help**, welcher uns Informationen und Anwendungshinweise zu Funktionen gibt.
 
 <aside>\
-Der Aufbau der Entwicklungsumgebung <span class="r">RStudio</span> wird im Kapitel [Einführung in R][Einführung in R] erklärt.</aside>
+Der Aufbau der Entwicklungsumgebung <span class="r">RStudio</span> wird im Kapitel [Einführung in R](Einfuehrung_in_R.qmd) erklärt.</aside>
 
 Im vorliegenden Kapitel schauen wir uns jeweils für <span class="highlight">Windows</span> und <span class="highlight">Mac</span> an, wie wir <span class ="r">R</span> und <span class ="r">RStudio</span> installieren oder auf eine neuere Version aktualisieren und dabei **unsere bisher heruntergeladenen Pakete behalten** können.
 
@@ -426,7 +426,7 @@ Wir gehen jetzt zurück auf den anderen Tab (der älteren <span class ="r">R</sp
 # https://stackoverflow.com/questions/13656699/update-r-using-rstudio
 ```
 
-**Tipp**: Nach der Aktualisierung von <span class ="r">R</span> können wir mit großer Wahrscheinlichkeit auch einige **Pakete aktualisieren**. Für Hilfe dabei können wir uns das gleichnamige [Kapitel][Pakete] anschauen.
+**Tipp**: Nach der Aktualisierung von <span class ="r">R</span> können wir mit großer Wahrscheinlichkeit auch einige **Pakete aktualisieren**. Für Hilfe dabei können wir uns das gleichnamige [Kapitel](Pakete.qmd) anschauen.
 
 
 ### Aktualisierung von <span class ="r">**RStudio**</span>

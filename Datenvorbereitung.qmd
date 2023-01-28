@@ -112,7 +112,7 @@ Zuerst widmen wir unsere Aufmerksamkeit der Überprüfung wichtiger übergreifen
 
 Generell wenn wir mit Daten arbeiten, ist es ratsam, sich zuallererst Gedanken darüber zu machen, welche Informationen wir diesen entnehmen können <font size="2">(**Messniveau**)</font> und ob sie so gespeichert sind, dass <span class ="r">R</span> sie richtig erkennt <font size="2">(**Datentypen und -strukturen**)</font>.
 
-Die nachfolgende Wiederholung ist eine verkürzte Variante des Abschnitts [Daten](Einführung in R#Daten) aus dem Kapitel zu [Einführung in R](Einführung in R).
+Die nachfolgende Wiederholung ist eine verkürzte Variante des Abschnitts [Daten](Einfuehrung in R#Daten) aus dem Kapitel zu [Einführung in R](Einfuehrung_in_R.qmd).
 
 
 #### <font color="darkgrey">Messniveaus</font>
@@ -1774,7 +1774,7 @@ Wenn wir nicht mit den Rohdaten arbeiten wollen, sondern Informationen von mehre
 
 <span class="ex">Wir nutzen zu diesem Zweck den Datensatz **PWE_data**</font>, welcher aus einer psychometrischen Erhebung stammt. [Zu Beginn](#data) des Kapitels haben wir den Datensatz heruntergeladen.</span>
 
-> *__Achtung__*:  Die Werte der Variablen `Q9A`, `Q13A` und `Q15A`, die wir im Folgenden nutzen werden, wurden im Abschnitt [Umkodieren][Umkodieren] rekodiert, weil sie negativ gepolt sind.
+> *__Achtung__*:  Die Werte der Variablen `Q9A`, `Q13A` und `Q15A`, die wir im Folgenden nutzen werden, wurden im Abschnitt [Umkodieren](Datenvorbereitung.qmd#Umkodieren) rekodiert, weil sie negativ gepolt sind.
 
 <p style="line-height:10px;"></p>
 
@@ -1919,7 +1919,7 @@ Außerdem ist es sinnvoll, **alle Schritte der Datenvorbereitung sowie Datenausw
 
 Im Folgenden wollen wir einige Aufgaben bearbeiten, die in den Bereich der Datenvorbereitung fallen. Dazu gehören u.a. das Extrahieren und Sortieren von Daten, die Änderung der Kodierung von Daten sowie das Erstellen von Summary-Variablen. Zuallererst sollten wir uns jedoch immer mit dem genutzten Datensatz vertraut machen.
 
-<aside><[Hier][Datenvorbereitung] finden wir das Einführungsskript zu Datenvorbereitung.</aside>
+<aside><[Hier](Datenvorbereitung.qmd) finden wir das Einführungsskript zu Datenvorbereitung.</aside>
 
 Dazu nutzen wir einen Datensatz, der im Rahmen eines Projektes zur Untersuchung des Zusammenhangs des Bedürfnisses nach Privatsphäre und verschiedenen Persönlichkeitseigenschaften erhoben wurde. Mehr Informationen zum Projekt und zur Publikation finden wir <a href="https://osf.io/7ncpk/" target="_blank">hier</a>.
 

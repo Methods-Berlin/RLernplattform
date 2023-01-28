@@ -116,7 +116,7 @@ Der Datensatz enthält 11 Variablen zum Benzinverbrauch von Automodellen in den 
 
 ## Bevor es losgeht
 
-Bevor wir uns in ggplot2 vertiefen, wollen wir überprüfen, ob unsere Daten in der benötigten [Datenstruktur][Datenstrukturen] vorliegen. Außerdem lernen wir einige Webseiten kennen, die uns dabei helfen, uns für eine Art der Visualisierung unserer Daten zu entscheiden.
+Bevor wir uns in ggplot2 vertiefen, wollen wir überprüfen, ob unsere Daten in der benötigten [Datenstruktur](Daten.qmd#Datenstrukturen) vorliegen. Außerdem lernen wir einige Webseiten kennen, die uns dabei helfen, uns für eine Art der Visualisierung unserer Daten zu entscheiden.
 
 
 ### Richtiges Datenformat
@@ -909,11 +909,11 @@ ggplot(data=mpg, aes(x=displ)) +
   facet_grid(fl ~ year + drv) # Zeilen ~ Spalten
 ```
 
-<aside>Idealerweise würde man [vor der Verarbeitung](#bevor-es-losgeht-richtiges-datenformat) nominal- und ordinalskalierte Variablen, die als numerische Vektoren vorliegen (wie `drv` und `fl`), noch faktorisieren. Mehr dazu auch im Kapitel zu [Datenvorbereitung][Datenvorbereitung]</aside>
+<aside>Idealerweise würde man vor der Verarbeitung] nominal- und ordinalskalierte Variablen, die als numerische Vektoren vorliegen (wie `drv` und `fl`), noch faktorisieren. Mehr dazu auch im Kapitel zu [Datenvorbereitung](Datenvorbereitung.qmd)</aside>
 
 Weitere Informationen zu `facet_grid()`, z.B. wie man hier die Achsengrenzen und -beschriftung anpassen kann, befinden sich auf dem <a href="https://github.com/rstudio/cheatsheets/raw/master/translations/german/ggplot2-german.pdf" target="_blank">Cheat Sheet</a>.
 
-Mehr Informationen dazu, wie wir nur Plots für *einige* Gruppen erstellen, erhalten wir [später](#grafiken-einzelner-gruppen-und-die-anpassung-von-achsengrenzen).
+Mehr Informationen dazu, wie wir nur Plots für *einige* Gruppen erstellen, erhalten wir [später](Grafiken.qmd#grafiken-einzelner-gruppen-und-die-anpassung-von-achsengrenzen).
 
 ### Nur kategoriale Variablen
 
@@ -925,7 +925,7 @@ Alluvial Plots sind eine **Art von Flussdiagrammen**, die die Zugehörigkeit zu 
 
 **Für die Visualisierung längsschittlicher Daten müssen wir die folgenden Schritte durchlaufen:** Zuerst wählen wir die relevanten Fälle, d.h. jene zum ersten und letzten Messzeitpunkt, aus und speichern sie in einem neuen Dataframe <font size="2">(*optional*; nur wenn wir nicht alle Zeitpunkte visualisieren wollen)</font>. Diesen wandeln wir dann ins Wide-Format um. Danach erstellen wir eine neue Variable, die kodiert, ob das Gewicht eines Kükens zu einem gewissen Zeitpunkt kleiner oder größer als der Mittelwert ist. Zuletzt entfernen die nicht länger benötigten Variablen aus dem Dataframe.
 
-<aside>Diese Schritte werden im folgenden nur knapp erklärt. Mehr Hilfe finden wir im Kapitel zu [Datenvorbereitung][Datenvorbereitung] in den Abschnitten **Daten extrahieren** und **Kodierung ändern**.</aside>
+<aside>Diese Schritte werden im folgenden nur knapp erklärt. Mehr Hilfe finden wir im Kapitel zu [Datenvorbereitung](Datenvorbereitung.qmd) in den Abschnitten **Daten extrahieren** und **Kodierung ändern**.</aside>
 
 <!-- Problem mit WL-Formatierung und Markdown:
 - Mac: läuft in Konsole, aber nicht in Rmd, daher eval=F gesetzt und Datei ex- und importiert

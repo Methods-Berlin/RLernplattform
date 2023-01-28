@@ -325,13 +325,13 @@ Wir schauen uns das exemplarisch für das Paket **car** an. Du änderst nur noch
 `remove.packages('car')` bzw. `remove.packages(c('car', 'survey'))` \
 `install.packages('car', dependencies=TRUE)` \
 
-<aside>Hilfe bei der **Installation von Paketen** finden wir im gleichnamigen [Kapitel][Pakete][Pakete].</aside>
+<aside>Hilfe bei der **Installation von Paketen** finden wir im gleichnamigen [Kapitel](Pakete.qmd).</aside>
 
 (@) <font color="#009193">**Die neuste `R`-Version von <a href="https://cran.r-project.org/" target="_blank">`R`</a> und/oder <a href="https://www.rstudio.com/products/rstudio/download/" target="_blank"><span style="font-family: Consolas,monaco,monospace;">RStudio</span></a> <font size="2">(hierbei die kostenlose Variante)</font> auf dem Computer installieren und dann versuchen, das Paket neu zu installieren bzw. Schritt 1 durchzuführen.**</font>
 
 Achte dabei auf die **Kompatibilität mit deiner Hardware und Software**. Unter Umständen kannst du vielleicht nicht die neueste Version installieren, aber eine neuere als deine aktuelle Version. Ältere Versionen von `R` finden wir auch unter obigem Link. Ältere Versionen von <span style="font-family: Consolas,monaco,monospace;">RStudio</span> finden wir <a href="https://support.rstudio.com/hc/en-us/articles/206569407-Older-Versions-of-RStudio" target="_blank">hier</a>. 
 
-<aside>Hilfe bei der **Installation von `R` und <span style="font-family: Consolas,monaco,monospace;">RStudio</span>** finden wir unserem [Kapitel][Installation].</aside>
+<aside>Hilfe bei der **Installation von `R` und <span style="font-family: Consolas,monaco,monospace;">RStudio</span>** finden wir unserem [Kapitel](Installation.qmd).</aside>
 
 (@) <font color="#009193">**Die Pakete deinstallieren und _manuell_ neu installieren**</font>
 

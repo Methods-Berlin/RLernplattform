@@ -46,7 +46,7 @@ str(daten)
 
 Wie erhofft liegt die nominalskalierte Variable `job` als ungeordneter Faktor und die intervallskalierte Variable `zf_belastung` als <span class="r">numeric</span> vor.
 
-Mehr Informationen zu Datentypen und angemessener Kodierung finden wir im Kapitel [Einführung in R][Einführung in R].
+Mehr Informationen zu Datentypen und angemessener Kodierung finden wir im Kapitel [Einführung in R](Einfuehrung_in_R.qmd).
 
 </p></details>
 \
@@ -85,7 +85,7 @@ str(daten$zf_belastung)
 
 <span class="ex">Unser interessierendes Merkmal `zf_belastung` liegt als <span class="r">numeric</span></span> vor.
 
-Mehr zu Datentypen und -strukturen erfahren wir in [Einführung in R][Einführung in R].
+Mehr zu Datentypen und -strukturen erfahren wir in [Einführung in R](Einfuehrung_in_R.qmd).
 -->
 <span class="highlight">Normalverteilung</span>
 
@@ -110,7 +110,7 @@ ggplot(data = daten, aes(sample = zf_belastung)) + # Koordinatensystem
 # diese können wir hier unbeachtet lassen
 ```
 
-Mehr Informationen zum Erstellen von Grafiken mit dem Paket **ggplot2** finden wir im Kapitel zu [Grafiken][Grafiken].\
+Mehr Informationen zum Erstellen von Grafiken mit dem Paket **ggplot2** finden wir im Kapitel zu [Grafiken](Grafiken.qmd).\
 
 > *__Achtung__*:  <div class="rows">Hilfe zur Interpretation von QQ-Plots finden wir [hier][5.1. Normalverteilung der Residuen].\
 **Hinweis**: Die Residuen in der linearen Regression sind beim $t$-Test dasselbe wie in den Gruppen zentrierte Werte der $AV$ (d.h. Abweichungen vom gruppenspezifischen Mittelwert) in unserem Beispiel.</div>\
@@ -514,7 +514,7 @@ Das __Allgemeine Lineare Modell__ <font size="2">(ALM)</font> umfasst varianzana
 
 <aside>\
 \
-Mehr Informationen zu Kodierung gibt es im Kapitel [Einführung in R][Einführung in R].</aside>
+Mehr Informationen zu Kodierung gibt es im Kapitel [Einführung in R](Einfuehrung_in_R.qmd).</aside>
 
 In unserem Fall von einer intervallskalierten $AV$ und einer nominalskalierten $UV$ werden in den drei Verfahren jeweils die Mittelwerte der $AV$ für die jeweiligen $UV$ gebildet. Beim $t$-Test und der einfachen linearen Regression haben wir diese auch ausgegeben bekommen:
 

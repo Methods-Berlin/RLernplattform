@@ -2,11 +2,11 @@
 
 Im Rahmen dieses Kapitels schauen wir uns an, wie die Benutzeroberfläche der <span class="highlight">Entwicklungsumgebung <span class="r">RStudio</span></span> aufgebaut ist und wie sie uns den Umgang mit der (grundlegenden) Software `R` erleichtert. Wir lernen die vier grundlegenden Bereiche <font size="2">(Panels)</font> von <span class="r">RStudio</span> kennen und werden uns besonders die `R`-Dokumentation genauer anschauen. In dieser finden wir viele wertvolle Informationen zu Funktionen. Am Ende finden wir noch eine Übersicht über Kurzbefehle, die uns die Arbeit mit `R` zusätzlich erleichtern.
 
-Es ist von Vorteil, wenn wir die [Einführung in R][Einführung in R], in der Funktionen und Pakete, sowie die Speicherung von Daten erklärt werden, bereits durchgearbeitet haben.
+Es ist von Vorteil, wenn wir die [Einführung in R](Einfuehrung_in_R.qmd), in der Funktionen und Pakete, sowie die Speicherung von Daten erklärt werden, bereits durchgearbeitet haben.
 
-> **_Achtung_**: Voraussetzung zur Bearbeitung des Kapitels ist, dass wir [R und RStudio installiert][Installation] haben.
+> **_Achtung_**: Voraussetzung zur Bearbeitung des Kapitels ist, dass wir [R und RStudio installiert](Installation.qmd) haben.
 
-Weiterführend bietet es sich an, das Kapitel zum [Daten einlesen][Daten importieren] anzuschauen.
+Weiterführend bietet es sich an, das Kapitel zum [Daten einlesen](Daten-importieren.qmd) anzuschauen.
 
 
 ```{r}
@@ -30,7 +30,7 @@ In Abhängigkeit davon, um was für Code es sich handelt <font size="2">(z.B. Fu
 - <span class="highlight">Befehlszeilenergänzung</span> <font color="#009193">(Autovervollständigung)</font>\
 Wenn wir anfangen, Code einzutippen, bekommen wir bereits Vorschläge, welche Funktionen oder bestehenden Objekte wir meinen könnten. Wenn wir mit der Maus über eine vorgeschlagene Funktion fahren, bekommen wir außerdem eine kurze **Erklärung**, was diese macht und welche Parameter sie besitzt. Wir können auf die Vorschläge klicken, um unseren Code <font size="2">(d.h. den Namen der Funktion oder des Objekts)</font> **automatisch vervollständigen** zu lassen. Die Befehlszeilenergänzung können wir sowohl in der Konsole als auch im Skript nutzen.
 - <span class="highlight">Code Diagnostik</span>\
-Wenn wir Code im Skript schreiben, bekommen wir schon **vor der Ausführung Hinweise auf Probleme bzw. Unvollständigkeiten**. Unser Skript muss dazu aber bereits gespeichert sein. Auf die [Code Diagnostik][Code Diagnostik] gehen wir im Kapitel zu [Fehlermeldungen][Fehlermeldungen] noch etwas detaillierter ein.
+Wenn wir Code im Skript schreiben, bekommen wir schon **vor der Ausführung Hinweise auf Probleme bzw. Unvollständigkeiten**. Unser Skript muss dazu aber bereits gespeichert sein. Auf die Code Diagnostik gehen wir im Kapitel zu [Fehlermeldungen](Fehlermeldungen.qmd) noch etwas detaillierter ein.
 
 <aside>\
 Wir können aus verschiedenen Möglichkeiten zur Code Hervorhebung wählen. Diese finden wir in der oberen Menüleiste auf **Tools** > **Global Options...** > **Appearance** > **Editor Theme**.</aside>
@@ -166,7 +166,7 @@ knitr::include_graphics("figures/Einführung/Bilder/RStudio/environ.png")
 
 Wir sehen, dass es sich um einen numerischen Vektor mit zwei Elementen, 1 und 3, handelt.
 
-Was für Informationen wir zu einem Objekt angezeigt bekommen ist abhängig von seiner Datenstruktur. Schauen wir uns das einmal am Beispiel der Objekte, die wir im Abschnitt zu [Daten][Daten] im Kapitel [Einführung in R][Einführung in R] erstellt haben, an.
+Was für Informationen wir zu einem Objekt angezeigt bekommen ist abhängig von seiner Datenstruktur. Schauen wir uns das einmal am Beispiel der Objekte, die wir im Abschnitt zu [Daten](Einfuehrung_in_R.qmd#Daten) im Kapitel [Einführung in R](Einfuehrung_in_R.qmd) erstellt haben, an.
 
 ```{r}
 #| out.width: 420px
@@ -225,9 +225,9 @@ knitr::include_graphics("figures/Einführung/Bilder/RStudio/packages.png")
 
 Wir sehen eine kurze Beschreibung des Pakets und seine Versionsnummer. Im Kästchen ganz links sehen wir außerdem, ob Pakete derzeit geladen sind. Standardpakete sind immer geladen; Add-On Pakete müssen wir bei jeder Session neu laden (wenn wir sie nutzen wollen).
 
-**Mehr Informationen zum Installieren, Laden und Aktualisieren von Paketen** mit Funktionen sowie der Entwicklungsumgebung `R` finden wir im **gleichnamigen** [Kapitel][Pakete].
+**Mehr Informationen zum Installieren, Laden und Aktualisieren von Paketen** mit Funktionen sowie der Entwicklungsumgebung `R` finden wir im **gleichnamigen** [Kapitel](Pakete.qmd).
 
-Unter <span class="r help">**Files**</span> sehen wir die Ordner(struktur) auf unserem Rechner. Im Kapitel zu [Daten einlesen][Daten importieren] erfahren wir, wie wir [diesen bereich nutzen][Weg 2 Files Import Dataset] können.
+Unter <span class="r help">**Files**</span> sehen wir die Ordner(struktur) auf unserem Rechner. Im Kapitel zu [Daten einlesen](Daten-importieren.qmd) erfahren wir, wie wir [diesen bereich nutzen](Daten-importieren.qmd#Weg 2 Files Import Dataset) können.
 
 Unter <span class="r help">**Plots**</span> werden (von uns erstellte) Grafiken angezeigt; unter <span class="r help">**Viewer**</span> (von uns erstellte) Tabellen.
 

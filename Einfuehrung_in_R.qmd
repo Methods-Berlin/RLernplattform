@@ -178,7 +178,7 @@ install.packages("psych") # auf Anführungszeichen achten!
 <span class="ex">Die im Paket enthaltene Funktion `describe()` gibt uns beispielsweise eine kompakte Übersicht relevanter deskriptiv-statistischer Kennwerte von Daten aus. 
 
 <!--Die Daten müssen dafür zweidimensional sein <font size="2">(d.h. als Matrix oder Data Frame vorliegen)</font>.</span>   # laut Dok, aber funktioniert auch bei Vektoren 
-<aside>Mehr Informationen zur Organisation von Daten später unter [Datenstrukturen][Datenstrukturen].</aside>
+<aside>Mehr Informationen zur Organisation von Daten später unter [Datenstrukturen](Einfuehrung_in_R.qmd#Datenstrukturen).</aside>
 -->
 
 Wenn wir enthaltene Funktionen nutzen wollen, müssen wir das Paket zuerst **laden**.
@@ -196,7 +196,7 @@ describe(women)
 
 Wenn wir <span class="r">R</span> bzw. <span class="r">RStudio</span> schließen und erneut öffnen, müssen wir zusätzliche Pakete vor der Nutzung erneut laden.
 
-Für **mehr Informationen zu Paketen**, u.a. wie wir diese aktualisieren können, könnt ihr euch dazugehöriges [Kapitel][Pakete] anschauen.
+Für **mehr Informationen zu Paketen**, u.a. wie wir diese aktualisieren können, könnt ihr euch dazugehöriges [Kapitel](Pakete.qmd) anschauen.
 
 
 ## **2. Daten**
@@ -562,7 +562,7 @@ Bei Betrachtung der numerischen Vektoren fällt auf, dass `vek_4` und `vek_5` al
 
 **Aber warum wurden `vek_4` und `vek_5` als <span class="r">numeric</span> gespeichert, obwohl wir <span class="r">integer</span> (ganze Zahlen) bzw. <span class="r">double</span> (Kommazahlen) erwartet hätten?**
 
-Das liegt daran, dass <span class="r">R</span> *alle Zahlen* (d.h. ganze, reelle und komplexe Zahlen) als <span class="r">numeric</span> zusammenfasst (wie bereits in der Einführung zu [Datentypen][Datentypen] erwähnt), *solange* wir diese nicht explizit (als <span class="r">integer</span>) definieren.
+Das liegt daran, dass <span class="r">R</span> *alle Zahlen* (d.h. ganze, reelle und komplexe Zahlen) als <span class="r">numeric</span> zusammenfasst (wie bereits in der Einführung zu [Datentypen](Einfuerhung_in_R.qmd#Datentypen) erwähnt), *solange* wir diese nicht explizit (als <span class="r">integer</span>) definieren.
 
 Genau genommen lautete der **exakte Datentyp** von ganzen und reellen Zahlen, die als <span class="r">numeric</span> zusammengefasst sind, <span class="r">double</span>. Mit `typeof()` sehen wir diesen. 
 

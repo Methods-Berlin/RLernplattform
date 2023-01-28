@@ -110,7 +110,7 @@ Da wir zwei Funktionen auf den Datensatz anwenden wollen - `unique()` und `sort(
 sapply(sapply(daten, unique), sort, na.last=TRUE)
 ```
 
-<aside>Die hier durchgeführte Überprüfung ist analog zum [Plausibilitätscheck][[Plausibilitätscheck] im Kapitel zur [Datenvorbereitung][Datenvorbereitung].</aside>
+<aside>Die hier durchgeführte Überprüfung ist analog zum [Plausibilitätscheck](Datenvorbereitung#Plausibilitaetscheck) im Kapitel zur [Datenvorbereitung](Datenvorbereitung.qmd).</aside>
 
 <span class ="ex">In `Var_1` gibt es die Ausprägung `-99` und in `Var_5` die Ausprägung `99`, welche keine möglichen Ausprägungen sind. Es ist davon auszugehen, dass das ebenso Kodierungen für fehlende Werte sind.</span>
 
@@ -260,7 +260,7 @@ table(is.na(daten[1,])) # Datensatz[,Zeilenindex]
 
 > *__Achtung__*:  Die ersten drei vorgestellten Möglichkeiten, `$` und <span class="code"><span class="ex">Datensatz</span>["<span class="ex">Spalten- bzw. Zeilenname</span>"]</span>,  funktionieren nur bei __Dataframes__, und nicht bei Matrizen. Die Möglichkeit der **Indexierung** können wir auch bei **Matrizen** nutzen. 
 
-<aside>Mehr Informationen zu Datenstrukturen finden wir im Kapitel [Einführung in R][Einführung in R].</aside>
+<aside>Mehr Informationen zu Datenstrukturen finden wir im Kapitel [Einführung in R](Einfuehrung_in_R.qmd).</aside>
 
 ### Missings in *allen* Spalten oder Zeilen
 
