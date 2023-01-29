@@ -38,9 +38,9 @@ plot(stunden, noten)
 abline(modell)
 ```
 
-- @Clara: ersetze das "ue" in Schueler durch "ü". Der Satz ist etwas lang. Schreib ihn so um, dass es zwei Sätze sind.
+- @Clara: ersetze das "ue" in Schüler durch "ü". Der Satz ist etwas lang. Schreib ihn so um, dass es zwei Sätze sind.
 
-In diesem Beispiel würde die Ausgabe des Modells zeigen, dass die beste gerade Linie, die die Beziehung zwischen den Stunden und den Noten beschreibt, eine negative Steigung hat, was bedeutet, dass die Noten abnehmen, wenn die Schueler mehr Stunden lernen.
+In diesem Beispiel würde die Ausgabe des Modells zeigen, dass die beste gerade Linie, die die Beziehung zwischen den Stunden und den Noten beschreibt, eine negative Steigung hat. Dies bedeutet, dass die Noten abnehmen, wenn die Schueler mehr Stunden lernen.
 
 ## Multiple lineare Regression
 
@@ -50,7 +50,7 @@ Y = b0 + b1X1 + b2X2 + b3X1X2 + b4*X3 + e
 
 - @Clara: Die folgende Beschreibung einer Interaktion ist etwas kurz. Baue den Block ein bisschen aus (+1-2 Sätze). Es muss nicht korrekt sein; denk Dir was aus.
 
-In diesem Beispiel würde das Interaktionsterm X1*X2 die Wechselwirkung zwischen X1 und X2 berücksichtigen. Der Koeffizient b3 gibt an, wie stark die Änderung von Y durch die Änderung von X1 beeinflusst wird, wenn X2 einen bestimmten Wert hat.
+In diesem Beispiel würde das Interaktionsterm X1*X2 die Wechselwirkung zwischen X1 und X2 berücksichtigen. Der Koeffizient b3 gibt an, wie stark die Änderung von Y durch die Änderung von X1 beeinflusst wird, wenn X2 einen bestimmten Wert hat. Das bedeutet, dass Y durch X1 möglicherweise anders beeinflusst wird, wenn X2 einen großen Wert hat, als wenn X2 einen kleinen Wert hat.
 
 Hier ein Beispiel:
 
