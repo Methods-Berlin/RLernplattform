@@ -36,9 +36,10 @@ jobs:
         uses: quarto-dev/quarto-actions/setup@v2
       - name: Install dependencies and create book
         run: |
+          options(pkgType = "win.binary")
           options(install.packages.compile.from.source = "never")
           install.packages(c("quarto", "devtools"))
-          devtools::install_deps()
+          devtools::install_deps(upgrade = "never")
           quarto::quarto_render(output_format = "html",
                                 as_job = FALSE)
         shell: Rscript {0}
