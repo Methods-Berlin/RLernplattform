@@ -70,7 +70,7 @@ Werfen wir einmal einen Blick in die **Funktionsdefinition von `mean()`**:
 knitr::include_graphics("figures/Einführung/Bilder/R/mean.png")
 ```
 
-<aside>Die Funktionsdefinition finden wir in der Dokumentation, welche wir in <span class="r">RStudio</span> unter [Files, Plots, Packages, Help & Viewer][Files, Plots, Packages, Help & Viewer] 
+<aside>Die Funktionsdefinition finden wir in der Dokumentation, welche wir in <span class="r">RStudio</span> unter [Files, Plots, Packages, Help & Viewer][Files, Plots, Packages, Help & Viewer] </aside>
 
 Manche Parameter besitzen *voreingestellte Argumente* <font size="2"><span class="ex">(z.B. `na.rm=FALSE`)</font></span>, diese bezeichnet man als <span class="highlight">Defaults</span>. Funktionen mit (min. einem) Parameter *ohne* Default <span class="ex"><font size="2">(z.B. `mean()`)</font></span> werden ohne Spezifikation dieser nicht ausgeführt. <span class="ex">Beispielsweise *müssen* wir dem Parameter `x` einen Vektor, von dem wir den Mittelwert berechnen wollen, übergeben.</span>
 
