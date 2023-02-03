@@ -6,9 +6,9 @@ book:
   title: "R Lernplattform"
   author: "Methods Group Berlin"
   chapters:
+    - index.qmd
     - part: "R und RStudio"
       chapters:
-        - index.qmd
         - Installation.qmd
         - Einfuehrung_in_R.qmd
         - Einfuehrung_in_RStudio.qmd

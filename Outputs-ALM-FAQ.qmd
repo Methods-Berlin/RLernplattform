@@ -6,7 +6,7 @@ Im Folgenden schauen wir uns an, wie die **Outputs** der jeweiligen Funktionen `
 
 <aside>\
 \
-Wir gehen nur knapp auf die Prüfung der Annahmen ein. Eine ausführlichere Einleitung  befindet sich [hier][Multiple lineare Regression].</aside>
+Wir gehen nur knapp auf die Prüfung der Annahmen ein. Eine ausführlichere Einleitung  befindet sich [hier](Voraussetzungspruefung.qmd).</aside>
 
 <!--Zur Veranschaulichung untersuchen wir, ob sich Studierende mit und ohne Nebenjob signifikant in ihrer Zufriedenheit mit der Bewältigung von Studienbelastungen unterscheiden. Diese ungerichtete $H_1$ überprüfen wir mit einem Signifikanzniveau von $\alpha = 0.05$. -->
 
@@ -63,7 +63,7 @@ Mehr Informationen zu Datentypen und angemessener Kodierung finden wir im Kapite
 
 <details><summary class="mtitle">Überprüfung der Annahmen des $t$-Tests</summary><div class="more">\
 
-> *__Achtung__*:  <div class="rows">An dieser Stelle sei wieder auf das [ausführliche Skript][Multiple lineare Regression] zur Annahmenprüfung verwiesen. Im Folgenden schauen wir uns jeweils nur ein mögliches Verfahren zur Überprüfung der spezifischen Annahmen an.</div>\
+> *__Achtung__*:  <div class="rows">An dieser Stelle sei wieder auf das [ausführliche Skript](Voraussetzungspruefung.qmd) zur Annahmenprüfung verwiesen. Im Folgenden schauen wir uns jeweils nur ein mögliches Verfahren zur Überprüfung der spezifischen Annahmen an.</div>\
 
 Zur Durchführung eines $t$-Tests für unabhängige Zufallsstichproben müssen folgende Annahmen erfüllt sein: 
 
@@ -112,7 +112,7 @@ ggplot(data = daten, aes(sample = zf_belastung)) + # Koordinatensystem
 
 Mehr Informationen zum Erstellen von Grafiken mit dem Paket **ggplot2** finden wir im Kapitel zu [Grafiken](Grafiken.qmd).\
 
-> *__Achtung__*:  <div class="rows">Hilfe zur Interpretation von QQ-Plots finden wir [hier][5.1. Normalverteilung der Residuen].\
+> *__Achtung__*:  <div class="rows">Hilfe zur Interpretation von QQ-Plots finden wir hier: @sec-Normalverteilung-der-Residuen.\
 **Hinweis**: Die Residuen in der linearen Regression sind beim $t$-Test dasselbe wie in den Gruppen zentrierte Werte der $AV$ (d.h. Abweichungen vom gruppenspezifischen Mittelwert) in unserem Beispiel.</div>\
 
 <span class="ex">In beiden Diagrammen weichen die Punkte leicht von der Linie ab, d.h. dass die Daten nicht perfekt normalverteilt sind. Wir können uns aber auf den zentralen Grenzwertsatz stützen, welcher besagt, dass der Mittelwert eines Merkmals bei wachsender Stichprobengröße approximativ normalverteilt ist. Generell gibt es keinen Richtwert, der besagt, wann Stichproben hinreichend groß sind. Mit unseren Stichprobengrößen ($n_{ja} = 87$ und $n_{nein} = 86$) und den geringfügigen Abweichungen von einer Normalverteilung in den beiden Gruppen können wir erwarten, dass die Annahme hinreichend erfüllt ist.</span>\
@@ -229,7 +229,7 @@ Das Ergebnisobjekt `lm_belastung` schauen wir uns erst *nach* der Annahmenprüfu
 
 <details><summary class="mtitle">Überprüfung der Annahmen der (einfachen) linearen Regression</summary><div class="more">\
 
-> *__Achtung__*:  <div class="rows">Im Rahmen dieses Kapitels besprechen wir die Annahmen und deren Überprüfung nicht im Detail. Mehr Informationen finden wir im Kapitel zur [Prüfung der Annahmen der multiplen linearen Regression][Multiple lineare Regression], die denen der einfachen linearen Regression sehr ähnlich ist.</div>\
+> *__Achtung__*:  <div class="rows">Im Rahmen dieses Kapitels besprechen wir die Annahmen und deren Überprüfung nicht im Detail. Mehr Informationen finden wir im Kapitel zur [Prüfung der Annahmen der multiplen linearen Regression](Voraussetzungspruefung.qmd), die denen der einfachen linearen Regression sehr ähnlich ist.</div>\
 
 ```{r}
 #| echo: !expr F
@@ -262,7 +262,7 @@ Weil wir nur eine kategoriale $UV$ mit zwei Ausprägungen haben, ordnen sich die
 
 <span class="ex">Da sich die Lowess Fit Line <font size="2">(rote gestrichelte Linie)</font>, welche den generellen (nonparametrischen) Trend der Daten beschreibt, dem Erwartungswert der Residuen bei $y=0$ <font size="2">(schwarze gestrichelten Linie)</font> annähert, können wir annehmen, dass Linearität vorliegt.</span>
 
-Mehr Informationen zur Lowess Fit Line und zum Residuenplot finden wir im Kapitel zur [Prüfung der Annahmen der multiplen linearen Regression][Multiple lineare Regression].
+Mehr Informationen zur Lowess Fit Line und zum Residuenplot finden wir im Kapitel zur [Prüfung der Annahmen der multiplen linearen Regression](Voraussetzungspruefung.qmd).
 
 
 <span class="highlight">Homoskedastizität</span>

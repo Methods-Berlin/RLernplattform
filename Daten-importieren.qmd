@@ -30,7 +30,7 @@ Mit dem Working Directory (WD; Arbeitsverzeichnis) legen wir u.a. fest, wo unser
 Das WD müssen wir (in der Regel) in jeder <span class="r">R</span>-Sitzung erneut festlegen.</div></details>
 
 
-## **Vor dem Einlesen in <span class="r">R</span>**
+## Vor dem Einlesen in <span class="r">R</span>
 
 In diesem Abschnitt schauen wir uns an, wie wir **Dateien aus dem Internet herunterladen** <font size="2">(z.B. aus moodle)</font> und **in unseren Arbeitsordner verschieben** können. Wir sollten der Übersichtlichkeit halber für jedes neue Projekt einen neuen Ordner anlegen. 
 
@@ -133,7 +133,7 @@ knitr::include_graphics("figures/Daten-importieren/Bilder/Datenfile_in_den_Zielo
 Die Datei ist nun im Arbeitsordner gespeichert; wir können sie nun auch aus dem Download-Ordner löschen. Jetzt öffnen wir <span class="r">RStudio</span>, um die Datei einzulesen.
 
 
-## **Weg 1: <span class ="rstud">Environment</span> > <span class ="rstud">Import Dataset</span>**
+## Weg 1: <span class ="rstud">Environment</span> > <span class ="rstud">Import Dataset</span>
 
 Eine Variante, Daten in <span class ="r">R</span> ganz ohne Code zu importieren, ist es, das Icon **Import Dataset** zu nutzen. Dieses finden wir im rechten oberen Panel bei **Environment**.  
 
@@ -177,7 +177,7 @@ knitr::include_graphics("figures/Daten-importieren/Bilder/environment_neuro.png"
 <!-- > *__Achtung__*: Das Working Directory müssten wir jetzt noch manuell setzen <font size="2">(z.B. mit [`setwd()`](#working-directory-setzen-1))</font>. -->
 
 
-## **Weg 2: <span class ="rstud">Files</span> > <span class ="rstud">Import Dataset</span>**
+## Weg 2: <span class ="rstud">Files</span> > <span class ="rstud">Import Dataset</span>
 
 Schauen wir uns einen weiteren Weg an, mit der Benutzeroberfläche der Entwicklungsumgebung <span class ="r rstud">RStudio</span> Dateien einzulesen. 
 
@@ -250,7 +250,7 @@ knitr::include_graphics("figures/Daten-importieren/Bilder/environment_neuro.png"
 ```
 
 
-## **Weg 3: Manuell Importieren mit `Funktionen`**
+## Weg 3: Manuell Importieren mit `Funktionen`
 
 Auch wenn Möglichkeiten existieren, Dateien mithilfe der Benutzeroberfläche von <span class="r">RStudio</span> einzulesen, ist es ratsam, auch einmal selbst Funktionen zu nutzen. Für die meisten Arbeiten in <span class="r">R</span> nutzen wir nämlich Funktionen.  
 
@@ -384,7 +384,7 @@ knitr::include_graphics("figures/Daten-importieren/Bilder/Dateipfad.png")
 
 <p style="line-height:10px;"></p>
 
-Für eine ausführlichere Anleitung zum Einlesen von Dateien in `R` gibt es ein eigenständiges [Kapitel][Daten importieren], in dem wir lernen, wie wir die Benutzeroberfläche von <span class="r">RStudio</span> und Funktionen nutzen können.
+Für eine ausführlichere Anleitung zum Einlesen von Dateien in `R` gibt es ein eigenständiges [Kapitel](Daten-importieren.qmd), in dem wir lernen, wie wir die Benutzeroberfläche von <span class="r">RStudio</span> und Funktionen nutzen können.
 
 ---
 
@@ -529,9 +529,9 @@ Falls wir ein **seltener genutztes Dateiformat** <font size="2">(z.B. Stata, JSO
 
 In diesem Abschnitt finden wir verschiedene Dateien, die wir zur Übung in <span class ="r">R</span> einlesen können. Wie wir dabei vorgehen <font size="2">(d.h. welchen Weg wir nutzen)</font> bleibt ganz uns überlassen. Wenn wir möchten, können wir die Tipps nutzen, um die Aufgaben zu lösen. Zur Überprüfung finden wir *mögliche* Lösungswege und die eingelesenen Daten.
 
-Wenn wir **Hilfe beim Einlesen von Daten** brauchen, können wir uns das ausführliche [Kapitel][Daten importieren] dazu anschauen.
+Wenn wir **Hilfe beim Einlesen von Daten** brauchen, können wir uns das ausführliche [Kapitel](Daten-importieren.qmd) dazu anschauen.
 
-Wenn wir **Probleme beim Installieren oder Laden von Paketen** haben, können wir unseren [Eintrag][FAQ Probleme Pakete] dazu anschauen.
+Wenn wir **Probleme beim Installieren oder Laden von Paketen** haben, können wir unseren [Eintrag](Daten-importieren.qmd#FAQ) dazu anschauen.
 
 ---
 

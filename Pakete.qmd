@@ -107,7 +107,7 @@ Alternativ können wir im **Packages-Tab** ein Häkchen bei dem Paket setzen, we
 knitr::include_graphics("figures/Pakete/Bilder/laden button.png")
 ```
 
-### **Maskierung**: Wenn verschiedene Pakete gleich benannte Funktionen enthalten
+### Maskierung: Wenn verschiedene Pakete gleich benannte Funktionen enthalten
 
 Es kann vorkommen, dass Funktionen aus verschiedenen Paketen die gleiche Bezeichnung haben. Beispielsweise gibt es in **psych** und in **ggplot2** eine Funktion mit dem Namen `alpha()`. Wenn wir ein Paket laden, und vorher ein anderes Paket geladen wurde, in dem eine gleichnamige Funktion vorkommt, bekommen wir folgende Meldung in der Konsole ausgegeben:
 

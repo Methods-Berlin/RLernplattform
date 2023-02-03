@@ -19,7 +19,7 @@ Weiterführend ist es sinnvoll, sich die [Einführung in RStudio][Einführung in
 ```
 
 
-## **1. Funktionen & Pakete**
+## Funktionen & Pakete
 
 Fangen wir damit an, was Funktionen und Pakete sind, warum wir diese nutzen und wie wir diese in <span class="r">R</span> anwenden können.
 
@@ -124,7 +124,7 @@ Weil wir weniger (redundanten) Code haben, können wir schneller Fehler finden <
 - <font color="#009193">**Erweiterbarkeit**</font>\
 Funktionen können erweitert werden, um verschiedene Szenarien zu händeln. Meist hat das schon jemand für uns gemacht. Wir müssen den Parametern einer Funktion nur verschiedene Argumente übergeben <span class="ex"><font size="2">(z.B. `na.rm=TRUE` zum Ausschluss von fehlenden Werten)</font></span>. 
 - <font color="#009193">**Abstraktion**</font>\
-Wir müssen die Funktion nicht im Detail verstehen. Es reicht zu wissen, wie der *Name* der Funktion ist <font size="2"><span class="ex">(`mean()`)</font></span>, welchen *Input* wir übergeben <font size="2"><span class="ex">(`x`; `trim` und `na.rm` optional weil mit Default)</font></span> und welchen *Output* <font size="2"><span class="ex">(arithmetisches Mittel)</font></span> wir bekommen und wo wir die Funktion finden, d.h. aus welchem *Paket* <font size="2"><span class="ex">(base)</font></span> sie stammt. All diese Informationen erhalten wir in der Dokumentation der Funktion z.B. in <span class="r">RStudio</span> [unter][Files, Plots, Packages, Help & Viewer]. 
+Wir müssen die Funktion nicht im Detail verstehen. Es reicht zu wissen, wie der *Name* der Funktion ist <font size="2"><span class="ex">(`mean()`)</font></span>, welchen *Input* wir übergeben <font size="2"><span class="ex">(`x`; `trim` und `na.rm` optional weil mit Default)</font></span> und welchen *Output* <font size="2"><span class="ex">(arithmetisches Mittel)</font></span> wir bekommen und wo wir die Funktion finden, d.h. aus welchem *Paket* <font size="2"><span class="ex">(base)</font></span> sie stammt. All diese Informationen erhalten wir in der Dokumentation der Funktion z.B. in <span class="r">RStudio</span> unter @sec-files-plots-packages-help-viewer. 
 
 Auf <a href="https://www.freecodecamp.org" target="_blank">freecodecamp.org</a> finden wir eine kurze Einführung zu <span class="r">R</span>: <a href="https://www.freecodecamp.org/news/r-programming-language-explained/" target="_blank"><span class="r">R</span> Programming Language explained</a>. Es lohnt sich, **vertiefend den Part zu <a href="https://www.freecodecamp.org/news/r-programming-language-explained/#functions-in-r" target="_blank">Funktionen</a> anzuschauen** <font size="2">(~ 10min)</font>, um ein besseres Verständnis für die Arbeit mit <span class="r">R</span> zu bekommen.
 
@@ -188,18 +188,16 @@ library(psych) # keine Anführungszeichen notwendig
 describe(women)
 ```
 
-<!-- <aside>**women** ist ein Datensatz aus dem Basispaket **datasets**, den wir mit der Funktion `data()`, aus dem Basispaket **utils**, in unser [Environment][Environment & History] holen können, um damit zu arbeiten.</aside> -->
-
 <span class="ex">Mit `describe` erhalten wir folgende Informationen zu jeder Variable im Data Frame bzw. Matrix: Namen, Spaltennummer (`vars`), Anzahl (gültiger) Fälle (`n`), Mittelwert (`mean`), Standarabweichung (`sd`), Median (`median`), getrimmter Mittelwert (`trimmed`), Median Absolute Deviation (`mad`), Minimum (`min`), Maximum (`max`), Schiefe (`skew`), Exzess (`kurtosis`) und Standardfehler des Mittelwerts (`se`).</span>
 
-<aside>Diese Informationen finden wir in der Dokumentation, welche wir [unter][Files, Plots, Packages, Help & Viewer] in <span class="r">RStudio</span> ansehen können.</aside>
+<aside>Diese Informationen finden wir in der Dokumentation, welche wir unter @sec-files-plots-packages-help-viewer in <span class="r">RStudio</span> ansehen können.</aside>
 
 Wenn wir <span class="r">R</span> bzw. <span class="r">RStudio</span> schließen und erneut öffnen, müssen wir zusätzliche Pakete vor der Nutzung erneut laden.
 
 Für **mehr Informationen zu Paketen**, u.a. wie wir diese aktualisieren können, könnt ihr euch dazugehöriges [Kapitel](Pakete.qmd) anschauen.
 
 
-## **2. Daten**
+## Daten
 
 Um zu verstehen, wie <span class="r">R</span> arbeitet, benötigen wir ein Verständnis dafür, wie Daten in <span class="r">R</span> repräsentiert werden. Dazu schauen wir uns drei wichtige Konzepte an: **Datentypen**, **Datenstrukturen** und **Objekte**.
 
@@ -896,7 +894,7 @@ Das gilt auch für **Funktionen**; z.B. funktioniert `View()` nur, wenn der erst
 Bestehende Objekte können de facto nicht mehr umbenannt werden. Wir können sie aber in einem neuen Objekt (mit einem neuen Namen) speichern (und ggf. das alte Objekt löschen).
 
 
-## **3. Weitere Hilfen**
+## Weitere Hilfen
 
 ### Kurzbefehle
 
@@ -929,7 +927,7 @@ table_dat %>%
   
 ```
 
-Eine Übersicht weiterer Kurzbefehle für <span class="r">R</span> finden wir in der Leiste ganz oben unter **Help > Keyboard Shortcuts Help** <font size="2">(nicht zu verwechseln mit dem Bereich [Help][Files, Plots, Packages, Help & Viewer], der uns Zugang zur Dokumentation verschafft)</font>.
+Eine Übersicht weiterer Kurzbefehle für <span class="r">R</span> finden wir in der Leiste ganz oben unter **Help > Keyboard Shortcuts Help** <font size="2">(nicht zu verwechseln mit dem Bereich @sec-files-plots-packages-help-viewer, der uns Zugang zur Dokumentation verschafft)</font>.
 
 ```{r}
 #| echo: false

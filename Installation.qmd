@@ -27,7 +27,7 @@ Falls ihr nur Probleme mit dem Updaten auf die neuste Version habt, führt aus d
 Wir können das Paket installr <font size="2">(Windows)</font> bzw. das manuelle Verschieben der Pakete <font size="2">(Mac)</font> hier nicht nutzen, um unsere alten Pakete zu erhalten. Wir müssen **alle Pakete neu installieren**. Falls wir sehr viele Pakete haben, hilft uns folgende <a href="https://www.r-bloggers.com/get-all-your-packages-back-on-r-4-0-0/" target="_blank">Anleitung von r-bloggers</a>. 
 
 
-## **Windows**
+## Windows
 
 <font size="2">Die folgenden Installationen wurden unter Nutzung von **Firefox 70.0.1** durchgeführt.</font>
 
@@ -246,7 +246,7 @@ Das weitere Vorgehen ist ebenso analog zur [Installation von  <span class ="r">*
 
 
 
-## **Mac**
+## Mac
 
 <font size="2">Die folgenden Installationen und Aktualisierungen wurden unter Nutzung von **Safari 13.0.3** durchgeführt.</font>
 
@@ -468,7 +468,7 @@ Das weitere Vorgehen ist weitestgehend deckungsgleich mit dem der initialen [Ins
 knitr::include_graphics("figures/Installation/Bilder/9_R_Studio_ersetzen.png")
 ```
 
-## **Hinweis zur Replizierbarkeit von Analysen**
+## Hinweis zur Replizierbarkeit von Analysen
 
 Wir sollten bei Analysen in <span class ="r">R</span> immer berichten, in welcher Version unser <span style="color:#0533FF">**Betriebssystem**</span>, <span style="color:#FF9B21">**<span class ="r">R</span>**</span> und unsere genutzten <span style="color:#669C35">**Pakete**</span> vorliegen. Sonst kann die Replikation unserer Ergebnisse Anderen schwer fallen, z.B. weil die Funktionen sich in ihrer Berechnung oder Funktionsweise zwischen verschiedenen Versionen von Paketen unterscheiden können. Mit der Funktion `sessionInfo()` bekommen wir all diese Informationen auf einen Schlag.
 
