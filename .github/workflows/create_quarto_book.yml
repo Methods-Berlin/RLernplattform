@@ -37,7 +37,7 @@ jobs:
       - name: Install dependencies and create book
         run: |
           options(install.packages.compile.from.source = "never")
-          install.packages(c("quarto" "devtools"))
+          install.packages(c("quarto", "devtools"))
           devtools::install_deps()
           quarto::quarto_render(output_format = "html",
                                 use as_job = FALSE)
