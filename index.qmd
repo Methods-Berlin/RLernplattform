@@ -1,0 +1,54 @@
+# Inhalte
+
+
+````{r, include = FALSE}
+# knitr options
+knitr::opts_chunk$set(echo = TRUE, message = FALSE)
+````
+
+<html>
+<div style="float:left; width:33%;">
+  <figure>
+    <img src="https://www.example.com/figure1.jpg" alt="Figure 1">
+    <figcaption>Figure 1</figcaption>
+  </figure>
+  <p>Short description of figure 1</p>
+  <ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+  </ul>
+</div>
+<div style="float:left; width:33%;">
+  <figure>
+    <img src="https://www.example.com/figure2.jpg" alt="Figure 2">
+    <figcaption>Figure 2</figcaption>
+  </figure>
+  <p>Short description of figure 2</p>
+  <ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+  </ul>
+</div>
+<div style="float:left; width:33%;">
+  <figure>
+    <img src="https://www.example.com/figure3.jpg" alt="Figure 3">
+    <figcaption>Figure 3</figcaption>
+  </figure>
+  <p>Short description of figure 3</p>
+  <ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+  </ul>
+</div>
+</html>
+
+
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+```

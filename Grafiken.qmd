@@ -2,7 +2,8 @@
 
 
 
-```{r, include=FALSE}
+```{r}
+#| include: false
 library(ggplot2)
 library(dplyr)
 library(kableExtra)
@@ -25,7 +26,10 @@ Es gibt drei führende Pakete zum Erstellen von Grafiken in <span class="r">R</s
 
 Im Rahmen dieses Kapitels werden wir uns auf **ggplot2** konzentrieren. Mit diesem Paket haben wir eine große Bandbreite an Möglichkeiten, das Aussehen der Grafiken zu verändern. Außerdem können wir auf eine große Anzahl von verschiedenen Grafiken zurückgreifen wie z.B. den Violinenplot <font size="1">(siehe Abb. unten)</font>. Ein Violinenplot zeigt die Dichteverteilung eines metrischen Merkmals in Abhängigkeit eines kategorialen Merkmals. 
 
-```{r, out.width = "400px", echo=FALSE, fig.align='center'}
+```{r}
+#| out.width: 400px
+#| echo: false
+#| fig.align: center
 ggplot(ChickWeight[ChickWeight$Time == 8,], aes(Diet, weight)) + 
   geom_violin(scale = "count") + ggtitle("Day 8")
 ```
@@ -35,7 +39,8 @@ Den [<font color="#009193">**Violinenplot**</font>] schauen wir uns später noch
 
 Zuerst schauen wir uns die grundlegende Funktionsweise von ggplot an. Dann lernen wir, wie wir (bekannte) Grafiken erstellen und modifizieren können. Abschließend erfahren wir, wie wir Grafiken exportieren können. Am Ende befindet sich außerdem eine Auswahl weiterführender Hilfen, die für die Visualisierung der eigenen Daten nützlich sein können.
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 # Paket installieren ...
 install.packages("ggplot2", dependencies=TRUE)
 # ... und laden
@@ -52,7 +57,10 @@ Auf der <a href="https://www.rstudio.com/resources/cheatsheets/" target="_blank"
 
 Alternativ finden wir die englischen Cheat Sheets auch direkt in <span class ="r">R-Studio</span>. Dazu gehen wir in der Menüleiste am oberen Bildschirmrand auf **Help** --> **Cheatsheets**.
 
-```{r, out.width = "700px", echo=FALSE, fig.align='center'}
+```{r}
+#| out.width: 700px
+#| echo: false
+#| fig.align: center
 knitr::include_graphics("figures/ggplot2/Bilder/cheatsheets.png")
 ```
 </div></details>
@@ -63,7 +71,8 @@ knitr::include_graphics("figures/ggplot2/Bilder/cheatsheets.png")
 
 Im Rahmen des Kapitels werden wir hauptsächlich mit dem Datensatz `ChickWeight` arbeiten, der standardmäßig im Basispaket **datasets** enthalten ist. Wir laden den Dataframe folgendermaßen in unseren Workspace:
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 data(ChickWeight)
 ```
 
@@ -73,7 +82,8 @@ data(ChickWeight)
 
 Die Daten stammen aus einem Experiment, in dem der **Einfluss des Futters auf das Wachstum von Küken** untersucht wurde. 
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 head(ChickWeight)
 ```
 
@@ -94,7 +104,9 @@ Wir laden diesen folgendermaßen in unser Environment:
 mpg <- mpg
 ```
 
-```{r display mpg, echo=FALSE}
+```{r}
+#| label: display mpg
+#| echo: false
 head(mpg)
 ```
 
@@ -104,7 +116,7 @@ Der Datensatz enthält 11 Variablen zum Benzinverbrauch von Automodellen in den 
 
 ## Bevor es losgeht
 
-Bevor wir uns in ggplot2 vertiefen, wollen wir überprüfen, ob unsere Daten in der benötigten [Datenstruktur][Datenstrukturen] vorliegen. Außerdem lernen wir einige Webseiten kennen, die uns dabei helfen, uns für eine Art der Visualisierung unserer Daten zu entscheiden.
+Bevor wir uns in ggplot2 vertiefen, wollen wir überprüfen, ob unsere Daten in der benötigten [Datenstruktur](Daten.qmd#Datenstrukturen) vorliegen. Außerdem lernen wir einige Webseiten kennen, die uns dabei helfen, uns für eine Art der Visualisierung unserer Daten zu entscheiden.
 
 
 ### Richtiges Datenformat
@@ -113,13 +125,17 @@ Bevor es losgehen kann, müssen wir erst einmal sicherstellen, dass unsere Daten
 
 Das können wir folgendermaßen überprüfen:
 
-```{r check df, collapse=TRUE}
+```{r}
+#| label: check df
+#| collapse: true
 is.data.frame(ChickWeight)
 ```
 
 Falls unser Datensatz nicht als Dataframe vorliegt, könnten wir ihn so umwandeln:
 
-```{r, collapse=TRUE, eval=FALSE}
+```{r}
+#| collapse: true
+#| eval: false
 ChickWeight <- as.data.frame(ChickWeight)
 ```
 
@@ -139,7 +155,9 @@ str(ChickWeight) # überprüfen
 
 Mit `factor()` können wir einzelne Spalten faktorisieren.
 
-```{r, collapse=TRUE, eval=FALSE}
+```{r}
+#| collapse: true
+#| eval: false
 ChickWeight$Diet <- factor(ChickWeight$Diet) # umwandeln
 # Diet lag bereits vorher als ungeordneter Faktor vor
 ```
@@ -174,7 +192,8 @@ Die Ebenen können wir auch als **Teilfunktionen** begreifen, die eine Grafik ko
 
 Das Koordinatensystem spezifizieren wir mit `ggplot()`. Dem Parameter `data` übergeben wir den **Datensatz (1)**. Das **ästhetische Mapping (2)** legen wir mit `aes()` fest. Diesem geben wir die Namen der Variablen, die auf der x- und y-Achse dargestellt werden sollen. 
 
-```{r coordinate system}
+```{r}
+#| label: coordinate system
 ggplot(data=ChickWeight, aes(x=Time, y=weight))
 ```
 
@@ -235,7 +254,8 @@ Wir können auch sogenannte <span class="highlight">gestapelte</span> **Balkendi
 
 Dazu müssen erst einen neuen Dataframe erzeugen, in welchem die Gruppennamen sowie die (absoluten) Häufigkeiten der Variablen je als neue Variable gespeichert sind.
 
-```{r prep stacked bar chart}
+```{r}
+#| label: prep stacked bar chart
 # Häufigkeitstabelle von Diet erstellen und in Dataframe konvertieren:
 freq_Diet <-as.data.frame(table(ChickWeight$Diet))
 # (optional) Spalten umbenennen:
@@ -258,7 +278,9 @@ Mehr Informationen zur Erstellung von gestapelten sowie auch gruppierten Balkend
 
 Um ein Kreisdiagramm zu erstellen, müssen wir, analog zur Erstellung von gestapelten Balkendiagrammen, zuerst einen neuen Dataframe erzeugen, in welchem die Namen und (absoluten) Häufigkeiten der Gruppen der Variablen als neue Variablen vorhanden sind.
 
-```{r prep pie chart, eval=FALSE}
+```{r}
+#| label: prep pie chart
+#| eval: false
 # Häufigkeitstabelle von Diet erstellen und in Dataframe konvertieren:
 freq_Diet <-as.data.frame(table(ChickWeight$Diet))
 # (optional) Spalten umbenennen:
@@ -358,7 +380,8 @@ Generell sollten wir <span class="highlight">nicht mehr als 20 Kategorien</span>
 
 Wir erstellen ein Histogramm von `weight` mit den empfohlenen 11 Kategorien, welche wir mit dem Argument `bins` erstellen.
 
-```{r hist bins}
+```{r}
+#| label: hist bins
 ggplot(data=ChickWeight, aes(x=weight)) + 
   geom_histogram(bins=11)
 ```
@@ -370,7 +393,8 @@ Dieses Problem demonstrieren wir einmal an obigem Beispiel.
 
 Mit `geom_vline(xintercept)` erstellen wir zwei vertikale Linien, die den kleinsten bzw. größten beobachteten Wert von `weight` markieren. Diese nutzen wir zur Veranschaulichung der Problematik.
 
-```{r hist bins range}
+```{r}
+#| label: hist bins range
 ggplot(data=ChickWeight, aes(x=weight)) + 
   geom_histogram(bins=11) + 
   geom_vline(xintercept=min(ChickWeight$weight)) + # kleinster Wert
@@ -381,7 +405,8 @@ Wie wir sehen haben wir zwar die gewünschten 11 Kategorien, aber diese sind lei
 
 Um das Problem in den Griff zu bekommen, nutzen wir das Argument `breaks`, mit dem wir die Kategoriengrenzen manuell festlegen. Diesem übergeben wir die Funktion `seq(from, to, by)`, die uns eine reguläre Sequenz erstellt (damit wir nicht alle Grenzen einzeln eingeben müssen). Auch hier wollen wir wieder die empfohlenen 11 Kategorien haben, daher teilen wir den Range (373-35) von `weight` durch 11.
 
-```{r hist solution}
+```{r}
+#| label: hist solution
 ggplot(data=ChickWeight, aes(x=weight)) + 
   geom_histogram(breaks=seq(35, 373, (373-35)/11)) + 
   geom_vline(xintercept=min(ChickWeight$weight)) + # kleinster Wert
@@ -414,7 +439,8 @@ Nun schauen wir uns die grafische Darstellung von **Zusammenhängen** zwischen z
 
 #### <font color="#009193">**Boxplot**</font>
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 # http://www.sthda.com/english/articles/32-r-graphics-essentials/132-plot-grouped-data-box-plot-bar-plot-and-more/
 
 ## Boxplot & Violinplot kombinieren für maximale Deskriptiv-Statistik
@@ -476,7 +502,11 @@ Generell können wir den Violinenplot mit `geom_violin()` erstellen. Zusätzlich
 
 <span class="ex">Wir schauen uns unsere Daten einmal in beiden Modi an.</span>
 
-```{r, fig.width=3, fig.height=3, fig.show='hold', collapse =FALSE}
+```{r}
+#| fig.width: 3.0
+#| fig.height: 3.0
+#| fig.show: hold
+#| collapse: false
 ggplot(data= ChickWeight[ChickWeight$Time == 2,], aes(x=Diet, y=weight)) +
   geom_violin(scale = "area")
 
@@ -488,7 +518,8 @@ Wir sehen, dass die Größen derselben "Violinen" sich in den beiden Grafiken un
 
 #### <font color="#009193">**Gruppenmittelwerte visualisieren**</font>
 
-```{r, echo=F}
+```{r}
+#| echo: !expr F
 ### http://www.sthda.com/english/articles/24-ggpubr-publication-ready-plots/79-plot-meansmedians-and-error-bars/#add-labels
 # andere Arten um für Varianz zu accounten
 
@@ -501,7 +532,10 @@ Wir sehen, dass die Größen derselben "Violinen" sich in den beiden Grafiken un
 
 Wenn wir aggregierte Daten einer statistischen Analyse <font size="2">(z.B. Gruppenmittelwerte bei einem $t$-Test)</font> darstellen möchten, ist ein weit verbeiteter Ansatz, Balkendiagramme mit Fehlerbalken zu nutzen. 
 
-```{r, echo=F, fig.align="center", out.width="350px"}
+```{r}
+#| echo: !expr F
+#| fig.align: center
+#| out.width: 350px
 mean <- data.frame(
   diet=levels(ChickWeight$Diet),
   weight=tapply(ChickWeight$weight[ChickWeight$Time == 21], 
@@ -548,7 +582,8 @@ ggplot(data=ChickWeight[ChickWeight$Time == 21,], aes(x=Diet, y=weight)) +
 
 Wenn wir zusätzlich noch unsere Informationsdichte erhöhen wollen, d.h. nicht nur den Mittelwert, sondern die **Verteilung in den einzelnen Gruppen** visualisieren wollen, können wir [Violinenplots](#violinenplot) integrieren.
 
-```{r, fig.show='hold'}
+```{r}
+#| fig.show: hold
 ggplot(data=ChickWeight[ChickWeight$Time == 21,], aes(x=Diet, y=weight)) +
   geom_violin(scale="count") + stat_summary(fun.data="mean_cl_normal")
 # Reihenfolge beachten! erst Violinenplot, dann Mittelwerte darüber
@@ -650,21 +685,24 @@ Wenn wir sehr große Datensätze haben, könnten wir das Problem haben, dass wir
 
 Wir können die Formen **verkleinern** mit dem Parameter `size` <font size="2">(Breite der Linie in mm)</font>, ...
 
-```{r scatter diamond small}
+```{r}
+#| label: scatter diamond small
 ggplot(data=ChickWeight, aes(x=Time, y=weight)) + 
   geom_point(size = 0.1)
 ```
 
 ... die Form **ändern** mit dem Parameter `shape`, ...
 
-```{r scatter diamond shape}
+```{r}
+#| label: scatter diamond shape
 ggplot(data=ChickWeight, aes(x=Time, y=weight)) + 
   geom_point(shape = 1)
 ```
 
 ... oder die Form **transparent** machen mit dem Parameter `alpha` <font size="2">(0 < `alpha` < 1)</font>.
 
-```{r scatter diamond transparent}
+```{r}
+#| label: scatter diamond transparent
 ggplot(data=ChickWeight, aes(x=Time, y=weight)) + 
   geom_point(alpha = 0.1)
 ```
@@ -678,12 +716,15 @@ ggplot(data=ChickWeight, aes(x=Time, y=weight)) +
 
 Per default werden die Punkte in 80% der Breite der implizierten Bins <font size="2">(z.B. der Bin von `Time 0`)</font> geplottet, sodass die Bins optisch noch gut voneinander zu trennen sind. Mit dem Parameter `width` können wir die Breite anpassen.
 
-```{r jitter diamond}
+```{r}
+#| label: jitter diamond
 ggplot(data=ChickWeight, aes(x=Time, y=weight)) + 
   geom_jitter()
 ```
 
-```{r jitter diamond2, collapse=TRUE}
+```{r}
+#| label: jitter diamond2
+#| collapse: true
 # mehr (aber zu viel) Variation:
 ggplot(data=ChickWeight, aes(x=Time, y=weight)) + geom_jitter(width=1) 
 ```
@@ -699,7 +740,8 @@ Die Regressionsgerade eines **einfachen** linearen Regressionsmodells können wi
 
 Per default wird nicht nur eine <span style="color:#2B61FF">Regressionsgerade</span> eingezeichnet, sondern auch <span style="color:#CBCBCB">das 95%-Konfidenzintervall</span> um die Gerade gelegt. 
 
-```{r reg line and scatter}
+```{r}
+#| label: reg line and scatter
 ggplot(data=ChickWeight, aes(x=Time, y=weight)) + 
   geom_point() +
   geom_smooth(method="lm")
@@ -725,7 +767,8 @@ Hierbei müssen wir allerdings eines beachten: Zum Plotten der Punkte müssen wi
 
 Das machen wir mit dem Parameter `col`, welchen wir in `geom_point(aes())` spezifizieren.
 
-```{r reg line and scatter and color}
+```{r}
+#| label: reg line and scatter and color
 # Koordinatensystem mit farblich verschiedenen Punkten für Diet:
 ggplot() + geom_point(data=ChickWeight, aes(x=Time, y=weight, col=Diet)) + 
   # Regressionsgerade für weight ~ Time
@@ -774,7 +817,8 @@ Eigene Diagramme für jede Gruppe können mit `facet_wrap(~)` erstellt werden. D
 
 Die Kombination von `geom_smooth(method="lm") + facet_wrap()` sorgt dafür, dass **für jede Gruppe der Variablen, die in `facet_wrap()` spezifiziert wird, eine eigene Regression gerechnet** wird.
 
-```{r reg b}
+```{r}
+#| label: reg b
 ggplot(data=ChickWeight, aes(x=Time, y=weight)) + 
   geom_point() + 
   geom_smooth(method="lm") + 
@@ -841,7 +885,11 @@ Die Variable wird **spaltennweise** angeordnet, indem wir sie nach der Tilde sch
 
 <span class="ex">Wir schauen uns die Gewichtszunahme (`weight`) über die Zeit (`Time`) getrennt für die einzelnen Experimentalgruppen (`Diet`) an.</span>
 
-```{r, fig.width=3, fig.height=3, fig.show='hold', collapse =FALSE}
+```{r}
+#| fig.width: 3.0
+#| fig.height: 3.0
+#| fig.show: hold
+#| collapse: false
 ggplot(data=ChickWeight, aes(x=Time, y=weight)) + 
   geom_point() +
   facet_grid(Diet ~ .) # Zeilen
@@ -861,11 +909,11 @@ ggplot(data=mpg, aes(x=displ)) +
   facet_grid(fl ~ year + drv) # Zeilen ~ Spalten
 ```
 
-<aside>Idealerweise würde man [vor der Verarbeitung](#bevor-es-losgeht-richtiges-datenformat) nominal- und ordinalskalierte Variablen, die als numerische Vektoren vorliegen (wie `drv` und `fl`), noch faktorisieren. Mehr dazu auch im Kapitel zu [Datenvorbereitung][Datenvorbereitung]</aside>
+<aside>Idealerweise würde man vor der Verarbeitung] nominal- und ordinalskalierte Variablen, die als numerische Vektoren vorliegen (wie `drv` und `fl`), noch faktorisieren. Mehr dazu auch im Kapitel zu [Datenvorbereitung](Datenvorbereitung.qmd)</aside>
 
 Weitere Informationen zu `facet_grid()`, z.B. wie man hier die Achsengrenzen und -beschriftung anpassen kann, befinden sich auf dem <a href="https://github.com/rstudio/cheatsheets/raw/master/translations/german/ggplot2-german.pdf" target="_blank">Cheat Sheet</a>.
 
-Mehr Informationen dazu, wie wir nur Plots für *einige* Gruppen erstellen, erhalten wir [später](#grafiken-einzelner-gruppen-und-die-anpassung-von-achsengrenzen).
+Mehr Informationen dazu, wie wir nur Plots für *einige* Gruppen erstellen, erhalten wir [später](Grafiken.qmd#grafiken-einzelner-gruppen-und-die-anpassung-von-achsengrenzen).
 
 ### Nur kategoriale Variablen
 
@@ -877,13 +925,14 @@ Alluvial Plots sind eine **Art von Flussdiagrammen**, die die Zugehörigkeit zu 
 
 **Für die Visualisierung längsschittlicher Daten müssen wir die folgenden Schritte durchlaufen:** Zuerst wählen wir die relevanten Fälle, d.h. jene zum ersten und letzten Messzeitpunkt, aus und speichern sie in einem neuen Dataframe <font size="2">(*optional*; nur wenn wir nicht alle Zeitpunkte visualisieren wollen)</font>. Diesen wandeln wir dann ins Wide-Format um. Danach erstellen wir eine neue Variable, die kodiert, ob das Gewicht eines Kükens zu einem gewissen Zeitpunkt kleiner oder größer als der Mittelwert ist. Zuletzt entfernen die nicht länger benötigten Variablen aus dem Dataframe.
 
-<aside>Diese Schritte werden im folgenden nur knapp erklärt. Mehr Hilfe finden wir im Kapitel zu [Datenvorbereitung][Datenvorbereitung] in den Abschnitten **Daten extrahieren** und **Kodierung ändern**.</aside>
+<aside>Diese Schritte werden im folgenden nur knapp erklärt. Mehr Hilfe finden wir im Kapitel zu [Datenvorbereitung](Datenvorbereitung.qmd) in den Abschnitten **Daten extrahieren** und **Kodierung ändern**.</aside>
 
 <!-- Problem mit WL-Formatierung und Markdown:
 - Mac: läuft in Konsole, aber nicht in Rmd, daher eval=F gesetzt und Datei ex- und importiert
 - Linux: Code Chunk läuft nicht in Konsole (und wahrscheinlich auch nicht in Rmd-->
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 library(dplyr)
 # neuer Datensatz nur mit Werten von erster und letzter Messung:
 copy <- filter(ChickWeight, Time == 0 | Time == 21)
@@ -906,7 +955,8 @@ cont_Chick <- select(cont_Chick, -"0", -"21", -Chick)
   # im Anschluss erstellte Kontingenztabelle unnötig erweitern.
 ```
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 cont_Chick <- read.csv("data/cont_Chick.csv")
 cont_Chick <- select(cont_Chick, -X)
 # Kopie für Vergleich Tabellen:
@@ -927,13 +977,15 @@ Um besser zu verstehen, warum das sein muss, können wir uns den Datensatz vor u
 <details><summary class ="mtitle">Vergleich unseres Dataframes vor und nach der Umwandlung</summary><div class="more">
 Vor der Umwandlung steht jede **Zeile** für eine **Beobachtung** (d.h. ein Küken).
 
-```{r, echo=F}
+```{r}
+#| echo: !expr F
 kable(cont_Chick_alt)
 ```
 
 Nach der Umwandlung (in eine Kontingenztabelle und wieder zurück in einen Dataframe) steht in jeder **Zeile** eine **Kombination** (welche Futtergruppe `Diet` und jeweils kleiner oder größer zum ersten und zum zweiten Messzeitpunkt) und die **Anzahl der Beobachtungen**.
 
-```{r, echo=F}
+```{r}
+#| echo: !expr F
 kable(cont_Chick)
 ```
 </div></details>
@@ -949,7 +1001,8 @@ is_alluvia_form(cont_Chick)
 
 Es ist zu empfehlen, den nachfolgenden Code für die eigenen Daten größtenteils zu kopieren. Lediglich in Zeilen (a) und (d) müssen die Argumente von `fill` bzw. `limit` angepasst werden.
 
-```{r, error=TRUE}
+```{r}
+#| error: true
 ggplot(data=cont_Chick, aes(y=Freq, axis1=t0, axis2=t21)) + 
   # (a) grundlegender Alluvial Plot:
   geom_alluvium(aes(fill=Diet)) +
@@ -989,7 +1042,8 @@ Nachfolgend schauen wir an, wie wir bestimmte Elemente bzw. Teile von Elementen 
 
 Um unsere Farbwahl auch für Menschen mit verschiedenen Sehschwächen geeignet zu gestalten, können wir verschiedene Farbwahrnehmungen mit <a href="https://www.color-blindness.com/coblis-color-blindness-simulator/" target="_blank">**Coblis**</a> simulieren.
 
-```{r, echo=F}
+```{r}
+#| echo: !expr F
 # Quellen u.a.: 
 # https://www.r-bloggers.com/a-detailed-guide-to-ggplot-colors/
 # https://www.datanovia.com/en/blog/ggplot-colors-best-tricks-you-will-love/
@@ -1010,14 +1064,16 @@ Weil `col` und `fill` separate Parameter sind, können wir auch beide gleichzeit
 > *__Achtung__*: Allerdings gibt es Elemente <font size="2">(geoms)</font>, die davon ausgenommen sind. Bei **Linien** <font size="2">(z.B. `geom_line()`)</font> und **Text** <font size="2">(z.B. `geom_text()`)</font> können wir **nur `col`** nutzen. Bei **Punkten** <font size="2">(z.B. `geom_point()`)</font> gibt es einige Formen <font size="2">(**21-24**, siehe unten)</font>, die **`col` _und_ `fill`** nutzen können. Alle anderen Formen können auch **nur `col`** nutzen. Die Punktform legen wir mit dem Argument `shape` fest. 
 
 
-```{r point fill and col}
+```{r}
+#| label: point fill and col
 ggplot(data=ChickWeight, aes(x=Time, y=weight)) + 
   geom_point(shape=23, fill="red", col="blue")
 ```
 
 <aside> Abbildung aus der Dokumentation von "ggplot2-specs"\
 
-```{r, echo=F}
+```{r}
+#| echo: !expr F
 knitr::include_graphics("figures/ggplot2/Bilder/points.png")
 ```
 </aside>
@@ -1037,7 +1093,8 @@ Zusäzlich können wir **zwei Farbmodi** unterscheiden:
 
 Nachfolgend finden wir eine Übersicht, in der die jeweiligen Unterschiede zwischen `col` und `fill` sowie statischen und variablen Farben verdeutlicht werden sollen. Der Code zur Erstellung der jeweiligen Grafik befindet sich über den Abbildungen. 
 
-```{r, echo=F}
+```{r}
+#| echo: !expr F
 # , layout="l-body-outset"
 library(kableExtra)
 library(knitr)
@@ -1061,7 +1118,8 @@ kable(table, align = "c") %>%
   column_spec(1, bold = T, color = "white", background = "#009193") 
 ```
 
-```{r, echo=F}
+```{r}
+#| echo: !expr F
 # lines, points & text: only colour
 # https://www.datanovia.com/en/blog/ggplot-colors-best-tricks-you-will-love/
 
@@ -1083,7 +1141,8 @@ Wir können einzelne Elemente einer Grafik transparent machen. Wenn wir die Graf
 
 Folgendermaßen können wir beispielsweise den **Hintergrund der Grafik** (`plot.background`) transparent machen: 
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 ggplot(ChickWeight[ChickWeight$Time == 8,], aes(Diet, weight)) + 
   geom_violin(scale = "count") +
   theme(plot.background = element_rect(fill = "transparent")) # Erstellung
@@ -1091,7 +1150,10 @@ ggplot(ChickWeight[ChickWeight$Time == 8,], aes(Diet, weight)) +
 ggsave("Grafik_transp.png", bg = "transparent") # Export
 ```
 
-```{r, out.width = "400px", fig.align="center", echo=F}
+```{r}
+#| out.width: 400px
+#| fig.align: center
+#| echo: !expr F
 knitr::include_graphics("figures/ggplot2/Bilder/Grafik_transp.png")
 ```
 
@@ -1134,7 +1196,8 @@ Wenn es sich um eine <span class="highlight">kategoriale</span> Variable handelt
 
 Dem Parameter `name` übergeben wir den Titel der Legende, `labels` einen Vektor mit den Namen der Bezeichnung der Ausprägungen.
 
-```{r legend renaming}
+```{r}
+#| label: legend renaming
 ggplot(data=ChickWeight, aes(x=Diet)) +
   geom_bar(aes(fill = Diet)) +                # fill ...
   scale_fill_discrete(name = "Fütterung",     # ... deswegen _fill_
@@ -1151,7 +1214,8 @@ Wenn wir eine <span class="highlight">metrische</span> Variable farblich kodiert
 
 Die Position der Legende können wir mit `theme(legend.position)` ändern. Wir können zwischen oben (`"top"`), unten (`"bottom"`), links (`"left"`) und rechts (`"right"`) wählen. Mit `"none"` können wir die Legende entfernen.
 
-```{r legend position}
+```{r}
+#| label: legend position
 ggplot(data=ChickWeight, aes(x=Diet)) + geom_bar() + geom_bar(aes(fill = Diet)) + 
   theme(legend.position = "bottom")
 ```
@@ -1184,7 +1248,8 @@ ggplot(data=ChickWeight, aes(x=Time, y=weight)) + geom_point() +
 
 Wir können sowohl eine Überschrift als auch Achsenbeschriftungen ergänzen, indem wir `labs(title, x, y)` nutzen. Außerdem können wir der Grafik mit `caption` noch eine Bildunterschrift verpassen.
 
-```{r title and labs}
+```{r}
+#| label: title and labs
 ggplot(data=ChickWeight, aes(x=Time, y=weight)) + geom_point() + 
   labs(title ="Gewichtsveränderung über die Zeit", 
        x = "Zeit in Tagen", y = "Gewicht in Gramm", caption="Weitere Notizen")
@@ -1208,7 +1273,11 @@ Zusätzlich können wir die **Ausrichtung** des Texts anpassen. Dazu nutzen wir 
 <span class="ex">**Beispiel 1 und 2** zeigen die Gewichtsveränderung (x-Achse: `Time`, y-Achse: `weight`) über die Zeit von Küken 1 (`ChickWeight$Chick == 1`). Wir beschriften die
 Datenpunkte mit den jeweiligen Messzeitpunkten (`aes(label=Time)`).</span>
 
-```{r, fig.width=3, fig.height=3, fig.show='hold', collapse=FALSE}
+```{r}
+#| fig.width: 3.0
+#| fig.height: 3.0
+#| fig.show: hold
+#| collapse: false
 ggplot(data=ChickWeight[ChickWeight$Chick == 1,], 
        aes(x=Time, y=weight, label=Time)) + 
   geom_point() + 
@@ -1222,7 +1291,11 @@ ggplot(data=ChickWeight[ChickWeight$Chick == 1,],
 
 <span class="ex">**Beispiel 3 und 4** zeigen die Gewichtsverteilung der Küken in den Futtergruppen (x-Achse: `Diet`, y-Achse: `weight`) zum letzten Messzeitpunkt (`Time 21`). Wir beschriften die Datenpunkte mit den jeweiligen Nummern der Küken (`aes(label=Chick)`).</span>
 
-```{r, fig.width=3, fig.height=3, fig.show='hold', collapse=FALSE}
+```{r}
+#| fig.width: 3.0
+#| fig.height: 3.0
+#| fig.show: hold
+#| collapse: false
 ggplot(data=ChickWeight[ChickWeight$Time == 21,], 
        aes(x=Diet, y=weight, label=Chick)) + 
   geom_point() + geom_label()
@@ -1247,7 +1320,11 @@ Anders als bei den Funktionen im vorhergehenden Abschnitt *müssen* wir eine Pos
 
 <span class="ex">**Beispiel 2** zeigt die Gewichtsverteilung der Küken in den Futtergruppen (x-Achse: `Diet`, y-Achse: `weight`) zum letzten Messzeitpunkt (`Time 21`).</span>
 
-```{r, fig.width=3, fig.height=3, fig.show='hold', collapse=FALSE}
+```{r}
+#| fig.width: 3.0
+#| fig.height: 3.0
+#| fig.show: hold
+#| collapse: false
 ggplot(data=ChickWeight[ChickWeight$Chick == 1,], 
        aes(x=Time, y=weight)) + 
   geom_point() + 
@@ -1259,7 +1336,9 @@ ggplot(data=ChickWeight[ChickWeight$Time == 21,],
   annotate(geom="label", label="Messzeitpunkt 21", x=1.7, y=370)
 ```
 
-```{r, eval=FALSE, echo=FALSE}
+```{r}
+#| eval: false
+#| echo: false
 # anstatt annotate() auch geom_label(label,x,y) möglich, aber sieht "unsauberer" aus
 # also die Grafik (nicht der Code)
 
@@ -1287,7 +1366,8 @@ Mit `levels()` können wir uns nicht nur die verschiedenen Stufen eines Faktors 
 
 <span class="ex">Im Folgenden ändern wir die Benennungen der Gruppen von `Diet`.</span>
 
-```{r alternative names}
+```{r}
+#| label: alternative names
 ChickWeight$Diet_name <- ChickWeight$Diet # Kopie von `Diet` als neue Spalte
 levels(ChickWeight$Diet_name) <-  c("Diät 1", "Diät 2", 
                                     "Diät 3", "Diät 4")
@@ -1304,14 +1384,18 @@ Die Sortierung des Faktors können wir mit der Funktion `factor()` ändern. Dem 
 
 <span class="ex">Wir ändern die Reihenfolge der Gruppen von `Diet`.</span>
 
-```{r alternative naming}
+```{r}
+#| label: alternative naming
 # Kopie von `Diet` erstellen (optional):
 ChickWeight$Diet_sort <- ChickWeight$Diet 
 # Änderung der Reihenfolge:
 ChickWeight$Diet_sort <- factor(x=ChickWeight$Diet_sort, levels=c("3", "4", "2", "1"))
 ```
 
-```{r, fig.width=3, fig.height=3, fig.show='hold'}
+```{r}
+#| fig.width: 3.0
+#| fig.height: 3.0
+#| fig.show: hold
 ggplot(data=ChickWeight, aes(x=Diet, y=weight)) +
   geom_boxplot() + 
   ggtitle("unbearbeitet")
@@ -1333,7 +1417,11 @@ haben wir gelernt, wie wir einzelne Grafiken für jede Ausprägung einer kategor
 
 <aside>[Hier](#index) wird das Indexieren der Daten erklärt.</aside>
 
-```{r different scale, out.width="315px", collapse=TRUE, fig.show = "hold"}
+```{r}
+#| label: different scale
+#| out.width: 315px
+#| collapse: true
+#| fig.show: hold
 ggplot(data=ChickWeight[ChickWeight$Time == 0,], aes(x=Diet, y=weight)) +
   geom_point()
 ggplot(data=ChickWeight[ChickWeight$Time == 21,], aes(x=Diet, y=weight)) +
@@ -1351,7 +1439,11 @@ Das **Problem** hierbei ist, dass sich die Streubreiten von `weight`, und damit 
 
 Um das zu verhindern, können wir die Achsengrenzen anpassen. Das machen wir mit `xlim()` und `ylim()`. Diesen übergeben wir jeweils einen numerischen Vektor, der den unteren und den oberen Grenzwert der Achse enthält.
 
-```{r same scale, out.width="320px", collapse=TRUE, fig.show = "hold"}
+```{r}
+#| label: same scale
+#| out.width: 320px
+#| collapse: true
+#| fig.show: hold
 ggplot(data=ChickWeight[ChickWeight$Time == 0,], aes(x=Diet, y=weight)) +
   geom_point() + ylim(c(0,375))
 
@@ -1390,7 +1482,10 @@ Dabei können wir den Parametern `xintercept` und `yintercept` auch mehrere Wert
 
 <aside>[Hier](#index) wird das Indexieren der Daten erklärt.</aside>
 
-```{r, out.width="300px", collapse=TRUE, fig.show = "hold"}
+```{r}
+#| out.width: 300px
+#| collapse: true
+#| fig.show: hold
 # Maxima von weight (zu Time 21) herausfinden:
 min <- min(ChickWeight$weight, na.rm=TRUE)
 max <- min(ChickWeight$weight, na.rm=TRUE)
@@ -1416,13 +1511,16 @@ Per Default wird mit `stat_summary()` <font size="2">(ohne Spezifikation von Arg
 
 Wir können dem Parameter `fun` aber auch die Argumente `"median"` oder `"mean"` übergeben. Letzteres zeichnet ebenfalls den Mittelwert ein (aber ohne Standardfehler). Wenn wir die Extrema einfügen wollen, nutzen wir `fun.min = "min"` und `fun.max = "max"`.
 
-```{r scatter plot with mean and modus, message=TRUE}
+```{r}
+#| label: scatter plot with mean and modus
+#| message: true
 ggplot(data=ChickWeight[ChickWeight$Time == 10,], aes(x=Diet, y=weight)) + 
   geom_point() + stat_summary(col="blue") + # Mittelwert + SE: blau
   stat_summary(fun = "median", col="red", pch=3) # Median: rotes Kreuz
 ```
 
-```{r only stat_summary}
+```{r}
+#| label: only stat_summary
 ggplot(data=ChickWeight[ChickWeight$Time == 10,], aes(x=Diet, y=weight)) + 
   stat_summary(fun = "mean", fun.min = "min", fun.max = "max")
 ```
@@ -1464,7 +1562,10 @@ Eine Übersicht über das Exportieren von Grafiken mit Funktionen aus dem Basisp
 
 <div style="text-align: center"><font size="1">**Beispiel für Aliasing**</font></div>
 
-```{r, out.width = "400px", echo=FALSE, fig.align="center"}
+```{r}
+#| out.width: 400px
+#| echo: false
+#| fig.align: center
 knitr::include_graphics("figures/ggplot2/Bilder/Std_PNG.png")
 ```
 
@@ -1477,7 +1578,10 @@ Um das zu verhindern, können wir das Paket **Cairo**, mit dessen gleichnamiger 
 
 Wenn wir die Grafik mittels der <span style="color: #75AADC">grafischen Benutzeroberfläche</span> exportieren möchten, klicken wir auf **Export** im unteren rechten Panel. Wenn wir diese als Bild exportieren wollen, wählen wir **Save as Image...** aus.
 
-```{r, out.width = "400px", echo=FALSE, fig.align="center"}
+```{r}
+#| out.width: 400px
+#| echo: false
+#| fig.align: center
 knitr::include_graphics("figures/ggplot2/Bilder/export 3.png")
 ```
 
@@ -1487,7 +1591,10 @@ Wenn wir mehrere Grafiken geplottet haben können wir mit den Pfeiltasten (ganz 
 
 Daraufhin öffnet sich ein neues Fenster, in dem wir einige Einstellungen tätigen können.
 
-```{r, out.width = "400px", echo=FALSE, fig.align="center"}
+```{r}
+#| out.width: 400px
+#| echo: false
+#| fig.align: center
 knitr::include_graphics("figures/ggplot2/Bilder/export window.png")
 ```
 
@@ -1522,7 +1629,8 @@ Wenn wir eine gewisse Größe in cm haben wollen, können wir die px-Angaben z.B
 
 Mit ggplot2 erstellte Grafiken können wir mit `ggsave()` exportieren. Schauen wir uns einmal an, was wir in der Funktion spezifizieren können.
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 ggsave(
   filename = "Grafik.png", # Name und Bildformat der zu exportierenden Grafik
   path = "/Users/...",

@@ -3,7 +3,7 @@ Title: R-Lernplattform
 Authors@R:
   - Julia-Kim Walther [aut, cre]
   - Methodengruppe Berlin [aut]
-Description: Dieses Bookdown Projekt erklärt die Grundlagen der Programmierung in R für Studierende der Psychologie an der HU Berlin.
+Description: Dieses Quarto Projekt erklärt die Grundlagen der Programmierung in R für Studierende der Psychologie an der HU Berlin.
 License: 
 Encoding: UTF-8
 LazyData: true

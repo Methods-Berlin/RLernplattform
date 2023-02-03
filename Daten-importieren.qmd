@@ -6,7 +6,10 @@ Im Rahmen dieses Kapitels schauen wir uns an, wie wir Dateien **aus dem Internet
 
 Wir lernen **drei verschiedene Wege zum Einlesen von Dateien** kennen:
 
-```{r, out.width = "700px", echo=FALSE, layout="l-body-outset"}
+```{r}
+#| out.width: 700px
+#| echo: false
+#| column: l-body-outset
 knitr::include_graphics("figures/Daten-importieren/Bilder/overview.png")
 ```
 
@@ -44,7 +47,10 @@ Im nachfolgenden Beispiel wird gezeigt, wie wir unter Benutzung des Browsers **G
 
 Wir begeben uns in den entsprechenden Moodle-Kurs und wählen die Datei mit einem Rechtsklick an, wählen die Option **Link speichern unter…** sowie den gewünschten Zielordner zur Ablage aus.  
 
-```{r, out.width = "400px", echo=FALSE, fig.align='center'}
+```{r}
+#| out.width: 400px
+#| echo: false
+#| fig.align: center
 knitr::include_graphics("figures/Daten-importieren/Bilder/Herunterladen_1.png")
 ```
 
@@ -56,13 +62,19 @@ In Google Chrome können wir den Zielordner herausfinden, indem wir rechts oben 
 
 Wir wählen die Datei mit einem Rechtsklick im Ordner aus und klicken dann auf die Option **Ausschneiden**. Im Gegensatz zu Kopieren entfernt das Ausschneiden die Datei auch aus dem ursprünglichen Ordner. 
 
-```{r, out.width = "400px", echo=FALSE, fig.align='center'}
+```{r}
+#| out.width: 400px
+#| echo: false
+#| fig.align: center
 knitr::include_graphics("figures/Daten-importieren/Bilder/Herunterladen_Verschieben_1.png")
 ```
 
 Als nächstes begeben wir uns in unseren Arbeitsordner <font size="2">(ggf. müssen wir diesen vorher noch erstellen)</font>. Wir machen einen Rechtsklick und wählen die Option **Einfügen** aus.
 
-```{r, out.width = "400px", echo=FALSE, fig.align='center'}
+```{r}
+#| out.width: 400px
+#| echo: false
+#| fig.align: center
 knitr::include_graphics("figures/Daten-importieren/Bilder/Herunterladen_Verschieben_2.png")
 ```
 
@@ -77,13 +89,19 @@ Im folgenden Beispiel wird gezeigt, wie wir unter Benutzung des Browsers **Safar
 
 Wir begeben uns in den entsprechenden Moodle-Kurs und öffnen die Datei im Browser. Dann machen wir einen **Rechtsklick** <font size="2">(dabei darf nichts markiert sein)</font> und klicken auf **Seite sichern unter…**. 
 
-```{r, out.width = "400px", echo=FALSE, fig.align="center"}
+```{r}
+#| out.width: 400px
+#| echo: false
+#| fig.align: center
 knitr::include_graphics("figures/Daten-importieren/Bilder/Safari_Seite_sicher_unter.png")
 ```
 
 In dem Fenster, welches sich dann öffnet, müssen wir bei **Format** noch festlegen, dass wir den **Quelltext der Seite** herunterladen wollen. Wir könnten auch schon unseren Arbeitsordner als Zielordner festlegen.
 
-```{r, out.width = "400px", echo=FALSE, fig.align="center"}
+```{r}
+#| out.width: 400px
+#| echo: false
+#| fig.align: center
 knitr::include_graphics("figures/Daten-importieren/Bilder/Quelltext.png")
 ```
 
@@ -96,13 +114,19 @@ Wenn wir auf diesen klicken, können wir uns die heruntergeladene Datei im Finde
 
 Wir machen einen Rechtsklick auf die Datei. Nun öffnet sich ein Menü, in welchem wir **Kopieren** auswählen. 
 
-```{r, out.width = "400px", echo=FALSE, fig.align='center'}
+```{r}
+#| out.width: 400px
+#| echo: false
+#| fig.align: center
 knitr::include_graphics("figures/Daten-importieren/Bilder/Datenfile_aus_Download_Ordner_kopieren.png")
 ```
 
 Als nächstes begeben wir uns in unseren Arbeitsordner <font size="2">(ggf. müssen wir diesen vorher noch erstellen)</font>. Wir machen einen Rechtsklick und wählen die Option **Objekt einsetzen** aus.
 
-```{r, out.width = "400px", echo=FALSE, fig.align='center'}
+```{r}
+#| out.width: 400px
+#| echo: false
+#| fig.align: center
 knitr::include_graphics("figures/Daten-importieren/Bilder/Datenfile_in_den_Zielordner_kopieren.png")
 ```
 
@@ -113,7 +137,10 @@ Die Datei ist nun im Arbeitsordner gespeichert; wir können sie nun auch aus dem
 
 Eine Variante, Daten in <span class ="r">R</span> ganz ohne Code zu importieren, ist es, das Icon **Import Dataset** zu nutzen. Dieses finden wir im rechten oberen Panel bei **Environment**.  
 
-```{r, out.width = "700px", echo=FALSE, fig.align='center'}
+```{r}
+#| out.width: 700px
+#| echo: false
+#| fig.align: center
 knitr::include_graphics("figures/Daten-importieren/Bilder/Importieren_icon_csv_txt_1.png")
 ```
 
@@ -125,7 +152,10 @@ Nachdem wir eine Option ausgewählt haben, öffnet sich ein Fenster, in welchem 
 
 Dann öffnet sich ein neues Fenster, welches eine **Vorschau** beinhaltet, die uns zeigt, wie die Datei mit den derzeitig festgelegten Optionen in <span class ="r">R</span> aussehen würde. Wenn es Probleme gibt <font size="2">(z.B. mit der Interpretation der Trennungszeichen)</font>, sehen wir das sofort an der Darstellung der Daten.
 
-```{r, out.width = "700px", echo=FALSE, fig.align='center'}
+```{r}
+#| out.width: 700px
+#| echo: false
+#| fig.align: center
 knitr::include_graphics("figures/Daten-importieren/Bilder/Importieren_icon_csv_txt_2.png")
 ```
 
@@ -137,7 +167,10 @@ Zum Einlesen sind folgende Schritte nötig:
 
 Wenn die Datei <span class="ex">neuro.csv</span> erfolgreich eingelesen wurde, erscheint das neu erstellte Objekt <span class="ex">neuro</span> <font size="2">(oder welchen anderen Namen wir dem Objekt gegeben haben)</font> im rechten oberen Panel bei **Environment**.
 
-```{r, out.width = "400px", echo=FALSE, fig.align='center'}
+```{r}
+#| out.width: 400px
+#| echo: false
+#| fig.align: center
 knitr::include_graphics("figures/Daten-importieren/Bilder/environment_neuro.png")
 ```
 
@@ -189,13 +222,19 @@ Das Vorgehen hier ist weitestgehend analog zu [Weg 1](#weg-1-environment-import-
 
 Wir klicken auf die Datei <span class="ex">neuro.csv</span> in unserem Arbeitsordner und dann auf die Option **Import Dataset**.  
 
-```{r, out.width = "700px", echo=FALSE, fig.align='center'}
+```{r}
+#| out.width: 700px
+#| echo: false
+#| fig.align: center
 knitr::include_graphics("figures/Daten-importieren/Bilder/Importieren_manuell_1.png")
 ```
 
 Es öffnet sich (weitestgehend) das gleiche Fenster wie in [Weg 1](#weg-1-environment-import-dataset).
 
-```{r, out.width = "700px", echo=FALSE, fig.align='center'}
+```{r}
+#| out.width: 700px
+#| echo: false
+#| fig.align: center
 knitr::include_graphics("figures/Daten-importieren/Bilder/Importieren_manuell_2.png")
 ```
 
@@ -203,7 +242,10 @@ Wir haben hier mit Hilfe der Vorschau wieder die Möglichkeit vor dem Einlesen z
 
 Im Workspace sollten wir nun den eben eingelesenen Dataframe <span class="ex">neuro</span> finden. 
 
-```{r, out.width = "400px", echo=FALSE, fig.align='center'}
+```{r}
+#| out.width: 400px
+#| echo: false
+#| fig.align: center
 knitr::include_graphics("figures/Daten-importieren/Bilder/environment_neuro.png")
 ```
 
@@ -234,7 +276,8 @@ Welche Funktion hierfür angebracht ist, hängt von der Struktur der Datei ab. N
 
 <!-- Wenn wir das Working Directory gesetzt haben (und sich die Datei die wir einlesen wollen auch in diesem Ordner befindet), brauchen wir nur noch den Namen der Datei (und nicht mehr den gesamten Dateipfad) an die Funktion übergeben. -->
  
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 # nutzbare Funktionen zum Einlesen von .csv, .txt. und .dat
 daten <- read.table("Dateipfad/neuro.csv")
 daten <- read.delim("Dateipfad/neuro.csv")
@@ -268,7 +311,10 @@ In Abhängigkeit der Speicherung der Dateien müssen wir manchmal den Parametern
 
 Wenn wir den Dataframe eingelesen haben, erscheint er im **Environment**. 
 
-```{r, out.width = "500px", echo=FALSE, fig.align='center'}
+```{r}
+#| out.width: 500px
+#| echo: false
+#| fig.align: center
 knitr::include_graphics("figures/Daten-importieren/Bilder/Environment_Datenobjekt.png")
 ```
 
@@ -282,7 +328,9 @@ Um in Erfahrung zu bringen, welche Argumente wir nutzen müssen, um die Daten ko
 
 - Dann schauen wir uns die Datei in `R` ein und beurteilen, ob diese korrekt angezeigt wird. Schauen wir uns dazu beispielhaft einmal folgende .csv-Datei an:
 
-```{r, echo=FALSE, fig.align='center'}
+```{r}
+#| echo: false
+#| fig.align: center
 data <- read.table("data/HUvsFU.csv")
 library(knitr)
 data_kurz <- head(data)
@@ -297,7 +345,9 @@ kable(data_kurz)
    + Jetzt lesen wir die Datei nochmal mit diesen Argumenten ein: \
    **`read.table("Dateipfad", header=TRUE, sep=",")`**
      
-```{r, echo=FALSE, fig.align='center'}
+```{r}
+#| echo: false
+#| fig.align: center
 data <- read.table("data/HUvsFU.csv", sep=",", header=TRUE)
 library(knitr)
 data_kurz <- head(data)
@@ -324,7 +374,10 @@ Wir drücken <span class ="keybord">shift</span> und machen dann einen *Rechtskl
 
 Wir klicken einmal auf die Datei (sodass sie markiert ist; dann ist sie blau hinterlegt) und führen dann den Kurzbefehl <span class="keybord">alt</span> + <span class="keybord">cmd</span> + <span class="keybord">C</span> aus.
 
-```{r, out.width = "600px", echo=FALSE, fig.align='center'}
+```{r}
+#| out.width: 600px
+#| echo: false
+#| fig.align: center
 knitr::include_graphics("figures/Daten-importieren/Bilder/Dateipfad.png")
 ```
 </div></details>
@@ -362,7 +415,9 @@ Um in Erfahrung zu bringen, welche Argumente wir nutzen müsst, um die Daten kor
 
 - Dann schauen wir uns die Datei in `R` ein und beurteilen, ob diese korrekt angezeigt wird. Schauen wir uns dazu beispielhaft einmal folgende csv-Datei an:
 
-```{r, echo=FALSE, fig.align='center'}
+```{r}
+#| echo: false
+#| fig.align: center
 library(knitr)
 data_kurz <- head(data)
 kable(data_kurz) 
@@ -376,7 +431,9 @@ kable(data_kurz)
    + Jetzt lesen wir die Datei nochmal mit diesen Argumenten ein: \
    **`read.table("Dateipfad", header=TRUE, sep=",")`**
      
-```{r, echo=FALSE, fig.align='center'}
+```{r}
+#| echo: false
+#| fig.align: center
 data <- read.table("data/HUvsFU.csv", sep=",", header=TRUE)
 library(knitr)
 data_kurz <- head(data)
@@ -397,14 +454,17 @@ Diese Endungen gehören zum Programm **Excel**. Man muss externe Pakete installi
 
 Um **.xlsx**-Dateien einzulesen, nutzen wir das Paket **openxlsx**.
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 library(openxlsx)
 daten <- read.xlsx("Dateipfad")
 ```
 
 Alternativ können wir das Paket **readxl** nutzen. Dieses ermöglicht uns sogar **.xlsx**- und **.xls**-Dateien einzulesen.
 
-```{r excel 2, eval=FALSE}
+```{r}
+#| label: excel 2
+#| eval: false
 library(readxl)
 daten <- read_xlsx("Dateipfad")
 ```
@@ -413,7 +473,8 @@ daten <- read_xlsx("Dateipfad")
 
 Die Endung .sav wird z.B. für **SPSS**-Dateien genutzt wird. Hierfür muss man wieder ein zusätzliches Paket <font size="2">(z.B. **foreign**)</font> runterladen, um SPSS-Dateien in `R` einlesen zu können.
 
-```{r,  eval=FALSE}
+```{r}
+#| eval: false
 library(foreign)
 daten <- read.spss("Dateipfad", to.data.frame = TRUE)
 # ohne to.data.frame wird eine Liste erzeugt
@@ -424,7 +485,8 @@ daten <- read.spss("Dateipfad", to.data.frame = TRUE)
 
 Man kann Dateien auch direkt aus dem Internet laden mit Hilfe ihrer URL. 
 
-```{r,  eval=FALSE}
+```{r}
+#| eval: false
 daten <- load(url("Webadresse"))
 ```
 
@@ -441,7 +503,9 @@ Alternativ kann man die Datei auch herunterladen und dann in Abhängigkeit ihres
    + Unter *Öffnen mit* `R`-Studio auswählen **und** auf *Alle ändern...* klicken
 
 <div style="text-align: center">
-```{r, echo=FALSE,  fig.show = "hold"}
+```{r}
+#| echo: false
+#| fig.show: hold
 knitr::include_graphics("figures/Daten-importieren/Bilder/Mac_Info.png")
 knitr::include_graphics("figures/Daten-importieren/Bilder/arrow_right.png")
 knitr::include_graphics("figures/Daten-importieren/Bilder/Mac_Öffnen.png")
@@ -476,7 +540,8 @@ Wenn wir **Probleme beim Installieren oder Laden von Paketen** haben, können wi
 Lade dir von <a href="https://openpsychometrics.org/_rawdata/" target="_blank">openpsychometrics.org</a> die zip-Datei **NPI** runter. Entpacke diese und lese **data.csv** in <span class ="r">R</span> ein.
 
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 data_I <- read.csv("data/NPI.csv")
 
 ### oder:
@@ -495,7 +560,8 @@ Man kan die Datei z.B. mit `read.csv("Dateipfad")` oder mit `read_csv("Dateipfad
 
 Hier siehst du, wie die ersten 6 Zeilen der insgesamt 44 Spalten der Datei.
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 library(kableExtra)
 data_I_6 <- head(data_I)
 kable(data_I_6) %>%
@@ -510,7 +576,8 @@ kable(data_I_6) %>%
 
 Lade dir von <a href="https://openpsychometrics.org/_rawdata/" target="_blank">openpsychometrics.org</a> die zip-Datei **16PF** runter. Entpacke diese und lese **data.csv** in <span class ="r">R</span> ein.
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 data_II <- read.csv("data/16PF.csv", sep="")
 
 ### oder:
@@ -538,7 +605,8 @@ Man kan die Datei z.B. mit `read.csv("Dateipfad", sep="")` oder mit `read_table2
 
 Hier siehst du die ersten 6 Zeilen der ersten 50 Spalten der Datei.
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 library(kableExtra)
 data_II_6 <- head(data_II[,1:50])
 kable(data_II_6) %>%
@@ -553,7 +621,8 @@ kable(data_II_6) %>%
 
 Lade dir die Datei **ges7.sav** von <a href="https://www.metheval.uni-jena.de/materialien/ges7/ges7.sav" target="_blank">metheval.uni-jena.de</a> herunter und lese diese in <span class ="r">R</span> ein.
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 library(foreign)
 data_III <- read.spss("data/ges7.sav", to.data.frame = TRUE)
 
@@ -578,7 +647,8 @@ Man kan die Datei z.B. mit `read.spss("Dateipfad", to.data.frame = TRUE)` (aus d
 
 Hier siehst du die ersten 6 Zeilen der ersten 50 Spalten der Datei.
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 library(kableExtra)
 data_III_6 <- head(data_III[,1:50])
 kable(data_III_6) %>%
@@ -593,7 +663,8 @@ kable(data_III_6) %>%
 
 Lade dir die **Bahnsteigdaten (RNI)** von <a href="http://download-data.deutschebahn.com/static/datasets/bahnsteig_regio/DBRNI-Bahnsteigdaten-Stand2015-10.xlsx" target="_blank">data.deutschebahn.com</a> herunter und lese diese in <span class ="r">R</span> ein.
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 library(readxl)
 data_4 <- read_xlsx("data/DBRNI-Bahnsteigdaten-Stand2015-10.xlsx")
 
@@ -618,7 +689,8 @@ Man kan die Datei z.B. mit `read_xlsx("Dateipfad")` (aus dem Paket **readxl**) o
 
 Hier siehst du die ersten 6 Zeilen der insgesamt 4 Spalten der Datei.
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 library(kableExtra)
 data_4_kurz <- head(data_4)
 kable(data_4_kurz) %>%

@@ -2,15 +2,20 @@
 
 Im Rahmen dieses Kapitels schauen wir uns an, wie die Benutzeroberfläche der <span class="highlight">Entwicklungsumgebung <span class="r">RStudio</span></span> aufgebaut ist und wie sie uns den Umgang mit der (grundlegenden) Software `R` erleichtert. Wir lernen die vier grundlegenden Bereiche <font size="2">(Panels)</font> von <span class="r">RStudio</span> kennen und werden uns besonders die `R`-Dokumentation genauer anschauen. In dieser finden wir viele wertvolle Informationen zu Funktionen. Am Ende finden wir noch eine Übersicht über Kurzbefehle, die uns die Arbeit mit `R` zusätzlich erleichtern.
 
-Es ist von Vorteil, wenn wir die [Einführung in R][Einführung in R], in der Funktionen und Pakete, sowie die Speicherung von Daten erklärt werden, bereits durchgearbeitet haben.
+Es ist von Vorteil, wenn wir die [Einführung in R](Einfuehrung_in_R.qmd), in der Funktionen und Pakete, sowie die Speicherung von Daten erklärt werden, bereits durchgearbeitet haben.
 
-> **_Achtung_**: Voraussetzung zur Bearbeitung des Kapitels ist, dass wir [R und RStudio installiert][Installation] haben.
+> **_Achtung_**: Voraussetzung zur Bearbeitung des Kapitels ist, dass wir [R und RStudio installiert](Installation.qmd) haben.
 
-Weiterführend bietet es sich an, das Kapitel zum [Daten einlesen][Daten importieren] anzuschauen.
+Weiterführend bietet es sich an, das Kapitel zum [Daten einlesen](Daten-importieren.qmd) anzuschauen.
 
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
+#| include: false
 # http://md.psych.bio.uni-goettingen.de/mv/unit/block_intro/block_intro.html#diese_unterlagen_können_sich_bis_zum_start_der_einführungsblocks_im_april_2020_noch_verändern !!!!!!!!!!!!
+
+library(dplyr)
+library(kableExtra)
 ```
 
 ## Allgemeines zu `RStudio`
@@ -25,7 +30,7 @@ In Abhängigkeit davon, um was für Code es sich handelt <font size="2">(z.B. Fu
 - <span class="highlight">Befehlszeilenergänzung</span> <font color="#009193">(Autovervollständigung)</font>\
 Wenn wir anfangen, Code einzutippen, bekommen wir bereits Vorschläge, welche Funktionen oder bestehenden Objekte wir meinen könnten. Wenn wir mit der Maus über eine vorgeschlagene Funktion fahren, bekommen wir außerdem eine kurze **Erklärung**, was diese macht und welche Parameter sie besitzt. Wir können auf die Vorschläge klicken, um unseren Code <font size="2">(d.h. den Namen der Funktion oder des Objekts)</font> **automatisch vervollständigen** zu lassen. Die Befehlszeilenergänzung können wir sowohl in der Konsole als auch im Skript nutzen.
 - <span class="highlight">Code Diagnostik</span>\
-Wenn wir Code im Skript schreiben, bekommen wir schon **vor der Ausführung Hinweise auf Probleme bzw. Unvollständigkeiten**. Unser Skript muss dazu aber bereits gespeichert sein. Auf die [Code Diagnostik][Code Diagnostik] gehen wir im Kapitel zu [Fehlermeldungen][Fehlermeldungen] noch etwas detaillierter ein.
+Wenn wir Code im Skript schreiben, bekommen wir schon **vor der Ausführung Hinweise auf Probleme bzw. Unvollständigkeiten**. Unser Skript muss dazu aber bereits gespeichert sein. Auf die Code Diagnostik gehen wir im Kapitel zu [Fehlermeldungen](Fehlermeldungen.qmd) noch etwas detaillierter ein.
 
 <aside>\
 Wir können aus verschiedenen Möglichkeiten zur Code Hervorhebung wählen. Diese finden wir in der oberen Menüleiste auf **Tools** > **Global Options...** > **Appearance** > **Editor Theme**.</aside>
@@ -34,20 +39,30 @@ Wir können aus verschiedenen Möglichkeiten zur Code Hervorhebung wählen. Dies
 
 Beim ersten Öffnen sieht <span class="r">RStudio</span> folgendermaßen aus:
 
-```{r, out.width = "700px", fig.align="center", echo=FALSE}
+```{r}
+#| out.width: 700px
+#| fig.align: center
+#| echo: false
 knitr::include_graphics("figures/Einführung/Bilder/RStudio/RStudio 1.png")
 ```
 
 Zu allererst öffnen wir ein **neues Skript**, in das wir unseren Code schreiben werden. Dazu gehen wir in der oberen Leiste ganz links auf <img src="figures/Einführung/Bilder/RStudio/Button.png" style=" width:4%" /> und dann auf **R Script**.
 
-```{r, out.width = "700px", fig.align="center", eval=FALSE, echo=FALSE}
+```{r}
+#| out.width: 700px
+#| fig.align: center
+#| eval: false
+#| echo: false
 knitr::include_graphics("figures/Einführung/Bilder/RStudio/RStudio 2.png")
 ```
 
 Nun gliedert sich die Entwicklungsumgebung <span class="r">RStudio</span> in **vier verschiedene Bereiche**:\
 In das <span class="r script">**Skript**</span> schreiben wir unseren Code. In der <span class="r" style="color:#0533FF;">**Konsole**</span> wird dieser ausgeführt und die Ergebnisse angezeigt. Bestehende Objekte sehen wir im <span class="r env">**Environment**</span>. Eine Übersicht unserer Pakete finden wir unter <span class="r" style="color:#669C35;">**Packages**</span> und Informationen zu `R` und zu Funktionen finden wir unter <span class="r" style="color:#669C35;">**Help**</span>.
 
-```{r, out.width = "700px", fig.align="center", echo=FALSE}
+```{r}
+#| out.width: 700px
+#| fig.align: center
+#| echo: false
 knitr::include_graphics("figures/Einführung/Bilder/RStudio/RStudio Aufteilung Farbe.png")
 ```
 
@@ -61,7 +76,10 @@ Die verschiedenen Bereiche <font size="2">(Panels)</font> und ihre (für uns wic
 
 Hier schreiben wir unseren **Code** und **Kommentare** rein. 
 
-```{r, out.width = "700px", fig.align="center", echo=FALSE}
+```{r}
+#| out.width: 700px
+#| fig.align: center
+#| echo: false
 knitr::include_graphics("figures/Einführung/Bilder/RStudio/skript.png")
 ```
 
@@ -75,7 +93,11 @@ Mac: <span class="keybord">**cmd**</span> + <span class="keybord">**S**</span></
 
 Beim allerersten Speichern müssen wir außerdem die Zeichen-Enkodierung festlegen. Wir wählen <a href="https://de.wikipedia.org/wiki/UTF-8" target="_blank">**UTF-8**</a>, das ist die am häufigsten genutzte Kodierung für Unicode-Zeichen. 
 
-```{r, out.width = "300px", fig.align="center", eval=FALSE, echo=FALSE}
+```{r}
+#| out.width: 300px
+#| fig.align: center
+#| eval: false
+#| echo: false
 knitr::include_graphics("figures/Einführung/Bilder/RStudio/encoding.png")
 ```
 
@@ -83,7 +105,10 @@ Ab dann können wir unser Skript über **File > Save** speichern.
 
 Unseren Code führen wir aus, indem wir ihn markieren und auf **Run** klicken. 
 
-```{r, out.width = "700px", fig.align="center", echo=FALSE}
+```{r}
+#| out.width: 700px
+#| fig.align: center
+#| echo: false
 knitr::include_graphics("figures/Einführung/Bilder/RStudio/run.png")
 ```
 
@@ -95,13 +120,19 @@ Mac: <span class="keybord">**cmd**</span> + <span class="keybord">**enter**</spa
 
 Hier bekommen wir den **Output** unseres Codes ausgegeben. Kommentare werden nicht ausgeführt, sondern nur wiedergegeben. 
 
-```{r, out.width = "700px", fig.align="center", echo=FALSE}
+```{r}
+#| out.width: 700px
+#| fig.align: center
+#| echo: false
 knitr::include_graphics("figures/Einführung/Bilder/RStudio/Konsole.png")
 ```
 
 Wir bekommen in der Konsole einen Hinweis, wenn wir eine **eindeutig unvollständige Funktion**, d.h. wenn wir *nur* am Ende einer Funktion die schließende Klammer vergessen haben, ausführen wollen. Dann wird uns in der Konsole in der nachfolgenden Zeile ein `+` ausgegeben.
 
-```{r, out.width = "90px", echo=FALSE, fig.align='left'}
+```{r}
+#| out.width: 90px
+#| echo: false
+#| fig.align: left
 knitr::include_graphics("figures/Einführung/Bilder/RStudio/hinweis konsole.png")
 ```
 
@@ -109,7 +140,9 @@ In der Konsole bekommen wir manchmal auch **Fehler-** <font size="2">(error)</fo
 
 Wenn wir einen Fehler in einer Funktion gemacht haben, wird die Ausführung unterbrochen und wir bekommen eine Fehlermeldungen. Wenn wir z.B. ein Komma zwischen den Elementen in `c()` vergessen hätten, bekämen wir folgende Fehlermeldung:
 
-```{r, out.width = "480px", echo=FALSE}
+```{r}
+#| out.width: 480px
+#| echo: false
 knitr::include_graphics("figures/Einführung/Bilder/RStudio/fehler.png")
 ```
 
@@ -124,15 +157,21 @@ Im <font color="#942192">**Environment**</font> sehen wir **alle Objekte**, die 
 
 Beispielsweise haben wir gerade das Objekt `vektor` erstellt, welches uns hier angezeigt wird.
 
-```{r, out.width = "420px", fig.align="center", echo=FALSE}
+```{r}
+#| out.width: 420px
+#| fig.align: center
+#| echo: false
 knitr::include_graphics("figures/Einführung/Bilder/RStudio/environ.png")
 ```
 
 Wir sehen, dass es sich um einen numerischen Vektor mit zwei Elementen, 1 und 3, handelt.
 
-Was für Informationen wir zu einem Objekt angezeigt bekommen ist abhängig von seiner Datenstruktur. Schauen wir uns das einmal am Beispiel der Objekte, die wir im Abschnitt zu [Daten][Daten] im Kapitel [Einführung in R][Einführung in R] erstellt haben, an.
+Was für Informationen wir zu einem Objekt angezeigt bekommen ist abhängig von seiner Datenstruktur. Schauen wir uns das einmal am Beispiel der Objekte, die wir im Abschnitt zu [Daten](Einfuehrung_in_R.qmd#Daten) im Kapitel [Einführung in R](Einfuehrung_in_R.qmd) erstellt haben, an.
 
-```{r, out.width = "420px", fig.align="center", echo=FALSE}
+```{r}
+#| out.width: 420px
+#| fig.align: center
+#| echo: false
 knitr::include_graphics("figures/Einführung/Bilder/RStudio/environ_bsp.png")
 ```
 
@@ -160,7 +199,10 @@ Zusätzlich können wir über das <font color="#942192">**Environment**</font> a
 
 In der <font color="#942192">**History**</font> sehen wir den **zuletzt ausgeführten Code**.
 
-```{r, out.width = "500px", fig.align="center", echo=FALSE}
+```{r}
+#| out.width: 500px
+#| fig.align: center
+#| echo: false
 knitr::include_graphics("figures/Einführung/Bilder/RStudio/history.png")
 ```
 
@@ -174,15 +216,18 @@ Im Folgenden werden wir hauptsächlich die Reiter <span class="r help">**Package
 
 Unter <span class="r help">**Packages**</span> sehen wir die Standardpakete und die von uns installierten Add-On Pakete.
 
-```{r, out.width = "500px", fig.align="center", echo=FALSE}
+```{r}
+#| out.width: 500px
+#| fig.align: center
+#| echo: false
 knitr::include_graphics("figures/Einführung/Bilder/RStudio/packages.png")
 ```
 
 Wir sehen eine kurze Beschreibung des Pakets und seine Versionsnummer. Im Kästchen ganz links sehen wir außerdem, ob Pakete derzeit geladen sind. Standardpakete sind immer geladen; Add-On Pakete müssen wir bei jeder Session neu laden (wenn wir sie nutzen wollen).
 
-**Mehr Informationen zum Installieren, Laden und Aktualisieren von Paketen** mit Funktionen sowie der Entwicklungsumgebung `R` finden wir im **gleichnamigen** [Kapitel][Pakete].
+**Mehr Informationen zum Installieren, Laden und Aktualisieren von Paketen** mit Funktionen sowie der Entwicklungsumgebung `R` finden wir im **gleichnamigen** [Kapitel](Pakete.qmd).
 
-Unter <span class="r help">**Files**</span> sehen wir die Ordner(struktur) auf unserem Rechner. Im Kapitel zu [Daten einlesen][Daten importieren] erfahren wir, wie wir [diesen bereich nutzen][Weg 2 Files Import Dataset] können.
+Unter <span class="r help">**Files**</span> sehen wir die Ordner(struktur) auf unserem Rechner. Im Kapitel zu [Daten einlesen](Daten-importieren.qmd) erfahren wir, wie wir [diesen bereich nutzen](Daten-importieren.qmd#Weg 2 Files Import Dataset) können.
 
 Unter <span class="r help">**Plots**</span> werden (von uns erstellte) Grafiken angezeigt; unter <span class="r help">**Viewer**</span> (von uns erstellte) Tabellen.
 
@@ -192,13 +237,20 @@ Unter <span class="r help">**Plots**</span> werden (von uns erstellte) Grafiken 
 
 Die `R`-Dokumentation bietet uns umfassende Hilfe zum Umgang mit `R` im Allgemeinen und zu Funktionen an. 
 
-```{r, out.width = "500px", fig.align="center", echo=FALSE}
+```{r}
+#| out.width: 500px
+#| fig.align: center
+#| echo: false
 knitr::include_graphics("figures/Einführung/Bilder/RStudio/help.png")
 ```
 
 Den Namen der Funktion geben wir in das <font color="red">Suchfeld</font> ein. Alternativ können wir auch die Funktionen <span class="code">help(<span class="ex">funktion</span>)</span> oder <span class="code">?<span class="ex">funktion</span></span> nutzen. Wenn wir auf <img src="figures/Einführung/Bilder/RStudio/new window.png" style=" width:3%"/> klicken, öffnet sich die Dokumentationsseite in einem neuen Fenster, was die Nutzung wesentlich übersichtlicher gestaltet. 
 
-```{r, out.width = "500px", fig.align="center", echo=FALSE, eval=FALSE}
+```{r}
+#| out.width: 500px
+#| fig.align: center
+#| echo: false
+#| eval: false
 knitr::include_graphics("figures/Einführung/Bilder/RStudio/help c.png")
 ```
 
@@ -217,7 +269,10 @@ Im Folgenden schauen wir uns die <span class ="r">R</span>-Dokumentation exempla
 
 <span class = "ex">Dazu öffnen wir die dazugehörige <span class ="r">R</span>-Dokumentations-Seite, indem wir *matrix* in das <font color ="#FF1D00">Suchfeld</font> eingeben, oder eine der Hilfe-Funktionen, `help(matrix)` oder `?matrix`, ausführen. Folgende Seite sollte sich nun öffnen:</span>
 
-```{r, out.width = "550px", echo=FALSE, fig.align='center'}
+```{r}
+#| out.width: 550px
+#| echo: false
+#| fig.align: center
 knitr::include_graphics("figures/Einführung/Bilder/RStudio/doc 2.png")
 ```
 
@@ -234,7 +289,10 @@ Man findet hier zu einer Funktion bzw. einem Set an verwandten Funktionen kurze 
 
 Hier sehen wir die **Funktionsdefinition**. Diese zeigt, welche Parameter die Funktion besitzt und ggf. welche dieser Parameter voreingestellte Argumente <font size="2">(Defaults)</font> besitzen.
 
-```{r, out.width = "400px", echo=FALSE, fig.align='center'}
+```{r}
+#| out.width: 400px
+#| echo: false
+#| fig.align: center
 knitr::include_graphics("figures/Einführung/Bilder/RStudio/doc 3.png")
 ```
 
@@ -248,7 +306,8 @@ knitr::include_graphics("figures/Einführung/Bilder/RStudio/doc 3.png")
 
 <span class="ex">Um Defaults besser zu verstehen, führen wir `matrix()` ohne Spezifikation der Parameter aus und schauen uns den Output an.</span>
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 matrix()
 ```
 
@@ -313,7 +372,9 @@ Nachfolgend finden wir einige Kurzbefehle für die beiden Betriebssysteme Window
 <img src="figures/Buttons/exclam.png" class="exclam out-rows" alt="exclamation"/> Mit dem letzten Kurzbefehl können wir schneller Dateipfade kopieren, was uns das [Einlesen von Daten in R][Daten importieren] erleichtert. Dieser Kurzbefehl ist, im Gegensatz zu den anderen, nicht zur Nutzung in `R` geeignet; er funktioniert **nur** im Explorer <font size="2">(Windows)</font> bzw. Finder <font size="2">(Mac)</font>.
 
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
+library(dplyr)
 Windows <- c("<span class=\"keybord\">**Strg**</span> + <span class=\"keybord\">**enter**</span>", 
              "<span class=\"keybord\">**alt**</span> + <span class=\"keybord\">**Strg**</span> + <span class=\"keybord\">**B**</span>",
              "<span class=\"keybord\">**Strg**</span> + <span class=\"keybord\">**S**</span>", "<span class=\"keybord\">**shift**</span> + *Rechtsklick auf Datei*<br>dann *Als Pfad kopieren*")
@@ -338,7 +399,8 @@ table_dat %>%
 
 Eine Übersicht weiterer Kurzbefehle für `R` finden wir in der Leiste ganz oben unter **Help > Keyboard Shortcuts Help** <font size="2">(nicht zu verwechseln mit dem Bereich [**Help**](#files-plots-packages-help-viewer), der uns Zugang zur Dokumentation verschafft)</font>.
 
-```{r, echo=FALSE}
+```{r}
+#| echo: false
 # weitere Shortcuts
 
 ## Windows:
