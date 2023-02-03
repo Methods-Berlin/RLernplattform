@@ -1,0 +1,22 @@
+Im Folgenden werden Ideen für neue Themen gesammelt. 
+
+## Einführung in R und RStudio
+
+- tidy data
+- Tidyverse
+- Funktionen in R
+- Loops in R
+- Eigenes R Paket schreiben
+- shiny
+
+### Good Practice
+
+- Datenverarbeitung (z.B. sowas wie "Nie den Original-Datensatz überschreiben.", "Alle Veränderungen des Datensatzes in einem Skript; keine Veränderungen mit Excel.", ...)
+- Versionsverwaltung mit git und GitHub
+- Reproduzierbarkeit
+
+
+## Spezifische Themen in R
+
+- Long and wide format in lme4 und lavaan für longitudinal mixed models
+- Modellspezifikation mit lavaan
