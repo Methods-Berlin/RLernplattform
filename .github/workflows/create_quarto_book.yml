@@ -6,7 +6,7 @@
 # There will be an artifact called "_book". This is our webpage. Download the file and
 # unzip it. Double-Clicking on any of the .html files will open the website locally.
 
-name: create_quarto_book
+name: create_book
 
 on:
   workflow_dispatch
@@ -40,7 +40,7 @@ jobs:
           install.packages(c("quarto", "devtools"))
           devtools::install_deps()
           quarto::quarto_render(output_format = "html",
-                                use as_job = FALSE)
+                                as_job = FALSE)
         shell: Rscript {0}
       - uses: actions/upload-artifact@v3
         with:

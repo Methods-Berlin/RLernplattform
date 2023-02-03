@@ -1,16 +1,51 @@
-# Interne Dokumentation
+# Das RLernplattform-Projekt
 
-Dieses Repository enthält alle Dateien, die für die Erstellung der RLernplattform notwendig sind.
-Die Webseite ist als Bookdown Projekt angelegt und kann beliebig erweitert und überarbeitet werden.
+Dieses Repository enthält alle Dateien, die für die Erstellung der R-Lernplattform notwendig sind.
+Die Webseite ist als [Quarto Book](https://quarto.org/docs/books/) Projekt angelegt und kann beliebig erweitert und überarbeitet werden.
 
 ## Was finde ich im Projekt?
 
-Die wichtigsten Dokumente sind die RMarkdown-Dateien. Diese enden mit .Rmd und in ihnen sind die 
-tatsächlichen Inhalte der Website gespeichert. Beispielsweise findest Du in "01-Installation.Rmd"
-die Infos zur Installation von R und RStudio. Im Dokument "02-Einfuehrung_in_R.Rmd" befinden sich   
-dann die Einführung in R. Die Dateinamen der Rmd Dateien beginnen immer mit einer Zahl (01, 02, ...).
-Diese Zahl gibt an, in welcher Reihenfolge die Themen auf unserer Webseite auftauchen sollen. So kann 
-man durch einfaches Umbenennen der Dateien auch die Reihenfolge der Themen verändern oder neue Themen einfügen.
+Die wichtigsten Dokumente sind die Quarto Markdown Dateien. Diese enden mit .qmd und in ihnen sind die 
+tatsächlichen Inhalte der Website gespeichert. Beispielsweise findest Du in "Installation.qmd"
+die Infos zur Installation von R und RStudio. Im Dokument "Einfuehrung_in_R.qmd" befindet sich   
+dann die Einführung in R.
+
+**Wichtig**: Die .qmd - Dateien landen **nicht** automatisch auf der Webseite! Damit 
+das Thema, das in der .qmd Datei behandelt wird, auch auf der Webseite landet, müssen
+wir erst die _quarto.yml Datei öffnen. Dort finden wir beispielsweise
+folgende Auflistung:
+
+```
+book:
+  title: "R Lernplattform"
+  author: "Methods Group Berlin"
+  chapters:
+    - part: "R und RStudio"
+      chapters:
+        - index.qmd
+        - Installation.qmd
+        - Einfuehrung_in_R.qmd
+        - Einfuehrung_in_RStudio.qmd
+        - Pakete.qmd
+        - Daten-importieren.qmd
+        - Fehlermeldungen.qmd
+        - Datenvorbereitung.qmd
+        - Fehlende-Werte.qmd
+        - Wide-and-Long-Format.qmd
+        - Grafiken.qmd
+        - Markdown.qmd
+    - part: "Spezifische Themen"
+      chapters:
+        - Voraussetzungspruefung.qmd
+        - Outputs-ALM-FAQ.qmd
+        - Git.qmd
+    - part: "Projekt-Dokumentation"
+      chapters:
+        - Interne-Dokumentation.qmd
+        - lineare-regression.qmd
+```
+Jede qmd - Datei, die nachher tatsächlich auf der Webseite erscheinen soll,
+muss hier aufgeführt werden. **Achtung**: Die Einrückungen sind hier sehr wichtig, sonst funktioniert das Dokument nicht. Mehr Infos gibt es [hier](https://quarto.org/docs/books/book-structure.html).
 
 Im Ordner "figures" befinden sich alle Bilder, die in der Webseite eingebunden sind. Beispielsweise befinden 
 sich im Unterornder Daten-importieren/Bilder alle Bilder des Themas Daten importieren.
@@ -18,11 +53,11 @@ sich im Unterornder Daten-importieren/Bilder alle Bilder des Themas Daten import
 Im Ordner "data" befinden sich alle Datensätze, die zur Erstellung der Webseite notwendig sind. Diese werden 
 in den Beispiel-Analysen verwendet (z.B. um das Einlesen von Datensätzen zu veanschaulichen).
 
-Die restlichen Dateien sind notwendig für Bookdown. Den größten Teil hiervon können wir ignorieren. Für uns 
-(manchmal) relevant sind hier eigentlich nur "style.css" und "DESCRIPTION". In "style.css" wird das Aussehen der 
+Die restlichen Dateien sind notwendig für Quarto. Den größten Teil hiervon können wir ignorieren. Für uns 
+(manchmal) relevant sind hier eigentlich nur "style.scss" und "DESCRIPTION". In "style.scss" wird das Aussehen der 
 Webseite definiert. Diese Datei ist aktuell einfach von der alten Webseite übernommen, was dazu führt, dass der
 bisherige Stil beibehalten wird. In "DESCRIPTION" geben wir (unter anderem) an, welche R Pakete wir 
-in den einzelnen .Rmd Dateien nutzen. Wenn wir beispielsweise lavaan nutzen wollen, müssen wir hier lavaan zu
+in den einzelnen .qmd Dateien nutzen. Wenn wir beispielsweise lavaan nutzen wollen, müssen wir hier lavaan zu
 den Paketen hinzufügen (siehe unten). Wenn wir das vergessen, kommt es zu Fehlern beim erstellen der Webseite!
 
 ## Themen bearbeiten
@@ -32,17 +67,17 @@ Themen auf Deinem Rechner bearbeiten möchtest, musst Du Dich mit git und GitHub
 werden wir uns auf die Bearbeitung direkt in GitHub konzentrieren. 
 
 Angenommen Dir fällt ein Fehler in der Einführung in R auf. Um den Fehler zu beheben, öffne das Dokument 
-"02-Einfuehrung_in_R.Rmd" in GitHub. 
+"Einfuehrung_in_R.qmd" in GitHub. 
 
-![](figures/documentation/open_rmd.png)
+![](figures/documentation/open_qmd.png)
 
 Anschließend kannst Du die Datei bearbeiten, indem Du auf den Stift klickst:
 
-![](figures/documentation/change_rmd.png)
+![](figures/documentation/change_qmd.png)
 
 Du kannst nun das Dokument verändern. Wenn Du alle Veränderungen vorgenommen hast, dann klicke auf commit (scrolle nach ganz unten).
 
-![](figures/documentation/commit_rmd.png)
+![](figures/documentation/commit_qmd.png)
 
 Die Veränderungen sind nun gespeichert! **Wichtig**: Die Webseite wird nicht automatisch aktualisiert. 
 Hier ist zur Zeit noch etwas Handarbeit erfordert. Das ist eine bewusste Entscheidung, um sicher zu stellen,
@@ -109,18 +144,17 @@ Wenn Du intern auf ein anderes Thema referenzieren möchtest, kannst Du einen
 Link einfügen. Dies geht mit:
 
 ```
-[text, den die Leser:innen sehen][Überschrift des Themas, auf das verlinkt werden soll]
+[text, den die Leser:innen sehen](Name_der_qmd_Datei.qmd)
 ```
 
-Beispielsweise führt folgender Link zur [R Einführung][Einführung in R].
+Beispielsweise führt folgender Link zur [Einführung in R](Einfuehrung_in_R.qmd).
 Als Rohtext steht hier:
 
 ```
-Beispielsweise führt folgender Link zur [R Einführung][Einführung in R].
+Beispielsweise führt folgender Link zur [Einführung in R](Einfuehrung_in_R.qmd).
 ```
-Für Links zu Subseiten auf derselben Seite (z.B. sind wir bei 06_Fehlermeldungen und wollen auf das Unterkapitel Code Diagnostik innerhalb von 06_Fehlermeldungen verlinken) können wir die Links einfach so lassen.
-
-Wenn wir auf Unterkapitel von anderen Seiten verlinken wollen (z.B. sind wir bei 01_Installation und wollen auf das Unterkapitel Code Diagnostik von 06_Fehlermeldungen verlinken), dann würden wir einfach den Namen des Unterkapitels angeben: [Code Diagnostik][Code Diagnostik].
+Für Links zu Subkapitel, können wir einen Hashtag nutzen:
+`[about](about.qmd#section)`
 
 ### Paket hinzufügen
 
@@ -132,7 +166,7 @@ dann kann die Webseite nicht erstellt werden! Die Webseite wird von GitHub erste
 muss GitHub wissen, welche Pakete installiert werden müssen.
 
 Wenn wir die Webseite auf unserem eigenen Rechner erstellen wollen, können wir wie
-[hier][Alle Dependencies installieren] beschrieben vorgehen.
+im Kapitel @sec-introduction beschrieben vorgehen.
 
 ## Neues Thema erstellen
 
@@ -141,18 +175,18 @@ eine neue Datei direkt in GitHub erstellen.
 
 ![](figures/documentation/create_new_file.png)
 
-Dieser können wir nun beispielsweise den Namen "20-mein-neues-Thema.Rmd" geben und
+Dieser können wir nun beispielsweise den Namen "Mein-neues-Thema.qmd" geben und
 sie direkt in GitHub bearbeiten. Wenn wir dies tun, können wir aber den R Code nicht 
 ausführen; das geschieht erst, wenn die Webseite erstellt wird.
 
 Ein einfacherer Web ist folgender:
 
-1. Wir erstellen auf unserem Computer in RStudio eine neue RMarkdown Datei und nennen diese 
-"20-mein-neues-Thema.Rmd".
+1. Wir erstellen auf unserem Computer in RStudio eine neue Quarto Datei und nennen diese 
+"Mein-neues-Thema.qmd".
 2. Wir entfernen den gesamten Inhalt der Datei und fangen direkt mit einer Überschrift an 
 (wichtig: es muss eine Überschrift mit nur einem Hashtag sein; siehe beispielsweise Zeile 1
-in https://github.com/Methods-Berlin/RLernplattform/blob/main/04-Pakete.Rmd).
-3. Jetzt können wir wie gewohnt unsere Inhalte in das RMarkdown file schreiben und den code
+in https://github.com/Methods-Berlin/RLernplattform/blob/main/Pakete.qmd).
+3. Jetzt können wir wie gewohnt unsere Inhalte in die Quarto Datei schreiben und den Code
 auch lokal laufen lassen.
 
 Wenn wir fertig mit dem Erstellen der neuen Datei sind, können wir sie direkt auf GitHub
@@ -228,7 +262,7 @@ Dieser Teil des Dokuments `_main.Rmd` kommt aus dem Dokument `15-Interne-Dokumen
 genauer nach, dann sehen wir, dass die Variablen `noten` und `stunden` gar nicht erstellt wurden und deshalb der Code
 nicht funktionieren kann. Wir können das Problem lösen, indem wir `eval=FALSE` hinzufügen.
 
-### Alle Dependencies installieren
+### Alle Dependencies installieren {#sec-dependencies}
 
 Solltest Du nicht alle Pakete installiert haben, die auf der Webseite genutzt werden,
 kannst Du entweder die Datei `DESCRIPTION` öffnen und alle dort aufgeführten Pakete 

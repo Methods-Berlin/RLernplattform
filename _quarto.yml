@@ -6,23 +6,29 @@ book:
   title: "R Lernplattform"
   author: "Methods Group Berlin"
   chapters:
-    - index.qmd
-    - Installation.qmd
-    - Einfuehrung_in_R.qmd
-    - Einfuehrung_in_RStudio.qmd
-    - Pakete.qmd
-    - Daten-importieren.qmd
-    - Fehlermeldungen.qmd
-    - Datenvorbereitung.qmd
-    - Fehlende-Werte.qmd
-    - Wide-and-Long-Format.qmd
-    - Voraussetzungspruefung.qmd
-    - Grafiken.qmd
-    - Markdown.qmd
-    - Outputs-ALM-FAQ.qmd
-    - Git.qmd
-    - Interne-Dokumentation.qmd
-    - lineare-regression.qmd
+    - part: "R und RStudio"
+      chapters:
+        - index.qmd
+        - Installation.qmd
+        - Einfuehrung_in_R.qmd
+        - Einfuehrung_in_RStudio.qmd
+        - Pakete.qmd
+        - Daten-importieren.qmd
+        - Fehlermeldungen.qmd
+        - Datenvorbereitung.qmd
+        - Fehlende-Werte.qmd
+        - Wide-and-Long-Format.qmd
+        - Grafiken.qmd
+        - Markdown.qmd
+    - part: "Spezifische Themen"
+      chapters:
+        - Voraussetzungspruefung.qmd
+        - Outputs-ALM-FAQ.qmd
+        - Git.qmd
+    - part: "Projekt-Dokumentation"
+      chapters:
+        - Interne-Dokumentation.qmd
+        - lineare-regression.qmd
 bibliography: references.bib
 
 format:
