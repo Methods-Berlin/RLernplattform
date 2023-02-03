@@ -35,8 +35,6 @@ Wenn wir Code im Skript schreiben, bekommen wir schon **vor der Ausführung Hinw
 <aside>\
 Wir können aus verschiedenen Möglichkeiten zur Code Hervorhebung wählen. Diese finden wir in der oberen Menüleiste auf **Tools** > **Global Options...** > **Appearance** > **Editor Theme**.</aside>
 
-<!--Weiterhin sehr hilfreich ist, dass uns die grafische Benutzeroberfläche von <span class="r">RStudio</span> ermöglicht zu sehen, welche Objekte wir erstellt haben, auf die Dokumentation von Funktionen zuzugreifen und mit wenigen Klicks [Daten einlesen][Daten importieren]. -->
-
 Beim ersten Öffnen sieht <span class="r">RStudio</span> folgendermaßen aus:
 
 ```{r}
@@ -195,7 +193,7 @@ Den Datentyp eines Faktors können wir mit `typeof()`, die Länge mit `length()`
 
 Zum **Löschen** *aller* Objekte können wir auf <img src="figures/Einführung/Bilder/RStudio/Broom.png" style=" width:3%" /> klicken <font size="2">(alternativ zu `rm(list=ls())`).</font>
 
-Zusätzlich können wir über das <font color="#942192">**Environment**</font> auch externe Datensätze einlesen. Wie wir das machen, schauen wir uns im Kapitel zum [Daten einlesen][Daten importieren] im [Abschnitt dazu][Weg 1 Environment Import Dataset] an.
+Zusätzlich können wir über das <font color="#942192">**Environment**</font> auch externe Datensätze einlesen. Wie wir das machen, schauen wir uns im Kapitel zum [Daten einlesen](Daten-importieren.qmd) im [Abschnitt dazu](Daten-importieren.qmd#weg-1-span-class-rstudenvironmentspan--span-class-rstudimport-datasetspan) an.
 
 In der <font color="#942192">**History**</font> sehen wir den **zuletzt ausgeführten Code**.
 
@@ -360,16 +358,13 @@ Teilweise findet man hier auch Funktionen, die besser für das eigene Vorhaben g
 
 Hier findet man einige beispielhafte Anwendungen der Funktion. Anhand der Beispiele bekommt man ein besseres Verständnis von der Syntax und Funktionsweise der Funktion. Was genau gemacht wird ist oftmals in kurzen Kommentaren (`# ...`) erklärt.
 
-<!-- Mehr Informationen zum **[Aufbau der Dokumentation][R Dokumentation]** finden wir im Kapitel **Fehlermeldungen**. -->
-
-
 ## Weitere Hilfen
 
 ### Kurzbefehle
 
 Nachfolgend finden wir einige Kurzbefehle für die beiden Betriebssysteme Windows und Mac, die unseren Workflow verbessern.
 
-<img src="figures/Buttons/exclam.png" class="exclam out-rows" alt="exclamation"/> Mit dem letzten Kurzbefehl können wir schneller Dateipfade kopieren, was uns das [Einlesen von Daten in R][Daten importieren] erleichtert. Dieser Kurzbefehl ist, im Gegensatz zu den anderen, nicht zur Nutzung in `R` geeignet; er funktioniert **nur** im Explorer <font size="2">(Windows)</font> bzw. Finder <font size="2">(Mac)</font>.
+<img src="figures/Buttons/exclam.png" class="exclam out-rows" alt="exclamation"/> Mit dem letzten Kurzbefehl können wir schneller Dateipfade kopieren, was uns das [Einlesen von Daten in R](Daten-importieren.qmd) erleichtert. Dieser Kurzbefehl ist, im Gegensatz zu den anderen, nicht zur Nutzung in `R` geeignet; er funktioniert **nur** im Explorer <font size="2">(Windows)</font> bzw. Finder <font size="2">(Mac)</font>.
 
 
 ```{r}
@@ -420,5 +415,5 @@ Eine Übersicht weiterer Kurzbefehle für `R` finden wir in der Leiste ganz oben
 sessionInfo()
 ```
 
-Für Informationen zur Interpretation dieses Outputs schaut auch den Abschnitt **[Replizierbarkeit von Analysen][Replizierbarkeit von Analysen]** des Kapitels zu **Paketen** an.
+Für Informationen zur Interpretation dieses Outputs schaut auch den Abschnitt [Replizierbarkeit von Analysen](Pakete.qmd#replizierbarkeit-von-analysen) des Kapitels zu **Paketen** an.
 </font>

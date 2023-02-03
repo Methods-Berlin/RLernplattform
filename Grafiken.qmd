@@ -47,7 +47,7 @@ install.packages("ggplot2", dependencies=TRUE)
 library(ggplot2)
 ```
 
-<aside>Bei Problemen beim Installieren bzw. Laden von Paketen schaut in unserem [FAQ-Eintrag][FAQ] dazu vorbei.</aside>
+<aside>Bei Problemen beim Installieren bzw. Laden von Paketen schaut in unserem [FAQ-Eintrag](Pakete.qmd#faq) dazu vorbei.</aside>
 
 <details><summary class ="mtitle">Cheatsheet zu ggplot2</summary><div class ="more">
 
@@ -1714,7 +1714,7 @@ Im Internet finden wir zahlreiche Seiten, die uns die Erstellung von Grafiken in
 sessionInfo()
 ```
 
-Für Informationen zur Interpretation dieses Outputs schaut auch den Abschnitt [Replizierbarkeit von Analysen][Replizierbarkeit von Analysen] des Kapitels zu Paketen an.
+Für Informationen zur Interpretation dieses Outputs schaut auch den Abschnitt [Replizierbarkeit von Analysen](Pakete.qmd#replizierbarkeit-von-analysen) des Kapitels zu Paketen an.
 </font>
 
 

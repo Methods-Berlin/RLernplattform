@@ -643,7 +643,7 @@ Für ein tiefergehenden Einblick empfehlen wir Euch die folgenden Arbeiten:
 
 Wir haben fehlende Werte <font size="2">(sog. Missings)</font> in unserem Datensatz und wissen nicht, wie wir damit umgehen sollen? In diesem Abschnitt bekommen wir eine kurze Antwort darauf. \
 
-Wenn dieser Abschnitt nicht ausreicht, oder wir mehr zu fehlenden Daten wissen möchtest, können wir uns das detaillierte [Einführungskapitel][Fehlende Werte] dazu anschauen.
+Wenn dieser Abschnitt nicht ausreicht, oder wir mehr zu fehlenden Daten wissen möchtest, können wir uns das detaillierte [Einführungskapitel](Fehlende-Werte.qmd) dazu anschauen.
 
 > *__Achtung__*:   Wenn wir Variablen, die Missings enthalten, für eine Analyse nutzen wollen, sollten wir immer daran denken, dass sich damit auch die **Stichprobengröße $N$ für diese _spezifische_ Auswertung ändert**.
 
@@ -667,7 +667,7 @@ Wenn die Missings z.B. mit `99` kodiert sind, können wir sie folgendermaßen au
 Bei vielen Funktionen muss man festlegen, wie diese mit Missings umgehen sollen.
 Exemplarisch schauen wir uns das einmal an zwei Funktionen an.
 
-Wenn du wissen möchtest, wie du in anderen Funktionen mit Missings umgehen kannst, schau dir entweder die <span class="r">R</span>-Dokumentation dazu an <font size="2">(unteres rechtes Panel bei Help oder alternativ `?mean`)</font> oder suche im Internet. In unserem Kapitel zu Fehlermeldungen findest du sowohl einen Abschnitt zum Aufbau der [R-Dokumentation][R-Dokumentation] sowie einen Abschnitt zum [Suchen im Internet][3. Suchen im Internet]. \
+Wenn du wissen möchtest, wie du in anderen Funktionen mit Missings umgehen kannst, schau dir entweder die <span class="r">R</span>-Dokumentation dazu an <font size="2">(unteres rechtes Panel bei Help oder alternativ `?mean`)</font> oder suche im Internet. In unserem Kapitel zu Fehlermeldungen findest du sowohl einen Abschnitt zum Aufbau der [R-Dokumentation](Fehlermeldungen.qmd#span-class-rrspan-dokumentation) sowie einen Abschnitt zum [Suchen im Internet](Fehlermeldungen.qmd#suchen-im-internet). \
 
 - `mean( )`
 
@@ -1432,7 +1432,7 @@ Die Korrelation mit dem größten Unterschied zwischen der *listwise* und der *p
 sessionInfo()
 ```
 
-Für Informationen zur Interpretation dieses Outputs schaut auch den Abschnitt [Replizierbarkeit von Analysen][Replizierbarkeit von Analysen] des Kapitels zu Paketen an.
+Für Informationen zur Interpretation dieses Outputs schaut auch den Abschnitt [Replizierbarkeit von Analysen](Pakete.qmd#replizierbarkeit-von-analysen) des Kapitels zu Paketen an.
 </font>
 
 

@@ -101,7 +101,7 @@ lm_lz <- lm(daten$leb_zufr ~ daten$zufr_inhalt + daten$zufr_beding,
 # mit "na.exclude" schließen wir fehlende Werte aus
 ```
 
-Für mehr Informationen dazu, wie `lm()` und andere Funktionen mit Missings umgehen, können wir uns das Kapitel [Fehlende Werte][Fehlende Werte] anschauen.
+Für mehr Informationen dazu, wie `lm()` und andere Funktionen mit Missings umgehen, können wir uns das Kapitel [Fehlende Werte](Fehlende-Werte.qmd) anschauen.
 
 ```{r}
 # Die Residuen brauchen wir später, daher fügen wir sie jetzt ... 
@@ -905,7 +905,7 @@ Wenn die Regressionsgerade stark durch einzelne Beobachtungen beeinflusst wird, 
 
 Stoßen wir über auffällige Werte in unserem Datensatz, sollte wir zunächst kontrollieren, ob diese durch Eingabefehler oder fehlerhafte Kodierungen fehlender Werte <font size="2">(*Missings*)</font> zustande gekommen sind.
 
-Beispielsweise werden in manchen Anwendungen Missings nicht mit `NA`, sondern z.B. wie bei Unipark mit `99` oder `-99` kodiert. Wir müssen diese *vor* der Auswertung auf `NA` umkodieren, da <span class="r">R</span> diese sonst nicht als Missings erkennt. Für mehr Informationen dazu können wir im [Kapitel zu Fehlenden Werten][Fehlende Werte] nachschauen.
+Beispielsweise werden in manchen Anwendungen Missings nicht mit `NA`, sondern z.B. wie bei Unipark mit `99` oder `-99` kodiert. Wir müssen diese *vor* der Auswertung auf `NA` umkodieren, da <span class="r">R</span> diese sonst nicht als Missings erkennt. Für mehr Informationen dazu können wir im [Kapitel zu Fehlenden Werten](Fehlende-Werte.qmd) nachschauen.
 
 Stark abweichende Werte lassen sich oft einfach mit Hilfe von **Plots** oder **Deskriptivstatistiken** identifizieren. 
 
@@ -1166,7 +1166,7 @@ Zur weiteren **Hilfe bei der Interpretation von Plots**, können wir diesen <a h
 sessionInfo()
 ```
 
-Für Informationen zur Interpretation dieses Outputs schaut auch den Abschnitt [Replizierbarkeit von Analysen][Replizierbarkeit von Analysen] des Kapitels zu Paketen an.
+Für Informationen zur Interpretation dieses Outputs schaut auch den Abschnitt [Replizierbarkeit von Analysen](Pakete.qmd#replizierbarkeit-von-analysen) des Kapitels zu Paketen an.
 </font>
 
 
