@@ -236,13 +236,19 @@ Um die Webseite herunter zu laden, ist das Vorgehen:
 
 ![](figures/documentation/create_book_4.png)
 
-3. Scrolle ganz nach unten. Dort findest Du den Ordner _book unter Artefacts
+3. Scrolle ganz nach unten. Dort findest Du den Ordner docs unter Artefacts
 
 ![](figures/documentation/create_book_5.png)
 
-Lade die Datei herunter und entpacke sie auf Deinem Computer. Im Ordner wirst Du unter 
+Lade die Datei herunter und entpacke sie auf Deinem Computer. 
+
+![](figures/documentation/create_book_6.png)
+
+Im Ordner wirst Du unter 
 anderem mehrere .html Dateien finden. Öffne eine beliebige dieser Dateien mit Deinem 
 Browser, um die lokale Version der Webseite anzuzeigen.
+
+![](figures/documentation/create_book_7.png)
 
 ### Fehler beheben
 
