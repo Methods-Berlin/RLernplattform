@@ -97,7 +97,7 @@ Die Datensätze enthalten jeweils die gleichen 3 Variablen:
 
 <p style="line-height:10px;"></p>
 
-> *__Achtung__*:  Es kommt häufiger zu **Problemen bei der Ausführung der Funktionen** `filter()`, `select()` und `summarise()` aus dem Paket **dpylr**, wenn die Pakete **stats** (Basispaket; `filter()`), **MASS** (`select()`) oder **plyr** (`summarise()`) ebenfalls geladen sind. Auch bei anderen gleichnamigen Funktionen aus verschiedenen geladenen Paketen kann es durch die sogenannte Maskierung zu Problemen kommen. Weil wir auch Pakete mit gleich benannten Funktionen nutzen, greifen wir teils auf die eindeutige Auswahl von Funktionen mittels `::` zurück. Für mehr **Informationen zum Maskieren** können wir im [gleichnamigen Abschnitt][Maskierung wenn verschiedene Pakete gleich benannte Funktionien enthalten] im Kapitel **Pakete** nachschauen. Mehr **Informationen zu dem speziellen Problem mit dpylr** finden wir in diesem <a href="https://stackoverflow.com/questions/24202120/dplyrselect-function-clashes-with-massselect" target="_blank">Forumseintrag</a>.</font>
+> *__Achtung__*:  Es kommt häufiger zu **Problemen bei der Ausführung der Funktionen** `filter()`, `select()` und `summarise()` aus dem Paket **dpylr**, wenn die Pakete **stats** (Basispaket; `filter()`), **MASS** (`select()`) oder **plyr** (`summarise()`) ebenfalls geladen sind. Auch bei anderen gleichnamigen Funktionen aus verschiedenen geladenen Paketen kann es durch die sogenannte Maskierung zu Problemen kommen. Weil wir auch Pakete mit gleich benannten Funktionen nutzen, greifen wir teils auf die eindeutige Auswahl von Funktionen mittels `::` zurück. Für mehr **Informationen zum Maskieren** können wir im [gleichnamigen Abschnitt](Pakete.qmd#maskierung-wenn-verschiedene-pakete-gleich-benannte-funktionen-enthalten) im Kapitel **Pakete** nachschauen. Mehr **Informationen zu dem speziellen Problem mit dpylr** finden wir in diesem <a href="https://stackoverflow.com/questions/24202120/dplyrselect-function-clashes-with-massselect" target="_blank">Forumseintrag</a>.</font>
 
 
 ## Grundlegende erste Schritte
@@ -357,7 +357,7 @@ sapply(sapply(PWE_data[,88:101], unique), sort)
 
 Wie wir sehen, geht die Überprüfung von plausiblen und fehlenden Werten häufig ineinander über. Werte, die außerhalb des Ranges der betrachteten Variable liegen, können eine Kodierung für fehlende Werte darstellen. 
 
-Wenn wir **unplausible Werte** in unseren Daten finden, können wir zu [**5. Kodierung ändern**] springen, und diese umkodieren. Wenn wir **fehlkodierte Missings** finden, können wir auch `case_when()` oder alternative Möglichkeiten aus dem Abschnitt [Sind die Missings einheitlich kodiert][1. Sind die Missings einheitlich kodiert?] des Kapitels **Fehlende Werte** nutzen <font size="2">(z.B. die im Folgenden illustrierte Umkodierung des gesamten Datensatzes)</font>.
+Wenn wir **unplausible Werte** in unseren Daten finden, können wir zu [**5. Kodierung ändern**] springen, und diese umkodieren. Wenn wir **fehlkodierte Missings** finden, können wir auch `case_when()` oder alternative Möglichkeiten aus dem Abschnitt [Sind die Missings einheitlich kodiert](Fehlende-Werte.qmd#sind-die-missings-einheitlich-kodiert) des Kapitels **Fehlende Werte** nutzen <font size="2">(z.B. die im Folgenden illustrierte Umkodierung des gesamten Datensatzes)</font>.
 
 <span class="ex">Weil wir in **PWE_data** sehr viele Variablen haben und es zu umständlich wäre, alle einzeln umzukodieren, kodieren wir erst im gesamten Datensatz `0` zu `NA` um, und ändern danach wieder die Kodierung für die Variablen `VCL1` bis`VCL16`.</span>
 
@@ -421,7 +421,7 @@ colSums(is.na(PWE_data))
 
 > *__Achtung__*:  Wenn wir Variablen mit Missings für unsere Analysen nutzen wollen, sollten wir **überprüfen, ob die Missings zufällig sind** und in Abhängigkeit davon unseren Umgang anpassen, um systematischen Verzerrungen der Analysen entgegenzuwirken.
 
-Einen ausführlichen Überblick zu Missings finden wir im Kapitel [Fehlende Werte][Fehlende Werte].
+Einen ausführlichen Überblick zu Missings finden wir im Kapitel [Fehlende Werte](Fehlende-Werte.qmd).
 
 
 ### Faktorisieren
@@ -565,7 +565,7 @@ table_long %>% mutate(Messung = cell_spec(Messung, background="lightgrey")) %>%
 
 <span class="ex">Im Beispieldatensatz **airquality** gibt es **wiederholte Messungen** der Untersuchungseinheiten (`Ozone`, `Solar.R`, `Wind` und `Temp`) zu unterschiedlichen Zeiten, die in `Month` und `Day` kodiert werden. Jede dieser Untersuchungseinheiten liegt in mehreren Zeilen vor. Es handelt sich folglich um einen Datensatz im Long-Format. Im Wide-Format hätten wir z.B. die Variablen `Ozone_5_1` <font size="2">(Monat 5, Tag 1)</font>, `Ozone_5_2` <font size="2">(Monat 5, Tag 2)</font>, ..., `Solar.R_5_1` <font size="2">(Monat 5, Tag 1)</font>, etc. **Je nachdem, wie wir die Daten auswerten wollen, ist es notwendig bzw. nicht notwendig, die Daten umzuformatieren**. </span>
 
-Im Kapitel zum [Wide- und Long-Format][Wide and Long Format] erfahren wir, wie wir beide Formate ineinander überführen können. Hierzu werden jeweils zwei Möglichkeiten vorgestellt: `reshape()` aus dem Standardpaket **stats** und `spread()` bzw. `gather()` aus dem Paket **tidyr**.
+Im Kapitel zum [Wide- und Long-Format](Wide-and-Long-Format.qmd) erfahren wir, wie wir beide Formate ineinander überführen können. Hierzu werden jeweils zwei Möglichkeiten vorgestellt: `reshape()` aus dem Standardpaket **stats** und `spread()` bzw. `gather()` aus dem Paket **tidyr**.
 
 
 ## Datensätze zusammenführen
@@ -2109,7 +2109,7 @@ data <- data[-which(data$age == 9),]
 <span class="highlight">6.) Enthält der Datensatz fehlende Werte ("Missings"; `NA`) und wenn ja, wie viele insgesamt und auf welchen Variablen?</span>
 
 <div class="hint"><details><summary>Tipp</summary>
-Das Thema "Fehlende Werte" wird im Kapitel zur Datenvorbereitung nur kurz angerissen, weil es ein [eigenständiges Kapitel][Fehlende Werte] dazu gibt.</details></div>
+Das Thema "Fehlende Werte" wird im Kapitel zur Datenvorbereitung nur kurz angerissen, weil es ein [eigenständiges Kapitel](Fehlende-Werte.qmd) dazu gibt.</details></div>
 
 <p style="line-height:10px;"></p>
 
@@ -2169,7 +2169,7 @@ names(which(rowSums(is.na(data)) == max(rowSums(is.na(data)))))
 
 Wir müssen hier `names()` nutzen, damit wir die Zeilennamen ausgegeben bekommen da wir sonst einen benannten Vektor ausgegeben bekommen.
 
-Man sollte überlegen, wie mit den Daten dieser `r length(which(rowSums(is.na(data)) == max(rowSums(is.na(data)))))` Personen bei etwaigen Analysen umzugehen wäre. Wenn die Daten MCAR sind, könnten wir diese Personen aus den Analysen entfernen. Mehr Infos zu Fehlenden Werten im [gleichnamigen Kapitel][Fehlende Werte].
+Man sollte überlegen, wie mit den Daten dieser `r length(which(rowSums(is.na(data)) == max(rowSums(is.na(data)))))` Personen bei etwaigen Analysen umzugehen wäre. Wenn die Daten MCAR sind, könnten wir diese Personen aus den Analysen entfernen. Mehr Infos zu Fehlenden Werten im [gleichnamigen Kapitel](Fehlende-Werte.qmd).
 
 </div></details>\
 
@@ -2678,7 +2678,7 @@ rmarkdown::paged_table(data_int, options(rows.print=5))
 sessionInfo()
 ```
 
-Für Informationen zur Interpretation dieses Outputs schaut auch den Abschnitt [Replizierbarkeit von Analysen][Replizierbarkeit von Analysen] des Kapitels zu Paketen an.
+Für Informationen zur Interpretation dieses Outputs schaut auch den Abschnitt [Replizierbarkeit von Analysen](Pakete.qmd#replizierbarkeit-von-analysen) des Kapitels zu Paketen an.
 </font>
 
 

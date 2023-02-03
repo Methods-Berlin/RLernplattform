@@ -163,7 +163,7 @@ t.test(formula = zf_belastung ~ job,
 ```
 
 <aside>\
-Mehr Informationen zum Umgang mit fehlenden Werten finden wir im Kapitel [Fehlende Werte][Fehlende Werte].</aside>
+Mehr Informationen zum Umgang mit fehlenden Werten finden wir im Kapitel [Fehlende Werte](Fehlende-Werte.qmd).</aside>
 
 ```{r}
 #| label: t-test out
@@ -184,7 +184,7 @@ Wir haben alle Fälle mit fehlenden Werten auf *einer* der beiden Variablen ausg
 nrow(daten[!is.na(daten$job) & !is.na(daten$zf_belastung),])
 ```
 
-Für mehr Informationen siehe das Kapitel zu [Fehlenden Werten][Fehlende Werte].
+Für mehr Informationen siehe das Kapitel zu [Fehlenden Werten](Fehlende-Werte.qmd).
 </div></details>
 
 <p style="line-height:10px;"></p>
@@ -221,7 +221,7 @@ lm_belastung <- lm(formula = zf_belastung ~ job,
                    na.action = "na.exclude") # Ausschluss fehlender Werte
 ```
 
-Mehr Informationen zum Umgang mit fehlenden Werten finden wir im Kapitel [Fehlende Werte][Fehlende Werte]>.
+Mehr Informationen zum Umgang mit fehlenden Werten finden wir im Kapitel [Fehlende Werte](Fehlende-Werte.qmd).
 
 Das Ergebnisobjekt `lm_belastung` schauen wir uns erst *nach* der Annahmenprüfung an.
 
@@ -440,7 +440,7 @@ anova <- aov(zf_belastung ~ job,
 summary(anova)
 ```
 
-<aside>Mehr Informationen zum Umgang mit fehlenden Werten im [gleichnamigen Kapitel][Fehlende Werte].</aside>
+<aside>Mehr Informationen zum Umgang mit fehlenden Werten im [gleichnamigen Kapitel](Fehlende-Werte.qmd).</aside>
 
 ```{r}
 #| label: aov out
@@ -536,7 +536,7 @@ Dadurch sind die getesteten Hypothesen der drei Verfahren in diesem speziellen F
 sessionInfo()
 ```
 
-Für Informationen zur Interpretation dieses Outputs schaut auch den Abschnitt [Replizierbarkeit von Analysen][Replizierbarkeit von Analysen] des Kapitels zu Paketen an.</font>
+Für Informationen zur Interpretation dieses Outputs schaut auch den Abschnitt [Replizierbarkeit von Analysen](Pakete.qmd#replizierbarkeit-von-analysen) des Kapitels zu Paketen an.</font>
 
 
 

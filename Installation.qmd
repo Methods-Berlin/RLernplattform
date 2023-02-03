@@ -147,7 +147,7 @@ Wir speichern die .exe-Datei und klicken dann auf diese. Wir müssen auch hier w
 knitr::include_graphics("figures/Installation/Bilder/11.png")
 ```
 
-Hier werden ähnliche Einstellungen wie bei der [Installation von R][Installation von R] besprochen. Abschließend klicken wir auch hier auf **fertigstellen**.
+Hier werden ähnliche Einstellungen wie bei der [Installation von R](Installation.qmd#installation-von-span-class-rrspan) besprochen. Abschließend klicken wir auch hier auf **fertigstellen**.
 
 ### Aktualisierung von <span class ="r">**R**</span> mit Übernahme der Pakete aus der älteren Version (Paket **installr**)
 
@@ -182,7 +182,7 @@ knitr::include_graphics("figures/Installation/Bilder/install_latest.png")
 
 Wenn wir in <span class ="r">RStudio</span> sind, werden wir gefragt, ob wir die Installation via `updateR()` lieber in <span class ="r">R</span> ausführen wollen. Wir können die Installation aber auch einfach in <span class ="r">RStudio</span> fortführen.
 
-Nun kommen die gleichen Einstellungen und Zustimmungen wie bei der [Installation von R][Installation von R]. 
+Nun kommen die gleichen Einstellungen und Zustimmungen wie bei der [Installation von R](Installation.qmd#installation-von-span-class-rrspan). 
 
 Nach Abschluss der Installation werden wir gefragt, ob wir die Pakete unserer alten <span class ="r">R</span>-Version in die neue übernehmen wollen ...
 
