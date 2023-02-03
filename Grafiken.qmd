@@ -145,7 +145,7 @@ Wenn wir `Time` als Prädiktor für `weight` aufnehmen möchten, müssen die Dat
 
 Wenn wir uns hingegen für eine Veränderung des Gewichts von Tag 0 (`Time 0`) zu Tag 2 (`Time 2`) interessieren, müssen die Daten im **Wide**-Format vorliegen, damit die Gewichtsdaten zu den Messzeitpunkten in einzelnen Spalten (Variablen) vorliegen. 
 
-Wenn wir wissen wollen, wie wir Daten vom Wide- ins Long-Format (oder vice versa) bekommen, dann können wir unser [Kapitel][Wide and Long Format] dazu anschauen.\
+Wenn wir wissen wollen, wie wir Daten vom Wide- ins Long-Format (oder vice versa) bekommen, dann können wir unser [Kapitel](Wide-and-Long-Format.qmd) dazu anschauen.\
 
 Außerdem *kann* es Probleme geben, wenn nominal- oder ordinalskalierte Variablen (z.B. `Diet`) im Datensatz nicht als **Faktor** vorliegen. Mit `str()` können wir uns anschauen, in welchem Daten- bzw. Objekttyp die Variablen eines Dataframes vorliegen. 
 
@@ -188,7 +188,7 @@ Die Besonderheit an ggplot ist, dass wir verschiedene **Ebenen** übereinander l
 Die Ebenen können wir auch als **Teilfunktionen** begreifen, die eine Grafik konstituieren. Was wir z.B. bei `plot(..., main="...")` in einer Funktion realisieren können <font size="2">(das Koordinatensystem, die Art der Grafik - ein Streudiagramm - und die Beschriftung)</font> machen wir in ggplot mit mehreren Teilfunktionen <font size="2">(`ggplot() + geom_point() + ggtitle()`)</font>.
 
 
-### 1. Ebene: Grundlegendes Koordinatensystem
+### Grundlegendes Koordinatensystem
 
 Das Koordinatensystem spezifizieren wir mit `ggplot()`. Dem Parameter `data` übergeben wir den **Datensatz (1)**. Das **ästhetische Mapping (2)** legen wir mit `aes()` fest. Diesem geben wir die Namen der Variablen, die auf der x- und y-Achse dargestellt werden sollen. 
 
@@ -201,7 +201,7 @@ ggplot(data=ChickWeight, aes(x=Time, y=weight))
 
 Wie bei anderen Funktionen können wir die Parameterbezeichnung `data`, `x` und `y` weglassen und  nur die Argumente (d.h. die Namen des Datensatzes bzw. der Variablen) angeben. Bei x und y müssen wir dann aber unbedingt die Reihenfolge einhalten: `ggplot(ChickWeight, aes(Time, weight))`.
 
-### Ebene: Art der Grafik
+### Art der Grafik
 
 Bisher wurde nur das Koordinatensystem mit den jeweiligen Achsengrenzen der Variablen erstellt. Wenn wir die Daten nun plotten möchten, müssen wir noch festlegen, *wie* die Daten dargestellt werden sollen <font size="2">(z.B. die Häufigkeit als Balken, die bivariate Verteilung als Punkte)</font>. Dazu nutzten wir **geometrische Objekte(3)**, die wir mit den `geom`-Funktionen festlegen <font size="2">(z.B. `geom_line()` für Linien oder `geom_bar()` für Balken)</font>. Damit ergänzen wir den Plot um eine neue Ebene.
 
@@ -226,7 +226,7 @@ Zuerst schauen wir uns an, wie wir die Häufigkeitsverteilung einer Variablen vi
 
 [Später](#diskrete-variablen-benennung-und-reihenfolge-der-ausprägungen) erfahren wir noch, wie wir die Reihenfolge und Benennung von kategorialen Variablen ändern können.
 
-#### <font color="#009193">**Balkendiagramm**</font>
+#### Balkendiagramm
 
 Um ein Balkendiagramm zu erzeugen, nutzen wir `geom_bar()`. Standardmäßig werden mit `geom_bar()` <span class="highlight">absolute</span> **Häufigkeiten** <font size="2">(count)</font> geplottet. 
 
@@ -274,7 +274,7 @@ ggplot(data=freq_Diet, aes(x="", y=Häufigkeit, fill=Futtergruppe)) +
 Mehr Informationen zur Erstellung von gestapelten sowie auch gruppierten Balkendiagrammen finden wir <a href="https://www.r-graph-gallery.com/stacked-barplot.html" target="_blank">hier</a>. Beide Grafiken eignen sich auch gut, um Gruppierungskombinationen mit noch einer weitere kategorialen Variablen darzustellen.
 
 
-#### <font color="#009193">**Kreisdiagramm**</font>
+#### Kreisdiagramm
 
 Um ein Kreisdiagramm zu erstellen, müssen wir, analog zur Erstellung von gestapelten Balkendiagrammen, zuerst einen neuen Dataframe erzeugen, in welchem die Namen und (absoluten) Häufigkeiten der Gruppen der Variablen als neue Variablen vorhanden sind.
 
@@ -329,7 +329,7 @@ Auf dieser <a href="http://www.sthda.com/english/wiki/ggplot2-pie-chart-quick-st
 
 <span class="ex">Beispielhaft schauen wir uns hierfür das Gewicht der Küken (`weight`) an.</span>
 
-#### <font color="#009193">**Histogramm**</font>
+#### Histogramm
 
 Mit Hilfe von Histogrammen können wir uns die Verteilung einer metrischen Variablen anschauen. Um ein Histogramm zu erstellen, nutzen wir `geom_histogram()`. 
 
@@ -420,7 +420,7 @@ Wie wir an den vertikalen Linien sehen, hält die Breite der Kategorien insgesam
 
 Weiterführend finden wir zusätzliche Modifikationen für Histogramme auf dieser <a href="http://www.sthda.com/english/wiki/ggplot2-histogram-easy-histogram-graph-with-ggplot2-r-package" target="_blank">Seite</a>.
 
-#### <font color="#009193">**Dichtefunktion**</font>
+#### Dichtefunktion
 
 Die Dichteverteilung einer kontinuierlichen Variablen können wir mit `geom_density()` einzeichnen. Per Default wird dafür die Gaußsche Dichtefunktion (`kernel = "gaussian"`) genutzt.
 
@@ -437,7 +437,7 @@ Nun schauen wir uns die grafische Darstellung von **Zusammenhängen** zwischen z
 
 [Später](#diskrete-variablen-benennung-und-reihenfolge-der-ausprägungen) erfahren wir noch, wie wir die Reihenfolge und Benennung von kategorialen Variablen ändern können.
 
-#### <font color="#009193">**Boxplot**</font>
+#### Boxplot
 
 ```{r}
 #| echo: false
@@ -490,7 +490,7 @@ Zu beachten ist außerdem, dass wir die Indexierung bereits in der grundlegenden
 <p style="line-height:10px;"></p>
 
 
-#### <font color="#009193">**Violinenplot**</font>
+#### Violinenplot
 
 Der Violinenplot ist eine Variante von Boxplots, in dem die **Dichtefunktion** eines metrischen Merkmals grafisch dargestellt wird. Diese wird an der Senkrechten zur x-Achse *gespiegelt*.
 
@@ -516,7 +516,7 @@ ggplot(data=ChickWeight[ChickWeight$Time == 2,], aes(x=Diet, y=weight)) +
 
 Wir sehen, dass die Größen derselben "Violinen" sich in den beiden Grafiken unterscheiden. Das liegt daran, dass bei ersterer Grafik <font size="2">(`scale=area`)</font> die Anzahl der Beobachtungen pro Gruppe unbeachtet bleibt, während sie in zweiter Grafik <font size="2">(`scale=count`)</font>  über die relative Größe der "Violinen" visualisiert wird. Wenn wir gleich große Gruppen hätten, würden wir keinen Unterschied zwischen den beiden Grafiken erkennen.
 
-#### <font color="#009193">**Gruppenmittelwerte visualisieren**</font>
+#### Gruppenmittelwerte visualisieren
 
 ```{r}
 #| echo: !expr F
@@ -662,7 +662,7 @@ ggplot(data=ChickWeight[ChickWeight$Time == 21,], aes(x=Diet, y=weight)) +
 
 ### X und Y metrisch
 
-#### <font color="#009193">**Streudiagramm**</font>
+#### Streudiagramm
 
 Mit Streudiagrammen <font size="2">(*Scatterplots*)</font> können wir Wertepaare zweier kontinuierlicher Variablen grafisch darstellen. Das machen wir mit `geom_point()`.
 
@@ -870,7 +870,7 @@ Beide Grafiken können genutzt werden, wenn wir Variablen visualisieren wollen, 
 
 ### Mindestens eine kategoriale Variable
 
-#### <font color="#009193">**Facetten** (Facet Grids)</font>
+#### Facetten** (Facet Grids)
 
 Wenn wir uns eine Art von Grafik <font size="2">(z.B. Streudiagramm)</font> in Abhängigkeit einer kategorialen Variablen <font size="2">(d.h. für verschiedene Gruppen)</font> separat anschauen wollen, können wir `+ facet_grid()` nutzen. Mit dieser Funktion bekommen wir "Facetten", d.h. (Unter)Grafiken für jede Ausprägung der kategorialen Variablen.
 
@@ -917,7 +917,7 @@ Mehr Informationen dazu, wie wir nur Plots für *einige* Gruppen erstellen, erha
 
 ### Nur kategoriale Variablen
 
-#### <font color="#009193">**Alluvial Plot**</font>
+#### Alluvial Plot
 
 Alluvial Plots sind eine **Art von Flussdiagrammen**, die die Zugehörigkeit zu *mehreren* Gruppierungen visualisieren. Sie stellen somit auch eine **grafische Alternative zu Kontingenztabellen** dar.
 
@@ -1036,7 +1036,7 @@ Nachfolgend schauen wir uns einige Möglichkeiten der Modifikation von Grafiken 
 > *__Achtung__*:  Wenn wir in der <span class ="r">R</span>-Dokumentation nach **ggplot2-specs** suchen, finden wir eine Übersicht der ästhetischen Spezifikationen wie z.B. **Farben**, **Linientypen**, **Punktformen**, **Schriftarten**, **Textausrichtung** etc.
 
 
-### **<font color="#e41a1c">F</font><font color="#377eb8">a</font><font color="#4daf4a">r</font><font color="#984ea3">b</font><font color="#ff7f00">e</font>**
+### <font color="#e41a1c">F</font><font color="#377eb8">a</font><font color="#4daf4a">r</font><font color="#984ea3">b</font><font color="#ff7f00">e</font>
 
 Nachfolgend schauen wir an, wie wir bestimmte Elemente bzw. Teile von Elementen einer Grafik farblich hervorheben können und welche Möglichkeiten es gibt (einzelne) Farben und Farbpaletten zu nutzen.
 
@@ -1221,7 +1221,7 @@ ggplot(data=ChickWeight, aes(x=Diet)) + geom_bar() + geom_bar(aes(fill = Diet)) 
 ```
 
 
-### **<span style="font-family: Courier New,Courier,monospace;">Beschriftung</span>**
+### <span style="font-family: Courier New,Courier,monospace;">Beschriftung</span>
 
 Im Folgenden schauen wir uns an, wie wir Titel und Achsenbeschriftung, sowie Beschriftungen in der Grafik ändern bzw. hinzufügen können.
 

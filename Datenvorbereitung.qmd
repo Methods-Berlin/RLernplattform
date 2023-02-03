@@ -1903,7 +1903,7 @@ Es ist generell sehr wichtig, auch bei der Datenvorbereitung, ein Auge auf die S
 
 Wenn wir Auswertungen machen, in denen wir Ergebnisobjekte bekommen <font size="2">(z.B. bei der Regression mit `lm()`)</font>, können wir die Information zu $N$ daraus ablesen. Dazu klicken wir auf das Ergebnisobjekt im <span style="color: #75AADC">Environment</span> <font size="2">(z.B. `lm_kontr`)</font>. Unter `model` sehen wir die Dimensionalität des **genutzten** Teil des Datensatzes und können anhand der Anzahl der Zeilen $N$ ablesen <font size="2">(z.B. bei `lm_kontr`: `[116 x 3]` d.h. 116 Fälle)</font>.
 
-<aside>In `lm()` wird listwise deletion angewendet, d.h. dass jede Zeile, die mindestens ein Missing enthält, aus der Analyse ausgeschlossen wird. Mehr zu Fehlenden Werten im gleichnamigen [Kapitel][Fehlende Werte].</aside>
+<aside>In `lm()` wird listwise deletion angewendet, d.h. dass jede Zeile, die mindestens ein Missing enthält, aus der Analyse ausgeschlossen wird. Mehr zu Fehlenden Werten im gleichnamigen [Kapitel](Fehlende-werte.qmd).</aside>
 
 
 ### Replizierbarkeit

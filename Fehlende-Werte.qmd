@@ -176,7 +176,7 @@ daten[daten == 99 | daten == -99] <- NA
 
 
 
-## 2. Enthält ein Datensatz Missings?
+## Enthält ein Datensatz Missings?
 
 Wenn wir wissen wie unsere fehlenden Werte kodiert sind, wollen wir in einem nächsten Schritt natürlich wissen, ob ein Datensatz überhaupt Missings enthält. Es gibt zahlreiche Ansätze, um das herauszufinden. Einige davon schauen wir uns einmal genauer an.
 
@@ -216,7 +216,7 @@ which(is.na(daten), arr.ind = TRUE)
 
 
 
-## 3. Wie kann man die Missings zählen (und verorten)?
+## Wie kann man die Missings zählen (und verorten)?
 
 Die genaue Anzahl der Missings zu kennen ist wichtig, um ein Gefühl dafür zu kriegen, wie vollständig ein Datensatz ist. Dazu kombinieren wir die `is.na()`-Funktion mit anderen Funktionen, die `FALSE` <font size="2">(d.h. vorhandenen Werte)</font> und `TRUE` <font size="2">(d.h. fehlenden Werte)</font> zählen.
 
@@ -517,7 +517,7 @@ In manchen Situationen ist es wichtig, **Informationen darüber zu haben, _wo_ M
 <aside>\
 \
 \
-Hier gehts zur [Überprüfung der Unabhängigkeit der Fehlerterme mittels Boxplots][Boxplots der geclusterten Gruppen] aus dem Kapitel zu [Annahmen der Regression][Multiple lineare Regression].</aside>
+Hier gehts zur Überprüfung der Unabhängigkeit der Fehlerterme mittels Boxplots -@sec-Boxplots-der-geclusterten-Gruppen aus dem Kapitel zu [Annahmen der Regression](Voraussetztungspruefung.qmd).</aside>
 
 
 #### mean(..., na.rm)
@@ -683,7 +683,7 @@ Bei der Regressionsrechnung ist voreingestellt <font size="2">(*"defaulted"*)</f
 
 Im Folgenden wollen wir einen Datensatz hinsichtlich der fehlenden Werte <font size="2">(Missings)</font> beurteilen. Dazu schauen wir, ob die fehlenden Werte korrekt kodiert sind, wie viele und auf welchen Variablen bzw. in welchen Fällen diese vorhanden sind, ob sie zufällig sind und wie wir mit ihnen umgehen können.
 
-<aside>[Hier][Fehlende Werte] finden wir das Einführungsskript zu Fehlenden Werten.</aside>
+<aside>[Hier](Fehlende-Werte.qmd) finden wir das Einführungsskript zu Fehlenden Werten.</aside>
 
 > *__Achtung__*:  Die Aufgabenstellungen hier überschneiden sich teilweise mit denen aus der [Übung zur Datenvorbereitung][Übung Datenvorbereitung]. Wir arbeiten hier aber mit anderen Datensätzen.
 

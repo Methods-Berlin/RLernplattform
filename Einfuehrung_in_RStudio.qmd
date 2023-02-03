@@ -72,7 +72,7 @@ Die **Größe** der Bereiche lässt sich an den Kanten oder an den Icons in der 
 
 Die verschiedenen Bereiche <font size="2">(Panels)</font> und ihre (für uns wichtigsten) Features schauen wir uns im Folgenden einmal genauer an.
 
-### **<span class="r script">Skript</span></font>**
+### <span class="r script">Skript</span></font>
 
 Hier schreiben wir unseren **Code** und **Kommentare** rein. 
 
@@ -116,7 +116,7 @@ knitr::include_graphics("figures/Einführung/Bilder/RStudio/run.png")
 <span style="line-height:30px;">Win: <span class="keybord">**Strg**</span> + <span class="keybord">**enter**</span>\
 Mac: <span class="keybord">**cmd**</span> + <span class="keybord">**enter**</span></span></aside>
 
-### **<span class="r cons">Konsole</span></font>**
+### <span class="r cons">Konsole</span></font>
 
 Hier bekommen wir den **Output** unseres Codes ausgegeben. Kommentare werden nicht ausgeführt, sondern nur wiedergegeben. 
 
@@ -151,7 +151,7 @@ knitr::include_graphics("figures/Einführung/Bilder/RStudio/fehler.png")
 Der Inhalt der Konsole wird nach jedem Schließen des Programms gelöscht und kann nicht ohne weiteres gespeichert werden. Deswegen ist es wichtig, die eigene Arbeit in Skripten zu speichern.
 
 
-### **<span class="r env">Environment & History</span></font>**
+### <span class="r env">Environment & History</span></font>
 
 Im <font color="#942192">**Environment**</font> sehen wir **alle Objekte**, die derzeit in `R` geladen sind. Wenn wir (externe) Datensätze einlesen, sehen wir diese auch hier. Wir bekommen außerdem weitere **Informationen** zu den Objekten und wir sehen ggf. die **ersten Elemente**.
 
@@ -210,7 +210,7 @@ Mit **To Source** bekommen wir den markierten Code in unser Skript; mit **To Con
 
 Der Vorteil gegenüber der Konsole ist, dass der Inhalt der History *nicht* mit Beenden einer `R`-Session gelöscht wird, sondern wir auf den Code zugreifen können bis dieser explizit gelöscht wird (auch mit einem <img src="figures/Einführung/Bilder/RStudio/Broom.png" style=" width:3%"/>).
 
-### **<span class="r help">Files, Plots, Packages, Help & Viewer</span>**
+### Files, Plots, Packages, Help & Viewer {#sec-files-plots-packages-help-viewer}
 
 Im Folgenden werden wir hauptsächlich die Reiter <span class="r help">**Packages**</span> und <span class="r help">**Help**</span> besprechen. Auf die Dokumentation, auf die wir mit letzerem direkt in <span class="r">RStudio</span> <font size="2">(anstatt im Browser)</font> zugreifen können, gehen wir besonders stark ein. 
 

@@ -127,7 +127,7 @@ Wenn die Annahmen für die multiple lineare Regression in unserem Beispiel nicht
 
 <p style="line-height:10px;"></p>
 
-> *__Achtung__*:  Um eine (multiple) lineare Regression durchführen zu können, müssen unsere Daten ggf. in einem für unsere Analyse **geeigneten (Tabellen-)Format** vorliegen. Es gibt das **Long-** und das **Wide-Format**. Wie wir beide ineinander überführen können erfahren wir im gleichnamigen [Kapitel][Wide- & Long-Format].
+> *__Achtung__*:  Um eine (multiple) lineare Regression durchführen zu können, müssen unsere Daten ggf. in einem für unsere Analyse **geeigneten (Tabellen-)Format** vorliegen. Es gibt das **Long-** und das **Wide-Format**. Wie wir beide ineinander überführen können erfahren wir im gleichnamigen [Kapitel](Wide-and-Long.qmd).
 
 
 ## Linearität
@@ -625,7 +625,7 @@ Bei unbalancierter Gruppengröße ist k, die Anzahl der Personen in jeder Gruppe
 <span class = "ex">Die IKK weist darauf hin, dass wenig Varianz durch die Kurszugehörigkeit erklärt wird. Es ist also nicht notwendig, dass wir die Gruppenzugehörigkeit in unserem Modell berücksichtigen.</span> 
 
 
-##### Boxplots der geclusterten Gruppen
+##### Boxplots der geclusterten Gruppen {#sec-Boxplots-der-geclusterten-Gruppen}
 
 Zuletzt schauen wir uns die Boxplots der Verteilungen der Residuen in den Gruppen an.
 
@@ -656,7 +656,7 @@ Liegen Abhängigkeiten aufgrund von Gruppenunterschieden vor, können wir versuc
 
 ## Weitere wichtige Aspekte
 
-### Normalverteilung der Residuen
+### Normalverteilung der Residuen {#sec-Normalverteilung-der-Residuen}
 
 Die Annahme, dass die Residuen in der Population normalverteilt sind, ist eigentlich gar keine Annahme im engeren Sinne. Aufgrund des zentralen Grenzwertsatzes sind die Regressionskoeffizienten in großen Stichproben selbst dann asymptotisch normalverteilt, wenn die Annahme nicht erfüllt ist. Daher ist eine Verletzung der Annahme eher in kleineren Stichproben problematisch. Da in der Praxis aber unklar ist, wann eine Stichprobe als groß genug anzusehen ist, ist es ratsam, die Verteilung der Residuen immer auf Abweichung von einer Normalverteilung hin zu prüfen.
 
