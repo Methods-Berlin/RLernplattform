@@ -127,7 +127,7 @@ Wenn die Annahmen für die multiple lineare Regression in unserem Beispiel nicht
 
 <p style="line-height:10px;"></p>
 
-> *__Achtung__*:  Um eine (multiple) lineare Regression durchführen zu können, müssen unsere Daten ggf. in einem für unsere Analyse **geeigneten (Tabellen-)Format** vorliegen. Es gibt das **Long-** und das **Wide-Format**. Wie wir beide ineinander überführen können erfahren wir im gleichnamigen [Kapitel](Wide-and-Long.qmd).
+> *__Achtung__*:  Um eine (multiple) lineare Regression durchführen zu können, müssen unsere Daten ggf. in einem für unsere Analyse **geeigneten (Tabellen-)Format** vorliegen. Es gibt das **Long-** und das **Wide-Format**. Wie wir beide ineinander überführen können erfahren wir im gleichnamigen [Kapitel](Wide-and-Long-Format.qmd).
 
 
 ## Linearität
