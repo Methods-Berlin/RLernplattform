@@ -326,12 +326,12 @@ Um in Erfahrung zu bringen, welche Argumente wir nutzen müssen, um die Daten ko
 
 - Wir lesen die Datei erstmal ohne Spezifikation von Argumenten ein z.B. mit **`read.table("Dateipfad")`**.
 
-- Dann schauen wir uns die Datei in `R` ein und beurteilen, ob diese korrekt angezeigt wird. Schauen wir uns dazu beispielhaft einmal folgende .csv-Datei an:
+- Dann schauen wir uns die Datei in `R` ein und beurteilen, ob diese korrekt angezeigt wird. Schauen wir uns dazu beispielhaft einmal folgende .csv-Datei aus dem lavaan - Paket an:
 
 ```{r}
 #| echo: false
 #| fig.align: center
-data <- read.table("data/HUvsFU.csv")
+data <- read.table("data/PoliticalDemocracy.csv")
 library(knitr)
 data_kurz <- head(data)
 kable(data_kurz) 
@@ -348,7 +348,7 @@ kable(data_kurz)
 ```{r}
 #| echo: false
 #| fig.align: center
-data <- read.table("data/HUvsFU.csv", sep=",", header=TRUE)
+data <- read.table("data/PoliticalDemocracy.csv", sep=",", header=TRUE)
 library(knitr)
 data_kurz <- head(data)
 kable(data_kurz) 
@@ -434,7 +434,7 @@ kable(data_kurz)
 ```{r}
 #| echo: false
 #| fig.align: center
-data <- read.table("data/HUvsFU.csv", sep=",", header=TRUE)
+data <- read.table("data/PoliticalDemocracy.csv", sep=",", header=TRUE)
 library(knitr)
 data_kurz <- head(data)
 kable(data_kurz) 
