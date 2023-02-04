@@ -1,0 +1,58 @@
+Im folgenden Dokument wird die Herkunft der im Projekt genutzten Datensätze dokumentiert.
+
+Hinweis: Relevant sind für uns nur die Datensätze, die wir selbst im Ordner data zur Verfügung stellen. Im Folgenden werden aber auch die Datensätze
+aufgeführt, die wir nutzen, aber nicht selbst verbreiten.
+
+
+## Übung Daten einlesen
+
+- 16PF.csv (https://openpsychometrics.org/_rawdata/)
+- DBRNO-Bahnsteigdaten-Stand2015-10.xlsx (http://download-data.deutschebahn.com/static/datasets/bahnsteig_regio/DBRNI-Bahnsteigdaten-Stand2015-10.xlsx) 
+- ges7.sav (https://openpsychometrics.org/_rawdata/)
+- NPI.csv (https://openpsychometrics.org/_rawdata/)
+- PWE.csv (https://openpsychometrics.org/_rawdata/)
+
+## Grafiken
+
+- ChickWeight ->  standardmäßig im Basispaket datasets 
+- mpg -> aus Paket ggplot2
+
+## Wide & Long-Format
+
+- ChickWeight
+
+## Annahmen lin. Reg
+
+- erstis: http://www.beltz.de/fileadmin/beltz/downloads/OnlinematerialienPVU/R_fuer_Einsteiger/erstis.rda
+
+## Datenvorbereitung
+
+- airquality (Der Datensatz ist standardmäßig in R enthalten und wir bekommen ihn mit der Funktion data() in unser R-Environment)
+- PWE.csv: https://openpsychometrics.org/_rawdata/PWE_data.zip
+- vornamen-von-neugeborenen-2013.csv (https://www.opengov-muenchen.de/dataset/6acc34a9-762e-4e7f-83b0-250654478134/resource/f47ec60f-8839-4e83-9c7c-492c8b17d7b5/download/vornamen-von-neugeborenen2013.csv)
+- vornamen-von-neugeborenen-2014.csv (https://www.opengov-muenchen.de/dataset/582aac00-aa2d-4b00-ac90-c4e5be7fa485/resource/cebd2d67-94e6-4667-a850-415f863d3b10/download/vornamen-von-neugeborenen-2014.csv) 
+
+## FAQ: Wie liest man verschiedene Daten ein?
+
+PoliticalDemocracy.csv: Aus dem lavaan-Paket
+
+## Daten einlesen
+
+- bezieht sich auf den fiktiven Datensatz neuro.csv (damit das Dokument generisch wird)
+
+## FAQ: t-test, lm, aov Funktion
+
+- erstis: http://www.beltz.de/fileadmin/beltz/downloads/OnlinematerialienPVU/R_fuer_Einsteiger/erstis.rda
+
+## Übung Fehlende Daten
+
+- AffectiveForecasting_0707017.sav (https://osf.io/jv67g)
+(https://osf.io/t4be6) -> einfach nur als data.csv bei Julia
+
+## Übung Daten vorbereiten
+
+- (https://osf.io/ujc75) -> group_a.csv bei Julia
+
+## Lineare Regression
+
+- linear_regression_example.csv: Von uns simulierter Datensatz
