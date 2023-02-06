@@ -348,7 +348,7 @@ mean(vektor)
 
 Es gibt Optionen zur Einstellung des Verhaltens der Code Chunks, die wir oben im Code Chunk innerhalb der geschweiften Klammern `{r, ...}` festlegen. Zwei davon werden wir häufiger brauchen: `echo` und `eval`. 
 
-Mit `echo` legen wir fest, ob wir den Code im Output-Dokument **an´zeigen** wollen (`{r, echo=TRUE}`) oder nicht (`{r, echo=FALSE}`). Mit `eval` legen wir fest, ob wir den Code **ausführen** wollen (`{r, eval=TRUE}`) oder nicht (`{r, eval=FALSE}`).
+Mit `echo` legen wir fest, ob wir den Code im Output-Dokument **anzeigen** wollen (`{r, echo=TRUE}`) oder nicht (`{r, echo=FALSE}`). Mit `eval` legen wir fest, ob wir den Code **ausführen** wollen (`{r, eval=TRUE}`) oder nicht (`{r, eval=FALSE}`).
 
 Es gibt auch die Möglichkeit, **globale Optionen** für das Verhalten der Chunks festzulegen. Diese werden auf *jeden* Code Chunk angewendet (außer wenn wir in einem Code Chunk eine andere Option spezifizieren) und verhindern dadurch überflüssige Wiederholungen. Globale Optionen legen wir mit `knitr::opts_chunk$set(...)` fest. Die Funktion kommt direkt in den Code Chunk (und nicht wie bei den Chunk-spezifischen Optionen in `{r}`).
 
