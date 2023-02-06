@@ -15,6 +15,7 @@ Im Folgenden werden Ideen für neue Themen gesammelt.
 - Datenverarbeitung (z.B. sowas wie "Nie den Original-Datensatz überschreiben.", "Alle Veränderungen des Datensatzes in einem Skript; keine Veränderungen mit Excel.", ...)
 - Versionsverwaltung mit git und GitHub
 - Reproduzierbarkeit
+- Style Guide (gut lesbaren Code schreiben)
 
 
 ## Spezifische Themen in R
