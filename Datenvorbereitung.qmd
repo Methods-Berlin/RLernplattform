@@ -112,7 +112,7 @@ Zuerst widmen wir unsere Aufmerksamkeit der Überprüfung wichtiger übergreifen
 
 Generell wenn wir mit Daten arbeiten, ist es ratsam, sich zuallererst Gedanken darüber zu machen, welche Informationen wir diesen entnehmen können <font size="2">(**Messniveau**)</font> und ob sie so gespeichert sind, dass <span class ="r">R</span> sie richtig erkennt <font size="2">(**Datentypen und -strukturen**)</font>.
 
-Die nachfolgende Wiederholung ist eine verkürzte Variante des Abschnitts [Daten](Einfuehrung in R#Daten) aus dem Kapitel zu [Einführung in R](Einfuehrung_in_R.qmd).
+Die nachfolgende Wiederholung ist eine verkürzte Variante des Abschnitts [Daten][Daten] aus dem Kapitel zu [Einführung in R](Einfuehrung_in_R.qmd).
 
 
 #### <font color="darkgrey">Messniveaus</font>
@@ -165,7 +165,7 @@ Verhältnisse</aside>
 <span class="ex">**airquality**: `Ozone`, `Solar.R`, `Wind`\
 **PWE_data**: `age`</span>
 
-Zu guter Letzt gibt es noch <span class="highlight">absolutskalierte**</font> Merkmale, welche sowohl einen eindeutigen Nullpunkt als auch eine eindeutige Einheit der Skala <font size="2">(z.B. Anzahl der Kinder)</font> vorweisen kann. Die Kodierung entsprcht der natürlichen Einheit.
+Zu guter Letzt gibt es noch <span class="highlight">absolutskalierte</font> Merkmale, welche sowohl einen eindeutigen Nullpunkt als auch eine eindeutige Einheit der Skala <font size="2">(z.B. Anzahl der Kinder)</font> vorweisen kann. Die Kodierung entsprcht der natürlichen Einheit.
 
 <span class="ex">**airquality**: -\
 **PWE_data**: `familysize`</span>
@@ -286,7 +286,7 @@ Wir nutzen hier für **PWE_data** die Funktion `ls.str()`, weil der Output für 
 # http://www.r-tutor.com/r-introduction/data-frame
 ```
 
-Für viele Anwendungen in <span class ="r">R</span> <font size="2">(z.B. für das [Erstellen von Grafiken mit ggplot2[Grafiken ggplot] </font> ist es notwendig, dass der Datensatz als Dataframe vorliegt. Folgendermaßen können wir **prüfen**, ob ein Datensatz ein Dataframe ist:
+Für viele Anwendungen in <span class ="r">R</span> <font size="2">(z.B. für das [Erstellen von Grafiken mit ggplot2][Grafiken ggplot]) </font> ist es notwendig, dass der Datensatz als Dataframe vorliegt. Folgendermaßen können wir **prüfen**, ob ein Datensatz ein Dataframe ist:
 
 ```{r}
 is.data.frame(airquality)
@@ -357,7 +357,7 @@ sapply(sapply(PWE_data[,88:101], unique), sort)
 
 Wie wir sehen, geht die Überprüfung von plausiblen und fehlenden Werten häufig ineinander über. Werte, die außerhalb des Ranges der betrachteten Variable liegen, können eine Kodierung für fehlende Werte darstellen. 
 
-Wenn wir **unplausible Werte** in unseren Daten finden, können wir zu [**5. Kodierung ändern**] springen, und diese umkodieren. Wenn wir **fehlkodierte Missings** finden, können wir auch `case_when()` oder alternative Möglichkeiten aus dem Abschnitt [Sind die Missings einheitlich kodiert](Fehlende-Werte.qmd#sind-die-missings-einheitlich-kodiert) des Kapitels **Fehlende Werte** nutzen <font size="2">(z.B. die im Folgenden illustrierte Umkodierung des gesamten Datensatzes)</font>.
+Wenn wir **unplausible Werte** in unseren Daten finden, können wir zu [**5. Kodierung ändern**][Kodierung ändern] springen, und diese umkodieren. Wenn wir **fehlkodierte Missings** finden, können wir auch `case_when()` oder alternative Möglichkeiten aus dem Abschnitt [Sind die Missings einheitlich kodiert][Sind die Missings einheitlich kodiert?] des Kapitels **Fehlende Werte** nutzen <font size="2">(z.B. die im Folgenden illustrierte Umkodierung des gesamten Datensatzes)</font>.
 
 <span class="ex">Weil wir in **PWE_data** sehr viele Variablen haben und es zu umständlich wäre, alle einzeln umzukodieren, kodieren wir erst im gesamten Datensatz `0` zu `NA` um, und ändern danach wieder die Kodierung für die Variablen `VCL1` bis`VCL16`.</span>
 
@@ -391,7 +391,7 @@ PWE_data$VCL16 <- case_when(is.na(PWE_data$VCL16) ~ 0, PWE_data$VCL16 == 1 ~ 1)
 \
 \
 \
-Die Funktion `case_when()` wird im Abschnitt [**5. Kodierung ändern**] ausführlich erklärt.</aside>
+Die Funktion `case_when()` wird im Abschnitt [**5. Kodierung ändern**][Kodierung ändern] ausführlich erklärt.</aside>
 
 Nun schauen wir uns noch die Verteilungen der Variablen an.
 
@@ -565,7 +565,7 @@ table_long %>% mutate(Messung = cell_spec(Messung, background="lightgrey")) %>%
 
 <span class="ex">Im Beispieldatensatz **airquality** gibt es **wiederholte Messungen** der Untersuchungseinheiten (`Ozone`, `Solar.R`, `Wind` und `Temp`) zu unterschiedlichen Zeiten, die in `Month` und `Day` kodiert werden. Jede dieser Untersuchungseinheiten liegt in mehreren Zeilen vor. Es handelt sich folglich um einen Datensatz im Long-Format. Im Wide-Format hätten wir z.B. die Variablen `Ozone_5_1` <font size="2">(Monat 5, Tag 1)</font>, `Ozone_5_2` <font size="2">(Monat 5, Tag 2)</font>, ..., `Solar.R_5_1` <font size="2">(Monat 5, Tag 1)</font>, etc. **Je nachdem, wie wir die Daten auswerten wollen, ist es notwendig bzw. nicht notwendig, die Daten umzuformatieren**. </span>
 
-Im Kapitel zum [Wide- und Long-Format](Wide-and-Long-Format.qmd) erfahren wir, wie wir beide Formate ineinander überführen können. Hierzu werden jeweils zwei Möglichkeiten vorgestellt: `reshape()` aus dem Standardpaket **stats** und `spread()` bzw. `gather()` aus dem Paket **tidyr**.
+Im Kapitel zum (**[Wide- und Long-Format]**) erfahren wir, wie wir beide Formate ineinander überführen können. Hierzu werden jeweils zwei Möglichkeiten vorgestellt: `reshape()` aus dem Standardpaket **stats** und `spread()` bzw. `gather()` aus dem Paket **tidyr**.
 
 
 ## Datensätze zusammenführen
