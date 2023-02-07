@@ -7,7 +7,7 @@ book:
   author: "Methods Group Berlin"
   chapters:
     - index.qmd
-    - part: "R und RStudio"
+    - part: "Einführung in R"
       chapters:
         - Installation.qmd
         - Einfuehrung_in_R.qmd
@@ -17,14 +17,15 @@ book:
         - Fehlermeldungen.qmd
         - Datenvorbereitung.qmd
         - Fehlende-Werte.qmd
-        - Wide-and-Long-Format.qmd
         - Grafiken.qmd
+     - part: "Weiterführende Themen in R"    
+        - Wide-and-Long-Format.qmd
         - Markdown.qmd
-    - part: "Spezifische Themen"
+        - Git.qmd
+    - part: "Vertiefungen zu den Veranstaltungen Methodenlehre I und II"
       chapters:
         - Voraussetzungspruefung.qmd
         - Outputs-ALM-FAQ.qmd
-        - Git.qmd
     - part: "Projekt-Dokumentation"
       chapters:
         - Interne-Dokumentation.qmd
