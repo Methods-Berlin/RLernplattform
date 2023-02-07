@@ -110,7 +110,7 @@ Da wir zwei Funktionen auf den Datensatz anwenden wollen - `unique()` und `sort(
 sapply(sapply(daten, unique), sort, na.last=TRUE)
 ```
 
-<aside>Die hier durchgeführte Überprüfung ist analog zum [Plausibilitätscheck](Datenvorbereitung#Plausibilitaetscheck) im Kapitel zur [Datenvorbereitung](Datenvorbereitung.qmd).</aside>
+<aside>Die hier durchgeführte Überprüfung ist analog zum [Plausibilitätscheck][Plausibilitätscheck] im Kapitel zur [Datenvorbereitung](Datenvorbereitung.qmd).</aside>
 
 <span class ="ex">In `Var_1` gibt es die Ausprägung `-99` und in `Var_5` die Ausprägung `99`, welche keine möglichen Ausprägungen sind. Es ist davon auszugehen, dass das ebenso Kodierungen für fehlende Werte sind.</span>
 
@@ -628,15 +628,15 @@ Für ein tiefergehenden Einblick empfehlen wir Euch die folgenden Arbeiten:
 
 > <font size="2"><a name="allison"></a>**Allison**, P. D. (2002). Missing Data. In P. D. Allison (Ed.), *The Sage Handbook of Quantitative Methods in Psychology (pp.72-89).* Thousand Oaks, CA: Sage Publications Ltd. Abgerufen über <a href="http://www.statisticalhorizons.com/wp-content/uploads/2012/01/Milsap-Allison.pdf" target="_blank">http://www.statisticalhorizons.com/wp-content/uploads/2012/01/Milsap-Allison.pdf</a>
 
-> <a name="ccwa"></a>**Cohen**, J., **Cohen**, P., **West**, S. G., & **Aiken**, L. S. (2003). Missing Data. In J. Cohen, P. Cohen, S. G. West, & L. S. Aiken (Eds.), *Applied Multiple Regression/Correlation Analysis for the Behavioral Sciences* (S. 431-451). Hillsdale, NJ: Erlbaum.\
+> <a name="ccwa"></a>**Cohen**, J., **Cohen**, P., **West**, S. G., & **Aiken**, L. S. (2003). Missing Data. In J. Cohen, P. Cohen, S. G. West, & L. S. Aiken (Eds.), *Applied Multiple Regression/Correlation Analysis for the Behavioral Sciences *(pp. 431-451)*. Hillsdale, NJ: Erlbaum.\
 <font size="1">(für HU-Studierende über <a href="http://ub.hu-berlin.de" target="_blank">ub.hu-berlin.de</a> zugänglich)</font></font> \
 
 <aside>Lehrbuch der Master-Vorlesung "Multivariate Verfahren"</aside>
 
-> <font size="2"><a name="little"></a>**Little**, R. J. A. (1988). *A test of missing completely at random for multivariate data with missing values.* Journal of the American Statistical Association, 83(404), 1198–1202.\
+> <font size="2"><a name="little"></a>**Little**, R. J. A. (1988). A test of missing completely at random for multivariate data with missing values. *Journal of the American Statistical Association*, *83*(404), 1198–1202.\
 <font size="1">(für HU-Studierende über <a href="http://ub.hu-berlin.de" target="_blank">ub.hu-berlin.de</a> zugänglich)</font> 
 
-> <a name="schafgra"></a>**Schafer**, J. L., & **Graham**, J. W. (2002). *Missing Data: Our View of the State of the Art.* Psychological Methods, 7(2), 147-177. Abgerufen über <a href="http://www.nyu.edu/classes/shrout/G89-2247/Schafer&Graham2002.pdf" target="_blank">http://www.nyu.edu/classes/shrout/G89-2247/Schafer&Graham2002.pdf</a></font>
+> <a name="schafgra"></a>**Schafer**, J. L., & **Graham**, J. W. (2002). Missing Data: Our View of the State of the Art. *Psychological Methods*, *7*(2), 147-177. <a href="https://psycnet.apa.org/doi/10.1037/1082-989X.7.2.147" target="_blank">https://psycnet.apa.org/doi/10.1037/1082-989X.7.2.147</a></font>
 
 
 ## FAQ
