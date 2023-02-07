@@ -667,7 +667,7 @@ Wenn die Missings z.B. mit `99` kodiert sind, können wir sie folgendermaßen au
 Bei vielen Funktionen muss man festlegen, wie diese mit Missings umgehen sollen.
 Exemplarisch schauen wir uns das einmal an zwei Funktionen an.
 
-Wenn du wissen möchtest, wie du in anderen Funktionen mit Missings umgehen kannst, schau dir entweder die <span class="r">R</span>-Dokumentation dazu an <font size="2">(unteres rechtes Panel bei Help oder alternativ `?mean`)</font> oder suche im Internet. In unserem Kapitel zu Fehlermeldungen findest du sowohl einen Abschnitt zum Aufbau der [R-Dokumentation](Fehlermeldungen.qmd#span-class-rrspan-dokumentation) sowie einen Abschnitt zum [Suchen im Internet](Fehlermeldungen.qmd#suchen-im-internet). \
+Wenn du wissen möchtest, wie du in anderen Funktionen mit Missings umgehen kannst, schau dir entweder die <span class="r">R</span>-Dokumentation dazu an <font size="2">(unteres rechtes Panel bei Help oder alternativ `?mean`)</font> oder suche im Internet. In unserem Kapitel zu Fehlermeldungen findest du sowohl einen Abschnitt zum Aufbau der [R-Dokumentation][R-Dokumentation] sowie einen Abschnitt zum [Suchen im Internet][Suchen im Internet]. \
 
 - `mean( )`
 
