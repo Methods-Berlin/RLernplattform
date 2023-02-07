@@ -63,7 +63,7 @@ Der Datensatz enthält 102 Variablen. Einige davon schauen wir uns im Laufe des 
 
 <p style="line-height:10px;"></p>
 
-Die Datensätze <span class="highlight">vornamen_13</span> und <span class="highlight">vornamen_14</span> enthalten die **Vornamen der Neugeborenen in München**, jeweils für die Jahre 2013 und 2014. Diese werden wir nur für [**Datensätze zusammenführen**] nutzen.
+Die Datensätze <span class="highlight">vornamen_13</span> und <span class="highlight">vornamen_14</span> enthalten die **Vornamen der Neugeborenen in München**, jeweils für die Jahre 2013 und 2014. Diese werden wir nur für [**2. Datensätze zusammenführen**][Datensätze zusammenführen] nutzen.
 
 Zuerst laden wir die csv-Dateien für <a href="https://www.opengov-muenchen.de/dataset/6acc34a9-762e-4e7f-83b0-250654478134/resource/f47ec60f-8839-4e83-9c7c-492c8b17d7b5/download/vornamen-von-neugeborenen2013.csv" target="_blank">2013</a> und <a href="https://www.opengov-muenchen.de/dataset/582aac00-aa2d-4b00-ac90-c4e5be7fa485/resource/cebd2d67-94e6-4667-a850-415f863d3b10/download/vornamen-von-neugeborenen-2014.csv" target="_blank">2014</a> runter und lesen sie dann folgendermaßen in <span class ="r">R</span> ein:
 
@@ -97,7 +97,7 @@ Die Datensätze enthalten jeweils die gleichen 3 Variablen:
 
 <p style="line-height:10px;"></p>
 
-> *__Achtung__*:  Es kommt häufiger zu **Problemen bei der Ausführung der Funktionen** `filter()`, `select()` und `summarise()` aus dem Paket **dpylr**, wenn die Pakete **stats** (Basispaket; `filter()`), **MASS** (`select()`) oder **plyr** (`summarise()`) ebenfalls geladen sind. Auch bei anderen gleichnamigen Funktionen aus verschiedenen geladenen Paketen kann es durch die sogenannte Maskierung zu Problemen kommen. Weil wir auch Pakete mit gleich benannten Funktionen nutzen, greifen wir teils auf die eindeutige Auswahl von Funktionen mittels `::` zurück. Für mehr **Informationen zum Maskieren** können wir im [gleichnamigen Abschnitt](Pakete.qmd#maskierung-wenn-verschiedene-pakete-gleich-benannte-funktionen-enthalten) im Kapitel **Pakete** nachschauen. Mehr **Informationen zu dem speziellen Problem mit dpylr** finden wir in diesem <a href="https://stackoverflow.com/questions/24202120/dplyrselect-function-clashes-with-massselect" target="_blank">Forumseintrag</a>.</font>
+> *__Achtung__*:  Es kommt häufiger zu **Problemen bei der Ausführung der Funktionen** `filter()`, `select()` und `summarise()` aus dem Paket **dpylr**, wenn die Pakete **stats** (Basispaket; `filter()`), **MASS** (`select()`) oder **plyr** (`summarise()`) ebenfalls geladen sind. Auch bei anderen gleichnamigen Funktionen aus verschiedenen geladenen Paketen kann es durch die sogenannte Maskierung zu Problemen kommen. Weil wir auch Pakete mit gleich benannten Funktionen nutzen, greifen wir teils auf die eindeutige Auswahl von Funktionen mittels `::` zurück. Für mehr **Informationen zum Maskieren** können wir im [gleichnamigen Abschnitt][Maskierung: Wenn verschiedene Pakete gleich benannte Funktionen enthalten] im Kapitel **Pakete** nachschauen. Mehr **Informationen zu dem speziellen Problem mit dpylr** finden wir in diesem <a href="https://stackoverflow.com/questions/24202120/dplyrselect-function-clashes-with-massselect" target="_blank">Forumseintrag</a>.</font>
 
 
 ## Grundlegende erste Schritte
