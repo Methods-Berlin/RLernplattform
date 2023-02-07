@@ -1766,7 +1766,6 @@ summary(lm_kontr)
 
 <p style="line-height:10px;"></p>
 
--->
 
 ## Summary-Variablen
 
@@ -1919,7 +1918,7 @@ Außerdem ist es sinnvoll, **alle Schritte der Datenvorbereitung sowie Datenausw
 
 Im Folgenden wollen wir einige Aufgaben bearbeiten, die in den Bereich der Datenvorbereitung fallen. Dazu gehören u.a. das Extrahieren und Sortieren von Daten, die Änderung der Kodierung von Daten sowie das Erstellen von Summary-Variablen. Zuallererst sollten wir uns jedoch immer mit dem genutzten Datensatz vertraut machen.
 
-<aside><[Hier](Datenvorbereitung.qmd) finden wir das Einführungsskript zu Datenvorbereitung.</aside>
+<aside>[Hier](Datenvorbereitung.qmd) finden wir das Einführungsskript zu Datenvorbereitung.</aside>
 
 Dazu nutzen wir einen Datensatz, der im Rahmen eines Projektes zur Untersuchung des Zusammenhangs des Bedürfnisses nach Privatsphäre und verschiedenen Persönlichkeitseigenschaften erhoben wurde. Mehr Informationen zum Projekt und zur Publikation finden wir <a href="https://osf.io/7ncpk/" target="_blank">hier</a>.
 
