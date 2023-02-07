@@ -22,3 +22,4 @@ Im Folgenden werden Ideen für neue Themen gesammelt.
 
 - Long and wide format in lme4 und lavaan für longitudinal mixed models
 - Modellspezifikation mit lavaan
+- Übung zu fehlenden Daten (Julia; schon fast fertig)
