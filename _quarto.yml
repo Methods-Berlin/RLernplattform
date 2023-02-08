@@ -18,7 +18,8 @@ book:
         - Datenvorbereitung.qmd
         - Fehlende-Werte.qmd
         - Grafiken.qmd
-     - part: "Weiterführende Themen in R"    
+    - part: "Weiterführende Themen in R"
+      chapters:
         - Wide-and-Long-Format.qmd
         - Markdown.qmd
         - Git.qmd
