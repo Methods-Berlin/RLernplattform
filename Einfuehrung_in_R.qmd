@@ -88,7 +88,7 @@ mean(nums) # funktioniert nicht, weil unklar ist, was mit NA passieren soll
 mean(nums, na.rm=TRUE) # funktioniert, weil NA aus Berechnung entfernt wird
 ```
 
-<details><summary class="mtitle q">Wann können wir Parameternamen weglassen (wie bei `mean(nums)`)?</summary><div class ="more">
+<details><summary>Wann können wir Parameternamen weglassen (wie bei `mean(nums)`)?</summary><div class ="more">
 Wir müssen `x=nums` nicht ausschreiben, weil `x` der erste Parameter in der Funktionsdefinition ist, und unser Argument `num` automatisch dem Parameter `x` zugeordnet wird.
 
 Das funktioniert mit jedem Argument solange wir die **Reihenfolge der Parameter in der Funktionsdefinition** beachten.
@@ -287,7 +287,7 @@ Es gibt in <span class="r">R</span> noch zwei weitere Datentypen, mit denen wir 
 ## https://www.statmethods.net/management/operators.html
 ```
 
-<details><summary class ="mtitle">Logische Operatoren in <span class="r">R</span></summary><div class="more">
+<details><summary>Logische Operatoren in <span class="r">R</span></summary><div class="more">
 Ein logischer Operator ist ein Operator, dessen Ergebnis ein Wahrheitswert (<span class="r">logical</span>; `TRUE` oder `FALSE`) ist. <!--Wir können logische Operatoren auf Daten vom Typ$^1$ <span class="r">numeric</span>, aber auch selbst auf Daten vom Typ <span class="r">logical</span> anwenden. -->
 
 ```{r}
@@ -324,7 +324,7 @@ Laut dem <a href="https://cran.r-project.org/doc/manuals/r-release/R-intro.html#
 
 <p style="line-height:10px;"></p>
 
-<details><summary class ="mtitle">Arithmetische Operatoren in <span class="r">R</span></summary><div class="more">
+<details><summary>Arithmetische Operatoren in <span class="r">R</span></summary><div class="more">
 Über (die meisten) arithmetischen Operatoren sind wir wohl schon zu Grundschulzeiten gestoßen. Das sind Operatoren, die wir zum Rechnen mit Zahlen (<span class="r">numeric</span>) benötigen. 
 
 ```{r}
@@ -351,7 +351,7 @@ tab %>%
 
 #### Messniveaus und Datentypen
 
-<details><summary class ="mtitle">Recap: Messniveaus</summary><div class="more">
+<details><summary>Recap: Messniveaus</summary><div class="more">
 Das Messniveau (oder auch Skalenniveau) ist eine wichtige Eigenschaft von Merkmalen (Variablen) von Untersuchungseinheiten. Es beschreibt, welche Informationen in unseren Messwerten abgebildet werden und damit auch welche mathematischen Transformationen mit den Messwerten sinnvoll sind (z.B. das Berechnen von Mittelwerten). Somit begrenzt das Messniveau auch die zulässigen Datenauswertungsverfahren unserer Variablen.
 
 Die Kodierung von <font color="#009193">**nominalskalierten**</font> Merkmalen ist insofern willkürlich, als dass lediglich auf **Gleichheit versus Ungleichheit** geachtet werden muss <font size="2">(z.B. `1`, `4`, `9` *oder* `A`, `Y`, `M`)</font>.
@@ -445,7 +445,7 @@ table_kat %>%
 \
 Ein Faktor ist eine Art von Vektor. Mehr dazu im nächsten Abschnitt.</aside>
 
-<details><summary class ="mtitle q">Können Merkmale auch mit <span class="r">logical</span> kodiert werden?</summary><div class="more">
+<details><summary>Können Merkmale auch mit <span class="r">logical</span> kodiert werden?</summary><div class="more">
 Wir könnten auch logische Werte nutzen, um Merkmale zu kodieren, allerdings kann es sich dabei nur um **dichotome nominalskalierte** Merkmale handeln (d.h. diese können nur zwei diskrete Ausprägungen besitzen). 
 
 Logische Werte und Operatoren kommen hauptsächlich in der **Indexierung von Vektoren** (diese lernen wir im nächsten Abschnitt kennen) ...
@@ -555,7 +555,7 @@ str(vek_5)
 str(vek_6)
 ```
 
-<details><summary class ="mtitle q">Warum sind die numerischen Vektoren nur vom Typ <span class="r">numeric</span> oder <span class="r">integer</span>?</summary><div class="more">
+<details><summary>Warum sind die numerischen Vektoren nur vom Typ <span class="r">numeric</span> oder <span class="r">integer</span>?</summary><div class="more">
 Bei Betrachtung der numerischen Vektoren fällt auf, dass `vek_4` und `vek_5` als <span class="r">numeric</span> und `vek_6` als <span class="r">integer</span> gespeichert wurden.
 
 **Aber warum wurden `vek_4` und `vek_5` als <span class="r">numeric</span> gespeichert, obwohl wir <span class="r">integer</span> (ganze Zahlen) bzw. <span class="r">double</span> (Kommazahlen) erwartet hätten?**
@@ -619,7 +619,7 @@ str(vek_11)
 str(vek_12)
 ```
 
-<details><summary class="mtitle q">Wie genau funktioniert `rep()`?</summary><div class="more">
+<details><summary>Wie genau funktioniert `rep()`?</summary><div class="more">
 Dem Parameter `x` übergeben wir die Zeichen(folge), die wir wiederholen wollen; `times` übergeben wir die Anzahl der Wiederholungen der Zeichen*folge* bzw. `each` die Anzahl der Wiederholungen der *einzelnen Zeichen*.
 
 Die Zahl `1` wird 10 mal (`times`) wiederholt:

@@ -293,7 +293,7 @@ is.data.frame(airquality)
 is.data.frame(PWE_data)
 ```
 
-<details><summary class ="mtitle q">Was genau ist ein Dataframe?</summary><div class="more">
+<details><summary>Was genau ist ein Dataframe?</summary><div class="more">
 Ein Dataframe ist eine **Datenstruktur**, die es uns erlaubt, Daten tabellarisch zu speichern. Der Dataframe ist eine Liste aus Vektoren mit gleicher Länge. Listen können (im Gegensatz zu Matrizen) Variablen mit **unterschiedlichen Datentypen** speichern. 
 
 Mehr Informationen gibt es im vorhergehenden Abschnitt zu [<font color="darkgrey">Datentypen und Datenstrukturen</font>].
@@ -750,7 +750,7 @@ library(knitr)
 kable(head(vornamen_merge_col))
 ```
 
-<details><summary class ="mtitle q">Wie kommt man auf die Anzahl der Fälle $N = 6371$?</summary><div class="more">
+<details><summary>Wie kommt man auf die Anzahl der Fälle $N = 6371$?</summary><div class="more">
 In den beiden Dataframes `vornamen_13` und `vornamen_14` wurden genau die gleichen drei Variablen (`vorname`, `anzahl` und `geschlecht`) erhoben. Wenn wir die beiden zusammenführen, können **drei unterschiedliche Szenarien** mit Hinblick auf `vorname` und `geschlecht` auftreten. 
 
 Nachfolgend schauen wir uns jeweils ein Beispiel sowie die Anzahl der Fälle dieser Szenarien an.
@@ -836,7 +836,7 @@ dim(vornamen_join)
 
 Wir sehen, dass der mit `full_join(..., by = "vorname")` zusammengeführte Datensatz genau die gleichen Dimensionen hat wie der mit `merge(..., by = "vorname", all = TRUE)` zusammengeführte. Die beiden Funktionen unterscheiden sich nur in der Sortierung der Fälle <font size="2">(welcher Dataframe zuerst eingegeben wurde vs. natürliche Sortierung der Fälle)</font>.
 
-<details><summary class="mtitle">`full_join()` als Alternative zu `bind_rows()`</summary><div class="more">
+<details><summary>`full_join()` als Alternative zu `bind_rows()`</summary><div class="more">
 Mit `full_join(x, y)` bekommen wir (bis auf die Sortierung der Fälle) das gleiche Ergebnis wie bei `merge(x, y, all = TRUE)`
 
 ```{r}
@@ -1717,7 +1717,7 @@ Die jeweilige Gewichtung einer Gruppe (bzw. Kombination von Gruppen) richtet sic
 rmarkdown::paged_table(PWE_data[,107])
 ```
 
-<details><summary class ="mtitle q">Wie genau funktioniert `rep()`?</summary><div class="more">
+<details><summary>Wie genau funktioniert `rep()`?</summary><div class="more">
 Für die manuelle Erstellung von Indikatorvariablen kann man die Funktion `rep()` nutzen, welche die ihr übergebenen Zahlen bzw. Zahlenfolgen (oder auch Zeichen bzw. Zeichenketten) beliebig häufg wiederholt.
 
 Schauen wir uns die Funktionsweise der Funktion an einigen Beispielen an.
@@ -1954,7 +1954,7 @@ Zuallererst wollen wir uns mit dem Datensatz vertraut machen. Dazu benötigen wi
 
 <span class="highlight">1.) Es gibt zwei Variablen im Datensatz, die nicht im Codebuch zu finden sind. Welche sind das?
 
-<details><summary class ="stitle">Lösung</summary><div class="sol">
+<details><summary>Lösung</summary><div class="sol">
 
 Die Variable `sex` taucht nicht im Datensatz auf. Nur die Variable `male`, welche die Ausprägungen `0` und `1` besitzt. Schätzungsweise soll mit beiden dieselbe Information koderit werden: das biologische Geschlecht der befragten Personen.
 
@@ -1970,7 +1970,7 @@ Standardmäßig sind Variablen die Spalten und Beobachtungen die Zeilen eines Da
 
 <p style="line-height:10px;"></p>
 
-<details><summary class ="stitle">Lösung</summary><div class="sol">
+<details><summary>Lösung</summary><div class="sol">
 
 Wir finden die Information im <span class="r">R Studio</span> Feld **Environment** ...
 
@@ -2001,7 +2001,7 @@ Im Codebuch finden wir Informationen zu den Variablen. Über die Funktionen `str
 
 <p style="line-height:10px;"></p>
 
-<details><summary class ="stitle">Lösung</summary><div class="sol">
+<details><summary>Lösung</summary><div class="sol">
 
 ```{r}
 str(data)
@@ -2036,7 +2036,7 @@ levels(data$inc)
 
 <!-- <p style="line-height:10px;"></p> -->
 
-<!-- <details><summary class ="stitle">Lösung</summary><div class="sol"> -->
+<!-- <details><summary>Lösung</summary><div class="sol"> -->
 
 <!-- `inc`: Das monatlich zur Verfügung stehende Einkommen der befragten Person (Codebuch S.28) -->
 
@@ -2065,7 +2065,7 @@ Mit der Funktion `table()` können wir uns die Häufigkeiten der Ausprägungen *
 
 <p style="line-height:10px;"></p>
 
-<details><summary class ="stitle">Lösung</summary><div class="sol">
+<details><summary>Lösung</summary><div class="sol">
 
 Die Variable heißt `soc_2` und hat eine Messskala, welche von -3 bis 3 (inklusive 0) geht (Codebuch S.20).
 
@@ -2088,7 +2088,7 @@ Es gibt einen Wert einer Variablen der heraussticht.</div>
 
 <p style="line-height:10px;"></p>
 
-<details><summary class ="stitle">Lösung</summary><div class="sol">
+<details><summary>Lösung</summary><div class="sol">
 
 ```{r}
 sapply(sapply(data, unique), sort, na.last=TRUE) # sortierte Ausprägungen der Variablen
@@ -2112,7 +2112,7 @@ Das Thema "Fehlende Werte" wird im Kapitel zur Datenvorbereitung nur kurz angeri
 
 <p style="line-height:10px;"></p>
 
-<details><summary class ="stitle">Lösung</summary><div class="sol">
+<details><summary>Lösung</summary><div class="sol">
 
 ```{r}
 anyNA(data) # prüft ob mind. ein Missing im Datensatz
@@ -2146,7 +2146,7 @@ In der letzten Aufgabe haben wir uns variablenweise Missings angeschaut mit `col
 
 <p style="line-height:10px;"></p>
 
-<details><summary class ="stitle">Lösung</summary><div class="sol">
+<details><summary>Lösung</summary><div class="sol">
 
 ```{r}
 max(rowSums(is.na(data))) # maximale Anzahl Missings (absoluter Wert)
@@ -2194,7 +2194,7 @@ Es gibt drei demographische Variablen in `data` (aber mehr im Codebuch).</detail
 
 <p style="line-height:10px;"></p>
 
-<details><summary class ="stitle">Lösung</summary><div class="sol">
+<details><summary>Lösung</summary><div class="sol">
 
 ```{r}
 #| eval: false
@@ -2220,7 +2220,7 @@ Es gibt vier Items zu grundlegenden Bedürfnissen.</details></div>
 
 <p style="line-height:10px;"></p>
 
-<details><summary class ="stitle">Lösung</summary><div class="sol">
+<details><summary>Lösung</summary><div class="sol">
 
 ```{r}
 #| eval: false
@@ -2247,7 +2247,7 @@ Es gibt insgesamt 18 Items zu gesellschaftlichen und interpersonellen Bedürfnis
 
 <p style="line-height:10px;"></p>
 
-<details><summary class ="stitle">Lösung</summary><div class="sol">
+<details><summary>Lösung</summary><div class="sol">
 
 ```{r}
 #| echo: false
@@ -2281,7 +2281,7 @@ Um beide Bedingungen (`< $500` und `> $5.000`) abzufragen, können wir den logis
 
 <p style="line-height:10px;"></p>
 
-<details><summary class ="stitle">Lösung</summary><div class="sol">
+<details><summary>Lösung</summary><div class="sol">
 
 Zuerst vergleichen wir die Angaben zu den Ausprägungen von `inc` im Codebuch (S. 28) und der Kodierung in <span class="r">R</span>. Laut Codebuch ist `< $500` die erste Ausprägung; `> $5.000` die letzte. Nun schauen wir, mit welchen Kodierungen diese korrespondieren.
 
@@ -2315,7 +2315,7 @@ Es gibt insgesamt zwei Extremkreuzer.</details></div>
 
 <p style="line-height:10px;"></p>
 
-<details><summary class ="stitle">Lösung</summary><div class="sol">
+<details><summary>Lösung</summary><div class="sol">
 
 Im Codebuch (S. 20) sehen wir, dass für alle Items des Geselligkeits-Fragebogen dieselbe Skale, welche von -3 bis 3 geht, genutzt wurde. Nun schauen wir uns am Beispiel eines Items an, wie diese in <span class="r">R</span> kodiert werden.
 
@@ -2365,7 +2365,7 @@ Der finale Datensatz besteht aus 12 Variablen (davon sind 11 die Integritäts-It
 
 <p style="line-height:10px;"></p>
 
-<details><summary class ="stitle">Lösung</summary><div class="sol">
+<details><summary>Lösung</summary><div class="sol">
 
 ```{r}
 # Fälle selektieren:
@@ -2404,7 +2404,7 @@ Im finalen Datensatz befinden sich 140 (von initial 296) Personen.</details></di
 
 <p style="line-height:10px;"></p>
 
-<details><summary class ="stitle">Lösung</summary><div class="sol">
+<details><summary>Lösung</summary><div class="sol">
 
 ```{r}
 # 1) Items extrahieren:
@@ -2440,7 +2440,7 @@ Im Folgenden wollen wir unseren Datensatz nach den aufsteigenden bzw. absteigend
 
 <p style="line-height:10px;"></p>
 
-<details><summary class = "stitle">Lösung</summary><div class="sol">
+<details><summary>Lösung</summary><div class="sol">
 
 Da Frauen zuerst in der sekundären Sortierung vorkommen sollen, können wir beide Variablen aufsteigend sortieren.
 
@@ -2468,7 +2468,7 @@ Um besser beurteilen zu können, ob die Sortierung erfolgreich war, ist es sinnv
 
 <p style="line-height:10px;"></p>
 
-<details><summary class = "stitle">Lösung</summary><div class="sol">
+<details><summary>Lösung</summary><div class="sol">
 
 ```{r}
 #| eval: false
@@ -2506,7 +2506,7 @@ Um besser beurteilen zu können, ob die Kodierung erfolgreich war, ist es sinnvo
 
 <p style="line-height:10px;"></p>
 
-<details><summary class = "stitle">Lösung</summary><div class="sol">
+<details><summary>Lösung</summary><div class="sol">
 
 ```{r}
 # neuen Datensatz erstellen:
@@ -2536,7 +2536,7 @@ Um besser beurteilen zu können, ob die Kodierung erfolgreich war, ist es sinnvo
 
 <p style="line-height:10px;"></p>
 
-<details><summary class = "stitle">Lösung</summary><div class="sol">
+<details><summary>Lösung</summary><div class="sol">
 
 ```{r}
 library(dplyr)
@@ -2568,7 +2568,7 @@ Es ist sinnvoll zur Überprüfung der Aufgabe, einen neuen Datensatz bestehend a
 
 <p style="line-height:10px;"></p>
 
-<details><summary class = "stitle">Lösung</summary><div class="sol">
+<details><summary>Lösung</summary><div class="sol">
 
 ```{r}
 # neuen Datensatz erstellen:
@@ -2603,7 +2603,7 @@ Die Items aller drei Bedürfnis-Bereiche haben denselben Wortstamm: `nee`.</deta
 
 <p style="line-height:10px;"></p>
 
-<details><summary class = "stitle">Lösung</summary><div class="sol">
+<details><summary>Lösung</summary><div class="sol">
 
 ```{r}
 # neuer Datensatz mit relevanten Variablen:
@@ -2636,7 +2636,7 @@ Zur Bearbeitung der Aufgabe können wir `mutate()` mit `ifelse()` kombinieren, u
 
 <p style="line-height:10px;"></p>
 
-<details><summary class = "stitle">Lösung</summary><div class="sol">
+<details><summary>Lösung</summary><div class="sol">
 
 ```{r}
 # neuer Datensatz mit relevanten Variablen:

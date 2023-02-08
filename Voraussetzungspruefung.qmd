@@ -7,7 +7,7 @@ Wenn wir uns den gerichteten Zusammenhang von mehr als zwei Variablen anschauen 
 <aside>\
 Wie wir u.a. Dummykodierungen erstellen können erfahren wir im Abschnitt [Indikatorvariablen: Kodierung nominaler Merkmale][Indikatorvariablen: Kodierung nominaler Merkmale] im Kapitel Datenvorbereitung.</aside> 
 
-<details><summary class="mtitle q">Wie sieht die Regressionsgleichung aus?</summary><div class="more">
+<details><summary>Wie sieht die Regressionsgleichung aus?</summary><div class="more">
 Nach dem linearen Modell gilt (für Person $i=1, ..., n$ und Prädiktor $k=1, ..., K$):\
 
 **$$y_i = b_0 + b_1x_1 + ... + b_Kx_K + e_i$$** 
@@ -45,13 +45,13 @@ Bei der Prüfung von Annahmen in der multiplen linearen Regression ist die **Res
 
 Die verschiedenen Annahmen werden im Verlauf der folgenden Abschnitte kurz erläutert und Möglichkeiten der Überprüfung <font size="2">(v.a. mit Hilfe von Grafiken)</font>, sowie zum Umgang mit Verletzung der Annahmen kurz skizziert. 
 
-<details><summary class="mtitle q">Warum werden bevorzugt Grafiken genutzt, um die Annahmen zu prüfen?</span></summary><div class="more">
+<details><summary>Warum werden bevorzugt Grafiken genutzt, um die Annahmen zu prüfen?</span></summary><div class="more">
 In geplotteten Daten können verschiedenste Verletzungen (z.B. Missspezifikationen der Form des Zusammenhangs zwischen den Variablen) entdeckt werden, denn graphische Darstellungen machen nur geringe Annahmen über die Art des Problems. Statistische Tests hingegen haben häufig einen eingeschränkten Fokus und sie vergleichen nur, was wir vorgegeben haben. Zusätzlich funktionieren sie nur unter bestimmten Annahmen, liefern lediglich eine 0/1-Aussage ohne die Schwere des Annahmeverstoßes zu quantifizieren und hängen stark von der Stichprobengröße ab.
 </div></details>
 
 <p style="line-height:10px;"></p>
 
-<details><summary class="mtitle q">Was ist die <a name="loess">Lowess Fit Line</a>?</span></summary><div class="more">
+<details><summary>Was ist die <a name="loess">Lowess Fit Line</a>?</span></summary><div class="more">
 ```{r}
 #| echo: false
 # C, C, W & A: S.111
@@ -340,7 +340,7 @@ Die standardisierten Residuen sollten auch hier gleichmäßig <font size="2">(zu
 
 <span class = "ex">Auch der Scale Location Plot weist in unserem Beispiel auf ungefähre Varianzhomogenität hin. Das heißt, dass die standardisierten Residuen des Teils vom Kriterium 'Lebenszufriedenheit', der nicht durch die Prädiktoren 'Zufriedenheit mit Studieninhalten' und 'Zufriedenheit mit Studienbedingungen' vorhergesagt werden kann, gleichmäßig über die vorhergesagten Werte vom Kriterium 'Lebenszufriedenheit' streut.</span> 
 
-<details><summary class = "mtitle">Exkurs: Quantifizieren des Ausmaßes</summary><div class="more">
+<details><summary>Exkurs: Quantifizieren des Ausmaßes</summary><div class="more">
 Bisher haben wir uns angeschaut, *ob* Heteroskedastizität vorliegt. Diese hat aber erst einen substanziellen Einfluss auf die Regression, wenn das Ausmaß "groß" ist. Wir können die Varianzheterogenität (_wenn_ die graphische Überprüfung darauf hindeutet) quantifizieren, um zu entscheiden, ob wir korrektive Maßnahmen durchführen sollten. Dazu schauen wir uns eine Möglichkeit aus dem Lehrbuch von Cohen, Cohen, West & Aiken (2003, S.146) an.
 
 Dabei betrachten wir die **konditionale (Fehler-)Varianz $s^2_{(e | slice)}$ **in sog. "Slices" (d.h. Gruppen) für einzelne Prädiktoren. Wir schauen uns das exemplarisch bei <span class = "ex">*Zufriedenheit mit Studieninhalten*</span> an. Dazu nutzt man die Ergebnisse der einfachen Regression der Prädiktoren. Diese haben wir im Abschnitt [Bivariate Streudiagramme](#überprüfung) schon einmal berechnet und darauf greifen wir jetzt wieder zurück.
@@ -437,7 +437,7 @@ round((var_slice_1 / var_slice_3), 3)
 
 Wenn wir heteroskedastische Residuen haben, sollten wir gegen die potentielle Verzerrung der Standardfehler vorgehen. Dazu könnten wir beispielsweise **Methoden zur Korrektur der Standardfehler** oder **varianzstabilisierende Verfahren**, wie die Box-Cox-Transformation, nutzen. Eine andere Alternative wäre es, auf **robustere Verfahren** wie die gewichtete Regression mittels WLS zurückzugreifen.
 
-<details><summary class ="mtitle">Exkurs: WLS-Regression</summary><div class="more">
+<details><summary>Exkurs: WLS-Regression</summary><div class="more">
 Der **w**eighted **l**east **s**quares Schätzer gewichtet jeden Fall (d.h. jede Person) danach, wie präzise die Beobachtung von $Y$ für diesen Fall war. Das bedeutet, dass Beobachtungen mit geringen (Fehler-)Varianzen höher gewichtet werden als Beobachtungen mit großen (Fehler-)Varianzen. Anders ausgedrückt werden Beobachtungen, die näher an der Regressionsgerade sind, stärker gewichtet. Im Vergleich dazu gewichtet der standardmäßig genutzte OLS-Schätzer (Ordinary Least Squares, Methode der kleinsten Quadrate) jede Beobachtung gleich.
 
 Es gibt mehrere Möglichkeiten, die Gewichte $w_i$ zu schätzen. Im Folgenden schauen wir uns exemplarisch eine Methode aus dem Buch von Cohen, Cohen, West & Aiken (2003, S.146-147) an. 
@@ -531,7 +531,7 @@ abline( # Linie einzeichnen
 
 <span class = "ex">Die Abbildung impliziert, dass die Residuen unabhängig sind. Das entspricht unseren Vorüberlegungen, das wir nur Variablen haben, die zum gleichen Messzeitpunkt erhoben wurden.</span> \
 
-<details><summary class="mtitle">Exkurs: Grafische Interpretationshilfe für den Index Plot</summary><div class="more">
+<details><summary>Exkurs: Grafische Interpretationshilfe für den Index Plot</summary><div class="more">
 Falls wir ein Messwiederholungsdesign haben und die Daten im Long-Format (d.h. Messungen einer Person in mehreren Zeilen) vorliegen, können wir die Messungen verschiedener Person farblich unterschiedlich darstellen.
 
 <span class="ex">In unserem Fall haben wir zwar keine Messwiederholung, aber wir illustrieren die farbliche Darstellung einmal am gleichen Beispiel.</span>
@@ -680,7 +680,7 @@ Optisch sollte ungefähr eine Normalverteilung zu erkennen sein. \
 <span class = "ex">In unserem Beispiel sieht es jedoch nach einer linksschiefen (d.h. rechtssteilen) Verteilung der Residuen aus.</span> 
 
 
-<details><summary class="mtitle">Exkurs: Graphische Interpretationshilfe für das Histogramm</summary><div class="more">
+<details><summary>Exkurs: Graphische Interpretationshilfe für das Histogramm</summary><div class="more">
 Um die Beurteilung des Histogramms zu erleichtern, können wir zwei Linien einzeichnen - die reale Dichtefunktion der Variablen und die erwartete Dichtefunktion, wenn die Variable normalverteilt wäre. Diese können wir vergleichen, um die Annahme der Normalverteilung zu überprüfen.
 
 Eine wichtige Voraussetzung dafür, dass wir über das Histogramm die Dichtefunktionen legen können, ist dass wir das Argument `prob=TRUE` setzen. \
@@ -739,7 +739,7 @@ In der obigen Abbildung werden die theoretischen Quantile der Normalverteilung <
 Wenn wir sehen wollen, wie der QQ-Plot bei verschiedenen Verteilungsformen aussehen kann, können wir uns diesen <a href="https://stats.stackexchange.com/questions/101274/how-to-interpret-a-qq-plot" target="_blank">Forumseintrag</a> zu QQ-Plots anschauen.
 
 
-<details><summary class="mtitle">Exkurs: Shapiro-Wilk-Test</summary><div class="more">
+<details><summary>Exkurs: Shapiro-Wilk-Test</summary><div class="more">
 Wir haben eingangs schon angerissen, warum graphische Verfahren besser geeignet sind, um Annahmen zu überprüfen. Für die Überprüfung der Normalverteilung der Residuen mittels statistischer Tests gelten die gleichen Vorbehalte: Wenn die Stichprobe groß ist, haben wir viel Power auch kleinste Abweichungen von der Normalverteilung zu finden. Gerade in dieser Situation (d.h. bei grossem $N$) sind Abweichungen von der Normalverteilung aber gar nicht so problematisch. Bei kleinem $N$ hingegen (wenn Abweichungen potentiell gefährlich sind), fehlt dem Test dann aber oft die Teststärke Abweichungen korrekt zu erkennen.
 
 Mit dem Shapiro-Wilk-Test kann getestet werden, ob Daten normaltverteilt sind ($H_0$) oder nicht ($H_1$).
@@ -1036,7 +1036,7 @@ Die <span style="color:red">[Lowess Line](#loess)</span> sollte auch hier wieder
 
 In diesem <a href="https://stats.stackexchange.com/questions/58141/interpreting-plot-lm" target="_blank">Forumseintrag</a> wird der Residuen-Leverage-Plot noch ausführlicher erklärt.
 
-<details><summary class="mtitle q"><a name="cooklev"></a>Was ist die Cooks Distance? Und wie hängt diese mit den standardisierten Residuen, der Leverage und der Lowess Fit Line zusammen?</summary><div class="more">
+<details><summary><a name="cooklev"></a>Was ist die Cooks Distance? Und wie hängt diese mit den standardisierten Residuen, der Leverage und der Lowess Fit Line zusammen?</summary><div class="more">
 
 > Die Cooks Distance ist ein Maß dafür, wie sich die Regressionsgerade und damit die vorhergesagten Werte ändern würden, wenn wir die Daten einer betrachteten Person $i$ ($Cooks D_i$) ausschliessen würden, wobei $Cooks D_i \geq 0$ ist.
 

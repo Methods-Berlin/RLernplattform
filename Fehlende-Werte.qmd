@@ -4,7 +4,7 @@
 
 Es kann in der Praxis häufiger vorkommen, dass Datensätze unvollständig sind z.B. wenn Teilnehmende einer Befragung nicht alle Fragen beantworten. Diese fehlenden Einträge nennt man **Missings**. In <span class="r">R</span> werden sie (bei <span class="r">numeric</span>) zumeist mit `NA` <font size="2">(*not available*)</font> gekennzeichnet. 
 
-<details><summary class="mtitle q">Welche Kodierungen für fehlende Werte gibt es neben `NA`  noch?</summary><div class ="more">
+<details><summary>Welche Kodierungen für fehlende Werte gibt es neben `NA`  noch?</summary><div class ="more">
 Beim Datentyp <span class="r">**numeric**</span> (Zahlen) sind fehlende Werte durch `NA` oder durch `NaN` <font size="2">(*Not a Number*)</font> gekennzeichnet. 
 
 ```{r}
@@ -361,7 +361,7 @@ Es gibt grundlegend drei Mechanismen, die zur Entstehung von fehlenden Werten f�
    + Missings sind nicht zufällig verteilt und können nicht durch [andere Variablen](#andere) erklärt werden. Dass bedeutet, dass die Ausprägung in der Variable, die fehlt, der Grund dafür ist, das sie fehlt.
    + <span class ="ex">*Fiktives Beispiel:* Männer füllen einen Depressionsfragebogen aufgrund der mit dem Fragebogen zu erfassenden Höhe der Depressivität nicht aus <font size="2">(z.B. bei besonders hoher Depressivität werden Fragen nicht beantwortet)</font>.</span>
 
-<details><summary class ="mtitle q"><a name ="andere"></a>Was bedeutet "(alle) anderen Variablen"?</summary><div class="more">
+<details><summary><a name ="andere"></a>Was bedeutet "(alle) anderen Variablen"?</summary><div class="more">
 Die Auffassung darüber, von welchen "anderen Variablen" die Missings in einer Variable unabhängig sein sollen, unterscheidet sich zwischen verschiedenen AutorInnen und ist nicht immer eindeutig. Während einige grob von *beobachtbaren* Variablen (Vgl. [Schafer & Graham, 2002](#schafgra)), *verfügbaren* Variablen (Vgl. [Cohen, Cohen, West & Aiken, 2003](#ccwa)) oder *Variablen im Datensatz, die analysiert werden* (Vgl. [Little, 1988](#little)) sprechen, grenzen Andere diese mehr ein z.B. *Variablen, die im Modell spezifiziert sind* (Vgl. [Allison, 2002](#allison)). Letztere Definition erleichtert die Überprüfung der Zufälligkeit der Missings (d.h. ob diese MCAR, MAR, oder MNAR sind).</div></details>
 
 <p style="line-height:10px;"></p>
@@ -399,7 +399,7 @@ knitr::include_graphics("figures/Fehlende-Werte/Bilder/Abb.png")
 ```
 
 
-<details><summary class ="mtitle">Beispiel für Test auf MCAR</summary><div class = "more">
+<details><summary>Beispiel für Test auf MCAR</summary><div class = "more">
 Exemplarisch wollen wir uns *einen möglichen* Test anschauen, der überprüft, ob die Annahme von MCAR verletzt ist.
 
 $\chi^2$__-Test für multivariate Daten von Little (1988):__ \
@@ -804,7 +804,7 @@ Hier vergleichen wir die möglichen Ausprägungen der Variablen, die wir im Code
 
 <p style="line-height:10px;"></p>
 
-<details><summary class ="stitle">Lösung <font color="#009193">A</font></summary><div class="sol">
+<details><summary>Lösung <font color="#009193">A</font></summary><div class="sol">
 
 ```{r}
 # sortierte Ausprägungen der Variablen inklusive NAs anzeigen:
@@ -815,7 +815,7 @@ In den Variablen `consent`, `gender`, `gender...comment` kommt eine leere Auspr�
 
 </div></details>
 
-<details><summary class ="stitle">Lösung <font color="#009193">B</font></summary><div class="sol">
+<details><summary>Lösung <font color="#009193">B</font></summary><div class="sol">
 
 
 ```{r}
@@ -899,7 +899,7 @@ Wir kodieren mittels `<- NA` jene Ausprägungen um, die falsch kodierte fehlende
 
 <p style="line-height:10px;"></p>
 
-<details><summary class ="stitle">Lösung <font color="#009193">A</font></summary><div class="sol">
+<details><summary>Lösung <font color="#009193">A</font></summary><div class="sol">
 
 In der vorhergehenden Aufgabe haben wir jene Ausprägungen von Variablen identifiziert, die auch fehlende Werte kodieren sollen: `""` und `N/A`. Diese kodieren wir nun um.
 
@@ -942,7 +942,7 @@ Mit der `table()`-Funktion können wir uns Häufigkeitstabellen ausgeben lassen.
 
 <p style="line-height:10px;"></p>
 
-<details><summary class ="stitle">Lösung <font color="#009193">A</font></summary><div class="sol">
+<details><summary>Lösung <font color="#009193">A</font></summary><div class="sol">
 
 absolute Anzahl: `TRUE`
 
@@ -961,7 +961,7 @@ Es gibt `r table(is.na(data_a))[2]` fehlende Werte. Das sind ca. `r round(table(
 
 </div></details>
 
-<details><summary class ="stitle">Lösung <font color="#009193">B</font></summary><div class="sol">
+<details><summary>Lösung <font color="#009193">B</font></summary><div class="sol">
 
 
 absolute Anzahl: `TRUE`
@@ -993,7 +993,7 @@ Mit `colnames()` können wir uns Namen von Variablen ausgeben lassen. Wir müsse
 
 <p style="line-height:10px;"></p>
 
-<details><summary class ="stitle">Lösung <font color="#009193">A</font></summary><div class="sol">
+<details><summary>Lösung <font color="#009193">A</font></summary><div class="sol">
 
 ```{r}
 # maximale Anzahl an Missings pro Variable:
@@ -1010,7 +1010,7 @@ Die meisten Missings sind in den `statement`-Variablen mit je einer absoluten An
 
 </div></details>
 
-<details><summary class ="stitle">Lösung <font color="#009193">B</font></summary><div class="sol">
+<details><summary>Lösung <font color="#009193">B</font></summary><div class="sol">
 
 ```{r}
 # maximale Anzahl an Missings pro Variable:
@@ -1040,7 +1040,7 @@ Mit `which()` können wir uns die Zeilenindizes von Fällen ausgeben lassen. Wir
 
 <p style="line-height:10px;"></p>
 
-<details><summary class ="stitle">Lösung <font color="#009193">A</font></summary><div class="sol">
+<details><summary>Lösung <font color="#009193">A</font></summary><div class="sol">
 
 ```{r}
 # maximale Anzahl an Missings pro Person:
@@ -1057,7 +1057,7 @@ Die meisten Missings haben die Personen `r which(rowSums(is.na(data_a)) == max(r
 
 </div></details>
 
-<details><summary class ="stitle">Lösung <font color="#009193">B</font></summary><div class="sol">
+<details><summary>Lösung <font color="#009193">B</font></summary><div class="sol">
 
 
 ```{r}
@@ -1084,7 +1084,7 @@ Im Paket **VIM** gibt es die Funktion `aggr()`, die beim Visualisieren von Missi
 
 <p style="line-height:10px;"></p>
 
-<details><summary class ="stitle">Lösung <font color="#009193">A</font></summary><div class="sol">
+<details><summary>Lösung <font color="#009193">A</font></summary><div class="sol">
 
 Der Output von `summary(aggr())` gibt uns verschiedene Informationen über die Missings und Missing-Patterns. Neben der Zusammensetzung der Patterns bekommen wir Auskunft über die absoluten und relativen Häufigkeiten der variablenweisen Missings und der Missing-Patterns. In den Grafiken steht blau für vorhandene Werte; rot für Missings. Wir sehen in der rechten Grafik, dass ein Missing-Pattern keine Missings enthält.
 
@@ -1114,7 +1114,7 @@ data_a <- data_a[which(!is.na(data_a$consent)),]
 
 </div></details>
 
-<details><summary class ="stitle">Lösung <font color="#009193">B</font></summary><div class="sol">
+<details><summary>Lösung <font color="#009193">B</font></summary><div class="sol">
 
 Wir bekommen von `summary(aggr())` verschiedene Informationen über die Missings und Missing-Patterns. Neben der Zusammensetzung der Patterns bekommen wir Auskunft über die absoluten und relativen Häufigkeiten der variablenweisen Missings und der Missing-Patterns. In den Grafiken steht blau für vorhandene Werte; rot für Missings. Wir sehen in der rechten Grafik, dass ein Missing-Pattern keine Missings enthält.
 
@@ -1170,7 +1170,7 @@ Außerdem können keine qualitativen Daten ausgewertet werden. Es gab eine quali
 
 <p style="line-height:10px;"></p>
 
-<details><summary class ="stitle">Lösung <font color="#009193">A</font></summary><div class="sol">
+<details><summary>Lösung <font color="#009193">A</font></summary><div class="sol">
 
 Die Funktion `mcar_test()` kann nicht mit Daten vom Typ <span class="r">character</span> umgehen. Daher müssen wir die nominalskalierten Variablen `gender` und `consent` zuerst faktorisieren:
 
@@ -1195,7 +1195,7 @@ Wir bekommen hier nur eine Fehlermeldung ausgegeben. Das liegt daran, dass die F
 </div></details>
 
 
-<details><summary class ="stitle">Lösung <font color="#009193">B</font></summary><div class="sol">
+<details><summary>Lösung <font color="#009193">B</font></summary><div class="sol">
 
 Das Signifikanzniveau legen wir auf $\alpha = 0.05$ fest.
 
@@ -1214,7 +1214,7 @@ Da der $p$-Wert *über* unserem á priori festgelegtem Signifikanzniveau $\alpha
 
 <p style="line-height:10px;"></p>
 
-<details><summary class ="stitle"><font color="#009193">Konsequenzen der Verarbeitung von Daten, die MAR oder MNAR sind</font></summary><div class="sol">
+<details><summary><font color="#009193">Konsequenzen der Verarbeitung von Daten, die MAR oder MNAR sind</font></summary><div class="sol">
 
 Wenn die Missings MAR oder MNAR sind, kann es zu **Parameterverzerrungen** kommen, wenn wir Methoden nutzen würden, welche die strengere Annahme MCAR annehmen.
 
@@ -1224,7 +1224,7 @@ Beispiele: Wir können keine Fälle löschen wenn die Daten MAR oder MNAR sind. 
 
 <span class="highlight">2.) Wie gehen wir weiter vor (mit Hinblick auf die Ergebnisse des Tests nach Little)?</span>
 
-<details><summary class ="stitle">Lösung</summary><div class="sol">
+<details><summary>Lösung</summary><div class="sol">
 
 Wie bereits oben beschrieben können wir nicht (einfach) weiter an <span class="highlight">Datensatz A</span> arbeiten, solange wir nicht testen konnten, ob die Daten MCAR sind. Eine Möglichkeit wäre es, die Daten mit einer anderen Statistiksoftware auszuwerten, in der es einen implementierten MCAR-Test gibt. Es ist aber nicht ausgeschlossen, dass dieser auf dem gleichen Algorithmus wie `mcar_test()` beruht und wir das gleiche Problem haben würden.
 
@@ -1272,7 +1272,7 @@ Dazu berechnen wir die Differenz der Mittelwerte einer Variablen, die mit *listw
 
 <p style="line-height:10px;"></p>
 
-<details><summary class ="stitle">Lösung</summary><div class="sol">
+<details><summary>Lösung</summary><div class="sol">
 
 ```{r}
 # herausfinden, welche Variablen numerisch sind:
@@ -1344,7 +1344,7 @@ Mit `which(..., arr.ind = TRUE)` können wir uns Zeilenname, Zeilen- *und* Spalt
 
 <p style="line-height:10px;"></p>
 
-<details><summary class ="stitle">Lösung</summary><div class="sol">
+<details><summary>Lösung</summary><div class="sol">
 
 ```{r}
 # herausfinden, welche Variablen numerisch sind:

@@ -11,7 +11,7 @@ Der Aufbau der Entwicklungsumgebung <span class="r">RStudio</span> wird im Kapit
 
 Im vorliegenden Kapitel schauen wir uns jeweils für <span class="highlight">Windows</span> und <span class="highlight">Mac</span> an, wie wir <span class ="r">R</span> und <span class ="r">RStudio</span> installieren oder auf eine neuere Version aktualisieren und dabei **unsere bisher heruntergeladenen Pakete behalten** können.
 
-<details><summary class="mtitle">*Was ist mit Linux?*</summary><div class="more">
+<details><summary>*Was ist mit Linux?*</summary><div class="more">
 Bevor wir die <span class ="r">R</span>-Lernplattform ins Leben gerufen haben, haben wir eine Umfrage durchgeführt, in der u.a. das Betriebssystem der NutzerInnen erfragt wurde. Hierbei hat nur ein Bruchteil der Personen angegeben, mit Linux bzw. Ubuntu zu arbeiten. Aufgrund der geringen Nachfrage gibt es kein gesondertes Kapitel für Linux-UserInnen. Im Folgenden sind einige Links zur Hilfe aufgeführt.
 
 Für die Installation von <span class ="r">R</span> und <span class ="r">RStudio</span> unter <span class="highlight">Ubuntu</span> empfiehlt sich die Installationsanleitung auf <a href="https://linuxhint.com/rstudio-for-ubuntu/" target="_blank">linuxhunt.com</a> zu nutzen <font size="1">(englisch)</font>. Anstatt `wget https://download1.rstudio.org/rstudio-0.99.896-amd64.deb` ändern wir den Link zur gewünschten <span class ="r">RStudio</span> Version für unser Betriebssystem, z.B. `wget [https://download1.rstudio.org/desktop/bionic/amd64/rstudio-1.3.1073-amd64.deb](https://download1.rstudio.org/electron/jammy/amd64/rstudio-2022.12.0-353-amd64.deb)`. Den benötigten aktuellen Link bekommen wir von der <a href="https://rstudio.com/products/rstudio/download/#download" target="_blank"><span class ="r">RStudio</span> Seite</a> mittels Rechtsklick auf den Link und Auswahl im erscheinenden Menü.
@@ -41,7 +41,7 @@ knitr::include_graphics("figures/Installation/Bilder/Win_R_aktuell.png")
 
 Diese Version läuft unter **Windows XP**, **Windows Vista**, **Windows 8** und **Windows 10**. Sollten wir eine dieser Windows Versionen auf unserem Computer haben, drücken wir auf **Download <span class ="r">R</span> 3.6.1 for Windows**.
 
-<details><summary class="mtitle">*<a name="winv"></a>Wie finde ich meine Windows Version heraus?*</summary><div class="more">
+<details><summary>*<a name="winv"></a>Wie finde ich meine Windows Version heraus?*</summary><div class="more">
 Um die aktuelle Version unseres Windows Systems herauszufinden, drücken wir die **Windows-Taste** und die **Pause Taste** gleichzeitig. 
 
 > *__Achtung__*:  <div class="rows">Bei manchen Rechner muss man zur Aktivierung der Pause-Taste zusätzlich noch die **fn-Taste** drücken.</div>
@@ -60,7 +60,7 @@ Ganz oben sehen wir dort unter **Windows Edition**, welche Windows Version wir i
 
 <p style="line-height:10px;"></p>
 
-<details><summary class ="mtitle">Ältere Windows-Versionen</summary><div class="more">
+<details><summary>Ältere Windows-Versionen</summary><div class="more">
 Falls unser Betriebssystem **nicht** kompatibel ist, können wir <a href="https://cran.r-project.org/bin/windows/base/old/" target="_blank">hier</a> **ältere R-Versionen** finden. Wir müssen jeweils auf die Version klicken und kommen dann auf eine Seite, die genau so aufgebaut ist wie die Seite der aktuellsten Version. Um zu erfahren, ob die Version mit unserem Betriebssystem kompatibel ist, müssen wir jeweils auf **_Does <span class ="r">R</span> run under my version of Windows?_** klicken. Wenn wir die passende Version gefunden haben, klicken wir auf **Download <span class ="r">R</span> <font color="grey">[Versionsnummer]</font> for Windows**. Die Versionsnummer ist abhängig davon, welche <span class ="r">R</span> Version tatsächlich mit unserem Betriebssystem kompatibel ist.
 </div></details>
 
@@ -90,7 +90,7 @@ Nun werden wir gefragt, ob wir die **Startoptionen** von <span class ="r">R</spa
 knitr::include_graphics("figures/Installation/Bilder/7.png")
 ```
 
-<details><summary class ="mtitle">*Was sind Startoptionen?*</summary><div class="more">
+<details><summary>*Was sind Startoptionen?*</summary><div class="more">
 Bei den Startoptionen können wir z.B. einstellen, wie <span class ="r">R</span> später die Hilfe-Seiten einzelner Funktionen anzeigt. Da wir mit der Entwicklungsumgebung <span class ="r">RStudio</span> arbeiten werden, können wir diese Einstellungen einfach überspringen.</div></details>
 
 <p style="line-height:10px;"></p>
@@ -124,12 +124,12 @@ Dazu gehen wir auf die <a href="https://rstudio.com/products/rstudio/download/" 
 knitr::include_graphics("figures/Installation/Bilder/Win_13.PNG")
 ```
 
-<details><summary class="mtitle">Bei mir steht zwar Download RStudio Desktop, aber ich kann nicht darauf klicken.</summary><div class="more">
+<details><summary>Bei mir steht zwar Download RStudio Desktop, aber ich kann nicht darauf klicken.</summary><div class="more">
 In diesem Fall können wir auf der Seite weiter nach unten scrollen. Dort werden unter **All Installers** alle aktuellen Versionen von <span class ="r">RStudio</span> Desktop aufgeführt. Unter dem Eintrag **OS** sind alle Betriebssysteme aufgelistet, für die es die aktuellste <span class ="r">RStudio</span> Desktop Version gibt. Wenn wir unser Betriebssystem gefunden haben, wählen wir in der Spalte **Download** die passende <span class ="r">RStudio</span> Desktop Version aus und laden diese herunter.</div></details>
 
 <p style="line-height:10px;"></p>
 
-<details><summary class ="mtitle q">Was bedeutet "RStudio 1.2 requires a 64-bit operating system. If you are on a 32 bit system, you can use an older version of RStudio."?</summary><div class="more">
+<details><summary>Was bedeutet "RStudio 1.2 requires a 64-bit operating system. If you are on a 32 bit system, you can use an older version of RStudio."?</summary><div class="more">
 Ob wir die 32- oder die 64-bit Version von <span class ="r">RStudio</span> Desktop brauchen, hängt von unserem Computer ab. Für fast alle Computer können wir die 64-bit Version herunterladen. Sind wir uns nicht sicher, welche Version wir brauchen, können wir [hier](#winv) nachschauen. Wenn wir ein 32 bit-Betriebssystem haben, müssen wir eine ältere Version von <span class ="r">RStudio</span> Desktop herunterladen. Diese finden wir unter diesem <a href="https://support.rstudio.com/hc/en-us/articles/206569407-Older-Versions-of-RStudio" target="_blank">Link</a>. 
 
 ```{r, out.width = "300px", echo=FALSE, fig.align='center'}
@@ -221,7 +221,7 @@ knitr::include_graphics("figures/Installation/Bilder/Check_Update.png")
 
 Wenn es eine aktuellere Version gibt, öffnet sich die <a href="https://rstudio.com/products/rstudio/download/" target="_blank"><span class ="r">RStudio</span>-Seite</a> im Browser.
 
-<details><summary class ="mtitle">Ich finde die Option Check for Updates nicht.</summary><div class="more">
+<details><summary>Ich finde die Option Check for Updates nicht.</summary><div class="more">
 
 Manchmal gibt es die Option **Check für Updates** nicht im **Help**-Menü. Analog dazu können wir auch manuell unsere bestehende mit der aktuellsten <span class ="r">RStudio</span>-Version abgleichen. Dazu klicken wir in <span class ="r">RStudio</span> auf **<span class ="r">RStudio</span> --> About <span class ="r">RStudio</span>** ...
 
@@ -260,7 +260,7 @@ knitr::include_graphics("figures/Installation/Bilder/R_Website.png")
 
 > *__Achtung__*:  Wir werden auf der Seite darauf hingewiesen, dass wir **ab** Mac OS X **10.9** (Mavericks) **XQuartz** nach jedem Upgrade der Betriebssoftware neu installieren sollten. Falls wir das noch nicht gemacht haben, sollten wir das **vor** der Installation von <span class ="r">R</span> noch tun.
 
-<details><summary class ="mtitle">Installation von XQuartz</summary><div class="more">
+<details><summary>Installation von XQuartz</summary><div class="more">
 Wir klicken auf die <a href="https://www.xquartz.org" target="_blank">Verlinkung</a> und gelangen auf die XQuartz-Seite. 
 
 ```{r, out.width = "600px", echo=FALSE}
@@ -291,7 +291,7 @@ knitr::include_graphics("figures/Installation/Bilder/XQuartz_ready.png")
 
 Nun müssen wir schauen, ob unser Betriebssystem den Mindestanforderungen für die **aktuellste** <span class ="r">R</span> Version entspricht. Wenn ja, können wir auf die .pkg-Datei klicken und den Download starten.
 
-<details><summary class="mtitle">*<a name="macver"></a>Wie finde ich meine Mac OS Version heraus?*</font></summary><div class="more">
+<details><summary>*<a name="macver"></a>Wie finde ich meine Mac OS Version heraus?*</font></summary><div class="more">
 Unsere Version des Betriebssystems bestimmt, welche Versionen von <span class ="r">R</span> und <span class ="r">R Studio</span> wir herunterladen können.
 
 Wir finden unsere Betriebssystem-Version heraus, indem wir auf den Apfel in der Menüleiste am oberen Bildschirm und dann auf **Über diesen Mac** klicken.
@@ -441,7 +441,7 @@ knitr::include_graphics("figures/Installation/Bilder/Check_for_Updates.png")
 
 Wenn es eine aktuellere Version gibt, öffnet sich die <a href="https://rstudio.com/products/rstudio/download/" target="_blank"><span class ="r">RStudio</span>-Seite</a> im Browser.
 
-<details><summary class ="mtitle">Ich finde die Option Check for Updates nicht.</summary><div class="more">
+<details><summary>Ich finde die Option Check for Updates nicht.</summary><div class="more">
 
 Manchmal gibt es die Option **Check für Updates** nicht im **Help**-Menü. Analog dazu können wir auch manuell unsere bestehende mit der aktuellsten <span class ="r">RStudio</span>-Version abgleichen. Dazu klicken wir in <span class ="r">RStudio</span> auf **<span class ="r">RStudio</span> --> About <span class ="r">RStudio</span>** ...
 

@@ -49,7 +49,7 @@ library(ggplot2)
 
 <aside>Bei Problemen beim Installieren bzw. Laden von Paketen schaut in unserem [FAQ-Eintrag](Pakete.qmd#faq) dazu vorbei.</aside>
 
-<details><summary class ="mtitle">Cheatsheet zu ggplot2</summary><div class ="more">
+<details><summary>Cheatsheet zu ggplot2</summary><div class ="more">
 
 Um uns die Anwendung von ggplot2 zu erleichtern, können wir ein Cheatsheet in <a href="https://github.com/rstudio/cheatsheets/raw/master/translations/german/ggplot2-german.pdf" target="_blank">deutsch</a> oder <a href="https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf" target="_blank">englisch</a> herunterladen. 
 
@@ -67,7 +67,7 @@ knitr::include_graphics("figures/ggplot2/Bilder/cheatsheets.png")
 
 <p style="line-height:10px;"></p>
 
-<details class ="bsp"><summary class>Beispieldatensatzfür dieses Kapitel</summary>
+<details class ="bsp"><summary>Beispieldatensatzfür dieses Kapitel</summary>
 
 Im Rahmen des Kapitels werden wir hauptsächlich mit dem Datensatz `ChickWeight` arbeiten, der standardmäßig im Basispaket **datasets** enthalten ist. Wir laden den Dataframe folgendermaßen in unseren Workspace:
 
@@ -308,7 +308,7 @@ Auf dieser <a href="http://www.sthda.com/english/wiki/ggplot2-pie-chart-quick-st
 <!--   labs(x = NULL) # keine x-Achsenbeschriftung (wäre hier irreführend) -->
 <!-- ``` -->
 
-<!-- <details><summary class ="mtitle">Unterschied zum "sonst üblichen" Kreisdiagramm</summary><div class="more"> -->
+<!-- <details><summary>Unterschied zum "sonst üblichen" Kreisdiagramm</summary><div class="more"> -->
 <!-- Die so erzeugten Kreisdiagramme unterscheiden sich optisch von den "üblichen" Kreisdiagrammen (die wir auch mit der base graphics Funktion `pie()` erstellen können). -->
 
 <!-- ```{r base r, out.width = "600px", fig.align="center"} -->
@@ -333,7 +333,7 @@ Auf dieser <a href="http://www.sthda.com/english/wiki/ggplot2-pie-chart-quick-st
 
 Mit Hilfe von Histogrammen können wir uns die Verteilung einer metrischen Variablen anschauen. Um ein Histogramm zu erstellen, nutzen wir `geom_histogram()`. 
 
-<details><summary class ="mtitle">Richtlinien zur Kategorisierung einer metrischen Variablen</summary><div class ="more">
+<details><summary>Richtlinien zur Kategorisierung einer metrischen Variablen</summary><div class ="more">
 
 Bevor wir eine metrische Variable zum Zwecke der grafischen Darstellung kategorisieren, sollten wir uns Gedanken über die **Anzahl und Breite der Kategorien** machen, in die wir die Daten einteilen möchten. Es ist meist nicht sinnvoll, die Häufigkeiten der Rohwerte von metrischen Variablen zu plotten, weil identische Messwerte selten vorliegen. Daher ist es sinnvoll, die Rohdaten zu gruppieren. Dazu müssen wir uns Gedanken über die Intervallgröße dieser Kategorien machen (**"Problem der Kategorisierung"**). Durch Vergrößerung gehen (relevante) Informationen verloren; durch Verkleinerung bleiben (zu viele) idiosynkratische Merkmale erhalten.
 
@@ -386,7 +386,7 @@ ggplot(data=ChickWeight, aes(x=weight)) +
   geom_histogram(bins=11)
 ```
 
-<details><summary class ="mtitle">Problem der korrekten Darstellung der Variationsbreite</summary><div class="more">
+<details><summary>Problem der korrekten Darstellung der Variationsbreite</summary><div class="more">
 Grundsätzlich ist es, sowohl in base graphics als auch in ggplot, problematisch, den *wahren* Range (d.h. die Variationsbreite) einer Variablen darzustellen. Ohne explizite Eingabe der Grenzen werden diese leider nicht berücksichtigt. Das kann zu einem falschen Eindruck der Variationsbreite der Variablen führen.
 
 Dieses Problem demonstrieren wir einmal an obigem Beispiel.
@@ -450,7 +450,7 @@ Nun schauen wir uns die grafische Darstellung von **Zusammenhängen** zwischen z
 
 Wenn wir uns die Merkmalsverteilung einer metrischen Variable in Abhängigkeit einer kategorialen Variablen anschauen möchten, können wir Boxplots nutzen.
 
-<details><summary class ="mtitle q">Welche Kennwerte werden in Boxplots dargestellt?</summary><div class="more">
+<details><summary>Welche Kennwerte werden in Boxplots dargestellt?</summary><div class="more">
 
 In Boxplots werden mehrere deskriptiv-statistische Kennwerte dargestellt:
 
@@ -476,7 +476,7 @@ ggplot(data=ChickWeight[ChickWeight$Time == 2,], aes(x=Diet, y=weight)) +
 
 <a name="index"></a>
 
-<details><summary class ="mtitle g">Erweiterte Indexierung: Wie können wir nur bestimmte Daten <span class="ex">(z.B. nur Daten zum zweiten Messzeitpunkt)</span> für `ggplot()` auswählen?</summary><div class ="more">
+<details><summary>Erweiterte Indexierung: Wie können wir nur bestimmte Daten <span class="ex">(z.B. nur Daten zum zweiten Messzeitpunkt)</span> für `ggplot()` auswählen?</summary><div class ="more">
 
 Wenn wir nicht alle Daten, sondern nur solche, auf die bestimmte Bedingungen zutreffen, auswählen wollen, können wir dazu die Indexierung mittels der eckigen Klammern `[]` nutzen.
 
@@ -619,7 +619,7 @@ ggplot(data=ChickWeight[ChickWeight$Time == 21,], aes(x=Diet, y=weight)) +
 <!-- # ... und Mittelwerten -->
 <!-- ``` -->
 
-<!-- <details><summary class ="mtitle">Wie genau funktioniert `tapply()`?</summary><div class="more"> -->
+<!-- <details><summary>Wie genau funktioniert `tapply()`?</summary><div class="more"> -->
 <!-- Mit der Funktion `tapply()` können wir eine Variable x (z.B. `weight`) nach einer anderen Variablen y (z.B. `Diet`) splitten und dann eine Funktion für jede Gruppierung (z.B. `mean`) anwenden. Die üblichen Klammern `()` hinter dem Namen der Funktion lässt man hier weg. -->
 
 <!-- <span class="code">tapply(X=<span class="ex">betrachtete Variable</span>, INDEX=<span class="ex">Gruppierungsvariable</span>, FUN=<span class="ex">anzuwendende Funktion</span>)</span> -->
@@ -755,7 +755,7 @@ Wenn wir die Datenpunkte in einem Streudiagramm mit Regressionsgerade einfärben
 
 Quelle: https://educationalresearchtechniques.com/2016/10/03/linear-regression-lines-and-facets-in-ggplot2/
 
-<details><summary class ="mtitle">Farbliche Hervorhebung</summary><div class ="more">
+<details><summary>Farbliche Hervorhebung</summary><div class ="more">
 
 Wir können zusätzlich noch die Information einer kategorialen Variablen in unsere Visualisierung miteinbeziehen. Wir können entweder die Datenpunkte entsprechend der Gruppenzugehörigkeit färben oder für jede Gruppe separate Regressionsgeraden einzeichnen.
 
@@ -829,7 +829,7 @@ Dadurch, dass für jede Gruppe ein eigenes Streudiagramm nur mit den Beobachtung
 
 -->
 
-<details><summary class ="mtitle">Paket ggiraphextra: Interaktive Plots und weitere Darstellungen von Regressionsmodellen</summary><div class ="more">
+<details><summary>Paket ggiraphextra: Interaktive Plots und weitere Darstellungen von Regressionsmodellen</summary><div class ="more">
 
 Mit der Funktion `ggPredict()` aus dem Paket **ggiraphExtra** können wir interaktive Streudiagramme mit Regressionsgeraden (von einfachen *und* multiplen linearen Regressionsmodellen) erstellen. Hierfür benötigen wir die Basisfunktion `ggplot()` gar nicht (aber ggiraphExtra baut auf ggplot2 auf). Allerdings müssen wir zuerst manuell mit `lm()` die Regression rechnen und das Ergebnisobjekt an `ggPredict()` übergeben.
 
@@ -974,7 +974,7 @@ cont_Chick <- as.data.frame(cont_Chick)
 
 Um besser zu verstehen, warum das sein muss, können wir uns den Datensatz vor und nach der Umwandlung anschauen.\
 
-<details><summary class ="mtitle">Vergleich unseres Dataframes vor und nach der Umwandlung</summary><div class="more">
+<details><summary>Vergleich unseres Dataframes vor und nach der Umwandlung</summary><div class="more">
 Vor der Umwandlung steht jede **Zeile** für eine **Beobachtung** (d.h. ein Küken).
 
 ```{r}
@@ -1136,7 +1136,7 @@ Auf dieser <a href="http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf" targe
 
 Darüber hinaus können wir auch <span class="highlight">Hex-Farben</span> <font size="2">(mit dem Hexadezimal-Zahlensystem kodierte Faben)</font> nutzen, die aus einem **#** und einer 6-stelligen Zeichenfolge bestehen, z.B. `"#53FD9F"`. Dabei werden jeweils zwei Zahlen genutzt um rot, blau und grün zu kodieren (**RGB**). Beispielsweise können wir <a href="http://hslpicker.com" target="_blank">hier</a> eigene Farben erstellen und uns den Hex-Code kopieren.
 
-<details><summary class ="mtitle">Grafische Elemente transparent machen</summary><div class ="more">
+<details><summary>Grafische Elemente transparent machen</summary><div class ="more">
 Wir können einzelne Elemente einer Grafik transparent machen. Wenn wir die Grafik exportieren wollen, müssen wir nicht nur in der Erstellung der Grafik sondern auch beim Export angeben, dass ein bestimmtes Element transparent sein soll. Nur Grafiken im **PNG**-Format können transparent sein.
 
 Folgendermaßen können wir beispielsweise den **Hintergrund der Grafik** (`plot.background`) transparent machen: 
