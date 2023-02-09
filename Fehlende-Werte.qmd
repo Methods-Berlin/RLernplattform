@@ -21,9 +21,9 @@ num_vector[1] <- num_vector[4]/0
 num_vector
 is.na(num_vector)
 ```
-Beim Datentyp **character** (Buchstaben, Zeichen) hingegen könnten fehlende Eingaben auch durch `""` (leere Felder) gekennzeichnet sein z.B. wenn bei Freitextfeldern in einer Umfrage nichts eingegeben wurde. Das wird in R aber <u>nicht</u> automatisch als fehlender Wert erkannt.
+Beim Datentyp **character** (Buchstaben, Zeichen) hingegen könnten fehlende Eingaben auch durch `""` (leere Felder) gekennzeichnet sein z.B. wenn bei Freitextfeldern in einer Umfrage nichts eingegeben wurde. Das wird in R aber nicht automatisch als fehlender Wert erkannt.
 
-> *__Achtung__*:  Wir sehen nachfolgend auch verdeutlicht, dass `NA` eine selbstständige Kodierung ist, und <u>nicht</u> als character kodiert wird.
+> *__Achtung__*:  Wir sehen nachfolgend auch verdeutlicht, dass `NA` eine selbstständige Kodierung ist, und nicht als character kodiert wird.
 
 ```{r}
 char_vec <- c(NA, "NA", "") 
@@ -44,7 +44,7 @@ Fehlende Werte sind grundsätzlich mit **drei Schwierigkeiten** verbunden:
 - Die Auswertung wird erschwert, weil viele statistische Verfahren vollständige Datensätze voraussetzen.
 - Wenn systematische Unterschiede zwischen den beobachteten und den fehlenden Daten bestehen könnten die Parameterschätzungen verzerrt sein.
 
-Daher ist es **sehr wichtig, sich <u>vor</u> der Auswertung einen Überblick über die fehlenden Werte zu verschaffen**.
+Daher ist es **sehr wichtig, sich vor der Auswertung einen Überblick über die fehlenden Werte zu verschaffen**.
 
 In diesem Kapitel schauen wir uns an, ob und wenn ja wo und wie viele Missings sich im Datensatz befinden. Außerdem gibt es einen groben Überblick darüber, ob Missings zufällig sind und wie man mit ihnen umgehen kann. \
 
@@ -468,7 +468,7 @@ Es gibt verschiedene Möglichkeiten, um mit unvollständigen Datensätzen umzuge
 <aside>\
 Weitere Methoden zum Umgang mit Missings finden wir auch in den Quellen, die wir unter [**Literaturempfehlungen**](#literaturempfehlungen) finden.</aside>
 
-Im Folgenden wollen wir uns darauf beschränken, uns einige gängige Methoden anzuschauen, die man nutzen kann, wenn die fehlenden Werte MCAR sind. Wenn diese Annahme <u>nicht</u> erfüllt ist, können bei Nutzung der folgenden Methoden **verzerrte Parameterschätzungen** resultieren.
+Im Folgenden wollen wir uns darauf beschränken, uns einige gängige Methoden anzuschauen, die man nutzen kann, wenn die fehlenden Werte MCAR sind. Wenn diese Annahme nicht erfüllt ist, können bei Nutzung der folgenden Methoden **verzerrte Parameterschätzungen** resultieren.
 
 Zwei grundlegende Möglichkeiten sind entweder ganze Fälle mit Missings zu exkludieren (*listwise/casewise deletion*) oder vorhandene Elemente von Fällen für einen Teil der Analysen zu nutzen (*pairwise deletion*). In vielen Funktionen in R können wir zwischen beiden Möglichkeiten entscheiden.
 
@@ -1149,14 +1149,14 @@ Es gibt `r length(summary(aggr(data_b))[["combinations"]][["Combinations"]]) - 1
 
 ### Übung 3: Zufälligkeit
 
-Nachdem wir uns im vorhergehenden Abschnitt deskriptiv-statistische Kennwerte der Missings und Missing-Patterns angeschaut haben, wollen wir uns im Folgenden auch inferenz-statistisch absichern. Dazu überprüfen wir die Zufälligkeit der Missing-Patterns. Ob fehlende Werte zufällig sind ist eine essentielle Frage, die wir <u>vor</u> der Nutzung der Daten klären müssen.
+Nachdem wir uns im vorhergehenden Abschnitt deskriptiv-statistische Kennwerte der Missings und Missing-Patterns angeschaut haben, wollen wir uns im Folgenden auch inferenz-statistisch absichern. Dazu überprüfen wir die Zufälligkeit der Missing-Patterns. Ob fehlende Werte zufällig sind ist eine essentielle Frage, die wir vor der Nutzung der Daten klären müssen.
 
 1.) Sind die fehlenden Werte MCAR? Was hätte es für Konsequenzen für die weitere Datenverarbeitung, wenn die fehlenden Werte MAR oder MNAR wären?
 
 <details><summary>Auffrischung: MCAR, MAR und MNAR</summary>
 **MCAR**: Missings hängen weder von der (fehlenden) Ausprägung auf der Variablen selbst noch von anderen Variablen und deren fehlenden Werten ab. Sie sind also komplett zufällig.
 
-**MAR**: Missings hängen <u>nicht</u> von der (fehlenden) Ausprägung auf der Variablen selbst, aber von anderen Variablen und deren Missings ab. Die Missings sind also zufällig, sobald für diese andere Variablen kontrolliert wird.
+**MAR**: Missings hängen nicht von der (fehlenden) Ausprägung auf der Variablen selbst, aber von anderen Variablen und deren Missings ab. Die Missings sind also zufällig, sobald für diese andere Variablen kontrolliert wird.
 
 **MNAR**: Missings hängen von der (fehlenden) Ausprägung auf der Variablen selbst ab. Sie sind also selbst dann nicht zufällig, wenn für die anderen Variablen kontrolliert wird.
 </details>

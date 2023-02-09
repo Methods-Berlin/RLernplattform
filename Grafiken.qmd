@@ -559,7 +559,7 @@ ggplot(data=mean, aes(x=diet, y=weight)) +
 \
 <font color="red">Negativbeispiel</aside>
 
-> *__Achtung__*:  Das Problem bei diesem Ansatz ist, dass Personen dazu neigen, die Werte (innerhalb des 95% Konfidenzintervalls), die innerhalb der Balken liegen, als statistisch wahrscheinlicher wahrzunehmen als jene, die außerhalb der Balken liegen. Dieses Phänomen ist als Within-the-bar Bias bekannt. Es ist daher sinnvoll, für die Darstellung von Mittelwerten **<u>keine</u> Balkendiagramme zu nutzen**, sondern auf geeignetere Visualisierungen zurückzugreifen.
+> *__Achtung__*:  Das Problem bei diesem Ansatz ist, dass Personen dazu neigen, die Werte (innerhalb des 95% Konfidenzintervalls), die innerhalb der Balken liegen, als statistisch wahrscheinlicher wahrzunehmen als jene, die außerhalb der Balken liegen. Dieses Phänomen ist als Within-the-bar Bias bekannt. Es ist daher sinnvoll, für die Darstellung von Mittelwerten **keine Balkendiagramme zu nutzen**, sondern auf geeignetere Visualisierungen zurückzugreifen.
 
 Beispielsweise vermitteln einzelne Punkte (für die Mittelwerte) mit Fehlerbalken die relevanten Informationen besser. 
 
@@ -725,7 +725,7 @@ ggplot() + geom_point(data=ChickWeight, aes(x=Time, y=weight, col=Diet)) +
 </details>
 
 
-<h5>Regressionsgerade eines <u>multiplen</u> linearen Regressionsmodells</h5>
+<h5>Regressionsgerade eines multiplen linearen Regressionsmodells</h5>
 
 Dafür nehmen wir `Diet` als weiteren Prädiktor auf.
 

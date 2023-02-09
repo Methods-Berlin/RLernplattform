@@ -23,7 +23,7 @@ Weiterführend ist es sinnvoll, sich die [Einführung in RStudio][Einführung in
 
 Fangen wir damit an, was Funktionen und Pakete sind, warum wir diese nutzen und wie wir diese in R anwenden können.
 
-> *__Achtung__*:  Alles, was wir in einer Zeile hinter eine Raute (`#`) schreiben, wird <u>nicht</u> als Funktion, sondern als **Kommentar** interpretiert. Unseren Code zu kommentieren ist sehr nützlich, da es uns und Anderen die Nachvollziehbarkeit unseres Vorgehens erleichtert.
+> *__Achtung__*:  Alles, was wir in einer Zeile hinter eine Raute (`#`) schreiben, wird nicht als Funktion, sondern als **Kommentar** interpretiert. Unseren Code zu kommentieren ist sehr nützlich, da es uns und Anderen die Nachvollziehbarkeit unseres Vorgehens erleichtert.
 
 ### Funktionen
 

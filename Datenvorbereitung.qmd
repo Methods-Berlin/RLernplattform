@@ -1388,7 +1388,7 @@ Schauen wir uns an, wie man die Ausprägungen von `eduaction` (1`, `2`, `3`, `4`
 
 Mit dem Parameter `as.factor` legen wir fest, ob die (neue) rekodierte Variable als Faktor gespeichert werden soll. 
 
-> *__Achtung__*:  Leider können wir so aber nur ungeordnete (nominalskaliert) und <u>keine</u> geordneten (ordinalskaliert) Faktoren erstellen. Dafür müssten wir auf die Funktion `factor(..., ordered = TRUE, levels)` zurückgreifen (siehe Abschnitt [Faktorisieren]).\
+> *__Achtung__*:  Leider können wir so aber nur ungeordnete (nominalskaliert) und keine geordneten (ordinalskaliert) Faktoren erstellen. Dafür müssten wir auf die Funktion `factor(..., ordered = TRUE, levels)` zurückgreifen (siehe Abschnitt [Faktorisieren]).\
 
 
 ```{r}
@@ -2058,7 +2058,7 @@ levels(data$inc)
 <!-- </details>\ -->
 
 
-4.) Wie heißt die Variable, die kodiert, inwieweit die befragte Person gerne viele Menschen um sich herum hat? Welche Antwortoption auf der *Mess*skala (hiermit ist <u>nicht</u> die Kodierung der Daten gemeint) haben die meisten befragten Personen angekreuzt?
+4.) Wie heißt die Variable, die kodiert, inwieweit die befragte Person gerne viele Menschen um sich herum hat? Welche Antwortoption auf der *Mess*skala (hiermit ist nicht die Kodierung der Daten gemeint) haben die meisten befragten Personen angekreuzt?
 
 <details><summary>Tipp 1</summary>
 Den Namen der Variablen sowie deren Messskala finden wir im Codebuch. Die Häufigkeiten der jeweiligen Ausprägungen der Variablen bringen wir in R in Erfahrung.</details>
@@ -2187,7 +2187,7 @@ Nun wollen wir einzelne Daten aus dem Datensatz extrahieren. Dabei interessieren
 <details><summary>Tipp 1</summary>
 Im Codebuch (S. 26ff) steht, welche Variablen zu den demographischen Angaben zählen.
 
-> *__Achtung__*:  Im Codebuch steht die Variable `sex`, welche im Datensatz <u>nicht</u> enthalten ist. Alternativ gibt es die Variable `male`.
+> *__Achtung__*:  Im Codebuch steht die Variable `sex`, welche im Datensatz nicht enthalten ist. Alternativ gibt es die Variable `male`.
 
 
 </details>
