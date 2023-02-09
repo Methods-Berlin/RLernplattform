@@ -555,7 +555,7 @@ Der Datensatz besteht aus `r nrow(data_I)` Zeilen und `r ncol(data_I)` Spalten.
 
 
 
-<details><summary>Lösung</summary><div class ="sol">
+<details><summary>Lösung</summary>
 Man kan die Datei z.B. mit `read.csv("Dateipfad")` oder mit `read_csv("Dateipfad")` (aus dem Paket **readr**) korrekt einlesen.
 
 Hier siehst du, wie die ersten 6 Zeilen der insgesamt 44 Spalten der Datei.
@@ -642,7 +642,7 @@ Der Datensatz besteht aus `r nrow(data_III)` Zeilen und `r ncol(data_III)` Spalt
 
 
 
-<details><summary>Lösung</summary><div class ="sol">
+<details><summary>Lösung</summary>
 Man kan die Datei z.B. mit `read.spss("Dateipfad", to.data.frame = TRUE)` (aus dem Paket **foreign**) oder mit `read_sav("Dateipfad")` (aus dem Paket **haven**) korrekt einlesen.
 
 Hier siehst du die ersten 6 Zeilen der ersten 50 Spalten der Datei.
