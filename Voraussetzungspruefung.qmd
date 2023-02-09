@@ -45,13 +45,13 @@ Bei der Prüfung von Annahmen in der multiplen linearen Regression ist die **Res
 
 Die verschiedenen Annahmen werden im Verlauf der folgenden Abschnitte kurz erläutert und Möglichkeiten der Überprüfung <font size="2">(v.a. mit Hilfe von Grafiken)</font>, sowie zum Umgang mit Verletzung der Annahmen kurz skizziert. 
 
-<details><summary>Warum werden bevorzugt Grafiken genutzt, um die Annahmen zu prüfen?</span></summary><div class="more">
+<details><summary>Warum werden bevorzugt Grafiken genutzt, um die Annahmen zu prüfen?</summary><div class="more">
 In geplotteten Daten können verschiedenste Verletzungen (z.B. Missspezifikationen der Form des Zusammenhangs zwischen den Variablen) entdeckt werden, denn graphische Darstellungen machen nur geringe Annahmen über die Art des Problems. Statistische Tests hingegen haben häufig einen eingeschränkten Fokus und sie vergleichen nur, was wir vorgegeben haben. Zusätzlich funktionieren sie nur unter bestimmten Annahmen, liefern lediglich eine 0/1-Aussage ohne die Schwere des Annahmeverstoßes zu quantifizieren und hängen stark von der Stichprobengröße ab.
 </div></details>
 
 <p style="line-height:10px;"></p>
 
-<details><summary>Was ist die <a name="loess">Lowess Fit Line</a>?</span></summary><div class="more">
+<details><summary>Was ist die <a name="loess">Lowess Fit Line</a>?</summary><div class="more">
 ```{r}
 #| echo: false
 # C, C, W & A: S.111
@@ -115,7 +115,7 @@ daten$resid <- residuals(lm_lz)
 
 Im Rahmen dieses Kapitels liegt der Fokus nicht auf der inhaltlichen Interpretation der Ergebnisse der multiplen linearen Regressions, sondern darauf, **ob die oben genannten Annahmen erfüllt sind**. 
 
-Nachfolgend sehen wir den Output der `lm()`-Funktion (<span class="code"><span class = "ex">lm_lz</span></span>).
+Nachfolgend sehen wir den Output der `lm()`-Funktion (<span class="code"><span class = "ex">lm_lz).
 
 ```{r}
 #| label: summ reg
@@ -159,7 +159,7 @@ lz_inh <- lm(daten$leb_zufr ~ daten$zufr_inhalt, na.action='na.exclude') # Einfa
 abline(lz_inh) # Einzeichnen Regressionsgerade
 ```
 
-<span class = "ex">Der Plot spricht für einen linearen Zusammenhang zwischen Lebenszufriedenheit <font size="2">(Kriterium)</font> und Zufriedenheit mit Studieninhalten <font size="2">(Prädiktor)</font>.</span>
+<span class = "ex">Der Plot spricht für einen linearen Zusammenhang zwischen Lebenszufriedenheit <font size="2">(Kriterium)</font> und Zufriedenheit mit Studieninhalten <font size="2">(Prädiktor)</font>.
 
 ```{r}
 #| label: bivariate plot 2
@@ -171,7 +171,7 @@ lz_bed <- lm(daten$leb_zufr ~ daten$zufr_beding, na.action='na.exclude') # Einfa
 abline(lz_bed) # Einzeichnen Regressionsgerade
 ```
 
-<span class = "ex">Der Plot von Lebenszufriedenheit <font size="2">(Kriterium)</font> und Zufriedenheit mit Studienbedingungen <font size="2">(Prädiktor)</font> weist auf einen linearen Zusammenhang hin.</span>
+<span class = "ex">Der Plot von Lebenszufriedenheit <font size="2">(Kriterium)</font> und Zufriedenheit mit Studienbedingungen <font size="2">(Prädiktor)</font> weist auf einen linearen Zusammenhang hin.
 
 
 #### Residualplot
@@ -193,9 +193,9 @@ plot(lm_lz, which = 1)
 ```
 Die **gestrichelte Linie** bei $y = 0$ zeigt den Erwartungswert der Residuen. Diese ist immer null und die Residuen sollten sich ohne erkennbares Muster, um diese Linie verteilen.
 
-Die rote Linie ist die <span style="color:red">[Lowess Fit Line](#loess)</span>. Diese sollte sich der gestrichelten Linie annähern, wenn der Zusammenhang zwischen Prädiktoren und Kriterium linear ist.
+Die rote Linie ist die <span style="color:red">[Lowess Fit Line](#loess). Diese sollte sich der gestrichelten Linie annähern, wenn der Zusammenhang zwischen Prädiktoren und Kriterium linear ist.
 
-<span class = "ex">In unserem Beispiel legt der Residualplot nahe, dass der Zusammenhang zwischen Lebenszufriedenheit und Zufriedenheit mit Studieninhalten und -bedingungen weitgehend linear ist.</span>
+<span class = "ex">In unserem Beispiel legt der Residualplot nahe, dass der Zusammenhang zwischen Lebenszufriedenheit und Zufriedenheit mit Studieninhalten und -bedingungen weitgehend linear ist.
 
 Die Annahme der Linearität wäre z.B. verletzt, wenn die Residuen einen U-förmigen Zusammenhang mit den vorhergesagten Werten aufweisen würden. Das würde nahelegen, dass ein quadratischer Zusammenhang zwischen dem Kriterium und den Prädiktoren besteht, der nicht adäquat modelliert wurde.
 
@@ -238,7 +238,7 @@ Um einen angemessen Weg zu finden, um mit nicht-linearen Zusammenhängen zwische
 
 Das impliziert z.B. perfekte Reliabilität und das alle relevanten Variablen im Modell aufgenommen sind, das heißt, dass es keine <a href="https://de.wikipedia.org/wiki/Störfaktor" target="_blank">konfundierenden Variablen</a> gibt. Das ist ein zentrales Anliegen in der Wissenschaft, jedoch ist Exogenität nicht leicht nachzuweisen. 
 
-<span class = "ex">Für unser Beispiel der Regression von 'Zufriedenheit mit Studieninhalten' und 'Zufriedenheit mit Studienbedingungen' auf 'Lebenszufriedenheit' müssten wir überlegen, ob noch andere Variablen einen Einfluss haben könnten. Beispielsweise könnten auch verschiedene Persönlichkeitsfaktoren mit 'Lebenszufriedenheit' zusammenhängen. Das würde sich dann darin äußern, dass die Prädiktoren noch systematische Varianz mit dem Fehlerterm teilen.</span>
+<span class = "ex">Für unser Beispiel der Regression von 'Zufriedenheit mit Studieninhalten' und 'Zufriedenheit mit Studienbedingungen' auf 'Lebenszufriedenheit' müssten wir überlegen, ob noch andere Variablen einen Einfluss haben könnten. Beispielsweise könnten auch verschiedene Persönlichkeitsfaktoren mit 'Lebenszufriedenheit' zusammenhängen. Das würde sich dann darin äußern, dass die Prädiktoren noch systematische Varianz mit dem Fehlerterm teilen.
 
 Wenn nicht alle relevanten Prädiktoren im Modell spezifiziert sind *oder* enthaltene Prädiktoren messfehlerbehaftet sind, *können* daraus verzerrte **Regressionskoeffizienten** und **Standardfehler** resultieren. 
 
@@ -250,15 +250,15 @@ Zur Überprüfung der Exogenität könnten wir außerdem eine **hierarchische Re
 
 Wir sollten uns zusätzlich theoretisch überlegen, ob die gemessenen Prädiktoren messfehlerbehaftet sein könnten. Direkt beobachtbare Variablen <font size="2">(z.B. Alter, höchster Bildungsabschluss oder Körpergröße)</font> stehen *weniger* im Verdacht, messfehlerbehaftet zu sein. Nicht direkt beobachtbare <font size="2">(latente)</font> Variablen hingegen <font size="2">(z.B. Berufserfolg, Kreativität oder Wohlbefinden)</font> können mit *größerer* Wahrscheinlichkeit messfehlerbehaftet sein. 
 
-<span class = "ex">Unsere Variablen 'Lebenszufriedenheit', 'Zufriedenheit mit Studieninhalten' und 'Zufriedenheit mit Studienbedingungen' sind alle latent. Von daher sind Messfehler wahrscheinlicher.</span>
+<span class = "ex">Unsere Variablen 'Lebenszufriedenheit', 'Zufriedenheit mit Studieninhalten' und 'Zufriedenheit mit Studienbedingungen' sind alle latent. Von daher sind Messfehler wahrscheinlicher.
 
 Wir sollten uns außerdem für die reliabelsten Erhebungsinstrumente für die Messung der Prädiktoren entscheiden. Wenn wir nicht an der Erhebung der Variablen beteiligt waren, sollten wir uns nachträglich über die Reliabilität der Erhebungsinstrumente informieren.
 
-<span class = "ex">In unserem Fall des `erstis`-Datensatz gibt es leider keine weiteren Informationen zu den Erhebungsinstrumenten. So können wir leider nicht einschätzen, wie reliabel die Erhebungsinstrumente sind.</span>
+<span class = "ex">In unserem Fall des `erstis`-Datensatz gibt es leider keine weiteren Informationen zu den Erhebungsinstrumenten. So können wir leider nicht einschätzen, wie reliabel die Erhebungsinstrumente sind.
 
 Die Reliabilität erhobener Variablen können wir auf verschiedene Arten schätzen. Diese werden in Abhängigkeit des Forschungsdesign und der Fragestellung ausgewählt. 
 
-<span class = "ex">Die Reliabilität der Messungen in unserem Beispiel könnten wir beispielsweise mit McDonald's Omega bzw. dem gewichteten Omega berechnen.</span>
+<span class = "ex">Die Reliabilität der Messungen in unserem Beispiel könnten wir beispielsweise mit McDonald's Omega bzw. dem gewichteten Omega berechnen.
 
 ### Umgang
 
@@ -278,7 +278,7 @@ Es kann vielfältige Gründe für Varianzheterogenität geben. So können z.B. s
 
 Nur unter Gültigkeit der Annahme ist die Berechnung der **Standardfehler** korrekt, aber Heteroskedastizität führt *nicht* zu verzerrten Regressionkoeffizienten.
 
-Andere als die vorgestellten Möglichkeiten zur Überprüfung und zum Umgang mit Heteroskedastizität inklusive der Umsetzung in <span class="r">R</span> finden wir z.B. auf <a href="https://www.r-bloggers.com/how-to-detect-heteroscedasticity-and-rectify-it/" target="_blank"><span class="r">R</span>-bloggers</a>.
+Andere als die vorgestellten Möglichkeiten zur Überprüfung und zum Umgang mit Heteroskedastizität inklusive der Umsetzung in <span class="r">R finden wir z.B. auf <a href="https://www.r-bloggers.com/how-to-detect-heteroscedasticity-and-rectify-it/" target="_blank"><span class="r">R-bloggers</a>.
 
 ### Überprüfung
 
@@ -336,18 +336,18 @@ plot(lm_lz, which = 3)
 # dritter Plot der plot()-Funktion für ein lm-Objekt ist der Scale Location Plot
 ```
 
-Die standardisierten Residuen sollten auch hier gleichmäßig <font size="2">(zufällig)</font> über den gesamten Bereich streuen. Außerdem sollte die <span style="color:red">[Lowess Line](#loess)</span> möglichst horizontal zur $x$-Achse sein.
+Die standardisierten Residuen sollten auch hier gleichmäßig <font size="2">(zufällig)</font> über den gesamten Bereich streuen. Außerdem sollte die <span style="color:red">[Lowess Line](#loess) möglichst horizontal zur $x$-Achse sein.
 
-<span class = "ex">Auch der Scale Location Plot weist in unserem Beispiel auf ungefähre Varianzhomogenität hin. Das heißt, dass die standardisierten Residuen des Teils vom Kriterium 'Lebenszufriedenheit', der nicht durch die Prädiktoren 'Zufriedenheit mit Studieninhalten' und 'Zufriedenheit mit Studienbedingungen' vorhergesagt werden kann, gleichmäßig über die vorhergesagten Werte vom Kriterium 'Lebenszufriedenheit' streut.</span> 
+<span class = "ex">Auch der Scale Location Plot weist in unserem Beispiel auf ungefähre Varianzhomogenität hin. Das heißt, dass die standardisierten Residuen des Teils vom Kriterium 'Lebenszufriedenheit', der nicht durch die Prädiktoren 'Zufriedenheit mit Studieninhalten' und 'Zufriedenheit mit Studienbedingungen' vorhergesagt werden kann, gleichmäßig über die vorhergesagten Werte vom Kriterium 'Lebenszufriedenheit' streut. 
 
 <details><summary>Exkurs: Quantifizieren des Ausmaßes</summary><div class="more">
 Bisher haben wir uns angeschaut, *ob* Heteroskedastizität vorliegt. Diese hat aber erst einen substanziellen Einfluss auf die Regression, wenn das Ausmaß "groß" ist. Wir können die Varianzheterogenität (_wenn_ die graphische Überprüfung darauf hindeutet) quantifizieren, um zu entscheiden, ob wir korrektive Maßnahmen durchführen sollten. Dazu schauen wir uns eine Möglichkeit aus dem Lehrbuch von Cohen, Cohen, West & Aiken (2003, S.146) an.
 
-Dabei betrachten wir die **konditionale (Fehler-)Varianz $s^2_{(e | slice)}$ **in sog. "Slices" (d.h. Gruppen) für einzelne Prädiktoren. Wir schauen uns das exemplarisch bei <span class = "ex">*Zufriedenheit mit Studieninhalten*</span> an. Dazu nutzt man die Ergebnisse der einfachen Regression der Prädiktoren. Diese haben wir im Abschnitt [Bivariate Streudiagramme](#überprüfung) schon einmal berechnet und darauf greifen wir jetzt wieder zurück.
+Dabei betrachten wir die **konditionale (Fehler-)Varianz $s^2_{(e | slice)}$ **in sog. "Slices" (d.h. Gruppen) für einzelne Prädiktoren. Wir schauen uns das exemplarisch bei <span class = "ex">*Zufriedenheit mit Studieninhalten* an. Dazu nutzt man die Ergebnisse der einfachen Regression der Prädiktoren. Diese haben wir im Abschnitt [Bivariate Streudiagramme](#überprüfung) schon einmal berechnet und darauf greifen wir jetzt wieder zurück.
 
 **Das Vorgehen**:
 
-1. **Sortieren der Residuen nach aufsteigendem Prädiktor X** (<span class = "ex">*Zufriedenheit mit Studieninhalten*</span>) 
+1. **Sortieren der Residuen nach aufsteigendem Prädiktor X** (<span class = "ex">*Zufriedenheit mit Studieninhalten*) 
 2. **in ähnlich große Slices einteilen**\
 Die Wahl der Anzahl der Slices ist ein Tradeoff zwischen stabiler Varianzschätzung in jedem Slice (d.h. wenig Gruppen) und der Begutachtung verschiedener Anteile der Daten (d.h. viele Gruppen).
 3. **konditionale Varianz in den Slices berechnen**\
@@ -361,7 +361,7 @@ Dazu quadrieren wir die einzelnen Residuen, teilen diese jeweils durch die Anzah
 __Wenn der Quotient $> 10$ ist *oder* es systematische Variation gibt, sollten wir korrektive Maßnahmen einleiten__ 
 
 
-Nachfolgend schauen wir uns die Umsetzung dazu in <span class="r">R</span> an:
+Nachfolgend schauen wir uns die Umsetzung dazu in <span class="r">R an:
 
 ```{r}
 # Objekt erzeugen, ...
@@ -381,9 +381,9 @@ quant <- data.frame(erstis$zuf.inh.1,
 Standardmäßig wird so die *erste* Variable X aufsteigend sortiert, weil `order(..., decreasing=FALSE)` der Default ist. Mit `decreasing=TRUE` können wir absteigend sortieren.
 
 \
-> *__Achtung__*:  <div class="rows">Bei <span class="code">order(<span class = "ex">X</span>, -<span class = "ex">resid</span>)</span> ändert sich die **Sortierung innerhalb der _gleichen_ Prädiktorwerte X** in Abhängigkeit davon, ob wir bei `order()` vor die *zweite* Variable (<span class="code"><span class = "ex">resid</span></span>) ein `-` setzen oder nicht:\
-Mit <span class="code"><span class = "ex">resid</span></span> (so wie wir es im Beispiel machen) wird innerhalb der gleichen Prädiktorwerte **aufsteigend** sortiert.\
-Mit <span class="code">-<span class = "ex">resid</span></span> wird innerhalb der gleichen Prädiktorwerte **absteigend** sortiert. \
+> *__Achtung__*:  <div class="rows">Bei <span class="code">order(<span class = "ex">X, -<span class = "ex">resid) ändert sich die **Sortierung innerhalb der _gleichen_ Prädiktorwerte X** in Abhängigkeit davon, ob wir bei `order()` vor die *zweite* Variable (<span class="code"><span class = "ex">resid) ein `-` setzen oder nicht:\
+Mit <span class="code"><span class = "ex">resid (so wie wir es im Beispiel machen) wird innerhalb der gleichen Prädiktorwerte **aufsteigend** sortiert.\
+Mit <span class="code">-<span class = "ex">resid wird innerhalb der gleichen Prädiktorwerte **absteigend** sortiert. \
 Dadurch kommen unterschiedliche Residuen in die Slices und folglich werden auch unterschiedliche konditionale Varianzen berechnet!</div>
 \
 
@@ -422,13 +422,13 @@ sort_var <- c(var_slice_1 , var_slice_2, var_slice_3, var_slice_4)
 sort_var
 ```
 
-<span class = "ex">In unserem Beispiel scheint es keine systematischen Zu- oder Abhnahme in den konditionalen Varianzen der Slices zu geben ...</span>
+<span class = "ex">In unserem Beispiel scheint es keine systematischen Zu- oder Abhnahme in den konditionalen Varianzen der Slices zu geben ...
 
 ```{r}
 round((var_slice_1 / var_slice_3), 3)
 ```
 
-<span class = "ex">... und auch der Quotient zwischem dem Slice mit der größten und der kleinsten konditionalen Varianz ist relativ klein.</span> \
+<span class = "ex">... und auch der Quotient zwischem dem Slice mit der größten und der kleinsten konditionalen Varianz ist relativ klein. \
 </div></details>
 
 <p style="line-height:10px;"></p>
@@ -469,7 +469,7 @@ summary(lm_lz)$coefficients
 summary(lm_wls)$coefficients
 ```
 
-<span class = "ex">Wir sehen, dass die Schätzungen von WLS denen von OLS sehr nah ist. Relevant wären hier prinzipiell mehr die Standardfehler (die bei Varianzheterogenität und OLS verzerrt wären). Da wir aber von Varianzhomogenität in unserem Beispiel ausgehen, sind auch diese sehr ähnlich.</span>
+<span class = "ex">Wir sehen, dass die Schätzungen von WLS denen von OLS sehr nah ist. Relevant wären hier prinzipiell mehr die Standardfehler (die bei Varianzheterogenität und OLS verzerrt wären). Da wir aber von Varianzhomogenität in unserem Beispiel ausgehen, sind auch diese sehr ähnlich.
 
 > *__Achtung__*: <div class="row">Es gibt zwei Schwierigkeiten im Umgang mit dem WLS-Schätzer:
 
@@ -493,7 +493,7 @@ Wenn Residuen abhängig sind, *kann* sich das auch in Heteroskedastizität äuß
 
 Residuen sind abhängig, wenn wir z.B. **wiederholte Messungen** oder **Gruppenstrukturen** untersuchen. Ersteres meint, dass mehrere Messungen von *einer Person*, d.h. zu mehreren Zeitpunkten, vorliegen. In diesem Fall sprechen wir auch von seriellen Abhängigkeiten. Zweiteres meint, dass die Daten "geclustert" sind und es somit systematische Zusammenhänge *zwischen Personen* gibt z.B. Schüler in einer Schulklasse. Beide Fälle müssen bei der Modellspezifikation berücksichtigt werden. \
 
-<span class = "ex">In unserem Beispiel könnte beispielsweise das Kriterium 'Lebenszufriedenheit' in Abhängigkeit vom Wohnort variieren. Damit wären die Daten geclustert.</span>
+<span class = "ex">In unserem Beispiel könnte beispielsweise das Kriterium 'Lebenszufriedenheit' in Abhängigkeit vom Wohnort variieren. Damit wären die Daten geclustert.
 
 Abhängigkeit der Residuen führt zwar *nicht* zu verzerrten Regressionskoeffizienten, aber es kann zu verzerrten **Standardfehlern** führen.\
 
@@ -516,7 +516,7 @@ Einen Eindruck darüber, ob es systematische Abhängigkeiten zwischen den Residu
 
 Hierbei können wir u.a. visualisieren, ob es zeitliche Abhängigkeiten gibt, z.B. ob Personen, die später an der Befragung teilgenommen haben, systematische Unterschiede in ihrer Lebenszufriedenheit <font size="2">(Kriterium)</font> zeigen. 
 
-Um das besser beurteilen zu können, können wir auch hier wieder die <span style="color:red">[Lowess Line](#loess)</span> einzeichnen. Diese sollte wieder möglichst horizontal zur $x$-Achse bei $y = 0$ liegen. Beide Linien fügen wir zur Vereinfachung der Beurteilung des Plots hinzu.
+Um das besser beurteilen zu können, können wir auch hier wieder die <span style="color:red">[Lowess Line](#loess) einzeichnen. Diese sollte wieder möglichst horizontal zur $x$-Achse bei $y = 0$ liegen. Beide Linien fügen wir zur Vereinfachung der Beurteilung des Plots hinzu.
 
 
 ```{r}
@@ -529,12 +529,12 @@ abline( # Linie einzeichnen
   lty=3) # Linien-Art: gestrichelt
 ```
 
-<span class = "ex">Die Abbildung impliziert, dass die Residuen unabhängig sind. Das entspricht unseren Vorüberlegungen, das wir nur Variablen haben, die zum gleichen Messzeitpunkt erhoben wurden.</span> \
+<span class = "ex">Die Abbildung impliziert, dass die Residuen unabhängig sind. Das entspricht unseren Vorüberlegungen, das wir nur Variablen haben, die zum gleichen Messzeitpunkt erhoben wurden. \
 
 <details><summary>Exkurs: Grafische Interpretationshilfe für den Index Plot</summary><div class="more">
 Falls wir ein Messwiederholungsdesign haben und die Daten im Long-Format (d.h. Messungen einer Person in mehreren Zeilen) vorliegen, können wir die Messungen verschiedener Person farblich unterschiedlich darstellen.
 
-<span class="ex">In unserem Fall haben wir zwar keine Messwiederholung, aber wir illustrieren die farbliche Darstellung einmal am gleichen Beispiel.</span>
+<span class="ex">In unserem Fall haben wir zwar keine Messwiederholung, aber wir illustrieren die farbliche Darstellung einmal am gleichen Beispiel.
 
 Die **Farbe** der geplotteten Elemente können wir mit dem Argument `col` verändern. Um die Farbe ab einer bestimmten Anzahl an Messungen (d.h. Messwiederholungen für eine Person) jeweils zu verändern, können wir `rep()` benutzen. Diese Funktion wiederholt das erste Argument `x` (bzw. die einzelnen Elemente des ersten Arguments) jeweils so oft wie das zweite Argument `each`. 
 
@@ -546,7 +546,7 @@ lines(lowess(lm_lz$residuals), col = "red")
 abline(h=0, col="darkblue", type="l", lty=3)
 ```
 
-Die 10 steht dafür, dass wir 10 Messwiederholungen haben. 1 bis 17 kodiert unterschiedliche Farbe. Alternativ können wir auch die Farbnamen in einem Vektor spezifizieren - dann würden wir anstatt `1:17` z.B. <span class="code">c('<span class = "ex">red</span>', '<span class = "ex">blue</span>', '<span class = "ex">green</span>', ...)</span> einfügen. 
+Die 10 steht dafür, dass wir 10 Messwiederholungen haben. 1 bis 17 kodiert unterschiedliche Farbe. Alternativ können wir auch die Farbnamen in einem Vektor spezifizieren - dann würden wir anstatt `1:17` z.B. <span class="code">c('<span class = "ex">red', '<span class = "ex">blue', '<span class = "ex">green', ...) einfügen. 
 
 Mit dem Argument `pch` können wir analog die **Form der Punkte** ändern.
 
@@ -591,7 +591,7 @@ Beispielsweise können wir mit Hilfe des IKK beurteilen, wie stark sich Personen
 
 Zur Überprüfung können wir z.B. die Funktion `ICCest` aus dem Paket **ICC** nutzen.
 
-<span class = "ex">Für unser Beispiel schauen wir uns exemplarisch an, inwieweit Unterschiede in 'Lebenszufriedenheit' <font size="2">(Kriterium)</font> durch 'Gruppenzugehörigkeit im Wintersemester' <font size="2">(`erstis$gruppe`)</font> erklärt werden können</span>.
+<span class = "ex">Für unser Beispiel schauen wir uns exemplarisch an, inwieweit Unterschiede in 'Lebenszufriedenheit' <font size="2">(Kriterium)</font> durch 'Gruppenzugehörigkeit im Wintersemester' <font size="2">(`erstis$gruppe`)</font> erklärt werden können.
 
 Dazu fügen wir diese Variable zu unserem Datensatz hinzu.
 
@@ -619,10 +619,10 @@ Die Funktion gibt uns folgende Outputs:
 \
 \
 \
-Bei unbalancierter Gruppengröße ist k, die Anzahl der Personen in jeder Gruppe, kleiner als die mittlere Gruppengröße. Für mehr Informationen dazu schau dir die <span class="r">R</span>-Dokumentation für `ICCest()` an.</aside>
+Bei unbalancierter Gruppengröße ist k, die Anzahl der Personen in jeder Gruppe, kleiner als die mittlere Gruppengröße. Für mehr Informationen dazu schau dir die <span class="r">R-Dokumentation für `ICCest()` an.</aside>
  
 
-<span class = "ex">Die IKK weist darauf hin, dass wenig Varianz durch die Kurszugehörigkeit erklärt wird. Es ist also nicht notwendig, dass wir die Gruppenzugehörigkeit in unserem Modell berücksichtigen.</span> 
+<span class = "ex">Die IKK weist darauf hin, dass wenig Varianz durch die Kurszugehörigkeit erklärt wird. Es ist also nicht notwendig, dass wir die Gruppenzugehörigkeit in unserem Modell berücksichtigen. 
 
 
 ##### Boxplots der geclusterten Gruppen {#sec-Boxplots-der-geclusterten-Gruppen}
@@ -638,7 +638,7 @@ abline(h=0, col="darkblue", type="l", lty=3)
 
 Die Interpretation hier ist ähnlich zu den Resiualplots: Der Median der einzelnen Gruppen sollte jeweils nah an der gestrichelten Linie bei $y=0$ sein. Zusätzlich sollten die Verteilungen sich stark überlappen.
 
-<span class = "ex">Die Verteilungen der Residuen in den Gruppen sieht sehr ähnlich aus. Die Verteilungen überlappen sich deutlich. Es scheint keine systematischen Streuungsunterschiede in den Residuen in Abhängigkeit der Gruppenzugehörigkeit zu geben.</span> 
+<span class = "ex">Die Verteilungen der Residuen in den Gruppen sieht sehr ähnlich aus. Die Verteilungen überlappen sich deutlich. Es scheint keine systematischen Streuungsunterschiede in den Residuen in Abhängigkeit der Gruppenzugehörigkeit zu geben. 
 
 
 ### Umgang
@@ -677,7 +677,7 @@ hist(lm_lz$residuals)
 
 Optisch sollte ungefähr eine Normalverteilung zu erkennen sein. \
 
-<span class = "ex">In unserem Beispiel sieht es jedoch nach einer linksschiefen (d.h. rechtssteilen) Verteilung der Residuen aus.</span> 
+<span class = "ex">In unserem Beispiel sieht es jedoch nach einer linksschiefen (d.h. rechtssteilen) Verteilung der Residuen aus. 
 
 
 <details><summary>Exkurs: Graphische Interpretationshilfe für das Histogramm</summary><div class="more">
@@ -689,9 +689,9 @@ Dann zeichnen wir die reale Dichtefunktion der Residuen ein. Dafür kombinieren 
 
 Für die normalverteilte Dichtefunktion der Residuen nutzen wir `curve()` und `dnorm()`. Mit ersterer wird eine Kurve auf Basis einer mathematischen Funktion eingezeichnet. Mit zweiterer geben wir an, dass es eine Dichtefunktion einer Normalverteilung sein soll, für die wir Mittelwert und Standardabweichung (der Residuen) angeben. Zusätzlich müssen wir hier mit `add=TRUE` festlegen, dass die Kurve über das Histogramm gelegt werden soll. 
 
-Um die Normalverteilung besser anschauen zu können, erweitern wir die $x$-Achse. Das machen wir mit <span class="code">xlim=c(<span class = "ex">-15</span>, <span class = "ex">15</span>)</span>. Die Wahl der Grenzen von $-15$ bis $+ 15$ - ist eine theoretische Überlegung. Bei einer Normalverteilung liegen ~ $99$% der Werte im Bereich $+/- 3$ Standardabweichungen vom Mittelwert entfernt. Die Standardabweichung der Residuen beträgt ~ `r round(sd(lm_lz$residuals), 3)`. 
+Um die Normalverteilung besser anschauen zu können, erweitern wir die $x$-Achse. Das machen wir mit <span class="code">xlim=c(<span class = "ex">-15, <span class = "ex">15). Die Wahl der Grenzen von $-15$ bis $+ 15$ - ist eine theoretische Überlegung. Bei einer Normalverteilung liegen ~ $99$% der Werte im Bereich $+/- 3$ Standardabweichungen vom Mittelwert entfernt. Die Standardabweichung der Residuen beträgt ~ `r round(sd(lm_lz$residuals), 3)`. 
 
-Für eine bessere Übersichtlichkeit stellen wir die <span style="color:orange">reale Dichtefunktion</span> und die <span style="color:green">erwartete Dichtefunktion</span> farblich dar. 
+Für eine bessere Übersichtlichkeit stellen wir die <span style="color:orange">reale Dichtefunktion und die <span style="color:green">erwartete Dichtefunktion farblich dar. 
 
 ```{r}
 #| label: hist_advanced
@@ -713,7 +713,7 @@ curve( # erstellt eine Kurve ...
   add = TRUE) # ... die zu bestehendem Plot hinzugefügt wird
 ```
 
-<span class = "ex">Anhand dieser beiden Linien wird noch deutlicher, dass die Verteilung der Residuen in unserem Beispiel von einer Normalverteilung abweicht.</span>
+<span class = "ex">Anhand dieser beiden Linien wird noch deutlicher, dass die Verteilung der Residuen in unserem Beispiel von einer Normalverteilung abweicht.
 </div></details>
 
 <p style="line-height:10px;"></p>
@@ -734,7 +734,7 @@ abline(v = 1, col = "blue") # zur Illustration für unser Beispiel
 
 In der obigen Abbildung werden die theoretischen Quantile der Normalverteilung <font size="2">($x$-Achse)</font> gegen die standardisierten Residuen <font size="2">($y$-Achse)</font> abgetragen. Wenn die Residuen normalverteilt sind, sollten die Punkte ungefähr auf der winkelhalbierenden Geraden <font size="2">(gestrichelte Linie)</font> liegen. Kleinere Abweichungen, vor allem an den Enden der Geraden <font size="2">(unten links und oben rechts)</font> sind in der Praxis aber nicht ungewöhnlich und oftmals nicht weiter problematisch.
 
-<span class = "ex"> In unserem Beispiel weichen viele Punkte mit höheren Ausprägungen (rechts von der </span> <span style="color:blue">blauen Linie</span><span class = "ex">) von der winkelhalbierenden Geraden ab, was für eine gewisse Verletzung der Normalverteilungsannahme spricht.</span>
+<span class = "ex"> In unserem Beispiel weichen viele Punkte mit höheren Ausprägungen (rechts von der  <span style="color:blue">blauen Linie<span class = "ex">) von der winkelhalbierenden Geraden ab, was für eine gewisse Verletzung der Normalverteilungsannahme spricht.
 
 Wenn wir sehen wollen, wie der QQ-Plot bei verschiedenen Verteilungsformen aussehen kann, können wir uns diesen <a href="https://stats.stackexchange.com/questions/101274/how-to-interpret-a-qq-plot" target="_blank">Forumseintrag</a> zu QQ-Plots anschauen.
 
@@ -751,7 +751,7 @@ Der Test wird mit der Funktion `shapiro.test()` durchgeführt. Um die Residuen d
 shapiro.test(lm_lz$residuals)
 ```
 
-<span class = "ex">In unserem Beispiel kann die Nullhypothese abgelehnt werden, d.h. dass die Residuen __nicht__ normalverteilt sind.</span>
+<span class = "ex">In unserem Beispiel kann die Nullhypothese abgelehnt werden, d.h. dass die Residuen __nicht__ normalverteilt sind.
 </div></details>
 
 <p style="line-height:10px;"></p>
@@ -799,7 +799,7 @@ Indeterminationskoeffizient: $1-R^2_y$</aside>
 
 Um festzustellen, ob Prädiktoren hoch miteinander korreliert sind, können wir uns die **Toleranz** und den **Variance Inflation Factor** anschauen. Beide hängen direkt miteinander zusammen, aber ihre Interpretationen sind unterschiedlich. 
 
-Falls wir ein *ernsthaftes* Problem mit Multikollinearität haben, wird uns das in <span class="r">R</span> teilweise mit z.B. `aliased coefficients` oder `1 coefficient not defined because of singularities` angezeigt.
+Falls wir ein *ernsthaftes* Problem mit Multikollinearität haben, wird uns das in <span class="r">R teilweise mit z.B. `aliased coefficients` oder `1 coefficient not defined because of singularities` angezeigt.
 
 <font size="2">Im Paket **mctest** gibt es zwei Funktionen, die helfen, Multikollinearität zu entdecken - `omctest()` - und zu lokalisieren - `imctest()`. Hierfür werden jeweils verschiedene Maße zu Rate gezogen u.a. auch die Toleranz und der VIF. Da wir die anderen Maße aber nicht vertiefend behandeln, sei an dieser Stelle **nur auf das Paket hingewiesen**. Bei Interesse empfielt es sich, den Artikel der Entwickler *<a href="https://www.researchgate.net/publication/313799182_mctest_An_R_Package_for_Detection_of_Collinearity_among_Regressors" target="_blank">mctest: An R Package for Detection of Multicollinearity among Regressors</a>* zu lesen, in dem die Maße kurz erklärt und weiterführende Quellen angegeben werden.</font>
 
@@ -809,7 +809,7 @@ Falls wir ein *ernsthaftes* Problem mit Multikollinearität haben, wird uns das 
 
 Dafür wird eine Regression von Prädiktor $X_j$ auf alle anderen Prädiktoren im Modell gerechnet <font size="2">(d.h. das Kriterium bleibt außen vor)</font> und davon der Kehrwert gebildet. Sie ist somit ein Maß für die **Uniqueness** von $X_j$. Die Tolreanz wird wie folgt berechnet: $1 - R^2_j$
 
-In <span class="r">R</span> können wir die Toleranz z.B. über den Kehrwert des Variance Inflation Factors, mit der Funktion `vif()` aus dem Paket **car**, berechnen. Der Funktion übergeben wir unser lm-Objekt.
+In <span class="r">R können wir die Toleranz z.B. über den Kehrwert des Variance Inflation Factors, mit der Funktion `vif()` aus dem Paket **car**, berechnen. Der Funktion übergeben wir unser lm-Objekt.
 
 ```{r}
 library(car)
@@ -824,7 +824,7 @@ tol_perc <- unname(round(tol[1], 3)) * 100
 
 Je kleiner die Toleranz ist, desto größer das Problem mit Multikollinearität. $Tol_j = 0$ impliziert perfekte Multikollinearität. $Tol_j~ < 0.10$ deutet auf ein ernsthaftes Problem mit Multikollinearität hin.
 
-<span class = "ex">Ungefähr `r tol_perc`% der Varianz in Zufriedenheit mit Studienbedingungen ist unabhängig von Zufriedenheit mit Studieninhalten <font size="2">(für den Fall von genau zwei Prädiktoren, wie in unserem Beispiel, gilt auch die umgekehrte Interpretation)</font>.</span> \
+<span class = "ex">Ungefähr `r tol_perc`% der Varianz in Zufriedenheit mit Studienbedingungen ist unabhängig von Zufriedenheit mit Studieninhalten <font size="2">(für den Fall von genau zwei Prädiktoren, wie in unserem Beispiel, gilt auch die umgekehrte Interpretation)</font>. \
 
 
 ##### Variance Inflation Factor
@@ -846,7 +846,7 @@ vif(lm_lz)
 
 Als Daumenregel gilt, dass ein VIF größer als 10 auf ein Problem mit Multikollinearit hindeutet.
 
-<span class = "ex">Der VIF in unserem Beispiel ist sehr klein, d.h. dass unsere beiden Prädiktoren Zufriedenheit mit Studieninhalten und Zufriedenheit mit Studienbedingungen nicht viel gemeinsame Varianz teilen.</span> \
+<span class = "ex">Der VIF in unserem Beispiel ist sehr klein, d.h. dass unsere beiden Prädiktoren Zufriedenheit mit Studieninhalten und Zufriedenheit mit Studienbedingungen nicht viel gemeinsame Varianz teilen. \
 
 #### Umgang
 
@@ -872,7 +872,7 @@ Bei hoher **_essentieller_** Multikollinearität ist es oftmals ratsam, Prädikt
 \
 Die **Leverage** ist die absolute Abweichung eines beobachteten Wertes einer Person vom Mittel aller Prädiktoren $X$.</aside>
 
-In den folgenden drei Abbildungen sehen wir verdeutlicht, was mit extremen Abweichungen auf dem Kriterium bzw. den Prädiktoren gemeint ist. Dazu wurden exemplarisch **Lebenszufriedenheit** ($Y$) und **Zufriedenheit mit Studieninhalten** ($X_1$) gegeneinander geplottet. Hierbei wurde jeweils der $Y$- bzw. $X_1$-Wert von <span style="color:red">Person 50</span> geändert. Die <span style="color:blue">gestrichelte Linie</span> stellt dabei jeweils die obere Grenze des Wertebereichs des Kriteriums bzw. des Prädiktors dar.
+In den folgenden drei Abbildungen sehen wir verdeutlicht, was mit extremen Abweichungen auf dem Kriterium bzw. den Prädiktoren gemeint ist. Dazu wurden exemplarisch **Lebenszufriedenheit** ($Y$) und **Zufriedenheit mit Studieninhalten** ($X_1$) gegeneinander geplottet. Hierbei wurde jeweils der $Y$- bzw. $X_1$-Wert von <span style="color:red">Person 50 geändert. Die <span style="color:blue">gestrichelte Linie stellt dabei jeweils die obere Grenze des Wertebereichs des Kriteriums bzw. des Prädiktors dar.
 
 <aside>[Später](#cooklev) greifen wir nochmal auf das gleiche Beispiel zurück, um den Unterschied und die Konsequenzen von extremen Abweichungen auf dem Kriterium bzw. den Prädiktoren noch mehr zu verdeutlichen.</aside>
 
@@ -905,7 +905,7 @@ Wenn die Regressionsgerade stark durch einzelne Beobachtungen beeinflusst wird, 
 
 Stoßen wir über auffällige Werte in unserem Datensatz, sollte wir zunächst kontrollieren, ob diese durch Eingabefehler oder fehlerhafte Kodierungen fehlender Werte <font size="2">(*Missings*)</font> zustande gekommen sind.
 
-Beispielsweise werden in manchen Anwendungen Missings nicht mit `NA`, sondern z.B. wie bei Unipark mit `99` oder `-99` kodiert. Wir müssen diese *vor* der Auswertung auf `NA` umkodieren, da <span class="r">R</span> diese sonst nicht als Missings erkennt. Für mehr Informationen dazu können wir im [Kapitel zu Fehlenden Werten](Fehlende-Werte.qmd) nachschauen.
+Beispielsweise werden in manchen Anwendungen Missings nicht mit `NA`, sondern z.B. wie bei Unipark mit `99` oder `-99` kodiert. Wir müssen diese *vor* der Auswertung auf `NA` umkodieren, da <span class="r">R diese sonst nicht als Missings erkennt. Für mehr Informationen dazu können wir im [Kapitel zu Fehlenden Werten](Fehlende-Werte.qmd) nachschauen.
 
 Stark abweichende Werte lassen sich oft einfach mit Hilfe von **Plots** oder **Deskriptivstatistiken** identifizieren. 
 
@@ -921,7 +921,7 @@ Zur Exploration von Ausreißern auf dem Kriterium können wir uns die studentisi
 
 Studentisierte gelöschte Residuen werden wie folgt berechnet: $\frac {e_i} {\hat {\sigma} \cdot \sqrt{1 - h_m}}$ \ 
 
-Sie sind theoretisch $t$-verteilt mit $df = N − k − 1$ (N = Stichprobengröße, k = Anzahl Prädiktoren). Wir erhalten die Anzahl der Freiheitsgrade aus dem lm-Objekt mittels <span class="code">summary(<span class = "ex">lm_lz</span>)$fstat["dendf"]</span>.
+Sie sind theoretisch $t$-verteilt mit $df = N − k − 1$ (N = Stichprobengröße, k = Anzahl Prädiktoren). Wir erhalten die Anzahl der Freiheitsgrade aus dem lm-Objekt mittels <span class="code">summary(<span class = "ex">lm_lz)$fstat["dendf"].
 
 > **Studentisiert** heißt, dass die Residuen durch die geschätzte Populationsstandardabweichung der Residuen an der Stelle $x_m$ <font size="2">(das meint den Hebelwert der Person $h_m$)</font> geteilt werden. 
 
@@ -937,9 +937,9 @@ plot(rstudent(lm_lz))
 
 Es gibt keine einheitlichen Richtlinien darüber, ab wann ein studentisiertes gelöschtes Residuum als extrem groß anzusehen ist. Wir schauen nur, ob einzelne Werte stark vom Cluster der anderen Werte abweichen.
 
-<span class = "ex">In unserem Beispiel gibt es keine Werte, die __extrem__ von der Verteilung der anderen abweichen. Wir schauen uns dennoch exemplarisch einmal die zwei größten Werte an <font size="2">(d.h. die kleiner gleich - 3 sind)</font>.</span>
+<span class = "ex">In unserem Beispiel gibt es keine Werte, die __extrem__ von der Verteilung der anderen abweichen. Wir schauen uns dennoch exemplarisch einmal die zwei größten Werte an <font size="2">(d.h. die kleiner gleich - 3 sind)</font>.
 
-In folgender Abbildung schauen wir uns an, wie eine <span style="color:red">extreme Abweichung</span> eines studentisierten gelöschten Residuums aussehen könnte. In folgendem Plot wurde nur ein studentisiertes gelöschtes Residuum eingefügt; die anderen Werte sind gleich geblieben.
+In folgender Abbildung schauen wir uns an, wie eine <span style="color:red">extreme Abweichung eines studentisierten gelöschten Residuums aussehen könnte. In folgendem Plot wurde nur ein studentisiertes gelöschtes Residuum eingefügt; die anderen Werte sind gleich geblieben.
 
 ```{r}
 #| echo: false
@@ -971,7 +971,7 @@ library(car)
 outlierTest(lm_lz)
 ```
 
-<span class = "ex">Der Test liefert Evidenz dafür, dass das größte studentisierte gelöschte Residuum nicht extrem von den anderen abweicht.</span> 
+<span class = "ex">Der Test liefert Evidenz dafür, dass das größte studentisierte gelöschte Residuum nicht extrem von den anderen abweicht. 
 
 
 ##### Extreme Werte auf den Prädiktoren
@@ -1012,7 +1012,7 @@ sort((hatvalues(lm_lz)), decreasing=TRUE)[1]
 
 Wenn wir z.B. die größten drei Werte betrachten möchte, schreiben wir `[1:3]` anstatt `[1]`. Wenn wir alle Werte *absteigend* <font size="2">(weil `decreasing=TRUE`)</font> betrachten möchten, lassen wir die eckigen Klammern mit den Indizes komplett weg.
 
-<span class = "ex">Der Hebelwert von Person 151 liegt etwas abseits von der Verteilung der anderen. Noch extremere Werte sollten wir uns immer genauer anschauen. In unserem Beispiel liegen aber keine offensichtlich extremen Hebelwerte vor.</span> 
+<span class = "ex">Der Hebelwert von Person 151 liegt etwas abseits von der Verteilung der anderen. Noch extremere Werte sollten wir uns immer genauer anschauen. In unserem Beispiel liegen aber keine offensichtlich extremen Hebelwerte vor. 
 
 
 ##### Einflussreiche Datenpunkte
@@ -1030,9 +1030,9 @@ plot(lm_lz, which=5)
 # fünfter Plot der plot()-Funktion für ein lm-Objekt ist der Residuen-Leverage Plot
 ```
 
-Die <span style="color:red">[Lowess Line](#loess)</span> sollte auch hier wieder flach und nah an der gestrichelten Linie bei $y=0$ sein.
+Die <span style="color:red">[Lowess Line](#loess) sollte auch hier wieder flach und nah an der gestrichelten Linie bei $y=0$ sein.
 
-<span class = "ex">Die Werte der Person mit dem Index 50 weisen eine leicht erhöhte hohe Cooks Distance auf. Allerdings sind die Grenzen bei 0.5 und 1 nicht einmal sichtbar, weil alle Werte der Cooks Distance relativ klein sind. Auch die </span><span style="color:red">[Lowess Line](#loess)</span><span class = "ex"> ist flach an nah bei y=0. Beides spricht dafür, dass in unserem Datensatz keine einflussreichen Datenpunkte, die die Parameter verzerren könnten, enthalten sind.</span> \
+<span class = "ex">Die Werte der Person mit dem Index 50 weisen eine leicht erhöhte hohe Cooks Distance auf. Allerdings sind die Grenzen bei 0.5 und 1 nicht einmal sichtbar, weil alle Werte der Cooks Distance relativ klein sind. Auch die <span style="color:red">[Lowess Line](#loess)<span class = "ex"> ist flach an nah bei y=0. Beides spricht dafür, dass in unserem Datensatz keine einflussreichen Datenpunkte, die die Parameter verzerren könnten, enthalten sind. \
 
 In diesem <a href="https://stats.stackexchange.com/questions/58141/interpreting-plot-lm" target="_blank">Forumseintrag</a> wird der Residuen-Leverage-Plot noch ausführlicher erklärt.
 
@@ -1057,7 +1057,7 @@ Schauen wir uns den **Residuen-Leverage-Plot** noch einmal an.
 
 In den folgenden Abbildungen wurden die Werte von **Person 50** auf dem Kriterium und einem Prädiktor (Zufriedenheit mit Studieninhalten) jeweils einzeln und anschließend gemeinsam manipuliert, um den jeweiligen Einfluss im Vergleich zum bestehenden Datensatz (der schon weiter oben dargestellt war) zu veranschaulichen. 
 
-In der Einführung zu [ Extremen Werte und einflussreichen Datenpunkte](#extreme-werte-und-einflussreiche-datenpunkte) haben wir den Unterschied zwischen Ausreißern auf dem Kriterium und den Prädiktoren schon angesprochen. Die Abbildungen sollen deren Implikationen noch verdeutlichen. Bei der Interpretation helfen die durchgezogene <span style="color:red">[Lowess Fit Line](#loess)</span> und die rot gestrichelten Grenzwerte der Cooks Distance.
+In der Einführung zu [ Extremen Werte und einflussreichen Datenpunkte](#extreme-werte-und-einflussreiche-datenpunkte) haben wir den Unterschied zwischen Ausreißern auf dem Kriterium und den Prädiktoren schon angesprochen. Die Abbildungen sollen deren Implikationen noch verdeutlichen. Bei der Interpretation helfen die durchgezogene <span style="color:red">[Lowess Fit Line](#loess) und die rot gestrichelten Grenzwerte der Cooks Distance.
 
 
 ```{r}
@@ -1160,7 +1160,7 @@ Zur weiteren **Hilfe bei der Interpretation von Plots**, können wir diesen <a h
 
 ---
 
-<font size="2">Um eine möglichst exakte Replikation der Funktionen zu gewährleisten gibt es im folgenden relevante Angaben zum System (**<span class="r">R</span>-Version**, **Betriebssystem**, **geladene Pakete mit Angaben zur Version**), mit welchem diese Seite erstellt wurde.
+<font size="2">Um eine möglichst exakte Replikation der Funktionen zu gewährleisten gibt es im folgenden relevante Angaben zum System (**<span class="r">R-Version**, **Betriebssystem**, **geladene Pakete mit Angaben zur Version**), mit welchem diese Seite erstellt wurde.
 
 ```{r}
 sessionInfo()

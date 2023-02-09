@@ -13,24 +13,24 @@ Wir lernen **drei verschiedene Wege zum Einlesen von Dateien** kennen:
 knitr::include_graphics("figures/Daten-importieren/Bilder/overview.png")
 ```
 
-Die ersten beiden Wege nutzen die <span class ="rstud">**grafische Benutzeroberfläche** der Entwicklungsumgebung **RStudio**</span>, letzterer nutzt direkt `Funktionen`.
+Die ersten beiden Wege nutzen die **grafische Benutzeroberfläche** der Entwicklungsumgebung **RStudio**, letzterer nutzt direkt `Funktionen`.
 
-Exemplarisch schauen wir uns die drei Wege für die Datei <span class="ex">neuro<a href="https://de.wikipedia.org/wiki/CSV_(Dateiformat)" target="_blank">**.csv**</a></span> an. Wir können mit den vorgestellten Wegen aber auch andere Dateiformate einlesen.
+Exemplarisch schauen wir uns die drei Wege für die Datei <span class="ex">neuro<a href="https://de.wikipedia.org/wiki/CSV_(Dateiformat)" target="_blank">**.csv**</a> an. Wir können mit den vorgestellten Wegen aber auch andere Dateiformate einlesen.
 
 <details><summary>Was ist eine grafische Benutzeroberfläche?</summary><div class ="more">
 Die Grafische Benutzeroberfläche, oder auch Benutzungsschnittstelle, wird häufig auch mit GUI (_**G**raphical **U**ser **I**nterface_) abgekürzt. Durch diese kann man mit der Maus auf Symbole und andere Steuerelemente klicken anstatt Funktionen in der Konsole auszuführen (z.B. [Weg 1](#weg-1-environment-import-dataset) und [Weg 2](html#weg-2-files-import-dataset) zum Daten einlesen). 
 
-Die grafische Benutzeroberfläche in der Entwicklungsumgebung <span class ="r">**RStudio**</span> ist viel besser ausgebaut (als die des Basisprogramms **R**), weswegen wir diese auch nutzen wollen.</div></details>
+Die grafische Benutzeroberfläche in der Entwicklungsumgebung <span class ="r">**RStudio** ist viel besser ausgebaut (als die des Basisprogramms **R**), weswegen wir diese auch nutzen wollen.</div></details>
 
 <p style="line-height:10px;"></p>
 
 <details><summary>Was ist das Working Directory?</summary><div class ="more">
-Mit dem Working Directory (WD; Arbeitsverzeichnis) legen wir u.a. fest, wo unser aktuelles <span class="r">R</span>-Skript gespeichert wird und wo andere Objekte, die wir aus <span class="r">R</span> exportieren (z.B. Grafiken), standarmäßig (während der aktuellen Sitzung) gespeichert werden. 
+Mit dem Working Directory (WD; Arbeitsverzeichnis) legen wir u.a. fest, wo unser aktuelles <span class="r">R-Skript gespeichert wird und wo andere Objekte, die wir aus <span class="r">R exportieren (z.B. Grafiken), standarmäßig (während der aktuellen Sitzung) gespeichert werden. 
 
-Das WD müssen wir (in der Regel) in jeder <span class="r">R</span>-Sitzung erneut festlegen.</div></details>
+Das WD müssen wir (in der Regel) in jeder <span class="r">R-Sitzung erneut festlegen.</div></details>
 
 
-## Vor dem Einlesen in <span class="r">R</span>
+## Vor dem Einlesen in <span class="r">R
 
 In diesem Abschnitt schauen wir uns an, wie wir **Dateien aus dem Internet herunterladen** <font size="2">(z.B. aus moodle)</font> und **in unseren Arbeitsordner verschieben** können. Wir sollten der Übersichtlichkeit halber für jedes neue Projekt einen neuen Ordner anlegen. 
 
@@ -78,7 +78,7 @@ Als nächstes begeben wir uns in unseren Arbeitsordner <font size="2">(ggf. müs
 knitr::include_graphics("figures/Daten-importieren/Bilder/Herunterladen_Verschieben_2.png")
 ```
 
-Jetzt befindet sich die Datei in unserem Arbeitsordner und wir können nun <span class="r">RStudio</span> öffnen, um die Datei einzulesen.
+Jetzt befindet sich die Datei in unserem Arbeitsordner und wir können nun <span class="r">RStudio öffnen, um die Datei einzulesen.
 
 
 ## Mac
@@ -130,10 +130,10 @@ Als nächstes begeben wir uns in unseren Arbeitsordner <font size="2">(ggf. müs
 knitr::include_graphics("figures/Daten-importieren/Bilder/Datenfile_in_den_Zielordner_kopieren.png")
 ```
 
-Die Datei ist nun im Arbeitsordner gespeichert; wir können sie nun auch aus dem Download-Ordner löschen. Jetzt öffnen wir <span class="r">RStudio</span>, um die Datei einzulesen.
+Die Datei ist nun im Arbeitsordner gespeichert; wir können sie nun auch aus dem Download-Ordner löschen. Jetzt öffnen wir <span class="r">RStudio, um die Datei einzulesen.
 
 
-## Weg 1: <span class ="rstud">Environment</span> > <span class ="rstud">Import Dataset</span>
+## Weg 1: Environment > Import Dataset
 
 Eine Variante, Daten in **R** ganz ohne Code zu importieren, ist es, das Icon **Import Dataset** zu nutzen. Dieses finden wir im rechten oberen Panel bei **Environment**.  
 
@@ -161,11 +161,11 @@ knitr::include_graphics("figures/Daten-importieren/Bilder/Importieren_icon_csv_t
 
 Zum Einlesen sind folgende Schritte nötig:
 
-- Anklicken des <span style="color:#FF230C">**Browse**</span>-Buttons. Daraufhin öffnet sich ein Fenster, in welchem wir die Datei auswählen können.
-- Überprüfen der <span style="color:#27B965">**Vorschau**</span>, ob die Daten korrekt dargestellt werden. Die häufigsten Probleme bei der Repräsentation der Daten kommen durch die Trennungzeichen (zwischen den einzelnen Datenelementen) zustande. Diese können wir bei **Delimiter** ändern.
-- Anschließend drücken des <span style="color:#6DA8DC">**Import**</span>-Buttons.
+- Anklicken des <span style="color:#FF230C">**Browse**-Buttons. Daraufhin öffnet sich ein Fenster, in welchem wir die Datei auswählen können.
+- Überprüfen der <span style="color:#27B965">**Vorschau**, ob die Daten korrekt dargestellt werden. Die häufigsten Probleme bei der Repräsentation der Daten kommen durch die Trennungzeichen (zwischen den einzelnen Datenelementen) zustande. Diese können wir bei **Delimiter** ändern.
+- Anschließend drücken des <span style="color:#6DA8DC">**Import**-Buttons.
 
-Wenn die Datei <span class="ex">neuro.csv</span> erfolgreich eingelesen wurde, erscheint das neu erstellte Objekt <span class="ex">neuro</span> <font size="2">(oder welchen anderen Namen wir dem Objekt gegeben haben)</font> im rechten oberen Panel bei **Environment**.
+Wenn die Datei <span class="ex">neuro.csv erfolgreich eingelesen wurde, erscheint das neu erstellte Objekt <span class="ex">neuro <font size="2">(oder welchen anderen Namen wir dem Objekt gegeben haben)</font> im rechten oberen Panel bei **Environment**.
 
 ```{r}
 #| out.width: 400px
@@ -177,9 +177,9 @@ knitr::include_graphics("figures/Daten-importieren/Bilder/environment_neuro.png"
 <!-- > *__Achtung__*: Das Working Directory müssten wir jetzt noch manuell setzen <font size="2">(z.B. mit [`setwd()`](#working-directory-setzen-1))</font>. -->
 
 
-## Weg 2: <span class ="rstud">Files</span> > <span class ="rstud">Import Dataset</span>
+## Weg 2: Files > Import Dataset
 
-Schauen wir uns einen weiteren Weg an, mit der Benutzeroberfläche der Entwicklungsumgebung <span class ="r rstud">RStudio</span> Dateien einzulesen. 
+Schauen wir uns einen weiteren Weg an, mit der Benutzeroberfläche der Entwicklungsumgebung <span class ="r rstud">RStudio Dateien einzulesen. 
 
 <!-- Bevor wir aber die Datei einlesen, werden wir das Working Directory setzen. -->
 
@@ -220,7 +220,7 @@ Schauen wir uns einen weiteren Weg an, mit der Benutzeroberfläche der Entwicklu
 
 Das Vorgehen hier ist weitestgehend analog zu [Weg 1](#weg-1-environment-import-dataset).
 
-Wir klicken auf die Datei <span class="ex">neuro.csv</span> in unserem Arbeitsordner und dann auf die Option **Import Dataset**.  
+Wir klicken auf die Datei <span class="ex">neuro.csv in unserem Arbeitsordner und dann auf die Option **Import Dataset**.  
 
 ```{r}
 #| out.width: 700px
@@ -240,7 +240,7 @@ knitr::include_graphics("figures/Daten-importieren/Bilder/Importieren_manuell_2.
 
 Wir haben hier mit Hilfe der Vorschau wieder die Möglichkeit vor dem Einlesen zu Überprüfen, ob die Datei von **R** richtig repräsentiert wird. Die meisten Probleme hängen mit den Trennungszeichen zwischen den einzelnen Datenelementen zusammen. Diese Option können wir unter **Delimiter** anpassen. Stimmt die Vorschau mit unseren Erwartungen überein, können wir rechts unten auf **Importieren** klicken.
 
-Im Workspace sollten wir nun den eben eingelesenen Dataframe <span class="ex">neuro</span> finden. 
+Im Workspace sollten wir nun den eben eingelesenen Dataframe <span class="ex">neuro finden. 
 
 ```{r}
 #| out.width: 400px
@@ -252,20 +252,20 @@ knitr::include_graphics("figures/Daten-importieren/Bilder/environment_neuro.png"
 
 ## Weg 3: Manuell Importieren mit `Funktionen`
 
-Auch wenn Möglichkeiten existieren, Dateien mithilfe der Benutzeroberfläche von <span class="r">RStudio</span> einzulesen, ist es ratsam, auch einmal selbst Funktionen zu nutzen. Für die meisten Arbeiten in <span class="r">R</span> nutzen wir nämlich Funktionen.  
+Auch wenn Möglichkeiten existieren, Dateien mithilfe der Benutzeroberfläche von <span class="r">RStudio einzulesen, ist es ratsam, auch einmal selbst Funktionen zu nutzen. Für die meisten Arbeiten in <span class="r">R nutzen wir nämlich Funktionen.  
 
-<!-- Bevor wir die Datei <span class="ex">neuro.csv</span> einlesen, setzen wir das Working Directory. -->
+<!-- Bevor wir die Datei <span class="ex">neuro.csv einlesen, setzen wir das Working Directory. -->
 
 
 <!-- ## Working Directory setzen -->
 
-<!-- Mit der Funktion `setwd()` setzt man ein Working Directory in <span class="r">R</span>. Dieser Funktion über geben wir den Pfad zu unserem gewünschten Arbeitsordner in Anführungszeichen <font size="2">(`" "` oder `' '`)</font>.  -->
+<!-- Mit der Funktion `setwd()` setzt man ein Working Directory in <span class="r">R. Dieser Funktion über geben wir den Pfad zu unserem gewünschten Arbeitsordner in Anführungszeichen <font size="2">(`" "` oder `' '`)</font>.  -->
 
-<!-- Unter <span class="highlight">Windows</span> können wir auf <span class ="keybord">shift</span> drücken und dann einen *Rechtsklick* auf den Ordner machen. Nun öffnet sich ein Menü, in welchem wir *Als Dateipfad kopieren* auswählen. **Wichtig** dabei ist, dass wir noch alle **\\** <font size="2">(backslashes)</font> aus dem kopierten Pfad in */* <font size="2">(forwardslashes)</font> ändern müssen. -->
+<!-- Unter <span class="highlight">Windows können wir auf <span class ="keybord">shift drücken und dann einen *Rechtsklick* auf den Ordner machen. Nun öffnet sich ein Menü, in welchem wir *Als Dateipfad kopieren* auswählen. **Wichtig** dabei ist, dass wir noch alle **\\** <font size="2">(backslashes)</font> aus dem kopierten Pfad in */* <font size="2">(forwardslashes)</font> ändern müssen. -->
 
-<!-- Unter <span class="highlight">Mac</span> können wir die Tastaturkürzel <span class ="keybord">alt</span> + <span class ="keybord">cmd</span> + <span class ="keybord">c</span> nutzen, um unseren Ordnerpfad zu kopieren. -->
+<!-- Unter <span class="highlight">Mac können wir die Tastaturkürzel <span class ="keybord">alt + <span class ="keybord">cmd + <span class ="keybord">c nutzen, um unseren Ordnerpfad zu kopieren. -->
 
-<!-- Wir führen <span class="code">setwd("<span class="ex">/Ordnerpfad</span>")</span> mit **Run** (im Skript) aus, um unser Working Directory zu setzen. -->
+<!-- Wir führen <span class="code">setwd("<span class="ex">/Ordnerpfad") mit **Run** (im Skript) aus, um unser Working Directory zu setzen. -->
 
 <!-- Mit `getwd()` können wir anschließend überprüfen, ob es geklappt hat. Wir sollten den gerade festgelegten Dateipfad in der Konsole ausgegeben bekommen. -->
 
@@ -286,15 +286,15 @@ daten <- read.csv("Dateipfad/neuro.csv")
 
 <details><summary>Einen Dateipfad kopieren</summary><div class ="more">
 
-Unter <span class="highlight">Windows</span> können wir auf <span class ="keybord">shift</span> drücken und dann einen *Rechtsklick* auf die Datei machen. Nun öffnet sich ein Menü, in welchem wir *Als Dateipfad kopieren* auswählen. **Wichtig** dabei ist, dass wir noch alle **\\** <font size="2">(backslashes)</font> aus dem kopierten Pfad in */* <font size="2">(forwardslashes)</font> ändern müssen.
+Unter <span class="highlight">Windows können wir auf <span class ="keybord">shift drücken und dann einen *Rechtsklick* auf die Datei machen. Nun öffnet sich ein Menü, in welchem wir *Als Dateipfad kopieren* auswählen. **Wichtig** dabei ist, dass wir noch alle **\\** <font size="2">(backslashes)</font> aus dem kopierten Pfad in */* <font size="2">(forwardslashes)</font> ändern müssen.
 
-Unter <span class="highlight">Mac</span> können wir die Tastaturkürzel <span class ="keybord">alt</span> + <span class ="keybord">cmd</span> + <span class ="keybord">c</span> nutzen, um unseren Dateipfad zu kopieren.
+Unter <span class="highlight">Mac können wir die Tastaturkürzel <span class ="keybord">alt + <span class ="keybord">cmd + <span class ="keybord">c nutzen, um unseren Dateipfad zu kopieren.
 
 </div></details>
 
 Diese drei Funktionen sind sehr ähnlich aufgebaut. Sind haben aber teilweise unterschiedliche Voreinstellungen <font size="2">(sog. *"Defaults"*)</font>. Zum Beispiel nimmt `read.csv()` an, dass einzelne Datenelemente mit Kommata <font size="2">(Default: `sep=","`)</font> getrennt werden. Dafür werden bei `read.table()` standarmäßig Spaltennamen nicht eingelesen <font size="2">(Default: `header=FALSE`)</font>.
 
-> *__Achtung__*:  Alle Funktionsdefinitionen (mit Defaults) finden wir in der <span class="r">R</span>-Dokumentation, die wir im unteren rechten Panel bei **Help** finden. Alternativ können wir sie auch mit der Hilfefunktion `?`, z.B. `?read.table`, öffnen.
+> *__Achtung__*:  Alle Funktionsdefinitionen (mit Defaults) finden wir in der <span class="r">R-Dokumentation, die wir im unteren rechten Panel bei **Help** finden. Alternativ können wir sie auch mit der Hilfefunktion `?`, z.B. `?read.table`, öffnen.
 
 In Abhängigkeit der Speicherung der Dateien müssen wir manchmal den Parametern der Funktionen andere Argumente übergeben. Die zwei wichtigsten Parameter sind `header` und `sep`.
 
@@ -366,13 +366,13 @@ Im Folgenden wollen wir uns einige Methoden zum Einlesen gängiger Dateiformate 
 
 <details><summary>Kurzbefehle zum Kopieren des Dateipfads</summary><div class = "more">
 
-<span class="highlight">Windows</span>
+<span class="highlight">Windows
 
-Wir drücken <span class ="keybord">shift</span> und machen dann einen *Rechtsklick* auf die Datei. Nun öffnet sich ein Menü, in welchem wir *Als Dateipfad kopieren* auswählen. **Wichtig** dabei ist, dass wir noch alle **\\** <font size="2">(backslashes)</font> aus dem kopierten Pfad in */* <font size="2">(forwardslashes)</font> ändern müssen.
+Wir drücken <span class ="keybord">shift und machen dann einen *Rechtsklick* auf die Datei. Nun öffnet sich ein Menü, in welchem wir *Als Dateipfad kopieren* auswählen. **Wichtig** dabei ist, dass wir noch alle **\\** <font size="2">(backslashes)</font> aus dem kopierten Pfad in */* <font size="2">(forwardslashes)</font> ändern müssen.
 
-<span class="highlight">Mac</span>
+<span class="highlight">Mac
 
-Wir klicken einmal auf die Datei (sodass sie markiert ist; dann ist sie blau hinterlegt) und führen dann den Kurzbefehl <span class="keybord">alt</span> + <span class="keybord">cmd</span> + <span class="keybord">C</span> aus.
+Wir klicken einmal auf die Datei (sodass sie markiert ist; dann ist sie blau hinterlegt) und führen dann den Kurzbefehl <span class="keybord">alt + <span class="keybord">cmd + <span class="keybord">C aus.
 
 ```{r}
 #| out.width: 600px
@@ -384,7 +384,7 @@ knitr::include_graphics("figures/Daten-importieren/Bilder/Dateipfad.png")
 
 <p style="line-height:10px;"></p>
 
-Für eine ausführlichere Anleitung zum Einlesen von Dateien in `R` gibt es ein eigenständiges [Kapitel](Daten-importieren.qmd), in dem wir lernen, wie wir die Benutzeroberfläche von <span class="r">RStudio</span> und Funktionen nutzen können.
+Für eine ausführlichere Anleitung zum Einlesen von Dateien in `R` gibt es ein eigenständiges [Kapitel](Daten-importieren.qmd), in dem wir lernen, wie wir die Benutzeroberfläche von <span class="r">RStudio und Funktionen nutzen können.
 
 ---
 

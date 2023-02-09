@@ -50,14 +50,14 @@ print(daten)
 
 ## Tools die uns helfen, Fehler zu vermeiden
 
-Bevor wir uns dem Verstehen von konkreten (Syntax-)Fehlermeldungen widmen und anschauen, wie wir effizient im Internet suchen können, schauen wir uns **zwei Hilfsmittel** an, die uns die Entwicklungsumgebung **<span class="r">RStudio</span>** gibt, um **Fehler zu vermeiden**.
+Bevor wir uns dem Verstehen von konkreten (Syntax-)Fehlermeldungen widmen und anschauen, wie wir effizient im Internet suchen können, schauen wir uns **zwei Hilfsmittel** an, die uns die Entwicklungsumgebung **<span class="r">RStudio** gibt, um **Fehler zu vermeiden**.
 
 ### **R**-Dokumentation
 
 Wenn wir eine uns noch unbekannte Funktion nutzen <font size="2">(aber auch wenn 
-wir aus einer Fehlermeldung nicht schlau werden)</font> können wir die Dokumentation nutzen. Diese können wir in <span class="r">RStudio</span> im unteren rechten Panel unter <font color ="#649B32">Help</font> öffnen. In das <font color ="#FF1D00">Suchfeld</font> geben wir den Namen der Funktion ein. 
+wir aus einer Fehlermeldung nicht schlau werden)</font> können wir die Dokumentation nutzen. Diese können wir in <span class="r">RStudio im unteren rechten Panel unter <font color ="#649B32">Help</font> öffnen. In das <font color ="#FF1D00">Suchfeld</font> geben wir den Namen der Funktion ein. 
 
-Alternativ können wir die Hilfefunktionen `?` oder `help()` nutzen <font size="2">(z.B. <span class="code">?<span class="ex">matrix</span></span> oder <span class="code">help(<span class="ex">matrix</span>)</span>)</font>. 
+Alternativ können wir die Hilfefunktionen `?` oder `help()` nutzen <font size="2">(z.B. <span class="code">?<span class="ex">matrix oder <span class="code">help(<span class="ex">matrix))</font>. 
 
 Mit Klick auf das <font color ="#FD9612">eingekreiste Icon</font> kann man sich die Hilfe-Seite auch in einem extra Fenster anzeigen lassen.
 
@@ -70,14 +70,14 @@ Mit Klick auf das <font color ="#FD9612">eingekreiste Icon</font> kann man sich 
 knitr::include_graphics("figures/Fehlermeldungen/Bilder/doc.png")
 ```
 
-Wir bekommen hier (zumeist) folgende Informationen: aus welchem Paket die Funktion ist <font size="2">(oben links in **{ }**)</font>, was die Funktion macht <font size="2">(<span class="highlight">Description</span>)</font>, die Funktionsdefinition ggf. mit Defaults <font size="2">(<span class="highlight">Usage</span>)</font>, ihre Parameter mit jeweils gültigen Argumenten <font size="2">(<span class="highlight">Arguments</span>)</font>, weitere Details zur Nutzung <font size="2">(<span class="highlight">Details</span>)</font>, ähnliche Funktionen <font size="2">(<span class="highlight">See also</span>)</font> und Beispiele zur Nutzung <font size="2">(<span class="highlight">Examples</span>)</font>.
+Wir bekommen hier (zumeist) folgende Informationen: aus welchem Paket die Funktion ist <font size="2">(oben links in **{ }**)</font>, was die Funktion macht <font size="2">(<span class="highlight">Description)</font>, die Funktionsdefinition ggf. mit Defaults <font size="2">(<span class="highlight">Usage)</font>, ihre Parameter mit jeweils gültigen Argumenten <font size="2">(<span class="highlight">Arguments)</font>, weitere Details zur Nutzung <font size="2">(<span class="highlight">Details)</font>, ähnliche Funktionen <font size="2">(<span class="highlight">See also)</font> und Beispiele zur Nutzung <font size="2">(<span class="highlight">Examples)</font>.
 
 <details><summary>*Was sind Parameter, Argumente und Defaults?*</summary><div class ="more">
-<span class="highlight">Parameter</span> bezeichnet die (formalen) **Variablen einer Funktion** (z.B. `nrow` aus `matrix()`), denen wir unsere (tatsächlichen) <span class="highlight">Argumente</span> (z.B. `3`), d.h. unseren **Input**,  übergeben. <span class="highlight">Default</span> bezeichnet ein **voreingestelltes Argument** (z.B. `nrow=1`).
+<span class="highlight">Parameter bezeichnet die (formalen) **Variablen einer Funktion** (z.B. `nrow` aus `matrix()`), denen wir unsere (tatsächlichen) <span class="highlight">Argumente (z.B. `3`), d.h. unseren **Input**,  übergeben. <span class="highlight">Default bezeichnet ein **voreingestelltes Argument** (z.B. `nrow=1`).
 
 Ohne explizite Spezifikation des Parameters unsererseits wird (wenn vorhanden) der Default verwendet. Wir könnten natürlich auch ein anderes (als das voreingestellte) Argument festlegen.
 
-Funktionen, die ausschließlich Parameter mit Defaults besitzen, (z.B. `matrix()`) werden auch ohne Spezifikation ausgeführt. Funktionen mit (min. einem) Parameter ohne Default (z.B. `mean()`) werden ohne Spezifikation dieser nicht ausgeführt (wir müssen dem Parameter `x` einen Vektor, von dem wir den Mittelwert berechnen wollen, übergeben). Mehr Informationen zu Funktionsdefinition und etwaigen Defaults finden wir im Abschnitt Usage in der <span class="r">R</span>-Dokumentation.
+Funktionen, die ausschließlich Parameter mit Defaults besitzen, (z.B. `matrix()`) werden auch ohne Spezifikation ausgeführt. Funktionen mit (min. einem) Parameter ohne Default (z.B. `mean()`) werden ohne Spezifikation dieser nicht ausgeführt (wir müssen dem Parameter `x` einen Vektor, von dem wir den Mittelwert berechnen wollen, übergeben). Mehr Informationen zu Funktionsdefinition und etwaigen Defaults finden wir im Abschnitt Usage in der <span class="r">R-Dokumentation.
 
 Mehr Informationen zum Aufbau von Funktionen finden wir in der [Einführung in R](Einfuehrung_in_R.qmd)
 </div></details>
@@ -156,7 +156,7 @@ knitr::include_graphics("figures/Fehlermeldungen/Bilder/fehl.png")
 
 Die Information **vor** dem Doppelpunkt gibt uns an, in welcher Funktion der Fehler steckt; die Information **nach** dem Doppelpunkt gibt Aufschluss über die Art des Fehlers. Zweiteres ist für die Fehlersuche (zumeist) von großer Bedeutung.
 
-Im Folgenden konzentrieren wir uns auf eine Art von Fehler, mit der vor allem AnfängerInnen häufig konfrontiert sind: <span class="highlight">Syntaxfehler</span>.
+Im Folgenden konzentrieren wir uns auf eine Art von Fehler, mit der vor allem AnfängerInnen häufig konfrontiert sind: <span class="highlight">Syntaxfehler.
 
 > Syntaxfehler sind Fehler, die durch eine **Verletzung des formalen Aufbaus einer Funktion** zustande kommen. Manchmal entstehen sie auch nur durch Vertippen.
 
@@ -231,7 +231,7 @@ Hier weist uns **R** darauf hin, dass das dritte Argument, welches nach dem zwei
 
 ## Suchen im Internet
 
-Nun gibt es auch Fehlermeldungen, die wir nicht auf Anhieb verstehen. Dafür kann es vielfältige Ursachen geben. Wenn wir schon in der <span class="r">R</span>-Dokumentation nachgeschaut haben und trotzdem noch ratlos sind, können wir im Internet nach Hilfe suchen. Wir können dafür Suchmaschinen direkt spezielle Foren nutzen.
+Nun gibt es auch Fehlermeldungen, die wir nicht auf Anhieb verstehen. Dafür kann es vielfältige Ursachen geben. Wenn wir schon in der <span class="r">R-Dokumentation nachgeschaut haben und trotzdem noch ratlos sind, können wir im Internet nach Hilfe suchen. Wir können dafür Suchmaschinen direkt spezielle Foren nutzen.
 
 __Hierbei gibt es nicht *den einen* Weg, fündig zu werden.__ Häufig gibt es eine Fehlermeldung, die bei verschiedenen Problemen <font size="2">(mit unterschiedlichen Funktionen)</font> angezeigt wird. Dann muss man filtern, welche Seite für das eigene Anliegen relevant sein könnte. Es kann ebenso möglich sein, dass es zu manchen Problemen einfach noch keine Lösung gibt. Dieser Fall ist eher seltener und tritt vor allem bei neueren oder seltener genutzen Paketen auf. 
 
@@ -285,7 +285,7 @@ knitr::include_graphics("figures/Fehlermeldungen/Bilder/search links.png")
 
 Mit Ausnahme des zweiten Links sieht es so aus, als würden die Seiten zu unspezifisch für unser Problem sein. 
 
-Der zweite Link weist gleich zwei **Übereinstimmungen** auf: Wir wollten einen <span class = "ex">correlation test</span> rechnen und haben die selbe Fehlermeldung <font size="2">(<span class = "ex">'x' must be a numeric vector</span>)</font> bekommen.
+Der zweite Link weist gleich zwei **Übereinstimmungen** auf: Wir wollten einen <span class = "ex">correlation test rechnen und haben die selbe Fehlermeldung <font size="2">(<span class = "ex">'x' must be a numeric vector)</font> bekommen.
 
 Schauen wir uns also das <a href="https://stackoverflow.com/questions/43497128/r-error-in-correlation-test-x-must-be-a-numeric-vector" target="_blank">zweite Ergebnis</a> an.
 
@@ -315,7 +315,7 @@ Gehen wir also zurück zu unserer Suche und schauen uns andere Seiten an. So seh
 knitr::include_graphics("figures/Fehlermeldungen/Bilder/search links 2.png")
 ```
 
-Bis auf den zweiten Link sehen die Vorschläge hier auch wieder sehr unspezifisch aus. Bei diesem gibt es zwei Parallelen zu unserem Problem: <span class = "ex">cor.test</span> wird auf einen <span class = "ex">data frame</span> angewendet.
+Bis auf den zweiten Link sehen die Vorschläge hier auch wieder sehr unspezifisch aus. Bei diesem gibt es zwei Parallelen zu unserem Problem: <span class = "ex">cor.test wird auf einen <span class = "ex">data frame angewendet.
 Sehen wir uns die <a href="https://www.reddit.com/r/Rlanguage/comments/23infd/running_cortest_on_data_frames/" target="_blank">Seite</a> mal an.
 
 Wir landen in einem Foreneintrag. Die Antwort von <font color ="dodgerblue">dasonk</font> weißt uns darauf hin, dass man an `cor.test()` nur *zwei Vektoren* übergeben kann. Wir haben aber 4 Vektoren übergeben. In der nächsten Antwort von <font color ="dodgerblue">anbende</font> wird vorgeschlagen, die Korrelationstabelle mit `cor()` zu erstellen. Allerdings muss man die Signifikanztestung immer noch mit `cor.test()` machen.

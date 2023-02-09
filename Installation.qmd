@@ -2,19 +2,19 @@
 
 <p style="font-weight:600; font-size:36px">Einleitung</p>
 
-<span class ="r highlight">R</span> ist eine Statistiksoftware, die mittlerweile weit verbreitet ist - sowohl in der Forschung als auch in der Wirtschaft. **R** ist **kostenlos**, für alle gängigen Betriebssysteme verfügbar <font size="2">(Windows, Max OS X und  Linux)</font> und darüber hinaus auch noch **open-source**. Das heißt, um **R** zu nutzen, muss man keine teure Lizenz kaufen und jede/r kann sich an der (Weiter-)Entwicklung des Programms oder einzelner Pakete beteiligen. Durch die weite Verbreitung von **R** finden sich außerdem ausführliche Anleitungen im Internet, sollten wir mal nicht mehr weiter wissen.
+<span class ="r highlight">R ist eine Statistiksoftware, die mittlerweile weit verbreitet ist - sowohl in der Forschung als auch in der Wirtschaft. **R** ist **kostenlos**, für alle gängigen Betriebssysteme verfügbar <font size="2">(Windows, Max OS X und  Linux)</font> und darüber hinaus auch noch **open-source**. Das heißt, um **R** zu nutzen, muss man keine teure Lizenz kaufen und jede/r kann sich an der (Weiter-)Entwicklung des Programms oder einzelner Pakete beteiligen. Durch die weite Verbreitung von **R** finden sich außerdem ausführliche Anleitungen im Internet, sollten wir mal nicht mehr weiter wissen.
 
-**R** selbst ist relativ spartanisch und die meisten AnwenderInnen nutzen daher die <span class="highlight">Entwicklungsumgebung **RStudio**</span>, welche auch eine umfassendere Benutzeroberfläche besitzt. Mit dieser können wir z.B. **Skripte** nutzen, in denen wir unsere Analysen speichern können. Außerdem gibt es ein **Environment**, das uns anzeigt, welche Objekte in **R** vorhanden sind (d.h. die wir eingelesen oder direkt in **R** erstellt haben). Hier finden wir zusätzlich einen Reiter **Help**, welcher uns Informationen und Anwendungshinweise zu Funktionen gibt.
+**R** selbst ist relativ spartanisch und die meisten AnwenderInnen nutzen daher die <span class="highlight">Entwicklungsumgebung **RStudio**, welche auch eine umfassendere Benutzeroberfläche besitzt. Mit dieser können wir z.B. **Skripte** nutzen, in denen wir unsere Analysen speichern können. Außerdem gibt es ein **Environment**, das uns anzeigt, welche Objekte in **R** vorhanden sind (d.h. die wir eingelesen oder direkt in **R** erstellt haben). Hier finden wir zusätzlich einen Reiter **Help**, welcher uns Informationen und Anwendungshinweise zu Funktionen gibt.
 
 <aside>\
-Der Aufbau der Entwicklungsumgebung <span class="r">RStudio</span> wird im Kapitel [Einführung in R](Einfuehrung_in_R.qmd) erklärt.</aside>
+Der Aufbau der Entwicklungsumgebung <span class="r">RStudio wird im Kapitel [Einführung in R](Einfuehrung_in_R.qmd) erklärt.</aside>
 
-Im vorliegenden Kapitel schauen wir uns jeweils für <span class="highlight">Windows</span> und <span class="highlight">Mac</span> an, wie wir **R** und **RStudio** installieren oder auf eine neuere Version aktualisieren und dabei **unsere bisher heruntergeladenen Pakete behalten** können.
+Im vorliegenden Kapitel schauen wir uns jeweils für <span class="highlight">Windows und <span class="highlight">Mac an, wie wir **R** und **RStudio** installieren oder auf eine neuere Version aktualisieren und dabei **unsere bisher heruntergeladenen Pakete behalten** können.
 
 <details><summary>*Was ist mit Linux?*</summary><div class="more">
 Bevor wir die **R**-Lernplattform ins Leben gerufen haben, haben wir eine Umfrage durchgeführt, in der u.a. das Betriebssystem der NutzerInnen erfragt wurde. Hierbei hat nur ein Bruchteil der Personen angegeben, mit Linux bzw. Ubuntu zu arbeiten. Aufgrund der geringen Nachfrage gibt es kein gesondertes Kapitel für Linux-UserInnen. Im Folgenden sind einige Links zur Hilfe aufgeführt.
 
-Für die Installation von **R** und **RStudio** unter <span class="highlight">Ubuntu</span> empfiehlt sich die Installationsanleitung auf <a href="https://linuxhint.com/rstudio-for-ubuntu/" target="_blank">linuxhunt.com</a> zu nutzen <font size="1">(englisch)</font>. Anstatt `wget https://download1.rstudio.org/rstudio-0.99.896-amd64.deb` ändern wir den Link zur gewünschten **RStudio** Version für unser Betriebssystem, z.B. `wget [https://download1.rstudio.org/desktop/bionic/amd64/rstudio-1.3.1073-amd64.deb](https://download1.rstudio.org/electron/jammy/amd64/rstudio-2022.12.0-353-amd64.deb)`. Den benötigten aktuellen Link bekommen wir von der <a href="https://rstudio.com/products/rstudio/download/#download" target="_blank">**RStudio** Seite</a> mittels Rechtsklick auf den Link und Auswahl im erscheinenden Menü.
+Für die Installation von **R** und **RStudio** unter <span class="highlight">Ubuntu empfiehlt sich die Installationsanleitung auf <a href="https://linuxhint.com/rstudio-for-ubuntu/" target="_blank">linuxhunt.com</a> zu nutzen <font size="1">(englisch)</font>. Anstatt `wget https://download1.rstudio.org/rstudio-0.99.896-amd64.deb` ändern wir den Link zur gewünschten **RStudio** Version für unser Betriebssystem, z.B. `wget [https://download1.rstudio.org/desktop/bionic/amd64/rstudio-1.3.1073-amd64.deb](https://download1.rstudio.org/electron/jammy/amd64/rstudio-2022.12.0-353-amd64.deb)`. Den benötigten aktuellen Link bekommen wir von der <a href="https://rstudio.com/products/rstudio/download/#download" target="_blank">**RStudio** Seite</a> mittels Rechtsklick auf den Link und Auswahl im erscheinenden Menü.
 
 Falls ihr das Problem habt, dass mit der obigen Anleitung nicht die aktuelle **R** Version 4.0 installiert wird, oder falls ihr zu **R** 4.0 upgraden wollt, schaut auch <a href="https://medium.com/@hpgomide/how-to-update-your-r-3-x-to-the-r-4-x-in-your-linux-ubuntu-46e2209409c3" target="_blank">diese Anleitung</a> an. 
 
@@ -31,7 +31,7 @@ Wir können das Paket installr <font size="2">(Windows)</font> bzw. das manuelle
 
 <font size="2">Die folgenden Installationen wurden unter Nutzung von **Firefox 70.0.1** durchgeführt.</font>
 
-### Installation von <span class ="r">**R**</span>
+### Installation von <span class ="r">**R**
 
 Auf dieser <a href="https://cran.r-project.org" target="_blank">Seite</a> klicken wir auf *Download **R** for Windows* und auf der folgenden Seite auf *Install **R** for the first time*. Dann kommen wir auf eine Seite, auf der wir die aktuellste **R**-Version finden. 
 
@@ -114,7 +114,7 @@ knitr::include_graphics("figures/Installation/Bilder/10.png")
 ```
 
 
-### Installation von  <span class ="r">**RStudio**</span>
+### Installation von  <span class ="r">**RStudio**
 
 Nachdem wir **R** heruntergeladen haben, können wir nun auch die Entwicklungsumgebung **RStudio** herunterladen.
 
@@ -149,7 +149,7 @@ knitr::include_graphics("figures/Installation/Bilder/11.png")
 
 Hier werden ähnliche Einstellungen wie bei der [Installation von R](Installation.qmd#installation-von-span-class-rrspan) besprochen. Abschließend klicken wir auch hier auf **fertigstellen**.
 
-### Aktualisierung von <span class ="r">**R**</span> mit Übernahme der Pakete aus der älteren Version (Paket **installr**)
+### Aktualisierung von <span class ="r">**R** mit Übernahme der Pakete aus der älteren Version (Paket **installr**)
 
 ```{r, echo=F}
 # Paket installr nur für windows:
@@ -209,7 +209,7 @@ knitr::include_graphics("figures/Installation/Bilder/Update_Packages.png")
 ```
 
 
-### Aktualisierung von <span class ="r">**RStudio**</span>
+### Aktualisierung von <span class ="r">**RStudio**
 
 Aktualisierungen für die Entwicklungsumgebung **RStudio** gibt es wesentlich seltener als für das dahinter liegende Basisprogramm **R**.
 
@@ -242,7 +242,7 @@ Informationen über die aktuellste **RStudio**-Version finden wir wieder unten a
 
 Wir überprüfen, ob die uns empfohlene Version mit unserem [Betriebssystem](#winv) sowie unserer **R**-Version kompatibel ist. Wenn ja, können wir auf **Download RStudio for Windows** klicken.
 
-Das weitere Vorgehen ist ebenso analog zur [Installation von  <span class ="r">**RStudio**</span>](#installation-von-rstudio). 
+Das weitere Vorgehen ist ebenso analog zur [Installation von  <span class ="r">**RStudio**](#installation-von-rstudio). 
 
 
 
@@ -250,7 +250,7 @@ Das weitere Vorgehen ist ebenso analog zur [Installation von  <span class ="r">*
 
 <font size="2">Die folgenden Installationen und Aktualisierungen wurden unter Nutzung von **Safari 13.0.3** durchgeführt.</font>
 
-### Installation von <span class ="r">**R**</span>
+### Installation von <span class ="r">**R**
 
 Unter folgendem <a href="https://cran.r-project.org" target="_blank">Link</a> unter *Download **R** for (Mac) OS X*  finden wir die aktuellste **R**-Version ganz oben. Wir kommen dann auf die folgende Seite:
 
@@ -292,7 +292,7 @@ knitr::include_graphics("figures/Installation/Bilder/XQuartz_ready.png")
 Nun müssen wir schauen, ob unser Betriebssystem den Mindestanforderungen für die **aktuellste** **R** Version entspricht. Wenn ja, können wir auf die .pkg-Datei klicken und den Download starten.
 
 <details><summary>*<a name="macver"></a>Wie finde ich meine Mac OS Version heraus?*</font></summary><div class="more">
-Unsere Version des Betriebssystems bestimmt, welche Versionen von **R** und <span class ="r">R Studio</span> wir herunterladen können.
+Unsere Version des Betriebssystems bestimmt, welche Versionen von **R** und <span class ="r">R Studio wir herunterladen können.
 
 Wir finden unsere Betriebssystem-Version heraus, indem wir auf den Apfel in der Menüleiste am oberen Bildschirm und dann auf **Über diesen Mac** klicken.
 
@@ -325,7 +325,7 @@ knitr::include_graphics("figures/Installation/Bilder/2_Installation_R_erfolgreic
 
 <font size="2">Die .pkg- bzw. .dmg-Datei(en) können wir *nach* der Installation löschen. .dmg-Dateien müssen vorher noch ausgeworfen werden. Wir finden diese bei *Geräte* im Finder.</font>
 
-### Installation von <span class ="r">**RStudio**</span>
+### Installation von <span class ="r">**RStudio**
 
 Nun können wir auf die <a href="https://rstudio.com/products/rstudio/download/" target="_blank">**RStudio**-Seite</a> gehen, nach unten scrollen und prüfen, ob die uns empfohlene Version [mit unserem Betriebssystem](#macver) sowie unserer **R**-Version kompatibel ist.
 
@@ -349,11 +349,11 @@ knitr::include_graphics("figures/Installation/Bilder/8_R_Studio.png")
 
 <font size="2">Die .dmg-Datei können wir *nach* der Installation löschen. Vorher muss diese noch ausgeworfen werden. Wir finden die .dmg-Datei bei *Geräte* im Finder.</font>
 
-### Aktualisierung von <span class ="r">**R**</span>
+### Aktualisierung von <span class ="r">**R**
 
 Wenn eine aktuellere (für unser Betriebssystem kompatible) Version von **R** vorhanden ist, ist es ratsam, diese herunterzuladen. Mit Aktualisierungen werden etwaige Fehler und Sicherheitslücken behoben und ggf. neue Funktionen eines Programms implementiert.
 
-Zur Überprüfung, ob Aktualisierungen vorhanden sind, können wir in <span class ="r">**R**</span> oben in der Menüleiste auf <span class ="r">**R**</span> --> **Nach **R** Updates suchen** klicken <font size="2">(in **RStudio** gibt es diese Option **nicht**)</font>.  
+Zur Überprüfung, ob Aktualisierungen vorhanden sind, können wir in <span class ="r">**R** oben in der Menüleiste auf <span class ="r">**R** --> **Nach **R** Updates suchen** klicken <font size="2">(in **RStudio** gibt es diese Option **nicht**)</font>.  
 
 ```{r, out.width = "700px", echo=FALSE, fig.align='center'}
 knitr::include_graphics("figures/Installation/Bilder/in_R_Updates_fuer_R.png")
@@ -373,7 +373,7 @@ knitr::include_graphics("figures/Installation/Bilder/R_Website.png")
 
 Nun müssen wir noch überprüfen, ob die Mindestanforderungen an [unser Betriebssystem](#macver) erfüllt sind. Falls die Mindestanforderungen **nicht** erfüllt sind, können wir trotzdem auf der gleichen Seite runterscrollen und nachschauen, ob eine aktuellere als unsere derzeitige Version vorliegt.
 
-Das weiterführende Vorgehen ist das Gleiche wie bei der initialen [Installation von <span class ="r">**R**</span>]: Wir laden die .pkg-Datei herunter, öffnen sie und führen die Installation aus.
+Das weiterführende Vorgehen ist das Gleiche wie bei der initialen [Installation von <span class ="r">**R**]: Wir laden die .pkg-Datei herunter, öffnen sie und führen die Installation aus.
 
 > *__Achtung__*:  Aus unbekannten Gründen *kann* es vorkommen, dass uns über **Nach **R** Updates suchen** nicht mitgeteilt wird, dass unsere derzeitige Version nicht die aktuellste ist. Wir können auch analog unsere derzeitige mit der aktuellsten Version abgleichen. 
 
@@ -390,7 +390,7 @@ Dann müssen wir diese nur noch mit der aktuellsten Version auf <a href="https:/
 
 
 
-#### Pakete aus der älteren in die neuere <span class ="r">**R**</span>-Version übernehmen
+#### Pakete aus der älteren in die neuere <span class ="r">**R**-Version übernehmen
 
 > *__Achtung__*:  Die nachfolgend beschriebene Verschiebung von Paketen ist **nur notwendig, wenn sich die **R**-Version in der ersten Nachkommastelle ändert** z.B. Version 3.5 zu 3.6. Bei kleineren Updates z.B. Version 3.6.0 zu 3.6.1 verändert sich der Pfad der Pakete nicht.
 
@@ -398,7 +398,7 @@ Dann müssen wir diese nur noch mit der aktuellsten Version auf <a href="https:/
   
 Wenn wir eine neuere **R**-Version heruntergeladen haben, sind unsere Pakete, die wir unter der vorherigen **R**-Version installiert haben, nicht mehr nutzbar im aktualisierten Programm. Das liegt daran, dass ein neuer Ordner für die aktuelle Version erstellt wurde, in den die Pakete **nicht** automatisch verschoben wurden.
 
-Um unsere Pakete im aktualisierten Programm nutzen zu können, müssen wir diese in den neuen Ordner verschieben. Dazu öffnen wir den Finder und nutzen den Kurzbefehl <span class="keybord">shift</span> + <span class="keybord">cmd</span> + <span class="keybord">G</span>, um die Dateipfadsuche zu öffnen. In dieser suchen wir den Pfad */Library/Frameworks/R.framework/Versions/*.
+Um unsere Pakete im aktualisierten Programm nutzen zu können, müssen wir diese in den neuen Ordner verschieben. Dazu öffnen wir den Finder und nutzen den Kurzbefehl <span class="keybord">shift + <span class="keybord">cmd + <span class="keybord">G, um die Dateipfadsuche zu öffnen. In dieser suchen wir den Pfad */Library/Frameworks/R.framework/Versions/*.
 
 ```{r, out.width = "400px", echo=FALSE, fig.align='center'}
 knitr::include_graphics("figures/Installation/Bilder/3_Dateipfad_Suche.png")
@@ -410,13 +410,13 @@ Wir bekommen nun die Ordner der verschiedenen **R**-Versionen angezeigt.
 knitr::include_graphics("figures/Installation/Bilder/4_Dateipfad_gesucht.png")
 ```
 
-Wir machen nun einen Rechtsklick auf den Ordner der vorherig genutzten **R**-Version <font size="2">(hier: 3.5)</font>  und öffnen diesen in einem neuen Tab. Der Ordner enthält nur den Ordner **Resources** und dieser wiederum nur den Ordner <span style="color: #669C35">**library**</span>. Wen wir diesen öffnen, sehen wir die Ordner aller Pakete. Wir wählen schonmal alle Ordner an.
+Wir machen nun einen Rechtsklick auf den Ordner der vorherig genutzten **R**-Version <font size="2">(hier: 3.5)</font>  und öffnen diesen in einem neuen Tab. Der Ordner enthält nur den Ordner **Resources** und dieser wiederum nur den Ordner <span style="color: #669C35">**library**. Wen wir diesen öffnen, sehen wir die Ordner aller Pakete. Wir wählen schonmal alle Ordner an.
 
 ```{r, out.width = "700px", echo=FALSE, fig.align='center'}
 knitr::include_graphics("figures/Installation/Bilder/5_Ordner.png")
 ```
 
-Nun gehen wir zurück auf den anderen Tab, in dem die Ordner der verschiedenen <span style="color: #0D35FE">**Versionen von **R****</span> gelistet sind. Wir öffnen den Ordner der aktuellesten Version <font size="2">(hier: 3.6)</font> und klicken auch hier auf den Ordner **Resources** und dann **library**.
+Nun gehen wir zurück auf den anderen Tab, in dem die Ordner der verschiedenen <span style="color: #0D35FE">**Versionen von **R**** gelistet sind. Wir öffnen den Ordner der aktuellesten Version <font size="2">(hier: 3.6)</font> und klicken auch hier auf den Ordner **Resources** und dann **library**.
 
 Wir gehen jetzt zurück auf den anderen Tab (der älteren **R**-Version) und ziehen die Pakete in den library-Ordner der neuen **R**-Version. 
 
@@ -429,7 +429,7 @@ Wir gehen jetzt zurück auf den anderen Tab (der älteren **R**-Version) und zie
 **Tipp**: Nach der Aktualisierung von **R** können wir mit großer Wahrscheinlichkeit auch einige **Pakete aktualisieren**. Für Hilfe dabei können wir uns das gleichnamige [Kapitel](Pakete.qmd) anschauen.
 
 
-### Aktualisierung von <span class ="r">**RStudio**</span>
+### Aktualisierung von <span class ="r">**RStudio**
 
 Aktualisierungen für die Entwicklungsumgebung **RStudio** gibt es wesentlich seltener als für das dahinter liegende Basisprogramm **R**.
 
@@ -462,7 +462,7 @@ Informationen über die aktuellste **RStudio**-Version finden wir wieder auf der
 
 Wenn unsere Version nicht mehr aktuell ist, überprüfen wir, ob die uns empfohlene Version [mit unserem Betriebssystem](#macver) sowie unserer **R**-Version kompatibel ist.
 
-Das weitere Vorgehen ist weitestgehend deckungsgleich mit dem der initialen [Installation von <span class ="r">**RStudio**</span>]. Einziger Unterschied ist, dass wir die ältere durch die neuere <span class ="r">**RStudio**</span>-Version ersetzen.
+Das weitere Vorgehen ist weitestgehend deckungsgleich mit dem der initialen [Installation von <span class ="r">**RStudio**]. Einziger Unterschied ist, dass wir die ältere durch die neuere <span class ="r">**RStudio**-Version ersetzen.
 
 ```{r, out.width = "350px", echo=FALSE, fig.align='center'}
 knitr::include_graphics("figures/Installation/Bilder/9_R_Studio_ersetzen.png")
@@ -470,7 +470,7 @@ knitr::include_graphics("figures/Installation/Bilder/9_R_Studio_ersetzen.png")
 
 ## Hinweis zur Replizierbarkeit von Analysen
 
-Wir sollten bei Analysen in **R** immer berichten, in welcher Version unser <span style="color:#0533FF">**Betriebssystem**</span>, <span style="color:#FF9B21">****R****</span> und unsere genutzten <span style="color:#669C35">**Pakete**</span> vorliegen. Sonst kann die Replikation unserer Ergebnisse Anderen schwer fallen, z.B. weil die Funktionen sich in ihrer Berechnung oder Funktionsweise zwischen verschiedenen Versionen von Paketen unterscheiden können. Mit der Funktion `sessionInfo()` bekommen wir all diese Informationen auf einen Schlag.
+Wir sollten bei Analysen in **R** immer berichten, in welcher Version unser <span style="color:#0533FF">**Betriebssystem**, <span style="color:#FF9B21">****R**** und unsere genutzten <span style="color:#669C35">**Pakete** vorliegen. Sonst kann die Replikation unserer Ergebnisse Anderen schwer fallen, z.B. weil die Funktionen sich in ihrer Berechnung oder Funktionsweise zwischen verschiedenen Versionen von Paketen unterscheiden können. Mit der Funktion `sessionInfo()` bekommen wir all diese Informationen auf einen Schlag.
 
 ```{r, out.width = "600px", echo=FALSE}
 knitr::include_graphics("figures/Installation/Bilder/sessionInfo.png")
