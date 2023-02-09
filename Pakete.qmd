@@ -165,7 +165,7 @@ Es kann vorkommen, dass für einige der Pakete, die wir aktualisieren wollen, no
 knitr::include_graphics("figures/Pakete/Bilder/update function 2.png")
 ```
 
-<details><summary>Was sind Binär- und Quellcode?</summary><div class ="more">
+<details><summary>Was sind Binär- und Quellcode?</summary>
 **Binärcode** ist eine Sprache, die zur Verarbeitung digitaler Informationen, d.h. von Rechnern, genutzt wird (Synonym: Maschinencode). Es heißt *binär* weil es zwei mögliche Zeichen gibt: 0 und 1. **Quellcode** bezeichnet für Menschen lesbare Programmiersprachen. Quellcode wird in Binärcode übersetzt und kann dann von Rechnern ausgeführt werden.
 </div></details>
 

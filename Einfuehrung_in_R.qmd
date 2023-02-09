@@ -88,7 +88,7 @@ mean(nums) # funktioniert nicht, weil unklar ist, was mit NA passieren soll
 mean(nums, na.rm=TRUE) # funktioniert, weil NA aus Berechnung entfernt wird
 ```
 
-<details><summary>Wann können wir Parameternamen weglassen (wie bei `mean(nums)`)?</summary><div class ="more">
+<details><summary>Wann können wir Parameternamen weglassen (wie bei `mean(nums)`)?</summary>
 Wir müssen `x=nums` nicht ausschreiben, weil `x` der erste Parameter in der Funktionsdefinition ist, und unser Argument `num` automatisch dem Parameter `x` zugeordnet wird.
 
 Das funktioniert mit jedem Argument solange wir die **Reihenfolge der Parameter in der Funktionsdefinition** beachten.

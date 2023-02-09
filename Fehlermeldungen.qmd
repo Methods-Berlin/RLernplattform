@@ -72,7 +72,7 @@ knitr::include_graphics("figures/Fehlermeldungen/Bilder/doc.png")
 
 Wir bekommen hier (zumeist) folgende Informationen: aus welchem Paket die Funktion ist <font size="2">(oben links in **{ }**)</font>, was die Funktion macht <font size="2">(<span class="highlight">Description)</font>, die Funktionsdefinition ggf. mit Defaults <font size="2">(<span class="highlight">Usage)</font>, ihre Parameter mit jeweils gültigen Argumenten <font size="2">(<span class="highlight">Arguments)</font>, weitere Details zur Nutzung <font size="2">(<span class="highlight">Details)</font>, ähnliche Funktionen <font size="2">(<span class="highlight">See also)</font> und Beispiele zur Nutzung <font size="2">(<span class="highlight">Examples)</font>.
 
-<details><summary>*Was sind Parameter, Argumente und Defaults?*</summary><div class ="more">
+<details><summary>*Was sind Parameter, Argumente und Defaults?*</summary>
 <span class="highlight">Parameter bezeichnet die (formalen) **Variablen einer Funktion** (z.B. `nrow` aus `matrix()`), denen wir unsere (tatsächlichen) <span class="highlight">Argumente (z.B. `3`), d.h. unseren **Input**,  übergeben. <span class="highlight">Default bezeichnet ein **voreingestelltes Argument** (z.B. `nrow=1`).
 
 Ohne explizite Spezifikation des Parameters unsererseits wird (wenn vorhanden) der Default verwendet. Wir könnten natürlich auch ein anderes (als das voreingestellte) Argument festlegen.

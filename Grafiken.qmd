@@ -49,7 +49,7 @@ library(ggplot2)
 
 <aside>Bei Problemen beim Installieren bzw. Laden von Paketen schaut in unserem [FAQ-Eintrag](Pakete.qmd#faq) dazu vorbei.</aside>
 
-<details><summary>Cheatsheet zu ggplot2</summary><div class ="more">
+<details><summary>Cheatsheet zu ggplot2</summary>
 
 Um uns die Anwendung von ggplot2 zu erleichtern, können wir ein Cheatsheet in <a href="https://github.com/rstudio/cheatsheets/raw/master/translations/german/ggplot2-german.pdf" target="_blank">deutsch</a> oder <a href="https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf" target="_blank">englisch</a> herunterladen. 
 
@@ -333,7 +333,7 @@ Beispielhaft schauen wir uns hierfür das Gewicht der Küken (`weight`) an.
 
 Mit Hilfe von Histogrammen können wir uns die Verteilung einer metrischen Variablen anschauen. Um ein Histogramm zu erstellen, nutzen wir `geom_histogram()`. 
 
-<details><summary>Richtlinien zur Kategorisierung einer metrischen Variablen</summary><div class ="more">
+<details><summary>Richtlinien zur Kategorisierung einer metrischen Variablen</summary>
 
 Bevor wir eine metrische Variable zum Zwecke der grafischen Darstellung kategorisieren, sollten wir uns Gedanken über die **Anzahl und Breite der Kategorien** machen, in die wir die Daten einteilen möchten. Es ist meist nicht sinnvoll, die Häufigkeiten der Rohwerte von metrischen Variablen zu plotten, weil identische Messwerte selten vorliegen. Daher ist es sinnvoll, die Rohdaten zu gruppieren. Dazu müssen wir uns Gedanken über die Intervallgröße dieser Kategorien machen (**"Problem der Kategorisierung"**). Durch Vergrößerung gehen (relevante) Informationen verloren; durch Verkleinerung bleiben (zu viele) idiosynkratische Merkmale erhalten.
 
@@ -476,7 +476,7 @@ ggplot(data=ChickWeight[ChickWeight$Time == 2,], aes(x=Diet, y=weight)) +
 
 <a name="index"></a>
 
-<details><summary>Erweiterte Indexierung: Wie können wir nur bestimmte Daten (z.B. nur Daten zum zweiten Messzeitpunkt) für `ggplot()` auswählen?</summary><div class ="more">
+<details><summary>Erweiterte Indexierung: Wie können wir nur bestimmte Daten (z.B. nur Daten zum zweiten Messzeitpunkt) für `ggplot()` auswählen?</summary>
 
 Wenn wir nicht alle Daten, sondern nur solche, auf die bestimmte Bedingungen zutreffen, auswählen wollen, können wir dazu die Indexierung mittels der eckigen Klammern `[]` nutzen.
 
@@ -755,7 +755,7 @@ Wenn wir die Datenpunkte in einem Streudiagramm mit Regressionsgerade einfärben
 
 Quelle: https://educationalresearchtechniques.com/2016/10/03/linear-regression-lines-and-facets-in-ggplot2/
 
-<details><summary>Farbliche Hervorhebung</summary><div class ="more">
+<details><summary>Farbliche Hervorhebung</summary>
 
 Wir können zusätzlich noch die Information einer kategorialen Variablen in unsere Visualisierung miteinbeziehen. Wir können entweder die Datenpunkte entsprechend der Gruppenzugehörigkeit färben oder für jede Gruppe separate Regressionsgeraden einzeichnen.
 
@@ -829,7 +829,7 @@ Dadurch, dass für jede Gruppe ein eigenes Streudiagramm nur mit den Beobachtung
 
 -->
 
-<details><summary>Paket ggiraphextra: Interaktive Plots und weitere Darstellungen von Regressionsmodellen</summary><div class ="more">
+<details><summary>Paket ggiraphextra: Interaktive Plots und weitere Darstellungen von Regressionsmodellen</summary>
 
 Mit der Funktion `ggPredict()` aus dem Paket **ggiraphExtra** können wir interaktive Streudiagramme mit Regressionsgeraden (von einfachen *und* multiplen linearen Regressionsmodellen) erstellen. Hierfür benötigen wir die Basisfunktion `ggplot()` gar nicht (aber ggiraphExtra baut auf ggplot2 auf). Allerdings müssen wir zuerst manuell mit `lm()` die Regression rechnen und das Ergebnisobjekt an `ggPredict()` übergeben.
 
@@ -1136,7 +1136,7 @@ Auf dieser <a href="http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf" targe
 
 Darüber hinaus können wir auch <span class="highlight">Hex-Farben <font size="2">(mit dem Hexadezimal-Zahlensystem kodierte Faben)</font> nutzen, die aus einem **#** und einer 6-stelligen Zeichenfolge bestehen, z.B. `"#53FD9F"`. Dabei werden jeweils zwei Zahlen genutzt um rot, blau und grün zu kodieren (**RGB**). Beispielsweise können wir <a href="http://hslpicker.com" target="_blank">hier</a> eigene Farben erstellen und uns den Hex-Code kopieren.
 
-<details><summary>Grafische Elemente transparent machen</summary><div class ="more">
+<details><summary>Grafische Elemente transparent machen</summary>
 Wir können einzelne Elemente einer Grafik transparent machen. Wenn wir die Grafik exportieren wollen, müssen wir nicht nur in der Erstellung der Grafik sondern auch beim Export angeben, dass ein bestimmtes Element transparent sein soll. Nur Grafiken im **PNG**-Format können transparent sein.
 
 Folgendermaßen können wir beispielsweise den **Hintergrund der Grafik** (`plot.background`) transparent machen: 

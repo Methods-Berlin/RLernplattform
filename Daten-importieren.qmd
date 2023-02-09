@@ -17,14 +17,14 @@ Die ersten beiden Wege nutzen die **grafische Benutzeroberfläche** der Entwickl
 
 Exemplarisch schauen wir uns die drei Wege für die Datei neuro<a href="https://de.wikipedia.org/wiki/CSV_(Dateiformat)" target="_blank">**.csv**</a> an. Wir können mit den vorgestellten Wegen aber auch andere Dateiformate einlesen.
 
-<details><summary>Was ist eine grafische Benutzeroberfläche?</summary><div class ="more">
+<details><summary>Was ist eine grafische Benutzeroberfläche?</summary>
 Die Grafische Benutzeroberfläche, oder auch Benutzungsschnittstelle, wird häufig auch mit GUI (_**G**raphical **U**ser **I**nterface_) abgekürzt. Durch diese kann man mit der Maus auf Symbole und andere Steuerelemente klicken anstatt Funktionen in der Konsole auszuführen (z.B. [Weg 1](#weg-1-environment-import-dataset) und [Weg 2](html#weg-2-files-import-dataset) zum Daten einlesen). 
 
 Die grafische Benutzeroberfläche in der Entwicklungsumgebung <span class ="r">**RStudio** ist viel besser ausgebaut (als die des Basisprogramms **R**), weswegen wir diese auch nutzen wollen.</div></details>
 
 <p style="line-height:10px;"></p>
 
-<details><summary>Was ist das Working Directory?</summary><div class ="more">
+<details><summary>Was ist das Working Directory?</summary>
 Mit dem Working Directory (WD; Arbeitsverzeichnis) legen wir u.a. fest, wo unser aktuelles <span class="r">R-Skript gespeichert wird und wo andere Objekte, die wir aus <span class="r">R exportieren (z.B. Grafiken), standarmäßig (während der aktuellen Sitzung) gespeichert werden. 
 
 Das WD müssen wir (in der Regel) in jeder <span class="r">R-Sitzung erneut festlegen.</div></details>
@@ -284,7 +284,7 @@ daten <- read.delim("Dateipfad/neuro.csv")
 daten <- read.csv("Dateipfad/neuro.csv")
 ```
 
-<details><summary>Einen Dateipfad kopieren</summary><div class ="more">
+<details><summary>Einen Dateipfad kopieren</summary>
 
 Unter <span class="highlight">Windows können wir auf <span class ="keybord">shift drücken und dann einen *Rechtsklick* auf die Datei machen. Nun öffnet sich ein Menü, in welchem wir *Als Dateipfad kopieren* auswählen. **Wichtig** dabei ist, dass wir noch alle **\\** <font size="2">(backslashes)</font> aus dem kopierten Pfad in */* <font size="2">(forwardslashes)</font> ändern müssen.
 
@@ -320,7 +320,7 @@ knitr::include_graphics("figures/Daten-importieren/Bilder/Environment_Datenobjek
 
 <p style="line-height:10px;"></p>
 
-<details><summary>Probleme? Nutze <font color="white">Trial-and-Error</font>!</summary><div class ="more">
+<details><summary>Probleme? Nutze <font color="white">Trial-and-Error</font>!</summary>
 
 Um in Erfahrung zu bringen, welche Argumente wir nutzen müssen, um die Daten korrekt einzulesen, können wir einen  **Trial-and-Error Ansatz** verwenden:
 

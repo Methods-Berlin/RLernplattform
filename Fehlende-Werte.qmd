@@ -4,7 +4,7 @@
 
 Es kann in der Praxis häufiger vorkommen, dass Datensätze unvollständig sind z.B. wenn Teilnehmende einer Befragung nicht alle Fragen beantworten. Diese fehlenden Einträge nennt man **Missings**. In <span class="r">R werden sie (bei <span class="r">numeric) zumeist mit `NA` <font size="2">(*not available*)</font> gekennzeichnet. 
 
-<details><summary>Welche Kodierungen für fehlende Werte gibt es neben `NA`  noch?</summary><div class ="more">
+<details><summary>Welche Kodierungen für fehlende Werte gibt es neben `NA`  noch?</summary>
 Beim Datentyp <span class="r">**numeric** (Zahlen) sind fehlende Werte durch `NA` oder durch `NaN` <font size="2">(*Not a Number*)</font> gekennzeichnet. 
 
 ```{r}
