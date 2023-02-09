@@ -22,7 +22,7 @@ Es gibt drei führende Pakete zum Erstellen von Grafiken in <span class="r">R</s
 - Paket **lattice** 
 - Paket **ggplot2**
 
-<aside>**Basispakete** sind von Anfang an in <span class ="r">R</span> enthalten, ohne dass wir sie herunterladen müssen.</aside>  
+<aside>**Basispakete** sind von Anfang an in **R** enthalten, ohne dass wir sie herunterladen müssen.</aside>  
 
 Im Rahmen dieses Kapitels werden wir uns auf **ggplot2** konzentrieren. Mit diesem Paket haben wir eine große Bandbreite an Möglichkeiten, das Aussehen der Grafiken zu verändern. Außerdem können wir auf eine große Anzahl von verschiedenen Grafiken zurückgreifen wie z.B. den Violinenplot <font size="1">(siehe Abb. unten)</font>. Ein Violinenplot zeigt die Dichteverteilung eines metrischen Merkmals in Abhängigkeit eines kategorialen Merkmals. 
 
@@ -77,7 +77,7 @@ data(ChickWeight)
 ```
 
 <!--
-<font size="2"><span style="color:red">**Hinweis:**</span>Wenn ihr den Datensatz nicht in den Workspace laden könnt, könnte das daran liegen, dass dieser nicht in eurer Version des Basis-Pakets **datasets** enthalten ist. Wenn ihr eine aktuellere <span class ="r">R</span>-Version installiert, werden die Basispakete gleichfalls aktualisiert. Wie ihr <span class ="r">R</span> aktualisieren könnt, erfahrt in unserem Abschnitt zur <a href="..." target="_blank">Installation und Aktualisierung</a>.</font>
+<font size="2"><span style="color:red">**Hinweis:**</span>Wenn ihr den Datensatz nicht in den Workspace laden könnt, könnte das daran liegen, dass dieser nicht in eurer Version des Basis-Pakets **datasets** enthalten ist. Wenn ihr eine aktuellere **R**-Version installiert, werden die Basispakete gleichfalls aktualisiert. Wie ihr **R** aktualisieren könnt, erfahrt in unserem Abschnitt zur <a href="..." target="_blank">Installation und Aktualisierung</a>.</font>
 -->
 
 Die Daten stammen aus einem Experiment, in dem der **Einfluss des Futters auf das Wachstum von Küken** untersucht wurde. 
@@ -166,11 +166,11 @@ ChickWeight$Diet <- factor(ChickWeight$Diet) # umwandeln
 
 Falls wir noch auf der Suche nach einer informativen und ansprechenden Grafik für unsere Daten seid, können wir uns einen **Überblick über geeignete Grafiken** auf <span class="highlight"><a href="https://www.data-to-viz.com" target="_blank">from Data to Viz</a></span> verschaffen.
 
-Für mehr **Inspiration** (sowie teilweise auch den <span class ="r">R</span>-Code) können wir auf den folgenden zwei Seiten nachschauen: 
+Für mehr **Inspiration** (sowie teilweise auch den **R**-Code) können wir auf den folgenden zwei Seiten nachschauen: 
 
-Auf <span class="highlight"><a href="https://www.r-graph-gallery.com" target="_blank">R Graph Gallery</a></span> finden wir verschiedene Grafiken nach Oberbegriffen <font size="2">(z.B. Zusammenhänge, Korrelation)</font> sortiert und unterteilt in bestimmte Arten von Grafiken <font size="2">(z.B. Histogramm, Korrelogramm)</font>. Wenn wir auf die jeweilige Grafik klicken, kommen wir auf eine Seite, auf der es eine Definition und mehrere Beispielgrafiken, teils mit <span class ="r">R</span>-Code, gibt. Wir finden hier auch nicht nur Grafiken, die mit ggplot erstellt wurden.
+Auf <span class="highlight"><a href="https://www.r-graph-gallery.com" target="_blank">R Graph Gallery</a></span> finden wir verschiedene Grafiken nach Oberbegriffen <font size="2">(z.B. Zusammenhänge, Korrelation)</font> sortiert und unterteilt in bestimmte Arten von Grafiken <font size="2">(z.B. Histogramm, Korrelogramm)</font>. Wenn wir auf die jeweilige Grafik klicken, kommen wir auf eine Seite, auf der es eine Definition und mehrere Beispielgrafiken, teils mit **R**-Code, gibt. Wir finden hier auch nicht nur Grafiken, die mit ggplot erstellt wurden.
 
-Auf <span class="highlight"><a href="http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html" target="_blank">Top 50 ggplot2 Visualizations - The Master List</a></span> finden wir auch eine gute Übersicht möglicher ggplot-Grafiken für verschiedene Anliegen <font size="2">(z.B. Korrelation, Variation, Veränderung)</font> mit den dazugehörigen <span class ="r">R</span>-Codes. Wir finden hier auch sehr einzigartige Visualisierungen wie z.B. Dendrogramme.
+Auf <span class="highlight"><a href="http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html" target="_blank">Top 50 ggplot2 Visualizations - The Master List</a></span> finden wir auch eine gute Übersicht möglicher ggplot-Grafiken für verschiedene Anliegen <font size="2">(z.B. Korrelation, Variation, Veränderung)</font> mit den dazugehörigen **R**-Codes. Wir finden hier auch sehr einzigartige Visualisierungen wie z.B. Dendrogramme.
 
 ## Grundlegender Aufbau von ggplot()
 
@@ -729,7 +729,7 @@ ggplot(data=ChickWeight, aes(x=Time, y=weight)) +
 ggplot(data=ChickWeight, aes(x=Time, y=weight)) + geom_jitter(width=1) 
 ```
 
-Es gibt noch weitere Möglichkeiten Overplotting zu vermeiden. Auf dieser <a href="https://www.statworx.com/de/blog/how-not-to-overplot/" target="_blank">Seite</a> finden wir noch andere Beispiele sowie ihre Umsetzung in <span class ="r">R</span>.
+Es gibt noch weitere Möglichkeiten Overplotting zu vermeiden. Auf dieser <a href="https://www.statworx.com/de/blog/how-not-to-overplot/" target="_blank">Seite</a> finden wir noch andere Beispiele sowie ihre Umsetzung in **R**.
 
 
 <h4>Regressionsgerade einzeichnen</h4>
@@ -1033,7 +1033,7 @@ Im folgenden Abschnitt werden noch weitere Erweiterungen vorgestellt z.B. wie wi
 
 Nachfolgend schauen wir uns einige Möglichkeiten der Modifikation von Grafiken an. <span class="ex">Als Beispiele nutzen wir dafür die bisher erstellten Grafiken.</span>
 
-> *__Achtung__*:  Wenn wir in der <span class ="r">R</span>-Dokumentation nach **ggplot2-specs** suchen, finden wir eine Übersicht der ästhetischen Spezifikationen wie z.B. **Farben**, **Linientypen**, **Punktformen**, **Schriftarten**, **Textausrichtung** etc.
+> *__Achtung__*:  Wenn wir in der **R**-Dokumentation nach **ggplot2-specs** suchen, finden wir eine Übersicht der ästhetischen Spezifikationen wie z.B. **Farben**, **Linientypen**, **Punktformen**, **Schriftarten**, **Textausrichtung** etc.
 
 
 ### <font color="#e41a1c">F</font><font color="#377eb8">a</font><font color="#4daf4a">r</font><font color="#984ea3">b</font><font color="#ff7f00">e</font>
@@ -1128,11 +1128,11 @@ kable(table, align = "c") %>%
 
 <h3>(Einzelne) Farben</h3>
 
-Wir können in <span class ="r">R</span> standardmäßig implementierte <font size="2">("built-in")</font> Farben sowie Hex-Farben nutzen.
+Wir können in **R** standardmäßig implementierte <font size="2">("built-in")</font> Farben sowie Hex-Farben nutzen.
 
 Auf dieser <a href="http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf" target="_blank">Seite</a> finden wir eine Übersicht der <span class="highlight">built-in Farben</span>. Diese können wir einfach mit ihrem Namen auswählen z.B. `"red"` oder `"seagreen1"`. 
 
-> *__Achtung__*:  Diese built-in Farben sind nicht mit allen Anwendungen in <span class ="r">R</span> kompatibel. Beispielsweise können wir `"seagreen"`, aber **nicht** `"seagreen1"` in der Funktion `kable()` aus dem Paket **knitr**, welche eine Tabelle erstellt, nutzen.
+> *__Achtung__*:  Diese built-in Farben sind nicht mit allen Anwendungen in **R** kompatibel. Beispielsweise können wir `"seagreen"`, aber **nicht** `"seagreen1"` in der Funktion `kable()` aus dem Paket **knitr**, welche eine Tabelle erstellt, nutzen.
 
 Darüber hinaus können wir auch <span class="highlight">Hex-Farben</span> <font size="2">(mit dem Hexadezimal-Zahlensystem kodierte Faben)</font> nutzen, die aus einem **#** und einer 6-stelligen Zeichenfolge bestehen, z.B. `"#53FD9F"`. Dabei werden jeweils zwei Zahlen genutzt um rot, blau und grün zu kodieren (**RGB**). Beispielsweise können wir <a href="http://hslpicker.com" target="_blank">hier</a> eigene Farben erstellen und uns den Hex-Code kopieren.
 
@@ -1554,9 +1554,9 @@ Grundsätzlich gibt es zwei Möglichkeiten dafür:
 
 Im Folgenden schauen wir uns an, wie wir den <span style="color: #75AADC">**Export**-Button</span> und die Funktion `ggsave()`, mit der wir mit ggplot2 erstellte Grafiken exportieren können, nutzen.
 
-Eine Übersicht über das Exportieren von Grafiken mit Funktionen aus dem Basispaket **grDevices**, finden wir <a href="http://www.cookbook-r.com/Graphs/Output_to_a_file/" target="_blank">hier</a>. Mit diesen Funktionen können wir Grafiken, die __mit einem beliebigen <span class ="r">R</span>-Paket erstellt__ wurden, exportieren.
+Eine Übersicht über das Exportieren von Grafiken mit Funktionen aus dem Basispaket **grDevices**, finden wir <a href="http://www.cookbook-r.com/Graphs/Output_to_a_file/" target="_blank">hier</a>. Mit diesen Funktionen können wir Grafiken, die __mit einem beliebigen **R**-Paket erstellt__ wurden, exportieren.
 
-> *__Achtung__*:  Wenn wir mehrere Garfiken exportieren wollen, müssen wir darauf achten, dass wir diesen **unterschiedliche Namen** zuweisen. Sowohl innerhalb von <span class ="r">R</span> als auch beim Export werden bestehende Objekte mit dem gleichen Namen überschrieben.
+> *__Achtung__*:  Wenn wir mehrere Garfiken exportieren wollen, müssen wir darauf achten, dass wir diesen **unterschiedliche Namen** zuweisen. Sowohl innerhalb von **R** als auch beim Export werden bestehende Objekte mit dem gleichen Namen überschrieben.
 
 > *__Achtung__*:  <span class="highlight">Hinweis für Windows-NutzerInnen:</span> Manchmal kann es zu Probleme mit **Aliasing** kommen. Das ist, wenn Grafikelemente und/oder Text nach dem Export **"krisselig"** dargestellt werden. 
 
@@ -1645,7 +1645,7 @@ ggsave(
 Das gewünschte <span style="color:#E63B7A">**Bildformat**</span> können wir einfach als Endung an den <span style="color:#942192">**Namen der Grafik**</span> anhängen. Beides übergeben wir in `" "` an das Argument `filename`.
 Wir haben hier mehr Auswahl an möglichen Outputformaten. Es gibt z.B. PNG, PDF, JPEG, TIFF, EPS, PS, TEX und SVG.
 
-Wir legen mit dem Argument `plot` fest, welche Grafik wird exportieren wollen. Das funktioniert nur wenn wir diese vorher in einer Variablen gespeichert haben (z.B. `name <- ggplot(...)`). Dann erscheint der Name auch im Global Environment (oberer rechtes Panel in <span class ="r">R</span>). Standarmäßig  wird der zuletzt erstellte Plot exportiert, wenn wir das Argument `plot` weglassen <font size="2">(oder `plot=last_plot()` eingeben)</font>.
+Wir legen mit dem Argument `plot` fest, welche Grafik wird exportieren wollen. Das funktioniert nur wenn wir diese vorher in einer Variablen gespeichert haben (z.B. `name <- ggplot(...)`). Dann erscheint der Name auch im Global Environment (oberer rechtes Panel in **R**). Standarmäßig  wird der zuletzt erstellte Plot exportiert, wenn wir das Argument `plot` weglassen <font size="2">(oder `plot=last_plot()` eingeben)</font>.
 
 Das <span style="color:#AA7942">**Verzeichnis**</span>, in dem die Grafik abgelegt werden soll, können wir mit dem Argument `path` festlegen. Diesem übergeben wir den Ordnerpfad, welchen wir auch in `" "` setzen müssen. Standardmäßig wird die Grafik in der obersten Ordnersturktur bzw. im derzeitigen Working Directory (wenn eins gesetzt wurde) abgelegt.
 
@@ -1687,13 +1687,13 @@ Wenn wir mehrere Grafiken haben, die wir in einer gemeinsamen Datei speichern wo
 <!--
 ## Weitere Lernplattformen
 
-Im Internet finden wir zahlreiche Seiten, die uns die Erstellung von Grafiken in <span class ="r">R</span> erklären. Die meisten fokussieren dabei auf die Anwendung von ggplot. Im Folgenden eine Übersicht einiger ausgewählter Seiten.
+Im Internet finden wir zahlreiche Seiten, die uns die Erstellung von Grafiken in **R** erklären. Die meisten fokussieren dabei auf die Anwendung von ggplot. Im Folgenden eine Übersicht einiger ausgewählter Seiten.
 
 * **<a href="http://www.cookbook-r.com/Graphs/" target="_blank">R Cookbook</a>**
-    + Hier finden wir nicht nur eine Anleitung zur Erstellung von Grafiken mit Hilfe von ggplot. Es gibt u.a. zusätzlich Informationen zur Veränderung der **Linientypen** und **Schriftarten** in Grafiken. Zur Erstellung von **base <span class ="r">R</span> Grafiken** und **Korrelationsmatrizen** finden wir hier auch Hilfe.
+    + Hier finden wir nicht nur eine Anleitung zur Erstellung von Grafiken mit Hilfe von ggplot. Es gibt u.a. zusätzlich Informationen zur Veränderung der **Linientypen** und **Schriftarten** in Grafiken. Zur Erstellung von **base **R** Grafiken** und **Korrelationsmatrizen** finden wir hier auch Hilfe.
 
 * **<a href="https://r4ds.had.co.nz/data-visualisation.html" target="_blank">R for Data Science</a>**
-   + Hadley Wickham, der Entwickler von ggplot, hat eine Seite erstellt, auf der wir den Umgang mit <span class ="r">R</span> lernen können. Hier finden wir eine grundlegende Einführung in die Funktion `ggplot()`. Zwischendrin gibt es hin und wieder Übungen (*Exercises*), die unser Verständnis testen.
+   + Hadley Wickham, der Entwickler von ggplot, hat eine Seite erstellt, auf der wir den Umgang mit **R** lernen können. Hier finden wir eine grundlegende Einführung in die Funktion `ggplot()`. Zwischendrin gibt es hin und wieder Übungen (*Exercises*), die unser Verständnis testen.
    
 
 * **<a href="https://psyr.org/visualising-data.html#151_r_graphics" target="_blank">R for Psychological Science</a>**
@@ -1708,7 +1708,7 @@ Im Internet finden wir zahlreiche Seiten, die uns die Erstellung von Grafiken in
 
 ---
 
-<font size="2">Um eine möglichst exakte Replikation der Funktionen zu gewährleisten gibt es im folgenden relevante Angaben zum System (**<span class ="r">R</span>-Version**, **Betriebssystem**, **geladene Pakete mit Angaben zur Version**), mit welchem diese Seite erstellt wurde.
+<font size="2">Um eine möglichst exakte Replikation der Funktionen zu gewährleisten gibt es im folgenden relevante Angaben zum System (****R**-Version**, **Betriebssystem**, **geladene Pakete mit Angaben zur Version**), mit welchem diese Seite erstellt wurde.
 
 ```{r}
 sessionInfo()

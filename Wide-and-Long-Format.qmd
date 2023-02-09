@@ -98,7 +98,7 @@ Wir schauen uns zwei Möglichkeiten an, mit denen man Datensätze umformatieren 
 - `reshape()` aus dem Standardpaket **stats**
 - `gather()` bzw. `spread()` aus dem Paket **tidyr**
 
-<aside>**Standard-** oder auch **Basispakete** sind Pakete, die von Anfang an in <span class ="r">R</span> enthalten sind, ohne dass man sie installieren muss.</aside> 
+<aside>**Standard-** oder auch **Basispakete** sind Pakete, die von Anfang an in **R** enthalten sind, ohne dass man sie installieren muss.</aside> 
 
 Wir werden beide Pakete nutzen, um unsere Daten vom Long- ins Wide-Format und vom Wide- ins Long-Format zu überführen. Wir stellen beide Möglichkeiten zum Umformatieren vor, damit jeder ausprobieren kann, mit welcher Funktion sie bzw. er besser arbeiten kann. Während `gather()` und `spread()` manchen Nutzern intuitiver und einfacher erscheinen, werden die Daten mit `reshape()` etwas übersichtlicher dargestellt <font size="2">(z.B. durch Zeilennummerierungen)</font>.
 
@@ -106,7 +106,7 @@ Falls ihr das Paket **tidyr** noch nicht installiert habt, könnt ihr das folgen
 \
 
 <details class ="bsp"><summary>Beispieldatensatz für dieses Kapitel</summary>
-Im Zuge dieses Kapitels werden wir mit dem Datensatz `ChickWeight` arbeiten, der standardmäßig in <span class ="r">R</span> enthalten ist. Wir laden ihn folgendermaßen herunter:
+Im Zuge dieses Kapitels werden wir mit dem Datensatz `ChickWeight` arbeiten, der standardmäßig in **R** enthalten ist. Wir laden ihn folgendermaßen herunter:
 
 ```{r}
 #| eval: false
@@ -116,7 +116,7 @@ data(ChickWeight)
 ```{r}
 #| echo: false
 #| eval: false
-# <font size="2"><span style="color:red">**Hinweis:**</span>Wenn ihr den Datensatz nicht in den Workspace laden könnt, könnte das daran liegen, dass dieser nicht in eurer Version des Basis-Pakets **datasets** enthalten ist. Wenn ihr eine aktuellere <span class ="r">R</span>-Version installiert, werden die Basispakete gleichfalls aktualisiert. Wie ihr <span class ="r">R</span> aktualisieren könnt, erfahrt in unserem Abschnitt zur <a href="..." target="_blank">Installation und Aktualisierung</a>.</font>
+# <font size="2"><span style="color:red">**Hinweis:**</span>Wenn ihr den Datensatz nicht in den Workspace laden könnt, könnte das daran liegen, dass dieser nicht in eurer Version des Basis-Pakets **datasets** enthalten ist. Wenn ihr eine aktuellere **R**-Version installiert, werden die Basispakete gleichfalls aktualisiert. Wie ihr **R** aktualisieren könnt, erfahrt in unserem Abschnitt zur <a href="..." target="_blank">Installation und Aktualisierung</a>.</font>
 ```
 
 Die Daten stammen aus einem **Längsschnitt**-Experiment, in dem der **Einfluss von verschiedenem Futter auf das Wachstum von Küken** untersucht wurde. 
@@ -399,7 +399,7 @@ Wenn wir wissen wollen, wie man `melt()` <font size="2">(Wide zu Long)</font> un
 
 ---
 
-<font size="2">Um eine möglichst exakte Replikation der Funktionen zu gewährleisten gibt es im folgenden relevante Angaben zum System (**<span class ="r">R</span>-Version**, **Betriebssystem**, **geladene Pakete mit Angaben zur Version**), mit welchem diese Seite erstellt wurde.
+<font size="2">Um eine möglichst exakte Replikation der Funktionen zu gewährleisten gibt es im folgenden relevante Angaben zum System (****R**-Version**, **Betriebssystem**, **geladene Pakete mit Angaben zur Version**), mit welchem diese Seite erstellt wurde.
 
 ```{r}
 sessionInfo()

@@ -263,9 +263,9 @@ Neben der Informationen, aus welchem Paket eine Funktion stammt, finden wir hier
 
 <p style="line-height:10px;"></p>
 
-Im Folgenden schauen wir uns die <span class ="r">R</span>-Dokumentation exemplarisch für die Funktion <span class="ex">`matrix()`</span> an. 
+Im Folgenden schauen wir uns die **R**-Dokumentation exemplarisch für die Funktion <span class="ex">`matrix()`</span> an. 
 
-<span class = "ex">Dazu öffnen wir die dazugehörige <span class ="r">R</span>-Dokumentations-Seite, indem wir *matrix* in das <font color ="#FF1D00">Suchfeld</font> eingeben, oder eine der Hilfe-Funktionen, `help(matrix)` oder `?matrix`, ausführen. Folgende Seite sollte sich nun öffnen:</span>
+<span class = "ex">Dazu öffnen wir die dazugehörige **R**-Dokumentations-Seite, indem wir *matrix* in das <font color ="#FF1D00">Suchfeld</font> eingeben, oder eine der Hilfe-Funktionen, `help(matrix)` oder `?matrix`, ausführen. Folgende Seite sollte sich nun öffnen:</span>
 
 ```{r}
 #| out.width: 550px
@@ -317,7 +317,7 @@ matrix()
 
 ##### Arguments
 
-Argumente sind Einstellungen, die wir für eine Funktion festlegen können. In der <span class ="r">R</span>-Dokumentation sieht man links den Namen des Arguments <font size="2"><span class = "ex">(z.B. `byrow`)</span></font> und rechts eine Beschreibung dazu <font size="2"><span class = "ex">(z.B. `logical`)</span></font> verbunden mit verschiedenen Einstellungsoptionen <font size="2"><span class = "ex">(z.B. `FALSE` - spaltenweise Befüllen der Matrix)</span></font>.
+Argumente sind Einstellungen, die wir für eine Funktion festlegen können. In der **R**-Dokumentation sieht man links den Namen des Arguments <font size="2"><span class = "ex">(z.B. `byrow`)</span></font> und rechts eine Beschreibung dazu <font size="2"><span class = "ex">(z.B. `logical`)</span></font> verbunden mit verschiedenen Einstellungsoptionen <font size="2"><span class = "ex">(z.B. `FALSE` - spaltenweise Befüllen der Matrix)</span></font>.
 
 
 ##### Details
@@ -332,7 +332,7 @@ Wir erfahren hier, dass wenn `nrow` <font size="2">(Zeilenanzahl)</font> oder `n
 matrix(data=c(1,1,2,2,3,3,4,4,5,5), nrow=5)
 ```
 
-<span class = "ex">Wir haben einen Vektor mit 10 Elementen reingegeben und `nrow=5` festlegt. Daraus kann <span class ="r">R</span> schließen, dass die Matrix zwei Spalten (`ncol=2`) haben muss.</span>
+<span class = "ex">Wir haben einen Vektor mit 10 Elementen reingegeben und `nrow=5` festlegt. Daraus kann **R** schließen, dass die Matrix zwei Spalten (`ncol=2`) haben muss.</span>
 
 <span class = "ex">**2. Abschnitt `matrix()`:**\
 Wenn die Anzahl der Elemente, die wir an `data` übergeben, kleiner ist, als die Anzahl der gewünschten Elemente in Matrix <font size="2">(`nrow` x `ncol`)</font>, dann wird `data` __recycled__. Das bedeutet, dass `data` nochmal genutzt wird, um die Matrix zu befüllen.</span>
