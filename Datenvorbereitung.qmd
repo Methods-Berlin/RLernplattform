@@ -239,25 +239,23 @@ Nachfolgend finden wir eine Übersicht zu den Möglichkeiten der Kodierung von M
 ```{r}
 #| echo: false
 De <- rep("Datentyp:", 2)
-D <- c("<span style=\"font-family: Consolas,monaco,monospace;\">character", "<span style=\"font-family: Consolas,monaco,monospace;\">numeric")
+D <- c("<span style=\"font-family: Consolas,monaco,monospace;\">character</span>", "<span style=\"font-family: Consolas,monaco,monospace;\">numeric</span>")
 N <- c("X", "X$^1$")
 O <- c("X$^2$", "X$^2$")
 I <- c("", "X")
 V <- c("", "X")
 A <- c("", "X")
-
 table_kat <- data.frame(De, D, N, O, I, V, A)
 colnames(table_kat) <- c("", "", "Nominal-", "Ordinal-", 
               "Intervall-", "Verhältnis-", "Absolut-")
-
 table_kat %>%
   kable("html", align="c", escape=FALSE, table.attr = "style='width:100%;'") %>%
-  add_header_above(c("<span style=\"display:none;\">_"=2 , "Art der Skala:" = 5), line=F, color = "white", background = "#009193", escape=FALSE) %>% 
+  add_header_above(c("<span style=\"display:none;\">_</span>"=2 , "Art der Skala:" = 5), line=F, color = "white", background = "#009193", escape=FALSE) %>% 
   kable_styling(full_width = T) %>%
   row_spec(0, color = "white", background = "#009193") %>%
   column_spec(1:2, bold=TRUE, color = "white", background = "#009193") %>%
   collapse_rows(columns = 1, valign = "middle") %>%
-  footnote(general = "<font size=\"1\">$^1$ Faktorisieren (unordered factor) notwendig *wenn* keine Indikatorvariable(n) genutzt $^2$ Faktorisieren (ordered factor) notwendig", general_title = "", escape = FALSE) 
+  footnote(general = "<font size=\"1\">$^1$ Faktorisieren (unordered factor) notwendig *wenn* keine Indikatorvariable(n) genutzt $^2$ Faktorisieren (ordered factor) notwendig</font>", general_title = "", escape = FALSE) 
 ```
 
 Mit der Funktion `str()` können wir uns eine kompakte Übersicht der enthaltenen Variablen (d.h. ihr Datentyp bzw. die Datenstruktur Faktor sowie jeweils die ersten 10 Werte) der Datenstruktur (hier: Dataframe) ausgeben lassen. So können wir schauen, ob die Daten auch entsprechend ihres Messniveaus kodiert sind.
@@ -901,7 +899,6 @@ library(dplyr)
 table <- matrix(c("`grep()`", "`$`, `select()`",
                   "z.B. enthalten den Buchstaben 'o':\n`Ozone`, `Solar.R`, `Month`", "z.B. `Month` und `Day`"), nrow = 2, ncol = 2, byrow=T)
 colnames(table) <- c("... sich ähnlich", "... unterschiedlich")
-
 kable(table, table.attr = "style='width:100%;'") %>%
   add_header_above(c("Die Variablennamen sind ..."=2), line=F, color = "white", background = "#009193") %>%
   kable_styling(full_width = TRUE) %>%
@@ -909,13 +906,13 @@ kable(table, table.attr = "style='width:100%;'") %>%
   row_spec(0, bold = T, color = "white", background = "#009193") 
 ```
 
-<details><summary><a name="grep"></a>`grep()`</summary>
+<details><summary>`grep()`</summary>
 
 Wenn Variablen eines Datensatzes eine **Gemeinsamkeit** (z.B. einen gemeinsamen Wortstamm) aufweisen, können wir diese mit der Funktion `grep()` extrahieren.
 
-```{r}
+```
 grep(pattern, names(Datensatz))
-````
+```
 
 Die Funktion durchsucht die Namen der Variablen eines Dataframes - `names(Datensatz)` - nach bestimmten Zahlen- oder Zeichenketten (`pattern`). Diese müssen wir in `" "` angeben (weil Variablennamen als Character gespeichert werden). 
 
@@ -1032,35 +1029,35 @@ Unten befindet sich eine Übersicht, der wir entnehmen können, welche Methode w
 ```{r}
 #| echo: false
 # https://haozhu233.github.io/kableExtra/awesome_table_in_html.html#column__row_specification
-library(kableExtra)
-library(dplyr)
 table <-
   matrix(
     c(
-      "`grep()`",
-      "logische Operatoren, `filter()`",
-      "z.B. enthalten die Zahl 6: 67, 86, ...", "z.B. genau 57 oder >= 15"
+      "X", "", "", "", "",
+      "X", "X", "", "", "",
+      "X", "X", "X", "", "",
+      "X", "X", "X", "X", "",
+      "X", "X", "X", "X", "X"
     ),
-    nrow = 2,
-    ncol = 2,
+    nrow = 5,
+    ncol = 5,
     byrow = T
   )
-colnames(table) <- c("... die selben Zeichen", "... einen gemeinsamen Wertebereich")
-
-library(kableExtra)
-library(dplyr)
-
-kable(table, table.attr = "style='width:100%;'") %>%
-  add_header_above(c("Die Ausprägungen der Fälle haben ..." = 2), line = F, color = "white", background = "#009193") %>%
-  kable_styling(full_width = TRUE) %>%
-  row_spec(2, font_size = 10) %>%
-  row_spec(0,
+colnames(table) <- c("<span style=\"line-height:0.1;\">(Un-)\nGleichheit</span>", "Rangordnung", "Abstände", "Verhältnisse", "natürliche\nEinheit")
+rownames(table) <- c("Nominal", "Ordinal", "Intervall", "Verhältnis", "Absolut")
+kable(table, "html", escape = F) %>%
+  kable_styling(full_width = T) %>%
+  column_spec(2:6, width="7em") %>%
+  column_spec(1,        
+              bold = T,
+              color = "white",
+              background = "#009193") %>%
+  row_spec(0,  extra_css = "line-height:1.5;",
            bold = T,
            color = "white",
            background = "#009193")
 ```
 
-<details><summary><a name="grep2"></a>`grep()`</summary>
+<details><summary>`grep()`</summary>
 
 ```{r}
 #| echo: false

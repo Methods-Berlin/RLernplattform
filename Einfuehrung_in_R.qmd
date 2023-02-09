@@ -290,11 +290,11 @@ Es gibt in R noch zwei weitere Datentypen, mit denen wir uns aber nicht weiter b
 <details><summary>Logische Operatoren in R</summary>
 Ein logischer Operator ist ein Operator, dessen Ergebnis ein Wahrheitswert (logical; `TRUE` oder `FALSE`) ist. <!--Wir können logische Operatoren auf Daten vom Typ$^1$ numeric, aber auch selbst auf Daten vom Typ logical anwenden. -->
 
+
 ```{r}
 #| echo: false
 # beide Tabellen ähnlich wie von
 ## https://www.statmethods.net/management/operators.html
-
 Operator <- c("<", "<=", ">", ">=", "==", "!=", "!", "| oder ||", "& oder &&")
 Vergleich <- c("kleiner", "kleiner gleich", "größer", "größer gleich",
               "(genau) gleich", "ungleich", "nicht (Negation von Bedingungen)",
@@ -303,20 +303,16 @@ Beispiel <- c("1 < 1<br>FALSE", "1 <= 1<br>TRUE", "2 > 1<br>TRUE",
               "1 >= 3<br>FALSE", "TRUE == FALSE<br>FALSE",
               "TRUE != FALSE<br>TRUE", "!TRUE<br>FALSE", "5 > 3 | 5 == 4<br>TRUE",
               "5 > 3 & 9 < 8<br>FALSE")
-
 tab <- data.frame(Operator, Vergleich, Beispiel)
-
 tab %>%
   kable("html", align="l", escape=FALSE, table.attr = "style='width:100%;'") %>%
   kable_styling(full_width = T) %>%
   row_spec(0, color = "white", background = "#009193") %>%
   column_spec(3, background = "#ECECEC") %>%
   column_spec(1:2, background = "white")
-
 # wir schauen uns hier nur solche logischen Vektoren an, die Vektoren beliebiger Länge annehmen können z.B. & anstatt &&; zweiteres bewertet nur das erste Element in jedem Argument
 ## https://riptutorial.com/de/r/example/13276/logische-operatoren
 ```
-
 <!--
 $^1$ Es gibt hierbei eine kleine Inkonsistenz zwischen Manual und Dokumentation:\
 Laut dem <a href="https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Logical-vectors" target="_blank">Manual</a> sind `==` und `!=` logische Operatoren. In der Dokumentation der logischen Operatoren (`?"&"`) tauchen sie aber nicht auf; nur in der Dokumentation der allgemeinen Syntaxoperatoren (`?Syntax`). In der Dokumentation der logischen Operatoren steht nicht, dass man diese auf Elemente des Typs character anwenden kann. Wir können `==` und `!=` aber auf character anwenden, um zu testen, ob zwei Elemente (z.B. `"a"` und `"A"`) gleich (`"a" == "A"` `FALSE`) bzw. ungleich (`"a" != "A"` `TRUE`) sind.  -->
@@ -417,25 +413,23 @@ Die verschiedenen Messniveaus können mit unterschiedlichen Datentypen repräsen
 ```{r}
 #| echo: false
 De <- rep("Datentyp:", 2)
-D <- c("<span style=\"font-family: Consolas,monaco,monospace;\">character", "<span style=\"font-family: Consolas,monaco,monospace;\">numeric")
+D <- c("<span style=\"font-family: Consolas,monaco,monospace;\">character</span>", "<span style=\"font-family: Consolas,monaco,monospace;\">numeric</span>")
 N <- c("X", "X$^1$")
 O <- c("X$^2$", "X$^2$")
 I <- c("", "X")
 V <- c("", "X")
 A <- c("", "X")
-
 table_kat <- data.frame(De, D, N, O, I, V, A)
 colnames(table_kat) <- c("", "", "Nominal-", "Ordinal-", 
               "Intervall-", "Verhältnis-", "Absolut-")
-
 table_kat %>%
   kable("html", align="c", escape=FALSE, table.attr = "style='width:100%;'") %>%
-  add_header_above(c("<span style=\"display:none;\">_"=2 , "Art der Skala:" = 5), line=F, color = "white", background = "#009193", escape=FALSE) %>% 
+  add_header_above(c("<span style=\"display:none;\">_</span>"=2 , "Art der Skala:" = 5), line=F, color = "white", background = "#009193", escape=FALSE) %>% 
   kable_styling(full_width = T) %>%
   row_spec(0, color = "white", background = "#009193") %>%
   column_spec(1:2, bold=TRUE, color = "white", background = "#009193") %>%
   collapse_rows(columns = 1, valign = "middle") %>%
-  footnote(general = "<font size=\"1\">$^1$ Faktorisieren (unordered factor) notwendig *wenn* keine Indikatorvariable(n) genutzt $^2$ Faktorisieren (ordered factor) notwendig", general_title = "", escape = FALSE) 
+  footnote(general = "<font size=\"1\">$^1$ Faktorisieren (unordered factor) notwendig *wenn* keine Indikatorvariable(n) genutzt $^2$ Faktorisieren (ordered factor) notwendig</font>", general_title = "", escape = FALSE) 
 ```
 
 <aside>\
@@ -491,15 +485,13 @@ x <- c(rep("Anzahl der Dimensionen", 3))
 y <- c("1", "2", "n")
 ho <- c("Vektor", "Matrix", "Array")
 he <- c("Liste", "Data Frame", "")
-
 table_data_2 <- data.frame(x,y,ho,he)
 colnames(table_data_2) <- c("", "", "nein (homogen)", "ja (heterogen)")
-
 table_data_2 %>%
   kable("html", align="c", escape=FALSE, table.attr = "style='width:100%;'") %>%
   kable_styling(full_width = T) %>%
   row_spec(0, color = "white", background = "#009193") %>%
-  add_header_above(c("<span style=\"display:none;\">_"=2, "Beinhaltet unterschiedliche Datentypen?"=2), escape=F, line=F,
+  add_header_above(c("<span style=\"display:none;\">_</span>"=2, "Beinhaltet unterschiedliche Datentypen?"=2), escape=F, line=F,
                      color = "white", background = "#009193") %>%
   column_spec(1:2, bold=TRUE, color = "white", background = "#009193") %>%
   column_spec(1, width = "10em") %>%
