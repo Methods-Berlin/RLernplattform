@@ -601,7 +601,7 @@ Ein wichtiger Unterschied ist, dass `merge()` beim Zusammenführen der Dataframe
 
 In Abhängigkeit der geplanten Nutzung der Daten sollten wir individuell entscheiden, welche Funktion wir nutzen wollen.
 
-<details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193">`merge()`</summary><p>
+<details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193">`merge()`</summary>
 
 Mit `merge()` können wir **zwei Dataframes**, deren Namen wir der Funktion übergeben, vertikal zusammenführen.
 
@@ -669,11 +669,11 @@ merge_xy
 ```
 
 Man könnte denken, dass 6 Fälle in `merge_xy` zu finden sind. Weil aber jeweils ein Fall (`x`: Zeile 2; `y` Zeile 3) bis auf `a` die gleichen Ausprägungen in den beiden Dataframes hat, wird dieser nicht mit übernommen.
-</p></details>
+</details>
 
 
 
-<details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193">`bind_rows()`</summary><p>
+<details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193">`bind_rows()`</summary>
 
 ```{r}
 #| echo: false
@@ -708,7 +708,7 @@ dim(vornamen_bind)
 ```
 
 Die Anzahl der Zeilen stimmt mit der Summe der Zeilen von `vornamen_13` und `vornamen_14` überein, d.h. es wurden alle Fälle übernommen.
-</p></details>
+</details>
 
 
 
@@ -719,7 +719,7 @@ Im Gegensatz zu `merge()` und `bind_rows()` unterscheiden sich `merge(..., by)` 
 Allerdings kann man die `_join()`-Funktionen auch alternativ zu `bind_rows()` nutzen. Dann unterscheidet sich das Ergebnis im Vergleich zu `merge()` auch lediglich in der Reihenfolge der Fälle. Mehr Infos dazu finden wir im Abschnitt [`_join()`].
 
 
-<details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193">`merge(..., by)`</summary><p>
+<details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193">`merge(..., by)`</summary>
 
 Die Funktion `merge()` können wir auch nutzen, um Spalten aneinander zu heften.
 
@@ -801,11 +801,11 @@ Wenn wir nun alle Werte aufsummieren, kommen wir auf die Anzahl der Zeilen im ge
 1672 + 112 + 2305 + 2282
 ```
 </details>
-</p></details>
+</details>
 
 
 
-<details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193">`_join()`</summary><p>
+<details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193">`_join()`</summary>
 
 ```{r}
 #| echo: false
@@ -864,7 +864,7 @@ dim(vornamen_merge_row)
 kable(head(vornamen_merge_row))
 ```
 </details>
-</p></details>
+</details>
 
 
 
@@ -909,7 +909,7 @@ kable(table, table.attr = "style='width:100%;'") %>%
   row_spec(0, bold = T, color = "white", background = "#009193") 
 ```
 
-<details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193"><a name="grep"></a>`grep()`</summary><p>
+<details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193"><a name="grep"></a>`grep()`</summary>
 
 Wenn Variablen eines Datensatzes eine **Gemeinsamkeit** (z.B. einen gemeinsamen Wortstamm) aufweisen, können wir diese mit der Funktion `grep()` extrahieren.
 
@@ -940,11 +940,11 @@ rmarkdown::paged_table(df_var_mit_o, options(rows.print=5))
 Mit dieser Methode haben wir gleich den Vorteil, dass die Namen der Variablen im neuen Datensatz gleich denen im ursprünglichen Datensatz ist.
 
 Wir können unsere Suche mit `grep()` auch noch spezifischer machen, indem wir die **regulären Operatoren** nutzen. Mit `^o` suchen wir Variablen, die mit einem "o" **beginnen**; mit `o$` jene die mit "o" **enden**. Mit `^o|o$` suchen wir Variablen, die entweder mit einem "o" beginnen **oder** enden. Ein Beispiel dazu finden wir im Abschnitt [Fälle mit `grep()` extrahieren](#grep2). Mit `^o.*o$` suchen wir Variablen, die mit einem "o" beginnen **und** enden.
-</p></details>
+</details>
 
 
 
-<details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193"><a name="dollar"></a>`$`</summary><p>
+<details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193"><a name="dollar"></a>`$`</summary>
 
 Einzelne Variablen, die **keine Gemeinsamkeit** (z.B. einen gemeinsamen Wortstamm) aufweisen, kann man mit dem `$`-Operator extrahieren. 
 
@@ -965,11 +965,11 @@ rmarkdown::paged_table(df_wind_ozone, options(rows.print=5))
 Mit dieser Methode haben wir den Nachteil, dass die Variablen im neu erstellten Dataframe nicht mit ihrem ursprünglichen Namen, sondern in der Form <span class="code">Datensatz.Variable benannt sind.
 
 Wir können den Variablen z.B. <span class="code">colnames(Datensatz) <- c("Var1", "Var2", ...) wieder ihren ursprünglichen (oder einen neuen) Namen geben.
-</p></details>
+</details>
 
 
 
-<details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193"><a name="select"></a>`select()`</summary><p>
+<details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193"><a name="select"></a>`select()`</summary>
 
 Die Funktion `select()` kann unterschiedliche Variablen aus dem selben Dataframe extrahieren. Sie ist dabei kompakter zu handhaben als die Extraktion mit `$`.
 
@@ -1007,7 +1007,7 @@ library(rmarkdown)
 rmarkdown::paged_table(df_without_month_day, options(rows.print=5))
 ```
 
-</p></details>
+</details>
 
 
 
@@ -1057,7 +1057,7 @@ kable(table, table.attr = "style='width:100%;'") %>%
            background = "#009193")
 ```
 
-<details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193"><a name="grep2"></a>`grep()`</summary><p>
+<details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193"><a name="grep2"></a>`grep()`</summary>
 
 ```{r}
 #| echo: false
@@ -1150,11 +1150,11 @@ library(rmarkdown)
 rmarkdown::paged_table(df_temp5, options(rows.print=5))
 ```
 
-</p></details>
+</details>
 
 
 
-<details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193"><a name="logop"></a>Logische Operatoren</summary><p>
+<details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193"><a name="logop"></a>Logische Operatoren</summary>
 
 ```{r}
 #| echo: false
@@ -1201,11 +1201,11 @@ rmarkdown::paged_table(df_temp57_66, options(rows.print = 6))
 ```
 
 Weitere logische Operatoren sind z.B. `!=` *(nicht)*, `<` *(kleiner)* und `>=` *(größer gleich)*.
-</p></details>
+</details>
 
 
 
-<details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193"><a name="filter"></a>`filter()`</summary><p>
+<details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193"><a name="filter"></a>`filter()`</summary>
 
 Mit `filter()` können wir verschiedene Variablen nach bestimmten Kriterien filtern. Dabei greifen wir wieder auf die logischen Operatoren zurück. 
 
@@ -1225,7 +1225,7 @@ library(rmarkdown)
 rmarkdown::paged_table(df_month6_day15ff, options(rows.print=5))
 ```
 
-</p></details>
+</details>
 
 
 
@@ -1240,7 +1240,7 @@ Für manche Vorhaben, wie z.B. grafische Darstellungen oder dem Quantifizieren v
 
 Wir schauen uns nachfolgend zwei Möglichkeiten an, einen Dataframe nach den Ausprägungen seiner Variablen zu sortieren.
 
-<details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193">`order()`</summary><p>
+<details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193">`order()`</summary>
 
 Nachfolgend sehen wir, wie man mit `order()` **aufsteigend** sortiert.
 
@@ -1283,11 +1283,11 @@ library(rmarkdown)
 rmarkdown::paged_table(df_descend_temp_wind_1, options(rows.print=5))
 ```
 
-</p></details>
+</details>
 
 
 
-<details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193">`arrange()`</summary><p>
+<details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193">`arrange()`</summary>
 
 ```{r}
 #| echo: false
@@ -1310,7 +1310,7 @@ library(rmarkdown)
 rmarkdown::paged_table(df_ascend_temp_wind_2, options(rows.print=5))
 ```
 
-</p></details>
+</details>
 
 
 
@@ -1336,7 +1336,7 @@ Wir können die Kodierung von Merkmalen in <span class ="r">R auf verschiedene A
 
 
 
-<details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193">`recode()`</summary><p>
+<details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193">`recode()`</summary>
 
 In der Funktion `recode()` (auch `Recode()` möglich) aus dem Paket **car** müssen wir grundsätzlich zwei Argumente spezifizieren: `var` und `recodes`. Ersterem übergeben wir die umzukodierende Variable, zweiterem die alte und die neue Kodierung der Variablen. 
 
@@ -1404,11 +1404,11 @@ Abschließend vergleichen wir die Daten (der ersten 10 Personen) von `education`
 rmarkdown::paged_table(PWE_data[,c(88, 106)], options(rows.print=5))
 ```
 
-</p></details>
+</details>
 
 
 
-<details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193">`case_when()`</summary><p>
+<details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193">`case_when()`</summary>
 
 
 ```{r}
@@ -1448,7 +1448,7 @@ PWE_data$Q1E_kat <- factor(PWE_data$Q1E_kat, ordered=TRUE)
 str(PWE_data$Q1E_kat) # Überprüfung Datentyp
 ```
 
-</p></details>
+</details>
 
 
 
@@ -1547,7 +1547,7 @@ Wir regredieren dafür die Zeit in Sekunden, die die Probanden auf der Instrukti
 > *__Achtung__*:  Die nachfolgend vorgestellten Funktionen lassen sich auch auf **ordinalskalierte Merkmale** (d.h. sortierte Faktoren) anwenden. Bei diesen unterscheidet sich aber die Interpretation der geschätzten Koeffizienten der Regression. Wir bekommen Schätzungen für lineare (L), quadratische (Q) und kubische (C) Trends. Daher behandeln wir im folgenden Abschnitt nur die Kodierung von nominalskalierten Merkmalen.
 
 
-<details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193">Dummy-Kodierung</summary><p>
+<details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193">Dummy-Kodierung</summary>
 
 Viele Funktionen in <span class ="r">R (z.B. `lm()`, `lme()`  und `lmer()`) kodieren nominalskalierte Variablen intern *automatisch* nach der Dummy-Kodierung um, wenn diese vorher [als Faktoren deklariert](#faktorisieren) wurden. Dabei wird die *erste Kategorie als Referenzkategorie* genutzt. Wenn wir eine andere Referenzkategorie haben wollen, können wir dafür die im Folgenden vorgestellten Funktionen (`C(..., contr.treatment(n, base))` oder `relevel()`) nutzen.
 
@@ -1610,11 +1610,11 @@ PWE_data$gender_uf_ref <- relevel(PWE_data$gender_uf, ref = 2)
 
 ls.str(PWE_data[,c(103, 106)]) # zum Überprüfen
 ```
-</p></details>
+</details>
 
 
 
-<details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193">Effektkodierung</summary><p>
+<details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193">Effektkodierung</summary>
 
 ```{r}
 #| echo: false
@@ -1652,11 +1652,11 @@ PWE_data$gender_uf_ref <- relevel(PWE_data$gender_uf, ref = 2)
 ls.str(PWE_data[,c(103, 106)]) # zum Überprüfen
 ```
 
-</p></details>
+</details>
 
 
 
-<details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193">Konstrastkodierung</summary><p>
+<details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193">Konstrastkodierung</summary>
 
 ```{r}
 #| echo: false
@@ -1762,7 +1762,7 @@ summary(lm_kontr)
 
 
 In unserem Regressionsmodell mit dem Kontrast Männer vs. Frauen entspricht der **Interzept $b_0$** dem Mittelwert der Gruppenmittelwerte der *betrachteten* Gruppen (d.h. Männer und Frauen) und das **partiellen Steigungsgewichte $b_1$** dem Unterschied in den Mittelwerten der betrachteten Gruppen.
-</p></details>
+</details>
 
 
 
@@ -1777,7 +1777,7 @@ Wir nutzen zu diesem Zweck den Datensatz **PWE_data**, welcher aus einer psychom
 
 
 
-<details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193">`rowSums()`, <font color="#009193">`rowMeans()` und <font color="#009193">`select()`: Summen- und Mittelwerte</summary><p>
+<details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193">`rowSums()`, <font color="#009193">`rowMeans()` und <font color="#009193">`select()`: Summen- und Mittelwerte</summary>
 
 Wir schauen uns im Folgenden an, wie man Summen- und Mittelwerte von mehreren Variablen erstellt. Dieses Vorgehen ist beispielsweise für die Erstellung von Skalenwerten in der Testkonstruktion von großer Relevanz.
 
@@ -1817,12 +1817,12 @@ Abschließend schauen wir uns wieder die neu erstellte Variable (für die die er
 rmarkdown::paged_table(PWE_data[,c("mean")], options(rows.print=5))
 ```
 
-</p></details>
+</details>
 
 
 
 
-<details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193">`ifelse()`: Auswahl *bestimmter* Fälle</summary><p>
+<details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193">`ifelse()`: Auswahl *bestimmter* Fälle</summary>
 
 Jetzt schauen wir uns an, wie wir eine Variable **nur** für eine bestimmte Gruppe erstellen können.
 
@@ -1850,12 +1850,12 @@ Schauen wir uns die neu erstellte Variable sowie die Gruppierungsvariablen (der 
 rmarkdown::paged_table(PWE_data[687:691,c("gender", "religion", "sum_gr")], options(rows.print=5))
 ```
 
-</p></details>
+</details>
 
 
 
 
-<details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193">`mutate()`: Summary-Variablen als Funktion von anderen Variablen erstellen</summary><p>
+<details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193">`mutate()`: Summary-Variablen als Funktion von anderen Variablen erstellen</summary>
 
 ```{r}
 #| echo: false
@@ -1885,7 +1885,7 @@ Abschließend können wir uns den neu erstellten Datensatz `PWE_data_mean` (für
 rmarkdown::paged_table(PWE_data_mean, options(rows.print=5))
 ```
 
-</p></details>
+</details>
 
 
 

@@ -1,6 +1,6 @@
 # Fehlende Werte
 
-<p style="font-weight:600; font-size:36px">Einleitung</p>
+<p style="font-weight:600; font-size:36px">Einleitung
 
 Es kann in der Praxis häufiger vorkommen, dass Datensätze unvollständig sind z.B. wenn Teilnehmende einer Befragung nicht alle Fragen beantworten. Diese fehlenden Einträge nennt man **Missings**. In R werden sie (bei numeric) zumeist mit `NA` (*not available*) gekennzeichnet. 
 
@@ -689,7 +689,7 @@ Im Folgenden wollen wir einen Datensatz hinsichtlich der fehlenden Werte (Missin
 
 
 
-<details><summary>Datensatz A: *Normed Causality Statements*</summary><p>
+<details><summary>Datensatz A: *Normed Causality Statements*</summary>
 
 In dieser querschnittlichen Studie untersuchten Hussey & De Houwer inwieweit Personen normativ unmissverständlichen kausalen Aussagen zustimmen (z.B. X ruft Y hervor: Witze rufen Gelächter hervor).
 
@@ -724,11 +724,11 @@ rmarkdown::paged_table(data_a, options(rows.print=5))
 
 > *__Achtung__*:  <div class="rows">Wir gehen im Folgenden davon aus, dass die Variablen `statements..c1.`, `statements..c2.`. `statements..c3.` und `statements..c4.` aus dem Datensatz den Variablen `catch_1`, `catch_2`, `catch_3` und `catch_4` entsprechen.
 
-</p></details>
+</details>
 
 
 
-<details><summary>Datensatz B: *Affective Forecasting and Social Anxiety*</summary><p>
+<details><summary>Datensatz B: *Affective Forecasting and Social Anxiety*</summary>
 
 In der Studie untersuchen Glenn & Teachman, inwiefern sich Menschen mit geringer und starker Sozialangst bezüglich ihrer Bewertung von zukünftigen emotionalen Situationen unterscheiden.
 
@@ -786,7 +786,7 @@ rmarkdown::paged_table(data_b, options(rows.print=5))
 # unklar wie man die Variablen behandelt
 ```
 
-</p></details>
+</details>
 
 
 

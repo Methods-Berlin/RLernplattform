@@ -1,6 +1,6 @@
 # Installation und Aktualisierung von R und RStudio
 
-<p style="font-weight:600; font-size:36px">Einleitung</p>
+<p style="font-weight:600; font-size:36px">Einleitung
 
 <span class ="r highlight">R ist eine Statistiksoftware, die mittlerweile weit verbreitet ist - sowohl in der Forschung als auch in der Wirtschaft. **R** ist **kostenlos**, für alle gängigen Betriebssysteme verfügbar (Windows, Max OS X und  Linux) und darüber hinaus auch noch **open-source**. Das heißt, um **R** zu nutzen, muss man keine teure Lizenz kaufen und jede/r kann sich an der (Weiter-)Entwicklung des Programms oder einzelner Pakete beteiligen. Durch die weite Verbreitung von **R** finden sich außerdem ausführliche Anleitungen im Internet, sollten wir mal nicht mehr weiter wissen.
 

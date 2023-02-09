@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo = TRUE, message = FALSE)
     <img src="https://www.example.com/figure1.jpg" alt="Figure 1">
     <figcaption>Figure 1</figcaption>
   </figure>
-  <p>Short description of figure 1</p>
+  Short description of figure 1
   <ul>
     <li>Item 1</li>
     <li>Item 2</li>
@@ -24,7 +24,7 @@ knitr::opts_chunk$set(echo = TRUE, message = FALSE)
     <img src="https://www.example.com/figure2.jpg" alt="Figure 2">
     <figcaption>Figure 2</figcaption>
   </figure>
-  <p>Short description of figure 2</p>
+  Short description of figure 2
   <ul>
     <li>Item 1</li>
     <li>Item 2</li>
@@ -36,7 +36,7 @@ knitr::opts_chunk$set(echo = TRUE, message = FALSE)
     <img src="https://www.example.com/figure3.jpg" alt="Figure 3">
     <figcaption>Figure 3</figcaption>
   </figure>
-  <p>Short description of figure 3</p>
+  Short description of figure 3
   <ul>
     <li>Item 1</li>
     <li>Item 2</li>

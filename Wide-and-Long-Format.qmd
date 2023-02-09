@@ -6,7 +6,7 @@ library(rmarkdown)
 library(tidyr)
 ```
 
-<p style="font-weight:600; font-size:36px">Einleitung</p>
+<p style="font-weight:600; font-size:36px">Einleitung
 
 Wenn man wissenschaftliche Fragestellungen untersuchen möchte, benötigt man ein geeignetes Format, in dem die Daten vorliegen. Manchmal stehen die Daten, die man auswerten möchte, aber nicht im "richtigen" Format zur Verfügung. 
 
