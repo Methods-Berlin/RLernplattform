@@ -34,7 +34,7 @@ Auf dieser <a href="https://cran.r-project.org" target="_blank">Seite</a> klicke
 knitr::include_graphics("figures/Installation/Bilder/Win_R_aktuell.png")
 ```
 
-Diese Version läuft unter **Windows XP**, **Windows Vista**, **Windows 8** und **Windows 10**. Sollten wir eine dieser Windows Versionen auf unserem Computer haben, drücken wir auf **Download **R** 3.6.1 for Windows**.
+Diese Version läuft unter **Windows XP**, **Windows Vista**, **Windows 8** und **Windows 10**. Sollten wir eine dieser Windows Versionen auf unserem Computer haben, drücken wir auf **Download R 3.6.1 for Windows**.
 
 <details><summary>*<a name="winv"></a>Wie finde ich meine Windows Version heraus?*</summary>
 Um die aktuelle Version unseres Windows Systems herauszufinden, drücken wir die **Windows-Taste** und die **Pause Taste** gleichzeitig. 
@@ -51,7 +51,7 @@ Es öffnet sich ein Fenster mit den grundlegenden Informationen über unseren Co
 knitr::include_graphics("figures/Installation/Bilder/winv_info.png")
 ```
 
-Ganz oben sehen wir dort unter **Windows Edition**, welche Windows Version wir installiert haben. Wichtig ist auch der Eintrag unter **Systemtyp**. Hier steht entweder *64 bit-Betriebssystem* oder *32 bit-Betriebssystem*. **R** gibt es sowohl für das 64- als auch für das 32 bit-Betriebssystem. Wenn wir auf **Download **R** 3.6.1 for Windows** drücken, laden wir beide Versionen herunter und **R** erkennt dann automatisch, welche installiert werden kann.</details>
+Ganz oben sehen wir dort unter **Windows Edition**, welche Windows Version wir installiert haben. Wichtig ist auch der Eintrag unter **Systemtyp**. Hier steht entweder *64 bit-Betriebssystem* oder *32 bit-Betriebssystem*. **R** gibt es sowohl für das 64- als auch für das 32 bit-Betriebssystem. Wenn wir auf **Download R 3.6.1 for Windows** drücken, laden wir beide Versionen herunter und **R** erkennt dann automatisch, welche installiert werden kann.</details>
 
 
 
@@ -155,7 +155,7 @@ Wenn eine aktuellere (für unser Betriebssystem kompatible) Version von **R** vo
 
 Für Windows können wir zur Aktualisierung von **R** auf das Paket **installr** zurück greifen, welches den Prozess weitestgehend automatisiert.
 
-> *__Achtung__*:  Wenn wir von einer älteren **R** -Version auf ****R** 4.0.0** wechseln, müssen wir all unsere Pakete neu installieren. Das Verschieben dieser mit dem Paket **installr** funktioniert hier nicht. 
+> *__Achtung__*:  Wenn wir von einer älteren **R** -Version auf **R 4.0.0** wechseln, müssen wir all unsere Pakete neu installieren. Das Verschieben dieser mit dem Paket **installr** funktioniert hier nicht. 
 
 Dazu installieren wir das Paket z.B. via `install.packages("installr")`. Nachdem wir das Paket mit `library("installr")` geladen haben, führen wir die enthaltene Funktion `updateR()` aus.
 
@@ -348,7 +348,7 @@ Die .dmg-Datei können wir *nach* der Installation löschen. Vorher muss diese n
 
 Wenn eine aktuellere (für unser Betriebssystem kompatible) Version von **R** vorhanden ist, ist es ratsam, diese herunterzuladen. Mit Aktualisierungen werden etwaige Fehler und Sicherheitslücken behoben und ggf. neue Funktionen eines Programms implementiert.
 
-Zur Überprüfung, ob Aktualisierungen vorhanden sind, können wir in **R** oben in der Menüleiste auf **R** --> **Nach **R** Updates suchen** klicken (in **RStudio** gibt es diese Option **nicht**).  
+Zur Überprüfung, ob Aktualisierungen vorhanden sind, können wir in **R** oben in der Menüleiste auf **R** --> **Nach R Updates suchen** klicken (in **RStudio** gibt es diese Option **nicht**).  
 
 ```{r, out.width = "700px", echo=FALSE, fig.align='center'}
 knitr::include_graphics("figures/Installation/Bilder/in_R_Updates_fuer_R.png")
@@ -370,9 +370,9 @@ Nun müssen wir noch überprüfen, ob die Mindestanforderungen an [unser Betrieb
 
 Das weiterführende Vorgehen ist das Gleiche wie bei der initialen [Installation von **R**]: Wir laden die .pkg-Datei herunter, öffnen sie und führen die Installation aus.
 
-> *__Achtung__*:  Aus unbekannten Gründen *kann* es vorkommen, dass uns über **Nach **R** Updates suchen** nicht mitgeteilt wird, dass unsere derzeitige Version nicht die aktuellste ist. Wir können auch analog unsere derzeitige mit der aktuellsten Version abgleichen. 
+> *__Achtung__*:  Aus unbekannten Gründen *kann* es vorkommen, dass uns über **Nach R Updates suchen** nicht mitgeteilt wird, dass unsere derzeitige Version nicht die aktuellste ist. Wir können auch analog unsere derzeitige mit der aktuellsten Version abgleichen. 
 
-Die Information über unsere **derzeitige **R**-Version** wird uns sowohl in **R** als auch in **RStudio** nach Öffnen des Programms ganz oben in der Konsole angezeigt.
+Die Information über unsere **derzeitige R-Version** wird uns sowohl in **R** als auch in **RStudio** nach Öffnen des Programms ganz oben in der Konsole angezeigt.
 
 ```{r, out.width = "600px", echo=FALSE, fig.align='center'}
 knitr::include_graphics("figures/Installation/Bilder/R-Version_in_R_Studio.png")
@@ -389,7 +389,7 @@ Dann müssen wir diese nur noch mit der aktuellsten Version auf <a href="https:/
 
 > *__Achtung__*:  Die nachfolgend beschriebene Verschiebung von Paketen ist **nur notwendig, wenn sich die **R**-Version in der ersten Nachkommastelle ändert** z.B. Version 3.5 zu 3.6. Bei kleineren Updates z.B. Version 3.6.0 zu 3.6.1 verändert sich der Pfad der Pakete nicht.
 
-> *__Achtung__*:  Wenn wir von einer älteren **R** -Version auf ****R** 4.0.0** wechseln, müssen wir all unsere Pakete neu installieren. Das manuelle Verschieben dieser mit dem nachfolgend vorgestellten Weg funktioniert hier nicht.
+> *__Achtung__*:  Wenn wir von einer älteren **R** -Version auf **R 4.0.0** wechseln, müssen wir all unsere Pakete neu installieren. Das manuelle Verschieben dieser mit dem nachfolgend vorgestellten Weg funktioniert hier nicht.
   
 Wenn wir eine neuere **R**-Version heruntergeladen haben, sind unsere Pakete, die wir unter der vorherigen **R**-Version installiert haben, nicht mehr nutzbar im aktualisierten Programm. Das liegt daran, dass ein neuer Ordner für die aktuelle Version erstellt wurde, in den die Pakete **nicht** automatisch verschoben wurden.
 
@@ -411,7 +411,7 @@ Wir machen nun einen Rechtsklick auf den Ordner der vorherig genutzten **R**-Ver
 knitr::include_graphics("figures/Installation/Bilder/5_Ordner.png")
 ```
 
-Nun gehen wir zurück auf den anderen Tab, in dem die Ordner der verschiedenen **Versionen von **R**** gelistet sind. Wir öffnen den Ordner der aktuellesten Version (hier: 3.6) und klicken auch hier auf den Ordner **Resources** und dann **library**.
+Nun gehen wir zurück auf den anderen Tab, in dem die Ordner der verschiedenen **Versionen von R** gelistet sind. Wir öffnen den Ordner der aktuellesten Version (hier: 3.6) und klicken auch hier auf den Ordner **Resources** und dann **library**.
 
 Wir gehen jetzt zurück auf den anderen Tab (der älteren **R**-Version) und ziehen die Pakete in den library-Ordner der neuen **R**-Version. 
 
@@ -465,7 +465,7 @@ knitr::include_graphics("figures/Installation/Bilder/9_R_Studio_ersetzen.png")
 
 ## Hinweis zur Replizierbarkeit von Analysen
 
-Wir sollten bei Analysen in **R** immer berichten, in welcher Version unser **Betriebssystem**, ****R**** und unsere genutzten **Pakete** vorliegen. Sonst kann die Replikation unserer Ergebnisse Anderen schwer fallen, z.B. weil die Funktionen sich in ihrer Berechnung oder Funktionsweise zwischen verschiedenen Versionen von Paketen unterscheiden können. Mit der Funktion `sessionInfo()` bekommen wir all diese Informationen auf einen Schlag.
+Wir sollten bei Analysen in **R** immer berichten, in welcher Version unser **Betriebssystem**, **R** und unsere genutzten **Pakete** vorliegen. Sonst kann die Replikation unserer Ergebnisse Anderen schwer fallen, z.B. weil die Funktionen sich in ihrer Berechnung oder Funktionsweise zwischen verschiedenen Versionen von Paketen unterscheiden können. Mit der Funktion `sessionInfo()` bekommen wir all diese Informationen auf einen Schlag.
 
 ```{r, out.width = "600px", echo=FALSE}
 knitr::include_graphics("figures/Installation/Bilder/sessionInfo.png")

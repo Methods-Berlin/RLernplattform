@@ -1486,7 +1486,7 @@ Wenn wir unsere Grafik erstellt haben, müssen wir diese noch exportieren, um si
 
 Grundsätzlich gibt es zwei Möglichkeiten dafür: 
 
-- über das untere rechte Panel bei **Plots** > **Export** (nur in ****RStudio**** möglich)
+- über das untere rechte Panel bei **Plots** > **Export** (nur in **RStudio** möglich)
 - mit Hilfe von `Funktionen`
 
 Im Folgenden schauen wir uns an, wie wir den **Export**-Button und die Funktion `ggsave()`, mit der wir mit ggplot2 erstellte Grafiken exportieren können, nutzen.
@@ -1645,7 +1645,7 @@ Im Internet finden wir zahlreiche Seiten, die uns die Erstellung von Grafiken in
 
 ---
 
-Um eine möglichst exakte Replikation der Funktionen zu gewährleisten gibt es im folgenden relevante Angaben zum System (****R**-Version**, **Betriebssystem**, **geladene Pakete mit Angaben zur Version**), mit welchem diese Seite erstellt wurde.
+Um eine möglichst exakte Replikation der Funktionen zu gewährleisten gibt es im folgenden relevante Angaben zum System (**R-Version**, **Betriebssystem**, **geladene Pakete mit Angaben zur Version**), mit welchem diese Seite erstellt wurde.
 
 ```{r}
 sessionInfo()
