@@ -218,7 +218,7 @@ Wenn es eine aktuellere Version gibt, öffnet sich die <a href="https://rstudio.
 
 <details><summary>Ich finde die Option Check for Updates nicht.</summary>
 
-Manchmal gibt es die Option **Check für Updates** nicht im **Help**-Menü. Analog dazu können wir auch manuell unsere bestehende mit der aktuellsten **RStudio**-Version abgleichen. Dazu klicken wir in **RStudio** auf ****RStudio** --> About **RStudio**** ...
+Manchmal gibt es die Option **Check für Updates** nicht im **Help**-Menü. Analog dazu können wir auch manuell unsere bestehende mit der aktuellsten **RStudio**-Version abgleichen. Dazu klicken wir in **RStudio** auf **RStudio** --> About **RStudio** ...
 
 ```{r, out.width = "700px", echo=FALSE, fig.align='center'}
 knitr::include_graphics("figures/Installation/Bilder/About_RStudio.png")
@@ -438,7 +438,7 @@ Wenn es eine aktuellere Version gibt, öffnet sich die <a href="https://rstudio.
 
 <details><summary>Ich finde die Option Check for Updates nicht.</summary>
 
-Manchmal gibt es die Option **Check für Updates** nicht im **Help**-Menü. Analog dazu können wir auch manuell unsere bestehende mit der aktuellsten **RStudio**-Version abgleichen. Dazu klicken wir in **RStudio** auf ****RStudio** --> About **RStudio**** ...
+Manchmal gibt es die Option **Check für Updates** nicht im **Help**-Menü. Analog dazu können wir auch manuell unsere bestehende mit der aktuellsten **RStudio**-Version abgleichen. Dazu klicken wir in **RStudio** auf **RStudio** --> About **RStudio** ...
 
 ```{r, out.width = "700px", echo=FALSE, fig.align='center'}
 knitr::include_graphics("figures/Installation/Bilder/R-Studio_Version_Menue.png")
