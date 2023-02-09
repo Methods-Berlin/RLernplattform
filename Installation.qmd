@@ -21,9 +21,6 @@ Falls ihr nur Probleme mit dem Updaten auf die neuste Version habt, führt aus d
 
 > *__Achtung__*:  Die **R**- und **RStudio**-Versionen auf den Screenshots könnten bereits veraltet sein, wenn ihr die Anleitung nutzt. Die angegebenen Links führen euch aber dennoch zu den aktuellsten Versionen.
 
-> *__Achtung__*:  **Zur Übernahme der Pakete bei Upgrade auf **R** 4.0+**\
-Wir können das Paket installr (Windows) bzw. das manuelle Verschieben der Pakete (Mac) hier nicht nutzen, um unsere alten Pakete zu erhalten. Wir müssen **alle Pakete neu installieren**. Falls wir sehr viele Pakete haben, hilft uns folgende <a href="https://www.r-bloggers.com/get-all-your-packages-back-on-r-4-0-0/" target="_blank">Anleitung von r-bloggers</a>. 
-
 
 ## Windows
 
