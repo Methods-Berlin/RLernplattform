@@ -31,7 +31,7 @@ Wir können das Paket installr (Windows) bzw. das manuelle Verschieben der Paket
 
 Die folgenden Installationen wurden unter Nutzung von **Firefox 70.0.1** durchgeführt.
 
-### Installation von <span class ="r">**R**
+### Installation von **R**
 
 Auf dieser <a href="https://cran.r-project.org" target="_blank">Seite</a> klicken wir auf *Download **R** for Windows* und auf der folgenden Seite auf *Install **R** for the first time*. Dann kommen wir auf eine Seite, auf der wir die aktuellste **R**-Version finden. 
 
@@ -114,7 +114,7 @@ knitr::include_graphics("figures/Installation/Bilder/10.png")
 ```
 
 
-### Installation von  <span class ="r">**RStudio**
+### Installation von  **RStudio**
 
 Nachdem wir **R** heruntergeladen haben, können wir nun auch die Entwicklungsumgebung **RStudio** herunterladen.
 
@@ -149,7 +149,7 @@ knitr::include_graphics("figures/Installation/Bilder/11.png")
 
 Hier werden ähnliche Einstellungen wie bei der [Installation von R](Installation.qmd#installation-von-span-class-rrspan) besprochen. Abschließend klicken wir auch hier auf **fertigstellen**.
 
-### Aktualisierung von <span class ="r">**R** mit Übernahme der Pakete aus der älteren Version (Paket **installr**)
+### Aktualisierung von **R** mit Übernahme der Pakete aus der älteren Version (Paket **installr**)
 
 ```{r, echo=F}
 # Paket installr nur für windows:
@@ -209,7 +209,7 @@ knitr::include_graphics("figures/Installation/Bilder/Update_Packages.png")
 ```
 
 
-### Aktualisierung von <span class ="r">**RStudio**
+### Aktualisierung von **RStudio**
 
 Aktualisierungen für die Entwicklungsumgebung **RStudio** gibt es wesentlich seltener als für das dahinter liegende Basisprogramm **R**.
 
@@ -242,7 +242,7 @@ Informationen über die aktuellste **RStudio**-Version finden wir wieder unten a
 
 Wir überprüfen, ob die uns empfohlene Version mit unserem [Betriebssystem](#winv) sowie unserer **R**-Version kompatibel ist. Wenn ja, können wir auf **Download RStudio for Windows** klicken.
 
-Das weitere Vorgehen ist ebenso analog zur [Installation von  <span class ="r">**RStudio**](#installation-von-rstudio). 
+Das weitere Vorgehen ist ebenso analog zur [Installation von  **RStudio**](#installation-von-rstudio). 
 
 
 
@@ -250,7 +250,7 @@ Das weitere Vorgehen ist ebenso analog zur [Installation von  <span class ="r">*
 
 Die folgenden Installationen und Aktualisierungen wurden unter Nutzung von **Safari 13.0.3** durchgeführt.
 
-### Installation von <span class ="r">**R**
+### Installation von **R**
 
 Unter folgendem <a href="https://cran.r-project.org" target="_blank">Link</a> unter *Download **R** for (Mac) OS X*  finden wir die aktuellste **R**-Version ganz oben. Wir kommen dann auf die folgende Seite:
 
@@ -292,7 +292,7 @@ knitr::include_graphics("figures/Installation/Bilder/XQuartz_ready.png")
 Nun müssen wir schauen, ob unser Betriebssystem den Mindestanforderungen für die **aktuellste** **R** Version entspricht. Wenn ja, können wir auf die .pkg-Datei klicken und den Download starten.
 
 <details><summary>*<a name="macver"></a>Wie finde ich meine Mac OS Version heraus?*</summary><div class="more">
-Unsere Version des Betriebssystems bestimmt, welche Versionen von **R** und <span class ="r">R Studio wir herunterladen können.
+Unsere Version des Betriebssystems bestimmt, welche Versionen von **R** und R Studio wir herunterladen können.
 
 Wir finden unsere Betriebssystem-Version heraus, indem wir auf den Apfel in der Menüleiste am oberen Bildschirm und dann auf **Über diesen Mac** klicken.
 
@@ -325,7 +325,7 @@ knitr::include_graphics("figures/Installation/Bilder/2_Installation_R_erfolgreic
 
 Die .pkg- bzw. .dmg-Datei(en) können wir *nach* der Installation löschen. .dmg-Dateien müssen vorher noch ausgeworfen werden. Wir finden diese bei *Geräte* im Finder.
 
-### Installation von <span class ="r">**RStudio**
+### Installation von **RStudio**
 
 Nun können wir auf die <a href="https://rstudio.com/products/rstudio/download/" target="_blank">**RStudio**-Seite</a> gehen, nach unten scrollen und prüfen, ob die uns empfohlene Version [mit unserem Betriebssystem](#macver) sowie unserer **R**-Version kompatibel ist.
 
@@ -349,11 +349,11 @@ knitr::include_graphics("figures/Installation/Bilder/8_R_Studio.png")
 
 Die .dmg-Datei können wir *nach* der Installation löschen. Vorher muss diese noch ausgeworfen werden. Wir finden die .dmg-Datei bei *Geräte* im Finder.
 
-### Aktualisierung von <span class ="r">**R**
+### Aktualisierung von **R**
 
 Wenn eine aktuellere (für unser Betriebssystem kompatible) Version von **R** vorhanden ist, ist es ratsam, diese herunterzuladen. Mit Aktualisierungen werden etwaige Fehler und Sicherheitslücken behoben und ggf. neue Funktionen eines Programms implementiert.
 
-Zur Überprüfung, ob Aktualisierungen vorhanden sind, können wir in <span class ="r">**R** oben in der Menüleiste auf <span class ="r">**R** --> **Nach **R** Updates suchen** klicken (in **RStudio** gibt es diese Option **nicht**).  
+Zur Überprüfung, ob Aktualisierungen vorhanden sind, können wir in **R** oben in der Menüleiste auf **R** --> **Nach **R** Updates suchen** klicken (in **RStudio** gibt es diese Option **nicht**).  
 
 ```{r, out.width = "700px", echo=FALSE, fig.align='center'}
 knitr::include_graphics("figures/Installation/Bilder/in_R_Updates_fuer_R.png")
@@ -373,7 +373,7 @@ knitr::include_graphics("figures/Installation/Bilder/R_Website.png")
 
 Nun müssen wir noch überprüfen, ob die Mindestanforderungen an [unser Betriebssystem](#macver) erfüllt sind. Falls die Mindestanforderungen **nicht** erfüllt sind, können wir trotzdem auf der gleichen Seite runterscrollen und nachschauen, ob eine aktuellere als unsere derzeitige Version vorliegt.
 
-Das weiterführende Vorgehen ist das Gleiche wie bei der initialen [Installation von <span class ="r">**R**]: Wir laden die .pkg-Datei herunter, öffnen sie und führen die Installation aus.
+Das weiterführende Vorgehen ist das Gleiche wie bei der initialen [Installation von **R**]: Wir laden die .pkg-Datei herunter, öffnen sie und führen die Installation aus.
 
 > *__Achtung__*:  Aus unbekannten Gründen *kann* es vorkommen, dass uns über **Nach **R** Updates suchen** nicht mitgeteilt wird, dass unsere derzeitige Version nicht die aktuellste ist. Wir können auch analog unsere derzeitige mit der aktuellsten Version abgleichen. 
 
@@ -390,7 +390,7 @@ Dann müssen wir diese nur noch mit der aktuellsten Version auf <a href="https:/
 
 
 
-#### Pakete aus der älteren in die neuere <span class ="r">**R**-Version übernehmen
+#### Pakete aus der älteren in die neuere **R**-Version übernehmen
 
 > *__Achtung__*:  Die nachfolgend beschriebene Verschiebung von Paketen ist **nur notwendig, wenn sich die **R**-Version in der ersten Nachkommastelle ändert** z.B. Version 3.5 zu 3.6. Bei kleineren Updates z.B. Version 3.6.0 zu 3.6.1 verändert sich der Pfad der Pakete nicht.
 
@@ -429,7 +429,7 @@ Wir gehen jetzt zurück auf den anderen Tab (der älteren **R**-Version) und zie
 **Tipp**: Nach der Aktualisierung von **R** können wir mit großer Wahrscheinlichkeit auch einige **Pakete aktualisieren**. Für Hilfe dabei können wir uns das gleichnamige [Kapitel](Pakete.qmd) anschauen.
 
 
-### Aktualisierung von <span class ="r">**RStudio**
+### Aktualisierung von **RStudio**
 
 Aktualisierungen für die Entwicklungsumgebung **RStudio** gibt es wesentlich seltener als für das dahinter liegende Basisprogramm **R**.
 
@@ -462,7 +462,7 @@ Informationen über die aktuellste **RStudio**-Version finden wir wieder auf der
 
 Wenn unsere Version nicht mehr aktuell ist, überprüfen wir, ob die uns empfohlene Version [mit unserem Betriebssystem](#macver) sowie unserer **R**-Version kompatibel ist.
 
-Das weitere Vorgehen ist weitestgehend deckungsgleich mit dem der initialen [Installation von <span class ="r">**RStudio**]. Einziger Unterschied ist, dass wir die ältere durch die neuere <span class ="r">**RStudio**-Version ersetzen.
+Das weitere Vorgehen ist weitestgehend deckungsgleich mit dem der initialen [Installation von **RStudio**]. Einziger Unterschied ist, dass wir die ältere durch die neuere **RStudio**-Version ersetzen.
 
 ```{r, out.width = "350px", echo=FALSE, fig.align='center'}
 knitr::include_graphics("figures/Installation/Bilder/9_R_Studio_ersetzen.png")

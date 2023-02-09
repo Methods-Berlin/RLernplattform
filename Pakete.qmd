@@ -11,7 +11,7 @@ Um mit einem zusätzlichen Paket arbeiten zu können, muss dieses eimalig in `R`
 Im Folgenden wollen wir also am Beispiel des `psych`-Pakets nachvollziehen, wie Pakete installiert, geladen und aktualisiert werden können. Dabei schauen wir uns jeweils die zwei grundlegenden Möglichkeiten an: `Funktionen` ausführen *oder* die **grafische Benutzeroberfläche** von RStudio nutzen. Für beide Möglichkeiten benötigen wir eine **Internetverbindung** zum Herunterladen der Pakete. Am Ende des Kapitels befinden sich noch wichtige Hinweise zur Replizierbarkeit von Skripten und Analysen.
 
 ## Was ist eine grafische Benutzeroberfläche?
-Die grafische Benutzeroberfläche, oder auch Benutzungsschnittstelle, wird häufig auch mit GUI (_**G**raphical **U**ser **I**nterface_) abgekürzt. Durch diese können wir mit der Maus auf Symbole und andere Steuerelemente klicken anstatt Funktionen in der Konsole auszuführen. Die grafische Benutzeroberfläche in  <span class ="r">**RStudio** ist viel besser ausgebaut, weswegen wir diese auch nutzen wollen.
+Die grafische Benutzeroberfläche, oder auch Benutzungsschnittstelle, wird häufig auch mit GUI (_**G**raphical **U**ser **I**nterface_) abgekürzt. Durch diese können wir mit der Maus auf Symbole und andere Steuerelemente klicken anstatt Funktionen in der Konsole auszuführen. Die grafische Benutzeroberfläche in  **RStudio** ist viel besser ausgebaut, weswegen wir diese auch nutzen wollen.
 
 ## Was ist CRAN?
 CRAN steht für *The Comprehensive R Archive Network*. Von hier laden wir [`R`](https://cran.r-project.org/) sowie alle annerkannten Pakete herunterladen können. Wenn wir diese Pakete installieren oder aktualisieren, greift `R` automatisch auf CRAN zu.

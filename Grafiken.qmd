@@ -53,9 +53,9 @@ library(ggplot2)
 
 Um uns die Anwendung von ggplot2 zu erleichtern, können wir ein Cheatsheet in <a href="https://github.com/rstudio/cheatsheets/raw/master/translations/german/ggplot2-german.pdf" target="_blank">deutsch</a> oder <a href="https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf" target="_blank">englisch</a> herunterladen. 
 
-Auf der <a href="https://www.rstudio.com/resources/cheatsheets/" target="_blank"><span class ="r">R-Studio Website</a> gibt es noch mehr Cheat Sheets, v.a. zu `tidyverse` Paketen.
+Auf der <a href="https://www.rstudio.com/resources/cheatsheets/" target="_blank">R-Studio Website</a> gibt es noch mehr Cheat Sheets, v.a. zu `tidyverse` Paketen.
 
-Alternativ finden wir die englischen Cheat Sheets auch direkt in <span class ="r">R-Studio. Dazu gehen wir in der Menüleiste am oberen Bildschirmrand auf **Help** --> **Cheatsheets**.
+Alternativ finden wir die englischen Cheat Sheets auch direkt in R-Studio. Dazu gehen wir in der Menüleiste am oberen Bildschirmrand auf **Help** --> **Cheatsheets**.
 
 ```{r}
 #| out.width: 700px

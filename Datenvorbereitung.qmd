@@ -16,7 +16,7 @@ Wir fangen mit grundsätzlichen Überprüfungen unserer der Daten an. Nachfolgen
 <details class="bsp"><summary><a name="data"></a>Beispieldatensätze für dieses Kapitel</summary>
 Für das vorliegende Kapitel nutzen wir **mehrere Datensätze**, um die unterschiedlichen Verarbeitungsschritte zu demonstrieren.
 
-Den Datensatz airquality werden wir am meisten nutzen. Dieser enthält Daten aus einer Untersuchung der **Luftqualität in New York**, die von Mai bis September des Jahres 1973 stattfand. Der Datensatz ist standardmäßig in <span class ="r">R enthalten und wir bekommen ihn mit der Funktion `data()` in unser <span class ="r">R-Environment:
+Den Datensatz airquality werden wir am meisten nutzen. Dieser enthält Daten aus einer Untersuchung der **Luftqualität in New York**, die von Mai bis September des Jahres 1973 stattfand. Der Datensatz ist standardmäßig in R enthalten und wir bekommen ihn mit der Funktion `data()` in unser R-Environment:
 
 ```{r}
 data(airquality)
@@ -65,7 +65,7 @@ Der Datensatz enthält 102 Variablen. Einige davon schauen wir uns im Laufe des 
 
 Die Datensätze vornamen_13 und vornamen_14 enthalten die **Vornamen der Neugeborenen in München**, jeweils für die Jahre 2013 und 2014. Diese werden wir nur für [**2. Datensätze zusammenführen**][Datensätze zusammenführen] nutzen.
 
-Zuerst laden wir die csv-Dateien für <a href="https://www.opengov-muenchen.de/dataset/6acc34a9-762e-4e7f-83b0-250654478134/resource/f47ec60f-8839-4e83-9c7c-492c8b17d7b5/download/vornamen-von-neugeborenen2013.csv" target="_blank">2013</a> und <a href="https://www.opengov-muenchen.de/dataset/582aac00-aa2d-4b00-ac90-c4e5be7fa485/resource/cebd2d67-94e6-4667-a850-415f863d3b10/download/vornamen-von-neugeborenen-2014.csv" target="_blank">2014</a> runter und lesen sie dann folgendermaßen in <span class ="r">R ein:
+Zuerst laden wir die csv-Dateien für <a href="https://www.opengov-muenchen.de/dataset/6acc34a9-762e-4e7f-83b0-250654478134/resource/f47ec60f-8839-4e83-9c7c-492c8b17d7b5/download/vornamen-von-neugeborenen2013.csv" target="_blank">2013</a> und <a href="https://www.opengov-muenchen.de/dataset/582aac00-aa2d-4b00-ac90-c4e5be7fa485/resource/cebd2d67-94e6-4667-a850-415f863d3b10/download/vornamen-von-neugeborenen-2014.csv" target="_blank">2014</a> runter und lesen sie dann folgendermaßen in R ein:
 
 ```{r}
 #| eval: false
@@ -104,13 +104,13 @@ Die Datensätze enthalten jeweils die gleichen 3 Variablen:
 
 Zuerst widmen wir unsere Aufmerksamkeit der Überprüfung wichtiger übergreifender Punkte der Datenvorbereitung. Diese sind: ob unser Datensatz als **[Dataframe]** vorliegt, ob unsere **[Daten plausibel](#plausibilitäts-check)** und **[fehlende Werte korrekt kodiert](#fehlende-werte)** sind, ob nominal- und v.a. ordinalskalierte Variablen **[faktorisiert](#faktorisieren)** sind, und ob wir unser bestehendes **[Tabellenformat ggf. ändern](#wide--und-long-format)** müssen. Die Schritte sind bereits in einer **sinnvollen Abfolge** angeordnet (z.B. ist es vorteilhaft, erst unplausible und fehlende Werte ausfindig zu machen und umzukodieren, bevor man Variablen faktorisiert).
 
-<font color="darkgrey">Optional können wir vorher unser Wissen zum Messen von Merkmalen und der korrekten Darstellung dieser in <span class ="r">R auffrischen.
+<font color="darkgrey">Optional können wir vorher unser Wissen zum Messen von Merkmalen und der korrekten Darstellung dieser in R auffrischen.
 
 Wir schauen uns nachfolgend nur die Datensätze **airquality** und **PWE_data** an.
 
 ### <font color="darkgrey">**Recap**: Kodierung von Daten
 
-Generell wenn wir mit Daten arbeiten, ist es ratsam, sich zuallererst Gedanken darüber zu machen, welche Informationen wir diesen entnehmen können (**Messniveau**) und ob sie so gespeichert sind, dass <span class ="r">R sie richtig erkennt (**Datentypen und -strukturen**).
+Generell wenn wir mit Daten arbeiten, ist es ratsam, sich zuallererst Gedanken darüber zu machen, welche Informationen wir diesen entnehmen können (**Messniveau**) und ob sie so gespeichert sind, dass R sie richtig erkennt (**Datentypen und -strukturen**).
 
 Die nachfolgende Wiederholung ist eine verkürzte Variante des Abschnitts [Daten][Daten] aus dem Kapitel zu [Einführung in R](Einfuehrung_in_R.qmd).
 
@@ -206,7 +206,7 @@ kable(table, "html", escape = F) %>%
 
 #### <font color="darkgrey">Datentypen und Datenstrukturen
 
-> *__Achtung__*:  Die Unterteilung nach "Datentyp" und "Datenstruktur" sind getreu des <a href="https://cran.r-project.org/doc/manuals/r-release/R-intro.html" target="_blank">Manuals von <span class ="r">R</a>. Man stößt in anderen Quellen aber auch auf abweichende Unterteilungen bzw. Benennungen.
+> *__Achtung__*:  Die Unterteilung nach "Datentyp" und "Datenstruktur" sind getreu des <a href="https://cran.r-project.org/doc/manuals/r-release/R-intro.html" target="_blank">Manuals von R</a>. Man stößt in anderen Quellen aber auch auf abweichende Unterteilungen bzw. Benennungen.
 
 
 ```{r}
@@ -222,14 +222,14 @@ kable(table, "html", escape = F) %>%
 
 ```
 
-Der Datentyp gibt an, um was für Daten es sich handelt, d.h. welche **Werte**(bereiche) diese haben und welche **Operationen** wir auf sie anwenden können. Wir nutzen zumeist Zeichen, Wahrheitswerte und Zahlen. Diese werden in <span class ="r">R als <span class ="r">**character**, <span class ="r">**logical**, <span class ="r">**integer** und <span class ="r">**double** gespeichert, wobei letztere beiden häufig als <span class ="r">**numeric** zusammengefasst werden.
+Der Datentyp gibt an, um was für Daten es sich handelt, d.h. welche **Werte**(bereiche) diese haben und welche **Operationen** wir auf sie anwenden können. Wir nutzen zumeist Zeichen, Wahrheitswerte und Zahlen. Diese werden in R als **character**, **logical**, **integer** und **double** gespeichert, wobei letztere beiden häufig als **numeric** zusammengefasst werden.
 
-Die Datenstruktur bestimmt die **Organisation** und **Speicherung** von Daten(typen). In <span class ="r">R gibt es z.B. <span class ="r">**Vektoren**, <span class ="r">**Matrizen**, <span class ="r">**Dataframes**, <span class ="r">**Listen** und <span class ="r">**Faktoren**. Beispielsweise können <span class ="r">Vektoren und Matrizen jeweils nur *einen* Datentypen enthalten, während <span class ="r">Dataframes *mehrere* Datentypen enthalten können.
+Die Datenstruktur bestimmt die **Organisation** und **Speicherung** von Daten(typen). In R gibt es z.B. **Vektoren**, **Matrizen**, **Dataframes**, **Listen** und **Faktoren**. Beispielsweise können Vektoren und Matrizen jeweils nur *einen* Datentypen enthalten, während Dataframes *mehrere* Datentypen enthalten können.
 
 Datentyp und -struktur sind ausschlaggebend dafür, welche Funktionen wir anwenden können bzw. welchen Output wir bekommen.
 
 * __Beispiel 1__:\
-Man kann nur mit <span class ="r">numeric deskriptiv-statistische Kennwerte bilden.
+Man kann nur mit numeric deskriptiv-statistische Kennwerte bilden.
 * __Beispiel 2__:\
 Wenn mir nominal- bzw. ordinalskalierte Daten **nicht** adäquat kodieren, kann es zu ungewollten Konsequenzen kommen.\
 Wenn wir z.B. eine Variable $X$ haben, welche eine Gruppenzugehörigkeit mit 1, 2 und 3 kodiert, und diese als Prädiktor in ein Regressionsmodell aufnehmen, dann wird $X$ als kontinuierliche Variable behandelt und wir würden keine separaten Schätzungen für die Mittelwertsdifferenzen der Gruppen bekommen.
@@ -260,13 +260,13 @@ table_kat %>%
   footnote(general = "<font size=\"1\">$^1$ Faktorisieren (unordered factor) notwendig *wenn* keine Indikatorvariable(n) genutzt $^2$ Faktorisieren (ordered factor) notwendig", general_title = "", escape = FALSE) 
 ```
 
-Mit der Funktion `str()` können wir uns eine kompakte Übersicht der enthaltenen Variablen (d.h. ihr Datentyp bzw. die Datenstruktur <span class ="r">Faktor sowie jeweils die ersten 10 Werte) der Datenstruktur (hier: Dataframe) ausgeben lassen. So können wir schauen, ob die Daten auch entsprechend ihres Messniveaus kodiert sind.
+Mit der Funktion `str()` können wir uns eine kompakte Übersicht der enthaltenen Variablen (d.h. ihr Datentyp bzw. die Datenstruktur Faktor sowie jeweils die ersten 10 Werte) der Datenstruktur (hier: Dataframe) ausgeben lassen. So können wir schauen, ob die Daten auch entsprechend ihres Messniveaus kodiert sind.
 
 ```{r}
 str(airquality)
 ```
 
-Für den Beispieldatensatz **airquality** liegen die verhältnisskalierten Variablen `Ozone`,`Solar.R`, `Wind`, `Month` und `Day` korrekterweise als <span class ="r">integer bzw. <span class ="r">numeric vor. Die intervallskalierte Variable `Temp` liegt auch wie erwartet als <span class ="r">integer vor (weil die Temperatur in Fahrenheit und nicht in Kelvin gemessen wurde ist die Variable nicht verhältnisskaliert).
+Für den Beispieldatensatz **airquality** liegen die verhältnisskalierten Variablen `Ozone`,`Solar.R`, `Wind`, `Month` und `Day` korrekterweise als integer bzw. numeric vor. Die intervallskalierte Variable `Temp` liegt auch wie erwartet als integer vor (weil die Temperatur in Fahrenheit und nicht in Kelvin gemessen wurde ist die Variable nicht verhältnisskaliert).
 
 Für den Datensatz **PWE_data** schauen wir uns exemplarisch nur die letzten 15 Variablen an:
 
@@ -276,7 +276,7 @@ ls.str(PWE_data[,88:102])
 
 Wir nutzen hier für **PWE_data** die Funktion `ls.str()`, weil der Output für ein <a href="https://tibble.tidyverse.org" target="_blank">Tibble Dataframe</a> so weniger ausführlich ist. Allerdings werden die Variablen mit dieser Funktion alphabetisch sortiert (im Gegensatz zu `str()`, welche die Variablen der Spaltennummerierung nach darstellt).
 
-Wie wir sehen, liegen fast alle Variablen als <span class ="r">numeric vor, obwohl viele nominalskaliert sind. So würden sie von <span class ="r">R **nicht** entsprechend ihres Messniveaus behandelt werden. Wir müssen diese also entweder in <span class ="r">character umwandeln oder faktorisieren (später mehr dazu).
+Wie wir sehen, liegen fast alle Variablen als numeric vor, obwohl viele nominalskaliert sind. So würden sie von R **nicht** entsprechend ihres Messniveaus behandelt werden. Wir müssen diese also entweder in character umwandeln oder faktorisieren (später mehr dazu).
 
 
 ### Dataframe
@@ -286,7 +286,7 @@ Wie wir sehen, liegen fast alle Variablen als <span class ="r">numeric vor, obwo
 # http://www.r-tutor.com/r-introduction/data-frame
 ```
 
-Für viele Anwendungen in <span class ="r">R (z.B. für das [Erstellen von Grafiken mit ggplot2][Grafiken ggplot])  ist es notwendig, dass der Datensatz als Dataframe vorliegt. Folgendermaßen können wir **prüfen**, ob ein Datensatz ein Dataframe ist:
+Für viele Anwendungen in R (z.B. für das [Erstellen von Grafiken mit ggplot2][Grafiken ggplot])  ist es notwendig, dass der Datensatz als Dataframe vorliegt. Folgendermaßen können wir **prüfen**, ob ein Datensatz ein Dataframe ist:
 
 ```{r}
 is.data.frame(airquality)
@@ -314,7 +314,7 @@ Falls unser Datensatz kein Dataframe ist, können wir ihn folgendermaßen **umwa
 airquality <- as.data.frame(airquality)
 ```
 
-Die Funktion `as.data.frame()` enthält das Argument `stringsAsFactors`, mit dem wir bestimmen können, ob Zeichenketten (<span class ="r">character) zu <span class ="r">Faktoren umgewandelt werden sollen (`TRUE`). Falls wir **ordinalskalierte Daten** haben, müssen wir den <span class ="r">Faktor dann aber noch zusätzlich ordnen. Generell ist es sinnvoll, erst **nach** der Überprüfung auf unplausible und fehlende Werte zu faktorisieren, damit eventuell vorhandene Fehlkodierungen nicht als Faktorstufen behandelt werden.
+Die Funktion `as.data.frame()` enthält das Argument `stringsAsFactors`, mit dem wir bestimmen können, ob Zeichenketten (character) zu Faktoren umgewandelt werden sollen (`TRUE`). Falls wir **ordinalskalierte Daten** haben, müssen wir den Faktor dann aber noch zusätzlich ordnen. Generell ist es sinnvoll, erst **nach** der Überprüfung auf unplausible und fehlende Werte zu faktorisieren, damit eventuell vorhandene Fehlkodierungen nicht als Faktorstufen behandelt werden.
 
 
 ### Plausibilitäts-Check
@@ -399,12 +399,12 @@ Nun schauen wir uns noch die Verteilungen der Variablen an.
 summary(PWE_data[,88:101])
 ```
 
-Hier sehen wir auch, dass für nominalskalierte Merkmale, wie z.B. `urban`, `orientation` und `married`, deskriptiv-statistische Kennwerte wie der Mittelwert gebildet werden (d.h. diese werden als mindestens intervallskaliert behandelt), weil sie als <span class ="r">numeric vorliegen. Später werden wir diese noch [faktorisieren](#faktorisieren).
+Hier sehen wir auch, dass für nominalskalierte Merkmale, wie z.B. `urban`, `orientation` und `married`, deskriptiv-statistische Kennwerte wie der Mittelwert gebildet werden (d.h. diese werden als mindestens intervallskaliert behandelt), weil sie als numeric vorliegen. Später werden wir diese noch [faktorisieren](#faktorisieren).
 
 
 ### Fehlende Werte 
 
-Generell werden fehlende Werte (Missings) in <span class ="r">R mit `NA` dargestellt. In anderen Programmen mag das anders sein (z.B. werden Missings in Unipark mit `99` oder `-99` kodiert). Wie im vorhergehenden Abschnitt demonstriert, überschneidet sich die Überprüfung von plausiblen und fehlenden Werten häufig.
+Generell werden fehlende Werte (Missings) in R mit `NA` dargestellt. In anderen Programmen mag das anders sein (z.B. werden Missings in Unipark mit `99` oder `-99` kodiert). Wie im vorhergehenden Abschnitt demonstriert, überschneidet sich die Überprüfung von plausiblen und fehlenden Werten häufig.
 
 Neben der im letzten Abschnitt vorgestellten Varianten, Missings mit `summary()` zu finden, gibt es noch weitere Optionen.
 
@@ -454,7 +454,7 @@ Nun erstellen wir einen (neuen) **sortierten (d.h. ordinalskalierten) Faktor**. 
 PWE_data$education_of <- factor(PWE_data$education, ordered=TRUE)
 ```
 
-Mit dem Argument `ordered=TRUE` wird eine Variable nach ihrer **"natürlichen" Rangfolge** sortiert. Bei Zahlen (<span class ="r">integer und <span class ="r">numeric) bedeutet das, dass *größere* Zahlen eine *höhere* Hierarchieebene haben z.B. 1 < 2. Bei einzelnen Buchstaben und Zeichenketten (<span class ="r">character) bedeutet das, dass *später* im Alphabet auftauchende (Anfangs-)Buchstaben eine *höhere* Hierarchiebene haben z.B. "Hans" < "Rene".
+Mit dem Argument `ordered=TRUE` wird eine Variable nach ihrer **"natürlichen" Rangfolge** sortiert. Bei Zahlen (integer und numeric) bedeutet das, dass *größere* Zahlen eine *höhere* Hierarchieebene haben z.B. 1 < 2. Bei einzelnen Buchstaben und Zeichenketten (character) bedeutet das, dass *später* im Alphabet auftauchende (Anfangs-)Buchstaben eine *höhere* Hierarchiebene haben z.B. "Hans" < "Rene".
 
 Manchmal wollen wir diese Sortierung aber nicht übernehmen, sondern eine **eigene Hierarchie** erstellen, die nicht der natürlichen Rangfolge entspricht. Das können wir machen, indem wir zusätzlich das Argument `levels` spezifizieren, dem wir einen Vektor mit unserer gewünschten Sortierung übergeben.
 
@@ -464,13 +464,13 @@ PWE_data$education_of_s <- factor(PWE_data$education, ordered=TRUE,
                                 levels=c(1,4,2,3))
 ```
 
-Abschließend vergleichen wir die ursprüngliche <span class ="r">numeric-Variable (`education`) mit den unsortierten (`education_uf`) und sortierten (`education_of` und `education_of_s`) <span class ="r">Faktor-Variablen.
+Abschließend vergleichen wir die ursprüngliche numeric-Variable (`education`) mit den unsortierten (`education_uf`) und sortierten (`education_of` und `education_of_s`) Faktor-Variablen.
 
 ```{r}
 ls.str(PWE_data[,c(88, 90, 103:105)])
 ```
 
-Wir sehen, dass alle Variablen des gleichen Merkmals zwar die **gleichen Werte** (**gender**: 1, 2, 3 und **education**: 1, 2, 3, 4) haben, aber in **unterschiedlichen Datentypen bzw. -strukturen** (<span class ="r">numeric, <span class ="r">factor, <span class ="r">Ordered factor) und **teils unterschiedlichen Sortierungen** vorliegen.
+Wir sehen, dass alle Variablen des gleichen Merkmals zwar die **gleichen Werte** (**gender**: 1, 2, 3 und **education**: 1, 2, 3, 4) haben, aber in **unterschiedlichen Datentypen bzw. -strukturen** (numeric, factor, Ordered factor) und **teils unterschiedlichen Sortierungen** vorliegen.
 
 Außerdem sehen wir, dass die selbst sortierten Faktoren *intern* eine neue Kodierung bekommen haben (siehe `education_of_s`). Wir sehen diese nur mit `str()` bzw. `ls.str()`. Diese interne Kodierung richtet sich danach, wie die Faktorstufen sortiert sind. Die erste Ausprägung (nach der eigenen Sortierung) beginnt mit 1.
 
@@ -1332,7 +1332,7 @@ Wenn wir zum Beispiel Messwerte in Meter zu Messwerten in Zentimeter ändern ode
 
 <aside>Rekodieren und Umkodieren wird häufig synonym genutzt.</aside>
 
-Wir können die Kodierung von Merkmalen in <span class ="r">R auf verschiedene Arten ändern. Nachfolgend schauen wir uns zwei Funktionen an, die wir nutzen können.
+Wir können die Kodierung von Merkmalen in R auf verschiedene Arten ändern. Nachfolgend schauen wir uns zwei Funktionen an, die wir nutzen können.
 
 
 
@@ -1440,7 +1440,7 @@ str(PWE_data$Q1E_kat) # Überprüfung Datentyp
 unique(PWE_data$Q1E_kat) # um alle Kategorien zu sehen
 ```
 
-Nun haben wir eine neue Variable `Q1E_kat` erstellt, welche zusammengefasste Informationen aus `Q1E` enthält. Die neu erstellte Variable liegt als <span class ="r">numeric vor, d.h., dass wir diese noch faktorisieren *und* ordnen müssen, damit sie als ordinalskaliert gehandhabt wird.
+Nun haben wir eine neue Variable `Q1E_kat` erstellt, welche zusammengefasste Informationen aus `Q1E` enthält. Die neu erstellte Variable liegt als numeric vor, d.h., dass wir diese noch faktorisieren *und* ordnen müssen, damit sie als ordinalskaliert gehandhabt wird.
 
 ```{r}
 PWE_data$Q1E_kat <- factor(PWE_data$Q1E_kat, ordered=TRUE)
@@ -1549,7 +1549,7 @@ Wir regredieren dafür die Zeit in Sekunden, die die Probanden auf der Instrukti
 
 <details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193">Dummy-Kodierung</summary>
 
-Viele Funktionen in <span class ="r">R (z.B. `lm()`, `lme()`  und `lmer()`) kodieren nominalskalierte Variablen intern *automatisch* nach der Dummy-Kodierung um, wenn diese vorher [als Faktoren deklariert](#faktorisieren) wurden. Dabei wird die *erste Kategorie als Referenzkategorie* genutzt. Wenn wir eine andere Referenzkategorie haben wollen, können wir dafür die im Folgenden vorgestellten Funktionen (`C(..., contr.treatment(n, base))` oder `relevel()`) nutzen.
+Viele Funktionen in R (z.B. `lm()`, `lme()`  und `lmer()`) kodieren nominalskalierte Variablen intern *automatisch* nach der Dummy-Kodierung um, wenn diese vorher [als Faktoren deklariert](#faktorisieren) wurden. Dabei wird die *erste Kategorie als Referenzkategorie* genutzt. Wenn wir eine andere Referenzkategorie haben wollen, können wir dafür die im Folgenden vorgestellten Funktionen (`C(..., contr.treatment(n, base))` oder `relevel()`) nutzen.
 
 ```{r}
 #| echo: false
@@ -1907,9 +1907,9 @@ Wenn wir Auswertungen machen, in denen wir Ergebnisobjekte bekommen (z.B. bei de
 
 ### Replizierbarkeit
 
-Wir sollten unsere <span class ="r">R-Skripte generell großzügig **kommentieren** (mit `#`), damit wir (und ggf. auch Dritte) schnell nachvollziehen können, was wir da eigentlich gemacht haben.
+Wir sollten unsere R-Skripte generell großzügig **kommentieren** (mit `#`), damit wir (und ggf. auch Dritte) schnell nachvollziehen können, was wir da eigentlich gemacht haben.
 
-Es lohnt sich auch, wenn man einen Datensatz (teil-)aufbereitet hat, diesen zu **speichern**, d.h. als neue Datei außerhalb von <span class ="r">R zu exportieren (z.B. wenn man einen Datensatz vom Wide- ins Long-Format gebracht hat).
+Es lohnt sich auch, wenn man einen Datensatz (teil-)aufbereitet hat, diesen zu **speichern**, d.h. als neue Datei außerhalb von R zu exportieren (z.B. wenn man einen Datensatz vom Wide- ins Long-Format gebracht hat).
 
 Außerdem ist es sinnvoll, **alle Schritte der Datenvorbereitung sowie Datenauswertung im gleichen Programm** durchzuführen, um möglichen Kompatibilitätsproblemen zwischen verschiedenen Programmen vorzubeugen.
 
@@ -2671,7 +2671,7 @@ rmarkdown::paged_table(data_int, options(rows.print=5))
 
 ---
 
-Um eine möglichst exakte Replikation der Funktionen zu gewährleisten gibt es im folgenden relevante Angaben zum System (**<span class ="r">R-Version**, **Betriebssystem**, **geladene Pakete mit Angaben zur Version**), mit welchem diese Seite erstellt wurde.
+Um eine möglichst exakte Replikation der Funktionen zu gewährleisten gibt es im folgenden relevante Angaben zum System (**R-Version**, **Betriebssystem**, **geladene Pakete mit Angaben zur Version**), mit welchem diese Seite erstellt wurde.
 
 ```{r}
 sessionInfo()
