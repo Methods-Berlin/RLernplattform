@@ -1549,7 +1549,7 @@ Wenn wir unsere Grafik erstellt haben, müssen wir diese noch exportieren, um si
 
 Grundsätzlich gibt es zwei Möglichkeiten dafür: 
 
-- über das untere rechte Panel bei <span style="color: #75AADC">**Plots**</span> > <span style="color: #75AADC">**Export**</span> <font size="2">(nur in **<span class ="r">RStudio</span>** möglich)</font>
+- über das untere rechte Panel bei <span style="color: #75AADC">**Plots**</span> > <span style="color: #75AADC">**Export**</span> <font size="2">(nur in ****RStudio**** möglich)</font>
 - mit Hilfe von `Funktionen`
 
 Im Folgenden schauen wir uns an, wie wir den <span style="color: #75AADC">**Export**-Button</span> und die Funktion `ggsave()`, mit der wir mit ggplot2 erstellte Grafiken exportieren können, nutzen.

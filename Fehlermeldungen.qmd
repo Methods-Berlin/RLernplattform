@@ -21,7 +21,7 @@ Fehlermeldungen können unterschiedliche Ursachen haben. Häufig sind es Tipp- o
 
 Fehlermeldungen sind häufig nicht einfach zu verstehen. Das liegt u.a. daran, dass EntwicklerInnen von Paketes jeweils eigene Fehlermeldungen für die enthaltenen Funktionen formulieren. Deswegen folgen diese zumeist keinem einheitlichen Muster und sind teils schwer zu verstehen.
 
-Im Folgenden gehen wir uns zuerst darauf ein, welche Hilfe uns <span class ="r">RStudio</span> gibt, um **Fehler zu vermeiden**. Anschließend schauen wir uns an einigen konkreten (Syntax-)Fehlermeldungen an, wie man diese **verstehen** kann. Danach lernen wir, wie wir **Suchmaschinen sinnvoll nutzen** können, um Lösungen für unsere Fehlermeldungen zu finden. \
+Im Folgenden gehen wir uns zuerst darauf ein, welche Hilfe uns **RStudio** gibt, um **Fehler zu vermeiden**. Anschließend schauen wir uns an einigen konkreten (Syntax-)Fehlermeldungen an, wie man diese **verstehen** kann. Danach lernen wir, wie wir **Suchmaschinen sinnvoll nutzen** können, um Lösungen für unsere Fehlermeldungen zu finden. \
 
 <details class ="bsp"><summary>Beispieldatensatz für dieses Kapitel</summary>
 
@@ -61,7 +61,7 @@ Alternativ können wir die Hilfefunktionen `?` oder `help()` nutzen <font size="
 
 Mit Klick auf das <font color ="#FD9612">eingekreiste Icon</font> kann man sich die Hilfe-Seite auch in einem extra Fenster anzeigen lassen.
 
-<aside>Wir finden die **R**-Dokumentation auch im Internet, allerdings ermöglicht uns <span class ="r">RStudio</span>, diese ohne Internetverbindung und direkt in der Entwicklungsumgebung zu öffnen.</aside>
+<aside>Wir finden die **R**-Dokumentation auch im Internet, allerdings ermöglicht uns **RStudio**, diese ohne Internetverbindung und direkt in der Entwicklungsumgebung zu öffnen.</aside>
 
 ```{r}
 #| out.width: 550px

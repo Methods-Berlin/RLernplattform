@@ -2,7 +2,7 @@
 
 Wir können in **R** nicht nur selbst Daten erzeugen, sondern selbstverständlich auch externe Dateien unterschiedlichen Typs einlesen. Dabei geschehen in der Regel zwei Dinge: 1) Die Informationen werden ausgelesen und 2) in einem Objekt (oftmals in Form eines Dataframes) gespeichert. 
 
-Im Rahmen dieses Kapitels schauen wir uns an, wie wir Dateien **aus dem Internet herunterladen**, **in unseren Arbeitsordner verschieben** und anschließend **in <span class ="r">R</apan>** einlesen. Wir lernen außerdem, wie wir unser **Working Directory setzen** können.
+Im Rahmen dieses Kapitels schauen wir uns an, wie wir Dateien **aus dem Internet herunterladen**, **in unseren Arbeitsordner verschieben** und anschließend **in **R** einlesen. Wir lernen außerdem, wie wir unser **Working Directory setzen** können.
 
 Wir lernen **drei verschiedene Wege zum Einlesen von Dateien** kennen:
 
@@ -13,7 +13,7 @@ Wir lernen **drei verschiedene Wege zum Einlesen von Dateien** kennen:
 knitr::include_graphics("figures/Daten-importieren/Bilder/overview.png")
 ```
 
-Die ersten beiden Wege nutzen die <span class ="rstud">**grafische Benutzeroberfläche** der Entwicklungsumgebung <span class ="r">RStudio</span></span>, letzterer nutzt direkt `Funktionen`.
+Die ersten beiden Wege nutzen die <span class ="rstud">**grafische Benutzeroberfläche** der Entwicklungsumgebung **RStudio**</span>, letzterer nutzt direkt `Funktionen`.
 
 Exemplarisch schauen wir uns die drei Wege für die Datei <span class="ex">neuro<a href="https://de.wikipedia.org/wiki/CSV_(Dateiformat)" target="_blank">**.csv**</a></span> an. Wir können mit den vorgestellten Wegen aber auch andere Dateiformate einlesen.
 
@@ -146,7 +146,7 @@ knitr::include_graphics("figures/Daten-importieren/Bilder/Importieren_icon_csv_t
 
 Nun klicken wir auf **From CSV**. Daraufhin öffnet sich ein Fenster, in dem wir verschiedene Optionen zum Einlesen haben. 
 
-> *__Achtung__*:  In neueren <span class ="r">RStudio</span>-Versionen gibt es die Optionen **From Text (base)** und **From Text (readr)** (anstatt zusammengefasst **From CSV**). Beides kann genutzt werden, um .csv-Dateien einzulesen. **base** ist ein Standardpaket, welches in **R** von Beginn an vorinstalliert ist. Um **readr** nutzen zu können, müssen wir erst das gleichnamige Paket herunterladen. Die nachfolgend genannten Schritte beziehen sich auf die Benutzung von **From Text (readr)**; das Fenster bei **From Text (base)** sieht auch anders aus.</font>
+> *__Achtung__*:  In neueren **RStudio**-Versionen gibt es die Optionen **From Text (base)** und **From Text (readr)** (anstatt zusammengefasst **From CSV**). Beides kann genutzt werden, um .csv-Dateien einzulesen. **base** ist ein Standardpaket, welches in **R** von Beginn an vorinstalliert ist. Um **readr** nutzen zu können, müssen wir erst das gleichnamige Paket herunterladen. Die nachfolgend genannten Schritte beziehen sich auf die Benutzung von **From Text (readr)**; das Fenster bei **From Text (base)** sieht auch anders aus.</font>
 
 Nachdem wir eine Option ausgewählt haben, öffnet sich ein Fenster, in welchem wir die gewünschte Datei in unserem Arbeitsordner auswählen können.
 

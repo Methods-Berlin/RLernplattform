@@ -4,24 +4,24 @@
 
 <span class ="r highlight">R</span> ist eine Statistiksoftware, die mittlerweile weit verbreitet ist - sowohl in der Forschung als auch in der Wirtschaft. **R** ist **kostenlos**, für alle gängigen Betriebssysteme verfügbar <font size="2">(Windows, Max OS X und  Linux)</font> und darüber hinaus auch noch **open-source**. Das heißt, um **R** zu nutzen, muss man keine teure Lizenz kaufen und jede/r kann sich an der (Weiter-)Entwicklung des Programms oder einzelner Pakete beteiligen. Durch die weite Verbreitung von **R** finden sich außerdem ausführliche Anleitungen im Internet, sollten wir mal nicht mehr weiter wissen.
 
-**R** selbst ist relativ spartanisch und die meisten AnwenderInnen nutzen daher die <span class="highlight">Entwicklungsumgebung <span class ="r">RStudio</span></span>, welche auch eine umfassendere Benutzeroberfläche besitzt. Mit dieser können wir z.B. **Skripte** nutzen, in denen wir unsere Analysen speichern können. Außerdem gibt es ein **Environment**, das uns anzeigt, welche Objekte in **R** vorhanden sind (d.h. die wir eingelesen oder direkt in **R** erstellt haben). Hier finden wir zusätzlich einen Reiter **Help**, welcher uns Informationen und Anwendungshinweise zu Funktionen gibt.
+**R** selbst ist relativ spartanisch und die meisten AnwenderInnen nutzen daher die <span class="highlight">Entwicklungsumgebung **RStudio**</span>, welche auch eine umfassendere Benutzeroberfläche besitzt. Mit dieser können wir z.B. **Skripte** nutzen, in denen wir unsere Analysen speichern können. Außerdem gibt es ein **Environment**, das uns anzeigt, welche Objekte in **R** vorhanden sind (d.h. die wir eingelesen oder direkt in **R** erstellt haben). Hier finden wir zusätzlich einen Reiter **Help**, welcher uns Informationen und Anwendungshinweise zu Funktionen gibt.
 
 <aside>\
 Der Aufbau der Entwicklungsumgebung <span class="r">RStudio</span> wird im Kapitel [Einführung in R](Einfuehrung_in_R.qmd) erklärt.</aside>
 
-Im vorliegenden Kapitel schauen wir uns jeweils für <span class="highlight">Windows</span> und <span class="highlight">Mac</span> an, wie wir **R** und <span class ="r">RStudio</span> installieren oder auf eine neuere Version aktualisieren und dabei **unsere bisher heruntergeladenen Pakete behalten** können.
+Im vorliegenden Kapitel schauen wir uns jeweils für <span class="highlight">Windows</span> und <span class="highlight">Mac</span> an, wie wir **R** und **RStudio** installieren oder auf eine neuere Version aktualisieren und dabei **unsere bisher heruntergeladenen Pakete behalten** können.
 
 <details><summary>*Was ist mit Linux?*</summary><div class="more">
 Bevor wir die **R**-Lernplattform ins Leben gerufen haben, haben wir eine Umfrage durchgeführt, in der u.a. das Betriebssystem der NutzerInnen erfragt wurde. Hierbei hat nur ein Bruchteil der Personen angegeben, mit Linux bzw. Ubuntu zu arbeiten. Aufgrund der geringen Nachfrage gibt es kein gesondertes Kapitel für Linux-UserInnen. Im Folgenden sind einige Links zur Hilfe aufgeführt.
 
-Für die Installation von **R** und <span class ="r">RStudio</span> unter <span class="highlight">Ubuntu</span> empfiehlt sich die Installationsanleitung auf <a href="https://linuxhint.com/rstudio-for-ubuntu/" target="_blank">linuxhunt.com</a> zu nutzen <font size="1">(englisch)</font>. Anstatt `wget https://download1.rstudio.org/rstudio-0.99.896-amd64.deb` ändern wir den Link zur gewünschten <span class ="r">RStudio</span> Version für unser Betriebssystem, z.B. `wget [https://download1.rstudio.org/desktop/bionic/amd64/rstudio-1.3.1073-amd64.deb](https://download1.rstudio.org/electron/jammy/amd64/rstudio-2022.12.0-353-amd64.deb)`. Den benötigten aktuellen Link bekommen wir von der <a href="https://rstudio.com/products/rstudio/download/#download" target="_blank"><span class ="r">RStudio</span> Seite</a> mittels Rechtsklick auf den Link und Auswahl im erscheinenden Menü.
+Für die Installation von **R** und **RStudio** unter <span class="highlight">Ubuntu</span> empfiehlt sich die Installationsanleitung auf <a href="https://linuxhint.com/rstudio-for-ubuntu/" target="_blank">linuxhunt.com</a> zu nutzen <font size="1">(englisch)</font>. Anstatt `wget https://download1.rstudio.org/rstudio-0.99.896-amd64.deb` ändern wir den Link zur gewünschten **RStudio** Version für unser Betriebssystem, z.B. `wget [https://download1.rstudio.org/desktop/bionic/amd64/rstudio-1.3.1073-amd64.deb](https://download1.rstudio.org/electron/jammy/amd64/rstudio-2022.12.0-353-amd64.deb)`. Den benötigten aktuellen Link bekommen wir von der <a href="https://rstudio.com/products/rstudio/download/#download" target="_blank">**RStudio** Seite</a> mittels Rechtsklick auf den Link und Auswahl im erscheinenden Menü.
 
 Falls ihr das Problem habt, dass mit der obigen Anleitung nicht die aktuelle **R** Version 4.0 installiert wird, oder falls ihr zu **R** 4.0 upgraden wollt, schaut auch <a href="https://medium.com/@hpgomide/how-to-update-your-r-3-x-to-the-r-4-x-in-your-linux-ubuntu-46e2209409c3" target="_blank">diese Anleitung</a> an. 
 
 Falls ihr nur Probleme mit dem Updaten auf die neuste Version habt, führt aus dem Abschnitt *How can I update my R 3.x to the new shiny R4.x?* den Code **ab** `sudo apt-key ...` im Terminal aus. 
 </div></details>\
 
-> *__Achtung__*:  Die **R**- und <span class ="r">RStudio</span>-Versionen auf den Screenshots könnten bereits veraltet sein, wenn ihr die Anleitung nutzt. Die angegebenen Links führen euch aber dennoch zu den aktuellsten Versionen.
+> *__Achtung__*:  Die **R**- und **RStudio**-Versionen auf den Screenshots könnten bereits veraltet sein, wenn ihr die Anleitung nutzt. Die angegebenen Links führen euch aber dennoch zu den aktuellsten Versionen.
 
 > *__Achtung__*:  <font color="#930047">**Zur Übernahme der Pakete bei Upgrade auf **R** 4.0+**</font>\
 Wir können das Paket installr <font size="2">(Windows)</font> bzw. das manuelle Verschieben der Pakete <font size="2">(Mac)</font> hier nicht nutzen, um unsere alten Pakete zu erhalten. Wir müssen **alle Pakete neu installieren**. Falls wir sehr viele Pakete haben, hilft uns folgende <a href="https://www.r-bloggers.com/get-all-your-packages-back-on-r-4-0-0/" target="_blank">Anleitung von r-bloggers</a>. 
@@ -91,11 +91,11 @@ knitr::include_graphics("figures/Installation/Bilder/7.png")
 ```
 
 <details><summary>*Was sind Startoptionen?*</summary><div class="more">
-Bei den Startoptionen können wir z.B. einstellen, wie **R** später die Hilfe-Seiten einzelner Funktionen anzeigt. Da wir mit der Entwicklungsumgebung <span class ="r">RStudio</span> arbeiten werden, können wir diese Einstellungen einfach überspringen.</div></details>
+Bei den Startoptionen können wir z.B. einstellen, wie **R** später die Hilfe-Seiten einzelner Funktionen anzeigt. Da wir mit der Entwicklungsumgebung **RStudio** arbeiten werden, können wir diese Einstellungen einfach überspringen.</div></details>
 
 <p style="line-height:10px;"></p>
 
-Anschließend können wir den **Startmenü-Ordner auswählen**, d.h. festlegen, ob und wo Verknüpfungen zum Programm erstellt werden sollen.  Da wir **R** später über <span class ="r">RStudio</span> aufrufen werden, können wir auch hier einfach mit der Voreinstellung auf Weiter drücken.
+Anschließend können wir den **Startmenü-Ordner auswählen**, d.h. festlegen, ob und wo Verknüpfungen zum Programm erstellt werden sollen.  Da wir **R** später über **RStudio** aufrufen werden, können wir auch hier einfach mit der Voreinstellung auf Weiter drücken.
 
 ```{r, out.width = "300px", echo=FALSE, fig.align='center'}
 knitr::include_graphics("figures/Installation/Bilder/8.png")
@@ -116,21 +116,21 @@ knitr::include_graphics("figures/Installation/Bilder/10.png")
 
 ### Installation von  <span class ="r">**RStudio**</span>
 
-Nachdem wir **R** heruntergeladen haben, können wir nun auch die Entwicklungsumgebung <span class ="r">RStudio</span> herunterladen.
+Nachdem wir **R** heruntergeladen haben, können wir nun auch die Entwicklungsumgebung **RStudio** herunterladen.
 
-Dazu gehen wir auf die <a href="https://rstudio.com/products/rstudio/download/" target="_blank"><span class ="r">RStudio</span>-Seite</a> und scrollen auf der Seite nach unten. Hier überprüfen wir, ob die uns empfohlene Version mit unserem [Betriebssystem](#winv) sowie unserer **R**-Version kompatibel ist. Wenn ja, können wir auf **Download RStudio for Windows** klicken.
+Dazu gehen wir auf die <a href="https://rstudio.com/products/rstudio/download/" target="_blank">**RStudio**-Seite</a> und scrollen auf der Seite nach unten. Hier überprüfen wir, ob die uns empfohlene Version mit unserem [Betriebssystem](#winv) sowie unserer **R**-Version kompatibel ist. Wenn ja, können wir auf **Download RStudio for Windows** klicken.
 
 ```{r, out.width = "700px", echo=FALSE, fig.align='center'}
 knitr::include_graphics("figures/Installation/Bilder/Win_13.PNG")
 ```
 
 <details><summary>Bei mir steht zwar Download RStudio Desktop, aber ich kann nicht darauf klicken.</summary><div class="more">
-In diesem Fall können wir auf der Seite weiter nach unten scrollen. Dort werden unter **All Installers** alle aktuellen Versionen von <span class ="r">RStudio</span> Desktop aufgeführt. Unter dem Eintrag **OS** sind alle Betriebssysteme aufgelistet, für die es die aktuellste <span class ="r">RStudio</span> Desktop Version gibt. Wenn wir unser Betriebssystem gefunden haben, wählen wir in der Spalte **Download** die passende <span class ="r">RStudio</span> Desktop Version aus und laden diese herunter.</div></details>
+In diesem Fall können wir auf der Seite weiter nach unten scrollen. Dort werden unter **All Installers** alle aktuellen Versionen von **RStudio** Desktop aufgeführt. Unter dem Eintrag **OS** sind alle Betriebssysteme aufgelistet, für die es die aktuellste **RStudio** Desktop Version gibt. Wenn wir unser Betriebssystem gefunden haben, wählen wir in der Spalte **Download** die passende **RStudio** Desktop Version aus und laden diese herunter.</div></details>
 
 <p style="line-height:10px;"></p>
 
 <details><summary>Was bedeutet "RStudio 1.2 requires a 64-bit operating system. If you are on a 32 bit system, you can use an older version of RStudio."?</summary><div class="more">
-Ob wir die 32- oder die 64-bit Version von <span class ="r">RStudio</span> Desktop brauchen, hängt von unserem Computer ab. Für fast alle Computer können wir die 64-bit Version herunterladen. Sind wir uns nicht sicher, welche Version wir brauchen, können wir [hier](#winv) nachschauen. Wenn wir ein 32 bit-Betriebssystem haben, müssen wir eine ältere Version von <span class ="r">RStudio</span> Desktop herunterladen. Diese finden wir unter diesem <a href="https://support.rstudio.com/hc/en-us/articles/206569407-Older-Versions-of-RStudio" target="_blank">Link</a>. 
+Ob wir die 32- oder die 64-bit Version von **RStudio** Desktop brauchen, hängt von unserem Computer ab. Für fast alle Computer können wir die 64-bit Version herunterladen. Sind wir uns nicht sicher, welche Version wir brauchen, können wir [hier](#winv) nachschauen. Wenn wir ein 32 bit-Betriebssystem haben, müssen wir eine ältere Version von **RStudio** Desktop herunterladen. Diese finden wir unter diesem <a href="https://support.rstudio.com/hc/en-us/articles/206569407-Older-Versions-of-RStudio" target="_blank">Link</a>. 
 
 ```{r, out.width = "300px", echo=FALSE, fig.align='center'}
 knitr::include_graphics("figures/Installation/Bilder/Win_R_Studio_aelter.png")
@@ -180,7 +180,7 @@ Anschließend können wir die neuere Version installieren, indem wir auf **Ja** 
 knitr::include_graphics("figures/Installation/Bilder/install_latest.png") 
 ```
 
-Wenn wir in <span class ="r">RStudio</span> sind, werden wir gefragt, ob wir die Installation via `updateR()` lieber in **R** ausführen wollen. Wir können die Installation aber auch einfach in <span class ="r">RStudio</span> fortführen.
+Wenn wir in **RStudio** sind, werden wir gefragt, ob wir die Installation via `updateR()` lieber in **R** ausführen wollen. Wir können die Installation aber auch einfach in **RStudio** fortführen.
 
 Nun kommen die gleichen Einstellungen und Zustimmungen wie bei der [Installation von R](Installation.qmd#installation-von-span-class-rrspan). 
 
@@ -211,31 +211,31 @@ knitr::include_graphics("figures/Installation/Bilder/Update_Packages.png")
 
 ### Aktualisierung von <span class ="r">**RStudio**</span>
 
-Aktualisierungen für die Entwicklungsumgebung <span class ="r">RStudio</span> gibt es wesentlich seltener als für das dahinter liegende Basisprogramm **R**.
+Aktualisierungen für die Entwicklungsumgebung **RStudio** gibt es wesentlich seltener als für das dahinter liegende Basisprogramm **R**.
 
-Zur Überprüfung, ob eine aktuellere Version vorliegt, können wir in <span class ="r">RStudio</span> auf **Help --> Check for Updates** klicken <font size="2">(in **R** gibt es diese Option **nicht**)</font>.
+Zur Überprüfung, ob eine aktuellere Version vorliegt, können wir in **RStudio** auf **Help --> Check for Updates** klicken <font size="2">(in **R** gibt es diese Option **nicht**)</font>.
 
 ```{r, out.width = "700px", echo=FALSE, fig.align='center'}
 knitr::include_graphics("figures/Installation/Bilder/Check_Update.png")
 ```
 
-Wenn es eine aktuellere Version gibt, öffnet sich die <a href="https://rstudio.com/products/rstudio/download/" target="_blank"><span class ="r">RStudio</span>-Seite</a> im Browser.
+Wenn es eine aktuellere Version gibt, öffnet sich die <a href="https://rstudio.com/products/rstudio/download/" target="_blank">**RStudio**-Seite</a> im Browser.
 
 <details><summary>Ich finde die Option Check for Updates nicht.</summary><div class="more">
 
-Manchmal gibt es die Option **Check für Updates** nicht im **Help**-Menü. Analog dazu können wir auch manuell unsere bestehende mit der aktuellsten <span class ="r">RStudio</span>-Version abgleichen. Dazu klicken wir in <span class ="r">RStudio</span> auf **<span class ="r">RStudio</span> --> About <span class ="r">RStudio</span>** ...
+Manchmal gibt es die Option **Check für Updates** nicht im **Help**-Menü. Analog dazu können wir auch manuell unsere bestehende mit der aktuellsten **RStudio**-Version abgleichen. Dazu klicken wir in **RStudio** auf ****RStudio** --> About **RStudio**** ...
 
 ```{r, out.width = "700px", echo=FALSE, fig.align='center'}
 knitr::include_graphics("figures/Installation/Bilder/About_RStudio.png")
 ```
 
-... so dass sich folgendes Fenster öffnet, in dem wir unsere bestehende <span class ="r">RStudio</span>-Version in Erfahrung bringen können.
+... so dass sich folgendes Fenster öffnet, in dem wir unsere bestehende **RStudio**-Version in Erfahrung bringen können.
 
 ```{r, out.width = "500px", echo=FALSE, fig.align='center'}
 knitr::include_graphics("figures/Installation/Bilder/RStudio_Version.png")
 ```
 
-Informationen über die aktuellste <span class ="r">RStudio</span>-Version finden wir wieder unten auf der <a href="https://rstudio.com/products/rstudio/download/#download" target="_blank"><span class ="r">RStudio</span>-Seite</a>.
+Informationen über die aktuellste **RStudio**-Version finden wir wieder unten auf der <a href="https://rstudio.com/products/rstudio/download/#download" target="_blank">**RStudio**-Seite</a>.
 </div></details>
 
 <p style="line-height:10px;"></p>
@@ -327,15 +327,15 @@ knitr::include_graphics("figures/Installation/Bilder/2_Installation_R_erfolgreic
 
 ### Installation von <span class ="r">**RStudio**</span>
 
-Nun können wir auf die <a href="https://rstudio.com/products/rstudio/download/" target="_blank"><span class ="r">RStudio</span>-Seite</a> gehen, nach unten scrollen und prüfen, ob die uns empfohlene Version [mit unserem Betriebssystem](#macver) sowie unserer **R**-Version kompatibel ist.
+Nun können wir auf die <a href="https://rstudio.com/products/rstudio/download/" target="_blank">**RStudio**-Seite</a> gehen, nach unten scrollen und prüfen, ob die uns empfohlene Version [mit unserem Betriebssystem](#macver) sowie unserer **R**-Version kompatibel ist.
 
 ```{r, out.width = "700px", echo=FALSE, fig.align='center'}
 knitr::include_graphics("figures/Installation/Bilder/R-Studio_aktuell.png")
 ```
 
-Wenn unser Betriebssystem älter ist, können wir <a href="https://support.rstudio.com/hc/en-us/articles/206569407-Older-Versions-of-RStudio" target="_blank">hier</a> eine **ältere <span class ="r">RStudio</span>-Version** herunterladen.
+Wenn unser Betriebssystem älter ist, können wir <a href="https://support.rstudio.com/hc/en-us/articles/206569407-Older-Versions-of-RStudio" target="_blank">hier</a> eine **ältere **RStudio**-Version** herunterladen.
 
-Ganz oben finden wir hier kompatible <span class ="r">RStudio</span>-Versionen für **Mac OS X 10.11 (El Capitan) und ältere Betriebssystemversionen**.
+Ganz oben finden wir hier kompatible **RStudio**-Versionen für **Mac OS X 10.11 (El Capitan) und ältere Betriebssystemversionen**.
 
 ```{r, out.width = "300px", echo=FALSE, fig.align='center'}
 knitr::include_graphics("figures/Installation/Bilder/R_Studio_aelter_rot.png")
@@ -353,7 +353,7 @@ knitr::include_graphics("figures/Installation/Bilder/8_R_Studio.png")
 
 Wenn eine aktuellere (für unser Betriebssystem kompatible) Version von **R** vorhanden ist, ist es ratsam, diese herunterzuladen. Mit Aktualisierungen werden etwaige Fehler und Sicherheitslücken behoben und ggf. neue Funktionen eines Programms implementiert.
 
-Zur Überprüfung, ob Aktualisierungen vorhanden sind, können wir in <span class ="r">**R**</span> oben in der Menüleiste auf <span class ="r">**R**</span> --> **Nach **R** Updates suchen** klicken <font size="2">(in <span class ="r">RStudio</span> gibt es diese Option **nicht**)</font>.  
+Zur Überprüfung, ob Aktualisierungen vorhanden sind, können wir in <span class ="r">**R**</span> oben in der Menüleiste auf <span class ="r">**R**</span> --> **Nach **R** Updates suchen** klicken <font size="2">(in **RStudio** gibt es diese Option **nicht**)</font>.  
 
 ```{r, out.width = "700px", echo=FALSE, fig.align='center'}
 knitr::include_graphics("figures/Installation/Bilder/in_R_Updates_fuer_R.png")
@@ -377,14 +377,14 @@ Das weiterführende Vorgehen ist das Gleiche wie bei der initialen [Installation
 
 > *__Achtung__*:  Aus unbekannten Gründen *kann* es vorkommen, dass uns über **Nach **R** Updates suchen** nicht mitgeteilt wird, dass unsere derzeitige Version nicht die aktuellste ist. Wir können auch analog unsere derzeitige mit der aktuellsten Version abgleichen. 
 
-Die Information über unsere **derzeitige **R**-Version** wird uns sowohl in **R** als auch in <span class ="r">RStudio</span> nach Öffnen des Programms ganz oben in der Konsole angezeigt.
+Die Information über unsere **derzeitige **R**-Version** wird uns sowohl in **R** als auch in **RStudio** nach Öffnen des Programms ganz oben in der Konsole angezeigt.
 
 ```{r, out.width = "600px", echo=FALSE, fig.align='center'}
 knitr::include_graphics("figures/Installation/Bilder/R-Version_in_R_Studio.png")
 ```
 
 <aside>\
-Der Screenshot ist aus <span class ="r">RStudio</span>, aber in **R** bekommen wir dieselbe Information.</aside>
+Der Screenshot ist aus **RStudio**, aber in **R** bekommen wir dieselbe Information.</aside>
 
 Dann müssen wir diese nur noch mit der aktuellsten Version auf <a href="https://cran.r-project.org/bin/macosx/" target="_blank">CRAN</a> abgleichen.
 
@@ -431,31 +431,31 @@ Wir gehen jetzt zurück auf den anderen Tab (der älteren **R**-Version) und zie
 
 ### Aktualisierung von <span class ="r">**RStudio**</span>
 
-Aktualisierungen für die Entwicklungsumgebung <span class ="r">RStudio</span> gibt es wesentlich seltener als für das dahinter liegende Basisprogramm **R**.
+Aktualisierungen für die Entwicklungsumgebung **RStudio** gibt es wesentlich seltener als für das dahinter liegende Basisprogramm **R**.
 
-Zur Überprüfung, ob eine aktuellere Version vorliegt, können wir in <span class ="r">RStudio</span> auf **Help --> Check for Updates** klicken <font size="2">(in **R** gibt es diese Option **nicht**)</font>.
+Zur Überprüfung, ob eine aktuellere Version vorliegt, können wir in **RStudio** auf **Help --> Check for Updates** klicken <font size="2">(in **R** gibt es diese Option **nicht**)</font>.
 
 ```{r, out.width = "700px", echo=FALSE, fig.align='center'}
 knitr::include_graphics("figures/Installation/Bilder/Check_for_Updates.png")
 ```
 
-Wenn es eine aktuellere Version gibt, öffnet sich die <a href="https://rstudio.com/products/rstudio/download/" target="_blank"><span class ="r">RStudio</span>-Seite</a> im Browser.
+Wenn es eine aktuellere Version gibt, öffnet sich die <a href="https://rstudio.com/products/rstudio/download/" target="_blank">**RStudio**-Seite</a> im Browser.
 
 <details><summary>Ich finde die Option Check for Updates nicht.</summary><div class="more">
 
-Manchmal gibt es die Option **Check für Updates** nicht im **Help**-Menü. Analog dazu können wir auch manuell unsere bestehende mit der aktuellsten <span class ="r">RStudio</span>-Version abgleichen. Dazu klicken wir in <span class ="r">RStudio</span> auf **<span class ="r">RStudio</span> --> About <span class ="r">RStudio</span>** ...
+Manchmal gibt es die Option **Check für Updates** nicht im **Help**-Menü. Analog dazu können wir auch manuell unsere bestehende mit der aktuellsten **RStudio**-Version abgleichen. Dazu klicken wir in **RStudio** auf ****RStudio** --> About **RStudio**** ...
 
 ```{r, out.width = "700px", echo=FALSE, fig.align='center'}
 knitr::include_graphics("figures/Installation/Bilder/R-Studio_Version_Menue.png")
 ```
 
-... so dass sich folgendes Fenster öffnet, in dem wir unsere bestehende <span class ="r">RStudio</span>-Version in Erfahrung bringen können.
+... so dass sich folgendes Fenster öffnet, in dem wir unsere bestehende **RStudio**-Version in Erfahrung bringen können.
 
 ```{r, out.width = "500px", echo=FALSE, fig.align='center'}
 knitr::include_graphics("figures/Installation/Bilder/R-Studio_Version.png")
 ```
 
-Informationen über die aktuellste <span class ="r">RStudio</span>-Version finden wir wieder auf der <a href="https://rstudio.com/products/rstudio/download/#download" target="_blank"><span class ="r">RStudio</span>-Seite</a>.
+Informationen über die aktuellste **RStudio**-Version finden wir wieder auf der <a href="https://rstudio.com/products/rstudio/download/#download" target="_blank">**RStudio**-Seite</a>.
 </div></details>
 
 <p style="line-height:10px;"></p>
