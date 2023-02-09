@@ -59,7 +59,7 @@ mean(x = nums)
 
 Wir können Funktionen **variierenden Input** übergeben. Dieser steht immer in Klammern direkt hinter der Funktion. Beispielsweise könnten wir auch den Mittelwert einer anderen Zahlenreihe als `nums` berechnen.
 
-Den Input übergeben wir an einen Parameter. Das ist eine (formale) *Variable* einer Funktion (z.B. `mean(x)`), die in der Funktionsdefinition festgelegt ist. Der tatsächliche *Input* nennt sich Argument (z.B. `mean(x = nums)`). Die Parameter einer Funktion werden mit Kommata getrennt. Schematisch sieht eine Funktion somit folgendermaßen aus: `function(parameter_1 = argument_1, parameter_2 = argument_2, ...)`
+Den Input übergeben wir an einen Parameter. Das ist eine (formale) *Variable* einer Funktion (z.B. `mean(x)`), die in der Funktionsdefinition festgelegt ist. Der tatsächliche *Input* nennt sich Argument (z.B. `mean(x = nums)`). Die Parameter einer Funktion werden mit Kommata getrennt. Schematisch sieht eine Funktion somit folgendermaßen aus: `function(parameter_1 = argument_1, parameter_2 = argument_2, ...)`.
 
 Werfen wir einmal einen Blick in die **Funktionsdefinition von `mean()`**:
 
@@ -70,7 +70,7 @@ Werfen wir einmal einen Blick in die **Funktionsdefinition von `mean()`**:
 knitr::include_graphics("figures/Einführung/Bilder/R/mean.png")
 ```
 
-<aside>Die Funktionsdefinition finden wir in der Dokumentation, welche wir in RStudio unter [Files, Plots, Packages, Help & Viewer][Files, Plots, Packages, Help & Viewer] </aside>
+Die Funktionsdefinition finden wir in der Dokumentation, welche wir in RStudio unter [Files, Plots, Packages, Help & Viewer](Einfuehrung_in_RStudio.qmd#files-plots-packages-help--viewer-sec-files-plots-packages-help-viewer).
 
 Manche Parameter besitzen *voreingestellte Argumente* (z.B. `na.rm=FALSE`), diese bezeichnet man als Defaults. Funktionen mit (min. einem) Parameter *ohne* Default (z.B. `mean()`) werden ohne Spezifikation dieser nicht ausgeführt. Beispielsweise *müssen* wir dem Parameter `x` einen Vektor, von dem wir den Mittelwert berechnen wollen, übergeben.
 
@@ -124,7 +124,7 @@ Weil wir weniger (redundanten) Code haben, können wir schneller Fehler finden (
 - **Erweiterbarkeit**\
 Funktionen können erweitert werden, um verschiedene Szenarien zu händeln. Meist hat das schon jemand für uns gemacht. Wir müssen den Parametern einer Funktion nur verschiedene Argumente übergeben (z.B. `na.rm=TRUE` zum Ausschluss von fehlenden Werten). 
 - **Abstraktion**\
-Wir müssen die Funktion nicht im Detail verstehen. Es reicht zu wissen, wie der *Name* der Funktion ist (`mean()`), welchen *Input* wir übergeben (`x`; `trim` und `na.rm` optional weil mit Default) und welchen *Output* (arithmetisches Mittel) wir bekommen und wo wir die Funktion finden, d.h. aus welchem *Paket* (base) sie stammt. All diese Informationen erhalten wir in der Dokumentation der Funktion z.B. in RStudio unter @sec-files-plots-packages-help-viewer. 
+Wir müssen die Funktion nicht im Detail verstehen. Es reicht zu wissen, wie der *Name* der Funktion ist (`mean()`), welchen *Input* wir übergeben (`x`; `trim` und `na.rm` optional weil mit Default) und welchen *Output* (arithmetisches Mittel) wir bekommen und wo wir die Funktion finden, d.h. aus welchem *Paket* (base) sie stammt. All diese Informationen erhalten wir in der Dokumentation der Funktion z.B. in RStudio unter [help](Einfuehrung_in_RStudio.qmd#files-plots-packages-help--viewer-sec-files-plots-packages-help-viewer). 
 
 Auf <a href="https://www.freecodecamp.org" target="_blank">freecodecamp.org</a> finden wir eine kurze Einführung zu R: <a href="https://www.freecodecamp.org/news/r-programming-language-explained/" target="_blank">R Programming Language explained</a>. Es lohnt sich, **vertiefend den Part zu <a href="https://www.freecodecamp.org/news/r-programming-language-explained/#functions-in-r" target="_blank">Funktionen</a> anzuschauen** (~ 10min), um ein besseres Verständnis für die Arbeit mit R zu bekommen.
 
@@ -190,7 +190,7 @@ describe(women)
 
 Mit `describe` erhalten wir folgende Informationen zu jeder Variable im Data Frame bzw. Matrix: Namen, Spaltennummer (`vars`), Anzahl (gültiger) Fälle (`n`), Mittelwert (`mean`), Standarabweichung (`sd`), Median (`median`), getrimmter Mittelwert (`trimmed`), Median Absolute Deviation (`mad`), Minimum (`min`), Maximum (`max`), Schiefe (`skew`), Exzess (`kurtosis`) und Standardfehler des Mittelwerts (`se`).
 
-<aside>Diese Informationen finden wir in der Dokumentation, welche wir unter @sec-files-plots-packages-help-viewer in RStudio ansehen können.</aside>
+<aside>Diese Informationen finden wir in der Dokumentation, welche wir unter [help](Einfuehrung_in_RStudio.qmd#files-plots-packages-help--viewer-sec-files-plots-packages-help-viewer) in RStudio ansehen können.</aside>
 
 Wenn wir R bzw. RStudio schließen und erneut öffnen, müssen wir zusätzliche Pakete vor der Nutzung erneut laden.
 
@@ -206,7 +206,7 @@ Bevor wir uns die einzelnen Konzepte im Detail anschauen, sehen wir nachfolgend 
 ```{r}
 #| out.width: 500px
 #| fig.align: center
-#| echo: false
+#| include: false
 knitr::include_graphics("figures/Einführung/Bilder/R/veranschaulichung.png")
 library(dplyr)
 library(kableExtra)
@@ -323,26 +323,18 @@ Laut dem <a href="https://cran.r-project.org/doc/manuals/r-release/R-intro.html#
 <details><summary>Arithmetische Operatoren in R</summary>
 Über (die meisten) arithmetischen Operatoren sind wir wohl schon zu Grundschulzeiten gestoßen. Das sind Operatoren, die wir zum Rechnen mit Zahlen (numeric) benötigen. 
 
-```{r}
-#| echo: false
-Operator <- c("<span style=\"display:none;\">.+", "<span style=\"display:none;\">.-", "<span style=\"display:none;\">.*", "/", "^ oder **", "%%", "%/%")
-Rechenoperation <- c("Addition", "Subtraktion", "Multiplikation", "Division",
-              "Exponenzieren", "ganzzahliger Rest bei der Division (Modulo)", 
-              "ganzzahliger Quotient")
-Beispiel <- c("1 + 1<br>2", "4 - 3<br>1", "2 * 3<br>6", "5 / 3<br>1.666667",
-              "8^2<br>64",
-              "5 %% 3<br>2", "5 %/% 3<br>1")
+| Operator | Rechenoperationen | Beispiel |
+| -------- | ----------------- | -------- |
+| -        | Addition          | `1+2 = 3`|
+| +        | Subtraktion       | `4-3 = 1`|
+| *        | Multiplikation    | `2*3 = 6`|
+| /        | Division          | `5/3 = 1.6667` |
+| ^ oder ** | Exponenzieren | `8^2 = 64`    |
+| %%        | ganzzahliger Rest bei der Division (Modulo)        | `5 %% 3 = 2`    |
+| %/%        | ganzzahliger Quotient       | `5 %/% 3 = 1`    |
 
-tab <- data.frame(Operator, Rechenoperation, Beispiel)
-# tab <- as.data.frame(matrix(c(Operator, Rechenoperation), byrow=T, nrow=2))
 
-tab %>%
-  kable("html", align="l", escape=FALSE, table.attr = "style='width:100%;'") %>%
-  kable_styling(full_width = T) %>%
-  row_spec(0, color = "white", background = "#009193") %>%
-  column_spec(3, background = "#ECECEC") %>%
-  column_spec(1:2, background = "white")
-```
+
 </details>
 
 #### Messniveaus und Datentypen
@@ -546,7 +538,7 @@ Bei Betrachtung der numerischen Vektoren fällt auf, dass `vek_4` und `vek_5` al
 
 **Aber warum wurden `vek_4` und `vek_5` als numeric gespeichert, obwohl wir integer (ganze Zahlen) bzw. double (Kommazahlen) erwartet hätten?**
 
-Das liegt daran, dass R *alle Zahlen* (d.h. ganze, reelle und komplexe Zahlen) als numeric zusammenfasst (wie bereits in der Einführung zu [Datentypen](Einfuehrung_in_R.qmd#Datentypen) erwähnt), *solange* wir diese nicht explizit (als integer) definieren.
+Das liegt daran, dass R *alle Zahlen* (d.h. ganze, reelle und komplexe Zahlen) als numeric zusammenfasst (wie bereits in der Einführung zu [Datentypen](Einfuehrung_in_R.qmd#datentypen) erwähnt), *solange* wir diese nicht explizit (als integer) definieren.
 
 Genau genommen lautete der **exakte Datentyp** von ganzen und reellen Zahlen, die als numeric zusammengefasst sind, double. Mit `typeof()` sehen wir diesen. 
 
@@ -882,6 +874,8 @@ Bestehende Objekte können de facto nicht mehr umbenannt werden. Wir können sie
 
 ## Weitere Hilfen
 
+<!--
+
 ### Kurzbefehle
 
 Nachfolgend finden wir einige Kurzbefehle für die beiden Betriebssysteme Windows und Mac, die unseren Workflow verbessern.
@@ -913,7 +907,7 @@ table_dat %>%
   
 ```
 
-Eine Übersicht weiterer Kurzbefehle für R finden wir in der Leiste ganz oben unter **Help > Keyboard Shortcuts Help** (nicht zu verwechseln mit dem Bereich @sec-files-plots-packages-help-viewer, der uns Zugang zur Dokumentation verschafft).
+Eine Übersicht weiterer Kurzbefehle für R finden wir in der Leiste ganz oben unter **Help > Keyboard Shortcuts Help** (nicht zu verwechseln mit dem Bereich [help](Einfuehrung_in_RStudio.qmd#files-plots-packages-help--viewer-sec-files-plots-packages-help-viewer), der uns Zugang zur Dokumentation verschafft).
 
 ```{r}
 #| echo: false
@@ -927,6 +921,7 @@ Eine Übersicht weiterer Kurzbefehle für R finden wir in der Leiste ganz oben u
 # alle offenen Skripte speichern: **Alt ⌥ + CMD ⌘ + S** a
 ```
 
+-->
 
 ### Andere Lernplattformen und Übungen
 
