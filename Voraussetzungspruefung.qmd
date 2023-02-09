@@ -278,7 +278,7 @@ Es kann vielfältige Gründe für Varianzheterogenität geben. So können z.B. s
 
 Nur unter Gültigkeit der Annahme ist die Berechnung der **Standardfehler** korrekt, aber Heteroskedastizität führt *nicht* zu verzerrten Regressionkoeffizienten.
 
-Andere als die vorgestellten Möglichkeiten zur Überprüfung und zum Umgang mit Heteroskedastizität inklusive der Umsetzung in <span class="r">R finden wir z.B. auf <a href="https://www.r-bloggers.com/how-to-detect-heteroscedasticity-and-rectify-it/" target="_blank"><span class="r">R-bloggers</a>.
+Andere als die vorgestellten Möglichkeiten zur Überprüfung und zum Umgang mit Heteroskedastizität inklusive der Umsetzung in R finden wir z.B. auf <a href="https://www.r-bloggers.com/how-to-detect-heteroscedasticity-and-rectify-it/" target="_blank">R-bloggers</a>.
 
 ### Überprüfung
 
@@ -361,7 +361,7 @@ Dazu quadrieren wir die einzelnen Residuen, teilen diese jeweils durch die Anzah
 __Wenn der Quotient $> 10$ ist *oder* es systematische Variation gibt, sollten wir korrektive Maßnahmen einleiten__ 
 
 
-Nachfolgend schauen wir uns die Umsetzung dazu in <span class="r">R an:
+Nachfolgend schauen wir uns die Umsetzung dazu in R an:
 
 ```{r}
 # Objekt erzeugen, ...
@@ -619,7 +619,7 @@ Die Funktion gibt uns folgende Outputs:
 \
 \
 \
-Bei unbalancierter Gruppengröße ist k, die Anzahl der Personen in jeder Gruppe, kleiner als die mittlere Gruppengröße. Für mehr Informationen dazu schau dir die <span class="r">R-Dokumentation für `ICCest()` an.</aside>
+Bei unbalancierter Gruppengröße ist k, die Anzahl der Personen in jeder Gruppe, kleiner als die mittlere Gruppengröße. Für mehr Informationen dazu schau dir die R-Dokumentation für `ICCest()` an.</aside>
  
 
 <span class = "ex">Die IKK weist darauf hin, dass wenig Varianz durch die Kurszugehörigkeit erklärt wird. Es ist also nicht notwendig, dass wir die Gruppenzugehörigkeit in unserem Modell berücksichtigen. 
@@ -799,7 +799,7 @@ Indeterminationskoeffizient: $1-R^2_y$</aside>
 
 Um festzustellen, ob Prädiktoren hoch miteinander korreliert sind, können wir uns die **Toleranz** und den **Variance Inflation Factor** anschauen. Beide hängen direkt miteinander zusammen, aber ihre Interpretationen sind unterschiedlich. 
 
-Falls wir ein *ernsthaftes* Problem mit Multikollinearität haben, wird uns das in <span class="r">R teilweise mit z.B. `aliased coefficients` oder `1 coefficient not defined because of singularities` angezeigt.
+Falls wir ein *ernsthaftes* Problem mit Multikollinearität haben, wird uns das in R teilweise mit z.B. `aliased coefficients` oder `1 coefficient not defined because of singularities` angezeigt.
 
 <font size="2">Im Paket **mctest** gibt es zwei Funktionen, die helfen, Multikollinearität zu entdecken - `omctest()` - und zu lokalisieren - `imctest()`. Hierfür werden jeweils verschiedene Maße zu Rate gezogen u.a. auch die Toleranz und der VIF. Da wir die anderen Maße aber nicht vertiefend behandeln, sei an dieser Stelle **nur auf das Paket hingewiesen**. Bei Interesse empfielt es sich, den Artikel der Entwickler *<a href="https://www.researchgate.net/publication/313799182_mctest_An_R_Package_for_Detection_of_Collinearity_among_Regressors" target="_blank">mctest: An R Package for Detection of Multicollinearity among Regressors</a>* zu lesen, in dem die Maße kurz erklärt und weiterführende Quellen angegeben werden.</font>
 
@@ -809,7 +809,7 @@ Falls wir ein *ernsthaftes* Problem mit Multikollinearität haben, wird uns das 
 
 Dafür wird eine Regression von Prädiktor $X_j$ auf alle anderen Prädiktoren im Modell gerechnet <font size="2">(d.h. das Kriterium bleibt außen vor)</font> und davon der Kehrwert gebildet. Sie ist somit ein Maß für die **Uniqueness** von $X_j$. Die Tolreanz wird wie folgt berechnet: $1 - R^2_j$
 
-In <span class="r">R können wir die Toleranz z.B. über den Kehrwert des Variance Inflation Factors, mit der Funktion `vif()` aus dem Paket **car**, berechnen. Der Funktion übergeben wir unser lm-Objekt.
+In R können wir die Toleranz z.B. über den Kehrwert des Variance Inflation Factors, mit der Funktion `vif()` aus dem Paket **car**, berechnen. Der Funktion übergeben wir unser lm-Objekt.
 
 ```{r}
 library(car)
@@ -905,7 +905,7 @@ Wenn die Regressionsgerade stark durch einzelne Beobachtungen beeinflusst wird, 
 
 Stoßen wir über auffällige Werte in unserem Datensatz, sollte wir zunächst kontrollieren, ob diese durch Eingabefehler oder fehlerhafte Kodierungen fehlender Werte <font size="2">(*Missings*)</font> zustande gekommen sind.
 
-Beispielsweise werden in manchen Anwendungen Missings nicht mit `NA`, sondern z.B. wie bei Unipark mit `99` oder `-99` kodiert. Wir müssen diese *vor* der Auswertung auf `NA` umkodieren, da <span class="r">R diese sonst nicht als Missings erkennt. Für mehr Informationen dazu können wir im [Kapitel zu Fehlenden Werten](Fehlende-Werte.qmd) nachschauen.
+Beispielsweise werden in manchen Anwendungen Missings nicht mit `NA`, sondern z.B. wie bei Unipark mit `99` oder `-99` kodiert. Wir müssen diese *vor* der Auswertung auf `NA` umkodieren, da R diese sonst nicht als Missings erkennt. Für mehr Informationen dazu können wir im [Kapitel zu Fehlenden Werten](Fehlende-Werte.qmd) nachschauen.
 
 Stark abweichende Werte lassen sich oft einfach mit Hilfe von **Plots** oder **Deskriptivstatistiken** identifizieren. 
 
@@ -1160,7 +1160,7 @@ Zur weiteren **Hilfe bei der Interpretation von Plots**, können wir diesen <a h
 
 ---
 
-<font size="2">Um eine möglichst exakte Replikation der Funktionen zu gewährleisten gibt es im folgenden relevante Angaben zum System (**<span class="r">R-Version**, **Betriebssystem**, **geladene Pakete mit Angaben zur Version**), mit welchem diese Seite erstellt wurde.
+<font size="2">Um eine möglichst exakte Replikation der Funktionen zu gewährleisten gibt es im folgenden relevante Angaben zum System (**R-Version**, **Betriebssystem**, **geladene Pakete mit Angaben zur Version**), mit welchem diese Seite erstellt wurde.
 
 ```{r}
 sessionInfo()

@@ -50,12 +50,12 @@ print(daten)
 
 ## Tools die uns helfen, Fehler zu vermeiden
 
-Bevor wir uns dem Verstehen von konkreten (Syntax-)Fehlermeldungen widmen und anschauen, wie wir effizient im Internet suchen können, schauen wir uns **zwei Hilfsmittel** an, die uns die Entwicklungsumgebung **<span class="r">RStudio** gibt, um **Fehler zu vermeiden**.
+Bevor wir uns dem Verstehen von konkreten (Syntax-)Fehlermeldungen widmen und anschauen, wie wir effizient im Internet suchen können, schauen wir uns **zwei Hilfsmittel** an, die uns die Entwicklungsumgebung **RStudio** gibt, um **Fehler zu vermeiden**.
 
 ### **R**-Dokumentation
 
 Wenn wir eine uns noch unbekannte Funktion nutzen <font size="2">(aber auch wenn 
-wir aus einer Fehlermeldung nicht schlau werden)</font> können wir die Dokumentation nutzen. Diese können wir in <span class="r">RStudio im unteren rechten Panel unter <font color ="#649B32">Help</font> öffnen. In das <font color ="#FF1D00">Suchfeld</font> geben wir den Namen der Funktion ein. 
+wir aus einer Fehlermeldung nicht schlau werden)</font> können wir die Dokumentation nutzen. Diese können wir in RStudio im unteren rechten Panel unter <font color ="#649B32">Help</font> öffnen. In das <font color ="#FF1D00">Suchfeld</font> geben wir den Namen der Funktion ein. 
 
 Alternativ können wir die Hilfefunktionen `?` oder `help()` nutzen <font size="2">(z.B. <span class="code">?matrix oder <span class="code">help(matrix))</font>. 
 
@@ -77,7 +77,7 @@ Wir bekommen hier (zumeist) folgende Informationen: aus welchem Paket die Funkti
 
 Ohne explizite Spezifikation des Parameters unsererseits wird (wenn vorhanden) der Default verwendet. Wir könnten natürlich auch ein anderes (als das voreingestellte) Argument festlegen.
 
-Funktionen, die ausschließlich Parameter mit Defaults besitzen, (z.B. `matrix()`) werden auch ohne Spezifikation ausgeführt. Funktionen mit (min. einem) Parameter ohne Default (z.B. `mean()`) werden ohne Spezifikation dieser nicht ausgeführt (wir müssen dem Parameter `x` einen Vektor, von dem wir den Mittelwert berechnen wollen, übergeben). Mehr Informationen zu Funktionsdefinition und etwaigen Defaults finden wir im Abschnitt Usage in der <span class="r">R-Dokumentation.
+Funktionen, die ausschließlich Parameter mit Defaults besitzen, (z.B. `matrix()`) werden auch ohne Spezifikation ausgeführt. Funktionen mit (min. einem) Parameter ohne Default (z.B. `mean()`) werden ohne Spezifikation dieser nicht ausgeführt (wir müssen dem Parameter `x` einen Vektor, von dem wir den Mittelwert berechnen wollen, übergeben). Mehr Informationen zu Funktionsdefinition und etwaigen Defaults finden wir im Abschnitt Usage in der R-Dokumentation.
 
 Mehr Informationen zum Aufbau von Funktionen finden wir in der [Einführung in R](Einfuehrung_in_R.qmd)
 </details>
@@ -231,7 +231,7 @@ Hier weist uns **R** darauf hin, dass das dritte Argument, welches nach dem zwei
 
 ## Suchen im Internet
 
-Nun gibt es auch Fehlermeldungen, die wir nicht auf Anhieb verstehen. Dafür kann es vielfältige Ursachen geben. Wenn wir schon in der <span class="r">R-Dokumentation nachgeschaut haben und trotzdem noch ratlos sind, können wir im Internet nach Hilfe suchen. Wir können dafür Suchmaschinen direkt spezielle Foren nutzen.
+Nun gibt es auch Fehlermeldungen, die wir nicht auf Anhieb verstehen. Dafür kann es vielfältige Ursachen geben. Wenn wir schon in der R-Dokumentation nachgeschaut haben und trotzdem noch ratlos sind, können wir im Internet nach Hilfe suchen. Wir können dafür Suchmaschinen direkt spezielle Foren nutzen.
 
 __Hierbei gibt es nicht *den einen* Weg, fündig zu werden.__ Häufig gibt es eine Fehlermeldung, die bei verschiedenen Problemen <font size="2">(mit unterschiedlichen Funktionen)</font> angezeigt wird. Dann muss man filtern, welche Seite für das eigene Anliegen relevant sein könnte. Es kann ebenso möglich sein, dass es zu manchen Problemen einfach noch keine Lösung gibt. Dieser Fall ist eher seltener und tritt vor allem bei neueren oder seltener genutzen Paketen auf. 
 

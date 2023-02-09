@@ -25,12 +25,12 @@ Die grafische Benutzeroberfläche in der Entwicklungsumgebung **RStudio** ist vi
 <p style="line-height:10px;"></p>
 
 <details><summary>Was ist das Working Directory?</summary>
-Mit dem Working Directory (WD; Arbeitsverzeichnis) legen wir u.a. fest, wo unser aktuelles <span class="r">R-Skript gespeichert wird und wo andere Objekte, die wir aus <span class="r">R exportieren (z.B. Grafiken), standarmäßig (während der aktuellen Sitzung) gespeichert werden. 
+Mit dem Working Directory (WD; Arbeitsverzeichnis) legen wir u.a. fest, wo unser aktuelles R-Skript gespeichert wird und wo andere Objekte, die wir aus R exportieren (z.B. Grafiken), standarmäßig (während der aktuellen Sitzung) gespeichert werden. 
 
-Das WD müssen wir (in der Regel) in jeder <span class="r">R-Sitzung erneut festlegen.</details>
+Das WD müssen wir (in der Regel) in jeder R-Sitzung erneut festlegen.</details>
 
 
-## Vor dem Einlesen in <span class="r">R
+## Vor dem Einlesen in R
 
 In diesem Abschnitt schauen wir uns an, wie wir **Dateien aus dem Internet herunterladen** <font size="2">(z.B. aus moodle)</font> und **in unseren Arbeitsordner verschieben** können. Wir sollten der Übersichtlichkeit halber für jedes neue Projekt einen neuen Ordner anlegen. 
 
@@ -78,7 +78,7 @@ Als nächstes begeben wir uns in unseren Arbeitsordner <font size="2">(ggf. müs
 knitr::include_graphics("figures/Daten-importieren/Bilder/Herunterladen_Verschieben_2.png")
 ```
 
-Jetzt befindet sich die Datei in unserem Arbeitsordner und wir können nun <span class="r">RStudio öffnen, um die Datei einzulesen.
+Jetzt befindet sich die Datei in unserem Arbeitsordner und wir können nun RStudio öffnen, um die Datei einzulesen.
 
 
 ## Mac
@@ -130,7 +130,7 @@ Als nächstes begeben wir uns in unseren Arbeitsordner <font size="2">(ggf. müs
 knitr::include_graphics("figures/Daten-importieren/Bilder/Datenfile_in_den_Zielordner_kopieren.png")
 ```
 
-Die Datei ist nun im Arbeitsordner gespeichert; wir können sie nun auch aus dem Download-Ordner löschen. Jetzt öffnen wir <span class="r">RStudio, um die Datei einzulesen.
+Die Datei ist nun im Arbeitsordner gespeichert; wir können sie nun auch aus dem Download-Ordner löschen. Jetzt öffnen wir RStudio, um die Datei einzulesen.
 
 
 ## Weg 1: Environment > Import Dataset
@@ -252,14 +252,14 @@ knitr::include_graphics("figures/Daten-importieren/Bilder/environment_neuro.png"
 
 ## Weg 3: Manuell Importieren mit `Funktionen`
 
-Auch wenn Möglichkeiten existieren, Dateien mithilfe der Benutzeroberfläche von <span class="r">RStudio einzulesen, ist es ratsam, auch einmal selbst Funktionen zu nutzen. Für die meisten Arbeiten in <span class="r">R nutzen wir nämlich Funktionen.  
+Auch wenn Möglichkeiten existieren, Dateien mithilfe der Benutzeroberfläche von RStudio einzulesen, ist es ratsam, auch einmal selbst Funktionen zu nutzen. Für die meisten Arbeiten in R nutzen wir nämlich Funktionen.  
 
 <!-- Bevor wir die Datei neuro.csv einlesen, setzen wir das Working Directory. -->
 
 
 <!-- ## Working Directory setzen -->
 
-<!-- Mit der Funktion `setwd()` setzt man ein Working Directory in <span class="r">R. Dieser Funktion über geben wir den Pfad zu unserem gewünschten Arbeitsordner in Anführungszeichen <font size="2">(`" "` oder `' '`)</font>.  -->
+<!-- Mit der Funktion `setwd()` setzt man ein Working Directory in R. Dieser Funktion über geben wir den Pfad zu unserem gewünschten Arbeitsordner in Anführungszeichen <font size="2">(`" "` oder `' '`)</font>.  -->
 
 <!-- Unter <span class="highlight">Windows können wir auf <span class ="keybord">shift drücken und dann einen *Rechtsklick* auf den Ordner machen. Nun öffnet sich ein Menü, in welchem wir *Als Dateipfad kopieren* auswählen. **Wichtig** dabei ist, dass wir noch alle **\\** <font size="2">(backslashes)</font> aus dem kopierten Pfad in */* <font size="2">(forwardslashes)</font> ändern müssen. -->
 
@@ -294,7 +294,7 @@ Unter <span class="highlight">Mac können wir die Tastaturkürzel <span class ="
 
 Diese drei Funktionen sind sehr ähnlich aufgebaut. Sind haben aber teilweise unterschiedliche Voreinstellungen <font size="2">(sog. *"Defaults"*)</font>. Zum Beispiel nimmt `read.csv()` an, dass einzelne Datenelemente mit Kommata <font size="2">(Default: `sep=","`)</font> getrennt werden. Dafür werden bei `read.table()` standarmäßig Spaltennamen nicht eingelesen <font size="2">(Default: `header=FALSE`)</font>.
 
-> *__Achtung__*:  Alle Funktionsdefinitionen (mit Defaults) finden wir in der <span class="r">R-Dokumentation, die wir im unteren rechten Panel bei **Help** finden. Alternativ können wir sie auch mit der Hilfefunktion `?`, z.B. `?read.table`, öffnen.
+> *__Achtung__*:  Alle Funktionsdefinitionen (mit Defaults) finden wir in der R-Dokumentation, die wir im unteren rechten Panel bei **Help** finden. Alternativ können wir sie auch mit der Hilfefunktion `?`, z.B. `?read.table`, öffnen.
 
 In Abhängigkeit der Speicherung der Dateien müssen wir manchmal den Parametern der Funktionen andere Argumente übergeben. Die zwei wichtigsten Parameter sind `header` und `sep`.
 
@@ -384,7 +384,7 @@ knitr::include_graphics("figures/Daten-importieren/Bilder/Dateipfad.png")
 
 <p style="line-height:10px;"></p>
 
-Für eine ausführlichere Anleitung zum Einlesen von Dateien in `R` gibt es ein eigenständiges [Kapitel](Daten-importieren.qmd), in dem wir lernen, wie wir die Benutzeroberfläche von <span class="r">RStudio und Funktionen nutzen können.
+Für eine ausführlichere Anleitung zum Einlesen von Dateien in `R` gibt es ein eigenständiges [Kapitel](Daten-importieren.qmd), in dem wir lernen, wie wir die Benutzeroberfläche von RStudio und Funktionen nutzen können.
 
 ---
 

@@ -16,7 +16,7 @@ library(knitr)
 
 Zur Verbreitung von wissenschaftlichen Untersuchungen ist es sinnvoll, Rohdaten oder Ergebnisse von statistischen Analysen übersichtlich darzustellen, um diese besser kommunizieren zu können. Dabei sind Grafiken zumeist die Methode der Wahl. Gute Grafiken sind anschaulich, wirkungsvoll und lassen einen wichtige Informationen auf einen Blick erfassen.
 
-Es gibt drei führende Pakete zum Erstellen von Grafiken in <span class="r">R:
+Es gibt drei führende Pakete zum Erstellen von Grafiken in R:
 
 - Basispaket **graphics** <font size="2">(Funktionen wie z.B. `plot()` oder `hist()`)</font>
 - Paket **lattice** 
@@ -1380,7 +1380,7 @@ ggplot(data=ChickWeight, aes(x=Diet_name, y=weight)) + geom_boxplot()
 
 Die Reihenfolge von Faktorstufen ist bei Wortketten standardmäßig alphabetisch und bei Zahlen aufsteigend. Wenn wir das ändern möchten, müssen wir die Sortierung des Faktors ändern <font size="2">(dadurch ändert sich **nicht** die Sortierung der Variablen im Datensatz)</font>. 
 
-Die Sortierung des Faktors können wir mit der Funktion `factor()` ändern. Dem Parameter `x` übergeben wir die Variable; `levels` einen <span class="r">character-Vektor mit der neuen Sortierung.
+Die Sortierung des Faktors können wir mit der Funktion `factor()` ändern. Dem Parameter `x` übergeben wir die Variable; `levels` einen character-Vektor mit der neuen Sortierung.
 
 Wir ändern die Reihenfolge der Gruppen von `Diet`.
 
@@ -1525,7 +1525,7 @@ ggplot(data=ChickWeight[ChickWeight$Time == 10,], aes(x=Diet, y=weight)) +
   stat_summary(fun = "mean", fun.min = "min", fun.max = "max")
 ```
 
-Mehr Informationen zur Funktion finden wir in der <span class="r">R-Dokumentation von `stat_summary()` bzw. eine ausführlichere Version davon mit Beispielabbildungen <a href="https://ggplot2.tidyverse.org/reference/stat_summary.html" target="_blank">hier</a>.
+Mehr Informationen zur Funktion finden wir in der R-Dokumentation von `stat_summary()` bzw. eine ausführlichere Version davon mit Beispielabbildungen <a href="https://ggplot2.tidyverse.org/reference/stat_summary.html" target="_blank">hier</a>.
 
 
 ## Motive (Themes)
@@ -1545,7 +1545,7 @@ Wir können unsere Palette möglicher Motiven mit dem Paket **ggthemes** erweite
 
 ## Grafiken exportieren
 
-Wenn wir unsere Grafik erstellt haben, müssen wir diese noch exportieren, um sie außerhalb von <span class="r">R nutzen zu können.
+Wenn wir unsere Grafik erstellt haben, müssen wir diese noch exportieren, um sie außerhalb von R nutzen zu können.
 
 Grundsätzlich gibt es zwei Möglichkeiten dafür: 
 

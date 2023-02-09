@@ -7,7 +7,7 @@
 **R** selbst ist relativ spartanisch und die meisten AnwenderInnen nutzen daher die <span class="highlight">Entwicklungsumgebung **RStudio**, welche auch eine umfassendere Benutzeroberfläche besitzt. Mit dieser können wir z.B. **Skripte** nutzen, in denen wir unsere Analysen speichern können. Außerdem gibt es ein **Environment**, das uns anzeigt, welche Objekte in **R** vorhanden sind (d.h. die wir eingelesen oder direkt in **R** erstellt haben). Hier finden wir zusätzlich einen Reiter **Help**, welcher uns Informationen und Anwendungshinweise zu Funktionen gibt.
 
 <aside>\
-Der Aufbau der Entwicklungsumgebung <span class="r">RStudio wird im Kapitel [Einführung in R](Einfuehrung_in_R.qmd) erklärt.</aside>
+Der Aufbau der Entwicklungsumgebung RStudio wird im Kapitel [Einführung in R](Einfuehrung_in_R.qmd) erklärt.</aside>
 
 Im vorliegenden Kapitel schauen wir uns jeweils für <span class="highlight">Windows und <span class="highlight">Mac an, wie wir **R** und **RStudio** installieren oder auf eine neuere Version aktualisieren und dabei **unsere bisher heruntergeladenen Pakete behalten** können.
 

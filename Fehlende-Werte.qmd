@@ -2,10 +2,10 @@
 
 <p style="font-weight:600; font-size:36px">Einleitung</p>
 
-Es kann in der Praxis häufiger vorkommen, dass Datensätze unvollständig sind z.B. wenn Teilnehmende einer Befragung nicht alle Fragen beantworten. Diese fehlenden Einträge nennt man **Missings**. In <span class="r">R werden sie (bei <span class="r">numeric) zumeist mit `NA` <font size="2">(*not available*)</font> gekennzeichnet. 
+Es kann in der Praxis häufiger vorkommen, dass Datensätze unvollständig sind z.B. wenn Teilnehmende einer Befragung nicht alle Fragen beantworten. Diese fehlenden Einträge nennt man **Missings**. In R werden sie (bei numeric) zumeist mit `NA` <font size="2">(*not available*)</font> gekennzeichnet. 
 
 <details><summary>Welche Kodierungen für fehlende Werte gibt es neben `NA`  noch?</summary>
-Beim Datentyp <span class="r">**numeric** (Zahlen) sind fehlende Werte durch `NA` oder durch `NaN` <font size="2">(*Not a Number*)</font> gekennzeichnet. 
+Beim Datentyp **numeric** (Zahlen) sind fehlende Werte durch `NA` oder durch `NaN` <font size="2">(*Not a Number*)</font> gekennzeichnet. 
 
 ```{r}
 num_vector <- c(1, 4, NA, NaN)
@@ -21,9 +21,9 @@ num_vector[1] <- num_vector[4]/0
 num_vector
 is.na(num_vector)
 ```
-Beim Datentyp <span class="r">**character** (Buchstaben, Zeichen) hingegen könnten fehlende Eingaben auch durch `""` (leere Felder) gekennzeichnet sein z.B. wenn bei Freitextfeldern in einer Umfrage nichts eingegeben wurde. Das wird in <span class="r">R aber <u>nicht</u> automatisch als fehlender Wert erkannt.
+Beim Datentyp **character** (Buchstaben, Zeichen) hingegen könnten fehlende Eingaben auch durch `""` (leere Felder) gekennzeichnet sein z.B. wenn bei Freitextfeldern in einer Umfrage nichts eingegeben wurde. Das wird in R aber <u>nicht</u> automatisch als fehlender Wert erkannt.
 
-> *__Achtung__*:  <div class="rows">Wir sehen nachfolgend auch verdeutlicht, dass `NA` eine selbstständige Kodierung ist, und <u>nicht</u> als <span class="r">character kodiert wird.
+> *__Achtung__*:  <div class="rows">Wir sehen nachfolgend auch verdeutlicht, dass `NA` eine selbstständige Kodierung ist, und <u>nicht</u> als character kodiert wird.
 
 ```{r}
 char_vec <- c(NA, "NA", "") 
@@ -84,7 +84,7 @@ print(daten)
 
 ## Sind die Missings einheitlich kodiert?
 
-In manchen Anwendungen werden Missings nicht mit `NA` sondern anderweitig kodiert <font size="2">(z.B. bei Unipark mit `99` oder `-99`)</font>. Daher müssen wir **dafür sorgen, dass <span class="r">R Missings auch als solche erkennt.** Das gewährleistet man, indem man alle Missings auf `NA` setzt.\
+In manchen Anwendungen werden Missings nicht mit `NA` sondern anderweitig kodiert <font size="2">(z.B. bei Unipark mit `99` oder `-99`)</font>. Daher müssen wir **dafür sorgen, dass R Missings auch als solche erkennt.** Das gewährleistet man, indem man alle Missings auf `NA` setzt.\
 
 Wenn man weiß, wie Missings im Datensatz kodiert sind, kann man gleich zu [Wie kann ich die Missings auf `NA` setzen?] springen. Wenn man weiß, dass alle Missings einheitlich mit `NA` kodiert sind, kann man den ganzen Abschnitt auslassen.
 
@@ -118,7 +118,7 @@ sapply(sapply(daten, unique), sort, na.last=TRUE)
 
 Nun wollen wir diese Missings umkodieren. Vorher wollen wir uns noch einmal anschauen, was passiert, wenn man das nicht macht.
 
-Wenn man Missings im Datensatz nicht einheitlich auf `NA` kodiert, nimmt <span class="r">R an, dass es sich um gültige Werte handelt. Das führt dann zu falschen Ergebnissen. <span class ="ex">Das schauen wir uns exemplarisch einmal am Mittelwert der Spalte `Var_3` an.</font>
+Wenn man Missings im Datensatz nicht einheitlich auf `NA` kodiert, nimmt R an, dass es sich um gültige Werte handelt. Das führt dann zu falschen Ergebnissen. <span class ="ex">Das schauen wir uns exemplarisch einmal am Mittelwert der Spalte `Var_3` an.</font>
 
 ```{r}
 #| echo: false
@@ -407,9 +407,9 @@ Dieser überprüft, ob es signifikante Unterschiede zwischen den Mittelwerten de
 
 Auch hier muss man sich vorher überlegen, wo man das Signifikanzniveau $\alpha$ setzt. Für unser Beispiel legen wir es entsprechend der gängigen Konventionen auf $\alpha= 0.05$ fest.
 
-Zur Durchführung des Tests in <span class="r">R greifen wir auf die Funktion `mcar_test()` aus dem Paket **naniar** zu. Das laden wir uns über Github herunter <font size="2">(wofür wir wiederum das Paket **remotes** benötigen)</font>.
+Zur Durchführung des Tests in R greifen wir auf die Funktion `mcar_test()` aus dem Paket **naniar** zu. Das laden wir uns über Github herunter <font size="2">(wofür wir wiederum das Paket **remotes** benötigen)</font>.
 
-> *__Achtung__*:  <div class="rows">Die Funktion `mcar_test()` kann wir nur mit (quantitativen) Daten des Typs <span class="r">numeric (<span class="r">integer und <span class="r">double), <span class="r">logical und <span class="r">factor umgehen.
+> *__Achtung__*:  <div class="rows">Die Funktion `mcar_test()` kann wir nur mit (quantitativen) Daten des Typs numeric (integer und double), logical und factor umgehen.
 
 ```{r}
 # install.packages("remotes")
@@ -421,10 +421,10 @@ Als Output bekommen wir den $\chi^2$-Wert (`statistic`), die Anzahl der Freiheit
 
 <span class ="ex">Der $p$-Wert für den MCAR-Test für unseren Datensatz ist größer als die Irrtumswahrscheinlichkeit $\alpha$. Dies bedeutet, dass wir die $H_0$ beibehalten können und (bis auf weiteres) davon ausgehen, dass die MCAR-Annahme erfüllt ist.
 
-<!-- In <span class="r">R nutzen wir dafür die Funktion `LittleMCAR()` aus dem Paket **BaylorEdPsych**, welche dabei auch auf das Paket **mvnmle** zugreifen muss. Falls wir diese Pakete noch nicht installiert haben, machen wir das z.B. mit dem `install.packages()`-Befehl. -->
+<!-- In R nutzen wir dafür die Funktion `LittleMCAR()` aus dem Paket **BaylorEdPsych**, welche dabei auch auf das Paket **mvnmle** zugreifen muss. Falls wir diese Pakete noch nicht installiert haben, machen wir das z.B. mit dem `install.packages()`-Befehl. -->
 
 <!-- \ -->
-<!-- > *__Achtung__*:  <div class="rows">Bisher gibt es noch keine Version des Pakets **BaylorEdPsych**, welche unter <span class="r">R 4.0.0 läuft. Im Folgenden sehen wir den Output von `LittleMCAR()` unter **<span class="r">R 3.6.3**. -->
+<!-- > *__Achtung__*:  <div class="rows">Bisher gibt es noch keine Version des Pakets **BaylorEdPsych**, welche unter R 4.0.0 läuft. Im Folgenden sehen wir den Output von `LittleMCAR()` unter **R 3.6.3**. -->
 
 <!-- ```{r, echo=F} -->
 <!-- # Interpretation H0 und H1 in diesem Test: -->
@@ -470,7 +470,7 @@ Weitere Methoden zum Umgang mit Missings finden wir auch in den Quellen, die wir
 
 Im Folgenden wollen wir uns darauf beschränken, uns einige gängige Methoden anzuschauen, die man nutzen kann, wenn die fehlenden Werte <span class="highlight">MCAR sind. Wenn diese Annahme <u>nicht</u> erfüllt ist, können bei Nutzung der folgenden Methoden **verzerrte Parameterschätzungen** resultieren.
 
-Zwei grundlegende Möglichkeiten sind entweder ganze Fälle mit Missings zu exkludieren <font size="2">(<span class="highlight">*listwise/casewise deletion*)</font> oder vorhandene Elemente von Fällen für einen Teil der Analysen zu nutzen <font size="2">(<span class="highlight">*pairwise deletion*)</font>. In vielen Funktionen in <span class="r">R können wir zwischen beiden Möglichkeiten entscheiden.
+Zwei grundlegende Möglichkeiten sind entweder ganze Fälle mit Missings zu exkludieren <font size="2">(<span class="highlight">*listwise/casewise deletion*)</font> oder vorhandene Elemente von Fällen für einen Teil der Analysen zu nutzen <font size="2">(<span class="highlight">*pairwise deletion*)</font>. In vielen Funktionen in R können wir zwischen beiden Möglichkeiten entscheiden.
 
 Nachteil von beiden <font size="2">(d.h. kompletter bzw. partieller Ausschluss von Zeilen)</font> ist generell, dass die Stichprobengröße $N$ sinkt und damit einhergehend größere Standardfehler und eine geringere Power resultieren. Ein weiteres Problem bei pairwise deletion ist außerdem, dass sich die Stichprobengröße $N$ sowie die Zusammensetzung der Stichproben für unterschiedliche Analysen unterscheiden wird. 
 
@@ -649,9 +649,9 @@ Wenn dieser Abschnitt nicht ausreicht, oder wir mehr zu fehlenden Daten wissen m
 
 ---
 
-### Erkennt <span class="r">R deine Missings?
+### Erkennt R deine Missings?
 
-Generell werden Missings in verschiedenen Anwendungen <font size="2">(z.B. Unipark, SPSS)</font> häufig anders kodiert als in <span class="r">R. In <span class="r">R werden fehlende Werte mit `NA` gekennzeichnet. Wenn das in deinem Datensatz nicht (einheitlich) so ist, musst du die Missings erst auf NA kodieren, damit <span class="r">R diese auch als Missings erkennt.
+Generell werden Missings in verschiedenen Anwendungen <font size="2">(z.B. Unipark, SPSS)</font> häufig anders kodiert als in R. In R werden fehlende Werte mit `NA` gekennzeichnet. Wenn das in deinem Datensatz nicht (einheitlich) so ist, musst du die Missings erst auf NA kodieren, damit R diese auch als Missings erkennt.
 
 Wenn du nicht weißt, ob die Missings in deinem Datensatz auch anders kodiert sein könnten, kannst du das mit einer Häufigkeitstabelle der einzelnen Ausprägung der Variablen <font size="2">(d.h. Spalten)</font> überprüfen. Dazu musst du nur wissen, welche möglichen Ausprägungen es geben kann <font size="2">(z.B. wenn du eine Intervallskala von 1-5 hast dann sollte es nur diese Werte geben)</font>, um Abweichungen davon festzustellen.
 
@@ -667,7 +667,7 @@ Wenn die Missings z.B. mit `99` kodiert sind, können wir sie folgendermaßen au
 Bei vielen Funktionen muss man festlegen, wie diese mit Missings umgehen sollen.
 Exemplarisch schauen wir uns das einmal an zwei Funktionen an.
 
-Wenn du wissen möchtest, wie du in anderen Funktionen mit Missings umgehen kannst, schau dir entweder die <span class="r">R-Dokumentation dazu an <font size="2">(unteres rechtes Panel bei Help oder alternativ `?mean`)</font> oder suche im Internet. In unserem Kapitel zu Fehlermeldungen findest du sowohl einen Abschnitt zum Aufbau der [R-Dokumentation][R-Dokumentation] sowie einen Abschnitt zum [Suchen im Internet][Suchen im Internet]. \
+Wenn du wissen möchtest, wie du in anderen Funktionen mit Missings umgehen kannst, schau dir entweder die R-Dokumentation dazu an <font size="2">(unteres rechtes Panel bei Help oder alternativ `?mean`)</font> oder suche im Internet. In unserem Kapitel zu Fehlermeldungen findest du sowohl einen Abschnitt zum Aufbau der [R-Dokumentation][R-Dokumentation] sowie einen Abschnitt zum [Suchen im Internet][Suchen im Internet]. \
 
 - `mean( )`
 
@@ -699,7 +699,7 @@ Mehr Informationen zur Studie befinden sich auf der <a href="https://osf.io/bvzv
 
 <p style="line-height:10px;"></p>
 
-Nach dem Herunterladen, können wir den Datensatz folgendermaßen in <span class="r">R einlesen:
+Nach dem Herunterladen, können wir den Datensatz folgendermaßen in R einlesen:
 
 ```{r}
 #| echo: false
@@ -738,7 +738,7 @@ Den Datensatz finden wir <a href="https://osf.io/jv67g/" target="_blank">hier</a
 
 <p style="line-height:10px;"></p>
 
-Den Datensatz können wir, nachdem wir ihn heruntergeladen haben, folgendermaßen in <span class="r">R einlesen:
+Den Datensatz können wir, nachdem wir ihn heruntergeladen haben, folgendermaßen in R einlesen:
 
 ```{r}
 #| echo: !expr F
@@ -800,7 +800,7 @@ Bevor wir uns die fehlenden Werte genauer anschauen können, ist es sinnvoll, ei
 <span class="highlight">1.) Gibt es fehlende Werte im Datensatz, die nicht mit `NA` kodiert sind?
 
 <div class="hint"><details><summary>Tipp</summary>
-Hier vergleichen wir die möglichen Ausprägungen der Variablen, die wir im Codebuch finden, mit den tatsächlichen Ausprägungen der Variablen, die wir uns in <span class="r">R anschauen können.</details>
+Hier vergleichen wir die möglichen Ausprägungen der Variablen, die wir im Codebuch finden, mit den tatsächlichen Ausprägungen der Variablen, die wir uns in R anschauen können.</details>
 
 <p style="line-height:10px;"></p>
 
@@ -927,7 +927,7 @@ Jetzt sind alle fehlenden Werte mit `NA` gekennzeichnet.
 
 Nun wollen wir uns ein paar deskriptive Statistiken der fehlenden Werte anschauen.
 
-> *__Achtung__*:  <font color="#009193">Datensatz A:</font> Die <span class="r">character-Variable `gender...comment` stellt einen Kommentar zu der Variablen `gender` dar. Sie kodiert demnach qualitative Daten, die wir uns im Folgenden nicht weiter anschauen wollen. Daher entfernen wir die Variable nun aus unserem (Analyse-)Datensatz:
+> *__Achtung__*:  <font color="#009193">Datensatz A:</font> Die character-Variable `gender...comment` stellt einen Kommentar zu der Variablen `gender` dar. Sie kodiert demnach qualitative Daten, die wir uns im Folgenden nicht weiter anschauen wollen. Daher entfernen wir die Variable nun aus unserem (Analyse-)Datensatz:
 
 ```{r}
 data_a <- data_a[,-5]
@@ -1161,7 +1161,7 @@ Nachdem wir uns im vorhergehenden Abschnitt deskriptiv-statistische Kennwerte de
 Zur Überprüfung der Zufälligkeit können wir den Test von Little (1988)^[**Little**, R. J. A. (1988). *A test of missing completely at random for multivariate data with missing values.* Journal of the American Statistical Association, 83(404), 1198–1202.\
 <font size="1">(für HU-Studierende über <a href="http://ub.hu-berlin.de" target="_blank">ub.hu-berlin.de</a> zugänglich)</font>] verwenden. Dieser überprüft, ob es signifikante Unterschiede zwischen den variablenweisen Mittelwerten der Missing Patterns gibt. Die $H0$, dass es keine überzufälligen Unterschiede der Mittelwerte in Abhängigkeit der Missing Patterns gibt (= MCAR), ist unsere Wunschhypothese. Der Test ist in der Funktion `mcar_test()` aus dem Paket **naniar** implementiert. 
 
-> *__Achtung__*:  <div class="rows">Die Funktion `mcar_test()` kann wir nur mit Variablen des Typs <span class="r">numeric (<span class="r">integer und <span class="r">double), <span class="r">logical und <span class="r">factor umgehen.
+> *__Achtung__*:  <div class="rows">Die Funktion `mcar_test()` kann wir nur mit Variablen des Typs numeric (integer und double), logical und factor umgehen.
 
 <p style="line-height:10px;"></p>
 
@@ -1172,7 +1172,7 @@ Außerdem können keine qualitativen Daten ausgewertet werden. Es gab eine quali
 
 <details><summary>Lösung <font color="#009193">A</font></summary><div class="sol">
 
-Die Funktion `mcar_test()` kann nicht mit Daten vom Typ <span class="r">character umgehen. Daher müssen wir die nominalskalierten Variablen `gender` und `consent` zuerst faktorisieren:
+Die Funktion `mcar_test()` kann nicht mit Daten vom Typ character umgehen. Daher müssen wir die nominalskalierten Variablen `gender` und `consent` zuerst faktorisieren:
 
 ```{r}
 #| eval: false
@@ -1190,7 +1190,7 @@ library(naniar)
 mcar_test(data_a) 
 ```
 
-Wir bekommen hier nur eine Fehlermeldung ausgegeben. Das liegt daran, dass die Funktion mit unseren Daten nicht klar kommt. Genauer gesagt, wird nur ein Missing-Pattern mittels `mcar_test()` erkannt, obwohl es nach `aggr()` 4 gibt (bzw. nun nur noch 3, da wir alle Fälle mit fehlenden Werten auf `consent` entfernt haben und damit ein Missing-Pattern weniger haben). Leider gibt es keine alternative Implementierung des Tests von Little (für die aktuelle <span class="r">R-Version), und daher können wir nicht weiter an diesen Daten arbeiten.
+Wir bekommen hier nur eine Fehlermeldung ausgegeben. Das liegt daran, dass die Funktion mit unseren Daten nicht klar kommt. Genauer gesagt, wird nur ein Missing-Pattern mittels `mcar_test()` erkannt, obwohl es nach `aggr()` 4 gibt (bzw. nun nur noch 3, da wir alle Fälle mit fehlenden Werten auf `consent` entfernt haben und damit ein Missing-Pattern weniger haben). Leider gibt es keine alternative Implementierung des Tests von Little (für die aktuelle R-Version), und daher können wir nicht weiter an diesen Daten arbeiten.
 
 </details>
 

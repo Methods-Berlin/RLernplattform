@@ -44,7 +44,7 @@ Wir müssen außerdem noch überprüfen, ob die Variablen entsprechend ihres Mes
 str(daten)
 ```
 
-Wie erhofft liegt die nominalskalierte Variable `job` als ungeordneter Faktor und die intervallskalierte Variable `zf_belastung` als <span class="r">numeric vor.
+Wie erhofft liegt die nominalskalierte Variable `job` als ungeordneter Faktor und die intervallskalierte Variable `zf_belastung` als numeric vor.
 
 Mehr Informationen zu Datentypen und angemessener Kodierung finden wir im Kapitel [Einführung in R](Einfuehrung_in_R.qmd).
 
@@ -77,13 +77,13 @@ Zur Durchführung eines $t$-Tests für unabhängige Zufallsstichproben müssen f
 
 Im Codebook steht zu `zuf.bel.1` <font size="2">(was bei uns `zf_belastung` ist)</font> *"Je höher der Wert, desto stärker die Ausprägung"*, was auf eine Intervallskalierung schließen lässt. 
 
-Jetzt müssen wir noch prüfen, ob das Messniveau auch in <span class="r">R korrekt repräsentiert wird. Intervallskalierte Daten werden mit numerischen Datentypen kodiert. Mit der Funktion `str()` können wir diesen überprüfen.
+Jetzt müssen wir noch prüfen, ob das Messniveau auch in R korrekt repräsentiert wird. Intervallskalierte Daten werden mit numerischen Datentypen kodiert. Mit der Funktion `str()` können wir diesen überprüfen.
 
 ```{r}
 str(daten$zf_belastung)
 ```
 
-Unser interessierendes Merkmal `zf_belastung` liegt als <span class="r">numeric vor.
+Unser interessierendes Merkmal `zf_belastung` liegt als numeric vor.
 
 Mehr zu Datentypen und -strukturen erfahren wir in [Einführung in R](Einfuehrung_in_R.qmd).
 -->

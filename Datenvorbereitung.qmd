@@ -1924,7 +1924,7 @@ Dazu nutzen wir einen Datensatz, der im Rahmen eines Projektes zur Untersuchung 
 
 Den <a href="https://osf.io/t4be6/" target="_blank">**Datensatz**</a> sowie das dazugehörige <a href="https://osf.io/38qwz/" target="_blank">**Codebuch**</a> finden wir im **O**pen **S**cience **F**ramework. <font color="gray">Mehr Informationen zu OSF, der Replikationskrise und der Open Science Bewegung finden wir <a href="http://methods-berlin.com/de/replikationskrise_open_science/" target="_blank">hier</a>.</font>
 
-Den Datensatz können wir, nachdem wir ihn heruntergeladen haben, folgendermaßen in <span class="r">R einlesen:
+Den Datensatz können wir, nachdem wir ihn heruntergeladen haben, folgendermaßen in R einlesen:
 
 ```{r}
 #| echo: false
@@ -1972,7 +1972,7 @@ Standardmäßig sind Variablen die Spalten und Beobachtungen die Zeilen eines Da
 
 <details><summary>Lösung</summary><div class="sol">
 
-Wir finden die Information im <span class="r">R Studio Feld **Environment** ...
+Wir finden die Information im R Studio Feld **Environment** ...
 
 ```{r}
 #| out.width: 600px
@@ -2006,7 +2006,7 @@ Im Codebuch finden wir Informationen zu den Variablen. Über die Funktionen `str
 ```{r}
 str(data)
 ```
-Alle Variablen liegen als <span class="r">integer vor. Für die Fragebogenitems (`pri_nee_`, `soc_`, `itg_`, `anx_`, `ria_` und `tra_`), die intervallskaliert sein sollen, ist das korrekt. Die soziodemographischen Variablen `male` und `inc` hingegen sind nominal- bzw. ordinalskaliert. Das bedeutet, dass sie noch faktorisiert werden müssen, um in <span class="r">R als solche erkannt zu werden.
+Alle Variablen liegen als integer vor. Für die Fragebogenitems (`pri_nee_`, `soc_`, `itg_`, `anx_`, `ria_` und `tra_`), die intervallskaliert sein sollen, ist das korrekt. Die soziodemographischen Variablen `male` und `inc` hingegen sind nominal- bzw. ordinalskaliert. Das bedeutet, dass sie noch faktorisiert werden müssen, um in R als solche erkannt zu werden.
 
 ```{r}
 # nominalskaliert (unsortierter Faktor):
@@ -2014,7 +2014,7 @@ data$male <- factor(data$male)
 str(data$male)
 ```
 
-> *__Achtung__*:  <div class="rows">Nicht verwirren lassen: Der Faktor `male` hat die Kodierungen `0` und `1` (wie schon die <span class="r">integer-Variable vorher), aber die *interne* Kodierung des Faktors ist `1` und `2`.
+> *__Achtung__*:  <div class="rows">Nicht verwirren lassen: Der Faktor `male` hat die Kodierungen `0` und `1` (wie schon die integer-Variable vorher), aber die *interne* Kodierung des Faktors ist `1` und `2`.
 
 ```{r}
 # ordinalskaliert (sortierter Faktor):
@@ -2032,7 +2032,7 @@ levels(data$inc)
 
 
 <!-- <div class="hint"><details><summary>Tipp</summary> -->
-<!-- Die Information, was die Variable kodiert, finden wir im Codebuch. Den Datentyp bringen wir in <span class="r">R in Erfahrung. Die Ausprägungen der Variablen finden wir entweder im Codebuch oder wir nutzen eine Funktion in <span class="r">R.</details> -->
+<!-- Die Information, was die Variable kodiert, finden wir im Codebuch. Den Datentyp bringen wir in R in Erfahrung. Die Ausprägungen der Variablen finden wir entweder im Codebuch oder wir nutzen eine Funktion in R.</details> -->
 
 <!-- <p style="line-height:10px;"></p> -->
 
@@ -2044,7 +2044,7 @@ levels(data$inc)
 <!-- str(data$inc) -->
 <!-- ``` -->
 
-<!-- `inc` liegt als <span class="r">integer vor ... -->
+<!-- `inc` liegt als integer vor ... -->
 
 <!-- ```{r} -->
 <!-- unique(data$inc) -->
@@ -2058,7 +2058,7 @@ levels(data$inc)
 <span class="highlight">4.) Wie heißt die Variable, die kodiert, inwieweit die befragte Person gerne viele Menschen um sich herum hat? Welche Antwortoption auf der *Mess*skala <font size="2">(hiermit ist <u>nicht</u> die Kodierung der Daten gemeint)</font> haben die meisten befragten Personen angekreuzt?
 
 <div class="hint"><details><summary>Tipp 1</summary>
-Den Namen der Variablen sowie deren Messskala finden wir im Codebuch. Die Häufigkeiten der jeweiligen Ausprägungen der Variablen bringen wir in <span class="r">R in Erfahrung.</details>
+Den Namen der Variablen sowie deren Messskala finden wir im Codebuch. Die Häufigkeiten der jeweiligen Ausprägungen der Variablen bringen wir in R in Erfahrung.</details>
 
 <div class="hint"><details><summary>Tipp 2</summary>
 Mit der Funktion `table()` können wir uns die Häufigkeiten der Ausprägungen *einer* Variablen ausgeben lassen. Die Funktion ist auch bereits sehr hilfreich, um einen schnellen Überblick über die möglichen Ausprägungen zu bekommen.</details>
@@ -2283,7 +2283,7 @@ Um beide Bedingungen (`< $500` und `> $5.000`) abzufragen, können wir den logis
 
 <details><summary>Lösung</summary><div class="sol">
 
-Zuerst vergleichen wir die Angaben zu den Ausprägungen von `inc` im Codebuch (S. 28) und der Kodierung in <span class="r">R. Laut Codebuch ist `< $500` die erste Ausprägung; `> $5.000` die letzte. Nun schauen wir, mit welchen Kodierungen diese korrespondieren.
+Zuerst vergleichen wir die Angaben zu den Ausprägungen von `inc` im Codebuch (S. 28) und der Kodierung in R. Laut Codebuch ist `< $500` die erste Ausprägung; `> $5.000` die letzte. Nun schauen wir, mit welchen Kodierungen diese korrespondieren.
 
 ```{r}
 table(data$inc)
@@ -2317,7 +2317,7 @@ Es gibt insgesamt zwei Extremkreuzer.</details>
 
 <details><summary>Lösung</summary><div class="sol">
 
-Im Codebuch (S. 20) sehen wir, dass für alle Items des Geselligkeits-Fragebogen dieselbe Skale, welche von -3 bis 3 geht, genutzt wurde. Nun schauen wir uns am Beispiel eines Items an, wie diese in <span class="r">R kodiert werden.
+Im Codebuch (S. 20) sehen wir, dass für alle Items des Geselligkeits-Fragebogen dieselbe Skale, welche von -3 bis 3 geht, genutzt wurde. Nun schauen wir uns am Beispiel eines Items an, wie diese in R kodiert werden.
 
 ```{r}
 # niedrigste und höchste Ausprägung in Erfahrung bringen:
@@ -2645,7 +2645,7 @@ data_int <- data[,c(1, # id
                      grep("int", names(data)))] # Int. Bedürfnisse Items
 ```
 
-Nun vergleichen wir die Angaben zu den Ausprägungen von `inc` im Codebuch (S. 28) und der Kodierung in <span class="r">R. Es gibt insgesamt 5 Ausprägungen. Auf unsere Bedingung (mehr als \$1.000) treffen drei Ausprägungen zu. Daher ist es codesparender, wenn wir die zwei nicht zutreffenden Ausprägungen (`< $500` und `$500 - $1000`) negieren (`!=`). Laut Codebuch ist `< $500` die erste Ausprägung; `$500 - $1000` die zweite. Nun schauen wir, mit welchen Kodierungen diese korrespondieren.
+Nun vergleichen wir die Angaben zu den Ausprägungen von `inc` im Codebuch (S. 28) und der Kodierung in R. Es gibt insgesamt 5 Ausprägungen. Auf unsere Bedingung (mehr als \$1.000) treffen drei Ausprägungen zu. Daher ist es codesparender, wenn wir die zwei nicht zutreffenden Ausprägungen (`< $500` und `$500 - $1000`) negieren (`!=`). Laut Codebuch ist `< $500` die erste Ausprägung; `$500 - $1000` die zweite. Nun schauen wir, mit welchen Kodierungen diese korrespondieren.
 
 ```{r}
 table(data$inc)

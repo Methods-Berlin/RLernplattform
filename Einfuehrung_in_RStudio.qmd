@@ -1,6 +1,6 @@
 # Einführung in RStudio
 
-Im Rahmen dieses Kapitels schauen wir uns an, wie die Benutzeroberfläche der <span class="highlight">Entwicklungsumgebung <span class="r">RStudio aufgebaut ist und wie sie uns den Umgang mit der (grundlegenden) Software `R` erleichtert. Wir lernen die vier grundlegenden Bereiche <font size="2">(Panels)</font> von <span class="r">RStudio kennen und werden uns besonders die `R`-Dokumentation genauer anschauen. In dieser finden wir viele wertvolle Informationen zu Funktionen. Am Ende finden wir noch eine Übersicht über Kurzbefehle, die uns die Arbeit mit `R` zusätzlich erleichtern.
+Im Rahmen dieses Kapitels schauen wir uns an, wie die Benutzeroberfläche der <span class="highlight">Entwicklungsumgebung RStudio aufgebaut ist und wie sie uns den Umgang mit der (grundlegenden) Software `R` erleichtert. Wir lernen die vier grundlegenden Bereiche <font size="2">(Panels)</font> von RStudio kennen und werden uns besonders die `R`-Dokumentation genauer anschauen. In dieser finden wir viele wertvolle Informationen zu Funktionen. Am Ende finden wir noch eine Übersicht über Kurzbefehle, die uns die Arbeit mit `R` zusätzlich erleichtern.
 
 Es ist von Vorteil, wenn wir die [Einführung in R](Einfuehrung_in_R.qmd), in der Funktionen und Pakete, sowie die Speicherung von Daten erklärt werden, bereits durchgearbeitet haben.
 
@@ -23,7 +23,7 @@ library(kableExtra)
 <span class="r highlight">RStudio ist eine **integrierte Entwicklungsumgebung** <font size="2">(*integrated development environment*, IDE)</font> für die Statistiksoftware `R`. Eine IDE bietet uns verschiedene Werkzeuge an, die uns den Umgang mit einer (grundlegenden) Software erleichtern.
 
 In `R` steht uns standardmäßig nur die Konsole und das Skript zur Verfügung.\
-In <span class="r">RStudio gibt es u.a. zusätzlich:
+In RStudio gibt es u.a. zusätzlich:
 
 - <span class="highlight">Code Hervorhebung\
 In Abhängigkeit davon, um was für Code es sich handelt <font size="2">(z.B. Funktionen, Datentyp, bestehende Objekte, Kommentare; Fehlermeldungen)</font> wird dieser **farblich** verschieden im Skript und auch in der Konsole hervorgehoben.
@@ -35,7 +35,7 @@ Wenn wir Code im Skript schreiben, bekommen wir schon **vor der Ausführung Hinw
 <aside>\
 Wir können aus verschiedenen Möglichkeiten zur Code Hervorhebung wählen. Diese finden wir in der oberen Menüleiste auf **Tools** > **Global Options...** > **Appearance** > **Editor Theme**.</aside>
 
-Beim ersten Öffnen sieht <span class="r">RStudio folgendermaßen aus:
+Beim ersten Öffnen sieht RStudio folgendermaßen aus:
 
 ```{r}
 #| out.width: 700px
@@ -54,7 +54,7 @@ Zu allererst öffnen wir ein **neues Skript**, in das wir unseren Code schreiben
 knitr::include_graphics("figures/Einführung/Bilder/RStudio/RStudio 2.png")
 ```
 
-Nun gliedert sich die Entwicklungsumgebung <span class="r">RStudio in **vier verschiedene Bereiche**:\
+Nun gliedert sich die Entwicklungsumgebung RStudio in **vier verschiedene Bereiche**:\
 In das <span class="r script">**Skript** schreiben wir unseren Code. In der <span class="r" style="color:#0533FF;">**Konsole** wird dieser ausgeführt und die Ergebnisse angezeigt. Bestehende Objekte sehen wir im <span class="r env">**Environment**. Eine Übersicht unserer Pakete finden wir unter <span class="r" style="color:#669C35;">**Packages** und Informationen zu `R` und zu Funktionen finden wir unter <span class="r" style="color:#669C35;">**Help**.
 
 ```{r}
@@ -210,7 +210,7 @@ Der Vorteil gegenüber der Konsole ist, dass der Inhalt der History *nicht* mit 
 
 ### Files, Plots, Packages, Help & Viewer {#sec-files-plots-packages-help-viewer}
 
-Im Folgenden werden wir hauptsächlich die Reiter <span class="r help">**Packages** und <span class="r help">**Help** besprechen. Auf die Dokumentation, auf die wir mit letzerem direkt in <span class="r">RStudio <font size="2">(anstatt im Browser)</font> zugreifen können, gehen wir besonders stark ein. 
+Im Folgenden werden wir hauptsächlich die Reiter <span class="r help">**Packages** und <span class="r help">**Help** besprechen. Auf die Dokumentation, auf die wir mit letzerem direkt in RStudio <font size="2">(anstatt im Browser)</font> zugreifen können, gehen wir besonders stark ein. 
 
 Unter <span class="r help">**Packages** sehen wir die Standardpakete und die von uns installierten Add-On Pakete.
 
@@ -344,7 +344,7 @@ matrix(data=c(1,1,2,2,3), nrow=3, ncol=2)
 
 In Beispiel 1 und 2 können wir auch die Auswirkung des Default `byrow=FALSE` sehen. Bei beiden wurden die Elemente *spaltenweise* in die Matrix eingetragen, *ohne* dass wir das so festgelegt haben.
 
-<img src="figures/Buttons/exclam.png" class="exclam out-rows" alt="exclamation"/> Es ist ratsam, vor der Nutzung einer (unbekannten) Funktionen oder bei einer Fehlermeldung zu einer Funktion im Abschnitt <span class="r">**Details** nachzuschauen. Oftmals findet man hier hilfreiche Erklärungen. 
+<img src="figures/Buttons/exclam.png" class="exclam out-rows" alt="exclamation"/> Es ist ratsam, vor der Nutzung einer (unbekannten) Funktionen oder bei einer Fehlermeldung zu einer Funktion im Abschnitt **Details** nachzuschauen. Oftmals findet man hier hilfreiche Erklärungen. 
 
 
 ##### See also
