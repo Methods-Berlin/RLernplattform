@@ -20,7 +20,7 @@ library(kableExtra)
 
 ## Allgemeines zu `RStudio`
 
-<span class="r highlight">RStudio ist eine **integrierte Entwicklungsumgebung** (*integrated development environment*, IDE) für die Statistiksoftware `R`. Eine IDE bietet uns verschiedene Werkzeuge an, die uns den Umgang mit einer (grundlegenden) Software erleichtern.
+RStudio ist eine **integrierte Entwicklungsumgebung** (*integrated development environment*, IDE) für die Statistiksoftware `R`. Eine IDE bietet uns verschiedene Werkzeuge an, die uns den Umgang mit einer (grundlegenden) Software erleichtern.
 
 In `R` steht uns standardmäßig nur die Konsole und das Skript zur Verfügung.\
 In RStudio gibt es u.a. zusätzlich:
@@ -254,12 +254,12 @@ knitr::include_graphics("figures/Einführung/Bilder/RStudio/help c.png")
 
 Neben der Informationen, aus welchem Paket eine Funktion stammt, finden wir hier zumeist folgende Abschnitte:
 
-+ <span class="r highlight">Description: Beschreibung, was die Funktion macht
-+ <span class="r highlight">Usage: Funktionsdefinition <fot size="2">(Parameter der Funktion und ggf. Defaults)
-+ <span class="r highlight">Arguments: Beschreibung der Parameter und ihrer möglichen Argumente
-+ <span class="r highlight">Details: detaillierte Beschreibung zur Nutzung der Funktion und etwaigen Sonderfällen
-+ <span class="r highlight">See Also: verwandte Funktionen (meist aus dem gleichen Paket)
-+ <span class="r highlight">Examples: Beispiele zur Nutzung der Funktion
++ Description: Beschreibung, was die Funktion macht
++ Usage: Funktionsdefinition <fot size="2">(Parameter der Funktion und ggf. Defaults)
++ Arguments: Beschreibung der Parameter und ihrer möglichen Argumente
++ Details: detaillierte Beschreibung zur Nutzung der Funktion und etwaigen Sonderfällen
++ See Also: verwandte Funktionen (meist aus dem gleichen Paket)
++ Examples: Beispiele zur Nutzung der Funktion
 
 
 

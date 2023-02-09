@@ -1350,7 +1350,7 @@ Wir müssen hierbei einige syntaktische Besonderheiten von `recodes` beachten:\
 * die `Input=Output`-Parameter müssen *gemeinsam* als Zeichenkette (d.h. in `" "`) vorliegen
 * die verschiedenen `Input=Output`-Parameter müssen mit Semikolon (`;`) getrennt werden
 
-Wir invertieren im Folgenden die Werte der Variablen `Q9A`, `Q13A` und `Q15A` (<span class="r highlight">numeric). Die Information, dass die Variablen negativ kodiert sind, finden wir in <a href="http://web.a.ebscohost.com/ehost/detail/detail?vid=5&sid=4c4ab98a-bce0-4d67-9d45-085c71a5a277%40sessionmgr4008&bdata=JnNpdGU9ZWhvc3QtbGl2ZQ%3d%3d#AN=1971-09987-001&db=pdh" target="_blank">Mirels & Garrett (1971)</a> (nur über HU-VPN zugänglich). Informationen zur Messskala finden wir auch im Codebuch. 
+Wir invertieren im Folgenden die Werte der Variablen `Q9A`, `Q13A` und `Q15A` (numeric). Die Information, dass die Variablen negativ kodiert sind, finden wir in <a href="http://web.a.ebscohost.com/ehost/detail/detail?vid=5&sid=4c4ab98a-bce0-4d67-9d45-085c71a5a277%40sessionmgr4008&bdata=JnNpdGU9ZWhvc3QtbGl2ZQ%3d%3d#AN=1971-09987-001&db=pdh" target="_blank">Mirels & Garrett (1971)</a> (nur über HU-VPN zugänglich). Informationen zur Messskala finden wir auch im Codebuch. 
 
 So sehen die Daten (der ersten 10 Personen) bisher aus:
 
@@ -1382,7 +1382,7 @@ rmarkdown::paged_table(PWE_data[,c(25,37,43)], options(rows.print=5))
 ```
 \
 
-Wenn die Kodierung aus Zeichenketten (<span class="r highlight">character) besteht, müssen wir diese jeweils noch mit `' '` umschließen.
+Wenn die Kodierung aus Zeichenketten (character) besteht, müssen wir diese jeweils noch mit `' '` umschließen.
 
 Schauen wir uns an, wie man die Ausprägungen von `eduaction` (1`, `2`, `3`, `4`) zu den Beschreibungen (`Less than High School`, `High School`, `University Degree`, `Graduate Degree`) ändert.
 
