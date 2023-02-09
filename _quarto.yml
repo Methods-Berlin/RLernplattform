@@ -29,7 +29,7 @@ book:
         - Outputs-ALM-FAQ.qmd
     - part: "Projekt-Dokumentation"
       chapters:
-        - Interne-Dokumentation.qmd
+        - Zur-Lernplattform-Beitragen.qmd
         - lineare-regression.qmd
 bibliography: references.bib
 
