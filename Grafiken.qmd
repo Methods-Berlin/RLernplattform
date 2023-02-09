@@ -1419,7 +1419,7 @@ Wir können auch Geraden einzeichnen (z.B. alternativ zu Achsengrenzen oder um m
 
 Dabei können wir den Parametern `xintercept` und `yintercept` auch mehrere Werte übergeben. Dazu packen wir diese in einen Vektor mit `c()`.
 
-<span class ="ex">Wir schauen uns dazu eines der Beispiele aus dem Abschnitt vorher an: die Gewichtszunahme (`weight`) in den Gruppen (`Diet`) zum Ende (`Time 21`) des Experiments. Wir zeichnen jeweils den kleinsten und größten Wert, sowie den Mittelwert (über alle `Diet`-Gruppen) von `weight` als (horizontale) Gerade ein.
+Wir schauen uns dazu eines der Beispiele aus dem Abschnitt vorher an: die Gewichtszunahme (`weight`) in den Gruppen (`Diet`) zum Ende (`Time 21`) des Experiments. Wir zeichnen jeweils den kleinsten und größten Wert, sowie den Mittelwert (über alle `Diet`-Gruppen) von `weight` als (horizontale) Gerade ein.
 
 <aside>[Hier](#index) wird das Indexieren der Daten erklärt.</aside>
 

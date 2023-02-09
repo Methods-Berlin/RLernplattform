@@ -138,7 +138,7 @@ Von besonderem Interesse für uns ist die Zeitvariable `Time`. Diese werden wir 
 
 
 
-> *__Achtung__*:  Der Einfachheit halber wird im Folgenden der Begriff **_messwiederholte Variable_** verwendet, wenn von einer Variablen die Rede ist, die mehrfach erhoben wurde (d.h. im Wide-Format in mehreren Spalten und im Long-Format in einer Spalte vorliegt). Im Beispiel zum Wide-Format oben sind demnach die Variablen `t1`, `t2`, `t_3` sowie `self`, `friend` und `parent` messwiederholt. <span class ="ex">In unserem Beispiel-Datensatz (der im Long-Format vorliegt) ist das die Variable `weight`. Gleiches gilt für den Begriff **_Zeitvariable_**, die die verschiedenen Modi der messwiederholten Variablen kodiert. Im Beispiel zum Long-Format oben entspricht diese den Variablen `Zeitpunkt` und `Rater`. <span class ="ex">In unserem Beispiel-Datensatz (der im Long-Format vorliegt) ist das die Variable `Time`.
+> *__Achtung__*:  Der Einfachheit halber wird im Folgenden der Begriff **_messwiederholte Variable_** verwendet, wenn von einer Variablen die Rede ist, die mehrfach erhoben wurde (d.h. im Wide-Format in mehreren Spalten und im Long-Format in einer Spalte vorliegt). Im Beispiel zum Wide-Format oben sind demnach die Variablen `t1`, `t2`, `t_3` sowie `self`, `friend` und `parent` messwiederholt. In unserem Beispiel-Datensatz (der im Long-Format vorliegt) ist das die Variable `weight`. Gleiches gilt für den Begriff **_Zeitvariable_**, die die verschiedenen Modi der messwiederholten Variablen kodiert. Im Beispiel zum Long-Format oben entspricht diese den Variablen `Zeitpunkt` und `Rater`. In unserem Beispiel-Datensatz (der im Long-Format vorliegt) ist das die Variable `Time`.
 
 
 
@@ -148,7 +148,7 @@ Hierbei wird **eine** messwiederholte Variable (`weight`) in Abhängigkeit der A
 
 Im Wide-Format gibt es **mehr Spalten** und **weniger Zeilen** (als im Long-Format). Die Anzahl der Zeilen entspricht der Anzahl der Untersuchungseinheiten.
 
-<aside><span class ="ex">In unserem Datensatz sind die Untersuchungseinheiten Küken.</aside>
+<aside>In unserem Datensatz sind die Untersuchungseinheiten Küken.</aside>
 
 Sowohl `reshape()` als auch `spread()` benötigen zur Formatierung von Long nach Wide eine **ID-Variable** im Datensatz (auch wenn man diese bei `spread()` nicht an ein Argument übergeben muss). Eine ID-Variable bezeichnet die Untersuchungsobjekte. Im Eingangsbeispiel wäre dies die Variable `Untersuchungseinheit`.
 
@@ -208,7 +208,7 @@ rmarkdown::paged_table(spread_wide)
 
 ### Unterschied zwischen `reshape()` und `spread()`
 
-Bei `reshape()` werden Zeilennummerierungen auf Basis des übergebenen Datensatzes erzeugt (siehe <span class ="ex">**[Hinweis](#zeilennum)** im `reshape()`-Abschnitt).
+Bei `reshape()` werden Zeilennummerierungen auf Basis des übergebenen Datensatzes erzeugt (siehe **[Hinweis](#zeilennum)** im `reshape()`-Abschnitt).
 
 **Wide-Format: Argumente von `reshape()` und `spread()` gegenübergestellt** 
 
@@ -233,10 +233,10 @@ Hierbei wird eine messwiederholte Variable (`weight`), die in **mehreren** Spalt
 
 Im Long-Format gibt es **weniger Spalten** und **mehr Zeilen** (als im Wide-Format). Die Anzahl der Zeilen entspricht **nicht** der Anzahl der Untersuchungseinheiten, sondern der *Anzahl der Untersuchungseinheiten x Anzahl der (jeweiligen) Messwiederholungen*. Deswegen ist es im Long-Format besonders wichtig, eine ID-Variable zu haben, um einzelne Untersuchungseinheiten differenzieren zu können.
 
-<aside><span class ="ex">Zur Erinnerung: In unserem Beispiel sind die Untersuchungseinheiten Küken.</aside>
+<aside>Zur Erinnerung: In unserem Beispiel sind die Untersuchungseinheiten Küken.</aside>
 
 > *__Achtung__*:  Manchmal werden **nicht alle Untersuchungseinheiten zu jedem Zeitpunkt** untersucht.
-<span class ="ex">In unserem Datensatz `ChickWeight` ist das der Fall.
+In unserem Datensatz `ChickWeight` ist das der Fall.
 
 Wir können uns folgendermaßen anschauen, wie häufig jede Untersuchungseinheit beobachtet wurde:
 
@@ -245,9 +245,9 @@ table(ChickWeight$Chick)
 ```
 
 <aside>Die **ungeraden** Zeilen (1,3, und 5) zeigen die **ID-Variable** `Chick`; die **geraden** (2,4, und 6) die **Häufigkeit** der Messung.\
-<span class ="ex">Küken 18, 16, 15 und 44 wurden weniger als 12 mal untersucht.</aside> 
+Küken 18, 16, 15 und 44 wurden weniger als 12 mal untersucht.</aside> 
 
-<span class ="ex">Deswegen gibt es auch einen Unterschied zwischen der Anzahl der Zeilen im ursprünglichen Long-Format von `ChickWeight` und den nachfolgend erstellten Long-Formaten des Datensatzes. Im ursprünglichen Long-Format `ChickWeight` werden die Zeilen der Küken, die zu bestimmten Messzeitpunkten __nicht__ beobachtet wurden, weggelassen. Mit `reshape()` und `gather()` werden diese Zeilen erstellt und die Beobachtung der messwiederholten Variable mit `NA` (= fehlender Wert) versehen.
+Deswegen gibt es auch einen Unterschied zwischen der Anzahl der Zeilen im ursprünglichen Long-Format von `ChickWeight` und den nachfolgend erstellten Long-Formaten des Datensatzes. Im ursprünglichen Long-Format `ChickWeight` werden die Zeilen der Küken, die zu bestimmten Messzeitpunkten __nicht__ beobachtet wurden, weggelassen. Mit `reshape()` und `gather()` werden diese Zeilen erstellt und die Beobachtung der messwiederholten Variable mit `NA` (= fehlender Wert) versehen.
 
 
 ### stats: `reshape()`
@@ -261,7 +261,7 @@ Bei der Formatierung von Wide in Long sind folgende 6 Argumente wichtig:
 - `idvar`: **ID-Variable**, die unterschiedliche Untersuchungseinheiten kodiert
 - `direction`: vom Wide- ins **Long**-Format
 
-Mit `v.names` kann man die messwiederholte Variable, welche im Wide-Format in mehreren Spalten vorliegt und nun im Long-Format zu einer Spalte zusammengefasst wird, umbenennen. Wenn alle Spaltennamen den gleichen Stamm haben <span class ="ex">(bei uns `weight.0`, `weight.2`, ...), dann wird dieser als Name der zusammengefassten Variable genutzt. Wenn die Spalten unterschiedliche Namen haben, sollte man hier einen gemeinsamen Namen angeben.
+Mit `v.names` kann man die messwiederholte Variable, welche im Wide-Format in mehreren Spalten vorliegt und nun im Long-Format zu einer Spalte zusammengefasst wird, umbenennen. Wenn alle Spaltennamen den gleichen Stamm haben (bei uns `weight.0`, `weight.2`, ...), dann wird dieser als Name der zusammengefassten Variable genutzt. Wenn die Spalten unterschiedliche Namen haben, sollte man hier einen gemeinsamen Namen angeben.
 
 Auch hier kann man einzelne Variablen mit `drop="Variable"` bzw. mehrere Variablen mit `drop=c("Variable_1", "Variable_2", ..., "Variable_x")` aus dem umformatierten Datensatz entfernen.
 
@@ -298,11 +298,11 @@ Mit den Variablen, die man im Rahmen der Umformatierung erst neu erstellt (z.B. 
 
 Wenn man mehrere Variablen zu den verschiedenen Messzeitpunkten erhoben hat, kann man diese mit `varying=list()` vom Wide- ins Long-Format bringen. Dabei muss man darauf achten, dass alle messwiederholten Variablen die gleiche Anzahl an Spalten besitzen (d.h. alle zu jedem Messzeitpunkt erhoben wurden). 
 
-<span class ="ex">Für unseren Datensatz generieren wir ein fiktives Beispiel, in dem wir die 12 messwiederholten `weight`-Spalten duplizieren und dann jeweils zu einer Variablen zusammenfügen. Deswegen schreiben wir `varying=list(3:14, 15:26)` in `reshape()`.
+Für unseren Datensatz generieren wir ein fiktives Beispiel, in dem wir die 12 messwiederholten `weight`-Spalten duplizieren und dann jeweils zu einer Variablen zusammenfügen. Deswegen schreiben wir `varying=list(3:14, 15:26)` in `reshape()`.
 
 Zusätzlich kann man die messwiederholten Variablen mit `v.names=c("...", "...")` umbenennen. Das funktioniert auch für einzelne messwiederholte Variablen: Dann benötigt man keinen Namensvektor `c("...", "...")` mehr, sondern nur `v.names="..."`.
 
-<span class ="ex">Wir nennen die zwei fiktiven Variablen in unserem Beispiel `AV_1` und `AV_2`.
+Wir nennen die zwei fiktiven Variablen in unserem Beispiel `AV_1` und `AV_2`.
 
 ```{r}
 # messwiderholte Variablen duplizieren:

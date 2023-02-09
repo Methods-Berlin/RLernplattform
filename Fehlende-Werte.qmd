@@ -98,7 +98,7 @@ Dazu kombinieren wir die Funktion `unique()`, die uns alle Werte eines Vektors (
 sort(unique(daten$Var_3), na.last=TRUE)
 ```
 
-<span class ="ex">Da wir wissen, dass `Var_3` nur die Ausprägungen $0,1,2,3$ annehmen kann, können wir schließen, dass $99$ auch ein Missing sein muss.
+Da wir wissen, dass `Var_3` nur die Ausprägungen $0,1,2,3$ annehmen kann, können wir schließen, dass $99$ auch ein Missing sein muss.
 
 Wenn man also alle möglichen Ausprägungen der Variablen kennt, kann man auf diese Weise einfach herausfinden, ob noch anderweitig kodierte Missings im Datensatz vorliegen.  
 
@@ -112,13 +112,13 @@ sapply(sapply(daten, unique), sort, na.last=TRUE)
 
 <aside>Die hier durchgeführte Überprüfung ist analog zum [Plausibilitätscheck][Plausibilitätscheck] im Kapitel zur [Datenvorbereitung](Datenvorbereitung.qmd).</aside>
 
-<span class ="ex">In `Var_1` gibt es die Ausprägung `-99` und in `Var_5` die Ausprägung `99`, welche keine möglichen Ausprägungen sind. Es ist davon auszugehen, dass das ebenso Kodierungen für fehlende Werte sind.
+In `Var_1` gibt es die Ausprägung `-99` und in `Var_5` die Ausprägung `99`, welche keine möglichen Ausprägungen sind. Es ist davon auszugehen, dass das ebenso Kodierungen für fehlende Werte sind.
 
 ### Wie kann ich die Missings auf `NA` setzen?
 
 Nun wollen wir diese Missings umkodieren. Vorher wollen wir uns noch einmal anschauen, was passiert, wenn man das nicht macht.
 
-Wenn man Missings im Datensatz nicht einheitlich auf `NA` kodiert, nimmt R an, dass es sich um gültige Werte handelt. Das führt dann zu falschen Ergebnissen. <span class ="ex">Das schauen wir uns exemplarisch einmal am Mittelwert der Spalte `Var_3` an.
+Wenn man Missings im Datensatz nicht einheitlich auf `NA` kodiert, nimmt R an, dass es sich um gültige Werte handelt. Das führt dann zu falschen Ergebnissen. Das schauen wir uns exemplarisch einmal am Mittelwert der Spalte `Var_3` an.
 
 ```{r}
 #| echo: false
@@ -131,7 +131,7 @@ mean(daten$Var_3, na.rm=TRUE)
 ```
 
 
-<span class ="ex">Nun kodieren wir die Missings in `Var_3` einheitlich um ...
+Nun kodieren wir die Missings in `Var_3` einheitlich um ...
 
 ```{r}
 # Umkodierung für einzelne Variablen
@@ -155,12 +155,12 @@ print(daten)
 mean(daten$Var_3, na.rm=T)
 ```
 
-<span class ="ex">Hätten wir die Missings nicht einheitlich auf NA kodiert, hätten wir errechnet, dass der Mittelwert von `Var_3` 25.75 anstatt ~`r round(mean(daten$Var_3, na.rm=T), 2)` betragen würde.
+Hätten wir die Missings nicht einheitlich auf NA kodiert, hätten wir errechnet, dass der Mittelwert von `Var_3` 25.75 anstatt ~`r round(mean(daten$Var_3, na.rm=T), 2)` betragen würde.
 
 Wir sehen also, dass es **sehr wichtig ist, in Erfahrung zu bringen, ob im Datensatz alle Missings einheitlich auf NA gesetzt sind**, und wenn nicht, diese einheitlich zu kodieren, da man **sonst falsche Ergebnisse** erhält.
 
 
-<span class ="ex">Jetzt enthält die Spalte `Var_3` schon keine Elemente mit der Ausprägung `99` mehr, aber in `Var_1` gibt es noch ein `-99` und in `Var_5` noch ein `99`.
+Jetzt enthält die Spalte `Var_3` schon keine Elemente mit der Ausprägung `99` mehr, aber in `Var_1` gibt es noch ein `-99` und in `Var_5` noch ein `99`.
 
 Um nicht einzeln Spalten und Ausprägungen ansprechen zu müssen, kann man alles in einem Befehl kombinieren.
 
@@ -172,7 +172,7 @@ daten[daten == 99 | daten == -99] <- NA
 <aside>\
 **|** heißt "oder"</aside>
 
-<span class ="ex">Hiermit werden im gesamten `daten` jene Elemente, welche die Ausprägung `99` oder `-99` besitzen, durch `NA` ersetzt.
+Hiermit werden im gesamten `daten` jene Elemente, welche die Ausprägung `99` oder `-99` besitzen, durch `NA` ersetzt.
 
 
 
@@ -354,12 +354,12 @@ Es gibt grundlegend drei Mechanismen, die zur Entstehung von fehlenden Werten f�
 
 - <font color="#009193">**Missing at Random** (MAR)
    + Missings in einer Variable sind *zufällig*, wenn sie durch [andere Variablen](#andere)  erklärt werden können. Es gibt somit **systematische Missing-Muster**. Das heißt, dass Missings häufiger in einem oder mehreren Teilstichproben des Datensatzes vorkommen können. Nach der Kontrolle für die anderen Variablen hängt die Wahrscheinlichkeit für diese Missings aber nicht mehr von ihren eigentlichen (fehlenden) Ausprägungen ab.
-   + <span class ="ex">*Fiktives Beispiel:* Männer füllen mit geringerer Wahrscheinlichkeit einen Depressionsfragebogen aus. Das hat aber, nach Kontrolle für Geschlecht, nichts mit ihren Angaben in dem Depressionsfragebogen zu tun.
+   + *Fiktives Beispiel:* Männer füllen mit geringerer Wahrscheinlichkeit einen Depressionsfragebogen aus. Das hat aber, nach Kontrolle für Geschlecht, nichts mit ihren Angaben in dem Depressionsfragebogen zu tun.
    + Die MAR-Annahme ist **nicht direkt testbar**, weil man nicht ausschließen kann, dass die Missings nach Kontrolle für die anderen Variablen nicht mehr von ihren eigentlichen Ausprägungen abhängen (da wir keine Informationen über diese haben). Man kann dafür indirekt kontrollieren, in dem man sich beispielsweise Variablen anschaut, die mit der Variable, in der die Missings sind, hoch korrelieren.
 
 - <font color="#009193">**Missing not at Random** (MNAR)
    + Missings sind nicht zufällig verteilt und können nicht durch [andere Variablen](#andere) erklärt werden. Dass bedeutet, dass die Ausprägung in der Variable, die fehlt, der Grund dafür ist, das sie fehlt.
-   + <span class ="ex">*Fiktives Beispiel:* Männer füllen einen Depressionsfragebogen aufgrund der mit dem Fragebogen zu erfassenden Höhe der Depressivität nicht aus (z.B. bei besonders hoher Depressivität werden Fragen nicht beantwortet).
+   + *Fiktives Beispiel:* Männer füllen einen Depressionsfragebogen aufgrund der mit dem Fragebogen zu erfassenden Höhe der Depressivität nicht aus (z.B. bei besonders hoher Depressivität werden Fragen nicht beantwortet).
 
 <details><summary><a name ="andere"></a>Was bedeutet "(alle) anderen Variablen"?</summary>
 Die Auffassung darüber, von welchen "anderen Variablen" die Missings in einer Variable unabhängig sein sollen, unterscheidet sich zwischen verschiedenen AutorInnen und ist nicht immer eindeutig. Während einige grob von *beobachtbaren* Variablen (Vgl. [Schafer & Graham, 2002](#schafgra)), *verfügbaren* Variablen (Vgl. [Cohen, Cohen, West & Aiken, 2003](#ccwa)) oder *Variablen im Datensatz, die analysiert werden* (Vgl. [Little, 1988](#little)) sprechen, grenzen Andere diese mehr ein z.B. *Variablen, die im Modell spezifiziert sind* (Vgl. [Allison, 2002](#allison)). Letztere Definition erleichtert die Überprüfung der Zufälligkeit der Missings (d.h. ob diese MCAR, MAR, oder MNAR sind).</details>
@@ -419,7 +419,7 @@ mcar_test(daten)
 ```
 Als Output bekommen wir den $\chi^2$-Wert (`statistic`), die Anzahl der Freiheitsgrade (`df`), den p-Wert (`p-value`), sowie die Anzahl der Missing-Muster (`missing.patterns`).
 
-<span class ="ex">Der $p$-Wert für den MCAR-Test für unseren Datensatz ist größer als die Irrtumswahrscheinlichkeit $\alpha$. Dies bedeutet, dass wir die $H_0$ beibehalten können und (bis auf weiteres) davon ausgehen, dass die MCAR-Annahme erfüllt ist.
+Der $p$-Wert für den MCAR-Test für unseren Datensatz ist größer als die Irrtumswahrscheinlichkeit $\alpha$. Dies bedeutet, dass wir die $H_0$ beibehalten können und (bis auf weiteres) davon ausgehen, dass die MCAR-Annahme erfüllt ist.
 
 <!-- In R nutzen wir dafür die Funktion `LittleMCAR()` aus dem Paket **BaylorEdPsych**, welche dabei auch auf das Paket **mvnmle** zugreifen muss. Falls wir diese Pakete noch nicht installiert haben, machen wir das z.B. mit dem `install.packages()`-Befehl. -->
 
@@ -446,7 +446,7 @@ Als Output bekommen wir den $\chi^2$-Wert (`statistic`), die Anzahl der Freiheit
 
 <!-- Als erstes gibt sie uns den $\chi^2$-Wert, die Anzahl der Freiheitsgrade ($df$) und den $p$-Wert aus. \ -->
 
-<!-- <span class ="ex">Der $p$-Wert für den MCAR-Test für unseren Datensatz ist größer als die Irrtumswahrscheinlichkeit $\alpha$. Dies bedeutet, dass wir die $H_0$ nicht ablehnen können und (bis auf weiteres) davon ausgehen, dass die missing completely at random Annahme erfüllt ist. \ -->
+<!-- Der $p$-Wert für den MCAR-Test für unseren Datensatz ist größer als die Irrtumswahrscheinlichkeit $\alpha$. Dies bedeutet, dass wir die $H_0$ nicht ablehnen können und (bis auf weiteres) davon ausgehen, dass die missing completely at random Annahme erfüllt ist. \ -->
 
 <!-- Zusätzlich bekommen wir noch mehr nützliche Informationen ausgegeben: -->
 
@@ -497,7 +497,7 @@ print(daten_cw)
 <!-- dim(daten_cw) -->
 <!-- ``` -->
 
-<span class ="ex">Wir haben jetzt leider den Nachteil, dass unser Datensatz von fünf auf drei Personen geschrumpft ist (weil zwei Personen mindestens auf einer Variablen ein Missing hatten). 
+Wir haben jetzt leider den Nachteil, dass unser Datensatz von fünf auf drei Personen geschrumpft ist (weil zwei Personen mindestens auf einer Variablen ein Missing hatten). 
 
 Abhängig von der eigenen Auswertung möchte man das vielleicht eher nicht so machen, sondern die vorhandenen Werte in den hier gelöschten Zeilen noch anderweitig nutzen.
 
@@ -559,14 +559,14 @@ colMeans(daten_cw[, 1:3])
 # daten_cw sind die mit na.omit() bereinigten Daten (listwise deletion)
 ```
 
-<span class ="ex">Vergleichen wir diese Ergebnisse nun mit denen von oben, sehen wir, dass nur der Mittelwert von `Var_3` gleich. Bei den Mittelwerten der beiden anderen Spalten unterscheiden sich die Ergebnisse. 
+Vergleichen wir diese Ergebnisse nun mit denen von oben, sehen wir, dass nur der Mittelwert von `Var_3` gleich. Bei den Mittelwerten der beiden anderen Spalten unterscheiden sich die Ergebnisse. 
 
 ```{r}
 #| echo: false
 print(daten[1:3])
 ```
 
-<span class ="ex">Die unterschiedlichen Spaltenmittelwerte kommen daher zustande, dass `na.omit()` für alle Berechnungen `Vpn_1` und `Vpn_4` ausschließt (*listwise/casewise deletion*), wohingegen `na.rm` die Missings nur in den Spalten ausschließt, die gerade zur Berechnung benötigt werden (*pairwise deletion*), z.B. `Vpn_4` bei der Berechnung des Mittelwerts von `Var_3`, aber __nicht__ bei denen von `Var_1` und `Var_2`. 
+Die unterschiedlichen Spaltenmittelwerte kommen daher zustande, dass `na.omit()` für alle Berechnungen `Vpn_1` und `Vpn_4` ausschließt (*listwise/casewise deletion*), wohingegen `na.rm` die Missings nur in den Spalten ausschließt, die gerade zur Berechnung benötigt werden (*pairwise deletion*), z.B. `Vpn_4` bei der Berechnung des Mittelwerts von `Var_3`, aber __nicht__ bei denen von `Var_1` und `Var_2`. 
 
 
 ####  cor(..., use)
@@ -611,7 +611,7 @@ knitr::kable(cor_pco, caption  =  "Korrelation mit pairwise.complete.obs",
              table.attr = "style='width:100%;'")
 ```
 
-<span class ="ex">Wenn man die beiden Korrelationstabellen vergleicht, sieht man, dass sich die Korrelation zwischen `Var_1` und `Var_2` unterscheidet. Das liegt daran, dass `Vpn_4` in allen Berechnungen mit `complete.obs` ausgeschlossen wurde, weil `Var_3` dort ein Missing enthält, während `pairwise.complete.obs` diese Zeile bei der Korrelation von `Var_1` und `Var_2` miteinbezogen hat. 
+Wenn man die beiden Korrelationstabellen vergleicht, sieht man, dass sich die Korrelation zwischen `Var_1` und `Var_2` unterscheidet. Das liegt daran, dass `Vpn_4` in allen Berechnungen mit `complete.obs` ausgeschlossen wurde, weil `Var_3` dort ein Missing enthält, während `pairwise.complete.obs` diese Zeile bei der Korrelation von `Var_1` und `Var_2` miteinbezogen hat. 
 
 ```{r}
 #| echo: false
@@ -656,7 +656,7 @@ Generell werden Missings in verschiedenen Anwendungen (z.B. Unipark, SPSS) häuf
 Wenn du nicht weißt, ob die Missings in deinem Datensatz auch anders kodiert sein könnten, kannst du das mit einer Häufigkeitstabelle der einzelnen Ausprägung der Variablen (d.h. Spalten) überprüfen. Dazu musst du nur wissen, welche möglichen Ausprägungen es geben kann (z.B. wenn du eine Intervallskala von 1-5 hast dann sollte es nur diese Werte geben), um Abweichungen davon festzustellen.
 
 ```
-table(<span class ="ex">daten$<span class ="ex">Var, useNA='ifany')
+table(daten$Var, useNA='ifany')
 ```
 
 Wenn die Missings z.B. mit `99` kodiert sind, können wir sie folgendermaßen auf `NA` setzen: \
