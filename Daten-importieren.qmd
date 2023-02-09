@@ -364,7 +364,7 @@ Um Daten in `R` aufbereiten und bearbeiten zu können, muss man diese erst einma
 
 Im Folgenden wollen wir uns einige Methoden zum Einlesen gängiger Dateiformate in `R` anschauen. Das Dateiformat einer Datei erkennt man an seiner Endung.
 
-<details><summary>Kurzbefehle zum Kopieren des Dateipfads</summary><div class = "more">
+<details><summary>Kurzbefehle zum Kopieren des Dateipfads</summary>
 
 Windows
 
@@ -372,7 +372,7 @@ Wir drücken shift und machen dann einen *Rechtsklick* auf die Datei. Nun öffne
 
 Mac
 
-Wir klicken einmal auf die Datei (sodass sie markiert ist; dann ist sie blau hinterlegt) und führen dann den Kurzbefehl <span class="keybord">alt + <span class="keybord">cmd + <span class="keybord">C aus.
+Wir klicken einmal auf die Datei (sodass sie markiert ist; dann ist sie blau hinterlegt) und führen dann den Kurzbefehl alt + cmd + C aus.
 
 ```{r}
 #| out.width: 600px
@@ -568,7 +568,8 @@ kable(data_I_6) %>%
   kable_styling() %>%
   scroll_box(width = "100%", height = "100%")
 ```
-<br>
+
+
 </details>
 \
 
@@ -600,7 +601,7 @@ Die Information, wie die Zellen getrennt sind (siehe Tipp 2) übergibt man dem A
 
 
 
-<details><summary>Lösung</summary><div class="sol">
+<details><summary>Lösung</summary>
 Man kan die Datei z.B. mit `read.csv("Dateipfad", sep="")` oder mit `read_table2("Dateipfad")` (aus dem Paket **readr**) korrekt einlesen.
 
 Hier siehst du die ersten 6 Zeilen der ersten 50 Spalten der Datei.
@@ -613,7 +614,7 @@ kable(data_II_6) %>%
   kable_styling() %>%
   scroll_box(width = "100%", height = "100%")
 ```
-<br>
+
 </details>
 \
 
@@ -655,7 +656,8 @@ kable(data_III_6) %>%
   kable_styling() %>%
   scroll_box(width = "100%", height = "100%")
 ```
-<br>
+
+
 </details>
 \
 
@@ -684,7 +686,7 @@ Der Datensatz besteht aus `r nrow(data_4)` Zeilen und `r ncol(data_4)` Spalten.
 
 
 
-<details><summary>Lösung</summary><div class="sol">
+<details><summary>Lösung</summary>
 Man kan die Datei z.B. mit `read_xlsx("Dateipfad")` (aus dem Paket **readxl**) oder mit `read.xlsx("Dateipfad")` (aus dem Paket **openxlsx**) korrekt einlesen.
 
 Hier siehst du die ersten 6 Zeilen der insgesamt 4 Spalten der Datei.
@@ -697,7 +699,7 @@ kable(data_4_kurz) %>%
   kable_styling() %>%
   scroll_box(width = "100%", height = "100%")
 ```
-<br>
+
 </details>
 
 

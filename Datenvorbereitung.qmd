@@ -1954,7 +1954,7 @@ Zuallererst wollen wir uns mit dem Datensatz vertraut machen. Dazu benötigen wi
 
 1.) Es gibt zwei Variablen im Datensatz, die nicht im Codebuch zu finden sind. Welche sind das?
 
-<details><summary>Lösung</summary><div class="sol">
+<details><summary>Lösung</summary>
 
 Die Variable `sex` taucht nicht im Datensatz auf. Nur die Variable `male`, welche die Ausprägungen `0` und `1` besitzt. Schätzungsweise soll mit beiden dieselbe Information koderit werden: das biologische Geschlecht der befragten Personen.
 
@@ -1970,7 +1970,7 @@ Standardmäßig sind Variablen die Spalten und Beobachtungen die Zeilen eines Da
 
 
 
-<details><summary>Lösung</summary><div class="sol">
+<details><summary>Lösung</summary>
 
 Wir finden die Information im R Studio Feld **Environment** ...
 
@@ -2001,7 +2001,7 @@ Im Codebuch finden wir Informationen zu den Variablen. Über die Funktionen `str
 
 
 
-<details><summary>Lösung</summary><div class="sol">
+<details><summary>Lösung</summary>
 
 ```{r}
 str(data)
@@ -2036,7 +2036,7 @@ levels(data$inc)
 
 <!--  -->
 
-<!-- <details><summary>Lösung</summary><div class="sol"> -->
+<!-- <details><summary>Lösung</summary> -->
 
 <!-- `inc`: Das monatlich zur Verfügung stehende Einkommen der befragten Person (Codebuch S.28) -->
 
@@ -2065,7 +2065,7 @@ Mit der Funktion `table()` können wir uns die Häufigkeiten der Ausprägungen *
 
 
 
-<details><summary>Lösung</summary><div class="sol">
+<details><summary>Lösung</summary>
 
 Die Variable heißt `soc_2` und hat eine Messskala, welche von -3 bis 3 (inklusive 0) geht (Codebuch S.20).
 
@@ -2088,7 +2088,7 @@ Es gibt einen Wert einer Variablen der heraussticht.
 
 
 
-<details><summary>Lösung</summary><div class="sol">
+<details><summary>Lösung</summary>
 
 ```{r}
 sapply(sapply(data, unique), sort, na.last=TRUE) # sortierte Ausprägungen der Variablen
@@ -2112,7 +2112,7 @@ Das Thema "Fehlende Werte" wird im Kapitel zur Datenvorbereitung nur kurz angeri
 
 
 
-<details><summary>Lösung</summary><div class="sol">
+<details><summary>Lösung</summary>
 
 ```{r}
 anyNA(data) # prüft ob mind. ein Missing im Datensatz
@@ -2146,7 +2146,7 @@ In der letzten Aufgabe haben wir uns variablenweise Missings angeschaut mit `col
 
 
 
-<details><summary>Lösung</summary><div class="sol">
+<details><summary>Lösung</summary>
 
 ```{r}
 max(rowSums(is.na(data))) # maximale Anzahl Missings (absoluter Wert)
@@ -2194,7 +2194,7 @@ Es gibt drei demographische Variablen in `data` (aber mehr im Codebuch).</detail
 
 
 
-<details><summary>Lösung</summary><div class="sol">
+<details><summary>Lösung</summary>
 
 ```{r}
 #| eval: false
@@ -2220,7 +2220,7 @@ Es gibt vier Items zu grundlegenden Bedürfnissen.</details>
 
 
 
-<details><summary>Lösung</summary><div class="sol">
+<details><summary>Lösung</summary>
 
 ```{r}
 #| eval: false
@@ -2247,7 +2247,7 @@ Es gibt insgesamt 18 Items zu gesellschaftlichen und interpersonellen Bedürfnis
 
 
 
-<details><summary>Lösung</summary><div class="sol">
+<details><summary>Lösung</summary>
 
 ```{r}
 #| echo: false
@@ -2281,7 +2281,7 @@ Um beide Bedingungen (`< $500` und `> $5.000`) abzufragen, können wir den logis
 
 
 
-<details><summary>Lösung</summary><div class="sol">
+<details><summary>Lösung</summary>
 
 Zuerst vergleichen wir die Angaben zu den Ausprägungen von `inc` im Codebuch (S. 28) und der Kodierung in R. Laut Codebuch ist `< $500` die erste Ausprägung; `> $5.000` die letzte. Nun schauen wir, mit welchen Kodierungen diese korrespondieren.
 
@@ -2315,7 +2315,7 @@ Es gibt insgesamt zwei Extremkreuzer.</details>
 
 
 
-<details><summary>Lösung</summary><div class="sol">
+<details><summary>Lösung</summary>
 
 Im Codebuch (S. 20) sehen wir, dass für alle Items des Geselligkeits-Fragebogen dieselbe Skale, welche von -3 bis 3 geht, genutzt wurde. Nun schauen wir uns am Beispiel eines Items an, wie diese in R kodiert werden.
 
@@ -2365,7 +2365,7 @@ Der finale Datensatz besteht aus 12 Variablen (davon sind 11 die Integritäts-It
 
 
 
-<details><summary>Lösung</summary><div class="sol">
+<details><summary>Lösung</summary>
 
 ```{r}
 # Fälle selektieren:
@@ -2404,7 +2404,7 @@ Im finalen Datensatz befinden sich 140 (von initial 296) Personen.</details>
 
 
 
-<details><summary>Lösung</summary><div class="sol">
+<details><summary>Lösung</summary>
 
 ```{r}
 # 1) Items extrahieren:
@@ -2440,7 +2440,7 @@ Im Folgenden wollen wir unseren Datensatz nach den aufsteigenden bzw. absteigend
 
 
 
-<details><summary>Lösung</summary><div class="sol">
+<details><summary>Lösung</summary>
 
 Da Frauen zuerst in der sekundären Sortierung vorkommen sollen, können wir beide Variablen aufsteigend sortieren.
 
@@ -2468,7 +2468,7 @@ Um besser beurteilen zu können, ob die Sortierung erfolgreich war, ist es sinnv
 
 
 
-<details><summary>Lösung</summary><div class="sol">
+<details><summary>Lösung</summary>
 
 ```{r}
 #| eval: false
@@ -2506,7 +2506,7 @@ Um besser beurteilen zu können, ob die Kodierung erfolgreich war, ist es sinnvo
 
 
 
-<details><summary>Lösung</summary><div class="sol">
+<details><summary>Lösung</summary>
 
 ```{r}
 # neuen Datensatz erstellen:
@@ -2536,7 +2536,7 @@ Um besser beurteilen zu können, ob die Kodierung erfolgreich war, ist es sinnvo
 
 
 
-<details><summary>Lösung</summary><div class="sol">
+<details><summary>Lösung</summary>
 
 ```{r}
 library(dplyr)
@@ -2568,7 +2568,7 @@ Es ist sinnvoll zur Überprüfung der Aufgabe, einen neuen Datensatz bestehend a
 
 
 
-<details><summary>Lösung</summary><div class="sol">
+<details><summary>Lösung</summary>
 
 ```{r}
 # neuen Datensatz erstellen:
@@ -2603,7 +2603,7 @@ Die Items aller drei Bedürfnis-Bereiche haben denselben Wortstamm: `nee`.</deta
 
 
 
-<details><summary>Lösung</summary><div class="sol">
+<details><summary>Lösung</summary>
 
 ```{r}
 # neuer Datensatz mit relevanten Variablen:
@@ -2636,7 +2636,7 @@ Zur Bearbeitung der Aufgabe können wir `mutate()` mit `ifelse()` kombinieren, u
 
 
 
-<details><summary>Lösung</summary><div class="sol">
+<details><summary>Lösung</summary>
 
 ```{r}
 # neuer Datensatz mit relevanten Variablen:

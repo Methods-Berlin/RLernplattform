@@ -190,7 +190,7 @@ Wenn mehrere Syntaxfehler enthalten sind, und man nicht gleich alle erkennt, mus
 knitr::include_graphics("figures/Fehlermeldungen/Bilder/fm 2.png")
 ```
 
-<details><summary>Lösung</summary><div class="sol">
+<details><summary>Lösung</summary>
 z.B. <font color ="#930047">`daten[2]`
 
 Zuerst wurde nur auf das fehlerhafte `$` hingewiesen. Nachdem dieses gelöscht wurde, wird erst auf das falsche `)` verwiesen.

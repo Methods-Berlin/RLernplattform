@@ -398,7 +398,7 @@ Dann müssen wir diese nur noch mit der aktuellsten Version auf <a href="https:/
   
 Wenn wir eine neuere **R**-Version heruntergeladen haben, sind unsere Pakete, die wir unter der vorherigen **R**-Version installiert haben, nicht mehr nutzbar im aktualisierten Programm. Das liegt daran, dass ein neuer Ordner für die aktuelle Version erstellt wurde, in den die Pakete **nicht** automatisch verschoben wurden.
 
-Um unsere Pakete im aktualisierten Programm nutzen zu können, müssen wir diese in den neuen Ordner verschieben. Dazu öffnen wir den Finder und nutzen den Kurzbefehl <span class="keybord">shift + <span class="keybord">cmd + <span class="keybord">G, um die Dateipfadsuche zu öffnen. In dieser suchen wir den Pfad */Library/Frameworks/R.framework/Versions/*.
+Um unsere Pakete im aktualisierten Programm nutzen zu können, müssen wir diese in den neuen Ordner verschieben. Dazu öffnen wir den Finder und nutzen den Kurzbefehl shift + cmd + G, um die Dateipfadsuche zu öffnen. In dieser suchen wir den Pfad */Library/Frameworks/R.framework/Versions/*.
 
 ```{r, out.width = "400px", echo=FALSE, fig.align='center'}
 knitr::include_graphics("figures/Installation/Bilder/3_Dateipfad_Suche.png")

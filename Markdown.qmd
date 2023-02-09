@@ -67,8 +67,8 @@ Mit dem Knit-Button können wir unser Output-Dokument erstellen.
 
 Alternativ können wir zum Knitten einen Kurzbefehl nutzen:
 
-- Windows: <span class="keybord">shift + <span class="keybord">ctrl + <span class="keybord">K
-- Mac: <span class="keybord">shift + <span class="keybord">cmd + <span class="keybord">K
+- Windows: shift + ctrl + K
+- Mac: shift + cmd + K
 
 Für die Outputformate html und pdf bekommen wir in einem neuen Fenster in R eine Vorschau davon. Für Word Dokumente öffnet sich (ggf.) Microsoft Word.
 
@@ -202,8 +202,8 @@ knitr::include_graphics("figures/Markdown/Bilder/headers 2.png")
 
 > *__Achtung__*: </i>Im R-Skript konnten wir # zum Kommentieren nutzen. Das funktioniert hier auch, aber nur in den Code Chunks. Um Textpassagen auszukommentieren, können wir den html-Kommentar-Tag `<!-- -->` nutzen. Mit folgendem Kurzbefehl können wir sowohl Text als auch Code auskommentieren (funktioniert in html und pdf):
 
-- Windows/Linux: <span class="keybord">ctrl + <span class="keybord">shift + <span class="keybord">C
-- Mac: <span class="keybord">cmd + <span class="keybord">shift + <span class="keybord">C
+- Windows/Linux: ctrl + shift + C
+- Mac: cmd + shift + C
 
 ### Hervorhebung
 
@@ -309,8 +309,8 @@ knitr::include_graphics("figures/Markdown/Bilder/insert chunk.png")
 
 ... oder einen Kurzbefehl nutzen:
 
-- Windows: <span class="keybord">ctrl + <span class="keybord">alt + <span class="keybord">I
-- Mac: <span class="keybord">alt + <span class="keybord">cmd + <span class="keybord">I
+- Windows: ctrl + alt + I
+- Mac: alt + cmd + I
 
 \
 
@@ -327,8 +327,8 @@ Wenn wir auf den Pfeil ganz rechts klicken, können wir den Code in dem Chunk au
 
 Zum Ausführen des Code Chunks gibt es können wir auch einen Kurzbefehl nutzen:
 
-- Windows: <span class="keybord">shift + <span class="keybord">ctrl + <span class="keybord">Enter
-- Mac: <span class="keybord">shift + <span class="keybord">cmd + <span class="keybord">Enter
+- Windows: shift + ctrl + Enter
+- Mac: shift + cmd + Enter
 
 \
 

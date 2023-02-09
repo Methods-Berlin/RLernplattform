@@ -399,7 +399,7 @@ knitr::include_graphics("figures/Fehlende-Werte/Bilder/Abb.png")
 ```
 
 
-<details><summary>Beispiel für Test auf MCAR</summary><div class = "more">
+<details><summary>Beispiel für Test auf MCAR</summary>
 Exemplarisch wollen wir uns *einen möglichen* Test anschauen, der überprüft, ob die Annahme von MCAR verletzt ist.
 
 $\chi^2$__-Test für multivariate Daten von Little (1988):__ \
@@ -804,7 +804,7 @@ Hier vergleichen wir die möglichen Ausprägungen der Variablen, die wir im Code
 
 
 
-<details><summary>Lösung <font color="#009193">A</summary><div class="sol">
+<details><summary>Lösung <font color="#009193">A</summary>
 
 ```{r}
 # sortierte Ausprägungen der Variablen inklusive NAs anzeigen:
@@ -815,7 +815,7 @@ In den Variablen `consent`, `gender`, `gender...comment` kommt eine leere Auspr�
 
 </details>
 
-<details><summary>Lösung <font color="#009193">B</summary><div class="sol">
+<details><summary>Lösung <font color="#009193">B</summary>
 
 
 ```{r}
@@ -899,7 +899,7 @@ Wir kodieren mittels `<- NA` jene Ausprägungen um, die falsch kodierte fehlende
 
 
 
-<details><summary>Lösung <font color="#009193">A</summary><div class="sol">
+<details><summary>Lösung <font color="#009193">A</summary>
 
 In der vorhergehenden Aufgabe haben wir jene Ausprägungen von Variablen identifiziert, die auch fehlende Werte kodieren sollen: `""` und `N/A`. Diese kodieren wir nun um.
 
@@ -942,7 +942,7 @@ Mit der `table()`-Funktion können wir uns Häufigkeitstabellen ausgeben lassen.
 
 
 
-<details><summary>Lösung <font color="#009193">A</summary><div class="sol">
+<details><summary>Lösung <font color="#009193">A</summary>
 
 absolute Anzahl: `TRUE`
 
@@ -961,7 +961,7 @@ Es gibt `r table(is.na(data_a))[2]` fehlende Werte. Das sind ca. `r round(table(
 
 </details>
 
-<details><summary>Lösung <font color="#009193">B</summary><div class="sol">
+<details><summary>Lösung <font color="#009193">B</summary>
 
 
 absolute Anzahl: `TRUE`
@@ -993,7 +993,7 @@ Mit `colnames()` können wir uns Namen von Variablen ausgeben lassen. Wir müsse
 
 
 
-<details><summary>Lösung <font color="#009193">A</summary><div class="sol">
+<details><summary>Lösung <font color="#009193">A</summary>
 
 ```{r}
 # maximale Anzahl an Missings pro Variable:
@@ -1010,7 +1010,7 @@ Die meisten Missings sind in den `statement`-Variablen mit je einer absoluten An
 
 </details>
 
-<details><summary>Lösung <font color="#009193">B</summary><div class="sol">
+<details><summary>Lösung <font color="#009193">B</summary>
 
 ```{r}
 # maximale Anzahl an Missings pro Variable:
@@ -1040,7 +1040,7 @@ Mit `which()` können wir uns die Zeilenindizes von Fällen ausgeben lassen. Wir
 
 
 
-<details><summary>Lösung <font color="#009193">A</summary><div class="sol">
+<details><summary>Lösung <font color="#009193">A</summary>
 
 ```{r}
 # maximale Anzahl an Missings pro Person:
@@ -1057,7 +1057,7 @@ Die meisten Missings haben die Personen `r which(rowSums(is.na(data_a)) == max(r
 
 </details>
 
-<details><summary>Lösung <font color="#009193">B</summary><div class="sol">
+<details><summary>Lösung <font color="#009193">B</summary>
 
 
 ```{r}
@@ -1084,7 +1084,7 @@ Im Paket **VIM** gibt es die Funktion `aggr()`, die beim Visualisieren von Missi
 
 
 
-<details><summary>Lösung <font color="#009193">A</summary><div class="sol">
+<details><summary>Lösung <font color="#009193">A</summary>
 
 Der Output von `summary(aggr())` gibt uns verschiedene Informationen über die Missings und Missing-Patterns. Neben der Zusammensetzung der Patterns bekommen wir Auskunft über die absoluten und relativen Häufigkeiten der variablenweisen Missings und der Missing-Patterns. In den Grafiken steht blau für vorhandene Werte; rot für Missings. Wir sehen in der rechten Grafik, dass ein Missing-Pattern keine Missings enthält.
 
@@ -1114,7 +1114,7 @@ data_a <- data_a[which(!is.na(data_a$consent)),]
 
 </details>
 
-<details><summary>Lösung <font color="#009193">B</summary><div class="sol">
+<details><summary>Lösung <font color="#009193">B</summary>
 
 Wir bekommen von `summary(aggr())` verschiedene Informationen über die Missings und Missing-Patterns. Neben der Zusammensetzung der Patterns bekommen wir Auskunft über die absoluten und relativen Häufigkeiten der variablenweisen Missings und der Missing-Patterns. In den Grafiken steht blau für vorhandene Werte; rot für Missings. Wir sehen in der rechten Grafik, dass ein Missing-Pattern keine Missings enthält.
 
@@ -1170,7 +1170,7 @@ Außerdem können keine qualitativen Daten ausgewertet werden. Es gab eine quali
 
 
 
-<details><summary>Lösung <font color="#009193">A</summary><div class="sol">
+<details><summary>Lösung <font color="#009193">A</summary>
 
 Die Funktion `mcar_test()` kann nicht mit Daten vom Typ character umgehen. Daher müssen wir die nominalskalierten Variablen `gender` und `consent` zuerst faktorisieren:
 
@@ -1195,7 +1195,7 @@ Wir bekommen hier nur eine Fehlermeldung ausgegeben. Das liegt daran, dass die F
 </details>
 
 
-<details><summary>Lösung <font color="#009193">B</summary><div class="sol">
+<details><summary>Lösung <font color="#009193">B</summary>
 
 Das Signifikanzniveau legen wir auf $\alpha = 0.05$ fest.
 
@@ -1214,7 +1214,7 @@ Da der $p$-Wert *über* unserem á priori festgelegtem Signifikanzniveau $\alpha
 
 
 
-<details><summary><font color="#009193">Konsequenzen der Verarbeitung von Daten, die MAR oder MNAR sind</summary><div class="sol">
+<details><summary><font color="#009193">Konsequenzen der Verarbeitung von Daten, die MAR oder MNAR sind</summary>
 
 Wenn die Missings MAR oder MNAR sind, kann es zu **Parameterverzerrungen** kommen, wenn wir Methoden nutzen würden, welche die strengere Annahme MCAR annehmen.
 
@@ -1224,7 +1224,7 @@ Beispiele: Wir können keine Fälle löschen wenn die Daten MAR oder MNAR sind. 
 
 2.) Wie gehen wir weiter vor (mit Hinblick auf die Ergebnisse des Tests nach Little)?
 
-<details><summary>Lösung</summary><div class="sol">
+<details><summary>Lösung</summary>
 
 Wie bereits oben beschrieben können wir nicht (einfach) weiter an Datensatz A arbeiten, solange wir nicht testen konnten, ob die Daten MCAR sind. Eine Möglichkeit wäre es, die Daten mit einer anderen Statistiksoftware auszuwerten, in der es einen implementierten MCAR-Test gibt. Es ist aber nicht ausgeschlossen, dass dieser auf dem gleichen Algorithmus wie `mcar_test()` beruht und wir das gleiche Problem haben würden.
 
@@ -1272,7 +1272,7 @@ Dazu berechnen wir die Differenz der Mittelwerte einer Variablen, die mit *listw
 
 
 
-<details><summary>Lösung</summary><div class="sol">
+<details><summary>Lösung</summary>
 
 ```{r}
 # herausfinden, welche Variablen numerisch sind:
@@ -1344,7 +1344,7 @@ Mit `which(..., arr.ind = TRUE)` können wir uns Zeilenname, Zeilen- *und* Spalt
 
 
 
-<details><summary>Lösung</summary><div class="sol">
+<details><summary>Lösung</summary>
 
 ```{r}
 # herausfinden, welche Variablen numerisch sind:
