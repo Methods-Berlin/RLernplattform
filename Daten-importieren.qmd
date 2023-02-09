@@ -400,12 +400,12 @@ Diese drei Funktionen sind sehr ähnlich aufgebaut. Sind haben aber teilweise un
 
 In Abhängigkeit der Speicherung der Dateien muss man teilweise noch weitere Argumente der Funktionen nutzen (d.h. nicht die Defaults einer Funktion nutzen).
 
-- `header = TRUE` <font size="1">(bei read.table)
+- `header = TRUE` (bei read.table)
    + Die richtigen Spaltennamen stehen sonst in der ersten Zeile und Spalten werden mit `V1`, `V2`, `V3` etc. benannt. 
 - `sep = ";"` 
    + ... wenn die Elemente verschiedener Spalten in einer Zeile mit Semikolon getrennt sind
    + Dass wir hier etwas ändern müssen erkennen wir daran, dass nicht die gesamte Anzahl an Spalten im `R`-Objekt vorhanden sind. Wenn wir uns das Objekt anschauen, dann sehen wir, mit welchem Zeichen die Elemente getrennt sind.
-- `fill = TRUE` <font size="1">(bei read.table)
+- `fill = TRUE` (bei read.table)
    + ... wenn fehlende Werte mit `NA` (`R`-Kodierung für Missings) befüllt werden sollen.
 
 

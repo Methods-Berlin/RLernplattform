@@ -629,12 +629,12 @@ Für ein tiefergehenden Einblick empfehlen wir Euch die folgenden Arbeiten:
 > <a name="allison"></a>**Allison**, P. D. (2002). Missing Data. In P. D. Allison (Ed.), *The Sage Handbook of Quantitative Methods in Psychology (pp.72-89).* Thousand Oaks, CA: Sage Publications Ltd. Abgerufen über <a href="http://www.statisticalhorizons.com/wp-content/uploads/2012/01/Milsap-Allison.pdf" target="_blank">http://www.statisticalhorizons.com/wp-content/uploads/2012/01/Milsap-Allison.pdf</a>
 
 > <a name="ccwa"></a>**Cohen**, J., **Cohen**, P., **West**, S. G., & **Aiken**, L. S. (2003). Missing Data. In J. Cohen, P. Cohen, S. G. West, & L. S. Aiken (Eds.), *Applied Multiple Regression/Correlation Analysis for the Behavioral Sciences *(pp. 431-451)*. Hillsdale, NJ: Erlbaum.\
-<font size="1">(für HU-Studierende über <a href="http://ub.hu-berlin.de" target="_blank">ub.hu-berlin.de</a> zugänglich) \
+(für HU-Studierende über <a href="http://ub.hu-berlin.de" target="_blank">ub.hu-berlin.de</a> zugänglich) \
 
 <aside>Lehrbuch der Master-Vorlesung "Multivariate Verfahren"</aside>
 
 > <a name="little"></a>**Little**, R. J. A. (1988). A test of missing completely at random for multivariate data with missing values. *Journal of the American Statistical Association*, *83*(404), 1198–1202.\
-<font size="1">(für HU-Studierende über <a href="http://ub.hu-berlin.de" target="_blank">ub.hu-berlin.de</a> zugänglich) 
+(für HU-Studierende über <a href="http://ub.hu-berlin.de" target="_blank">ub.hu-berlin.de</a> zugänglich) 
 
 > <a name="schafgra"></a>**Schafer**, J. L., & **Graham**, J. W. (2002). Missing Data: Our View of the State of the Art. *Psychological Methods*, *7*(2), 147-177. <a href="https://psycnet.apa.org/doi/10.1037/1082-989X.7.2.147" target="_blank">https://psycnet.apa.org/doi/10.1037/1082-989X.7.2.147</a>
 
@@ -1159,7 +1159,7 @@ Nachdem wir uns im vorhergehenden Abschnitt deskriptiv-statistische Kennwerte de
 
 <div class="hint"><details><summary>Tipp</summary>
 Zur Überprüfung der Zufälligkeit können wir den Test von Little (1988)^[**Little**, R. J. A. (1988). *A test of missing completely at random for multivariate data with missing values.* Journal of the American Statistical Association, 83(404), 1198–1202.\
-<font size="1">(für HU-Studierende über <a href="http://ub.hu-berlin.de" target="_blank">ub.hu-berlin.de</a> zugänglich)] verwenden. Dieser überprüft, ob es signifikante Unterschiede zwischen den variablenweisen Mittelwerten der Missing Patterns gibt. Die $H0$, dass es keine überzufälligen Unterschiede der Mittelwerte in Abhängigkeit der Missing Patterns gibt (= MCAR), ist unsere Wunschhypothese. Der Test ist in der Funktion `mcar_test()` aus dem Paket **naniar** implementiert. 
+(für HU-Studierende über <a href="http://ub.hu-berlin.de" target="_blank">ub.hu-berlin.de</a> zugänglich)] verwenden. Dieser überprüft, ob es signifikante Unterschiede zwischen den variablenweisen Mittelwerten der Missing Patterns gibt. Die $H0$, dass es keine überzufälligen Unterschiede der Mittelwerte in Abhängigkeit der Missing Patterns gibt (= MCAR), ist unsere Wunschhypothese. Der Test ist in der Funktion `mcar_test()` aus dem Paket **naniar** implementiert. 
 
 > *__Achtung__*:  <div class="rows">Die Funktion `mcar_test()` kann wir nur mit Variablen des Typs numeric (integer und double), logical und factor umgehen.
 

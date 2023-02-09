@@ -1148,13 +1148,13 @@ Abschnitt 4.4 Detecting Violations of Assumptions (S.125-141) \
 Abschnitt 4.5 Remedies: Alternative Approaches When Problems Are Detected (S.141-149) \
 Abschnitt 10.3 Detecting Outliers: Regression Diagnostics" (S.394-411) \
 Abschnitt 10.5 Multicollinearity" (S.419-425) \
-<font size="1">(für HU-Studierende über <a href="http://ub.hu-berlin.de" target="_blank">ub.hu-berlin.de</a> zugänglich) \
+(für HU-Studierende über <a href="http://ub.hu-berlin.de" target="_blank">ub.hu-berlin.de</a> zugänglich) \
 
 Für ein **deutschsprachiges** Buch: \ 
 
 > **Gollwitzer**, M., **Eid**, M., & **Schmitt**, M. (2017). *Statistik und Forschungsmethoden.* Weinheim: Beltz Verlagsgruppe.\ **(für HU-Studierende online zugänglich)** \
 Kapitel "Regressionsdiagnostik" (S. 704-725)\
-<font size="1">(für HU-Studierende über <a href="http://ub.hu-berlin.de" target="_blank">ub.hu-berlin.de</a> zugänglich)
+(für HU-Studierende über <a href="http://ub.hu-berlin.de" target="_blank">ub.hu-berlin.de</a> zugänglich)
 
 Zur weiteren **Hilfe bei der Interpretation von Plots**, können wir diesen <a href="https://stats.stackexchange.com/questions/58141/interpreting-plot-lm" target="_blank">Forumseintrag</a> sowie diese <a href="https://data.library.virginia.edu/diagnostic-plots/" target="_blank">Seite</a> nutzen. 
 

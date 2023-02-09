@@ -24,7 +24,7 @@ Es gibt drei führende Pakete zum Erstellen von Grafiken in R:
 
 <aside>**Basispakete** sind von Anfang an in **R** enthalten, ohne dass wir sie herunterladen müssen.</aside>  
 
-Im Rahmen dieses Kapitels werden wir uns auf **ggplot2** konzentrieren. Mit diesem Paket haben wir eine große Bandbreite an Möglichkeiten, das Aussehen der Grafiken zu verändern. Außerdem können wir auf eine große Anzahl von verschiedenen Grafiken zurückgreifen wie z.B. den Violinenplot <font size="1">(siehe Abb. unten). Ein Violinenplot zeigt die Dichteverteilung eines metrischen Merkmals in Abhängigkeit eines kategorialen Merkmals. 
+Im Rahmen dieses Kapitels werden wir uns auf **ggplot2** konzentrieren. Mit diesem Paket haben wir eine große Bandbreite an Möglichkeiten, das Aussehen der Grafiken zu verändern. Außerdem können wir auf eine große Anzahl von verschiedenen Grafiken zurückgreifen wie z.B. den Violinenplot (siehe Abb. unten). Ein Violinenplot zeigt die Dichteverteilung eines metrischen Merkmals in Abhängigkeit eines kategorialen Merkmals. 
 
 ```{r}
 #| out.width: 400px
@@ -1260,15 +1260,15 @@ ggplot(data=ChickWeight, aes(x=Time, y=weight)) + geom_point() +
 
 <h4>Ausprägung von Variablen</h4>
 
-Mit `geom_text()` <font size="1">(Bsp. 1 und 2) oder `geom_label()` <font size="1">(Bsp. 3 und 4) können wir Ausprägungen einer Variablen als Text in unsere Grafik einfügen. 
+Mit `geom_text()` (Bsp. 1 und 2) oder `geom_label()` (Bsp. 3 und 4) können wir Ausprägungen einer Variablen als Text in unsere Grafik einfügen. 
 
 > *__Achtung__*: Allerdings können wir die Funktionen **nicht** bei [Facetten](#facetten-facet-grids) anwenden.
 
 Beide Funktionen machen fast das Gleiche. Optisch unterscheiden sie sich dadurch, dass `geom_label()` den Text zusätzlich mit einem weißen Feld hinterlegt.
 
-Unseren **Text** übergeben wir an `aes(label)`, welches sowohl in `ggplot()` <font size="1">(Bsp. 1 und 3), als auch in `geom_text()` bzw. `geom_label()` <font size="1">(Bsp. 2 und 4) spezifiziert werden kann.
+Unseren **Text** übergeben wir an `aes(label)`, welches sowohl in `ggplot()` (Bsp. 1 und 3), als auch in `geom_text()` bzw. `geom_label()` (Bsp. 2 und 4) spezifiziert werden kann.
 
-Zusätzlich können wir die **Ausrichtung** des Texts anpassen. Dazu nutzen wir `hjust` (**h**orizontal) und `vjust` (**v**ertikale) <font size="1">(Bsp. 2 und 4), welchen wir einen Wert zwischen 0 und 1 übergeben (Default: `hjust=0.5` und `vjust=0.5`). Wir können auch Werte außerhalb von 0 bis 1 spezifizieren; allerdings wird in der Dokumentation davon abgeraten (ohne weitere Begründung; mehr Informationen dazu in der Dokumentation von *ggplot2-specs*).
+Zusätzlich können wir die **Ausrichtung** des Texts anpassen. Dazu nutzen wir `hjust` (**h**orizontal) und `vjust` (**v**ertikale) (Bsp. 2 und 4), welchen wir einen Wert zwischen 0 und 1 übergeben (Default: `hjust=0.5` und `vjust=0.5`). Wir können auch Werte außerhalb von 0 bis 1 spezifizieren; allerdings wird in der Dokumentation davon abgeraten (ohne weitere Begründung; mehr Informationen dazu in der Dokumentation von *ggplot2-specs*).
 
 **Beispiel 1 und 2** zeigen die Gewichtsveränderung (x-Achse: `Time`, y-Achse: `weight`) über die Zeit von Küken 1 (`ChickWeight$Chick == 1`). Wir beschriften die
 Datenpunkte mit den jeweiligen Messzeitpunkten (`aes(label=Time)`).
@@ -1560,7 +1560,7 @@ Eine Übersicht über das Exportieren von Grafiken mit Funktionen aus dem Basisp
 
 > *__Achtung__*:  Hinweis für Windows-NutzerInnen: Manchmal kann es zu Probleme mit **Aliasing** kommen. Das ist, wenn Grafikelemente und/oder Text nach dem Export **"krisselig"** dargestellt werden. 
 
-<div style="text-align: center"><font size="1">**Beispiel für Aliasing**
+<div style="text-align: center">**Beispiel für Aliasing**
 
 ```{r}
 #| out.width: 400px
@@ -1569,7 +1569,7 @@ Eine Übersicht über das Exportieren von Grafiken mit Funktionen aus dem Basisp
 knitr::include_graphics("figures/ggplot2/Bilder/Std_PNG.png")
 ```
 
-<div style="text-align: center"><font size="1">Bildquelle: https://www.r-bloggers.com/exporting-nice-plots-in-r/
+<div style="text-align: center">Bildquelle: https://www.r-bloggers.com/exporting-nice-plots-in-r/
 
 Um das zu verhindern, können wir das Paket **Cairo**, mit dessen gleichnamiger Funktion, nutzen. Mehr Informationen zur Anwendung können wir auf <a href="https://www.r-bloggers.com/exporting-nice-plots-in-r/" target="_blank">R-bloggers</a> finden.
 

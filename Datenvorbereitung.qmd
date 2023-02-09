@@ -1342,7 +1342,7 @@ In der Funktion `recode()` (auch `Recode()` möglich) aus dem Paket **car** müs
 
 Wir müssen hierbei einige syntaktische Besonderheiten von `recodes` beachten:\
 <span class="code">recodes = <font color="red">"alt_1 = neu_k<font color="red">; alt_2 = neu_k-1<font color="red">; ...<font color="red">; alt_k = neu_1<font color="red">"\
-<font size="1">(Ausprägungen der Kodierung von 1 bis $k$)
+(Ausprägungen der Kodierung von 1 bis $k$)
 
 * die <span class="code">Input=Output-Parameter müssen *gemeinsam* als Zeichenkette (d.h. in `" "`) vorliegen
 * die verschiedenen <span class="code">Input=Output-Parameter müssen mit Semikolon (`;`) getrennt werden
@@ -1534,7 +1534,7 @@ Für mehr Informationen zu Indikatorvariablen können wir z.B. folgende Quelle n
 
 > <a name="bortz"></a>**Bortz**, J., & **Schuster**, C. (2010). Allgemeines lineares Modell. In J. Bortz, & C. Schuster (Eds.),
 *Statistik für Sozialwissenschaftler* (S.363-384). Heidelberg: Springer\
-<font size="1">(für HU-Studierende über <a href="http://ub.hu-berlin.de" target="_blank">ub.hu-berlin.de</a> zugänglich)
+(für HU-Studierende über <a href="http://ub.hu-berlin.de" target="_blank">ub.hu-berlin.de</a> zugänglich)
 
 Im Folgenden schauen wir uns an, wie man konkret bei der Erstellung der verschiedenen Arten der Indikatorvariablen vorgehen kann.
 
@@ -2518,7 +2518,7 @@ library(car)
 data_inc$income <- recode(data_inc$inc, recodes=rec)
 ```
 
-<font size="1">Die Variable `rec`, welche die Überführung der bestehenden in die neue Kodierung enthält, wurde nur aus darstellerischen Gründen erstellt. Der Inhalt kann auch direkt dem Parameter `recodes` übergeben werden.
+Die Variable `rec`, welche die Überführung der bestehenden in die neue Kodierung enthält, wurde nur aus darstellerischen Gründen erstellt. Der Inhalt kann auch direkt dem Parameter `recodes` übergeben werden.
 
 ```{r}
 #| echo: false
