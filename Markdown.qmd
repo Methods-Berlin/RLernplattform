@@ -11,10 +11,10 @@ Mit R Markdown (Endung .Rmd) können wir R Code (z.B. für Datenanalyse und -vis
 
 <aside>Beispielsweise sind alle Inhalte der R Lernplattform mit R Markdown erstellt worden.</aside>
 
-*<span class="highlight">Was ist Markdown?*\
+*Was ist Markdown?*\
 Markdown ist eine Auszeichnungsprache (markup language). Diese werden für Formatierung und Gliederung von Text genutzt. Weitere Auszeichnungsprachen wie YAML und LaTex, die wir uns später noch genauer anschauen werden, können auch in R Markdown integriert werden.
 
-*<span class="highlight">Warum R Markdown?*\
+*Warum R Markdown?*\
 Wir können R Markdown nicht nur nutzen, um schöne Zusammenfassungen für R Übungen zu schreiben. Wir können ganz einfach Tabellen (z.B. Korrelationstabellen oder Ergebnistabellen für eine ANOVA) oder Grafiken in R erstellen und diese dann in unsere Abschlussarbeit übernehmen^[Wir können die Tabellen und Grafiken z.B. aus einem Word Dokument, welches wir mit R Markdown erstellt haben, rauskopieren und in das Word Dokument einfügen, in welchem wir unsere Arbeit schreiben. Wir können aber auch direkt unsere Arbeit in einem R Markdown Dokument schreiben (und daraus ein Word Dokument o.ö. erstellen).]. So entfällt das lästige händische Erstellen der Tabellen, bei dem sich häufig Flüchtigkeitsfehler einschleichen. 
 
 Im Rahmen dieses Kapitels lernen wir, wie wir R Markdown Dokumente erstellen und verändern können, welche Möglichkeiten es gibt, R Code zu integrieren und wie wir Text gestalten können. 
@@ -51,7 +51,7 @@ knitr::include_graphics("figures/Markdown/Bilder/2.png")
 
 <aside>**html** (hypertext markup language) ist auch eine Auszeichnungsprache und die Basis von Inhalten im Internet. Unser Webbrowser (z.B. Firefox, Chrome, Safari) stellt die Inhalte des html dar. Die Inhalte der Lernplattform sind ebenfalls html Dokumente.</aside>
 
-So sieht das neu geöffnete <span class="highlight">Rmd aus.
+So sieht das neu geöffnete Rmd aus.
 
 ```{r}
 #| out.width: 800px
@@ -63,7 +63,7 @@ knitr::include_graphics("figures/Markdown/Bilder/3.png")
 <aside>\
 Hier wurde als Outputformat **html** festgelegt. Das sehen wir ganz oben in `output: html_document`.</aside>
 
-Mit dem <span class="highlight">Knit-Button können wir unser <span class="highlight">Output-Dokument erstellen. 
+Mit dem Knit-Button können wir unser Output-Dokument erstellen. 
 
 Alternativ können wir zum Knitten einen Kurzbefehl nutzen:
 
@@ -109,7 +109,7 @@ Dies ist nur die erste Seite des Word Dokuments. Die anderen Inhalte sind auf di
 
 ### YAML
 
-Gehen wir nochmal einen Schritt zurück und schauen uns das Rmd genauer an. Der Code ganz oben im Dokument ist der <span class="highlight">YAML Header. In diesem legen wir **globale Dokument-Optionen** fest. Nachfolgend sehen wir einige.
+Gehen wir nochmal einen Schritt zurück und schauen uns das Rmd genauer an. Der Code ganz oben im Dokument ist der YAML Header. In diesem legen wir **globale Dokument-Optionen** fest. Nachfolgend sehen wir einige.
 
 ```{r}
 #| out.width: 250px
@@ -200,7 +200,7 @@ knitr::include_graphics("figures/Markdown/Bilder/headers 2.png")
 
 <aside>Die Überschriften erscheinen auch in der Gliederung, wenn wir im YAML Header eine festgelegt haben (`toc: true`). Mit der Option `toc_depth` können wir festlegen, bis zu welcher Stufe die Überschriften inkludiert werden sollen.</aside>
 
-> *__Achtung__*: </i>Im R-Skript konnten wir # zum <span class="highlight">Kommentieren nutzen. Das funktioniert hier auch, aber nur in den Code Chunks. Um Textpassagen auszukommentieren, können wir den html-Kommentar-Tag `<!-- -->` nutzen. Mit folgendem Kurzbefehl können wir sowohl Text als auch Code auskommentieren (funktioniert in html und pdf):
+> *__Achtung__*: </i>Im R-Skript konnten wir # zum Kommentieren nutzen. Das funktioniert hier auch, aber nur in den Code Chunks. Um Textpassagen auszukommentieren, können wir den html-Kommentar-Tag `<!-- -->` nutzen. Mit folgendem Kurzbefehl können wir sowohl Text als auch Code auskommentieren (funktioniert in html und pdf):
 
 - Windows/Linux: <span class="keybord">ctrl + <span class="keybord">shift + <span class="keybord">C
 - Mac: <span class="keybord">cmd + <span class="keybord">shift + <span class="keybord">C
@@ -261,9 +261,9 @@ Markdown</aside>
 
 Wir können in unserem Output-Dokument auch auf **externe (Web-)Quellen** verlinken. Dazu nutzen wir `[verlinkter Text](http://example.com)`. 
 
-Wenn unser Output-Dokument ein <span class="highlight">html ist, ist es benutzerfreundlicher, wenn sie die Webseite in einem neuen Fenster öffnet. Dazu nutzen wir den html Tag `<a href="http://example.com" target="_blank">verlinkter Text</a>`.
+Wenn unser Output-Dokument ein html ist, ist es benutzerfreundlicher, wenn sie die Webseite in einem neuen Fenster öffnet. Dazu nutzen wir den html Tag `<a href="http://example.com" target="_blank">verlinkter Text</a>`.
 
-In <span class="highlight">html haben wir zusätzlich die Möglichkeit, **innerhalb eines Dokuments** zu verlinken. Am einfachsten ist es, auf eine Überschrift zu verlinken. Dazu nutzen wir einfach eckige Klammern, in die wir den Namen einer Überschrift schreiben: `[Überschrift]`.
+In html haben wir zusätzlich die Möglichkeit, **innerhalb eines Dokuments** zu verlinken. Am einfachsten ist es, auf eine Überschrift zu verlinken. Dazu nutzen wir einfach eckige Klammern, in die wir den Namen einer Überschrift schreiben: `[Überschrift]`.
 
 
 ### Formeln
@@ -390,9 +390,9 @@ Nur mit den <img src="figures/Markdown/Bilder/hervorheben.png" style=" width:8%;
 
 Wir können mit **R-Code in den Code Chunks** außerdem auch Grafiken und Tabellen erstellen und ausgeben, sowie auch Bilder, die nicht im Rmd erstellt wurden, anzeigen.
 
-Bei <span class="highlight">Grafiken müssen wir nichts weiter beachten. Wir können denselben R-Code nutzen wie auch in einem R-Skript (.R).
+Bei Grafiken müssen wir nichts weiter beachten. Wir können denselben R-Code nutzen wie auch in einem R-Skript (.R).
 
-Wenn wir lokal gespeicherte <span class="highlight">Bilder integrieren wollen, können wir die Funktion <span class="code">include_graphics("dateipfad") aus dem Paket **knitr** nutzen. Dieses wurde (standardmäßig) automatisch heruntergeladen, als wir rmarkdown installiert haben.
+Wenn wir lokal gespeicherte Bilder integrieren wollen, können wir die Funktion <span class="code">include_graphics("dateipfad") aus dem Paket **knitr** nutzen. Dieses wurde (standardmäßig) automatisch heruntergeladen, als wir rmarkdown installiert haben.
 
 <aside>\
 **knitr** ist das Paket, welches unseren R-Code im Rmd ausführt.</aside>
@@ -424,7 +424,7 @@ Mit `fig.align` können wir die Ausrichtung beeinflussen. Gültige Optionen sind
 <aside>Beispiel:\
 `{r, fig.align='center'}`</aside>
 
-Um <span class="highlight">Tabellen zu erstellen, gibt es verschiedene Funktionen (die nur in Rmd funktionieren). Wir schauen uns im Folgenden eine an (und zwar dieselbe, die auch für die Inhalte der R-Lernplattform genutzt wird).
+Um Tabellen zu erstellen, gibt es verschiedene Funktionen (die nur in Rmd funktionieren). Wir schauen uns im Folgenden eine an (und zwar dieselbe, die auch für die Inhalte der R-Lernplattform genutzt wird).
 
 <!-- <aside>Man kann die Darstellung von Tabellen auch im YAML Header beeinflussen; das schauen wir uns aber nicht an.</aside> -->
 
@@ -487,7 +487,7 @@ knitr::include_graphics("figures/Markdown/Bilder/template.png")
 
 #### distill
 
-Mit dem Template **Distill Article** aus dem Paket **distill** können wir <span class="highlight">html Dokumente erstellen. 
+Mit dem Template **Distill Article** aus dem Paket **distill** können wir html Dokumente erstellen. 
 
 ```{r}
 #| out.width: 600px
@@ -527,7 +527,7 @@ knitr::include_graphics("figures/Markdown/Bilder/better_graphs.png")
 
 #### papaja
 
-Mit dem Paket **papaja** (**P**reparing **APA** **J**ournal **A**rticles) bekommen wir ein Template, um Artikel ganz einfach im APA-Style zu schreiben. Das Outputformat ist <span class="highlight">pdf.
+Mit dem Paket **papaja** (**P**reparing **APA** **J**ournal **A**rticles) bekommen wir ein Template, um Artikel ganz einfach im APA-Style zu schreiben. Das Outputformat ist pdf.
 
 ```{r}
 #| out.width: 600px

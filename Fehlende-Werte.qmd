@@ -468,9 +468,9 @@ Es gibt verschiedene Möglichkeiten, um mit unvollständigen Datensätzen umzuge
 <aside>\
 Weitere Methoden zum Umgang mit Missings finden wir auch in den Quellen, die wir unter [**Literaturempfehlungen**](#literaturempfehlungen) finden.</aside>
 
-Im Folgenden wollen wir uns darauf beschränken, uns einige gängige Methoden anzuschauen, die man nutzen kann, wenn die fehlenden Werte <span class="highlight">MCAR sind. Wenn diese Annahme <u>nicht</u> erfüllt ist, können bei Nutzung der folgenden Methoden **verzerrte Parameterschätzungen** resultieren.
+Im Folgenden wollen wir uns darauf beschränken, uns einige gängige Methoden anzuschauen, die man nutzen kann, wenn die fehlenden Werte MCAR sind. Wenn diese Annahme <u>nicht</u> erfüllt ist, können bei Nutzung der folgenden Methoden **verzerrte Parameterschätzungen** resultieren.
 
-Zwei grundlegende Möglichkeiten sind entweder ganze Fälle mit Missings zu exkludieren (<span class="highlight">*listwise/casewise deletion*) oder vorhandene Elemente von Fällen für einen Teil der Analysen zu nutzen (<span class="highlight">*pairwise deletion*). In vielen Funktionen in R können wir zwischen beiden Möglichkeiten entscheiden.
+Zwei grundlegende Möglichkeiten sind entweder ganze Fälle mit Missings zu exkludieren (*listwise/casewise deletion*) oder vorhandene Elemente von Fällen für einen Teil der Analysen zu nutzen (*pairwise deletion*). In vielen Funktionen in R können wir zwischen beiden Möglichkeiten entscheiden.
 
 Nachteil von beiden (d.h. kompletter bzw. partieller Ausschluss von Zeilen) ist generell, dass die Stichprobengröße $N$ sinkt und damit einhergehend größere Standardfehler und eine geringere Power resultieren. Ein weiteres Problem bei pairwise deletion ist außerdem, dass sich die Stichprobengröße $N$ sowie die Zusammensetzung der Stichproben für unterschiedliche Analysen unterscheiden wird. 
 
@@ -479,7 +479,7 @@ Nachteil von beiden (d.h. kompletter bzw. partieller Ausschluss von Zeilen) ist 
 
 ## Neuen Datensatz erstellen, der keine Missings enthält
 
-Mit `na.omit()` löscht man <span class="highlight">*listwise/casewise*, d.h. Fälle, die mindestens ein Missing aufweisen werden komplett gelöscht. Es ist ratsam, den damit neu erstellten Datensatz als ein neues Objekt zu speichern (anstatt den originalen Satensatz zu überschreiben):
+Mit `na.omit()` löscht man *listwise/casewise*, d.h. Fälle, die mindestens ein Missing aufweisen werden komplett gelöscht. Es ist ratsam, den damit neu erstellten Datensatz als ein neues Objekt zu speichern (anstatt den originalen Satensatz zu überschreiben):
 
 ```{r}
 #| include: true
@@ -510,9 +510,9 @@ Dazu schauen wir uns exemplarisch drei verschiedene Funktionen und einige ihrer 
 
 #### lm(..., na.action)
 
-Mit `lm()` können wir eine (einfache oder multiple) lineare Regression durchführen. Mit dem Parameter `na.action` können wir über den Umgang mit den Missings bestimmen. Ein mögliches Argument dafür ist <span class="code"><span class=" highlight">na.omit. Dabei wird bei Vorhandenseins eines Missings in einer Zeile die **komplette Zeile** aus der Berechnung genommen (<span class="highlight">*listwise/casewise deletion*). Das ist der Default dieser Funktion. 
+Mit `lm()` können wir eine (einfache oder multiple) lineare Regression durchführen. Mit dem Parameter `na.action` können wir über den Umgang mit den Missings bestimmen. Ein mögliches Argument dafür ist <span class="code"><span class=" highlight">na.omit. Dabei wird bei Vorhandenseins eines Missings in einer Zeile die **komplette Zeile** aus der Berechnung genommen (*listwise/casewise deletion*). Das ist der Default dieser Funktion. 
 
-In manchen Situationen ist es wichtig, **Informationen darüber zu haben, _wo_ Missings in einer Zeile sind** (z.B. bei der Prüfung der Annahmen der Unabhängigkeit der Fehlerterme in der Multiplen Linearen Regression). Wenn ich beispielsweise einen Boxplot der Residuen einer linearen Regression in einer bestimmten Gruppe erstellen möchte, benötige ich einen Vektor der Residuen, in dem noch die Information darüber enthalten ist, in welcher Zeile Werte fehlen. Wenn der Residuenvektor und der Gruppenvektor unterschiedliche Zeilenanzahlen - in Abhängigkeit der Missings - haben, kann ich den Boxplot sonst nicht erstellen. Dafür nutzen wir das Argument <span class="code"><span class=" highlight">na.exclude. Hierbei werden die Indizes der Missings nicht einfach gelöscht (und dadurch die Zeilenanzahl reduziert) sondern gespeichert. Ansonsten ist die Berechnung äquivalent zu `na.omit` (d.h. auch <span class="highlight">*listwise/casewise deletion*). Mittels <span class="code">residuals(lm_Ergebnisobjekt) können wir dann den Residuenvektor extrahieren. 
+In manchen Situationen ist es wichtig, **Informationen darüber zu haben, _wo_ Missings in einer Zeile sind** (z.B. bei der Prüfung der Annahmen der Unabhängigkeit der Fehlerterme in der Multiplen Linearen Regression). Wenn ich beispielsweise einen Boxplot der Residuen einer linearen Regression in einer bestimmten Gruppe erstellen möchte, benötige ich einen Vektor der Residuen, in dem noch die Information darüber enthalten ist, in welcher Zeile Werte fehlen. Wenn der Residuenvektor und der Gruppenvektor unterschiedliche Zeilenanzahlen - in Abhängigkeit der Missings - haben, kann ich den Boxplot sonst nicht erstellen. Dafür nutzen wir das Argument <span class="code"><span class=" highlight">na.exclude. Hierbei werden die Indizes der Missings nicht einfach gelöscht (und dadurch die Zeilenanzahl reduziert) sondern gespeichert. Ansonsten ist die Berechnung äquivalent zu `na.omit` (d.h. auch *listwise/casewise deletion*). Mittels <span class="code">residuals(lm_Ergebnisobjekt) können wir dann den Residuenvektor extrahieren. 
 
 <aside>\
 \
@@ -532,9 +532,9 @@ mean(daten$Var_1, na.rm = TRUE)
 
 #### colMeans(..., na.rm)
 
-Die Funktion `colMeans()`, mit der wir Spaltenmittelwerte von mehrdimensionalen Datenstrukturen (z.B. Matrizen oder Dataframes) berechnen können, besitzt ebenfalls den Parameter `na.rm`. <span class="code"><span class=" highlight">TRUE lässt uns hier (direkt) <span class="highlight">*pairwise deletion* anwenden. Schauen wir uns das einmal genauer an.
+Die Funktion `colMeans()`, mit der wir Spaltenmittelwerte von mehrdimensionalen Datenstrukturen (z.B. Matrizen oder Dataframes) berechnen können, besitzt ebenfalls den Parameter `na.rm`. <span class="code"><span class=" highlight">TRUE lässt uns hier (direkt) *pairwise deletion* anwenden. Schauen wir uns das einmal genauer an.
 
-<!-- Während das Argument `na.rm` dafür sorgt, dass Missings nur für spezifische Analysen ausgeschlossen werden (<span class="highlight">*pairwise deletion*), werden mit `na.omit()` ganze Zeilen, in denen sich mindestens ein Missing befindet, ausgeschlossen (<span class="highlight">*listwise/casewise deletion*). Schauen wir uns dazu einmal mit `colMeans()` die Spaltenmittelwerte an.  -->
+<!-- Während das Argument `na.rm` dafür sorgt, dass Missings nur für spezifische Analysen ausgeschlossen werden (*pairwise deletion*), werden mit `na.omit()` ganze Zeilen, in denen sich mindestens ein Missing befindet, ausgeschlossen (*listwise/casewise deletion*). Schauen wir uns dazu einmal mit `colMeans()` die Spaltenmittelwerte an.  -->
 
 Exemplarisch begrenzen wir uns auf die ersten drei Spalten von `daten` mittels `[, 1:3]`.
 
@@ -550,7 +550,7 @@ mean(daten[, 3], na.rm = TRUE)
 colMeans(daten[, 1:3], na.rm = TRUE)
 ```
 
-Wie wir sehen, bekommen wir die gleichen Ergebnisse bei `mean()` und `colMeans()`. Beide nutzen (quasi) <span class="highlight">*pairwise deletion*. Allerdings sprechen wir nur im Fall von `colMeans()` davon, weil es bei `mean()` keine andere Möglichkeit gibt, als jeweils die fehlende Werte eines Vektors (*ein*dimensionale Datenstruktur) zu entfernen oder eben nicht.
+Wie wir sehen, bekommen wir die gleichen Ergebnisse bei `mean()` und `colMeans()`. Beide nutzen (quasi) *pairwise deletion*. Allerdings sprechen wir nur im Fall von `colMeans()` davon, weil es bei `mean()` keine andere Möglichkeit gibt, als jeweils die fehlende Werte eines Vektors (*ein*dimensionale Datenstruktur) zu entfernen oder eben nicht.
 
 ```{r}
 #| label: colMeans 2
@@ -566,12 +566,12 @@ colMeans(daten_cw[, 1:3])
 print(daten[1:3])
 ```
 
-<span class ="ex">Die unterschiedlichen Spaltenmittelwerte kommen daher zustande, dass `na.omit()` für alle Berechnungen <span class="code"><span class ="ex">Vpn_1 und <span class="code"><span class ="ex">Vpn_4 ausschließt (<span class="highlight">*listwise/casewise deletion*), wohingegen `na.rm` die Missings nur in den Spalten ausschließt, die gerade zur Berechnung benötigt werden (<span class="highlight">*pairwise deletion*), z.B. <span class="code"><span class ="ex">Vpn_4 bei der Berechnung des Mittelwerts von <span class="code"><span class ="ex">Var_3, aber __nicht__ bei denen von <span class="code"><span class ="ex">Var_1 und <span class="code"><span class ="ex">Var_2. 
+<span class ="ex">Die unterschiedlichen Spaltenmittelwerte kommen daher zustande, dass `na.omit()` für alle Berechnungen <span class="code"><span class ="ex">Vpn_1 und <span class="code"><span class ="ex">Vpn_4 ausschließt (*listwise/casewise deletion*), wohingegen `na.rm` die Missings nur in den Spalten ausschließt, die gerade zur Berechnung benötigt werden (*pairwise deletion*), z.B. <span class="code"><span class ="ex">Vpn_4 bei der Berechnung des Mittelwerts von <span class="code"><span class ="ex">Var_3, aber __nicht__ bei denen von <span class="code"><span class ="ex">Var_1 und <span class="code"><span class ="ex">Var_2. 
 
 
 ####  cor(..., use)
 
-Mit `cor()` können wir Korrelationstabellen berechnen. Dabei können wir mit dem Parameter `use` festlegen, wie mit Missings umgegangen werden sollen. Wir beschränken uns hier auf zwei Möglichkeiten von `use`. Mit <span class="code"><span class=" highlight">complete.obs nutzen wir <span class="highlight">*listwise/casewise deletion*; mit <span class="code"><span class=" highlight">pairwise.complete.obs nutzen wir <span class="highlight">*pairwise deletion*.
+Mit `cor()` können wir Korrelationstabellen berechnen. Dabei können wir mit dem Parameter `use` festlegen, wie mit Missings umgegangen werden sollen. Wir beschränken uns hier auf zwei Möglichkeiten von `use`. Mit <span class="code"><span class=" highlight">complete.obs nutzen wir *listwise/casewise deletion*; mit <span class="code"><span class=" highlight">pairwise.complete.obs nutzen wir *pairwise deletion*.
 
 Um den Unterschied zwischen beiden Möglichkeiten besser zu verstehen, schauen wir uns die jeweiligen Korrelationstabellen (der ersten drei Variablen) an.
 
@@ -689,7 +689,7 @@ Im Folgenden wollen wir einen Datensatz hinsichtlich der fehlenden Werte (Missin
 
 
 
-<details><summary><span class="highlight">Datensatz A: *Normed Causality Statements*</summary><p>
+<details><summary>Datensatz A: *Normed Causality Statements*</summary><p>
 
 In dieser querschnittlichen Studie untersuchten Hussey & De Houwer inwieweit Personen normativ unmissverständlichen kausalen Aussagen zustimmen (z.B. X ruft Y hervor: Witze rufen Gelächter hervor).
 
@@ -728,7 +728,7 @@ rmarkdown::paged_table(data_a, options(rows.print=5))
 
 
 
-<details><summary><span class="highlight">Datensatz B: *Affective Forecasting and Social Anxiety*</summary><p>
+<details><summary>Datensatz B: *Affective Forecasting and Social Anxiety*</summary><p>
 
 In der Studie untersuchen Glenn & Teachman, inwiefern sich Menschen mit geringer und starker Sozialangst bezüglich ihrer Bewertung von zukünftigen emotionalen Situationen unterscheiden.
 
@@ -797,7 +797,7 @@ rmarkdown::paged_table(data_b, options(rows.print=5))
 Bevor wir uns die fehlenden Werte genauer anschauen können, ist es sinnvoll, einen **Plausibilitätscheck** durchzuführen. Damit überprüfen wir, ob fehlende Werte auch korrekt kodiert sind, d.h. mit `NA`.
 
 
-<span class="highlight">1.) Gibt es fehlende Werte im Datensatz, die nicht mit `NA` kodiert sind?
+1.) Gibt es fehlende Werte im Datensatz, die nicht mit `NA` kodiert sind?
 
 <div class="hint"><details><summary>Tipp</summary>
 Hier vergleichen wir die möglichen Ausprägungen der Variablen, die wir im Codebuch finden, mit den tatsächlichen Ausprägungen der Variablen, die wir uns in R anschauen können.</details>
@@ -888,7 +888,7 @@ Ansonsten scheinen alle fehlenden Werte korrekt kodiert zu sein.
 </details>\
 
 
-<span class="highlight">2.) Kodiere ggf. inkorrekt kodierte Missings zu `NA` um.
+2.) Kodiere ggf. inkorrekt kodierte Missings zu `NA` um.
 
 
 <div class="hint"><details><summary>Tipp</summary>
@@ -935,7 +935,7 @@ data_a <- data_a[,-5]
 
 
 
-<span class="highlight">1.) Wie viele Missings gibt es insgesamt im Datensatz (in absoluten und relativen Zahlen)?
+1.) Wie viele Missings gibt es insgesamt im Datensatz (in absoluten und relativen Zahlen)?
 
 <div class="hint"><details><summary>Tipp</summary>
 Mit der `table()`-Funktion können wir uns Häufigkeitstabellen ausgeben lassen. Jetzt müssen unsere Daten nur noch *dichotom* in fehlend und nicht fehlend eingeteilt werden.</details>
@@ -981,7 +981,7 @@ Es gibt `r table(is.na(data_b))[2]` fehlende Werte. Das sind ca. `r round(table(
 </details>\
 
 
-<span class="highlight">2.) Welche *Variable* enthält die meisten Missings? Wie viele Missings sind das (in absoluten und relativen Zahlen)
+2.) Welche *Variable* enthält die meisten Missings? Wie viele Missings sind das (in absoluten und relativen Zahlen)
 
 <div class="hint"><details><summary>Tipp: Verortung Missings</summary>
 Mit `colSums()` werden die Summen der Spalten eines Datensatzes angegeben. Nun müssen wir unsere Daten nur wieder *dichotom* in fehlend und nicht fehlend einteilen. 
@@ -1028,7 +1028,7 @@ Die meisten Missings hat die Variable `preselect_peak_e2` mit `r max(colSums(is.
 </details>\
 
 
-<span class="highlight">3.) Welche *Person* hat die meisten Missings? Wie viele Missings sind das (in absoluten und relativen Zahlen)?
+3.) Welche *Person* hat die meisten Missings? Wie viele Missings sind das (in absoluten und relativen Zahlen)?
 
 <div class="hint"><details><summary>Tipp: Verortung Missings</summary>
 Mit `rowSums()` werden die Summen der Zeilen eines Datensatzes angegeben. Zusätzlich müssen wir unsere Daten nur wieder *dichotom* in fehlend und nicht fehlend einteilen.
@@ -1076,7 +1076,7 @@ Die meisten Missings haben die Personen `r rownames(data_b[rowSums(is.na(data_b)
 </details>\
 
 
-<span class="highlight">4.) Welche bzw. wie viele Patterns *mit* Missings (Missings in bestimmten Kombinationen von Variablen) gibt es? Visualisiere sie. (Für Datensatz B reicht es, wenn das am häufigsten auftretende Pattern mit Missings beschrieben wird.)
+4.) Welche bzw. wie viele Patterns *mit* Missings (Missings in bestimmten Kombinationen von Variablen) gibt es? Visualisiere sie. (Für Datensatz B reicht es, wenn das am häufigsten auftretende Pattern mit Missings beschrieben wird.)
 
 <div class="hint"><details><summary>Tipp</summary>
 Im Paket **VIM** gibt es die Funktion `aggr()`, die beim Visualisieren von Missings helfen kann.
@@ -1147,9 +1147,9 @@ Es gibt `r length(summary(aggr(data_b))[["combinations"]][["Combinations"]]) - 1
 
 Nachdem wir uns im vorhergehenden Abschnitt deskriptiv-statistische Kennwerte der Missings und Missing-Patterns angeschaut haben, wollen wir uns im Folgenden auch inferenz-statistisch absichern. Dazu überprüfen wir die Zufälligkeit der Missing-Patterns. Ob fehlende Werte zufällig sind ist eine essentielle Frage, die wir <u>vor</u> der Nutzung der Daten klären müssen.
 
-<span class="highlight">1.) Sind die fehlenden Werte MCAR? Was hätte es für Konsequenzen für die weitere Datenverarbeitung, wenn die fehlenden Werte MAR oder MNAR wären?
+1.) Sind die fehlenden Werte MCAR? Was hätte es für Konsequenzen für die weitere Datenverarbeitung, wenn die fehlenden Werte MAR oder MNAR wären?
 
-<div class="hint"><details><summary>Auffrischung: <span class="highlight">MCAR, MAR und MNAR</summary>
+<div class="hint"><details><summary>Auffrischung: MCAR, MAR und MNAR</summary>
 **MCAR**: Missings hängen weder von der (fehlenden) Ausprägung auf der Variablen selbst noch von anderen Variablen und deren fehlenden Werten ab. Sie sind also komplett zufällig.
 
 **MAR**: Missings hängen <u>nicht</u> von der (fehlenden) Ausprägung auf der Variablen selbst, aber von anderen Variablen und deren Missings ab. Die Missings sind also zufällig, sobald für diese andere Variablen kontrolliert wird.
@@ -1165,7 +1165,7 @@ Zur Überprüfung der Zufälligkeit können wir den Test von Little (1988)^[**Li
 
 
 
-Außerdem können keine qualitativen Daten ausgewertet werden. Es gab eine qualitative Variable in <span class="highlight">Datensatz A, `gender...comment`,  welche wir aber zu Beginn des letzten Abschnitts bereits aus dem Datensatz entfernt haben.
+Außerdem können keine qualitativen Daten ausgewertet werden. Es gab eine qualitative Variable in Datensatz A, `gender...comment`,  welche wir aber zu Beginn des letzten Abschnitts bereits aus dem Datensatz entfernt haben.
 </details>
 
 
@@ -1222,11 +1222,11 @@ Beispiele: Wir können keine Fälle löschen wenn die Daten MAR oder MNAR sind. 
 </details>\
 
 
-<span class="highlight">2.) Wie gehen wir weiter vor (mit Hinblick auf die Ergebnisse des Tests nach Little)?
+2.) Wie gehen wir weiter vor (mit Hinblick auf die Ergebnisse des Tests nach Little)?
 
 <details><summary>Lösung</summary><div class="sol">
 
-Wie bereits oben beschrieben können wir nicht (einfach) weiter an <span class="highlight">Datensatz A arbeiten, solange wir nicht testen konnten, ob die Daten MCAR sind. Eine Möglichkeit wäre es, die Daten mit einer anderen Statistiksoftware auszuwerten, in der es einen implementierten MCAR-Test gibt. Es ist aber nicht ausgeschlossen, dass dieser auf dem gleichen Algorithmus wie `mcar_test()` beruht und wir das gleiche Problem haben würden.
+Wie bereits oben beschrieben können wir nicht (einfach) weiter an Datensatz A arbeiten, solange wir nicht testen konnten, ob die Daten MCAR sind. Eine Möglichkeit wäre es, die Daten mit einer anderen Statistiksoftware auszuwerten, in der es einen implementierten MCAR-Test gibt. Es ist aber nicht ausgeschlossen, dass dieser auf dem gleichen Algorithmus wie `mcar_test()` beruht und wir das gleiche Problem haben würden.
 
 ```{r}
 #| echo: false
@@ -1239,16 +1239,16 @@ Wie bereits oben beschrieben können wir nicht (einfach) weiter an <span class="
 ```
 
 
-Bezüglich <span class="highlight">Datensatz B können wir alle Verfahren anwenden, die MCAR oder MAR fordern, weil wir bei der Durchführung des Test nach Little Evidenz für die $H_0$ (d.h. Daten sind MCAR) gefunden haben.
+Bezüglich Datensatz B können wir alle Verfahren anwenden, die MCAR oder MAR fordern, weil wir bei der Durchführung des Test nach Little Evidenz für die $H_0$ (d.h. Daten sind MCAR) gefunden haben.
 
 </details>\
 
 
 ### Übung 4: Umgang
 
-> *__Achtung__*: Die folgenden Aufgaben beziehen sich nur auf den <span class="highlight">Datensatz B.
+> *__Achtung__*: Die folgenden Aufgaben beziehen sich nur auf den Datensatz B.
 
-<span class="highlight">1.) Berechne die Mittelwerte aller numerischen, mindestens intervallskalierten Variablen jeweils mit *listwise* und *pairwise deletion*. Vergleiche die jeweilige Anzahl der für die Berechnung genutzten Datenpunkte. Der Mittelwert welcher Variablen unterscheidet sich am meisten, welcher am wenigsten? 
+1.) Berechne die Mittelwerte aller numerischen, mindestens intervallskalierten Variablen jeweils mit *listwise* und *pairwise deletion*. Vergleiche die jeweilige Anzahl der für die Berechnung genutzten Datenpunkte. Der Mittelwert welcher Variablen unterscheidet sich am meisten, welcher am wenigsten? 
 
 <div class="hint"><details><summary>Tipp: *listwise* und *pairwise deletion*</summary>
 *listwise/casewise deletion*: Fälle mit mind. einem Missing in einer Variablen werden aus allen Mittelwertsberechnungen ausgeschlossen.
@@ -1322,7 +1322,7 @@ vergleich[which(vergleich$diff == max(vergleich$diff)), ]  # unterschiedlichster
 Die Variable mit dem geringsten Unterschied in den mit *listwise* und *pairwise deletion* berechneten Mittelwerten ist `age`; die Variable mit dem größten Unterschied ist `preselect_peak_e3`.
 </details>\
 
-<span class="highlight">2.) Berechne die Korrelationen aller numerischen, mindestens intervallskalierten Variablen jeweils mit *listwise* und *pairwise deletion*. <!--Vergleiche die (Indizes der für die Berechnung) genutzten Datenpunkte. Zur Berechnung welcher Korrelation wurde die größte Schnittmenge derselben Fälle für *listwise*  und *pairwise deletion* genutzt?--> Die Korrelation welcher Variablen unterscheidet sich am meisten zwischen *listwise* und *pairwise deletion*, welcher am wenigsten?
+2.) Berechne die Korrelationen aller numerischen, mindestens intervallskalierten Variablen jeweils mit *listwise* und *pairwise deletion*. <!--Vergleiche die (Indizes der für die Berechnung) genutzten Datenpunkte. Zur Berechnung welcher Korrelation wurde die größte Schnittmenge derselben Fälle für *listwise*  und *pairwise deletion* genutzt?--> Die Korrelation welcher Variablen unterscheidet sich am meisten zwischen *listwise* und *pairwise deletion*, welcher am wenigsten?
 
 <div class="hint"><details><summary>Tipp: *listwise* und *pairwise deletion*</summary>
 *listwise/casewise deletion*: Fälle mit mind. einem Missing in einer Variablen werden aus allen Mittelwertsberechnungen ausgeschlossen.

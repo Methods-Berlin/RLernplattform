@@ -161,9 +161,9 @@ knitr::include_graphics("figures/Daten-importieren/Bilder/Importieren_icon_csv_t
 
 Zum Einlesen sind folgende Schritte nötig:
 
-- Anklicken des <span style="color:#FF230C">**Browse**-Buttons. Daraufhin öffnet sich ein Fenster, in welchem wir die Datei auswählen können.
-- Überprüfen der <span style="color:#27B965">**Vorschau**, ob die Daten korrekt dargestellt werden. Die häufigsten Probleme bei der Repräsentation der Daten kommen durch die Trennungzeichen (zwischen den einzelnen Datenelementen) zustande. Diese können wir bei **Delimiter** ändern.
-- Anschließend drücken des <span style="color:#6DA8DC">**Import**-Buttons.
+- Anklicken des **Browse**-Buttons. Daraufhin öffnet sich ein Fenster, in welchem wir die Datei auswählen können.
+- Überprüfen der **Vorschau**, ob die Daten korrekt dargestellt werden. Die häufigsten Probleme bei der Repräsentation der Daten kommen durch die Trennungzeichen (zwischen den einzelnen Datenelementen) zustande. Diese können wir bei **Delimiter** ändern.
+- Anschließend drücken des **Import**-Buttons.
 
 Wenn die Datei neuro.csv erfolgreich eingelesen wurde, erscheint das neu erstellte Objekt neuro (oder welchen anderen Namen wir dem Objekt gegeben haben) im rechten oberen Panel bei **Environment**.
 
@@ -179,7 +179,7 @@ knitr::include_graphics("figures/Daten-importieren/Bilder/environment_neuro.png"
 
 ## Weg 2: Files > Import Dataset
 
-Schauen wir uns einen weiteren Weg an, mit der Benutzeroberfläche der Entwicklungsumgebung <span class ="r rstud">RStudio Dateien einzulesen. 
+Schauen wir uns einen weiteren Weg an, mit der Benutzeroberfläche der Entwicklungsumgebung RStudio Dateien einzulesen. 
 
 <!-- Bevor wir aber die Datei einlesen, werden wir das Working Directory setzen. -->
 
@@ -261,9 +261,9 @@ Auch wenn Möglichkeiten existieren, Dateien mithilfe der Benutzeroberfläche vo
 
 <!-- Mit der Funktion `setwd()` setzt man ein Working Directory in R. Dieser Funktion über geben wir den Pfad zu unserem gewünschten Arbeitsordner in Anführungszeichen (`" "` oder `' '`).  -->
 
-<!-- Unter <span class="highlight">Windows können wir auf <span class ="keybord">shift drücken und dann einen *Rechtsklick* auf den Ordner machen. Nun öffnet sich ein Menü, in welchem wir *Als Dateipfad kopieren* auswählen. **Wichtig** dabei ist, dass wir noch alle **\\** (backslashes) aus dem kopierten Pfad in */* (forwardslashes) ändern müssen. -->
+<!-- Unter Windows können wir auf shift drücken und dann einen *Rechtsklick* auf den Ordner machen. Nun öffnet sich ein Menü, in welchem wir *Als Dateipfad kopieren* auswählen. **Wichtig** dabei ist, dass wir noch alle **\\** (backslashes) aus dem kopierten Pfad in */* (forwardslashes) ändern müssen. -->
 
-<!-- Unter <span class="highlight">Mac können wir die Tastaturkürzel <span class ="keybord">alt + <span class ="keybord">cmd + <span class ="keybord">c nutzen, um unseren Ordnerpfad zu kopieren. -->
+<!-- Unter Mac können wir die Tastaturkürzel alt + cmd + c nutzen, um unseren Ordnerpfad zu kopieren. -->
 
 <!-- Wir führen <span class="code">setwd("/Ordnerpfad") mit **Run** (im Skript) aus, um unser Working Directory zu setzen. -->
 
@@ -286,9 +286,9 @@ daten <- read.csv("Dateipfad/neuro.csv")
 
 <details><summary>Einen Dateipfad kopieren</summary>
 
-Unter <span class="highlight">Windows können wir auf <span class ="keybord">shift drücken und dann einen *Rechtsklick* auf die Datei machen. Nun öffnet sich ein Menü, in welchem wir *Als Dateipfad kopieren* auswählen. **Wichtig** dabei ist, dass wir noch alle **\\** (backslashes) aus dem kopierten Pfad in */* (forwardslashes) ändern müssen.
+Unter Windows können wir auf shift drücken und dann einen *Rechtsklick* auf die Datei machen. Nun öffnet sich ein Menü, in welchem wir *Als Dateipfad kopieren* auswählen. **Wichtig** dabei ist, dass wir noch alle **\\** (backslashes) aus dem kopierten Pfad in */* (forwardslashes) ändern müssen.
 
-Unter <span class="highlight">Mac können wir die Tastaturkürzel <span class ="keybord">alt + <span class ="keybord">cmd + <span class ="keybord">c nutzen, um unseren Dateipfad zu kopieren.
+Unter Mac können wir die Tastaturkürzel alt + cmd + c nutzen, um unseren Dateipfad zu kopieren.
 
 </details>
 
@@ -366,11 +366,11 @@ Im Folgenden wollen wir uns einige Methoden zum Einlesen gängiger Dateiformate 
 
 <details><summary>Kurzbefehle zum Kopieren des Dateipfads</summary><div class = "more">
 
-<span class="highlight">Windows
+Windows
 
-Wir drücken <span class ="keybord">shift und machen dann einen *Rechtsklick* auf die Datei. Nun öffnet sich ein Menü, in welchem wir *Als Dateipfad kopieren* auswählen. **Wichtig** dabei ist, dass wir noch alle **\\** (backslashes) aus dem kopierten Pfad in */* (forwardslashes) ändern müssen.
+Wir drücken shift und machen dann einen *Rechtsklick* auf die Datei. Nun öffnet sich ein Menü, in welchem wir *Als Dateipfad kopieren* auswählen. **Wichtig** dabei ist, dass wir noch alle **\\** (backslashes) aus dem kopierten Pfad in */* (forwardslashes) ändern müssen.
 
-<span class="highlight">Mac
+Mac
 
 Wir klicken einmal auf die Datei (sodass sie markiert ist; dann ist sie blau hinterlegt) und führen dann den Kurzbefehl <span class="keybord">alt + <span class="keybord">cmd + <span class="keybord">C aus.
 

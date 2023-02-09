@@ -73,7 +73,7 @@ Zur Durchführung eines $t$-Tests für unabhängige Zufallsstichproben müssen f
 
 \
 <!--
-<span class="highlight">Intervallskalierung
+Intervallskalierung
 
 Im Codebook steht zu `zuf.bel.1` (was bei uns `zf_belastung` ist) *"Je höher der Wert, desto stärker die Ausprägung"*, was auf eine Intervallskalierung schließen lässt. 
 
@@ -87,7 +87,7 @@ Unser interessierendes Merkmal `zf_belastung` liegt als numeric vor.
 
 Mehr zu Datentypen und -strukturen erfahren wir in [Einführung in R](Einfuehrung_in_R.qmd).
 -->
-<span class="highlight">Normalverteilung
+Normalverteilung
 
 Schauen wir uns dazu jeweils für beide Gruppen von `job` einen **QQ-Plot** an.\
 
@@ -117,7 +117,7 @@ Mehr Informationen zum Erstellen von Grafiken mit dem Paket **ggplot2** finden w
 
 In beiden Diagrammen weichen die Punkte leicht von der Linie ab, d.h. dass die Daten nicht perfekt normalverteilt sind. Wir können uns aber auf den zentralen Grenzwertsatz stützen, welcher besagt, dass der Mittelwert eines Merkmals bei wachsender Stichprobengröße approximativ normalverteilt ist. Generell gibt es keinen Richtwert, der besagt, wann Stichproben hinreichend groß sind. Mit unseren Stichprobengrößen ($n_{ja} = 87$ und $n_{nein} = 86$) und den geringfügigen Abweichungen von einer Normalverteilung in den beiden Gruppen können wir erwarten, dass die Annahme hinreichend erfüllt ist.\
 
-<span class="highlight">Varianzhomogenität
+Varianzhomogenität
 
 > Varianzhomogenität bedeutet, dass die Varianzen in den untersuchten Populationen gleich sind. Wenn dies der Fall ist, sollten sich auch die Stichprobenvarianzen ähneln. 
 
@@ -247,7 +247,7 @@ Folgende vier Annahmen sind bei der einfachen linearen Regression mit der infere
 
 \
 
-<span class="highlight">Linearität
+Linearität
 
 > Die Abhängigkeit zwischen Erwartungswert des Kriteriums und Prädiktor ist linear.
 
@@ -265,7 +265,7 @@ Da sich die Lowess Fit Line (rote gestrichelte Linie), welche den generellen (no
 Mehr Informationen zur Lowess Fit Line und zum Residuenplot finden wir im Kapitel zur [Prüfung der Annahmen der multiplen linearen Regression](Voraussetzungspruefung.qmd).
 
 
-<span class="highlight">Homoskedastizität
+Homoskedastizität
 
 > Die Varianz der $y$-Werte, die an einer bestimmten Stelle des Prädiktors vorliegt, ist für alle Prädiktorwerte gleich (Varianzhomogenität).
 
@@ -273,7 +273,7 @@ Diese haben wir bereits im Abschnitt zum [$t$-Test](#github-link) mittels des **
 
 Den Residualplot, den wir gerade zur Überprüfung der Annahme der Linearität genutzt haben, können wir auch zur Überprüfung der Annahme der Homoskedatizität nutzen. Weil die Residuen sich ohne erkennbares Muster um den Erwartungswert der Residuen bei $y=0$ (schwarze gestrichelten Linie) verteilen, nehmen wir Homoskedastizität an.
 
-<span class="highlight">Normalverteilung der Residuen
+Normalverteilung der Residuen
 
 > Die Verteilung der $y$-Werte an einer bestimmten Stelle der $UV$ ist eine Normalverteilung.
 
@@ -292,7 +292,7 @@ plot(lm_belastung, which=2)
 
 Unser Kriterium Zufriedenheit mit der Bewältigung von Studienbelastungen scheint in Abhängigkeit der Gruppenzugehörigkeit leicht von einer Normalverteilung abzuweichen. Die Größe unserer Stichprobe, $N = 169$, legt nahe, dass (nach dem zentralen Grenzwertsatz) die Regressionskoeffizienten approximativ normalverteilt sind und der Standardfehler der Steigung nicht verzerrt ist.
 
-<span class="highlight">Unabhängigkeit der Residuen
+Unabhängigkeit der Residuen
 
 > Die Höhe des Residuums einer Beobachtung ist unabhängig von der Höhe des Residuums einer anderen Beobachtung.
 

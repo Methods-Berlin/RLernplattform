@@ -70,10 +70,10 @@ Mit Klick auf das <font color ="#FD9612">eingekreiste Icon kann man sich die Hil
 knitr::include_graphics("figures/Fehlermeldungen/Bilder/doc.png")
 ```
 
-Wir bekommen hier (zumeist) folgende Informationen: aus welchem Paket die Funktion ist (oben links in **{ }**), was die Funktion macht (<span class="highlight">Description), die Funktionsdefinition ggf. mit Defaults (<span class="highlight">Usage), ihre Parameter mit jeweils gültigen Argumenten (<span class="highlight">Arguments), weitere Details zur Nutzung (<span class="highlight">Details), ähnliche Funktionen (<span class="highlight">See also) und Beispiele zur Nutzung (<span class="highlight">Examples).
+Wir bekommen hier (zumeist) folgende Informationen: aus welchem Paket die Funktion ist (oben links in **{ }**), was die Funktion macht (Description), die Funktionsdefinition ggf. mit Defaults (Usage), ihre Parameter mit jeweils gültigen Argumenten (Arguments), weitere Details zur Nutzung (Details), ähnliche Funktionen (See also) und Beispiele zur Nutzung (Examples).
 
 <details><summary>*Was sind Parameter, Argumente und Defaults?*</summary>
-<span class="highlight">Parameter bezeichnet die (formalen) **Variablen einer Funktion** (z.B. `nrow` aus `matrix()`), denen wir unsere (tatsächlichen) <span class="highlight">Argumente (z.B. `3`), d.h. unseren **Input**,  übergeben. <span class="highlight">Default bezeichnet ein **voreingestelltes Argument** (z.B. `nrow=1`).
+Parameter bezeichnet die (formalen) **Variablen einer Funktion** (z.B. `nrow` aus `matrix()`), denen wir unsere (tatsächlichen) Argumente (z.B. `3`), d.h. unseren **Input**,  übergeben. Default bezeichnet ein **voreingestelltes Argument** (z.B. `nrow=1`).
 
 Ohne explizite Spezifikation des Parameters unsererseits wird (wenn vorhanden) der Default verwendet. Wir könnten natürlich auch ein anderes (als das voreingestellte) Argument festlegen.
 
@@ -156,7 +156,7 @@ knitr::include_graphics("figures/Fehlermeldungen/Bilder/fehl.png")
 
 Die Information **vor** dem Doppelpunkt gibt uns an, in welcher Funktion der Fehler steckt; die Information **nach** dem Doppelpunkt gibt Aufschluss über die Art des Fehlers. Zweiteres ist für die Fehlersuche (zumeist) von großer Bedeutung.
 
-Im Folgenden konzentrieren wir uns auf eine Art von Fehler, mit der vor allem AnfängerInnen häufig konfrontiert sind: <span class="highlight">Syntaxfehler.
+Im Folgenden konzentrieren wir uns auf eine Art von Fehler, mit der vor allem AnfängerInnen häufig konfrontiert sind: Syntaxfehler.
 
 > Syntaxfehler sind Fehler, die durch eine **Verletzung des formalen Aufbaus einer Funktion** zustande kommen. Manchmal entstehen sie auch nur durch Vertippen.
 

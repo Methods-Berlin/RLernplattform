@@ -59,7 +59,7 @@ mean(x = nums)
 
 Wir können Funktionen **variierenden Input** übergeben. Dieser steht immer in Klammern direkt hinter der Funktion. Beispielsweise könnten wir auch den Mittelwert einer anderen Zahlenreihe als `nums` berechnen.
 
-Den Input übergeben wir an einen <span class="highlight">Parameter. Das ist eine (formale) *Variable* einer Funktion (z.B. <span class="code">mean(**x**)), die in der Funktionsdefinition festgelegt ist. Der tatsächliche *Input* nennt sich <span class="highlight">Argument (z.B. <span class="code">mean(x = **nums**)). Die Parameter einer Funktion werden mit Kommata getrennt. Schematisch sieht eine Funktion somit folgendermaßen aus: <span class="code">function(parameter_1 = argument_1, parameter_2 = argument_2, ...)
+Den Input übergeben wir an einen Parameter. Das ist eine (formale) *Variable* einer Funktion (z.B. <span class="code">mean(**x**)), die in der Funktionsdefinition festgelegt ist. Der tatsächliche *Input* nennt sich Argument (z.B. <span class="code">mean(x = **nums**)). Die Parameter einer Funktion werden mit Kommata getrennt. Schematisch sieht eine Funktion somit folgendermaßen aus: <span class="code">function(parameter_1 = argument_1, parameter_2 = argument_2, ...)
 
 Werfen wir einmal einen Blick in die **Funktionsdefinition von `mean()`**:
 
@@ -72,7 +72,7 @@ knitr::include_graphics("figures/Einführung/Bilder/R/mean.png")
 
 <aside>Die Funktionsdefinition finden wir in der Dokumentation, welche wir in RStudio unter [Files, Plots, Packages, Help & Viewer][Files, Plots, Packages, Help & Viewer] </aside>
 
-Manche Parameter besitzen *voreingestellte Argumente* (z.B. `na.rm=FALSE`), diese bezeichnet man als <span class="highlight">Defaults. Funktionen mit (min. einem) Parameter *ohne* Default (z.B. `mean()`) werden ohne Spezifikation dieser nicht ausgeführt. Beispielsweise *müssen* wir dem Parameter `x` einen Vektor, von dem wir den Mittelwert berechnen wollen, übergeben.
+Manche Parameter besitzen *voreingestellte Argumente* (z.B. `na.rm=FALSE`), diese bezeichnet man als Defaults. Funktionen mit (min. einem) Parameter *ohne* Default (z.B. `mean()`) werden ohne Spezifikation dieser nicht ausgeführt. Beispielsweise *müssen* wir dem Parameter `x` einen Vektor, von dem wir den Mittelwert berechnen wollen, übergeben.
 
 Parameter ermöglichen uns aber nicht nur, eine Aufgabe mit verschiedenen Daten durchzuführen, sondern auch weitere Optionen zu wählen (z.B. `na.rm`: Ausschluss von fehlenden Werten; `trim`: trimmen der Enden der Verteilung der Zahlenreihe vor Berechnung des Mittelwerts). 
 
@@ -946,11 +946,11 @@ Eine Übersicht weiterer Kurzbefehle für R finden wir in der Leiste ganz oben u
 
 Wie bereits im Abschnitt Funktionen erwähnt, können wir auf <a href="https://www.freecodecamp.org" target="_blank">freecodecamp.org</a> eine weiterführende <span class ="highlight">**Vertiefung zu Funktionen** im <a href="https://www.freecodecamp.org/news/r-programming-language-explained/#functions-in-r" target="_blank">gleichnamigen Abschnitt</a> bekommen. Das dauert nur ca. 10min und ist gut investierte Zeit, wenn man wenig Erfahrung mit dem Programmieren hat.
 
-Wenn ihr einen <span class="highlight">**amüsanten Einstieg** in R haben wollte, schaut euch <a href="https://bookdown.org/ndphillips/YaRrr/" target="_blank">**YaRrr! The Pirate’s Guide to R**</a> (auf englisch) an. Nach einer charismatischen Einführung befinden sich mehrere Abschnitte, teils mit Abschlussübung z.B. zu Skalaren und Vektoren, Vektor-Funktionen, Indexierung, Plotten, uvm.. 
+Wenn ihr einen **amüsanten Einstieg** in R haben wollte, schaut euch <a href="https://bookdown.org/ndphillips/YaRrr/" target="_blank">**YaRrr! The Pirate’s Guide to R**</a> (auf englisch) an. Nach einer charismatischen Einführung befinden sich mehrere Abschnitte, teils mit Abschlussübung z.B. zu Skalaren und Vektoren, Vektor-Funktionen, Indexierung, Plotten, uvm.. 
 
-**<a href="https://www.r-exercises.com/category/exercises/" target="_blank">www.r-exercises.com</a>** bietet eine Fülle an <span class="highlight">**Übungen (mit Lösungen) zu verschiedenen Themenbereichen**, wie z.B. <a href="https://www.r-exercises.com/tag/vectors/" target="_blank">Vektoren</a> und <a href="https://www.r-exercises.com/tag/dataframes/" target="_blank">Data Frames</a>. Mit Ausnahme der mit *Protected* gekennzeichneten Seiten können wir alle nutzen. Rechts unter *Filter by Topic* können wir die Themen filtern.
+**<a href="https://www.r-exercises.com/category/exercises/" target="_blank">www.r-exercises.com</a>** bietet eine Fülle an **Übungen (mit Lösungen) zu verschiedenen Themenbereichen**, wie z.B. <a href="https://www.r-exercises.com/tag/vectors/" target="_blank">Vektoren</a> und <a href="https://www.r-exercises.com/tag/dataframes/" target="_blank">Data Frames</a>. Mit Ausnahme der mit *Protected* gekennzeichneten Seiten können wir alle nutzen. Rechts unter *Filter by Topic* können wir die Themen filtern.
 
-Wenn ihr den <span class="highlight">**Umgang mit R direkt in R lernen** wollt, dann schaut euch das **Paket <a href="https://swirlstats.com" target="_blank">swirl</a>** an. Es gibt mehrere Kurse mit mehreren kleinen Einheiten zu absolvieren.
+Wenn ihr den **Umgang mit R direkt in R lernen** wollt, dann schaut euch das **Paket <a href="https://swirlstats.com" target="_blank">swirl</a>** an. Es gibt mehrere Kurse mit mehreren kleinen Einheiten zu absolvieren.
 
 ---
 

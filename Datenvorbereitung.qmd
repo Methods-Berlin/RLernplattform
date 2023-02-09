@@ -16,7 +16,7 @@ Wir fangen mit grundsätzlichen Überprüfungen unserer der Daten an. Nachfolgen
 <details class="bsp"><summary><a name="data"></a>Beispieldatensätze für dieses Kapitel</summary>
 Für das vorliegende Kapitel nutzen wir **mehrere Datensätze**, um die unterschiedlichen Verarbeitungsschritte zu demonstrieren.
 
-Den Datensatz <span class="highlight">airquality werden wir am meisten nutzen. Dieser enthält Daten aus einer Untersuchung der **Luftqualität in New York**, die von Mai bis September des Jahres 1973 stattfand. Der Datensatz ist standardmäßig in <span class ="r">R enthalten und wir bekommen ihn mit der Funktion `data()` in unser <span class ="r">R-Environment:
+Den Datensatz airquality werden wir am meisten nutzen. Dieser enthält Daten aus einer Untersuchung der **Luftqualität in New York**, die von Mai bis September des Jahres 1973 stattfand. Der Datensatz ist standardmäßig in <span class ="r">R enthalten und wir bekommen ihn mit der Funktion `data()` in unser <span class ="r">R-Environment:
 
 ```{r}
 data(airquality)
@@ -39,7 +39,7 @@ Mehr Informationen zum Datensatz finden wir <a href="https://stat.ethz.ch/R-manu
 \
 
 
-Den Datensatz <span class="highlight">PWE_data, welcher Daten einer **psychometrischen Erhebung** enthält, werden wir auch häufiger nutzen. Um den Datensatz und das Codebuch herunterzuladen, klicken wir auf diesen <a href="https://openpsychometrics.org/_rawdata/PWE_data.zip">Link</a>. Dann gehen wir in den Ordner **PWE_data** und lesen **data.csv** ein:
+Den Datensatz PWE_data, welcher Daten einer **psychometrischen Erhebung** enthält, werden wir auch häufiger nutzen. Um den Datensatz und das Codebuch herunterzuladen, klicken wir auf diesen <a href="https://openpsychometrics.org/_rawdata/PWE_data.zip">Link</a>. Dann gehen wir in den Ordner **PWE_data** und lesen **data.csv** ein:
 
 ```{r}
 #| eval: false
@@ -63,7 +63,7 @@ Der Datensatz enthält 102 Variablen. Einige davon schauen wir uns im Laufe des 
 
 
 
-Die Datensätze <span class="highlight">vornamen_13 und <span class="highlight">vornamen_14 enthalten die **Vornamen der Neugeborenen in München**, jeweils für die Jahre 2013 und 2014. Diese werden wir nur für [**2. Datensätze zusammenführen**][Datensätze zusammenführen] nutzen.
+Die Datensätze vornamen_13 und vornamen_14 enthalten die **Vornamen der Neugeborenen in München**, jeweils für die Jahre 2013 und 2014. Diese werden wir nur für [**2. Datensätze zusammenführen**][Datensätze zusammenführen] nutzen.
 
 Zuerst laden wir die csv-Dateien für <a href="https://www.opengov-muenchen.de/dataset/6acc34a9-762e-4e7f-83b0-250654478134/resource/f47ec60f-8839-4e83-9c7c-492c8b17d7b5/download/vornamen-von-neugeborenen2013.csv" target="_blank">2013</a> und <a href="https://www.opengov-muenchen.de/dataset/582aac00-aa2d-4b00-ac90-c4e5be7fa485/resource/cebd2d67-94e6-4667-a850-415f863d3b10/download/vornamen-von-neugeborenen-2014.csv" target="_blank">2014</a> runter und lesen sie dann folgendermaßen in <span class ="r">R ein:
 
@@ -127,7 +127,7 @@ Die nachfolgende Wiederholung ist eine verkürzte Variante des Abschnitts [Daten
 
 Das Messniveau (oder auch Skalenniveau) ist eine wichtige Eigenschaft von Merkmalen (Variablen) von Untersuchungseinheiten. Es beschreibt, welche Informationen in unseren Messwerten abgebildet werden und damit auch welche mathematischen Transformationen mit den Messwerten sinnvoll sind  (z.B. das Berechnen von Mittelwerten). Somit begrenzt das Messniveau auch die zulässigen Datenauswertungsverfahren unserer Variablen.
 
-Die Kodierung von <span class="highlight">nominalskalierten Merkmalen ist insofern willkürlich, als dass lediglich auf Gleichheit versus Ungleichheit geachtet werden muss (z.B. `1`, `4`, `9` *oder* `A`, `Y`, `M`).
+Die Kodierung von nominalskalierten Merkmalen ist insofern willkürlich, als dass lediglich auf Gleichheit versus Ungleichheit geachtet werden muss (z.B. `1`, `4`, `9` *oder* `A`, `Y`, `M`).
 
 <aside>**Mögliche Unterscheidungen**:\
 Gleichheit/Ungleichheit</aside>
@@ -135,7 +135,7 @@ Gleichheit/Ungleichheit</aside>
 **airquality**: -\
 **PWE_data**: u.a.`school`, `urban`, `gender`
 
-Die Kodierung von <span class="highlight">ordinalskalierten Merkmalen geschieht der Größe nach, d.h. dass die Rangfolge der Kodierungen einzelner Gruppen relevant ist (z.B. `1` < `4` < `9` *oder* `A` < `M` < `Y`). Man kann aber auch eine eigene Sortierung festlegen, die nicht der "natürlichen" Rangfolge entspricht (z.B. `Y` < `A` < `M`). Ein Realschulabschluss ist beispielsweise besser als ein Hauptschulabschluss. Wir können aber nicht festlegen, *wie viel besser* er ist. 
+Die Kodierung von ordinalskalierten Merkmalen geschieht der Größe nach, d.h. dass die Rangfolge der Kodierungen einzelner Gruppen relevant ist (z.B. `1` < `4` < `9` *oder* `A` < `M` < `Y`). Man kann aber auch eine eigene Sortierung festlegen, die nicht der "natürlichen" Rangfolge entspricht (z.B. `Y` < `A` < `M`). Ein Realschulabschluss ist beispielsweise besser als ein Hauptschulabschluss. Wir können aber nicht festlegen, *wie viel besser* er ist. 
 
 <aside>**Mögliche Unterscheidungen**:\
 Gleichheit/Ungleichheit\
@@ -144,7 +144,7 @@ Rangordnung</aside>
 **airquality**: -\
 **PWE_data**: `education`
 
-Bei der Kodierung von <span class="highlight">intervallskalierten Merkmalen sind sowohl die Rangfolge als auch die Abstände zwischen den Ausprägungen relevant (z.B. `1`, `4`, `7`; jeweils mit gleichem Abstand zueinander; *oder* `1.4`, `1.5`, `2.3`; jeweils mit verschiedenen Abständen zueinander). Ein Beispiel dafür ist die Temperatur in Grad Celsius oder Grad Fahrenheit.
+Bei der Kodierung von intervallskalierten Merkmalen sind sowohl die Rangfolge als auch die Abstände zwischen den Ausprägungen relevant (z.B. `1`, `4`, `7`; jeweils mit gleichem Abstand zueinander; *oder* `1.4`, `1.5`, `2.3`; jeweils mit verschiedenen Abständen zueinander). Ein Beispiel dafür ist die Temperatur in Grad Celsius oder Grad Fahrenheit.
 
 <aside>**Mögliche Unterscheidungen**:\
 Gleichheit/Ungleichheit\
@@ -154,7 +154,7 @@ Abstände</aside>
 **airquality**: `Temp` (Temperatur in Grad Fahrenheit)\
 **PWE_data**: u.a. Antworten (1-5) auf die Items des PWE (`Q1A`, ..., `Q19A`), Antworten (1-7) auf die Items des TIPI (`TIPI1`, ..., `TIPI10`)
 
-Bei der Kodierung von <span class="highlight">verhältnisskalierten Merkmalen ist zusätzlich noch ein Nullpunkt vorhanden. Dieser erlaubt es, dass Quotienten zwischen Werten gebildet werden können. Ein beliebtes Beispiel ist die Kelvin Skala. Bei dieser ist bei 0°K keine Bewegungsenergie mehr vorhanden und 20°K sind doppelt so viel wie 40°K.
+Bei der Kodierung von verhältnisskalierten Merkmalen ist zusätzlich noch ein Nullpunkt vorhanden. Dieser erlaubt es, dass Quotienten zwischen Werten gebildet werden können. Ein beliebtes Beispiel ist die Kelvin Skala. Bei dieser ist bei 0°K keine Bewegungsenergie mehr vorhanden und 20°K sind doppelt so viel wie 40°K.
 
 <aside>**Mögliche Unterscheidungen**:\
 Gleichheit/Ungleichheit\
@@ -165,7 +165,7 @@ Verhältnisse</aside>
 **airquality**: `Ozone`, `Solar.R`, `Wind`\
 **PWE_data**: `age`
 
-Zu guter Letzt gibt es noch <span class="highlight">absolutskalierte Merkmale, welche sowohl einen eindeutigen Nullpunkt als auch eine eindeutige Einheit der Skala (z.B. Anzahl der Kinder) vorweisen kann. Die Kodierung entsprcht der natürlichen Einheit.
+Zu guter Letzt gibt es noch absolutskalierte Merkmale, welche sowohl einen eindeutigen Nullpunkt als auch eine eindeutige Einheit der Skala (z.B. Anzahl der Kinder) vorweisen kann. Die Kodierung entsprcht der natürlichen Einheit.
 
 **airquality**: -\
 **PWE_data**: `familysize`
@@ -222,9 +222,9 @@ kable(table, "html", escape = F) %>%
 
 ```
 
-Der <span class="highlight">Datentyp gibt an, um was für Daten es sich handelt, d.h. welche **Werte**(bereiche) diese haben und welche **Operationen** wir auf sie anwenden können. Wir nutzen zumeist Zeichen, Wahrheitswerte und Zahlen. Diese werden in <span class ="r">R als <span class ="r">**character**, <span class ="r">**logical**, <span class ="r">**integer** und <span class ="r">**double** gespeichert, wobei letztere beiden häufig als <span class ="r">**numeric** zusammengefasst werden.
+Der Datentyp gibt an, um was für Daten es sich handelt, d.h. welche **Werte**(bereiche) diese haben und welche **Operationen** wir auf sie anwenden können. Wir nutzen zumeist Zeichen, Wahrheitswerte und Zahlen. Diese werden in <span class ="r">R als <span class ="r">**character**, <span class ="r">**logical**, <span class ="r">**integer** und <span class ="r">**double** gespeichert, wobei letztere beiden häufig als <span class ="r">**numeric** zusammengefasst werden.
 
-Die <span class="highlight">Datenstruktur bestimmt die **Organisation** und **Speicherung** von Daten(typen). In <span class ="r">R gibt es z.B. <span class ="r">**Vektoren**, <span class ="r">**Matrizen**, <span class ="r">**Dataframes**, <span class ="r">**Listen** und <span class ="r">**Faktoren**. Beispielsweise können <span class ="r">Vektoren und Matrizen jeweils nur *einen* Datentypen enthalten, während <span class ="r">Dataframes *mehrere* Datentypen enthalten können.
+Die Datenstruktur bestimmt die **Organisation** und **Speicherung** von Daten(typen). In <span class ="r">R gibt es z.B. <span class ="r">**Vektoren**, <span class ="r">**Matrizen**, <span class ="r">**Dataframes**, <span class ="r">**Listen** und <span class ="r">**Faktoren**. Beispielsweise können <span class ="r">Vektoren und Matrizen jeweils nur *einen* Datentypen enthalten, während <span class ="r">Dataframes *mehrere* Datentypen enthalten können.
 
 Datentyp und -struktur sind ausschlaggebend dafür, welche Funktionen wir anwenden können bzw. welchen Output wir bekommen.
 
@@ -1952,7 +1952,7 @@ Zuallererst wollen wir uns mit dem Datensatz vertraut machen. Dazu benötigen wi
 
 > *__Achtung__*: Es sind nicht alle Variablen, die im Codebuch auftauchen, auch im Datensatz. 
 
-<span class="highlight">1.) Es gibt zwei Variablen im Datensatz, die nicht im Codebuch zu finden sind. Welche sind das?
+1.) Es gibt zwei Variablen im Datensatz, die nicht im Codebuch zu finden sind. Welche sind das?
 
 <details><summary>Lösung</summary><div class="sol">
 
@@ -1963,7 +1963,7 @@ Die Variable `time` taucht nicht im Codebuch auf. Möglicherweise ist das die in
 </details>\
 
 
-<span class="highlight">2.) Wie viele Variablen und Beobachtungen enthält der Datensatz?
+2.) Wie viele Variablen und Beobachtungen enthält der Datensatz?
 
 <div class="hint"><details><summary>Tipp</summary>
 Standardmäßig sind Variablen die Spalten und Beobachtungen die Zeilen eines Datensatzes.</details>
@@ -1994,7 +1994,7 @@ nrow(data) # Beobachtungen (Personen; N) = Anzahl der Zeilen
 </details>\
 
 
-<span class="highlight">3.) Liegen alle Variablen in einem ihrem Messniveau angemessenen Datentyp vor?
+3.) Liegen alle Variablen in einem ihrem Messniveau angemessenen Datentyp vor?
 
 <div class="hint"><details><summary>Tipp</summary>
 Im Codebuch finden wir Informationen zu den Variablen. Über die Funktionen `str()` bekommen wir Informationen zum Datentyp.
@@ -2028,7 +2028,7 @@ levels(data$inc)
 </details>\
 
 
-<!-- <span class="highlight">4.) Was kodiert die Variable `inc`, in welchem Datentyp liegt sie vor und wie viele Ausprägungen dieser Variablen gibt es? -->
+<!-- 4.) Was kodiert die Variable `inc`, in welchem Datentyp liegt sie vor und wie viele Ausprägungen dieser Variablen gibt es? -->
 
 
 <!-- <div class="hint"><details><summary>Tipp</summary> -->
@@ -2055,7 +2055,7 @@ levels(data$inc)
 <!-- </details>\ -->
 
 
-<span class="highlight">4.) Wie heißt die Variable, die kodiert, inwieweit die befragte Person gerne viele Menschen um sich herum hat? Welche Antwortoption auf der *Mess*skala (hiermit ist <u>nicht</u> die Kodierung der Daten gemeint) haben die meisten befragten Personen angekreuzt?
+4.) Wie heißt die Variable, die kodiert, inwieweit die befragte Person gerne viele Menschen um sich herum hat? Welche Antwortoption auf der *Mess*skala (hiermit ist <u>nicht</u> die Kodierung der Daten gemeint) haben die meisten befragten Personen angekreuzt?
 
 <div class="hint"><details><summary>Tipp 1</summary>
 Den Namen der Variablen sowie deren Messskala finden wir im Codebuch. Die Häufigkeiten der jeweiligen Ausprägungen der Variablen bringen wir in R in Erfahrung.</details>
@@ -2078,7 +2078,7 @@ Die Kodierung `5` kommt am häufigsten vor. Die meisten befragten Personen haben
 </details>\
 
 
-<span class="highlight">5.) Gibt es Werte von Variablen im Datensatz, die unplausibel erscheinen? Wenn ja, entferne die entsprechenden Personen aus dem Datensatz.
+5.) Gibt es Werte von Variablen im Datensatz, die unplausibel erscheinen? Wenn ja, entferne die entsprechenden Personen aus dem Datensatz.
 
 <div class="hint"><details><summary>Tipp 1</summary>
 Hiervoll ist es sinnvoll, sich eine Übersicht der Ausprägungen aller Variablen anzuschauen und diese ggf. mit den Angaben im Codebuch zu vergleichen.
@@ -2105,7 +2105,7 @@ data <- data[-which(data$age == 9),]
 </details>\
 
 
-<span class="highlight">6.) Enthält der Datensatz fehlende Werte ("Missings"; `NA`) und wenn ja, wie viele insgesamt und auf welchen Variablen?
+6.) Enthält der Datensatz fehlende Werte ("Missings"; `NA`) und wenn ja, wie viele insgesamt und auf welchen Variablen?
 
 <div class="hint"><details><summary>Tipp</summary>
 Das Thema "Fehlende Werte" wird im Kapitel zur Datenvorbereitung nur kurz angerissen, weil es ein [eigenständiges Kapitel](Fehlende-Werte.qmd) dazu gibt.</details>
@@ -2139,7 +2139,7 @@ Jede Variable mit Ausnahme von `id` und `time` enthält fehlende Werte.
 
 </details>\
 
-<span class="highlight">7.) Was ist die höchste Anzahl an fehlenden Werten von *einer* Person und welche Person hat bzw. welche Personen haben die meisten fehlenden Werte?
+7.) Was ist die höchste Anzahl an fehlenden Werten von *einer* Person und welche Person hat bzw. welche Personen haben die meisten fehlenden Werte?
 
 <div class="hint"><details><summary>Tipp</summary>
 In der letzten Aufgabe haben wir uns variablenweise Missings angeschaut mit `colSums()`. Nun wollen wir uns *zeilen*weise Missings anschauen. </details>
@@ -2179,7 +2179,7 @@ Nun wollen wir einzelne Daten aus dem Datensatz extrahieren. Dabei interessieren
 
 > *__Achtung__*:  Achte darauf, immer auch die `id`-Variable mit zu extrahieren, um Beobachtungseinheiten identifizieren zu können, auch wenn das nicht jedes mal erneut in der Aufgabenbeschreibung steht.
 
-<span class="highlight">1.) Extrahiere alle demographischen Variablen aus `data`.
+1.) Extrahiere alle demographischen Variablen aus `data`.
 
 <div class="hint"><details><summary>Tipp 1</summary>
 Im Codebuch (S. 26ff) steht, welche Variablen zu den demographischen Angaben zählen.
@@ -2210,7 +2210,7 @@ rmarkdown::paged_table(select(data, id, male, age, inc), options(rows.print=5))
 
 </details>\
 
-<span class="highlight">2.) Extrahiere alle Variablen, die grundlegende Bedürfnisse (*General Needs*) erfassen.
+2.) Extrahiere alle Variablen, die grundlegende Bedürfnisse (*General Needs*) erfassen.
 
 <div class="hint"><details><summary>Tipp 1</summary>
 Die Variablen haben denselben Wortstamm: `gen`. </details>
@@ -2237,7 +2237,7 @@ rmarkdown::paged_table(data[,c(1, grep("gen", names(data)))], options(rows.print
 </details>\
 
 
-<span class="highlight">3.) Extrahiere alle Variablen, die gesellschaftliche (*Societal Needs*) und interpersonelle (*Interpersonal Needs*) Bedürfnisse erfassen.
+3.) Extrahiere alle Variablen, die gesellschaftliche (*Societal Needs*) und interpersonelle (*Interpersonal Needs*) Bedürfnisse erfassen.
 
 <div class="hint"><details><summary>Tipp 1</summary>
 Die Variablen haben zwar denselben Wortstamm – `nee` – aber den haben die Variablen zu grundlegenden Bedürfnissen (*General Needs*) auch. </details>
@@ -2274,7 +2274,7 @@ rmarkdown::paged_table(all_needs[grep("id|c|t", names(all_needs))], options(rows
 </details>\
 
 
-<span class="highlight">4.) Extrahiere alle Personen, die weniger als \$500 oder mehr als \$5.000 monatlich zur Verfügung haben.
+4.) Extrahiere alle Personen, die weniger als \$500 oder mehr als \$5.000 monatlich zur Verfügung haben.
 
 <div class="hint"><details><summary>Tipp</summary>
 Um beide Bedingungen (`< $500` und `> $5.000`) abzufragen, können wir den logischen Operator `|` ("oder") nutzen.</details>
@@ -2305,7 +2305,7 @@ rmarkdown::paged_table(filter(data, inc == 1 | inc == 5), options(rows.print=5))
 </details>\
 
 
-<span class="highlight">5.) Extrahiere die "Extremkreuzer" (Personen, die nur die niedrigste oder höchste Ausprägung einer Frage ankreuzen) aus dem Geselligkeits-Fragebogen (Sociability).
+5.) Extrahiere die "Extremkreuzer" (Personen, die nur die niedrigste oder höchste Ausprägung einer Frage ankreuzen) aus dem Geselligkeits-Fragebogen (Sociability).
 
 <div class="hint"><details><summary>Tipp 1</summary>
 Wir können wieder den logischen Operator `|` ("oder") nutzen, um jeweils Personen mit der niedrigste oder höchsten Ausprägung eines Items auszuwählen.</details>
@@ -2355,7 +2355,7 @@ Auf den Seiten 6 bis 7 sehen wir die Items des Geselligkeits-Fragebogens (oben r
 </details>\
 
 
-<span class="highlight">6.) Extrahiere die Items des Fragebogens zu Integrität (Integrity) für alle Personen, die 18 Jahre alt sind.
+6.) Extrahiere die Items des Fragebogens zu Integrität (Integrity) für alle Personen, die 18 Jahre alt sind.
 
 <div class="hint"><details><summary>Tipp 1</summary>
 Die Reihenfolge der Auswahl, d.h. ob zuerst Variablen oder zuerst Fälle selektiert werden, ist eigentlich irrelevant, aber wenn wir erst die Fälle selektieren und dann die Variablen müssen wir die Variable `age` nicht wieder aus dem finalen Datensatz entfernen.</details>
@@ -2384,7 +2384,7 @@ rmarkdown::paged_table(all_itg_items, options(rows.print=5))
 </details>\
 
 
-<span class="highlight">7.) Extrahiere alle Personen, die im Fragebogen zu interpersonellen Bedürfnissen (Needs, Interpersonal) über dem Gesamtmittelwert (Mittelwert über alle Personen im Datensatz) liegen. Entferne Personen mit mindestens einem fehlenden Wert auf diesen Items aus der Analyse.
+7.) Extrahiere alle Personen, die im Fragebogen zu interpersonellen Bedürfnissen (Needs, Interpersonal) über dem Gesamtmittelwert (Mittelwert über alle Personen im Datensatz) liegen. Entferne Personen mit mindestens einem fehlenden Wert auf diesen Items aus der Analyse.
 
 <aside>Hier muss zusätzlich eine Summary-Variable (Übung 5) erstellt werden.</aside>
 
@@ -2434,7 +2434,7 @@ rmarkdown::paged_table(final_data, options(rows.print=5))
 
 Im Folgenden wollen wir unseren Datensatz nach den aufsteigenden bzw. absteigenden Ausprägungen auf einer der enthaltenen Variablen sortieren.
 
-<span class="highlight">1.) Sortiere `data` (primär) nach den aufsteigenden Ausprägungen in `age` und (sekundär) nach dem Geschlecht (Frauen zuerst).
+1.) Sortiere `data` (primär) nach den aufsteigenden Ausprägungen in `age` und (sekundär) nach dem Geschlecht (Frauen zuerst).
 
 > *__Achtung__*:  Da die Kodierung der Variablen `male` im Codebuch nicht geklärt wird, gehen wir hier standarmäßig davon aus, dass `0` für *nein*  und `1` für *ja* steht.
 
@@ -2458,7 +2458,7 @@ rmarkdown::paged_table(data[order(data$age),], options(rows.print=5))
 </details>\
 
 
-<span class="highlight">2.) Sortiere `data` (primär) nach absteigendem Einkommen und (sekundär, tertiär, ect.) nach den aufsteigenden Ausprägungen auf den Traditionalismus-Items (Traditionalism) in ihrer natürlichen Reihenfolge (beginnend bei `_1`, endend bei `_8`).
+2.) Sortiere `data` (primär) nach absteigendem Einkommen und (sekundär, tertiär, ect.) nach den aufsteigenden Ausprägungen auf den Traditionalismus-Items (Traditionalism) in ihrer natürlichen Reihenfolge (beginnend bei `_1`, endend bei `_8`).
 
 <div class="hint"><details><summary>Tipp 1</summary>
 Mit der Funktion `order()` können wir nur jeweils auf- *oder* absteigend für *alle* angegebenen Variablen sortieren. Daher sollten wir für diese Aufgabe auf andere Funktionen, z.B. `arrange()` aus dem Paket dplyr zurückgreifen.</details>
@@ -2499,7 +2499,7 @@ rmarkdown::paged_table(arrange(data_tra, -inc, tra_1, tra_2, tra_3, tra_4, tra_5
 
 Nun wollen wir die Kodierungen einiger Variablen ändern bzw. Variablen mit neuen Kodierungen erstellen.
 
-<span class="highlight">1.) Erstelle eine neue Variable `income`, die das monatliche Einkommen der befragten Personen kodiert, und dafür die Kategorien aus dem Codebuch (S.28) nutzt.
+1.) Erstelle eine neue Variable `income`, die das monatliche Einkommen der befragten Personen kodiert, und dafür die Kategorien aus dem Codebuch (S.28) nutzt.
 
 <div class="hint"><details><summary>Tipp</summary>
 Um besser beurteilen zu können, ob die Kodierung erfolgreich war, ist es sinnvoll, zuerst einen neuen Datensatz bestehend aus `inc` und `id` zu erstellen.</details>
@@ -2529,7 +2529,7 @@ rmarkdown::paged_table(data_inc, options(rows.print=5))
 </details>\
 
 
-<span class="highlight">2.) Erstelle eine neue Variable `sex`, die analog zur gleichnamigen Variablen im Codebuch das biologische Geschlecht kodiert. Gehe für diese Aufgabe davon aus, dass alle Personen, die einen fehlender Wert auf `male` haben, einer Kategorie `other` (nicht-binäres Geschlecht) zugeordnet werden.
+2.) Erstelle eine neue Variable `sex`, die analog zur gleichnamigen Variablen im Codebuch das biologische Geschlecht kodiert. Gehe für diese Aufgabe davon aus, dass alle Personen, die einen fehlender Wert auf `male` haben, einer Kategorie `other` (nicht-binäres Geschlecht) zugeordnet werden.
 
 <div class="hint"><details><summary>Tipp</summary>
 Um besser beurteilen zu können, ob die Kodierung erfolgreich war, ist es sinnvoll, zuerst einen neuen Datensatz bestehend aus `male` und `id` zu erstellen.</details>
@@ -2558,7 +2558,7 @@ rmarkdown::paged_table(data_sex, options(rows.print=5))
 </details>\
 
 
-<span class="highlight">3.) Rekodiere die negativ kodierten Items des Fragebogens zu Risikovermeidung (Risk Avoidance).
+3.) Rekodiere die negativ kodierten Items des Fragebogens zu Risikovermeidung (Risk Avoidance).
 
 <div class="hint"><details><summary>Tipp 1</summary>
 Die negativ kodierten Items sind im Codebuch jeweils mit einem **\*** markiert.</details>
@@ -2596,7 +2596,7 @@ rmarkdown::paged_table(data_ria, options(rows.print=5))
 
 Nachfolgend wollen wir neue Variablen erstellen, die Informationen aus mehreren Variablen des Datensatzes zusammenfassen.
 
-<span class="highlight">1.) Erstelle für die verschiedenen Bereiche von Bedürfnissen – Allgemein (General), Gesellschaftlich (Societal) und Interpersonell (Interpersonal) – jeweils separate Summenwerte und einen Gesamtsummenwert (über alle drei Bereiche).
+1.) Erstelle für die verschiedenen Bereiche von Bedürfnissen – Allgemein (General), Gesellschaftlich (Societal) und Interpersonell (Interpersonal) – jeweils separate Summenwerte und einen Gesamtsummenwert (über alle drei Bereiche).
 
 <div class="hint"><details><summary>Tipp</summary>
 Die Items aller drei Bedürfnis-Bereiche haben denselben Wortstamm: `nee`.</details>
@@ -2629,7 +2629,7 @@ rmarkdown::paged_table(data_need, options(rows.print=5))
 </details>\
 
 
-<span class="highlight">2.) Erstelle die personenspezifischen Summenwerte der Items, die interpersonelle Bedürfnisse erfassen (Needs, Interpersonal), für alle Personen, die ein monatliches Einkommen von mehr als \$1.000 haben. Bei allen Personen, die weniger zur Verfügung haben, soll ein `"/"` in der Summenwert-Variablen stehen.
+2.) Erstelle die personenspezifischen Summenwerte der Items, die interpersonelle Bedürfnisse erfassen (Needs, Interpersonal), für alle Personen, die ein monatliches Einkommen von mehr als \$1.000 haben. Bei allen Personen, die weniger zur Verfügung haben, soll ein `"/"` in der Summenwert-Variablen stehen.
 
 <div class="hint"><details><summary>Tipp</summary>
 Zur Bearbeitung der Aufgabe können wir `mutate()` mit `ifelse()` kombinieren, um den beiden Bedingungen (monatliches Einkommen von mehr bzw. weniger als $1.000) unterschiedliche Werte zuzuweisen.</details>

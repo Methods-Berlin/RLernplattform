@@ -121,7 +121,7 @@ Bevor wir uns in ggplot2 vertiefen, wollen wir überprüfen, ob unsere Daten in 
 
 ### Richtiges Datenformat
 
-Bevor es losgehen kann, müssen wir erst einmal sicherstellen, dass unsere Daten auch in adäquater Form vorliegen. Um Grafiken mit `ggplot()` erzeugen zu können, müssen alle genutzen Variablen in einem <span class="highlight">gemeinsamen Dataframe vorliegen. 
+Bevor es losgehen kann, müssen wir erst einmal sicherstellen, dass unsere Daten auch in adäquater Form vorliegen. Um Grafiken mit `ggplot()` erzeugen zu können, müssen alle genutzen Variablen in einem gemeinsamen Dataframe vorliegen. 
 
 Das können wir folgendermaßen überprüfen:
 
@@ -139,7 +139,7 @@ Falls unser Datensatz nicht als Dataframe vorliegt, könnten wir ihn so umwandel
 ChickWeight <- as.data.frame(ChickWeight)
 ```
 
-In Abhängigkeit der eigenen Fragestellung müssen die Daten im <span class="highlight">Long- bzw. Wide-Format vorliegen. Schauen wir uns den Unterschied einmal an der Fragestellung, wie sich das Gewicht der Küken (`weight`) zu unterschiedlichen Zeitpunkten (`Time`) verändert, an.
+In Abhängigkeit der eigenen Fragestellung müssen die Daten im Long- bzw. Wide-Format vorliegen. Schauen wir uns den Unterschied einmal an der Fragestellung, wie sich das Gewicht der Küken (`weight`) zu unterschiedlichen Zeitpunkten (`Time`) verändert, an.
 
 Wenn wir `Time` als Prädiktor für `weight` aufnehmen möchten, müssen die Daten im **Long**-Format vorliegen, damit `Time` auch als eigene Variable kodiert ist. 
 
@@ -164,13 +164,13 @@ ChickWeight$Diet <- factor(ChickWeight$Diet) # umwandeln
 
 ### Welche Grafik sollte ich für meine Daten nehmen?
 
-Falls wir noch auf der Suche nach einer informativen und ansprechenden Grafik für unsere Daten seid, können wir uns einen **Überblick über geeignete Grafiken** auf <span class="highlight"><a href="https://www.data-to-viz.com" target="_blank">from Data to Viz</a> verschaffen.
+Falls wir noch auf der Suche nach einer informativen und ansprechenden Grafik für unsere Daten seid, können wir uns einen **Überblick über geeignete Grafiken** auf <a href="https://www.data-to-viz.com" target="_blank">from Data to Viz</a> verschaffen.
 
 Für mehr **Inspiration** (sowie teilweise auch den **R**-Code) können wir auf den folgenden zwei Seiten nachschauen: 
 
-Auf <span class="highlight"><a href="https://www.r-graph-gallery.com" target="_blank">R Graph Gallery</a> finden wir verschiedene Grafiken nach Oberbegriffen (z.B. Zusammenhänge, Korrelation) sortiert und unterteilt in bestimmte Arten von Grafiken (z.B. Histogramm, Korrelogramm). Wenn wir auf die jeweilige Grafik klicken, kommen wir auf eine Seite, auf der es eine Definition und mehrere Beispielgrafiken, teils mit **R**-Code, gibt. Wir finden hier auch nicht nur Grafiken, die mit ggplot erstellt wurden.
+Auf <a href="https://www.r-graph-gallery.com" target="_blank">R Graph Gallery</a> finden wir verschiedene Grafiken nach Oberbegriffen (z.B. Zusammenhänge, Korrelation) sortiert und unterteilt in bestimmte Arten von Grafiken (z.B. Histogramm, Korrelogramm). Wenn wir auf die jeweilige Grafik klicken, kommen wir auf eine Seite, auf der es eine Definition und mehrere Beispielgrafiken, teils mit **R**-Code, gibt. Wir finden hier auch nicht nur Grafiken, die mit ggplot erstellt wurden.
 
-Auf <span class="highlight"><a href="http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html" target="_blank">Top 50 ggplot2 Visualizations - The Master List</a> finden wir auch eine gute Übersicht möglicher ggplot-Grafiken für verschiedene Anliegen (z.B. Korrelation, Variation, Veränderung) mit den dazugehörigen **R**-Codes. Wir finden hier auch sehr einzigartige Visualisierungen wie z.B. Dendrogramme.
+Auf <a href="http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html" target="_blank">Top 50 ggplot2 Visualizations - The Master List</a> finden wir auch eine gute Übersicht möglicher ggplot-Grafiken für verschiedene Anliegen (z.B. Korrelation, Variation, Veränderung) mit den dazugehörigen **R**-Codes. Wir finden hier auch sehr einzigartige Visualisierungen wie z.B. Dendrogramme.
 
 ## Grundlegender Aufbau von ggplot()
 
@@ -228,14 +228,14 @@ Hierfür nehmen wir die Variable `Diet`. Diese kodiert die Gruppen, in denen das
 
 #### Balkendiagramm
 
-Um ein Balkendiagramm zu erzeugen, nutzen wir `geom_bar()`. Standardmäßig werden mit `geom_bar()` <span class="highlight">absolute **Häufigkeiten** (count) geplottet. 
+Um ein Balkendiagramm zu erzeugen, nutzen wir `geom_bar()`. Standardmäßig werden mit `geom_bar()` absolute **Häufigkeiten** (count) geplottet. 
 
 ```{r}
 ggplot(data=ChickWeight, aes(x=Diet)) +
   geom_bar()
 ```
 
-Wir können folgendermaßen auch die <span class="highlight">relativen **Häufigkeiten** (prob) plotten:
+Wir können folgendermaßen auch die relativen **Häufigkeiten** (prob) plotten:
 
 ```{r}
 ggplot(data=ChickWeight, aes(x=Diet)) +
@@ -250,7 +250,7 @@ ggplot(data=ChickWeight, aes(x=Diet)) +
   coord_flip()
 ```
 
-Wir können auch sogenannte <span class="highlight">gestapelte **Balkendiagramme** (*stacked bar plots*) anfertigen. 
+Wir können auch sogenannte gestapelte **Balkendiagramme** (*stacked bar plots*) anfertigen. 
 
 Dazu müssen erst einen neuen Dataframe erzeugen, in welchem die Gruppennamen sowie die (absoluten) Häufigkeiten der Variablen je als neue Variable gespeichert sind.
 
@@ -339,7 +339,7 @@ Bevor wir eine metrische Variable zum Zwecke der grafischen Darstellung kategori
 
 Prinzipiell gilt:
 
-- Je größer eine <span class="highlight">Stichprobe ist, desto schmaler können die einzelnen Kategorien sein (d.h. mehr Kategorien).
+- Je größer eine Stichprobe ist, desto schmaler können die einzelnen Kategorien sein (d.h. mehr Kategorien).
   + Als Orientierung können wir hierfür die **Sturges Regel** nutzen: \
   $m ≈ 1 + 3.32 \cdot lg(N)$ ($m$ = Anzahl der Kategorien, $N$ = Stichprobengröße, $lg$ = dekadischer Logarithmus)
 
@@ -357,7 +357,7 @@ nclass.Sturges(1:nrow(ChickWeight))
 
 Nach Sturges Regel sollten wir für `weight` in etwa 11 Kategorien bilden. 
 
-- Je größer die <span class="highlight">Streuung der Variablen, desto breiter können die einzelnen Kategorien sein (d.h. weniger Kategorien).
+- Je größer die Streuung der Variablen, desto breiter können die einzelnen Kategorien sein (d.h. weniger Kategorien).
 
 ```{r}
 min(ChickWeight$weight) # kleinster Wert
@@ -372,7 +372,7 @@ max(ChickWeight$weight) - min(ChickWeight$weight)
 
 Es ist sinnvoll, zuerst nach Sturges Regel eine Anzahl an Bins zu errechnen, und diese dann ggf. in Abhängigkeit der Variationsbreite des Merkmals zu verändern.
 
-Generell sollten wir <span class="highlight">nicht mehr als 20 Kategorien bilden. Diese sollten im Regelfall auch ungefähr die gleiche Breite aufweisen.
+Generell sollten wir nicht mehr als 20 Kategorien bilden. Diese sollten im Regelfall auch ungefähr die gleiche Breite aufweisen.
 
 </details>
 
@@ -454,9 +454,9 @@ Wenn wir uns die Merkmalsverteilung einer metrischen Variable in Abhängigkeit e
 
 In Boxplots werden mehrere deskriptiv-statistische Kennwerte dargestellt:
 
-- <span class="highlight">zentrale Tendenz:
+- zentrale Tendenz:
   + **Median**: dargestellt durch die dicken, *horizontalen Linien* in den Boxen
-- <span class="highlight">Variabilität:
+- Variabilität:
   + **Interquartilsrange** (IQR): mittlere 50% der Verteilung, dargestellt durch die *Boxen*
   + **Whisker**: größter bzw. kleinster beobachteter Wert innerhalb der oberen bzw. unteren Ausreißergrenzen, dargestellt durch die *vertikale Linien* an den Boxen
   + **Ausreißer**: einzelne Beobachtungen außerhalb der Whisker, dargestellt durch *Punkte*
@@ -559,7 +559,7 @@ ggplot(data=mean, aes(x=diet, y=weight)) +
 \
 <font color="red">Negativbeispiel</aside>
 
-> *__Achtung__*:  Das Problem bei diesem Ansatz ist, dass Personen dazu neigen, die Werte (innerhalb des 95% Konfidenzintervalls), die innerhalb der Balken liegen, als statistisch wahrscheinlicher wahrzunehmen als jene, die außerhalb der Balken liegen. Dieses Phänomen ist als <span class="highlight">Within-the-bar Bias bekannt. Es ist daher sinnvoll, für die Darstellung von Mittelwerten **<u>keine</u> Balkendiagramme zu nutzen**, sondern auf geeignetere Visualisierungen zurückzugreifen.
+> *__Achtung__*:  Das Problem bei diesem Ansatz ist, dass Personen dazu neigen, die Werte (innerhalb des 95% Konfidenzintervalls), die innerhalb der Balken liegen, als statistisch wahrscheinlicher wahrzunehmen als jene, die außerhalb der Balken liegen. Dieses Phänomen ist als Within-the-bar Bias bekannt. Es ist daher sinnvoll, für die Darstellung von Mittelwerten **<u>keine</u> Balkendiagramme zu nutzen**, sondern auf geeignetere Visualisierungen zurückzugreifen.
 
 Beispielsweise vermitteln einzelne Punkte (für die Mittelwerte) mit Fehlerbalken die relevanten Informationen besser. 
 
@@ -1055,9 +1055,9 @@ Um unsere Farbwahl auch für Menschen mit verschiedenen Sehschwächen geeignet z
 
 Es gibt zwei Parameter, mit denen wir jeweils festlegen können, ob Elemente **farblich umrandet und/oder komplett ausgefüllt** werden sollen.
 
-- `col`, `color` oder `colour`: farbliche <span class="highlight">Umrandung eines Elements\
+- `col`, `color` oder `colour`: farbliche Umrandung eines Elements\
 In verschiedenen Funktionen ist das Argument zur farblichen Umrandung unterschiedlich benannt (d.h. `col`, `color` oder `colour`). Es gibt aber auch viele Funktionen, in denen alle Parameter funktionieren (und dasselbe bewirken). Genauere Informationen erhalten wir in der Dokumentation der jeweiligen Funktion.
-- `fill`: farbliche <span class="highlight">Füllung eines Elements
+- `fill`: farbliche Füllung eines Elements
 
 Weil `col` und `fill` separate Parameter sind, können wir auch beide gleichzeitig nutzen, um sowohl die Umrandung als auch die Ausfüllung eines Elements (geom) verschieden einzufärben. 
 
@@ -1080,10 +1080,10 @@ knitr::include_graphics("figures/ggplot2/Bilder/points.png")
 
 Zusäzlich können wir **zwei Farbmodi** unterscheiden:
 
-- <span class="highlight">statische Farben
+- statische Farben
    - gelten für alle (spezifizierten) Elemente
    - **außerhalb** von `aes()`
-- <span class="highlight">variable Farben
+- variable Farben
    - unterschiedliche Farben für verschiedene Ausprägungen einer Variablen
    - es wird automatisch eine Legende erstellt
    - **innerhalb** von `aes()` 
@@ -1130,11 +1130,11 @@ kable(table, align = "c") %>%
 
 Wir können in **R** standardmäßig implementierte ("built-in") Farben sowie Hex-Farben nutzen.
 
-Auf dieser <a href="http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf" target="_blank">Seite</a> finden wir eine Übersicht der <span class="highlight">built-in Farben. Diese können wir einfach mit ihrem Namen auswählen z.B. `"red"` oder `"seagreen1"`. 
+Auf dieser <a href="http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf" target="_blank">Seite</a> finden wir eine Übersicht der built-in Farben. Diese können wir einfach mit ihrem Namen auswählen z.B. `"red"` oder `"seagreen1"`. 
 
 > *__Achtung__*:  Diese built-in Farben sind nicht mit allen Anwendungen in **R** kompatibel. Beispielsweise können wir `"seagreen"`, aber **nicht** `"seagreen1"` in der Funktion `kable()` aus dem Paket **knitr**, welche eine Tabelle erstellt, nutzen.
 
-Darüber hinaus können wir auch <span class="highlight">Hex-Farben (mit dem Hexadezimal-Zahlensystem kodierte Faben) nutzen, die aus einem **#** und einer 6-stelligen Zeichenfolge bestehen, z.B. `"#53FD9F"`. Dabei werden jeweils zwei Zahlen genutzt um rot, blau und grün zu kodieren (**RGB**). Beispielsweise können wir <a href="http://hslpicker.com" target="_blank">hier</a> eigene Farben erstellen und uns den Hex-Code kopieren.
+Darüber hinaus können wir auch Hex-Farben (mit dem Hexadezimal-Zahlensystem kodierte Faben) nutzen, die aus einem **#** und einer 6-stelligen Zeichenfolge bestehen, z.B. `"#53FD9F"`. Dabei werden jeweils zwei Zahlen genutzt um rot, blau und grün zu kodieren (**RGB**). Beispielsweise können wir <a href="http://hslpicker.com" target="_blank">hier</a> eigene Farben erstellen und uns den Hex-Code kopieren.
 
 <details><summary>Grafische Elemente transparent machen</summary>
 Wir können einzelne Elemente einer Grafik transparent machen. Wenn wir die Grafik exportieren wollen, müssen wir nicht nur in der Erstellung der Grafik sondern auch beim Export angeben, dass ein bestimmtes Element transparent sein soll. Nur Grafiken im **PNG**-Format können transparent sein.
@@ -1165,13 +1165,13 @@ Um zu sehen, dass die sonst weiße Hintergrundfläche der Grafik nun transparent
 
 <h3>Farbpaletten</h3>
 
-Es ist zu empfehlen bei der <span class="highlight">farblichen Kodierung von Variablenausprägungen auf Farbpaletten zurückgreifen, da diese bereits gut durchdachte Farbkombinationen enthalten. Die Idee dahinter ist bei kategorialen Variablen verschiedene Farben und bei metrischen Variablen ähnliche Farben für ähnliche Ausprägungen zu nutzen.
+Es ist zu empfehlen bei der farblichen Kodierung von Variablenausprägungen auf Farbpaletten zurückgreifen, da diese bereits gut durchdachte Farbkombinationen enthalten. Die Idee dahinter ist bei kategorialen Variablen verschiedene Farben und bei metrischen Variablen ähnliche Farben für ähnliche Ausprägungen zu nutzen.
 
 Neben den voreingestellten Farbpaletten, die wir automatisch nutzen, wenn wir `col` oder `fill` innerhalb von `aes()` spezifizieren, können wir auch weitere Farbpaletten nutzen.
 
 <!-- **Übrigens**: Die voreingestellten Farbpaletten kommen aus den Funktionen `scale_fill_hue()` (kategorial) und `scale_colour_hue()` (metrisch). -->
 
-Auf <a href="http://colorbrewer2.org/#type=sequential&scheme=BuGn&n=3" target="_blank">**colorbrewer2.org**</a> finden wir jeweils angemessene Farbkombinationen zur Kodierung von <span class="highlight">kategorialen Daten. Teilweise sind diese Farbpaletten bereits in ggplot2 implementiert z.B. in der Funktion `scale_colour_brewer()` bzw. `scale_fill_brewer()`, mit der wir Farbanpassungen vornehmen können.
+Auf <a href="http://colorbrewer2.org/#type=sequential&scheme=BuGn&n=3" target="_blank">**colorbrewer2.org**</a> finden wir jeweils angemessene Farbkombinationen zur Kodierung von kategorialen Daten. Teilweise sind diese Farbpaletten bereits in ggplot2 implementiert z.B. in der Funktion `scale_colour_brewer()` bzw. `scale_fill_brewer()`, mit der wir Farbanpassungen vornehmen können.
 
 Für kategoriale Daten ist `type="qual"` *(qualitative)* am besten geeignet, da es Paletten mit sehr unterschiedliche Farben nutzt. Es gibt noch `"seq"` *(sequential)* und `"div"` *(diverging)*, mit denen wir eine Reihenfolge bzw. eine Grenze farblich darstellen können. Für mehr Informationen lohnt es sich auf der <a href="http://colorbrewer2.org/#type=sequential&scheme=BuGn&n=3" target="_blank">Webseite</a> nachzuschauen. Dort sehen wir z.B. auch die verschiedenen Paletten, die wir mit dem Parameter `palette` ändern können.
 
@@ -1192,7 +1192,7 @@ Es gibt verschiedene Aspekte von Legenden, die wir ändern können. Im Folgenden
 
 Wir können sowohl den Titel als auch die einzelnen Elemente einer Legende anders benennen.
 
-Wenn es sich um eine <span class="highlight">kategoriale Variable handelt, die wir mit `fill` farblich kodiert haben, können wir die Änderungen mit `scale_fill_discrete(name, labels)` vornehmen. 
+Wenn es sich um eine kategoriale Variable handelt, die wir mit `fill` farblich kodiert haben, können wir die Änderungen mit `scale_fill_discrete(name, labels)` vornehmen. 
 
 Dem Parameter `name` übergeben wir den Titel der Legende, `labels` einen Vektor mit den Namen der Bezeichnung der Ausprägungen.
 
@@ -1207,7 +1207,7 @@ ggplot(data=ChickWeight, aes(x=Diet)) +
 
 Analog dazu nutzen wir `scale_color_discrete()`, wenn wir das Argument `color` (zur farblichen Umrandung) genutzt haben.
 
-Wenn wir eine <span class="highlight">metrische Variable farblich kodiert haben, nutzen wir `scale_fill_continuous` bzw. `scale_colour_continuous ()`.
+Wenn wir eine metrische Variable farblich kodiert haben, nutzen wir `scale_fill_continuous` bzw. `scale_colour_continuous ()`.
 
 
 <h3>Position</h3>
@@ -1558,7 +1558,7 @@ Eine Übersicht über das Exportieren von Grafiken mit Funktionen aus dem Basisp
 
 > *__Achtung__*:  Wenn wir mehrere Garfiken exportieren wollen, müssen wir darauf achten, dass wir diesen **unterschiedliche Namen** zuweisen. Sowohl innerhalb von **R** als auch beim Export werden bestehende Objekte mit dem gleichen Namen überschrieben.
 
-> *__Achtung__*:  <span class="highlight">Hinweis für Windows-NutzerInnen: Manchmal kann es zu Probleme mit **Aliasing** kommen. Das ist, wenn Grafikelemente und/oder Text nach dem Export **"krisselig"** dargestellt werden. 
+> *__Achtung__*:  Hinweis für Windows-NutzerInnen: Manchmal kann es zu Probleme mit **Aliasing** kommen. Das ist, wenn Grafikelemente und/oder Text nach dem Export **"krisselig"** dargestellt werden. 
 
 <div style="text-align: center"><font size="1">**Beispiel für Aliasing**
 
