@@ -102,7 +102,7 @@ sort(unique(daten$Var_3), na.last=TRUE)
 
 Wenn man also alle möglichen Ausprägungen der Variablen kennt, kann man auf diese Weise einfach herausfinden, ob noch anderweitig kodierte Missings im Datensatz vorliegen.  
 
-Wenn der Datensatz sehr groß ist, ist der oben gezeigte Ansatz allerdings sehr mühsam. Dann können wir die Funktion `sapply()` integrieren, um `unique()` und `sort()` auf jede Variable im Datensatz anzuwenden. Diese hat die Form <span class="code">sapply(Daten, Funktion).
+Wenn der Datensatz sehr groß ist, ist der oben gezeigte Ansatz allerdings sehr mühsam. Dann können wir die Funktion `sapply()` integrieren, um `unique()` und `sort()` auf jede Variable im Datensatz anzuwenden. Diese hat die Form `sapply(Daten, Funktion)`.
 
 Da wir zwei Funktionen auf den Datensatz anwenden wollen - `unique()` und `sort()` - müssen wir `sapply()` zweimal anwenden:
 
@@ -141,14 +141,14 @@ daten$Var_3[daten$Var_3 == 99] <- NA
 <aside>\
 **==** heißt "ist genau"</aside>
 
-Der Befehl ersetzt in <span class="code"><span class ="ex">daten Elemente der Spalte <span class="code"><span class ="ex">Var_3, welche die Ausprägung `99` besitzen, mit `NA`.
+Der Befehl ersetzt in `daten` Elemente der Spalte `Var_3`, welche die Ausprägung `99` besitzen, mit `NA`.
 
 ```{r}
 #| echo: false
 print(daten)
 ```
 
-<span class ="ex">... und schauen uns den Mittelwert von `Var_3` wieder an.
+... und schauen uns den Mittelwert von `Var_3` wieder an.
 
 ```{r}
 # Mittelwert nach Umkodierung
@@ -258,7 +258,7 @@ table(is.na(daten[,1])) # Datensatz[,Spaltenindex]
 table(is.na(daten[1,])) # Datensatz[,Zeilenindex]
 ```
 
-> *__Achtung__*:  Die ersten drei vorgestellten Möglichkeiten, `$` und <span class="code">Datensatz["Spalten- bzw. Zeilenname"],  funktionieren nur bei __Dataframes__, und nicht bei Matrizen. Die Möglichkeit der **Indexierung** können wir auch bei **Matrizen** nutzen. 
+> *__Achtung__*:  Die ersten drei vorgestellten Möglichkeiten, `$` und `Datensatz["Spalten- bzw. Zeilenname"]`,  funktionieren nur bei __Dataframes__, und nicht bei Matrizen. Die Möglichkeit der **Indexierung** können wir auch bei **Matrizen** nutzen. 
 
 <aside>Mehr Informationen zu Datenstrukturen finden wir im Kapitel [Einführung in R](Einfuehrung_in_R.qmd).</aside>
 
@@ -304,7 +304,7 @@ library(VIM)
 summary(aggr(daten))
 ```
 
-<span class ="ex">Im __linken Plot__ sehen wir, dass nur Missings in <span class="code"><span class ="ex">Var_1, <span class="code"><span class ="ex">Var_3 und <span class="code"><span class ="ex">Var_5 vorhanden sind. Außerdem sehen wir auf der $y$-Achse den relativen Anteil an Fällen in den Variablen. In der Übersicht unter der Tabelle sehen wir die absoluten Häufigkeiten für alle Variablen (`Missings per variable`). Im __rechten Plot__ sehen wir die vorhanden Kombinationen von Missings in den Variablen. __Blau__ zeigt an, dass kein Missing vorhanden ist; __rot__ zeigt an, dass ein Missing vorhanden ist. Beispielsweise zeigt die unterste Reihe (die komplett blau ist) eine Kombination, in der keine Missings in Variablen vorhanden sind. Rechts daneben sieht man einen Balken, der den Anteil dieser Kombination im Verhältnis zu den anderen Kombinationen darstellt. Der Balken in der untersten Reihe ist der größte, d.h. dass diese Kombination am häufigsten vorkommt und somit die meisten Fälle (Zeilen) im Datensatz keine Missings enthalten. Leider bekommen wir hier keine Häufigkeiten dafür angezeigt. Dazu können wir aber in die unten stehende Übersicht schauen. (`Missings in combinations of variables`), in der wir absolute und relative Häufigkeiten ausgegeben bekommen.
+Im __linken Plot__ sehen wir, dass nur Missings in `Var_1`, `Var_3` und `Var_5` vorhanden sind. Außerdem sehen wir auf der $y$-Achse den relativen Anteil an Fällen in den Variablen. In der Übersicht unter der Tabelle sehen wir die absoluten Häufigkeiten für alle Variablen (`Missings per variable`). Im __rechten Plot__ sehen wir die vorhanden Kombinationen von Missings in den Variablen. __Blau__ zeigt an, dass kein Missing vorhanden ist; __rot__ zeigt an, dass ein Missing vorhanden ist. Beispielsweise zeigt die unterste Reihe (die komplett blau ist) eine Kombination, in der keine Missings in Variablen vorhanden sind. Rechts daneben sieht man einen Balken, der den Anteil dieser Kombination im Verhältnis zu den anderen Kombinationen darstellt. Der Balken in der untersten Reihe ist der größte, d.h. dass diese Kombination am häufigsten vorkommt und somit die meisten Fälle (Zeilen) im Datensatz keine Missings enthalten. Leider bekommen wir hier keine Häufigkeiten dafür angezeigt. Dazu können wir aber in die unten stehende Übersicht schauen. (`Missings in combinations of variables`), in der wir absolute und relative Häufigkeiten ausgegeben bekommen.
 
 
 ## Sind die Missings zufällig?
@@ -510,9 +510,9 @@ Dazu schauen wir uns exemplarisch drei verschiedene Funktionen und einige ihrer 
 
 #### lm(..., na.action)
 
-Mit `lm()` können wir eine (einfache oder multiple) lineare Regression durchführen. Mit dem Parameter `na.action` können wir über den Umgang mit den Missings bestimmen. Ein mögliches Argument dafür ist <span class="code"><span class=" highlight">na.omit. Dabei wird bei Vorhandenseins eines Missings in einer Zeile die **komplette Zeile** aus der Berechnung genommen (*listwise/casewise deletion*). Das ist der Default dieser Funktion. 
+Mit `lm()` können wir eine (einfache oder multiple) lineare Regression durchführen. Mit dem Parameter `na.action` können wir über den Umgang mit den Missings bestimmen. Ein mögliches Argument dafür ist `na.omit`. Dabei wird bei Vorhandenseins eines Missings in einer Zeile die **komplette Zeile** aus der Berechnung genommen (*listwise/casewise deletion*). Das ist der Default dieser Funktion. 
 
-In manchen Situationen ist es wichtig, **Informationen darüber zu haben, _wo_ Missings in einer Zeile sind** (z.B. bei der Prüfung der Annahmen der Unabhängigkeit der Fehlerterme in der Multiplen Linearen Regression). Wenn ich beispielsweise einen Boxplot der Residuen einer linearen Regression in einer bestimmten Gruppe erstellen möchte, benötige ich einen Vektor der Residuen, in dem noch die Information darüber enthalten ist, in welcher Zeile Werte fehlen. Wenn der Residuenvektor und der Gruppenvektor unterschiedliche Zeilenanzahlen - in Abhängigkeit der Missings - haben, kann ich den Boxplot sonst nicht erstellen. Dafür nutzen wir das Argument <span class="code"><span class=" highlight">na.exclude. Hierbei werden die Indizes der Missings nicht einfach gelöscht (und dadurch die Zeilenanzahl reduziert) sondern gespeichert. Ansonsten ist die Berechnung äquivalent zu `na.omit` (d.h. auch *listwise/casewise deletion*). Mittels <span class="code">residuals(lm_Ergebnisobjekt) können wir dann den Residuenvektor extrahieren. 
+In manchen Situationen ist es wichtig, **Informationen darüber zu haben, _wo_ Missings in einer Zeile sind** (z.B. bei der Prüfung der Annahmen der Unabhängigkeit der Fehlerterme in der Multiplen Linearen Regression). Wenn ich beispielsweise einen Boxplot der Residuen einer linearen Regression in einer bestimmten Gruppe erstellen möchte, benötige ich einen Vektor der Residuen, in dem noch die Information darüber enthalten ist, in welcher Zeile Werte fehlen. Wenn der Residuenvektor und der Gruppenvektor unterschiedliche Zeilenanzahlen - in Abhängigkeit der Missings - haben, kann ich den Boxplot sonst nicht erstellen. Dafür nutzen wir das Argument `na.exclude`. Hierbei werden die Indizes der Missings nicht einfach gelöscht (und dadurch die Zeilenanzahl reduziert) sondern gespeichert. Ansonsten ist die Berechnung äquivalent zu `na.omit` (d.h. auch *listwise/casewise deletion*). Mittels `residuals(lm_Ergebnisobjekt)` können wir dann den Residuenvektor extrahieren. 
 
 <aside>\
 \
@@ -522,7 +522,7 @@ Hier gehts zur Überprüfung der Unabhängigkeit der Fehlerterme mittels Boxplot
 
 #### mean(..., na.rm)
 
-Die Funktion `mean()` enthält den Parameter `na.rm`, welcher festlegt, ob **einzelne fehlende Elemente** vor der Ausführung der Funktion entfernt werden sollen. Mit <span class="code"><span class=" highlight">TRUE entfernen wir die Missings; mit <span class="code"><span class=" highlight">FALSE behalten wir sie. Bei vielen Funktionen ist letzteres voreingestellt, was häufig aber eine Durchführung der Funktion verhindert.
+Die Funktion `mean()` enthält den Parameter `na.rm`, welcher festlegt, ob **einzelne fehlende Elemente** vor der Ausführung der Funktion entfernt werden sollen. Mit `TRUE` entfernen wir die Missings; mit `FALSE` behalten wir sie. Bei vielen Funktionen ist letzteres voreingestellt, was häufig aber eine Durchführung der Funktion verhindert.
 
 ```{r}
 mean(daten$Var_1) # kann nicht berechnet werden weil Default na.rm = FALSE
@@ -532,7 +532,7 @@ mean(daten$Var_1, na.rm = TRUE)
 
 #### colMeans(..., na.rm)
 
-Die Funktion `colMeans()`, mit der wir Spaltenmittelwerte von mehrdimensionalen Datenstrukturen (z.B. Matrizen oder Dataframes) berechnen können, besitzt ebenfalls den Parameter `na.rm`. <span class="code"><span class=" highlight">TRUE lässt uns hier (direkt) *pairwise deletion* anwenden. Schauen wir uns das einmal genauer an.
+Die Funktion `colMeans()`, mit der wir Spaltenmittelwerte von mehrdimensionalen Datenstrukturen (z.B. Matrizen oder Dataframes) berechnen können, besitzt ebenfalls den Parameter `na.rm`. `TRUE` lässt uns hier (direkt) *pairwise deletion* anwenden. Schauen wir uns das einmal genauer an.
 
 <!-- Während das Argument `na.rm` dafür sorgt, dass Missings nur für spezifische Analysen ausgeschlossen werden (*pairwise deletion*), werden mit `na.omit()` ganze Zeilen, in denen sich mindestens ein Missing befindet, ausgeschlossen (*listwise/casewise deletion*). Schauen wir uns dazu einmal mit `colMeans()` die Spaltenmittelwerte an.  -->
 
@@ -559,19 +559,19 @@ colMeans(daten_cw[, 1:3])
 # daten_cw sind die mit na.omit() bereinigten Daten (listwise deletion)
 ```
 
-<span class ="ex">Vergleichen wir diese Ergebnisse nun mit denen von oben, sehen wir, dass nur der Mittelwert von <span class="code"><span class ="ex">Var_3 gleich. Bei den Mittelwerten der beiden anderen Spalten unterscheiden sich die Ergebnisse. 
+<span class ="ex">Vergleichen wir diese Ergebnisse nun mit denen von oben, sehen wir, dass nur der Mittelwert von `Var_3` gleich. Bei den Mittelwerten der beiden anderen Spalten unterscheiden sich die Ergebnisse. 
 
 ```{r}
 #| echo: false
 print(daten[1:3])
 ```
 
-<span class ="ex">Die unterschiedlichen Spaltenmittelwerte kommen daher zustande, dass `na.omit()` für alle Berechnungen <span class="code"><span class ="ex">Vpn_1 und <span class="code"><span class ="ex">Vpn_4 ausschließt (*listwise/casewise deletion*), wohingegen `na.rm` die Missings nur in den Spalten ausschließt, die gerade zur Berechnung benötigt werden (*pairwise deletion*), z.B. <span class="code"><span class ="ex">Vpn_4 bei der Berechnung des Mittelwerts von <span class="code"><span class ="ex">Var_3, aber __nicht__ bei denen von <span class="code"><span class ="ex">Var_1 und <span class="code"><span class ="ex">Var_2. 
+<span class ="ex">Die unterschiedlichen Spaltenmittelwerte kommen daher zustande, dass `na.omit()` für alle Berechnungen `Vpn_1` und `Vpn_4` ausschließt (*listwise/casewise deletion*), wohingegen `na.rm` die Missings nur in den Spalten ausschließt, die gerade zur Berechnung benötigt werden (*pairwise deletion*), z.B. `Vpn_4` bei der Berechnung des Mittelwerts von `Var_3`, aber __nicht__ bei denen von `Var_1` und `Var_2`. 
 
 
 ####  cor(..., use)
 
-Mit `cor()` können wir Korrelationstabellen berechnen. Dabei können wir mit dem Parameter `use` festlegen, wie mit Missings umgegangen werden sollen. Wir beschränken uns hier auf zwei Möglichkeiten von `use`. Mit <span class="code"><span class=" highlight">complete.obs nutzen wir *listwise/casewise deletion*; mit <span class="code"><span class=" highlight">pairwise.complete.obs nutzen wir *pairwise deletion*.
+Mit `cor()` können wir Korrelationstabellen berechnen. Dabei können wir mit dem Parameter `use` festlegen, wie mit Missings umgegangen werden sollen. Wir beschränken uns hier auf zwei Möglichkeiten von `use`. Mit `complete.obs` nutzen wir *listwise/casewise deletion*; mit `pairwise.complete.obs` nutzen wir *pairwise deletion*.
 
 Um den Unterschied zwischen beiden Möglichkeiten besser zu verstehen, schauen wir uns die jeweiligen Korrelationstabellen (der ersten drei Variablen) an.
 
@@ -611,7 +611,7 @@ knitr::kable(cor_pco, caption  =  "Korrelation mit pairwise.complete.obs",
              table.attr = "style='width:100%;'")
 ```
 
-<span class ="ex">Wenn man die beiden Korrelationstabellen vergleicht, sieht man, dass sich die Korrelation zwischen <span class="code"><span class ="ex">Var_1 und <span class="code"><span class ="ex">Var_2 unterscheidet. Das liegt daran, dass <span class="code"><span class ="ex">Vpn_4 in allen Berechnungen mit `complete.obs` ausgeschlossen wurde, weil <span class="code"><span class ="ex">Var_3 dort ein Missing enthält, während `pairwise.complete.obs` diese Zeile bei der Korrelation von <span class="code"><span class ="ex">Var_1 und <span class="code"><span class ="ex">Var_2 miteinbezogen hat. 
+<span class ="ex">Wenn man die beiden Korrelationstabellen vergleicht, sieht man, dass sich die Korrelation zwischen `Var_1` und `Var_2` unterscheidet. Das liegt daran, dass `Vpn_4` in allen Berechnungen mit `complete.obs` ausgeschlossen wurde, weil `Var_3` dort ein Missing enthält, während `pairwise.complete.obs` diese Zeile bei der Korrelation von `Var_1` und `Var_2` miteinbezogen hat. 
 
 ```{r}
 #| echo: false
@@ -655,11 +655,15 @@ Generell werden Missings in verschiedenen Anwendungen (z.B. Unipark, SPSS) häuf
 
 Wenn du nicht weißt, ob die Missings in deinem Datensatz auch anders kodiert sein könnten, kannst du das mit einer Häufigkeitstabelle der einzelnen Ausprägung der Variablen (d.h. Spalten) überprüfen. Dazu musst du nur wissen, welche möglichen Ausprägungen es geben kann (z.B. wenn du eine Intervallskala von 1-5 hast dann sollte es nur diese Werte geben), um Abweichungen davon festzustellen.
 
-<span class="code">table(<span class ="ex">daten$<span class ="ex">Var, useNA='ifany')
+```
+table(<span class ="ex">daten$<span class ="ex">Var, useNA='ifany')
+```
 
 Wenn die Missings z.B. mit `99` kodiert sind, können wir sie folgendermaßen auf `NA` setzen: \
 
-<span class="code"><span class ="ex">daten[<span class ="ex">daten == 99] <- NA
+```
+daten[daten == 99] <- NA
+```
 
 
 ###	Wie können Funktionen mit Missings umgehen?
@@ -672,7 +676,7 @@ Wenn du wissen möchtest, wie du in anderen Funktionen mit Missings umgehen kann
 - `mean( )`
 
 Bei der Berechnung des Mittelwerts eines Vektors kann man Missings rausschmeißen, indem man das Argument **na.rm** nutzt:
-<span class="code">mean(<span class ="ex">daten, na.rm=TRUE) \
+`mean(daten, na.rm=TRUE)` \
 
 - `lm( )`
 

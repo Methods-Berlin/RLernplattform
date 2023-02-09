@@ -41,7 +41,7 @@ knitr::include_graphics("figures/Pakete/Bilder/install konsole.png")
 
 ### Über die Funktion `install.packages()`
 
-Wir können `psych` installieren, indem wir <span class="code">install.packages("psych", dependencies = TRUE) ausführen. Hierbei ist darauf zu achten, dass wir den Namen des Pakets in **Anführungszeichen** setzen müssen. Mit `dependencies=TRUE` geben wir an, dass noch nicht installierte Pakete, welche von dem Zielpaket benötigt oder empfohlen werden, ebenfalls installiert werden sollen. 
+Wir können `psych` installieren, indem wir `install.packages("psych", dependencies = TRUE)` ausführen. Hierbei ist darauf zu achten, dass wir den Namen des Pakets in **Anführungszeichen** setzen müssen. Mit `dependencies=TRUE` geben wir an, dass noch nicht installierte Pakete, welche von dem Zielpaket benötigt oder empfohlen werden, ebenfalls installiert werden sollen. 
 
 > __*Hinweis*__: Die Funktion `install.packages()` ist Bestandteil des Standardpakets **utils**.
 
@@ -90,11 +90,11 @@ knitr::include_graphics("figures/Pakete/Bilder/laden konsole.png")
 
 ### Über die Funktion `library()`
 
-Wir können das Paket `psych` laden, indem wir <span class="code">library(psych) ausführen. Hierbei ist es **nicht** wichtig, den Namen des Pakets in Anführungszeichen zu setzen. Wir können diese auch weglassen.
+Wir können das Paket `psych` laden, indem wir `library(psych)` ausführen. Hierbei ist es **nicht** wichtig, den Namen des Pakets in Anführungszeichen zu setzen. Wir können diese auch weglassen.
 
 > __*Hinweis*__: Die Funktion `library()` ist Bestandteil des Standardpakets **base.**
 
-Alternativ kann man auch die Syntax <span class="code">paket::funktion(), z.B. <span class="code">psych::alpha(), nutzen. Was dieser Weg für Vorteile hat, erfahren wir im Unterabschnitt [**Maskierung**](#maskierung-wenn-verschiedene-pakete-gleich-benannte-funktionen-enthalten).
+Alternativ kann man auch die Syntax `paket::funktion()`, z.B. `psych::alpha()`, nutzen. Was dieser Weg für Vorteile hat, erfahren wir im Unterabschnitt [**Maskierung**](#maskierung-wenn-verschiedene-pakete-gleich-benannte-funktionen-enthalten).
 
 ### Über das Häkchen-Setzen in der <span style="color: #75AADC">System Library
 
@@ -121,7 +121,7 @@ Die Funktion des zuletzt eingeladenen Pakets wird mit dem gemeinsamen Funktionsn
 
 Nachfolgend schauen wir uns **drei Möglichkeiten an, Probleme mit dem Maskieren von Funktionen handzuhaben**: 1) deaktivieren und neu laden von Paketen, 2) eindeutige Referenzierung von Funktionen und 3) das Paket **conflicted** nutzen.
 
-Wenn wir die Funktion aus dem anderen Paket (**ggplot2**) nutzen wollen, können wir das Paket erst deaktivieren und dann neu laden. Wir können Pakete deaktivieren, indem wir <span class="code">detach("package:ggplot2", unload = TRUE) nutzen oder indem wir das [Häkchen neben dem Paket im **Packages-Tab** entfernen](#über-das-häkchen-setzen-in-der-system-library).
+Wenn wir die Funktion aus dem anderen Paket (**ggplot2**) nutzen wollen, können wir das Paket erst deaktivieren und dann neu laden. Wir können Pakete deaktivieren, indem wir `detach("package:ggplot2", unload = TRUE)` nutzen oder indem wir das [Häkchen neben dem Paket im **Packages-Tab** entfernen](#über-das-häkchen-setzen-in-der-system-library).
 
 Wenn wir das Paket mit der gewünschten Funktion laden, erhalten wir folgende Meldung.
 
@@ -133,7 +133,7 @@ knitr::include_graphics("figures/Pakete/Bilder/mask 2.png")
 
 Es handelt sich um die gleiche Meldung wie oben, nur das nun das Paket **ggplot2** als zweites Paket eingelesen wurde und entsprechend die Funktionen im Paket **psych** maskiert wurden.
 
-Eine Alternative zu dem Laden und Deaktivieren von Paketen ist die **exakte Referenzierung der Funktion auf das Paket** mittels `::`. Das schreiben wir zwischen das Paket und die Funktion z.B. <span class="code">psych::alpha() oder <span class="code">ggplot2::alpha(). So weiß `R` eindeutig, welche Funktion wir nutzen wollen.
+Eine Alternative zu dem Laden und Deaktivieren von Paketen ist die **exakte Referenzierung der Funktion auf das Paket** mittels `::`. Das schreiben wir zwischen das Paket und die Funktion z.B. `psych::alpha()` oder `ggplot2::alpha()`. So weiß `R` eindeutig, welche Funktion wir nutzen wollen.
 
 > __*Hinweis*__: Es kommt häufiger zu **Problemen bei der Ausführung der Funktionen** `filter()`, `select()` und `summarise()` aus dem Paket **dplyr**, wenn die Pakete **stats** (Basispaket; `filter()`), **MASS** (`select()`) oder **plyr** (`summarise()`) ebenfalls geladen sind. Die eindeutige Auswahl von Funktionen mittels `::` kann bestehende Probleme lösen. Mehr Informationen zur Problematik finden wir in diesem <a href="https://stackoverflow.com/questions/24202120/dplyrselect-function-clashes-with-massselect" target="_blank">Forumseintrag</a>.
 
@@ -266,7 +266,7 @@ Mit **devtools** kann man auch ältere Versionen von Paketen runterladen. Für m
 
 ### Replizierbarkeit von `R`-Skripten
 
-Wir haben beide Möglichkeiten, die Nutzung von Funktionen und die der grafischen Benutzeroberfläche vorgestellt, aber die Verwendung von **Funktionen** ist mit Hinblick auf die Replizierbarkeit von Skripten **zu bevorzugen**. Wenn man die grafische Benutzeroberfläche nutzt, findet man im Skript keine Hinweise darüber, welche Pakete genutzt wurden, d.h. <span class="code">library(paket) erscheint *nur* in der Konsole und eben nicht im `R`-Skript.
+Wir haben beide Möglichkeiten, die Nutzung von Funktionen und die der grafischen Benutzeroberfläche vorgestellt, aber die Verwendung von **Funktionen** ist mit Hinblick auf die Replizierbarkeit von Skripten **zu bevorzugen**. Wenn man die grafische Benutzeroberfläche nutzt, findet man im Skript keine Hinweise darüber, welche Pakete genutzt wurden, d.h. `library(paket)` erscheint *nur* in der Konsole und eben nicht im `R`-Skript.
 
 ### Replizierbarkeit von Analysen
 
@@ -284,7 +284,7 @@ Mit der Funktion `sessionInfo()` aus dem Standardpaket **utils** bekommen wir vi
 knitr::include_graphics("figures/Pakete/Bilder/sessionInfo.png")
 ```
 
-> __*Hinweis*__: Hiermit werden nur Pakete gelistet, die mit `library()` oder mit Hilfe des GUIs geladen wurden. Wenn wir die eindeutige Zuweisung von Funktionen zu Paketen aus dem Abschnitt [Maskierung](#maskierung-wenn-verschiedene-pakete-gleich-benannte-funktionen-enthalten) nutzen z.B. <span class="code">psych::alpha(), werden unsere genutzten Pakete **nicht** gelistet. In diesem Fall müssten wir die Informationen zu den Versionen der Pakete selbst in Erfahrung bringen.
+> __*Hinweis*__: Hiermit werden nur Pakete gelistet, die mit `library()` oder mit Hilfe des GUIs geladen wurden. Wenn wir die eindeutige Zuweisung von Funktionen zu Paketen aus dem Abschnitt [Maskierung](#maskierung-wenn-verschiedene-pakete-gleich-benannte-funktionen-enthalten) nutzen z.B. `psych::alpha()`, werden unsere genutzten Pakete **nicht** gelistet. In diesem Fall müssten wir die Informationen zu den Versionen der Pakete selbst in Erfahrung bringen.
 
 Für noch detailliertere Informationen zu unseren geladenen Paketen können wir `session_info()` aus dem Paket **devtools** nutzen.
 

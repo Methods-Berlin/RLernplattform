@@ -343,7 +343,7 @@ Prinzipiell gilt:
   + Als Orientierung können wir hierfür die **Sturges Regel** nutzen: \
   $m ≈ 1 + 3.32 \cdot lg(N)$ ($m$ = Anzahl der Kategorien, $N$ = Stichprobengröße, $lg$ = dekadischer Logarithmus)
 
-Schauen wir uns die ungefähre Anzahl der Kategorien nach der Sturges Regel an. Dazu nutzen wir die Funktion <span class="code">nclass.Sturges(1:Stichprobengröße).
+Schauen wir uns die ungefähre Anzahl der Kategorien nach der Sturges Regel an. Dazu nutzen wir die Funktion `nclass.Sturges(1:Stichprobengröße)`.
 
 ```{r}
 # Gibt es fehlende Werte?
@@ -601,65 +601,6 @@ ggplot(data=ChickWeight[ChickWeight$Time == 21,], aes(x=Diet, y=weight)) +
 
 
 
-<!-- ```{r, echo=F, eval=F fig.align="center", out.width="350px"} -->
-<!-- ggplot(data=mean, aes(x=diet, y=weight)) +  -->
-<!--   geom_point() + geom_errorbar(aes(ymin=lower, ymax=upper), width=.2) + -->
-<!--   labs(title= "Positivbeispiel:\n", -->
-<!--        x="Futtergruppe", y="Mittelwert des Gewichts in Gramm") + -->
-<!--   ylim(c(0,330)) -->
-<!-- ``` -->
-
-<!-- Dazu können wir nicht einfach auf den Ursprungsdatensatz `ChickWeight` zurückgreifen. Wir müssen erst einen neuen Data Frame erstellen, in dem wir die Gruppierungen von `Diet`, die jeweiligen Mittelwerte von `weight`, sowie die jeweiligen unteren (`lower`) und oberen (`upper`) Grenzen der Konfidenzintervalle aufnehmen.  -->
-
-<!-- ```{r, eval=F} -->
-<!-- # neuen Data Frame erstellen .. -->
-<!-- bar_mean <- data.frame( -->
-<!--   diet=levels(ChickWeight$Diet), # ... mit Diet-Gruppen -->
-<!--   mean=tapply(ChickWeight$weight, ChickWeight$Diet, mean))  -->
-<!-- # ... und Mittelwerten -->
-<!-- ``` -->
-
-<!-- <details><summary>Wie genau funktioniert `tapply()`?</summary> -->
-<!-- Mit der Funktion `tapply()` können wir eine Variable x (z.B. `weight`) nach einer anderen Variablen y (z.B. `Diet`) splitten und dann eine Funktion für jede Gruppierung (z.B. `mean`) anwenden. Die üblichen Klammern `()` hinter dem Namen der Funktion lässt man hier weg. -->
-
-<!-- <span class="code">tapply(X=betrachtete Variable, INDEX=Gruppierungsvariable, FUN=anzuwendende Funktion) -->
-
-<!-- Als Output bekommen wir eine Liste. Um eine Matrix in einer Liste extrahieren zu können, nutzen wir zweifache eckige Klammern `[[x]]`. Um wiederum daraus Spalten oder Zeilen auszuwählen, können wir wieder einfache eckige Klammern nutzen `[y]`. Z.B. können wir uns mit `ci[[1]][1]` die untere KI-Grenze (`[1]`) des Mittelwerts der ersten Gruppe in `Diet` (`[[1]]`) ausgeben lassen. -->
-<!-- </details> -->
-
-<!--  -->
-
-<!-- Die Konfidenzintervalle der Mittelwerte erstellen wir mit der Funktion `ciMean` aus dem Paket `lsr`. Diese werden in einer Liste gespeichert. Mit `rbind()` hängen wir die Grenzen der Konfidenzintervalle aneinander, und erhalten so zwei Spalten. Mit `tapply()` haben wir eine Liste erhalten, die aus 4 Matrizen besteht. Diese haben jeweils die Dimensionen 1 x 2 (eine Zeile und zwei Spalten - also ein Zeilenvektor). Deswegen erhalten wir, wenn wir diese mit `rbind()` aneinander hängen, **zwei** Spalten. -->
-
-<!-- ```{r mean weight and confint, eval=F} -->
-<!-- install.packages("lsr", dependecies=TRUE) -->
-
-<!-- # 95%-Konfidenzintervalle der Mittelwerte berechnen -->
-<!-- library(lsr) -->
-<!-- ci <-  tapply(ChickWeight$weight, ChickWeight$Diet, ciMean)  -->
-
-<!-- # Konfidenzintervall-Grenzen an Data Frame anhängen (in Spalte 3 und 4) -->
-<!-- bar_mean[c("lower", "upper")] <-  rbind(ci[[1]], ci[[2]], ci[[3]], ci[[4]])  -->
-<!-- ``` -->
-
-
-<!-- Prinzipiell müssen wir, wenn wir ein Balkendiagramm von einer kategorialen und einer metrischen Variable erstellen möchten, `geom_bar(stat="identity")` nutzen. Alternativ dazu können wir auch `geom_col()` nutzen. Mit `stat="identity"` legen wir fest, dass die Rohwerte der y-Variablen (`mean`) geplottet werden sollen. -->
-
-<!-- Der Funktion `geom_pointrange()` müssen wir `aes(ymin, ymax)` übergeben. Das sind die untere (`lower`) und obere (`upper`) Grenze des 95%-Konfindenzintervalls. -->
-
-<!-- ```{r point mean, eval=F} -->
-<!-- ggplot(data=bar_mean, aes(x=diet, y=mean)) +  -->
-<!--   geom_point() + geom_errorbar(aes(ymin=lower, ymax=upper)) -->
-<!-- ``` -->
-
-<!-- ```{r point plot mean, eval=F} -->
-<!-- ggplot(data=bar_mean, aes(x=diet, y=mean)) +  -->
-<!--   geom_pointrange(aes(ymin=lower, ymax=upper)) -->
-<!-- ``` -->
-
-<!-- Es gibt auch andere Darstellungsmöglichkeiten für Konfidenzintervalle. Einige finden wir z.B. auf der ersten Seite des <a href="https://github.com/rstudio/cheatsheets/raw/master/translations/german/ggplot2-german.pdf" target="_blank">Cheat Sheets</a> rechts bei *Abweichungen und Ausreißer*. -->
-
-
 ### X und Y metrisch
 
 #### Streudiagramm
@@ -876,9 +817,9 @@ Wenn wir uns eine Art von Grafik (z.B. Streudiagramm) in Abhängigkeit einer kat
 
 Wir können außerdem entscheiden, wie die Facetten angeordnet sein sollen: 
 
-- <span class="code">facet_grid(Variable ~ **.**)\
+- `facet_grid(Variable ~ .)`\
 Die Variable wird **zeilenweise** angeordnet, indem wir sie vor die Tilde schreiben *und* einen Punkt dahinter setzen.
-- <span class="code">facet_grid( ~ Variable)\
+- `facet_grid( ~ Variable)`\
 Die Variable wird **spaltennweise** angeordnet, indem wir sie nach der Tilde schreiben.
 
 <aside>Die Anordnung von Zeile und Spalte in `facet_grid()` ist analog zum Indexieren von zweidimensionalen Datenstrukturen (z.B. Matrizen, Dataframes): **Z**uerst die **Z**eile, dann die Spalte.</aside>

@@ -150,7 +150,7 @@ Im Wide-Format gibt es **mehr Spalten** und **weniger Zeilen** (als im Long-Form
 
 <aside><span class ="ex">In unserem Datensatz sind die Untersuchungseinheiten Küken.</aside>
 
-Sowohl `reshape()` als auch `spread()` benötigen zur Formatierung von Long nach Wide eine **ID-Variable** im Datensatz (auch wenn man diese bei `spread()` nicht an ein Argument übergeben muss). Eine ID-Variable bezeichnet die Untersuchungsobjekte. Im Eingangsbeispiel wäre dies die Variable <span class="code"><span class ="ex">Untersuchungseinheit.
+Sowohl `reshape()` als auch `spread()` benötigen zur Formatierung von Long nach Wide eine **ID-Variable** im Datensatz (auch wenn man diese bei `spread()` nicht an ein Argument übergeben muss). Eine ID-Variable bezeichnet die Untersuchungsobjekte. Im Eingangsbeispiel wäre dies die Variable `Untersuchungseinheit`.
 
 ### stats: `reshape()`
 

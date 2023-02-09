@@ -59,7 +59,7 @@ mean(x = nums)
 
 Wir können Funktionen **variierenden Input** übergeben. Dieser steht immer in Klammern direkt hinter der Funktion. Beispielsweise könnten wir auch den Mittelwert einer anderen Zahlenreihe als `nums` berechnen.
 
-Den Input übergeben wir an einen Parameter. Das ist eine (formale) *Variable* einer Funktion (z.B. <span class="code">mean(**x**)), die in der Funktionsdefinition festgelegt ist. Der tatsächliche *Input* nennt sich Argument (z.B. <span class="code">mean(x = **nums**)). Die Parameter einer Funktion werden mit Kommata getrennt. Schematisch sieht eine Funktion somit folgendermaßen aus: <span class="code">function(parameter_1 = argument_1, parameter_2 = argument_2, ...)
+Den Input übergeben wir an einen Parameter. Das ist eine (formale) *Variable* einer Funktion (z.B. `mean(x)`), die in der Funktionsdefinition festgelegt ist. Der tatsächliche *Input* nennt sich Argument (z.B. `mean(x = nums)`). Die Parameter einer Funktion werden mit Kommata getrennt. Schematisch sieht eine Funktion somit folgendermaßen aus: `function(parameter_1 = argument_1, parameter_2 = argument_2, ...)`
 
 Werfen wir einmal einen Blick in die **Funktionsdefinition von `mean()`**:
 
@@ -577,7 +577,7 @@ Wenn wir arithmetische Operatoren (v.a. Division) anwenden, dann werden unsere g
 
 Hier haben wir mit dem `L` hinter den (ganzen) Zahlen (`c(1L, 4L)`) *explizit festgelegt*, dass wir diese als integer speichern wollen.
 
-Wenn wir **integer**-Zahlen**folgen** erstellen wollen, können wir das auch mit <span class="code">Anfang:Ende machen.
+Wenn wir **integer**-Zahlen**folgen** erstellen wollen, können wir das auch mit `Anfang:Ende` machen.
 
 ```{r}
 vek_7 <- 2:5
@@ -845,7 +845,7 @@ df_1["Fall_1",] # erste Zeile
 ```
 
 
-**Spalten** können wir uns auch mit dem \$-Operator ausgeben lassen mit der Form <span class="code">df_name**$**spalten_name.
+**Spalten** können wir uns auch mit dem \$-Operator ausgeben lassen mit der Form `df_name$spalten_name`.
 
 ```{r}
 df_1$AV
@@ -883,7 +883,7 @@ obj
 
 Alle Objekte, die derzeit in R vorhanden sind, bekommen wir mit `ls()` angezeigt. 
 
-Wenn wir Objekte löschen wollen, nutzen wir `rm()`. Mit <span class="code">rm(objekt_1, objekt_2>, ...) löschen wir einzelne Objekte; mit `rm(list = ls())` löschen wir alle.
+Wenn wir Objekte löschen wollen, nutzen wir `rm()`. Mit `rm(objekt_1, objekt_2, ...)` löschen wir einzelne Objekte; mit `rm(list = ls())` löschen wir alle.
 
 Zur **Benennung** von Objekten ist folgendes zu wissen:
 

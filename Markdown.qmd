@@ -364,7 +364,7 @@ knitr::include_graphics("figures/Markdown/Bilder/global chunk.png")
 
 Code Chunks können auch benannt werden, indem in den geschweiften Klammern nach einem Leerzeichen hinter dem r der gewünschte Name eingetragen wird, z.b. `{r, ...}` für den Namen setup. Das hilft uns bei der Orientierung, weil wir die Namen in der **Dokumentübersicht** in RStudio angezeigt bekommen. Wir müssen allerdings darauf achten, denselben Namen nicht mehrmals zuzuweisen. Sonst bekommen wir eine Fehlermeldung.
 
-<aside>Eigentlich benennen wir einen Chunk mit einem Tag: <span class="code">{r **label=**setup, ...}. Diesen können wir aber weglassen, solange wir den Namen an die erste Stelle schreiben.</aside>
+<aside>Eigentlich benennen wir einen Chunk mit einem Tag: <span class="code">{r **label=**setup, ...}</span>. Diesen können wir aber weglassen, solange wir den Namen an die erste Stelle schreiben.</aside>
 
 ```{r}
 #| out.width: 800px
@@ -392,7 +392,7 @@ Wir können mit **R-Code in den Code Chunks** außerdem auch Grafiken und Tabell
 
 Bei Grafiken müssen wir nichts weiter beachten. Wir können denselben R-Code nutzen wie auch in einem R-Skript (.R).
 
-Wenn wir lokal gespeicherte Bilder integrieren wollen, können wir die Funktion <span class="code">include_graphics("dateipfad") aus dem Paket **knitr** nutzen. Dieses wurde (standardmäßig) automatisch heruntergeladen, als wir rmarkdown installiert haben.
+Wenn wir lokal gespeicherte Bilder integrieren wollen, können wir die Funktion `include_graphics("dateipfad")` aus dem Paket **knitr** nutzen. Dieses wurde (standardmäßig) automatisch heruntergeladen, als wir rmarkdown installiert haben.
 
 <aside>\
 **knitr** ist das Paket, welches unseren R-Code im Rmd ausführt.</aside>

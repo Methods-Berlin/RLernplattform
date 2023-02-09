@@ -254,23 +254,6 @@ knitr::include_graphics("figures/Daten-importieren/Bilder/environment_neuro.png"
 
 Auch wenn Möglichkeiten existieren, Dateien mithilfe der Benutzeroberfläche von RStudio einzulesen, ist es ratsam, auch einmal selbst Funktionen zu nutzen. Für die meisten Arbeiten in R nutzen wir nämlich Funktionen.  
 
-<!-- Bevor wir die Datei neuro.csv einlesen, setzen wir das Working Directory. -->
-
-
-<!-- ## Working Directory setzen -->
-
-<!-- Mit der Funktion `setwd()` setzt man ein Working Directory in R. Dieser Funktion über geben wir den Pfad zu unserem gewünschten Arbeitsordner in Anführungszeichen (`" "` oder `' '`).  -->
-
-<!-- Unter Windows können wir auf shift drücken und dann einen *Rechtsklick* auf den Ordner machen. Nun öffnet sich ein Menü, in welchem wir *Als Dateipfad kopieren* auswählen. **Wichtig** dabei ist, dass wir noch alle **\\** (backslashes) aus dem kopierten Pfad in */* (forwardslashes) ändern müssen. -->
-
-<!-- Unter Mac können wir die Tastaturkürzel alt + cmd + c nutzen, um unseren Ordnerpfad zu kopieren. -->
-
-<!-- Wir führen <span class="code">setwd("/Ordnerpfad") mit **Run** (im Skript) aus, um unser Working Directory zu setzen. -->
-
-<!-- Mit `getwd()` können wir anschließend überprüfen, ob es geklappt hat. Wir sollten den gerade festgelegten Dateipfad in der Konsole ausgegeben bekommen. -->
-
-
-<!-- ## Datei einlesen -->
 
 Welche Funktion hierfür angebracht ist, hängt von der Struktur der Datei ab. Nachfolgend schauen wir uns an, welche Funktionen wir für **.csv**, **.txt** und **.dat** nutzen können. 
 

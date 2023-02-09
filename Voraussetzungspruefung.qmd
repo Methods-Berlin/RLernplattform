@@ -115,7 +115,7 @@ daten$resid <- residuals(lm_lz)
 
 Im Rahmen dieses Kapitels liegt der Fokus nicht auf der inhaltlichen Interpretation der Ergebnisse der multiplen linearen Regressions, sondern darauf, **ob die oben genannten Annahmen erfüllt sind**. 
 
-Nachfolgend sehen wir den Output der `lm()`-Funktion (<span class="code"><span class = "ex">lm_lz).
+Nachfolgend sehen wir den Output der `lm()`-Funktion (`lm_lz`).
 
 ```{r}
 #| label: summ reg
@@ -381,9 +381,9 @@ quant <- data.frame(erstis$zuf.inh.1,
 Standardmäßig wird so die *erste* Variable X aufsteigend sortiert, weil `order(..., decreasing=FALSE)` der Default ist. Mit `decreasing=TRUE` können wir absteigend sortieren.
 
 \
-> *__Achtung__*:  Bei <span class="code">order(<span class = "ex">X, -<span class = "ex">resid) ändert sich die **Sortierung innerhalb der _gleichen_ Prädiktorwerte X** in Abhängigkeit davon, ob wir bei `order()` vor die *zweite* Variable (<span class="code"><span class = "ex">resid) ein `-` setzen oder nicht:\
-Mit <span class="code"><span class = "ex">resid (so wie wir es im Beispiel machen) wird innerhalb der gleichen Prädiktorwerte **aufsteigend** sortiert.\
-Mit <span class="code">-<span class = "ex">resid wird innerhalb der gleichen Prädiktorwerte **absteigend** sortiert. \
+> *__Achtung__*:  Bei `order(X, -resid)` ändert sich die **Sortierung innerhalb der _gleichen_ Prädiktorwerte X** in Abhängigkeit davon, ob wir bei `order()` vor die *zweite* Variable (`resid`) ein `-` setzen oder nicht:\
+Mit `resid` (so wie wir es im Beispiel machen) wird innerhalb der gleichen Prädiktorwerte **aufsteigend** sortiert.\
+Mit `-resid` wird innerhalb der gleichen Prädiktorwerte **absteigend** sortiert. \
 Dadurch kommen unterschiedliche Residuen in die Slices und folglich werden auch unterschiedliche konditionale Varianzen berechnet!
 \
 
@@ -546,7 +546,7 @@ lines(lowess(lm_lz$residuals), col = "red")
 abline(h=0, col="darkblue", type="l", lty=3)
 ```
 
-Die 10 steht dafür, dass wir 10 Messwiederholungen haben. 1 bis 17 kodiert unterschiedliche Farbe. Alternativ können wir auch die Farbnamen in einem Vektor spezifizieren - dann würden wir anstatt `1:17` z.B. <span class="code">c('<span class = "ex">red', '<span class = "ex">blue', '<span class = "ex">green', ...) einfügen. 
+Die 10 steht dafür, dass wir 10 Messwiederholungen haben. 1 bis 17 kodiert unterschiedliche Farbe. Alternativ können wir auch die Farbnamen in einem Vektor spezifizieren - dann würden wir anstatt `1:17` z.B. `red', 'blue', 'green', ...)` einfügen. 
 
 Mit dem Argument `pch` können wir analog die **Form der Punkte** ändern.
 
@@ -689,7 +689,7 @@ Dann zeichnen wir die reale Dichtefunktion der Residuen ein. Dafür kombinieren 
 
 Für die normalverteilte Dichtefunktion der Residuen nutzen wir `curve()` und `dnorm()`. Mit ersterer wird eine Kurve auf Basis einer mathematischen Funktion eingezeichnet. Mit zweiterer geben wir an, dass es eine Dichtefunktion einer Normalverteilung sein soll, für die wir Mittelwert und Standardabweichung (der Residuen) angeben. Zusätzlich müssen wir hier mit `add=TRUE` festlegen, dass die Kurve über das Histogramm gelegt werden soll. 
 
-Um die Normalverteilung besser anschauen zu können, erweitern wir die $x$-Achse. Das machen wir mit <span class="code">xlim=c(<span class = "ex">-15, <span class = "ex">15). Die Wahl der Grenzen von $-15$ bis $+ 15$ - ist eine theoretische Überlegung. Bei einer Normalverteilung liegen ~ $99$% der Werte im Bereich $+/- 3$ Standardabweichungen vom Mittelwert entfernt. Die Standardabweichung der Residuen beträgt ~ `r round(sd(lm_lz$residuals), 3)`. 
+Um die Normalverteilung besser anschauen zu können, erweitern wir die $x$-Achse. Das machen wir mit `xlim=c(-15, >15)`. Die Wahl der Grenzen von $-15$ bis $+ 15$ - ist eine theoretische Überlegung. Bei einer Normalverteilung liegen ~ $99$% der Werte im Bereich $+/- 3$ Standardabweichungen vom Mittelwert entfernt. Die Standardabweichung der Residuen beträgt ~ `r round(sd(lm_lz$residuals), 3)`. 
 
 Für eine bessere Übersichtlichkeit stellen wir die <span style="color:orange">reale Dichtefunktion und die <span style="color:green">erwartete Dichtefunktion farblich dar. 
 
@@ -921,7 +921,7 @@ Zur Exploration von Ausreißern auf dem Kriterium können wir uns die studentisi
 
 Studentisierte gelöschte Residuen werden wie folgt berechnet: $\frac {e_i} {\hat {\sigma} \cdot \sqrt{1 - h_m}}$ \ 
 
-Sie sind theoretisch $t$-verteilt mit $df = N − k − 1$ (N = Stichprobengröße, k = Anzahl Prädiktoren). Wir erhalten die Anzahl der Freiheitsgrade aus dem lm-Objekt mittels <span class="code">summary(<span class = "ex">lm_lz)$fstat["dendf"].
+Sie sind theoretisch $t$-verteilt mit $df = N − k − 1$ (N = Stichprobengröße, k = Anzahl Prädiktoren). Wir erhalten die Anzahl der Freiheitsgrade aus dem lm-Objekt mittels `summary(lm_lz)$fstat["dendf"]`.
 
 > **Studentisiert** heißt, dass die Residuen durch die geschätzte Populationsstandardabweichung der Residuen an der Stelle $x_m$ (das meint den Hebelwert der Person $h_m$) geteilt werden. 
 

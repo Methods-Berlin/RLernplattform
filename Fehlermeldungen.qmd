@@ -57,7 +57,7 @@ Bevor wir uns dem Verstehen von konkreten (Syntax-)Fehlermeldungen widmen und an
 Wenn wir eine uns noch unbekannte Funktion nutzen (aber auch wenn 
 wir aus einer Fehlermeldung nicht schlau werden) können wir die Dokumentation nutzen. Diese können wir in RStudio im unteren rechten Panel unter <font color ="#649B32">Help öffnen. In das <font color ="#FF1D00">Suchfeld geben wir den Namen der Funktion ein. 
 
-Alternativ können wir die Hilfefunktionen `?` oder `help()` nutzen (z.B. <span class="code">?matrix oder <span class="code">help(matrix)). 
+Alternativ können wir die Hilfefunktionen `?` oder `help()` nutzen (z.B. `?matrix` oder `help(matrix)`). 
 
 Mit Klick auf das <font color ="#FD9612">eingekreiste Icon kann man sich die Hilfe-Seite auch in einem extra Fenster anzeigen lassen.
 
