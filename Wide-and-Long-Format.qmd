@@ -285,7 +285,7 @@ rmarkdown::paged_table(reshape_long)
 
 > *__Achtung__*:  <a name="zeilennum2"></a> Ganz links sehen wir die neue Zeilennummerierung von `reshape_long`. Die Zeilennummerierung hat hier Nachkommastellen (z.B. 1.0), weil hier ID-Variable und Zeitvariable kombiniert wurden. Die Zahl vor dem Punkt steht für die Untersuchungseinheit (`Chick`); die Zahl nach dem Komma für den Messzeitpunkt (`Time`). \
 
-<details><summary>Was macht `varying=3:14`?</summary><div class="more">
+<details><summary>Was macht `varying=3:14`?</summary>
 
 Man kann **bestehende** Variablen auch mit ihren Indizes (d.h. hier: ihren Spaltennamen) ansprechen. Das ist häufig weniger schreibintensiv, als alle Spaltennamen in einem Vektor zu speichern z.B. `varying=c("weight.0", "weight.2", ..., "weight.21")`. So könnte man z.B. auch `idvar=1` anstatt `idvar="Chick"` schreiben.
 
@@ -294,7 +294,7 @@ Mit den Variablen, die man im Rahmen der Umformatierung erst neu erstellt (z.B. 
 
 
 
-<details><summary>Wie können wir verschiedene messwiederholte Variablen jeweils zusammenfassen? bzw. Wie nutzen wir `varying=list()` und `v.names`?</summary><div class="more">
+<details><summary>Wie können wir verschiedene messwiederholte Variablen jeweils zusammenfassen? bzw. Wie nutzen wir `varying=list()` und `v.names`?</summary>
 
 Wenn man mehrere Variablen zu den verschiedenen Messzeitpunkten erhoben hat, kann man diese mit `varying=list()` vom Wide- ins Long-Format bringen. Dabei muss man darauf achten, dass alle messwiederholten Variablen die gleiche Anzahl an Spalten besitzen (d.h. alle zu jedem Messzeitpunkt erhoben wurden). 
 

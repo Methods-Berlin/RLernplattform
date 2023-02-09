@@ -361,7 +361,7 @@ Es gibt grundlegend drei Mechanismen, die zur Entstehung von fehlenden Werten f�
    + Missings sind nicht zufällig verteilt und können nicht durch [andere Variablen](#andere) erklärt werden. Dass bedeutet, dass die Ausprägung in der Variable, die fehlt, der Grund dafür ist, das sie fehlt.
    + <span class ="ex">*Fiktives Beispiel:* Männer füllen einen Depressionsfragebogen aufgrund der mit dem Fragebogen zu erfassenden Höhe der Depressivität nicht aus (z.B. bei besonders hoher Depressivität werden Fragen nicht beantwortet).
 
-<details><summary><a name ="andere"></a>Was bedeutet "(alle) anderen Variablen"?</summary><div class="more">
+<details><summary><a name ="andere"></a>Was bedeutet "(alle) anderen Variablen"?</summary>
 Die Auffassung darüber, von welchen "anderen Variablen" die Missings in einer Variable unabhängig sein sollen, unterscheidet sich zwischen verschiedenen AutorInnen und ist nicht immer eindeutig. Während einige grob von *beobachtbaren* Variablen (Vgl. [Schafer & Graham, 2002](#schafgra)), *verfügbaren* Variablen (Vgl. [Cohen, Cohen, West & Aiken, 2003](#ccwa)) oder *Variablen im Datensatz, die analysiert werden* (Vgl. [Little, 1988](#little)) sprechen, grenzen Andere diese mehr ein z.B. *Variablen, die im Modell spezifiziert sind* (Vgl. [Allison, 2002](#allison)). Letztere Definition erleichtert die Überprüfung der Zufälligkeit der Missings (d.h. ob diese MCAR, MAR, oder MNAR sind).</details>
 
 

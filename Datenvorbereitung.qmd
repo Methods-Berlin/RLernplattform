@@ -293,7 +293,7 @@ is.data.frame(airquality)
 is.data.frame(PWE_data)
 ```
 
-<details><summary>Was genau ist ein Dataframe?</summary><div class="more">
+<details><summary>Was genau ist ein Dataframe?</summary>
 Ein Dataframe ist eine **Datenstruktur**, die es uns erlaubt, Daten tabellarisch zu speichern. Der Dataframe ist eine Liste aus Vektoren mit gleicher Länge. Listen können (im Gegensatz zu Matrizen) Variablen mit **unterschiedlichen Datentypen** speichern. 
 
 Mehr Informationen gibt es im vorhergehenden Abschnitt zu [Datentypen und Datenstrukturen].
@@ -750,7 +750,7 @@ library(knitr)
 kable(head(vornamen_merge_col))
 ```
 
-<details><summary>Wie kommt man auf die Anzahl der Fälle $N = 6371$?</summary><div class="more">
+<details><summary>Wie kommt man auf die Anzahl der Fälle $N = 6371$?</summary>
 In den beiden Dataframes `vornamen_13` und `vornamen_14` wurden genau die gleichen drei Variablen (`vorname`, `anzahl` und `geschlecht`) erhoben. Wenn wir die beiden zusammenführen, können **drei unterschiedliche Szenarien** mit Hinblick auf `vorname` und `geschlecht` auftreten. 
 
 Nachfolgend schauen wir uns jeweils ein Beispiel sowie die Anzahl der Fälle dieser Szenarien an.
@@ -836,7 +836,7 @@ dim(vornamen_join)
 
 Wir sehen, dass der mit `full_join(..., by = "vorname")` zusammengeführte Datensatz genau die gleichen Dimensionen hat wie der mit `merge(..., by = "vorname", all = TRUE)` zusammengeführte. Die beiden Funktionen unterscheiden sich nur in der Sortierung der Fälle (welcher Dataframe zuerst eingegeben wurde vs. natürliche Sortierung der Fälle).
 
-<details><summary>`full_join()` als Alternative zu `bind_rows()`</summary><div class="more">
+<details><summary>`full_join()` als Alternative zu `bind_rows()`</summary>
 Mit `full_join(x, y)` bekommen wir (bis auf die Sortierung der Fälle) das gleiche Ergebnis wie bei `merge(x, y, all = TRUE)`
 
 ```{r}
@@ -1717,7 +1717,7 @@ Die jeweilige Gewichtung einer Gruppe (bzw. Kombination von Gruppen) richtet sic
 rmarkdown::paged_table(PWE_data[,107])
 ```
 
-<details><summary>Wie genau funktioniert `rep()`?</summary><div class="more">
+<details><summary>Wie genau funktioniert `rep()`?</summary>
 Für die manuelle Erstellung von Indikatorvariablen kann man die Funktion `rep()` nutzen, welche die ihr übergebenen Zahlen bzw. Zahlenfolgen (oder auch Zeichen bzw. Zeichenketten) beliebig häufg wiederholt.
 
 Schauen wir uns die Funktionsweise der Funktion an einigen Beispielen an.

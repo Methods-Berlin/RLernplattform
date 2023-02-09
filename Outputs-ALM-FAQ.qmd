@@ -61,7 +61,7 @@ Weil es sich bei Studierenden mit und ohne Nebenjob um zwei voneinander unabhän
 
 
 
-<details><summary>Überprüfung der Annahmen des $t$-Tests</summary><div class="more">\
+<details><summary>Überprüfung der Annahmen des $t$-Tests</summary>\
 
 > *__Achtung__*:  An dieser Stelle sei wieder auf das [ausführliche Skript](Voraussetzungspruefung.qmd) zur Annahmenprüfung verwiesen. Im Folgenden schauen wir uns jeweils nur ein mögliches Verfahren zur Überprüfung der spezifischen Annahmen an.\
 
@@ -227,7 +227,7 @@ Das Ergebnisobjekt `lm_belastung` schauen wir uns erst *nach* der Annahmenprüfu
 
 
 
-<details><summary>Überprüfung der Annahmen der (einfachen) linearen Regression</summary><div class="more">\
+<details><summary>Überprüfung der Annahmen der (einfachen) linearen Regression</summary>\
 
 > *__Achtung__*:  Im Rahmen dieses Kapitels besprechen wir die Annahmen und deren Überprüfung nicht im Detail. Mehr Informationen finden wir im Kapitel zur [Prüfung der Annahmen der multiplen linearen Regression](Voraussetzungspruefung.qmd), die denen der einfachen linearen Regression sehr ähnlich ist.\
 
@@ -417,7 +417,7 @@ Unser Signifikanzlevel legen wir auf $\alpha=.05$ fest.
 
 
 
-<details><summary>Überprüfung der Annahmen der ANOVA</summary><div class="more">
+<details><summary>Überprüfung der Annahmen der ANOVA</summary>
 
 Vor der Durchführung der ANOVA mit unseren Beispieldaten müssen wir zwei Annahmen prüfen: 
 

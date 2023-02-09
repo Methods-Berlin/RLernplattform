@@ -287,7 +287,7 @@ Es gibt in R noch zwei weitere Datentypen, mit denen wir uns aber nicht weiter b
 ## https://www.statmethods.net/management/operators.html
 ```
 
-<details><summary>Logische Operatoren in R</summary><div class="more">
+<details><summary>Logische Operatoren in R</summary>
 Ein logischer Operator ist ein Operator, dessen Ergebnis ein Wahrheitswert (logical; `TRUE` oder `FALSE`) ist. <!--Wir können logische Operatoren auf Daten vom Typ$^1$ numeric, aber auch selbst auf Daten vom Typ logical anwenden. -->
 
 ```{r}
@@ -324,7 +324,7 @@ Laut dem <a href="https://cran.r-project.org/doc/manuals/r-release/R-intro.html#
 
 
 
-<details><summary>Arithmetische Operatoren in R</summary><div class="more">
+<details><summary>Arithmetische Operatoren in R</summary>
 Über (die meisten) arithmetischen Operatoren sind wir wohl schon zu Grundschulzeiten gestoßen. Das sind Operatoren, die wir zum Rechnen mit Zahlen (numeric) benötigen. 
 
 ```{r}
@@ -351,7 +351,7 @@ tab %>%
 
 #### Messniveaus und Datentypen
 
-<details><summary>Recap: Messniveaus</summary><div class="more">
+<details><summary>Recap: Messniveaus</summary>
 Das Messniveau (oder auch Skalenniveau) ist eine wichtige Eigenschaft von Merkmalen (Variablen) von Untersuchungseinheiten. Es beschreibt, welche Informationen in unseren Messwerten abgebildet werden und damit auch welche mathematischen Transformationen mit den Messwerten sinnvoll sind (z.B. das Berechnen von Mittelwerten). Somit begrenzt das Messniveau auch die zulässigen Datenauswertungsverfahren unserer Variablen.
 
 Die Kodierung von <font color="#009193">**nominalskalierten** Merkmalen ist insofern willkürlich, als dass lediglich auf **Gleichheit versus Ungleichheit** geachtet werden muss (z.B. `1`, `4`, `9` *oder* `A`, `Y`, `M`).
@@ -445,7 +445,7 @@ table_kat %>%
 \
 Ein Faktor ist eine Art von Vektor. Mehr dazu im nächsten Abschnitt.</aside>
 
-<details><summary>Können Merkmale auch mit logical kodiert werden?</summary><div class="more">
+<details><summary>Können Merkmale auch mit logical kodiert werden?</summary>
 Wir könnten auch logische Werte nutzen, um Merkmale zu kodieren, allerdings kann es sich dabei nur um **dichotome nominalskalierte** Merkmale handeln (d.h. diese können nur zwei diskrete Ausprägungen besitzen). 
 
 Logische Werte und Operatoren kommen hauptsächlich in der **Indexierung von Vektoren** (diese lernen wir im nächsten Abschnitt kennen) ...
@@ -555,7 +555,7 @@ str(vek_5)
 str(vek_6)
 ```
 
-<details><summary>Warum sind die numerischen Vektoren nur vom Typ numeric oder integer?</summary><div class="more">
+<details><summary>Warum sind die numerischen Vektoren nur vom Typ numeric oder integer?</summary>
 Bei Betrachtung der numerischen Vektoren fällt auf, dass `vek_4` und `vek_5` als numeric und `vek_6` als integer gespeichert wurden.
 
 **Aber warum wurden `vek_4` und `vek_5` als numeric gespeichert, obwohl wir integer (ganze Zahlen) bzw. double (Kommazahlen) erwartet hätten?**
@@ -619,7 +619,7 @@ str(vek_11)
 str(vek_12)
 ```
 
-<details><summary>Wie genau funktioniert `rep()`?</summary><div class="more">
+<details><summary>Wie genau funktioniert `rep()`?</summary>
 Dem Parameter `x` übergeben wir die Zeichen(folge), die wir wiederholen wollen; `times` übergeben wir die Anzahl der Wiederholungen der Zeichen*folge* bzw. `each` die Anzahl der Wiederholungen der *einzelnen Zeichen*.
 
 Die Zahl `1` wird 10 mal (`times`) wiederholt:

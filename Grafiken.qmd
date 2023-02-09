@@ -308,7 +308,7 @@ Auf dieser <a href="http://www.sthda.com/english/wiki/ggplot2-pie-chart-quick-st
 <!--   labs(x = NULL) # keine x-Achsenbeschriftung (wäre hier irreführend) -->
 <!-- ``` -->
 
-<!-- <details><summary>Unterschied zum "sonst üblichen" Kreisdiagramm</summary><div class="more"> -->
+<!-- <details><summary>Unterschied zum "sonst üblichen" Kreisdiagramm</summary> -->
 <!-- Die so erzeugten Kreisdiagramme unterscheiden sich optisch von den "üblichen" Kreisdiagrammen (die wir auch mit der base graphics Funktion `pie()` erstellen können). -->
 
 <!-- ```{r base r, out.width = "600px", fig.align="center"} -->
@@ -386,7 +386,7 @@ ggplot(data=ChickWeight, aes(x=weight)) +
   geom_histogram(bins=11)
 ```
 
-<details><summary>Problem der korrekten Darstellung der Variationsbreite</summary><div class="more">
+<details><summary>Problem der korrekten Darstellung der Variationsbreite</summary>
 Grundsätzlich ist es, sowohl in base graphics als auch in ggplot, problematisch, den *wahren* Range (d.h. die Variationsbreite) einer Variablen darzustellen. Ohne explizite Eingabe der Grenzen werden diese leider nicht berücksichtigt. Das kann zu einem falschen Eindruck der Variationsbreite der Variablen führen.
 
 Dieses Problem demonstrieren wir einmal an obigem Beispiel.
@@ -450,7 +450,7 @@ Nun schauen wir uns die grafische Darstellung von **Zusammenhängen** zwischen z
 
 Wenn wir uns die Merkmalsverteilung einer metrischen Variable in Abhängigkeit einer kategorialen Variablen anschauen möchten, können wir Boxplots nutzen.
 
-<details><summary>Welche Kennwerte werden in Boxplots dargestellt?</summary><div class="more">
+<details><summary>Welche Kennwerte werden in Boxplots dargestellt?</summary>
 
 In Boxplots werden mehrere deskriptiv-statistische Kennwerte dargestellt:
 
@@ -619,7 +619,7 @@ ggplot(data=ChickWeight[ChickWeight$Time == 21,], aes(x=Diet, y=weight)) +
 <!-- # ... und Mittelwerten -->
 <!-- ``` -->
 
-<!-- <details><summary>Wie genau funktioniert `tapply()`?</summary><div class="more"> -->
+<!-- <details><summary>Wie genau funktioniert `tapply()`?</summary> -->
 <!-- Mit der Funktion `tapply()` können wir eine Variable x (z.B. `weight`) nach einer anderen Variablen y (z.B. `Diet`) splitten und dann eine Funktion für jede Gruppierung (z.B. `mean`) anwenden. Die üblichen Klammern `()` hinter dem Namen der Funktion lässt man hier weg. -->
 
 <!-- <span class="code">tapply(X=betrachtete Variable, INDEX=Gruppierungsvariable, FUN=anzuwendende Funktion) -->
@@ -974,7 +974,7 @@ cont_Chick <- as.data.frame(cont_Chick)
 
 Um besser zu verstehen, warum das sein muss, können wir uns den Datensatz vor und nach der Umwandlung anschauen.\
 
-<details><summary>Vergleich unseres Dataframes vor und nach der Umwandlung</summary><div class="more">
+<details><summary>Vergleich unseres Dataframes vor und nach der Umwandlung</summary>
 Vor der Umwandlung steht jede **Zeile** für eine **Beobachtung** (d.h. ein Küken).
 
 ```{r}
