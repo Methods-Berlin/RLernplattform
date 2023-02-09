@@ -376,15 +376,15 @@ knitr::include_graphics("figures/Markdown/Bilder/overview.png")
 
 ### Inline Code
 
-Wenn es sich bei dem Output (von Code) um Zeichen handelt (und nicht um z.B. Tabellen und Grafiken), können wir diesen auch direkt in den Fließtext integrieren. Dazu nutzen wir <img src="figures/Markdown/Bilder/r.png" style=" width:6.5%; position: absolute;"/>.
+Wenn es sich bei dem Output (von Code) um Zeichen handelt (und nicht um z.B. Tabellen und Grafiken), können wir diesen auch direkt in den Fließtext integrieren. Dazu nutzen wir `r knitr::inline_expr("...")`.
 
 Wir können damit z.B. Inhalte eines Objektes oder das Ergebnis einer (mathematischen) Funktion (ohne den Code) ausgeben lassen. Der Output wird außerdem so formatiert wie der Fließtext.
 
-Im vorhergehenden Abschnitt haben wir beispielsweise das Objekt `vektor` in einem Code Chunk definiert. Dessen Inhalte können wir mit <img src="figures/Markdown/Bilder/r vektor.png" style=" width:13%; transform: translate(0%, 27%);"/> ausgeben lassen: `r vektor`
+Im vorhergehenden Abschnitt haben wir beispielsweise das Objekt `vektor` in einem Code Chunk definiert. Dessen Inhalte können wir mit `r knitr::inline_expr("vector")` ausgeben lassen: `r vektor`
 
-Wir können auch den Mittelwert von `vektor` berechnen mit <img src="figures/Markdown/Bilder/r mean vektor.png" style=" width:20%; transform: translate(0%, 25%);"/>: `r mean(vektor)` 
+Wir können auch den Mittelwert von `vektor` berechnen mit `r knitr::inline_expr("mean(vector)")`: `r mean(vektor)` 
 
-Nur mit den <img src="figures/Markdown/Bilder/hervorheben.png" style=" width:8%; transform: translate(0%, 27%);"/> (ohne r) können wir außerdem Text `hervorheben`.
+Nur mit den `` `...` `` (ohne r) können wir außerdem Text `hervorheben`.
 
 ### Grafiken, Bilder und Tabellen
 
