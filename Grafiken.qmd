@@ -63,7 +63,7 @@ Alternativ finden wir die englischen Cheat Sheets auch direkt in <span class ="r
 #| fig.align: center
 knitr::include_graphics("figures/ggplot2/Bilder/cheatsheets.png")
 ```
-</div></details>
+</details>
 
 <p style="line-height:10px;"></p>
 
@@ -319,7 +319,7 @@ Auf dieser <a href="http://www.sthda.com/english/wiki/ggplot2-pie-chart-quick-st
 
 
 <!-- Im Kreisdiagramm von ggplot sind die Häufigkeiten in den Gruppen durch den *Radius* der Kreissegmente bestimmt. Der "Maßstab" für die Häufigkeit ist an der y-Achse abgetragen. Bei einem klassischen base graphics Kreisdiagramm wird der Kreisausschnitt variiert, während der Radius in allen Gruppen ("Stücken") gleichbleibt. -->
-<!-- </div></details> -->
+<!-- </details> -->
 
 <!-- <p style="line-height:10px;"></p> -->
 
@@ -374,7 +374,7 @@ Es ist sinnvoll, zuerst nach Sturges Regel eine Anzahl an Bins zu errechnen, und
 
 Generell sollten wir <span class="highlight">nicht mehr als 20 Kategorien bilden. Diese sollten im Regelfall auch ungefähr die gleiche Breite aufweisen.
 
-</div></details>
+</details>
 
 <p style="line-height:10px;"></p>
 
@@ -414,7 +414,7 @@ ggplot(data=ChickWeight, aes(x=weight)) +
 ```
 
 Wie wir an den vertikalen Linien sehen, hält die Breite der Kategorien insgesamt jetzt den Range von `weight` ein.
-</div></details>
+</details>
 
 <p style="line-height:10px;"></p>
 
@@ -461,7 +461,7 @@ In Boxplots werden mehrere deskriptiv-statistische Kennwerte dargestellt:
   + **Whisker**: größter bzw. kleinster beobachteter Wert innerhalb der oberen bzw. unteren Ausreißergrenzen, dargestellt durch die *vertikale Linien* an den Boxen
   + **Ausreißer**: einzelne Beobachtungen außerhalb der Whisker, dargestellt durch *Punkte*
   
-</div></details>
+</details>
 
 <p style="line-height:10px;"></p>
 
@@ -485,7 +485,7 @@ Für unser Beispiel wollen wir uns nur die Daten des zweiten Messzeitpunkts (`Ti
 Mit dem Komma legen wir fest, welche der beiden Dimensionen unseres Dataframes wir meinen (Zeile, Spalte). Weil wir *Fälle* mit bestimmten Ausprägungen (Bedingungen) auswählen wollen, setzen wir das Komma *am Ende*. 
 
 Zu beachten ist außerdem, dass wir die Indexierung bereits in der grundlegenden Ebene, d.h. in `ggplot(data, ...)`, festlegen müssen. [Zu Beginn](#grundlegender-aufbau-von-ggplot) haben wir gelernt, dass wir durch die Übergabe des Dataframes an `ggplot(data, ...)` das grundlegende Koordinatensystem erstellen und damit die Anzahl der Datenpunkte (Beobachtungen) festlegen. Folglich würde es nicht funktionieren, die Selektion erst in einer späteren Ebene vorzunehmen, weil die an Anzahl der Datenpunkte sich unterscheiden würde.
-</div></details>
+</details>
 
 <p style="line-height:10px;"></p>
 
@@ -625,7 +625,7 @@ ggplot(data=ChickWeight[ChickWeight$Time == 21,], aes(x=Diet, y=weight)) +
 <!-- <span class="code">tapply(X=betrachtete Variable, INDEX=Gruppierungsvariable, FUN=anzuwendende Funktion) -->
 
 <!-- Als Output bekommen wir eine Liste. Um eine Matrix in einer Liste extrahieren zu können, nutzen wir zweifache eckige Klammern `[[x]]`. Um wiederum daraus Spalten oder Zeilen auszuwählen, können wir wieder einfache eckige Klammern nutzen `[y]`. Z.B. können wir uns mit `ci[[1]][1]` die untere KI-Grenze (`[1]`) des Mittelwerts der ersten Gruppe in `Diet` (`[[1]]`) ausgeben lassen. -->
-<!-- </div></details> -->
+<!-- </details> -->
 
 <!-- <p style="line-height:10px;"></p> -->
 
@@ -781,7 +781,7 @@ ggplot() + geom_point(data=ChickWeight, aes(x=Time, y=weight, col=Diet)) +
   # Regressionsgerade für weight ~ Time
   stat_smooth(data=ChickWeight, aes(x=Time, y=weight), method = 'lm')
 ```
-</div></details>
+</details>
 
 
 <h5>Regressionsgerade eines <u>multiplen</u> linearen Regressionsmodells</h5>
@@ -852,9 +852,9 @@ library(ggiraphExtra)
 ggPredict(reg_ggP, se = TRUE, interactive = TRUE)
 ```
 
-> *__Achtung__*:  <div class="rows"> Leider ist die Nutzung von `ggPredict()` teilweise noch fehleranfällig, weil von `ggiraphExtra` erst eine Beta-Version vorliegt (Stand: Version 0.2.9). Es kann u.a. zu Problemen kommen, wenn man ordinalskalierte (*ordered factors*) oder nominalskalierte Variablen (*factors*) ins Modell aufnimmt. Trotzdem ist das interaktive Streudiagramm ein sinnvolles Feature, z.B. für Ergebnispräsentation in html-Dokumenten. Man sollte die Weiterentwicklung des Pakets **ggiraphExtra** also verfolgen.</div>
+> *__Achtung__*:  <div class="rows"> Leider ist die Nutzung von `ggPredict()` teilweise noch fehleranfällig, weil von `ggiraphExtra` erst eine Beta-Version vorliegt (Stand: Version 0.2.9). Es kann u.a. zu Problemen kommen, wenn man ordinalskalierte (*ordered factors*) oder nominalskalierte Variablen (*factors*) ins Modell aufnimmt. Trotzdem ist das interaktive Streudiagramm ein sinnvolles Feature, z.B. für Ergebnispräsentation in html-Dokumenten. Man sollte die Weiterentwicklung des Pakets **ggiraphExtra** also verfolgen.
 
-</div></details>
+</details>
 
 <p style="line-height:10px;"></p>
 
@@ -988,7 +988,7 @@ Nach der Umwandlung (in eine Kontingenztabelle und wieder zurück in einen Dataf
 #| echo: !expr F
 kable(cont_Chick)
 ```
-</div></details>
+</details>
 
 <p style="line-height:10px;"></p>
 
@@ -1159,7 +1159,7 @@ knitr::include_graphics("figures/ggplot2/Bilder/Grafik_transp.png")
 
 Um zu sehen, dass die sonst weiße Hintergrundfläche der Grafik nun transparent ist, müssten wir die Grafik runterladen, weil der Hintegrund hier auch weiß ist.
 
-</div></details>
+</details>
 
 <p style="line-height:10px;"></p>
 
@@ -1560,7 +1560,7 @@ Eine Übersicht über das Exportieren von Grafiken mit Funktionen aus dem Basisp
 
 > *__Achtung__*:  <span class="highlight">Hinweis für Windows-NutzerInnen: Manchmal kann es zu Probleme mit **Aliasing** kommen. Das ist, wenn Grafikelemente und/oder Text nach dem Export **"krisselig"** dargestellt werden. 
 
-<div style="text-align: center"><font size="1">**Beispiel für Aliasing**</font></div>
+<div style="text-align: center"><font size="1">**Beispiel für Aliasing**</font>
 
 ```{r}
 #| out.width: 400px
@@ -1569,7 +1569,7 @@ Eine Übersicht über das Exportieren von Grafiken mit Funktionen aus dem Basisp
 knitr::include_graphics("figures/ggplot2/Bilder/Std_PNG.png")
 ```
 
-<div style="text-align: center"><font size="1">Bildquelle: https://www.r-bloggers.com/exporting-nice-plots-in-r/</font></div>
+<div style="text-align: center"><font size="1">Bildquelle: https://www.r-bloggers.com/exporting-nice-plots-in-r/</font>
 
 Um das zu verhindern, können wir das Paket **Cairo**, mit dessen gleichnamiger Funktion, nutzen. Mehr Informationen zur Anwendung können wir auf <a href="https://www.r-bloggers.com/exporting-nice-plots-in-r/" target="_blank">R-bloggers</a> finden.
 

@@ -105,7 +105,7 @@ mean(nums, TRUE)
 ```{r}
 mean(nums, 0, TRUE) 
 ```
-</div></details>
+</details>
 
 ```{r}
 #| echo: false
@@ -320,7 +320,7 @@ tab %>%
 <!--
 $^1$ Es gibt hierbei eine kleine Inkonsistenz zwischen Manual und Dokumentation:\
 Laut dem <a href="https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Logical-vectors" target="_blank">Manual</a> sind `==` und `!=` logische Operatoren. In der Dokumentation der logischen Operatoren (`?"&"`) tauchen sie aber nicht auf; nur in der Dokumentation der allgemeinen Syntaxoperatoren (`?Syntax`). In der Dokumentation der logischen Operatoren steht nicht, dass man diese auf Elemente des Typs <span class="r">character anwenden kann. Wir können `==` und `!=` aber auf <span class="r">character anwenden, um zu testen, ob zwei Elemente (z.B. `"a"` und `"A"`) gleich (`"a" == "A"` `FALSE`) bzw. ungleich (`"a" != "A"` `TRUE`) sind.  -->
-</div></details>
+</details>
 
 <p style="line-height:10px;"></p>
 
@@ -347,7 +347,7 @@ tab %>%
   column_spec(3, background = "#ECECEC") %>%
   column_spec(1:2, background = "white")
 ```
-</div></details>
+</details>
 
 #### Messniveaus und Datentypen
 
@@ -406,9 +406,9 @@ kable(table, "html", escape = F) %>%
 knitr::include_graphics("figures/Einführung/Bilder/R/Skalenniveau.png")
 ```
 
-<div style="text-align: center"><font size="1">Bildquelle: https://de.wikipedia.org/wiki/Datei:Skalenniveau.png</font></div>
+<div style="text-align: center"><font size="1">Bildquelle: https://de.wikipedia.org/wiki/Datei:Skalenniveau.png</font>
 
-</div></details>
+</details>
 
 <p style="line-height:10px;"></p>
 
@@ -470,7 +470,7 @@ x
 ```
 
 Damit werden wir uns erst später beschäftigen. Anwendung findet die konditionale Programmierung z.B. wenn wir subsetten, d.h. Elemente, auf die eine *Kondition* (z.B. größer als 5) zutrifft, einer Datenstruktur (z.B. Vektor, Matrix, Dataframe) entnehmen wollen.
-</div></details>
+</details>
 
 
 ### Datenstrukturen
@@ -590,7 +590,7 @@ str(vek_8)
 ```
 
 Generell reicht für uns aber die Unterscheidung zwischen <span class="r">numeric und den anderen, nicht-numerischen Datentypen. Ob <span class="r">integer oder <span class="r">double ist zumeist nicht von Relevanz.
-</div></details>
+</details>
 <p style="line-height:10px;"></p>
 
 Wenn wir **Zahlenfolgen** <font size="2">(<span class="r">numeric)</font> erstellen wollen, können wir `seq()` nutzen.
@@ -641,7 +641,7 @@ Wenn wir *erst* 10 mal die `0` bzw. `"A"` und *anschließend* 10 mal die `1` bzw
 rep(0:1, each=10) # das gleiche wie c(rep(0, 10), rep(1, 10))
 rep(c("A", "B"), each=10)
 ```
-</div></details>
+</details>
 <p style="line-height:10px;"></p>
 
 Durch **Indexierung** via `[]` können wir uns einzelne Elemente ausgeben lassen.

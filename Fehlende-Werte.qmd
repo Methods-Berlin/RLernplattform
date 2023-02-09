@@ -23,7 +23,7 @@ is.na(num_vector)
 ```
 Beim Datentyp <span class="r">**character** (Buchstaben, Zeichen) hingegen könnten fehlende Eingaben auch durch `""` (leere Felder) gekennzeichnet sein z.B. wenn bei Freitextfeldern in einer Umfrage nichts eingegeben wurde. Das wird in <span class="r">R aber <u>nicht</u> automatisch als fehlender Wert erkannt.
 
-> *__Achtung__*:  <div class="rows">Wir sehen nachfolgend auch verdeutlicht, dass `NA` eine selbstständige Kodierung ist, und <u>nicht</u> als <span class="r">character kodiert wird.</div>
+> *__Achtung__*:  <div class="rows">Wir sehen nachfolgend auch verdeutlicht, dass `NA` eine selbstständige Kodierung ist, und <u>nicht</u> als <span class="r">character kodiert wird.
 
 ```{r}
 char_vec <- c(NA, "NA", "") 
@@ -34,7 +34,7 @@ is.na(char_vec)
 Später lernen wir, wie wir Werte auf `NA` umkodieren können.
 
 Wir beschränken uns in vorliegendem Kapitel auf **`NA` in numerischen Datentypen** (d.h. quantitative Daten).
-</div></details>
+</details>
 
 <p style="line-height:10px;"></p>
 
@@ -362,11 +362,11 @@ Es gibt grundlegend drei Mechanismen, die zur Entstehung von fehlenden Werten f�
    + <span class ="ex">*Fiktives Beispiel:* Männer füllen einen Depressionsfragebogen aufgrund der mit dem Fragebogen zu erfassenden Höhe der Depressivität nicht aus <font size="2">(z.B. bei besonders hoher Depressivität werden Fragen nicht beantwortet)</font>.
 
 <details><summary><a name ="andere"></a>Was bedeutet "(alle) anderen Variablen"?</summary><div class="more">
-Die Auffassung darüber, von welchen "anderen Variablen" die Missings in einer Variable unabhängig sein sollen, unterscheidet sich zwischen verschiedenen AutorInnen und ist nicht immer eindeutig. Während einige grob von *beobachtbaren* Variablen (Vgl. [Schafer & Graham, 2002](#schafgra)), *verfügbaren* Variablen (Vgl. [Cohen, Cohen, West & Aiken, 2003](#ccwa)) oder *Variablen im Datensatz, die analysiert werden* (Vgl. [Little, 1988](#little)) sprechen, grenzen Andere diese mehr ein z.B. *Variablen, die im Modell spezifiziert sind* (Vgl. [Allison, 2002](#allison)). Letztere Definition erleichtert die Überprüfung der Zufälligkeit der Missings (d.h. ob diese MCAR, MAR, oder MNAR sind).</div></details>
+Die Auffassung darüber, von welchen "anderen Variablen" die Missings in einer Variable unabhängig sein sollen, unterscheidet sich zwischen verschiedenen AutorInnen und ist nicht immer eindeutig. Während einige grob von *beobachtbaren* Variablen (Vgl. [Schafer & Graham, 2002](#schafgra)), *verfügbaren* Variablen (Vgl. [Cohen, Cohen, West & Aiken, 2003](#ccwa)) oder *Variablen im Datensatz, die analysiert werden* (Vgl. [Little, 1988](#little)) sprechen, grenzen Andere diese mehr ein z.B. *Variablen, die im Modell spezifiziert sind* (Vgl. [Allison, 2002](#allison)). Letztere Definition erleichtert die Überprüfung der Zufälligkeit der Missings (d.h. ob diese MCAR, MAR, oder MNAR sind).</details>
 
 <p style="line-height:10px;"></p>
 
-<div style="text-align: center"><font size="2">**Übersicht der Arten von Missings**</font></div> 
+<div style="text-align: center"><font size="2">**Übersicht der Arten von Missings**</font> 
 
 ```{r}
 #| echo: !expr F
@@ -409,7 +409,7 @@ Auch hier muss man sich vorher überlegen, wo man das Signifikanzniveau $\alpha$
 
 Zur Durchführung des Tests in <span class="r">R greifen wir auf die Funktion `mcar_test()` aus dem Paket **naniar** zu. Das laden wir uns über Github herunter <font size="2">(wofür wir wiederum das Paket **remotes** benötigen)</font>.
 
-> *__Achtung__*:  <div class="rows">Die Funktion `mcar_test()` kann wir nur mit (quantitativen) Daten des Typs <span class="r">numeric (<span class="r">integer und <span class="r">double), <span class="r">logical und <span class="r">factor umgehen.</div>
+> *__Achtung__*:  <div class="rows">Die Funktion `mcar_test()` kann wir nur mit (quantitativen) Daten des Typs <span class="r">numeric (<span class="r">integer und <span class="r">double), <span class="r">logical und <span class="r">factor umgehen.
 
 ```{r}
 # install.packages("remotes")
@@ -424,7 +424,7 @@ Als Output bekommen wir den $\chi^2$-Wert (`statistic`), die Anzahl der Freiheit
 <!-- In <span class="r">R nutzen wir dafür die Funktion `LittleMCAR()` aus dem Paket **BaylorEdPsych**, welche dabei auch auf das Paket **mvnmle** zugreifen muss. Falls wir diese Pakete noch nicht installiert haben, machen wir das z.B. mit dem `install.packages()`-Befehl. -->
 
 <!-- \ -->
-<!-- > *__Achtung__*:  <div class="rows">Bisher gibt es noch keine Version des Pakets **BaylorEdPsych**, welche unter <span class="r">R 4.0.0 läuft. Im Folgenden sehen wir den Output von `LittleMCAR()` unter **<span class="r">R 3.6.3**.</div> -->
+<!-- > *__Achtung__*:  <div class="rows">Bisher gibt es noch keine Version des Pakets **BaylorEdPsych**, welche unter <span class="r">R 4.0.0 läuft. Im Folgenden sehen wir den Output von `LittleMCAR()` unter **<span class="r">R 3.6.3**. -->
 
 <!-- ```{r, echo=F} -->
 <!-- # Interpretation H0 und H1 in diesem Test: -->
@@ -458,7 +458,7 @@ Als Output bekommen wir den $\chi^2$-Wert (`statistic`), die Anzahl der Freiheit
 Für mehr Informationen zu diesem Test siehe [Little (1988)](#little).
 
 Im Paket **naniar** gibt es noch viele weitere Funktionen zur Zusammenfassung, Visualisierung und Manipulation von fehlenden Werten. Auf der <a href="https://github.com/njtierney/naniar" target="_blank">Github-Seite</a> finden wir eine Übersicht einiger dieser Funktionen.
-</div></details>
+</details>
 
 
 ## Wie kann man mit Missings umgehen?
@@ -695,7 +695,7 @@ In dieser querschnittlichen Studie untersuchten Hussey & De Houwer inwieweit Per
 
 Mehr Informationen zur Studie befinden sich auf der <a href="https://osf.io/bvzvy/" target="_blank">OSF-Seite</a>. Den Datensatz finden wir <a href="https://osf.io/szg8h/" target="_blank">hier</a>; ein Codebuch dazu <a href="https://osf.io/ujc75/" target="_blank">hier</a>.
 
-> *__Achtung__*:  <div class="rows">Das Codebuch enthält nicht zu allen Variablen Informationen, da es für den aufbereiteten Datensatz erstellt wurde und wir uns aber die Rohdaten anschauen. Einen Großteil der Variablen, die nicht im Codebuch zu finden sind, entfernen wir noch.</div>
+> *__Achtung__*:  <div class="rows">Das Codebuch enthält nicht zu allen Variablen Informationen, da es für den aufbereiteten Datensatz erstellt wurde und wir uns aber die Rohdaten anschauen. Einen Großteil der Variablen, die nicht im Codebuch zu finden sind, entfernen wir noch.
 
 <p style="line-height:10px;"></p>
 
@@ -722,7 +722,7 @@ data_a <- data_a[,-c(2:7, 9, 145:153)]
 rmarkdown::paged_table(data_a, options(rows.print=5))
 ```
 
-> *__Achtung__*:  <div class="rows">Wir gehen im Folgenden davon aus, dass die Variablen `statements..c1.`, `statements..c2.`. `statements..c3.` und `statements..c4.` aus dem Datensatz den Variablen `catch_1`, `catch_2`, `catch_3` und `catch_4` entsprechen.</div>
+> *__Achtung__*:  <div class="rows">Wir gehen im Folgenden davon aus, dass die Variablen `statements..c1.`, `statements..c2.`. `statements..c3.` und `statements..c4.` aus dem Datensatz den Variablen `catch_1`, `catch_2`, `catch_3` und `catch_4` entsprechen.
 
 </p></details>
 
@@ -734,7 +734,7 @@ In der Studie untersuchen Glenn & Teachman, inwiefern sich Menschen mit geringer
 
 Den Datensatz finden wir <a href="https://osf.io/jv67g/" target="_blank">hier</a>; ein detailliertes Codebuch mit weiteren Informationen zur Studie  <a href="https://osf.io/qh8sz/" target="_blank">hier</a>.
 
-> *__Achtung__*:  <div class="rows">Das Codebuch enthält leider keine Informationen zu den demographischen Variablen. Einige werden wir uns dennoch anschauen, da sie eindeutig interpretierbar erscheinen.</div>
+> *__Achtung__*:  <div class="rows">Das Codebuch enthält leider keine Informationen zu den demographischen Variablen. Einige werden wir uns dennoch anschauen, da sie eindeutig interpretierbar erscheinen.
 
 <p style="line-height:10px;"></p>
 
@@ -771,7 +771,7 @@ rmarkdown::paged_table(data_b, options(rows.print=5))
 # alte Selektion: 75:78, 80:82, 84, 86:97
 ```
 
-<!-- > *__Achtung__*:  <div class="rows">Die Variablen `preselect_outcome_predict` und `preselect_outcome_predict_old`, welche im Datensatz vorkommen, werden im Codebuch nicht direkt aufgeführt. Wir orientieren uns hier an den Informationen zu den Variablen `pre_outcome` und `pre_outcome_old` auf Seite 20 im Codebuch.</div> -->
+<!-- > *__Achtung__*:  <div class="rows">Die Variablen `preselect_outcome_predict` und `preselect_outcome_predict_old`, welche im Datensatz vorkommen, werden im Codebuch nicht direkt aufgeführt. Wir orientieren uns hier an den Informationen zu den Variablen `pre_outcome` und `pre_outcome_old` auf Seite 20 im Codebuch. -->
 
 ```{r}
 #| echo: false
@@ -800,7 +800,7 @@ Bevor wir uns die fehlenden Werte genauer anschauen können, ist es sinnvoll, ei
 <span class="highlight">1.) Gibt es fehlende Werte im Datensatz, die nicht mit `NA` kodiert sind?
 
 <div class="hint"><details><summary>Tipp</summary>
-Hier vergleichen wir die möglichen Ausprägungen der Variablen, die wir im Codebuch finden, mit den tatsächlichen Ausprägungen der Variablen, die wir uns in <span class="r">R anschauen können.</details></div>
+Hier vergleichen wir die möglichen Ausprägungen der Variablen, die wir im Codebuch finden, mit den tatsächlichen Ausprägungen der Variablen, die wir uns in <span class="r">R anschauen können.</details>
 
 <p style="line-height:10px;"></p>
 
@@ -813,7 +813,7 @@ sapply(sapply(data_a, unique), sort, na.last=TRUE)
 
 In den Variablen `consent`, `gender`, `gender...comment` kommt eine leere Ausprägung (`""`) vor. Außerdem hat hat eine Person in der Variablen `gender...comment` den Text `N/A` angegeben. Dieser String wird allerdings nicht als korrekte `NA`-Kodierung erkannt. Wir können in beiden Fällen davon ausgehen, dass dies Missings sind, die nicht richtig kodiert wurden.
 
-</div></details>
+</details>
 
 <details><summary>Lösung <font color="#009193">B</font></summary><div class="sol">
 
@@ -830,7 +830,7 @@ levels(data_b$race)
 
 In `race` scheint es keine falsch kodierten Missings zu geben.
 
-> *__Achtung__*:  <div class="rows">Scheinbar wird das Messniveau der **SIAS-Items** (`sias...`) als **nominalskaliert**, und nicht wie sonst üblich als intervallskaliert, angenommen. Zumindest liegen die betreffenden Variables als ungeordnete Faktoren vor.</div>
+> *__Achtung__*:  <div class="rows">Scheinbar wird das Messniveau der **SIAS-Items** (`sias...`) als **nominalskaliert**, und nicht wie sonst üblich als intervallskaliert, angenommen. Zumindest liegen die betreffenden Variables als ungeordnete Faktoren vor.
 
 <p style="line-height:10px;"></p>
 
@@ -867,7 +867,7 @@ data_b_test <- data_b_test[, c(79, 95)] # sias5, sias5_RS
 rmarkdown::paged_table(data_b_test, options(rows.print=5))
 ```
 
-> *__Achtung__*:  <div class="rows">Wir müssen hier umdenken, da `sias5_RS` die *rekodierte* Version von `sias5` widergibt. Wir wollen allerdings die *allgemeingültige* Zuordnung von Daten und Angaben im Codebuch verstehen.</div>
+> *__Achtung__*:  <div class="rows">Wir müssen hier umdenken, da `sias5_RS` die *rekodierte* Version von `sias5` widergibt. Wir wollen allerdings die *allgemeingültige* Zuordnung von Daten und Angaben im Codebuch verstehen.
 
 <p style="line-height:10px;"></p>
 
@@ -885,7 +885,7 @@ Wenn wir tiefgehender mit den Daten arbeiten würden (z.B. Datenanalyse), würde
 
 Ansonsten scheinen alle fehlenden Werte korrekt kodiert zu sein.
 
-</div></details>\
+</details>\
 
 
 <span class="highlight">2.) Kodiere ggf. inkorrekt kodierte Missings zu `NA` um.
@@ -895,7 +895,7 @@ Ansonsten scheinen alle fehlenden Werte korrekt kodiert zu sein.
 
 Wir kodieren mittels `<- NA` jene Ausprägungen um, die falsch kodierte fehlende Werte zeigen.
 
-</div></details>
+</details>
 
 <p style="line-height:10px;"></p>
 
@@ -919,7 +919,7 @@ sapply(sapply(data_a[c(2, 4 ,5)], unique), sort, na.last=TRUE)
 
 Jetzt sind alle fehlenden Werte mit `NA` gekennzeichnet.
 
-</div></details>\
+</details>\
 
 
 
@@ -938,7 +938,7 @@ data_a <- data_a[,-5]
 <span class="highlight">1.) Wie viele Missings gibt es insgesamt im Datensatz (in absoluten und relativen Zahlen)?
 
 <div class="hint"><details><summary>Tipp</summary>
-Mit der `table()`-Funktion können wir uns Häufigkeitstabellen ausgeben lassen. Jetzt müssen unsere Daten nur noch *dichotom* in fehlend und nicht fehlend eingeteilt werden.</details></div>
+Mit der `table()`-Funktion können wir uns Häufigkeitstabellen ausgeben lassen. Jetzt müssen unsere Daten nur noch *dichotom* in fehlend und nicht fehlend eingeteilt werden.</details>
 
 <p style="line-height:10px;"></p>
 
@@ -959,7 +959,7 @@ table(is.na(data_a))[2] / ( table(is.na(data_a))[1] + table(is.na(data_a))[2] )
 Es gibt `r table(is.na(data_a))[2]` fehlende Werte. Das sind ca. `r round(table(is.na(data_a))[2]/( table(is.na(data_a))[1] + table(is.na(data_a))[2] ), 4) * 100`% aller Werte im Datensatz.
 
 
-</div></details>
+</details>
 
 <details><summary>Lösung <font color="#009193">B</font></summary><div class="sol">
 
@@ -978,18 +978,18 @@ table(is.na(data_b))[2] / ( table(is.na(data_b))[1] + table(is.na(data_b))[2] )
 
 Es gibt `r table(is.na(data_b))[2]` fehlende Werte. Das sind ca. `r round(table(is.na(data_b))[2]/( table(is.na(data_b))[1] + table(is.na(data_b))[2] ), 4) * 100`% aller Werte im Datensatz.
 
-</div></details>\
+</details>\
 
 
 <span class="highlight">2.) Welche *Variable* enthält die meisten Missings? Wie viele Missings sind das (in absoluten und relativen Zahlen)
 
 <div class="hint"><details><summary>Tipp: Verortung Missings</summary>
 Mit `colSums()` werden die Summen der Spalten eines Datensatzes angegeben. Nun müssen wir unsere Daten nur wieder *dichotom* in fehlend und nicht fehlend einteilen. 
-</details></div>
+</details>
 
 <div class="hint"><details><summary>Tipp: Namen der Variablen</summary>
 Mit `colnames()` können wir uns Namen von Variablen ausgeben lassen. Wir müssen nur noch die relevanten auswählen. 
-</details></div>
+</details>
 
 <p style="line-height:10px;"></p>
 
@@ -1008,7 +1008,7 @@ colnames(data_a[colSums(is.na(data_a)) == max(colSums(is.na(data_a)))])
 
 Die meisten Missings sind in den `statement`-Variablen mit je einer absoluten Anzahl von `r max(colSums(is.na(data_a)))` fehlenden Werten. Das entspricht ca. `r round(max(colSums(is.na(data_a)))/nrow(data_a), 4) * 100`%.
 
-</div></details>
+</details>
 
 <details><summary>Lösung <font color="#009193">B</font></summary><div class="sol">
 
@@ -1025,18 +1025,18 @@ colnames(data_b[colSums(is.na(data_b)) == max(colSums(is.na(data_b)))])
 
 Die meisten Missings hat die Variable `preselect_peak_e2` mit `r max(colSums(is.na(data_b)))` fehlenden Werten. Das entspricht ca. `r round(max(colSums(is.na(data_b)))/nrow(data_b), 4) * 100`%.
 
-</div></details>\
+</details>\
 
 
 <span class="highlight">3.) Welche *Person* hat die meisten Missings? Wie viele Missings sind das (in absoluten und relativen Zahlen)?
 
 <div class="hint"><details><summary>Tipp: Verortung Missings</summary>
 Mit `rowSums()` werden die Summen der Zeilen eines Datensatzes angegeben. Zusätzlich müssen wir unsere Daten nur wieder *dichotom* in fehlend und nicht fehlend einteilen.
-</details></div>
+</details>
 
 <div class="hint"><details><summary>Tipp: Zeilenindizes der Fälle</summary>
 Mit `which()` können wir uns die Zeilenindizes von Fällen ausgeben lassen. Wir müssen nur noch die relevanten auswählen. 
-</details></div>
+</details>
 
 <p style="line-height:10px;"></p>
 
@@ -1055,7 +1055,7 @@ which(rowSums(is.na(data_a)) == max(rowSums(is.na(data_a))))
 
 Die meisten Missings haben die Personen `r which(rowSums(is.na(data_a)) == max(rowSums(is.na(data_a))))` mit jeweils `r max(rowSums(is.na(data_a)))` fehlenden Werten. Das entspricht ca. `r round(max(rowSums(is.na(data_a))) / ncol(data_a), 4) * 100`%.
 
-</div></details>
+</details>
 
 <details><summary>Lösung <font color="#009193">B</font></summary><div class="sol">
 
@@ -1073,14 +1073,14 @@ which(rowSums(is.na(data_b)) == max(rowSums(is.na(data_b))))
 
 Die meisten Missings haben die Personen `r rownames(data_b[rowSums(is.na(data_b))==max(rowSums(is.na(data_b))),])` mit jeweils `r max(rowSums(is.na(data_b)))` fehlenden Werten. Das sind ca. `r round(max(colSums(is.na(data_b)))/nrow(data_b), 4) * 100`% fehlende Werte.
 
-</div></details>\
+</details>\
 
 
 <span class="highlight">4.) Welche bzw. wie viele Patterns *mit* Missings <font size="2">(Missings in bestimmten Kombinationen von Variablen)</font> gibt es? Visualisiere sie. (Für Datensatz B reicht es, wenn das am häufigsten auftretende Pattern mit Missings beschrieben wird.)
 
 <div class="hint"><details><summary>Tipp</summary>
 Im Paket **VIM** gibt es die Funktion `aggr()`, die beim Visualisieren von Missings helfen kann.
-</details></div>
+</details>
 
 <p style="line-height:10px;"></p>
 
@@ -1112,7 +1112,7 @@ data_a <- data_a[which(!is.na(data_a$consent)),]
 ```
 
 
-</div></details>
+</details>
 
 <details><summary>Lösung <font color="#009193">B</font></summary><div class="sol">
 
@@ -1139,7 +1139,7 @@ length(summary(aggr(data_b))[["combinations"]][["Combinations"]]) - 1
 
 Es gibt `r length(summary(aggr(data_b))[["combinations"]][["Combinations"]]) - 1` Patterns mit Missings. Die Missing-Pattern, welche am häufigsten vorkommen, mit jeweils 6 mal, haben nur einen fehlenden Wert auf der Variablen `preselect_peak_e4` <font size="2">(Spaltennummer 32)</font> bzw. `preselect_peak_e2` <font size="2">(Spaltennummer 30)</font>.
 
-</div></details>\
+</details>\
 
 
 
@@ -1155,18 +1155,18 @@ Nachdem wir uns im vorhergehenden Abschnitt deskriptiv-statistische Kennwerte de
 **MAR**: Missings hängen <u>nicht</u> von der (fehlenden) Ausprägung auf der Variablen selbst, aber von anderen Variablen und deren Missings ab. Die Missings sind also zufällig, sobald für diese andere Variablen kontrolliert wird.
 
 **MNAR**: Missings hängen von der (fehlenden) Ausprägung auf der Variablen selbst ab. Sie sind also selbst dann nicht zufällig, wenn für die anderen Variablen kontrolliert wird.
-</details></div>
+</details>
 
 <div class="hint"><details><summary>Tipp</summary>
 Zur Überprüfung der Zufälligkeit können wir den Test von Little (1988)^[**Little**, R. J. A. (1988). *A test of missing completely at random for multivariate data with missing values.* Journal of the American Statistical Association, 83(404), 1198–1202.\
 <font size="1">(für HU-Studierende über <a href="http://ub.hu-berlin.de" target="_blank">ub.hu-berlin.de</a> zugänglich)</font>] verwenden. Dieser überprüft, ob es signifikante Unterschiede zwischen den variablenweisen Mittelwerten der Missing Patterns gibt. Die $H0$, dass es keine überzufälligen Unterschiede der Mittelwerte in Abhängigkeit der Missing Patterns gibt (= MCAR), ist unsere Wunschhypothese. Der Test ist in der Funktion `mcar_test()` aus dem Paket **naniar** implementiert. 
 
-> *__Achtung__*:  <div class="rows">Die Funktion `mcar_test()` kann wir nur mit Variablen des Typs <span class="r">numeric (<span class="r">integer und <span class="r">double), <span class="r">logical und <span class="r">factor umgehen.</div>
+> *__Achtung__*:  <div class="rows">Die Funktion `mcar_test()` kann wir nur mit Variablen des Typs <span class="r">numeric (<span class="r">integer und <span class="r">double), <span class="r">logical und <span class="r">factor umgehen.
 
 <p style="line-height:10px;"></p>
 
 Außerdem können keine qualitativen Daten ausgewertet werden. Es gab eine qualitative Variable in <span class="highlight">Datensatz A, `gender...comment`,  welche wir aber zu Beginn des letzten Abschnitts bereits aus dem Datensatz entfernt haben.
-</details></div>
+</details>
 
 <p style="line-height:10px;"></p>
 
@@ -1192,7 +1192,7 @@ mcar_test(data_a)
 
 Wir bekommen hier nur eine Fehlermeldung ausgegeben. Das liegt daran, dass die Funktion mit unseren Daten nicht klar kommt. Genauer gesagt, wird nur ein Missing-Pattern mittels `mcar_test()` erkannt, obwohl es nach `aggr()` 4 gibt (bzw. nun nur noch 3, da wir alle Fälle mit fehlenden Werten auf `consent` entfernt haben und damit ein Missing-Pattern weniger haben). Leider gibt es keine alternative Implementierung des Tests von Little (für die aktuelle <span class="r">R-Version), und daher können wir nicht weiter an diesen Daten arbeiten.
 
-</div></details>
+</details>
 
 
 <details><summary>Lösung <font color="#009193">B</font></summary><div class="sol">
@@ -1208,9 +1208,9 @@ mcar_test(data_b)
 
 Da der $p$-Wert *über* unserem á priori festgelegtem Signifikanzniveau $\alpha = 0.05$ liegt, haben wir Evidenz dafür, dass die Daten MCAR sind.
 
-> *__Achtung__*:  <div class="rows">Das hier ein $p$-Wert von $1$ ausgegeben wird ist formal nicht korrekt. Das liegt wahrscheinlich an der Rundung, denn korrekterweise wäre es wohl $p=0.99$.</div>
+> *__Achtung__*:  <div class="rows">Das hier ein $p$-Wert von $1$ ausgegeben wird ist formal nicht korrekt. Das liegt wahrscheinlich an der Rundung, denn korrekterweise wäre es wohl $p=0.99$.
 
-</div></details>
+</details>
 
 <p style="line-height:10px;"></p>
 
@@ -1219,7 +1219,7 @@ Da der $p$-Wert *über* unserem á priori festgelegtem Signifikanzniveau $\alpha
 Wenn die Missings MAR oder MNAR sind, kann es zu **Parameterverzerrungen** kommen, wenn wir Methoden nutzen würden, welche die strengere Annahme MCAR annehmen.
 
 Beispiele: Wir können keine Fälle löschen wenn die Daten MAR oder MNAR sind. Wenn die Daten MNAR sind, können wir auch die Maximum Likelihood Schätzung sowie die multiple Imputation nicht nutzen.
-</div></details>\
+</details>\
 
 
 <span class="highlight">2.) Wie gehen wir weiter vor (mit Hinblick auf die Ergebnisse des Tests nach Little)?
@@ -1241,7 +1241,7 @@ Wie bereits oben beschrieben können wir nicht (einfach) weiter an <span class="
 
 Bezüglich <span class="highlight">Datensatz B können wir alle Verfahren anwenden, die MCAR oder MAR fordern, weil wir bei der Durchführung des Test nach Little Evidenz für die $H_0$ (d.h. Daten sind MCAR) gefunden haben.
 
-</div></details>\
+</details>\
 
 
 ### Übung 4: Umgang
@@ -1254,21 +1254,21 @@ Bezüglich <span class="highlight">Datensatz B können wir alle Verfahren anwend
 *listwise/casewise deletion*: Fälle mit mind. einem Missing in einer Variablen werden aus allen Mittelwertsberechnungen ausgeschlossen.
 
 *pairwise deletion*: Fälle mit Missings werden nur aus den jeweiligen Mittelwertsberechnungen derjenigen Variablen ausgeschlossen, in denen der Wert fehlt.
-</details></div>
+</details>
 
 <div class="hint"><details><summary>Tipp: numerisch</summary>
 Mit `is.numeric()` können wir überprüfen, ob ein Vektor numerisch ist. Das müssen wir nur noch auf alle Spalten des Datensatzes anwenden.
-</details></div>
+</details>
 
 <div class="hint"><details><summary>Tipp: Anzahl Beobachtungen</summary>
 Bei *listwise deletion* gehen für die Berechnung der Mittelwerte in jede Variable die gleichen Datenpunkte ein. Wir können einfach mit `nrow()` die Anzahl herausfinden.
 
 Bei *pairwise deletion* gehen für die Berechnung der Mittelwerte unterschiedliche Datenpunkte ein. Mit `colSums()` zählen wir Spaltensummen; jetzt müssen wir nur noch die **nicht** fehlenden Werte angeben.
-</details></div>
+</details>
 
 <div class="hint"><details><summary>Tipp: Unterschiedlichkeit der Mittelwerte</summary>
 Dazu berechnen wir die Differenz der Mittelwerte einer Variablen, die mit *listwise*  und *pairwise deletion*  erstellt wurden. Sinnvoll ist es hier, mit `abs()` die *absolute* Differenz zu erhalten.
-</details></div>
+</details>
 
 <p style="line-height:10px;"></p>
 
@@ -1320,7 +1320,7 @@ vergleich[which(vergleich$diff == max(vergleich$diff)), ]  # unterschiedlichster
 ```
 
 Die Variable mit dem geringsten Unterschied in den mit *listwise* und *pairwise deletion* berechneten Mittelwerten ist `age`; die Variable mit dem größten Unterschied ist `preselect_peak_e3`.
-</div></details>\
+</details>\
 
 <span class="highlight">2.) Berechne die Korrelationen aller numerischen, mindestens intervallskalierten Variablen jeweils mit *listwise* und *pairwise deletion*. <!--Vergleiche die (Indizes der für die Berechnung) genutzten Datenpunkte. Zur Berechnung welcher Korrelation wurde die größte Schnittmenge derselben Fälle für *listwise*  und *pairwise deletion* genutzt?--> Die Korrelation welcher Variablen unterscheidet sich am meisten zwischen *listwise* und *pairwise deletion*, welcher am wenigsten?
 
@@ -1328,19 +1328,19 @@ Die Variable mit dem geringsten Unterschied in den mit *listwise* und *pairwise 
 *listwise/casewise deletion*: Fälle mit mind. einem Missing in einer Variablen werden aus allen Mittelwertsberechnungen ausgeschlossen.
 
 *pairwise deletion*: Fälle mit Missings werden nur aus der jeweiligen Korrelationsberechnungen derjenigen Variablen ausgeschlossen, in denen der Wert fehlt.
-</details></div>
+</details>
 
 <div class="hint"><details><summary>Tipp: numerisch</summary>
 Mit `is.numeric()` können wir überprüfen, ob ein Vektor numerisch ist. Das müssen wir nur noch auf alle Spalten des Datensatzes anwenden.
-</details></div>
+</details>
 
 <div class="hint"><details><summary>Tipp: Unterschiedlichkeit der Korrelationen</summary>
 Dazu berechnen wir die Differenz der Korrelationen jeder Variablen, die mit *listwise*  und *pairwise deletion*  erstellt wurden. Die Korrelationen von beiden Methoden sind je in einer Matrix gespeichert, d.h. für den Vergleich lohnt es sich, eine Schleife, die über alle Zeilen und Spalten geht, zu erstellen. Sinnvoll ist außerdem, mit `abs()` die *absolute* Differenz zu berechnen.
-</details></div>
+</details>
 
 <div class="hint"><details><summary>Tipp: Korrelationen der Variablen mit den extremsten Unterschieden finden</summary>
 Mit `which(..., arr.ind = TRUE)` können wir uns Zeilenname, Zeilen- *und* Spaltenindizes ausgeben lassen.
-</details></div>
+</details>
 
 <p style="line-height:10px;"></p>
 
@@ -1422,7 +1422,7 @@ colnames(diff_corr[3]) # Spaltenname
 ```
 Die Korrelation mit dem größten Unterschied zwischen der *listwise* und der *pairwise deletion* Methode ist jene zwischen `preselect_peak_e3` und `preselect_curr_e3` (`r round(max(diff_corr, na.rm = TRUE), 3)`); die Korrelation mit dem kleinsten Unterschied jene zwischen `preselect_neg_e2` und `preselect_curr_e2` (`r round(min(diff_corr, na.rm = TRUE), 5)`).
 
-</div></details>\
+</details>\
 
 ---
 

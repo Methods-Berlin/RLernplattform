@@ -59,7 +59,7 @@ names(PWE_data)
 
 Der Datensatz enthält 102 Variablen. Einige davon schauen wir uns im Laufe des Kapitels noch genauer an. Im Codebook, welches sich ebenfalls im Ordner **PWE_data** befindet, finden wir eine Erklärung zu den Variablen. Mehr Informationen zum Erhebungsinstrument, der **P**rotestant **W**ork **E**thic Scale, finden wir in <a href="http://web.a.ebscohost.com/ehost/detail/detail?vid=5&sid=4c4ab98a-bce0-4d67-9d45-085c71a5a277%40sessionmgr4008&bdata=JnNpdGU9ZWhvc3QtbGl2ZQ%3d%3d#AN=1971-09987-001&db=pdh" target="_blank">Mirels & Garrett (1971)</a> <font size="2">(nur über HU-VPN zugänglich)</font>.
 
-> *__Achtung__*:  <div class="rows"> Im Abschnitt [Plausibilitäts-Check] werden die Kodierungen einiger Variablen noch korrigiert. Außerdem müssen die Werte der Variablen `Q9A`, `Q13A` und `Q15A` noch invertiert werden, da diese negativ gepolt sind. Das passiert im Abschnitt [Umkodieren].</div>
+> *__Achtung__*:  <div class="rows"> Im Abschnitt [Plausibilitäts-Check] werden die Kodierungen einiger Variablen noch korrigiert. Außerdem müssen die Werte der Variablen `Q9A`, `Q13A` und `Q15A` noch invertiert werden, da diese negativ gepolt sind. Das passiert im Abschnitt [Umkodieren].
 
 <p style="line-height:10px;"></p>
 
@@ -303,7 +303,7 @@ Mehr Informationen gibt es im vorhergehenden Abschnitt zu [<font color="darkgrey
 # https://www.r-bloggers.com/matrix-vs-data-frame-in-r/
 ```
 
-</div></details>
+</details>
 
 <p style="line-height:10px;"></p>
 
@@ -484,7 +484,7 @@ Die Unterscheidung von Wide- und Long-Format ist von Bedeutung, wenn unsere Date
 Im **Wide**-Format liegen Messungen *einer* Untersuchungseinheit in *einer* Zeile vor. Jeder Messzeitpunkt bzw. jede Messung ist eine eigene Variable.\
 
 
-<div style="text-align: center"><font size="2">**Beispiel 1 Wide-Format: Messzeitpunkte**</font></div>
+<div style="text-align: center"><font size="2">**Beispiel 1 Wide-Format: Messzeitpunkte**</font>
 
 ```{r}
 #| echo: false
@@ -508,7 +508,7 @@ table_wide %>% mutate(
 <span style=" border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: grey !important;" >Messwiederholung\
 <span style=" border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lightgrey !important;" >Rater</aside>
 
-<div style="text-align: center"><font size="2">**Beispiel 2 Wide-Format: Rater**</font></div>
+<div style="text-align: center"><font size="2">**Beispiel 2 Wide-Format: Rater**</font>
 
 ```{r}
 #| echo: false
@@ -527,7 +527,7 @@ table_wide %>% mutate(
 
 Im **Long**-Format liegen Messungen *einer* Untersuchungseinheit in *mehreren* Zeilen vor. Alle Messzeitpunkte bzw. Messungen von unterschiedlichen Ratern liegen in einer Variable vor und die Messzeitpunkte bzw. Rater werden in einer separaten Variable kodiert.
 
-<div style="text-align: center"><font size="2">**Beispiel 1 Long-Format: Messzeitpunkte**</font></div>
+<div style="text-align: center"><font size="2">**Beispiel 1 Long-Format: Messzeitpunkte**</font>
 
 ```{r}
 #| echo: false
@@ -544,7 +544,7 @@ table_long %>% mutate(Messung = cell_spec(Messung, background="grey")) %>%
   kable_styling(position="center", full_width = FALSE)
 ```
 
-<div style="text-align: center"><font size="2">**Beispiel 2 Long-Format: Rater**</font></div>
+<div style="text-align: center"><font size="2">**Beispiel 2 Long-Format: Rater**</font>
 
 ```{r}
 #| echo: false
@@ -570,7 +570,7 @@ Im Kapitel zum (**[Wide- und Long-Format]**) erfahren wir, wie wir beide Formate
 
 ## Datensätze zusammenführen
 
-<div style="text-align: center"><font size="2">**Synonyme**: Mergen, Fusionieren, Integrieren </font></div>\
+<div style="text-align: center"><font size="2">**Synonyme**: Mergen, Fusionieren, Integrieren </font>\
 
 Nicht immer haben wir das Glück, dass die für uns relevanten Daten in einem gemeinsamen Dataframe vorliegen.
 
@@ -800,7 +800,7 @@ Wenn wir nun alle Werte aufsummieren, kommen wir auf die Anzahl der Zeilen im ge
 ```{r}
 1672 + 112 + 2305 + 2282
 ```
-</div></details>
+</details>
 </p></details>
 
 <p style="line-height:10px;"></p>
@@ -863,14 +863,14 @@ dim(vornamen_merge_row)
 #| echo: false
 kable(head(vornamen_merge_row))
 ```
-</div></details>
+</details>
 </p></details>
 
 <p style="line-height:10px;"></p>
 
 ## Daten extrahieren
 
-<div style="text-align: center"><font size="2">**Synonyme**: Splitten, Subsetten, Filtern, Selektieren, Extrahieren</font></div>\
+<div style="text-align: center"><font size="2">**Synonyme**: Splitten, Subsetten, Filtern, Selektieren, Extrahieren</font>\
 
 Manchmal möchten wir nur bestimmte Variablen bzw. bestimmte Fälle aus einem Datensatz betrachten. Generell bietet es sich an, dafür **reguläre Ausdrücke** <font size="2">(<a href="https://rstudio.com/wp-content/uploads/2016/09/RegExCheatsheet.pdf" target="_blank">*regular expressions*</a> z.B. die Metacharactere `.*`, `|`, `^` und `$`)</font> und **logische Operatoren** <font size="2">(*logical operators* z.B. `>`, `<` und `==`)</font> zu nutzen. 
 
@@ -913,7 +913,7 @@ kable(table, table.attr = "style='width:100%;'") %>%
 
 Wenn Variablen eines Datensatzes eine **Gemeinsamkeit** <font size="2">(z.B. einen gemeinsamen Wortstamm)</font> aufweisen, können wir diese mit der Funktion `grep()` extrahieren.
 
-<div style="text-align: center"><span class="code">grep(pattern, names(Datensatz))</div>\
+<div style="text-align: center"><span class="code">grep(pattern, names(Datensatz))\
 Die Funktion durchsucht die Namen der Variablen eines Dataframes - <span class="code">names(Datensatz) - nach bestimmten Zahlen- oder Zeichenketten (`pattern`). Diese müssen wir in `" "` angeben <font size="2">(weil Variablennamen als Character gespeichert werden)</font>. 
 
 ```{r}
@@ -1069,7 +1069,7 @@ kable(table, table.attr = "style='width:100%;'") %>%
 
 Wenn wir Ausprägungen suchen, die sich nicht durch logische Operatoren, sondern durch Ähnlichkeiten <font size="2">(z.B. ein gleiches Zeichen)</font> filtern lassen, dann können wir dafür `grep()` nutzen.
 
-<div style="text-align: center">`grep(pattern, x, value)`</div>
+<div style="text-align: center">`grep(pattern, x, value)`
 
 <p style="line-height:10px;"></p>
 
@@ -1168,7 +1168,7 @@ Wenn wir logische Operatoren auf einzelne Variablen anwenden, können wir Fälle
 
 Um nur diese Fälle im gesamten Datensatz zu extrahieren, nutzen wir folgende Syntax:\
 
-<div style="text-align: center"><span class="code">Datensatz[Variable Operator Ausprägung,]</div>
+<div style="text-align: center"><span class="code">Datensatz[Variable Operator Ausprägung,]
 
 Wenn wir Fälle (d.h. Zeilen) exrahieren wollen, müssen wir *nach den Indizes* immer ein Komma angeben z.B. extrahiert <span class="code">df[2,] die zweite Zeile aus `df`. Das kommt daher, dass in einem zweidimensionalen Objekt immer erst die Zeilen und dann die Variablen angegeben werden z.B. sehen wir das auch bei der Reihenfolge der Dimensionen unserer Objekte im **Environment** (bei **Data**).
 
@@ -1739,7 +1739,7 @@ Wenn wir *erst* 10 mal die `0` und anschließend 10 mal die `1` haben wollen, nu
 ```{r}
 rep(0:1, each=10) # das gleiche wie c(rep(0, 10), rep(1, 10))
 ```
-</div></details>
+</details>
 
 <p style="line-height:10px;"></p>
 
@@ -1960,13 +1960,13 @@ Die Variable `sex` taucht nicht im Datensatz auf. Nur die Variable `male`, welch
 
 Die Variable `time` taucht nicht im Codebuch auf. Möglicherweise ist das die individuelle Bearbeitungszeit für den Fragebogen in Sekunden. Vor der Nutzung der der Variablen `time` müssten wir deren Bedeutung klären. 
 
-</div></details>\
+</details>\
 
 
 <span class="highlight">2.) Wie viele Variablen und Beobachtungen enthält der Datensatz?
 
 <div class="hint"><details><summary>Tipp</summary>
-Standardmäßig sind Variablen die Spalten und Beobachtungen die Zeilen eines Datensatzes.</details></div>
+Standardmäßig sind Variablen die Spalten und Beobachtungen die Zeilen eines Datensatzes.</details>
 
 <p style="line-height:10px;"></p>
 
@@ -1991,13 +1991,13 @@ ncol(data) # Variablen = Anzahl der Spalten
 nrow(data) # Beobachtungen (Personen; N) = Anzahl der Zeilen
 ```
 
-</div></details>\
+</details>\
 
 
 <span class="highlight">3.) Liegen alle Variablen in einem ihrem Messniveau angemessenen Datentyp vor?
 
 <div class="hint"><details><summary>Tipp</summary>
-Im Codebuch finden wir Informationen zu den Variablen. Über die Funktionen `str()` bekommen wir Informationen zum Datentyp.</div>
+Im Codebuch finden wir Informationen zu den Variablen. Über die Funktionen `str()` bekommen wir Informationen zum Datentyp.
 
 <p style="line-height:10px;"></p>
 
@@ -2014,7 +2014,7 @@ data$male <- factor(data$male)
 str(data$male)
 ```
 
-> *__Achtung__*:  <div class="rows">Nicht verwirren lassen: Der Faktor `male` hat die Kodierungen `0` und `1` (wie schon die <span class="r">integer-Variable vorher), aber die *interne* Kodierung des Faktors ist `1` und `2`.</div>
+> *__Achtung__*:  <div class="rows">Nicht verwirren lassen: Der Faktor `male` hat die Kodierungen `0` und `1` (wie schon die <span class="r">integer-Variable vorher), aber die *interne* Kodierung des Faktors ist `1` und `2`.
 
 ```{r}
 # ordinalskaliert (sortierter Faktor):
@@ -2023,16 +2023,16 @@ str(data$inc)
 levels(data$inc)
 ```
 
-> *__Achtung__*:  <div class="rows">Aus dem Codebuch ist leider nicht ersichtlich, welche Kategorie (z.B. `< $500`) für welche Kodierung steht (z.B. `1`). Wir gehen hier davon aus, dass beide aufsteigend gepaart wurden, z.B. `< $500` = `1`, aber die *interne* Kodierung eines Faktors beginnt bei `1`, d.h. in unserem Fall gibt es `1` und `2`.</div>
+> *__Achtung__*:  <div class="rows">Aus dem Codebuch ist leider nicht ersichtlich, welche Kategorie (z.B. `< $500`) für welche Kodierung steht (z.B. `1`). Wir gehen hier davon aus, dass beide aufsteigend gepaart wurden, z.B. `< $500` = `1`, aber die *interne* Kodierung eines Faktors beginnt bei `1`, d.h. in unserem Fall gibt es `1` und `2`.
 
-</div></details>\
+</details>\
 
 
 <!-- <span class="highlight">4.) Was kodiert die Variable `inc`, in welchem Datentyp liegt sie vor und wie viele Ausprägungen dieser Variablen gibt es? -->
 
 
 <!-- <div class="hint"><details><summary>Tipp</summary> -->
-<!-- Die Information, was die Variable kodiert, finden wir im Codebuch. Den Datentyp bringen wir in <span class="r">R in Erfahrung. Die Ausprägungen der Variablen finden wir entweder im Codebuch oder wir nutzen eine Funktion in <span class="r">R.</details></div> -->
+<!-- Die Information, was die Variable kodiert, finden wir im Codebuch. Den Datentyp bringen wir in <span class="r">R in Erfahrung. Die Ausprägungen der Variablen finden wir entweder im Codebuch oder wir nutzen eine Funktion in <span class="r">R.</details> -->
 
 <!-- <p style="line-height:10px;"></p> -->
 
@@ -2052,16 +2052,16 @@ levels(data$inc)
 
 <!-- ... und hat 5 mögliche Ausprägungen. (Die Kategorie `NA` zählt fehlende Werte.) -->
 
-<!-- </div></details>\ -->
+<!-- </details>\ -->
 
 
 <span class="highlight">4.) Wie heißt die Variable, die kodiert, inwieweit die befragte Person gerne viele Menschen um sich herum hat? Welche Antwortoption auf der *Mess*skala <font size="2">(hiermit ist <u>nicht</u> die Kodierung der Daten gemeint)</font> haben die meisten befragten Personen angekreuzt?
 
 <div class="hint"><details><summary>Tipp 1</summary>
-Den Namen der Variablen sowie deren Messskala finden wir im Codebuch. Die Häufigkeiten der jeweiligen Ausprägungen der Variablen bringen wir in <span class="r">R in Erfahrung.</details></div>
+Den Namen der Variablen sowie deren Messskala finden wir im Codebuch. Die Häufigkeiten der jeweiligen Ausprägungen der Variablen bringen wir in <span class="r">R in Erfahrung.</details>
 
 <div class="hint"><details><summary>Tipp 2</summary>
-Mit der Funktion `table()` können wir uns die Häufigkeiten der Ausprägungen *einer* Variablen ausgeben lassen. Die Funktion ist auch bereits sehr hilfreich, um einen schnellen Überblick über die möglichen Ausprägungen zu bekommen.</details></div>
+Mit der Funktion `table()` können wir uns die Häufigkeiten der Ausprägungen *einer* Variablen ausgeben lassen. Die Funktion ist auch bereits sehr hilfreich, um einen schnellen Überblick über die möglichen Ausprägungen zu bekommen.</details>
 
 <p style="line-height:10px;"></p>
 
@@ -2075,16 +2075,16 @@ table(data$soc_2)
 
 Die Kodierung `5` kommt am häufigsten vor. Die meisten befragten Personen haben damit eine 1 auf der Messskala angegeben.
 
-</div></details>\
+</details>\
 
 
 <span class="highlight">5.) Gibt es Werte von Variablen im Datensatz, die unplausibel erscheinen? Wenn ja, entferne die entsprechenden Personen aus dem Datensatz.
 
 <div class="hint"><details><summary>Tipp 1</summary>
-Hiervoll ist es sinnvoll, sich eine Übersicht der Ausprägungen aller Variablen anzuschauen und diese ggf. mit den Angaben im Codebuch zu vergleichen.</div>
+Hiervoll ist es sinnvoll, sich eine Übersicht der Ausprägungen aller Variablen anzuschauen und diese ggf. mit den Angaben im Codebuch zu vergleichen.
 
 <div class="hint"><details><summary>Tipp 2</summary>
-Es gibt einen Wert einer Variablen der heraussticht.</div>
+Es gibt einen Wert einer Variablen der heraussticht.
 
 <p style="line-height:10px;"></p>
 
@@ -2102,13 +2102,13 @@ data <- data[-which(data$age == 9),]
 ```
 
 
-</div></details>\
+</details>\
 
 
 <span class="highlight">6.) Enthält der Datensatz fehlende Werte ("Missings"; `NA`) und wenn ja, wie viele insgesamt und auf welchen Variablen?
 
 <div class="hint"><details><summary>Tipp</summary>
-Das Thema "Fehlende Werte" wird im Kapitel zur Datenvorbereitung nur kurz angerissen, weil es ein [eigenständiges Kapitel](Fehlende-Werte.qmd) dazu gibt.</details></div>
+Das Thema "Fehlende Werte" wird im Kapitel zur Datenvorbereitung nur kurz angerissen, weil es ein [eigenständiges Kapitel](Fehlende-Werte.qmd) dazu gibt.</details>
 
 <p style="line-height:10px;"></p>
 
@@ -2137,12 +2137,12 @@ colSums(is.na(data)) # Übersicht über Anzahl Missings für alle Variablen
 Jede Variable mit Ausnahme von `id` und `time` enthält fehlende Werte.
 
 
-</div></details>\
+</details>\
 
 <span class="highlight">7.) Was ist die höchste Anzahl an fehlenden Werten von *einer* Person und welche Person hat bzw. welche Personen haben die meisten fehlenden Werte?
 
 <div class="hint"><details><summary>Tipp</summary>
-In der letzten Aufgabe haben wir uns variablenweise Missings angeschaut mit `colSums()`. Nun wollen wir uns *zeilen*weise Missings anschauen. </details></div>
+In der letzten Aufgabe haben wir uns variablenweise Missings angeschaut mit `colSums()`. Nun wollen wir uns *zeilen*weise Missings anschauen. </details>
 
 <p style="line-height:10px;"></p>
 
@@ -2170,7 +2170,7 @@ Wir müssen hier `names()` nutzen, damit wir die Zeilennamen ausgegeben bekommen
 
 Man sollte überlegen, wie mit den Daten dieser `r length(which(rowSums(is.na(data)) == max(rowSums(is.na(data)))))` Personen bei etwaigen Analysen umzugehen wäre. Wenn die Daten MCAR sind, könnten wir diese Personen aus den Analysen entfernen. Mehr Infos zu Fehlenden Werten im [gleichnamigen Kapitel](Fehlende-Werte.qmd).
 
-</div></details>\
+</details>\
 
 
 ### Übung 2: Extrahieren von Daten
@@ -2184,13 +2184,13 @@ Nun wollen wir einzelne Daten aus dem Datensatz extrahieren. Dabei interessieren
 <div class="hint"><details><summary>Tipp 1</summary>
 Im Codebuch (S. 26ff) steht, welche Variablen zu den demographischen Angaben zählen.
 
-> *__Achtung__*:  <div class="rows">Im Codebuch steht die Variable `sex`, welche im Datensatz <u>nicht</u> enthalten ist. Alternativ gibt es die Variable `male`.</div>
+> *__Achtung__*:  <div class="rows">Im Codebuch steht die Variable `sex`, welche im Datensatz <u>nicht</u> enthalten ist. Alternativ gibt es die Variable `male`.
 
 <p style="line-height:10px;"></p>
-</details></div>
+</details>
 
 <div class="hint"><details><summary>Tipp 2</summary>
-Es gibt drei demographische Variablen in `data` (aber mehr im Codebuch).</details></div>
+Es gibt drei demographische Variablen in `data` (aber mehr im Codebuch).</details>
 
 <p style="line-height:10px;"></p>
 
@@ -2208,15 +2208,15 @@ library(dplyr)
 rmarkdown::paged_table(select(data, id, male, age, inc), options(rows.print=5))
 ```
 
-</div></details>\
+</details>\
 
 <span class="highlight">2.) Extrahiere alle Variablen, die grundlegende Bedürfnisse <font size="2">(*General Needs*)</font> erfassen.
 
 <div class="hint"><details><summary>Tipp 1</summary>
-Die Variablen haben denselben Wortstamm: `gen`. </details></div>
+Die Variablen haben denselben Wortstamm: `gen`. </details>
 
 <div class="hint"><details><summary>Tipp 2</summary>
-Es gibt vier Items zu grundlegenden Bedürfnissen.</details></div>
+Es gibt vier Items zu grundlegenden Bedürfnissen.</details>
 
 <p style="line-height:10px;"></p>
 
@@ -2234,16 +2234,16 @@ library(dplyr)
 rmarkdown::paged_table(data[,c(1, grep("gen", names(data)))], options(rows.print=5))
 ```
 
-</div></details>\
+</details>\
 
 
 <span class="highlight">3.) Extrahiere alle Variablen, die gesellschaftliche <font size="2">(*Societal Needs*)</font> und interpersonelle <font size="2">(*Interpersonal Needs*)</font> Bedürfnisse erfassen.
 
 <div class="hint"><details><summary>Tipp 1</summary>
-Die Variablen haben zwar denselben Wortstamm – `nee` – aber den haben die Variablen zu grundlegenden Bedürfnissen <font size="2">(*General Needs*)</font> auch. </details></div>
+Die Variablen haben zwar denselben Wortstamm – `nee` – aber den haben die Variablen zu grundlegenden Bedürfnissen <font size="2">(*General Needs*)</font> auch. </details>
 
 <div class="hint"><details><summary>Tipp 2</summary>
-Es gibt insgesamt 18 Items zu gesellschaftlichen und interpersonellen Bedürfnissen (jeweils 9).</details></div>
+Es gibt insgesamt 18 Items zu gesellschaftlichen und interpersonellen Bedürfnissen (jeweils 9).</details>
 
 <p style="line-height:10px;"></p>
 
@@ -2271,13 +2271,13 @@ library(dplyr)
 rmarkdown::paged_table(all_needs[grep("id|c|t", names(all_needs))], options(rows.print=5))
 ```
 
-</div></details>\
+</details>\
 
 
 <span class="highlight">4.) Extrahiere alle Personen, die weniger als \$500 oder mehr als \$5.000 monatlich zur Verfügung haben.
 
 <div class="hint"><details><summary>Tipp</summary>
-Um beide Bedingungen (`< $500` und `> $5.000`) abzufragen, können wir den logischen Operator `|` ("oder") nutzen.</details></div>
+Um beide Bedingungen (`< $500` und `> $5.000`) abzufragen, können wir den logischen Operator `|` ("oder") nutzen.</details>
 
 <p style="line-height:10px;"></p>
 
@@ -2302,16 +2302,16 @@ library(dplyr)
 rmarkdown::paged_table(filter(data, inc == 1 | inc == 5), options(rows.print=5))
 ```
 
-</div></details>\
+</details>\
 
 
 <span class="highlight">5.) Extrahiere die "Extremkreuzer" <font size="2">(Personen, die nur die niedrigste oder höchste Ausprägung einer Frage ankreuzen)</font> aus dem Geselligkeits-Fragebogen <font size="2">(Sociability)</font>.
 
 <div class="hint"><details><summary>Tipp 1</summary>
-Wir können wieder den logischen Operator `|` ("oder") nutzen, um jeweils Personen mit der niedrigste oder höchsten Ausprägung eines Items auszuwählen.</details></div>
+Wir können wieder den logischen Operator `|` ("oder") nutzen, um jeweils Personen mit der niedrigste oder höchsten Ausprägung eines Items auszuwählen.</details>
 
 <div class="hint"><details><summary>Tipp 2</summary>
-Es gibt insgesamt zwei Extremkreuzer.</details></div>
+Es gibt insgesamt zwei Extremkreuzer.</details>
 
 <p style="line-height:10px;"></p>
 
@@ -2352,16 +2352,16 @@ rmarkdown::paged_table(filter(data, soc_1 == 1 | soc_1 == 7,
 
 Auf den Seiten 6 bis 7 sehen wir die Items des Geselligkeits-Fragebogens (oben rechts ist der Pfeil).
 
-</div></details>\
+</details>\
 
 
 <span class="highlight">6.) Extrahiere die Items des Fragebogens zu Integrität <font size="2">(Integrity)</font> für alle Personen, die 18 Jahre alt sind.
 
 <div class="hint"><details><summary>Tipp 1</summary>
-Die Reihenfolge der Auswahl, d.h. ob zuerst Variablen oder zuerst Fälle selektiert werden, ist eigentlich irrelevant, aber wenn wir erst die Fälle selektieren und dann die Variablen müssen wir die Variable `age` nicht wieder aus dem finalen Datensatz entfernen.</details></div>
+Die Reihenfolge der Auswahl, d.h. ob zuerst Variablen oder zuerst Fälle selektiert werden, ist eigentlich irrelevant, aber wenn wir erst die Fälle selektieren und dann die Variablen müssen wir die Variable `age` nicht wieder aus dem finalen Datensatz entfernen.</details>
 
 <div class="hint"><details><summary>Tipp 2</summary>
-Der finale Datensatz besteht aus 12 Variablen (davon sind 11 die Integritäts-Items) von 54 Personen.</details></div>
+Der finale Datensatz besteht aus 12 Variablen (davon sind 11 die Integritäts-Items) von 54 Personen.</details>
 
 <p style="line-height:10px;"></p>
 
@@ -2381,7 +2381,7 @@ library(dplyr)
 rmarkdown::paged_table(all_itg_items, options(rows.print=5))
 ```
 
-</div></details>\
+</details>\
 
 
 <span class="highlight">7.) Extrahiere alle Personen, die im Fragebogen zu interpersonellen Bedürfnissen <font size="2">(Needs, Interpersonal)</font> über dem Gesamtmittelwert <font size="2">(Mittelwert über alle Personen im Datensatz)</font> liegen. Entferne Personen mit mindestens einem fehlenden Wert auf diesen Items aus der Analyse.
@@ -2397,10 +2397,10 @@ Wir müssen\
 3) die Items jeweils für jede Person aufsummieren (d.h. individuelle Scores bilden),\
 4) diese individuellen Scores über alle Personen aufsummieren, um den Gesamtmittelwert zu berechnen,\
 5) die individuellen Scores mit dem Gesamtmittelwert vergleichen, um nur überdurchschnittliche Personen in unserer finalen Auswahl zu haben.\
-</details></div>
+</details>
 
 <div class="hint"><details><summary>Tipp 2</summary>
-Im finalen Datensatz befinden sich 140 (von initial 296) Personen.</details></div>
+Im finalen Datensatz befinden sich 140 (von initial 296) Personen.</details>
 
 <p style="line-height:10px;"></p>
 
@@ -2428,7 +2428,7 @@ library(dplyr)
 rmarkdown::paged_table(final_data, options(rows.print=5))
 ```
 
-</div></details>\
+</details>\
 
 ### Übung 3: Sortieren von Daten
 
@@ -2455,16 +2455,16 @@ library(dplyr)
 rmarkdown::paged_table(data[order(data$age),], options(rows.print=5))
 ```
 
-</div></details>\
+</details>\
 
 
 <span class="highlight">2.) Sortiere `data` (primär) nach absteigendem Einkommen und (sekundär, tertiär, ect.) nach den aufsteigenden Ausprägungen auf den Traditionalismus-Items <font size="2">(Traditionalism)</font> in ihrer natürlichen Reihenfolge <font size="2">(beginnend bei `_1`, endend bei `_8`)</font>.
 
 <div class="hint"><details><summary>Tipp 1</summary>
-Mit der Funktion `order()` können wir nur jeweils auf- *oder* absteigend für *alle* angegebenen Variablen sortieren. Daher sollten wir für diese Aufgabe auf andere Funktionen, z.B. `arrange()` aus dem Paket dplyr zurückgreifen.</details></div>
+Mit der Funktion `order()` können wir nur jeweils auf- *oder* absteigend für *alle* angegebenen Variablen sortieren. Daher sollten wir für diese Aufgabe auf andere Funktionen, z.B. `arrange()` aus dem Paket dplyr zurückgreifen.</details>
 
 <div class="hint"><details><summary>Tipp 2</summary>
-Um besser beurteilen zu können, ob die Sortierung erfolgreich war, ist es sinnvoll, zuerst einen neuen Datensatz nur aus den relevanten Variablen (inklusive `id`) zu erstellen.</details></div>
+Um besser beurteilen zu können, ob die Sortierung erfolgreich war, ist es sinnvoll, zuerst einen neuen Datensatz nur aus den relevanten Variablen (inklusive `id`) zu erstellen.</details>
 
 <p style="line-height:10px;"></p>
 
@@ -2492,7 +2492,7 @@ data_tra <- data[,c(1, # id
 rmarkdown::paged_table(arrange(data_tra, -inc, tra_1, tra_2, tra_3, tra_4, tra_5, tra_6, tra_7, tra_8), options(rows.print=5))
 ```
 
-</div></details>\
+</details>\
 
 
 ### Übung 4: Änderung der Kodierung von Daten
@@ -2502,7 +2502,7 @@ Nun wollen wir die Kodierungen einiger Variablen ändern bzw. Variablen mit neue
 <span class="highlight">1.) Erstelle eine neue Variable `income`, die das monatliche Einkommen der befragten Personen kodiert, und dafür die Kategorien aus dem Codebuch <font size="2">(S.28)</font> nutzt.
 
 <div class="hint"><details><summary>Tipp</summary>
-Um besser beurteilen zu können, ob die Kodierung erfolgreich war, ist es sinnvoll, zuerst einen neuen Datensatz bestehend aus `inc` und `id` zu erstellen.</details></div>
+Um besser beurteilen zu können, ob die Kodierung erfolgreich war, ist es sinnvoll, zuerst einen neuen Datensatz bestehend aus `inc` und `id` zu erstellen.</details>
 
 <p style="line-height:10px;"></p>
 
@@ -2526,13 +2526,13 @@ library(dplyr)
 rmarkdown::paged_table(data_inc, options(rows.print=5))
 ```
 
-</div></details>\
+</details>\
 
 
 <span class="highlight">2.) Erstelle eine neue Variable `sex`, die analog zur gleichnamigen Variablen im Codebuch das biologische Geschlecht kodiert. Gehe für diese Aufgabe davon aus, dass alle Personen, die einen fehlender Wert auf `male` haben, einer Kategorie `other` <font size="2">(nicht-binäres Geschlecht)</font> zugeordnet werden.
 
 <div class="hint"><details><summary>Tipp</summary>
-Um besser beurteilen zu können, ob die Kodierung erfolgreich war, ist es sinnvoll, zuerst einen neuen Datensatz bestehend aus `male` und `id` zu erstellen.</details></div>
+Um besser beurteilen zu können, ob die Kodierung erfolgreich war, ist es sinnvoll, zuerst einen neuen Datensatz bestehend aus `male` und `id` zu erstellen.</details>
 
 <p style="line-height:10px;"></p>
 
@@ -2555,16 +2555,16 @@ library(dplyr)
 rmarkdown::paged_table(data_sex, options(rows.print=5))
 ```
 
-</div></details>\
+</details>\
 
 
 <span class="highlight">3.) Rekodiere die negativ kodierten Items des Fragebogens zu Risikovermeidung <font size="2">(Risk Avoidance)</font>.
 
 <div class="hint"><details><summary>Tipp 1</summary>
-Die negativ kodierten Items sind im Codebuch jeweils mit einem **\*** markiert.</details></div>
+Die negativ kodierten Items sind im Codebuch jeweils mit einem **\*** markiert.</details>
 
 <div class="hint"><details><summary>Tipp 2</summary>
-Es ist sinnvoll zur Überprüfung der Aufgabe, einen neuen Datensatz bestehend aus den negativ kodierten Items und ihrem rekodierten Pendant (und natürlich `id`) zu erstellen.</details></div>
+Es ist sinnvoll zur Überprüfung der Aufgabe, einen neuen Datensatz bestehend aus den negativ kodierten Items und ihrem rekodierten Pendant (und natürlich `id`) zu erstellen.</details>
 
 <p style="line-height:10px;"></p>
 
@@ -2590,7 +2590,7 @@ library(dplyr)
 rmarkdown::paged_table(data_ria, options(rows.print=5))
 ```
 
-</div></details>\
+</details>\
 
 ### Übung 5: Erstellen von Summary-Variablen
 
@@ -2599,7 +2599,7 @@ Nachfolgend wollen wir neue Variablen erstellen, die Informationen aus mehreren 
 <span class="highlight">1.) Erstelle für die verschiedenen Bereiche von Bedürfnissen – Allgemein <font size="2">(General)</font>, Gesellschaftlich <font size="2">(Societal)</font> und Interpersonell <font size="2">(Interpersonal)</font> – jeweils separate Summenwerte und einen Gesamtsummenwert (über alle drei Bereiche).
 
 <div class="hint"><details><summary>Tipp</summary>
-Die Items aller drei Bedürfnis-Bereiche haben denselben Wortstamm: `nee`.</details></div>
+Die Items aller drei Bedürfnis-Bereiche haben denselben Wortstamm: `nee`.</details>
 
 <p style="line-height:10px;"></p>
 
@@ -2626,13 +2626,13 @@ rmarkdown::paged_table(data_need, options(rows.print=5))
 ```
 
 
-</div></details>\
+</details>\
 
 
 <span class="highlight">2.) Erstelle die personenspezifischen Summenwerte der Items, die interpersonelle Bedürfnisse erfassen <font size="2">(Needs, Interpersonal)</font>, für alle Personen, die ein monatliches Einkommen von mehr als \$1.000 haben. Bei allen Personen, die weniger zur Verfügung haben, soll ein `"/"` in der Summenwert-Variablen stehen.
 
 <div class="hint"><details><summary>Tipp</summary>
-Zur Bearbeitung der Aufgabe können wir `mutate()` mit `ifelse()` kombinieren, um den beiden Bedingungen (monatliches Einkommen von mehr bzw. weniger als $1.000) unterschiedliche Werte zuzuweisen.</details></div>
+Zur Bearbeitung der Aufgabe können wir `mutate()` mit `ifelse()` kombinieren, um den beiden Bedingungen (monatliches Einkommen von mehr bzw. weniger als $1.000) unterschiedliche Werte zuzuweisen.</details>
 
 <p style="line-height:10px;"></p>
 
@@ -2667,7 +2667,7 @@ data_int$score <- ifelse(data_int$inc != 1 & data_int$inc != 2,
 library(dplyr)
 rmarkdown::paged_table(data_int, options(rows.print=5))
 ```
-</div></details>\
+</details>\
 
 ---
 

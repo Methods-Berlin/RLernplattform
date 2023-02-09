@@ -167,7 +167,7 @@ knitr::include_graphics("figures/Pakete/Bilder/update function 2.png")
 
 <details><summary>Was sind Binär- und Quellcode?</summary>
 **Binärcode** ist eine Sprache, die zur Verarbeitung digitaler Informationen, d.h. von Rechnern, genutzt wird (Synonym: Maschinencode). Es heißt *binär* weil es zwei mögliche Zeichen gibt: 0 und 1. **Quellcode** bezeichnet für Menschen lesbare Programmiersprachen. Quellcode wird in Binärcode übersetzt und kann dann von Rechnern ausgeführt werden.
-</div></details>
+</details>
 
 Wir können die jüngsten Binärcodes für die Pakete herunterladen oder die Quellcodes der aktuellsten Versionen kompilieren. Allerdings müssen wir dafür spezielle Tools in `R` installiert haben, welche man **unter Mac OS und einer älteren als <span class="r">R-Version 4.0.0 zusätzlich herunterladen** muss <font size="2">(z.B. <a href="https://cran.r-project.org/bin/macosx/tools/" target="_blank">hier</a>)</font>. Wir können hier auch pauschal **nein** antworten. Es ist ausreichend dafür ein `n` in die Konsole zu tippen. Nach einiger Zeit sollten wir erneut versuchen, die aktuellste Version herunterzuladen, da dann häufig auch die Binärcodes zur Verfügung stehen. 
 

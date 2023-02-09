@@ -20,14 +20,14 @@ Exemplarisch schauen wir uns die drei Wege für die Datei neuro<a href="https://
 <details><summary>Was ist eine grafische Benutzeroberfläche?</summary>
 Die Grafische Benutzeroberfläche, oder auch Benutzungsschnittstelle, wird häufig auch mit GUI (_**G**raphical **U**ser **I**nterface_) abgekürzt. Durch diese kann man mit der Maus auf Symbole und andere Steuerelemente klicken anstatt Funktionen in der Konsole auszuführen (z.B. [Weg 1](#weg-1-environment-import-dataset) und [Weg 2](html#weg-2-files-import-dataset) zum Daten einlesen). 
 
-Die grafische Benutzeroberfläche in der Entwicklungsumgebung <span class ="r">**RStudio** ist viel besser ausgebaut (als die des Basisprogramms **R**), weswegen wir diese auch nutzen wollen.</div></details>
+Die grafische Benutzeroberfläche in der Entwicklungsumgebung **RStudio** ist viel besser ausgebaut (als die des Basisprogramms **R**), weswegen wir diese auch nutzen wollen.</details>
 
 <p style="line-height:10px;"></p>
 
 <details><summary>Was ist das Working Directory?</summary>
 Mit dem Working Directory (WD; Arbeitsverzeichnis) legen wir u.a. fest, wo unser aktuelles <span class="r">R-Skript gespeichert wird und wo andere Objekte, die wir aus <span class="r">R exportieren (z.B. Grafiken), standarmäßig (während der aktuellen Sitzung) gespeichert werden. 
 
-Das WD müssen wir (in der Regel) in jeder <span class="r">R-Sitzung erneut festlegen.</div></details>
+Das WD müssen wir (in der Regel) in jeder <span class="r">R-Sitzung erneut festlegen.</details>
 
 
 ## Vor dem Einlesen in <span class="r">R
@@ -290,7 +290,7 @@ Unter <span class="highlight">Windows können wir auf <span class ="keybord">shi
 
 Unter <span class="highlight">Mac können wir die Tastaturkürzel <span class ="keybord">alt + <span class ="keybord">cmd + <span class ="keybord">c nutzen, um unseren Dateipfad zu kopieren.
 
-</div></details>
+</details>
 
 Diese drei Funktionen sind sehr ähnlich aufgebaut. Sind haben aber teilweise unterschiedliche Voreinstellungen <font size="2">(sog. *"Defaults"*)</font>. Zum Beispiel nimmt `read.csv()` an, dass einzelne Datenelemente mit Kommata <font size="2">(Default: `sep=","`)</font> getrennt werden. Dafür werden bei `read.table()` standarmäßig Spaltennamen nicht eingelesen <font size="2">(Default: `header=FALSE`)</font>.
 
@@ -355,7 +355,7 @@ kable(data_kurz)
 ```
      
 Nun wird die Datei korrekt dargestellt.
-</div></details>
+</details>
 
 
 ## FAQ
@@ -380,7 +380,7 @@ Wir klicken einmal auf die Datei (sodass sie markiert ist; dann ist sie blau hin
 #| fig.align: center
 knitr::include_graphics("figures/Daten-importieren/Bilder/Dateipfad.png")
 ```
-</div></details>
+</details>
 
 <p style="line-height:10px;"></p>
 
@@ -510,7 +510,7 @@ knitr::include_graphics("figures/Daten-importieren/Bilder/Mac_Info.png")
 knitr::include_graphics("figures/Daten-importieren/Bilder/arrow_right.png")
 knitr::include_graphics("figures/Daten-importieren/Bilder/Mac_Öffnen.png")
 ```
-</div>
+
 
 - Wenn man nur die **eine** `R`-Datei regulär mit `R`-Studio öffnen möchte: 
    + Rechtsklick auf die Datei
@@ -551,7 +551,7 @@ data_I <- read.csv("data/NPI.csv")
 
 <div class="hint"><details><summary>**Tipp 1**</summary><p>
 Der Datensatz besteht aus `r nrow(data_I)` Zeilen und `r ncol(data_I)` Spalten.
-</p></details></div>
+</p></details>
 
 <p style="line-height:10px;"></p>
 
@@ -569,7 +569,7 @@ kable(data_I_6) %>%
   scroll_box(width = "100%", height = "100%")
 ```
 <br>
-</div></details>
+</details>
 \
 
 ### Übung 2: **.csv**
@@ -588,15 +588,15 @@ data_II <- read.csv("data/16PF.csv", sep="")
 
 <div class="hint"><details><summary>**Tipp 1**</summary><p>
 Der Datensatz besteht aus `r nrow(data_II)` Zeilen und `r ncol(data_II)` Spalten.
-</p></details></div>
+</p></details>
 \
 <div class="hint"><details><summary>**Tipp 2**</summary><p>
 Die einzelnen Zellen (d.h. Elemente der Tabelle) sind durch Leerzeichen *(white space)* getrennt.
-</p></details></div>
+</p></details>
 \
 <div class="hint"><details><summary>**Tipp 3**</summary><p>
 Die Information, wie die Zellen getrennt sind (siehe Tipp 2) übergibt man dem Argument `sep`.
-</p></details></div>
+</p></details>
 
 <p style="line-height:10px;"></p>
 
@@ -614,7 +614,7 @@ kable(data_II_6) %>%
   scroll_box(width = "100%", height = "100%")
 ```
 <br>
-</div></details>
+</details>
 \
 
 ### Übung 3: **.sav**
@@ -634,11 +634,11 @@ data_III <- read.spss("data/ges7.sav", to.data.frame = TRUE)
 
 <div class="hint"><details><summary>**Tipp 1**</summary><p>
 Die Endung `.sav` kennzeichnet SPSS-Dateien. Um diese einzulesen benötigt man zusätzliche Pakete, weil es in base **R** keine Funktion dafür gibt.
-</p></details></div>
+</p></details>
 \
 <div class="hint"><details><summary>**Tipp 2**</summary><p>
 Der Datensatz besteht aus `r nrow(data_III)` Zeilen und `r ncol(data_III)` Spalten.
-</p></details></div>
+</p></details>
 
 <p style="line-height:10px;"></p>
 
@@ -656,7 +656,7 @@ kable(data_III_6) %>%
   scroll_box(width = "100%", height = "100%")
 ```
 <br>
-</div></details>
+</details>
 \
 
 ### Übung 4: **.xlsx**
@@ -676,11 +676,11 @@ data_4 <- read_xlsx("data/DBRNI-Bahnsteigdaten-Stand2015-10.xlsx")
 
 <div class="hint"><details><summary>**Tipp 1**</summary><p>
 Die Endung `.xlsx` kennzeichnet Excel-Dateien. Um diese einzulesen benötigt man zusätzliche Pakete, weil es in base **R** keine Funktion dafür gibt.
-</p></details></div>
+</p></details>
 \
 <div class="hint"><details><summary>**Tipp 2**</summary><p>
 Der Datensatz besteht aus `r nrow(data_4)` Zeilen und `r ncol(data_4)` Spalten.
-</p></details></div>
+</p></details>
 
 <p style="line-height:10px;"></p>
 
@@ -698,7 +698,7 @@ kable(data_4_kurz) %>%
   scroll_box(width = "100%", height = "100%")
 ```
 <br>
-</div></details>
+</details>
 
 
 ---

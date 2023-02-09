@@ -19,7 +19,7 @@ Für die Installation von **R** und **RStudio** unter <span class="highlight">Ub
 Falls ihr das Problem habt, dass mit der obigen Anleitung nicht die aktuelle **R** Version 4.0 installiert wird, oder falls ihr zu **R** 4.0 upgraden wollt, schaut auch <a href="https://medium.com/@hpgomide/how-to-update-your-r-3-x-to-the-r-4-x-in-your-linux-ubuntu-46e2209409c3" target="_blank">diese Anleitung</a> an. 
 
 Falls ihr nur Probleme mit dem Updaten auf die neuste Version habt, führt aus dem Abschnitt *How can I update my R 3.x to the new shiny R4.x?* den Code **ab** `sudo apt-key ...` im Terminal aus. 
-</div></details>\
+</details>\
 
 > *__Achtung__*:  Die **R**- und **RStudio**-Versionen auf den Screenshots könnten bereits veraltet sein, wenn ihr die Anleitung nutzt. Die angegebenen Links führen euch aber dennoch zu den aktuellsten Versionen.
 
@@ -44,7 +44,7 @@ Diese Version läuft unter **Windows XP**, **Windows Vista**, **Windows 8** und 
 <details><summary>*<a name="winv"></a>Wie finde ich meine Windows Version heraus?*</summary><div class="more">
 Um die aktuelle Version unseres Windows Systems herauszufinden, drücken wir die **Windows-Taste** und die **Pause Taste** gleichzeitig. 
 
-> *__Achtung__*:  <div class="rows">Bei manchen Rechner muss man zur Aktivierung der Pause-Taste zusätzlich noch die **fn-Taste** drücken.</div>
+> *__Achtung__*:  <div class="rows">Bei manchen Rechner muss man zur Aktivierung der Pause-Taste zusätzlich noch die **fn-Taste** drücken.
 
 ```{r, out.width = "600px", echo=FALSE}
 knitr::include_graphics("figures/Installation/Bilder/keybord.png")
@@ -56,13 +56,13 @@ Es öffnet sich ein Fenster mit den grundlegenden Informationen über unseren Co
 knitr::include_graphics("figures/Installation/Bilder/winv_info.png")
 ```
 
-Ganz oben sehen wir dort unter **Windows Edition**, welche Windows Version wir installiert haben. Wichtig ist auch der Eintrag unter **Systemtyp**. Hier steht entweder *64 bit-Betriebssystem* oder *32 bit-Betriebssystem*. **R** gibt es sowohl für das 64- als auch für das 32 bit-Betriebssystem. Wenn wir auf **Download **R** 3.6.1 for Windows** drücken, laden wir beide Versionen herunter und **R** erkennt dann automatisch, welche installiert werden kann.</div></details>
+Ganz oben sehen wir dort unter **Windows Edition**, welche Windows Version wir installiert haben. Wichtig ist auch der Eintrag unter **Systemtyp**. Hier steht entweder *64 bit-Betriebssystem* oder *32 bit-Betriebssystem*. **R** gibt es sowohl für das 64- als auch für das 32 bit-Betriebssystem. Wenn wir auf **Download **R** 3.6.1 for Windows** drücken, laden wir beide Versionen herunter und **R** erkennt dann automatisch, welche installiert werden kann.</details>
 
 <p style="line-height:10px;"></p>
 
 <details><summary>Ältere Windows-Versionen</summary><div class="more">
 Falls unser Betriebssystem **nicht** kompatibel ist, können wir <a href="https://cran.r-project.org/bin/windows/base/old/" target="_blank">hier</a> **ältere R-Versionen** finden. Wir müssen jeweils auf die Version klicken und kommen dann auf eine Seite, die genau so aufgebaut ist wie die Seite der aktuellsten Version. Um zu erfahren, ob die Version mit unserem Betriebssystem kompatibel ist, müssen wir jeweils auf **_Does **R** run under my version of Windows?_** klicken. Wenn wir die passende Version gefunden haben, klicken wir auf **Download **R** <font color="grey">[Versionsnummer]</font> for Windows**. Die Versionsnummer ist abhängig davon, welche **R** Version tatsächlich mit unserem Betriebssystem kompatibel ist.
-</div></details>
+</details>
 
 <p style="line-height:10px;"></p>
 
@@ -91,7 +91,7 @@ knitr::include_graphics("figures/Installation/Bilder/7.png")
 ```
 
 <details><summary>*Was sind Startoptionen?*</summary><div class="more">
-Bei den Startoptionen können wir z.B. einstellen, wie **R** später die Hilfe-Seiten einzelner Funktionen anzeigt. Da wir mit der Entwicklungsumgebung **RStudio** arbeiten werden, können wir diese Einstellungen einfach überspringen.</div></details>
+Bei den Startoptionen können wir z.B. einstellen, wie **R** später die Hilfe-Seiten einzelner Funktionen anzeigt. Da wir mit der Entwicklungsumgebung **RStudio** arbeiten werden, können wir diese Einstellungen einfach überspringen.</details>
 
 <p style="line-height:10px;"></p>
 
@@ -125,7 +125,7 @@ knitr::include_graphics("figures/Installation/Bilder/Win_13.PNG")
 ```
 
 <details><summary>Bei mir steht zwar Download RStudio Desktop, aber ich kann nicht darauf klicken.</summary><div class="more">
-In diesem Fall können wir auf der Seite weiter nach unten scrollen. Dort werden unter **All Installers** alle aktuellen Versionen von **RStudio** Desktop aufgeführt. Unter dem Eintrag **OS** sind alle Betriebssysteme aufgelistet, für die es die aktuellste **RStudio** Desktop Version gibt. Wenn wir unser Betriebssystem gefunden haben, wählen wir in der Spalte **Download** die passende **RStudio** Desktop Version aus und laden diese herunter.</div></details>
+In diesem Fall können wir auf der Seite weiter nach unten scrollen. Dort werden unter **All Installers** alle aktuellen Versionen von **RStudio** Desktop aufgeführt. Unter dem Eintrag **OS** sind alle Betriebssysteme aufgelistet, für die es die aktuellste **RStudio** Desktop Version gibt. Wenn wir unser Betriebssystem gefunden haben, wählen wir in der Spalte **Download** die passende **RStudio** Desktop Version aus und laden diese herunter.</details>
 
 <p style="line-height:10px;"></p>
 
@@ -137,7 +137,7 @@ knitr::include_graphics("figures/Installation/Bilder/Win_R_Studio_aelter.png")
 ```
 
 Andernfalls können wir einfach die aktuelle Version mit **Download RStudio for Windows** herunterladen. 
-</div></details>
+</details>
 
 <p style="line-height:10px;"></p>
 
@@ -236,7 +236,7 @@ knitr::include_graphics("figures/Installation/Bilder/RStudio_Version.png")
 ```
 
 Informationen über die aktuellste **RStudio**-Version finden wir wieder unten auf der <a href="https://rstudio.com/products/rstudio/download/#download" target="_blank">**RStudio**-Seite</a>.
-</div></details>
+</details>
 
 <p style="line-height:10px;"></p>
 
@@ -285,7 +285,7 @@ Wir klicken jeweils auf *Fortfahren* und stimmen dem Lizenzvertrag zu. Wir müss
 knitr::include_graphics("figures/Installation/Bilder/XQuartz_ready.png")
 ```
 
-</div></details>
+</details>
 
 <p style="line-height:10px;"></p>
 
@@ -305,7 +305,7 @@ Daraufhin erscheint ein Fenster, in dem wir die Informationen ablesen können.
 ```{r, out.width = "450px", echo=FALSE, fig.align='center'}
 knitr::include_graphics("figures/Installation/Bilder/0_ueber_mac.png")
 ```
-</div></details>
+</details>
 
 <p style="line-height:10px;"></p>
 
@@ -456,7 +456,7 @@ knitr::include_graphics("figures/Installation/Bilder/R-Studio_Version.png")
 ```
 
 Informationen über die aktuellste **RStudio**-Version finden wir wieder auf der <a href="https://rstudio.com/products/rstudio/download/#download" target="_blank">**RStudio**-Seite</a>.
-</div></details>
+</details>
 
 <p style="line-height:10px;"></p>
 

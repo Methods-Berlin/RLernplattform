@@ -80,7 +80,7 @@ Ohne explizite Spezifikation des Parameters unsererseits wird (wenn vorhanden) d
 Funktionen, die ausschließlich Parameter mit Defaults besitzen, (z.B. `matrix()`) werden auch ohne Spezifikation ausgeführt. Funktionen mit (min. einem) Parameter ohne Default (z.B. `mean()`) werden ohne Spezifikation dieser nicht ausgeführt (wir müssen dem Parameter `x` einen Vektor, von dem wir den Mittelwert berechnen wollen, übergeben). Mehr Informationen zu Funktionsdefinition und etwaigen Defaults finden wir im Abschnitt Usage in der <span class="r">R-Dokumentation.
 
 Mehr Informationen zum Aufbau von Funktionen finden wir in der [Einführung in R](Einfuehrung_in_R.qmd)
-</div></details>
+</details>
 
 <p style="line-height:10px;"></p>
 
@@ -114,7 +114,7 @@ knitr::include_graphics("figures/Fehlermeldungen/Bilder/cd dreieck 2.png")
 
 Das dritte Argument, welches nach dem zweiten Komma in `c()` folgen sollte, ist leer. In unserem Beispiel sind die Argumente von `c()` Zahlen (zur Indexierung der Spalten vom Dataframe `daten`). Wenn wir die Spalten `1`, `2` und `3` extrahieren wollten, würden wir das überflüssige Komma löschen: <font color ="#930047">`daten[,c(1,2,3)]`</font>
 
-</div></details>\
+</details>\
 
 ```{r}
 #| out.width: 260px
@@ -135,7 +135,7 @@ knitr::include_graphics("figures/Fehlermeldungen/Bilder/cd kreis 2.png")
 <details><summary>Lösung</summary><div class ="sol">
 
 Unser Code endet mit einer schließenden runden Klammer, welche kein öffnendes Pendant hat. Außerdem hat unsere öffnende eckige Klammer kein abschließendes Pendant. Wahrscheinlich haben wir uns vertippt und anstatt einer schließenden eckigen Klammer eine schließende runde Klammer eingefügt. So würde der richtige Code aussehen: <font color ="#930047">`daten[,c(1,2,3)]`</font>
-</div></details>\
+</details>\
 
 Auf dieser <a href="https://support.rstudio.com/hc/en-us/articles/205753617-Code-Diagnostics?version=1.2.1335&mode=desktop" target="_blank">Seite</a> wird die Möglichkeiten der Code Diagnostics noch detaillierter erklärt und wir erhalten eine Anleitung dazu, wie wir verschiedene Einstellungen tätigen können <font size="2">(in der oberen Menüleiste über *Tools > Global Options > Code > Diagnostics*)</font>.
 
@@ -179,7 +179,7 @@ knitr::include_graphics("figures/Fehlermeldungen/Bilder/fm 1.png")
 z.B. <font color ="#930047">`daten[2]`</font>
 
 Damit extrahiert man auch die zweite Spalte aus `daten`, aber hier wird der Name der Spalte (Variable) nicht mit ausgegeben. Außerdem werden die Elemente der Spalte zeilwenweise wiedergegeben.
-</div></details>\
+</details>\
 
 Wenn mehrere Syntaxfehler enthalten sind, und man nicht gleich alle erkennt, muss man diese nach und nach beseitigen. 
 
@@ -194,7 +194,7 @@ knitr::include_graphics("figures/Fehlermeldungen/Bilder/fm 2.png")
 z.B. <font color ="#930047">`daten[2]`</font>
 
 Zuerst wurde nur auf das fehlerhafte `$` hingewiesen. Nachdem dieses gelöscht wurde, wird erst auf das falsche `)` verwiesen.
-</div></details>\
+</details>\
 
 Manchmal bekommt man auch nur <font color ="#C6180B">`unerwartetes Symbol in: "..."`</font> ausgegeben. In den Anführungszeichen <font color ="#C6180B">`"..."`</font> wird hier nur der Teil des Codes ausgegeben, in dem der Fehler ist, nicht aber (wie oben), auch das problematische Zeichen.
 
@@ -209,7 +209,7 @@ knitr::include_graphics("figures/Fehlermeldungen/Bilder/fm 3.png")
 z.B. <font color ="#930047">`daten[,2]`</font> _oder_ <font color ="#930047">`daten[2]`</font>
 
 Hier wurde nicht bemerkt, dass bei der ersten Funktion `daten[,2` noch ein `]` fehlt und einfach schon die nächste Funktion `daten[,3]` ausgeführt. So nahm **R** an, dass beide zusammen gehören würden.
-</div></details>\
+</details>\
 
 Wenn man Komma-Fehler hat, bekommt man beispielsweise folgende Meldung angezeigt.
 
@@ -224,7 +224,7 @@ knitr::include_graphics("figures/Fehlermeldungen/Bilder/fm 4.png")
 z.B. <font color ="#930047">`daten[c(1,2)]`</font> _oder_ <font color ="#930047">`daten[c(1,2,3)]`</font>
 
 Hier weist uns **R** darauf hin, dass das dritte Argument, welches nach dem zweiten Komma folgen sollte, leer ist. In Abhängigkeit davon, welche Spalten aus Daten extrahiert werden sollen, *löscht* man das Komma (um Spalte `1` und `2` zu extrahieren) oder man *ergänzt* einen weiteren Spaltenindex (z.B. 3; um Spalte `1`, `2` und `3` zu extrahieren).
-</div></details>
+</details>
 
 <p style="line-height:10px;"></p>
 
