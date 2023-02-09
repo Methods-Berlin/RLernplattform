@@ -27,7 +27,7 @@ In RStudio gibt es u.a. zusätzlich:
 
 - Code Hervorhebung\
 In Abhängigkeit davon, um was für Code es sich handelt (z.B. Funktionen, Datentyp, bestehende Objekte, Kommentare; Fehlermeldungen) wird dieser **farblich** verschieden im Skript und auch in der Konsole hervorgehoben.
-- Befehlszeilenergänzung <font color="#009193">(Autovervollständigung)\
+- Befehlszeilenergänzung (Autovervollständigung)\
 Wenn wir anfangen, Code einzutippen, bekommen wir bereits Vorschläge, welche Funktionen oder bestehenden Objekte wir meinen könnten. Wenn wir mit der Maus über eine vorgeschlagene Funktion fahren, bekommen wir außerdem eine kurze **Erklärung**, was diese macht und welche Parameter sie besitzt. Wir können auf die Vorschläge klicken, um unseren Code (d.h. den Namen der Funktion oder des Objekts) **automatisch vervollständigen** zu lassen. Die Befehlszeilenergänzung können wir sowohl in der Konsole als auch im Skript nutzen.
 - Code Diagnostik\
 Wenn wir Code im Skript schreiben, bekommen wir schon **vor der Ausführung Hinweise auf Probleme bzw. Unvollständigkeiten**. Unser Skript muss dazu aber bereits gespeichert sein. Auf die Code Diagnostik gehen wir im Kapitel zu [Fehlermeldungen](Fehlermeldungen.qmd) noch etwas detaillierter ein.

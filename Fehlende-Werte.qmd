@@ -348,16 +348,16 @@ Am Anfang des Kapitels wurde bereits erwähnt, dass systematische Missings eine 
 
 Es gibt grundlegend drei Mechanismen, die zur Entstehung von fehlenden Werten führen können: **Missing Completely at Random** (MCAR), **Missing at Random** (MAR) und **Missing not at Random** (MNAR). Im folgenden schauen wir uns die Definition dieser Arten an.
 
-- <font color="#009193">**Missing Completely at Random** (MCAR) 
+- **Missing Completely at Random** (MCAR) 
    + Missings in einer Variable sind *völlig zufällig*, wenn sie unabhängig von [allen anderen Variablen](#andere) und dem Missing selbst (d.h. der eigentlichen Ausprägung in dieser Variable, die nicht angegeben wurde) sind. Das heißt, dass **fehlende Werte zufällig über alle Beobachtungen verteilt** sind. Es gibt somit **keine systematischen Missing-Muster**.
    + Man kann zwar nicht testen, ob ein Missing auf einer Variable aufgrund der eigentlichen Ausprägung in dieser Variablen fehlt (da wir keine Informationen über diese haben), aber man kann testen, ob ein Missing in einer Variable mit den anderen Variablen zusammen hängt. Streng genommen ist also **nur ein Teil der Annahme testbar**.
 
-- <font color="#009193">**Missing at Random** (MAR)
+- **Missing at Random** (MAR)
    + Missings in einer Variable sind *zufällig*, wenn sie durch [andere Variablen](#andere)  erklärt werden können. Es gibt somit **systematische Missing-Muster**. Das heißt, dass Missings häufiger in einem oder mehreren Teilstichproben des Datensatzes vorkommen können. Nach der Kontrolle für die anderen Variablen hängt die Wahrscheinlichkeit für diese Missings aber nicht mehr von ihren eigentlichen (fehlenden) Ausprägungen ab.
    + *Fiktives Beispiel:* Männer füllen mit geringerer Wahrscheinlichkeit einen Depressionsfragebogen aus. Das hat aber, nach Kontrolle für Geschlecht, nichts mit ihren Angaben in dem Depressionsfragebogen zu tun.
    + Die MAR-Annahme ist **nicht direkt testbar**, weil man nicht ausschließen kann, dass die Missings nach Kontrolle für die anderen Variablen nicht mehr von ihren eigentlichen Ausprägungen abhängen (da wir keine Informationen über diese haben). Man kann dafür indirekt kontrollieren, in dem man sich beispielsweise Variablen anschaut, die mit der Variable, in der die Missings sind, hoch korrelieren.
 
-- <font color="#009193">**Missing not at Random** (MNAR)
+- **Missing not at Random** (MNAR)
    + Missings sind nicht zufällig verteilt und können nicht durch [andere Variablen](#andere) erklärt werden. Dass bedeutet, dass die Ausprägung in der Variable, die fehlt, der Grund dafür ist, das sie fehlt.
    + *Fiktives Beispiel:* Männer füllen einen Depressionsfragebogen aufgrund der mit dem Fragebogen zu erfassenden Höhe der Depressivität nicht aus (z.B. bei besonders hoher Depressivität werden Fragen nicht beantwortet).
 
@@ -808,7 +808,7 @@ Hier vergleichen wir die möglichen Ausprägungen der Variablen, die wir im Code
 
 
 
-<details><summary>Lösung <font color="#009193">A</summary>
+<details><summary>Lösung A</summary>
 
 ```{r}
 # sortierte Ausprägungen der Variablen inklusive NAs anzeigen:
@@ -819,7 +819,7 @@ In den Variablen `consent`, `gender`, `gender...comment` kommt eine leere Auspr�
 
 </details>
 
-<details><summary>Lösung <font color="#009193">B</summary>
+<details><summary>Lösung B</summary>
 
 
 ```{r}
@@ -903,7 +903,7 @@ Wir kodieren mittels `<- NA` jene Ausprägungen um, die falsch kodierte fehlende
 
 
 
-<details><summary>Lösung <font color="#009193">A</summary>
+<details><summary>Lösung A</summary>
 
 In der vorhergehenden Aufgabe haben wir jene Ausprägungen von Variablen identifiziert, die auch fehlende Werte kodieren sollen: `""` und `N/A`. Diese kodieren wir nun um.
 
@@ -931,7 +931,7 @@ Jetzt sind alle fehlenden Werte mit `NA` gekennzeichnet.
 
 Nun wollen wir uns ein paar deskriptive Statistiken der fehlenden Werte anschauen.
 
-> *__Achtung__*:  <font color="#009193">Datensatz A: Die character-Variable `gender...comment` stellt einen Kommentar zu der Variablen `gender` dar. Sie kodiert demnach qualitative Daten, die wir uns im Folgenden nicht weiter anschauen wollen. Daher entfernen wir die Variable nun aus unserem (Analyse-)Datensatz:
+> *__Achtung__*:  Datensatz A: Die character-Variable `gender...comment` stellt einen Kommentar zu der Variablen `gender` dar. Sie kodiert demnach qualitative Daten, die wir uns im Folgenden nicht weiter anschauen wollen. Daher entfernen wir die Variable nun aus unserem (Analyse-)Datensatz:
 
 ```{r}
 data_a <- data_a[,-5]
@@ -946,7 +946,7 @@ Mit der `table()`-Funktion können wir uns Häufigkeitstabellen ausgeben lassen.
 
 
 
-<details><summary>Lösung <font color="#009193">A</summary>
+<details><summary>Lösung A</summary>
 
 absolute Anzahl: `TRUE`
 
@@ -965,7 +965,7 @@ Es gibt `r table(is.na(data_a))[2]` fehlende Werte. Das sind ca. `r round(table(
 
 </details>
 
-<details><summary>Lösung <font color="#009193">B</summary>
+<details><summary>Lösung B</summary>
 
 
 absolute Anzahl: `TRUE`
@@ -997,7 +997,7 @@ Mit `colnames()` können wir uns Namen von Variablen ausgeben lassen. Wir müsse
 
 
 
-<details><summary>Lösung <font color="#009193">A</summary>
+<details><summary>Lösung A</summary>
 
 ```{r}
 # maximale Anzahl an Missings pro Variable:
@@ -1014,7 +1014,7 @@ Die meisten Missings sind in den `statement`-Variablen mit je einer absoluten An
 
 </details>
 
-<details><summary>Lösung <font color="#009193">B</summary>
+<details><summary>Lösung B</summary>
 
 ```{r}
 # maximale Anzahl an Missings pro Variable:
@@ -1044,7 +1044,7 @@ Mit `which()` können wir uns die Zeilenindizes von Fällen ausgeben lassen. Wir
 
 
 
-<details><summary>Lösung <font color="#009193">A</summary>
+<details><summary>Lösung A</summary>
 
 ```{r}
 # maximale Anzahl an Missings pro Person:
@@ -1061,7 +1061,7 @@ Die meisten Missings haben die Personen `r which(rowSums(is.na(data_a)) == max(r
 
 </details>
 
-<details><summary>Lösung <font color="#009193">B</summary>
+<details><summary>Lösung B</summary>
 
 
 ```{r}
@@ -1088,7 +1088,7 @@ Im Paket **VIM** gibt es die Funktion `aggr()`, die beim Visualisieren von Missi
 
 
 
-<details><summary>Lösung <font color="#009193">A</summary>
+<details><summary>Lösung A</summary>
 
 Der Output von `summary(aggr())` gibt uns verschiedene Informationen über die Missings und Missing-Patterns. Neben der Zusammensetzung der Patterns bekommen wir Auskunft über die absoluten und relativen Häufigkeiten der variablenweisen Missings und der Missing-Patterns. In den Grafiken steht blau für vorhandene Werte; rot für Missings. Wir sehen in der rechten Grafik, dass ein Missing-Pattern keine Missings enthält.
 
@@ -1118,7 +1118,7 @@ data_a <- data_a[which(!is.na(data_a$consent)),]
 
 </details>
 
-<details><summary>Lösung <font color="#009193">B</summary>
+<details><summary>Lösung B</summary>
 
 Wir bekommen von `summary(aggr())` verschiedene Informationen über die Missings und Missing-Patterns. Neben der Zusammensetzung der Patterns bekommen wir Auskunft über die absoluten und relativen Häufigkeiten der variablenweisen Missings und der Missing-Patterns. In den Grafiken steht blau für vorhandene Werte; rot für Missings. Wir sehen in der rechten Grafik, dass ein Missing-Pattern keine Missings enthält.
 
@@ -1174,7 +1174,7 @@ Außerdem können keine qualitativen Daten ausgewertet werden. Es gab eine quali
 
 
 
-<details><summary>Lösung <font color="#009193">A</summary>
+<details><summary>Lösung A</summary>
 
 Die Funktion `mcar_test()` kann nicht mit Daten vom Typ character umgehen. Daher müssen wir die nominalskalierten Variablen `gender` und `consent` zuerst faktorisieren:
 
@@ -1199,7 +1199,7 @@ Wir bekommen hier nur eine Fehlermeldung ausgegeben. Das liegt daran, dass die F
 </details>
 
 
-<details><summary>Lösung <font color="#009193">B</summary>
+<details><summary>Lösung B</summary>
 
 Das Signifikanzniveau legen wir auf $\alpha = 0.05$ fest.
 
@@ -1218,7 +1218,7 @@ Da der $p$-Wert *über* unserem á priori festgelegtem Signifikanzniveau $\alpha
 
 
 
-<details><summary><font color="#009193">Konsequenzen der Verarbeitung von Daten, die MAR oder MNAR sind</summary>
+<details><summary>Konsequenzen der Verarbeitung von Daten, die MAR oder MNAR sind</summary>
 
 Wenn die Missings MAR oder MNAR sind, kann es zu **Parameterverzerrungen** kommen, wenn wir Methoden nutzen würden, welche die strengere Annahme MCAR annehmen.
 

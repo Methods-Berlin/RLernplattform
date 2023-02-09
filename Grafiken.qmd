@@ -35,7 +35,7 @@ ggplot(ChickWeight[ChickWeight$Time == 8,], aes(Diet, weight)) +
 ```
 
 <aside>\
-Den [<font color="#009193">**Violinenplot**] schauen wir uns später noch genauer an.</aside>
+Den [**Violinenplot**] schauen wir uns später noch genauer an.</aside>
 
 Zuerst schauen wir uns die grundlegende Funktionsweise von ggplot an. Dann lernen wir, wie wir (bekannte) Grafiken erstellen und modifizieren können. Abschließend erfahren wir, wie wir Grafiken exportieren können. Am Ende befindet sich außerdem eine Auswahl weiterführender Hilfen, die für die Visualisierung der eigenen Daten nützlich sein können.
 

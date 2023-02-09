@@ -1780,7 +1780,7 @@ Wir nutzen zu diesem Zweck den Datensatz **PWE_data**, welcher aus einer psychom
 
 
 
-<details><summary>`rowSums()`, <font color="#009193">`rowMeans()` und <font color="#009193">`select()`: Summen- und Mittelwerte</summary>
+<details><summary>`rowSums()`, `rowMeans()` und `select()`: Summen- und Mittelwerte</summary>
 
 Wir schauen uns im Folgenden an, wie man Summen- und Mittelwerte von mehreren Variablen erstellt. Dieses Vorgehen ist beispielsweise für die Erstellung von Skalenwerten in der Testkonstruktion von großer Relevanz.
 

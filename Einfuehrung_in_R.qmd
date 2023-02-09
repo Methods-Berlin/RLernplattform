@@ -35,7 +35,7 @@ Fangen wir damit an, was Funktionen und Pakete sind, warum wir diese nutzen und 
 
 > Funktionen sind **(Unter)Programme**, die eine gewisse Funktionalität haben, d.h. eine **bestimmte Aufgabe** ausführen. 
 
-<span class="highlight q">Warum ist es sinnvoll, Funktionen zu nutzen?
+Warum ist es sinnvoll, Funktionen zu nutzen?
 
 Wenn wir beispielsweise den Mittelwert einer Zahlenreihe errechnen wollen, nutzen wir folgenden Code:
 
@@ -115,15 +115,15 @@ mean(nums, 0, TRUE)
 
 So erleichtern uns Funktionen unsere Arbeit. Zusammengefasst hat die Nutzung von Funktionen folgende Vorteile:
 
-- <font color="#009193">**Organisation**\
+- **Organisation**\
 Programme (z.B. statistische Analysen) können sehr komplex werden. Durch die Nutzung von Funktionen teilen wir unser komplexes Programm in mehrere, kleinere (Unter)Programme (z.B. Vektor erstellen, Mittelwert berechnen, ...).
-- <font color="#009193">**Wiederverwendbarkeit**\
+- **Wiederverwendbarkeit**\
 Wir können Funktionen immer wieder aufrufen. So wird unser Programm kompakter (**DRY**-Prinzip, Don't Repeat Yourself) und wir reduzieren Fehler durch Kopieren von Code (z.B. Verzählen bei den Elementen durch die wir teilen wollen).
-- <font color="#009193">**Testen**\
+- **Testen**\
 Weil wir weniger (redundanten) Code haben, können wir schneller Fehler finden (z.B. Tippfehler, fehlende Elemente). 
-- <font color="#009193">**Erweiterbarkeit**\
+- **Erweiterbarkeit**\
 Funktionen können erweitert werden, um verschiedene Szenarien zu händeln. Meist hat das schon jemand für uns gemacht. Wir müssen den Parametern einer Funktion nur verschiedene Argumente übergeben (z.B. `na.rm=TRUE` zum Ausschluss von fehlenden Werten). 
-- <font color="#009193">**Abstraktion**\
+- **Abstraktion**\
 Wir müssen die Funktion nicht im Detail verstehen. Es reicht zu wissen, wie der *Name* der Funktion ist (`mean()`), welchen *Input* wir übergeben (`x`; `trim` und `na.rm` optional weil mit Default) und welchen *Output* (arithmetisches Mittel) wir bekommen und wo wir die Funktion finden, d.h. aus welchem *Paket* (base) sie stammt. All diese Informationen erhalten wir in der Dokumentation der Funktion z.B. in RStudio unter @sec-files-plots-packages-help-viewer. 
 
 Auf <a href="https://www.freecodecamp.org" target="_blank">freecodecamp.org</a> finden wir eine kurze Einführung zu R: <a href="https://www.freecodecamp.org/news/r-programming-language-explained/" target="_blank">R Programming Language explained</a>. Es lohnt sich, **vertiefend den Part zu <a href="https://www.freecodecamp.org/news/r-programming-language-explained/#functions-in-r" target="_blank">Funktionen</a> anzuschauen** (~ 10min), um ein besseres Verständnis für die Arbeit mit R zu bekommen.
@@ -133,7 +133,7 @@ Auf <a href="https://www.freecodecamp.org" target="_blank">freecodecamp.org</a> 
 
 > Funktionen (und Dateien) werden in sogenannten Paketen gespeichert. Dabei sind in einem Paket (häufig) Funktionen, die für einen begrenzten Aufgabenbereich genutzt werden.
 
-Es gibt <font color="#009193">**Standardpakete**, die man automatisch mit dem Download von R erhält und deren Funktionen und Dateien man einfach nutzen kann. Diese sind **base** (basale Funktionen wie z.B. `c()` und `mean()`, die wir gerade genutzt haben), **datasets** (Beispieldatensätze), **graphics** (Grafiken erstellen), **grDevices** (Farben und Schriften), **methods** (Methoden und Klassen erstellen bzw. Informationen erhalten), **stats** (statistische Methoden) und **utils** (z.B. Informationen zu Add-On Paketen erhalten und diese herunterladen).
+Es gibt **Standardpakete**, die man automatisch mit dem Download von R erhält und deren Funktionen und Dateien man einfach nutzen kann. Diese sind **base** (basale Funktionen wie z.B. `c()` und `mean()`, die wir gerade genutzt haben), **datasets** (Beispieldatensätze), **graphics** (Grafiken erstellen), **grDevices** (Farben und Schriften), **methods** (Methoden und Klassen erstellen bzw. Informationen erhalten), **stats** (statistische Methoden) und **utils** (z.B. Informationen zu Add-On Paketen erhalten und diese herunterladen).
 
 Zum Beispiel können wir mit der Funktion `data()` auf die in **datasets** enthaltenen Datensatze zugreifen. 
 
@@ -162,7 +162,7 @@ names(women)
 ```
 
 
-Mit den Funktionen aus den Standardpaketen können wir schon vieles machen. Weil R **open-source** ist, kann jeder eigene Pakete schreiben und Anderen zugänglich machen. Wir können auf diese <font color="#009193">**Add-on Pakete**, die andere R-NutzerInnen erstellt haben, über <a href="https://cran.r-project.org" target="_blank">CRAN</a> (Comprehensive R Archive Network) zugreifen. Natürlich können wir selbstgeschriebene Funktionen, die wir häufig nutzen, auch in eigenen Paketen speichern, um sie unkompliziert wieder nutzen zu können oder sie der R-Community zur Verfügung zu stellen.
+Mit den Funktionen aus den Standardpaketen können wir schon vieles machen. Weil R **open-source** ist, kann jeder eigene Pakete schreiben und Anderen zugänglich machen. Wir können auf diese **Add-on Pakete**, die andere R-NutzerInnen erstellt haben, über <a href="https://cran.r-project.org" target="_blank">CRAN</a> (Comprehensive R Archive Network) zugreifen. Natürlich können wir selbstgeschriebene Funktionen, die wir häufig nutzen, auch in eigenen Paketen speichern, um sie unkompliziert wieder nutzen zu können oder sie der R-Community zur Verfügung zu stellen.
 
 Add-on Pakete müssen wir einmalig **herunterladen** und jedes Mal, wenn wir sie (in einer R-Session) nutzen wollen, **laden**.
 
@@ -354,15 +354,15 @@ tab %>%
 <details><summary>Recap: Messniveaus</summary>
 Das Messniveau (oder auch Skalenniveau) ist eine wichtige Eigenschaft von Merkmalen (Variablen) von Untersuchungseinheiten. Es beschreibt, welche Informationen in unseren Messwerten abgebildet werden und damit auch welche mathematischen Transformationen mit den Messwerten sinnvoll sind (z.B. das Berechnen von Mittelwerten). Somit begrenzt das Messniveau auch die zulässigen Datenauswertungsverfahren unserer Variablen.
 
-Die Kodierung von <font color="#009193">**nominalskalierten** Merkmalen ist insofern willkürlich, als dass lediglich auf **Gleichheit versus Ungleichheit** geachtet werden muss (z.B. `1`, `4`, `9` *oder* `A`, `Y`, `M`).
+Die Kodierung von **nominalskalierten** Merkmalen ist insofern willkürlich, als dass lediglich auf **Gleichheit versus Ungleichheit** geachtet werden muss (z.B. `1`, `4`, `9` *oder* `A`, `Y`, `M`).
 
-Die Kodierung von <font color="#009193">**ordinalskalierten** Merkmalen geschieht der Größe nach, d.h. dass die **Rangfolge** der Kodierungen einzelner Gruppen relevant ist (z.B. `1` < `4` < `9` *oder* `A` < `M` < `Y`). Man kann aber auch eine eigene Sortierung festlegen, die nicht der "natürlichen" Rangfolge (Zahlen: aufsteigend; Buchstaben: alphabetisch) entspricht (z.B. `Y` < `A` < `M`). Ein Realschulabschluss ist beispielsweise besser als ein Hauptschulabschluss. Wir können aber nicht festlegen, *wie viel besser* er ist. 
+Die Kodierung von **ordinalskalierten** Merkmalen geschieht der Größe nach, d.h. dass die **Rangfolge** der Kodierungen einzelner Gruppen relevant ist (z.B. `1` < `4` < `9` *oder* `A` < `M` < `Y`). Man kann aber auch eine eigene Sortierung festlegen, die nicht der "natürlichen" Rangfolge (Zahlen: aufsteigend; Buchstaben: alphabetisch) entspricht (z.B. `Y` < `A` < `M`). Ein Realschulabschluss ist beispielsweise besser als ein Hauptschulabschluss. Wir können aber nicht festlegen, *wie viel besser* er ist. 
 
-Bei der Kodierung von <font color="#009193">**intervallskalierten** Merkmalen sind sowohl die Rangfolge als auch die **Abstände** zwischen den Ausprägungen relevant (z.B. `1`, `4`, `7`; jeweils mit gleichem Abstand zueinander; *oder* `1.4`, `1.5`, `2.3`; jeweils mit verschiedenen Abständen zueinander). Ein Beispiel dafür ist die Temperatur in Grad Celsius oder Grad Fahrenheit.
+Bei der Kodierung von **intervallskalierten** Merkmalen sind sowohl die Rangfolge als auch die **Abstände** zwischen den Ausprägungen relevant (z.B. `1`, `4`, `7`; jeweils mit gleichem Abstand zueinander; *oder* `1.4`, `1.5`, `2.3`; jeweils mit verschiedenen Abständen zueinander). Ein Beispiel dafür ist die Temperatur in Grad Celsius oder Grad Fahrenheit.
 
-Bei der Kodierung von <font color="#009193">**verhältnisskalierten** Merkmalen ist zusätzlich noch ein **Nullpunkt** vorhanden. Dieser erlaubt es, dass Quotienten zwischen Werten gebildet werden können. Ein beliebtes Beispiel ist die Kelvin Skala. Bei dieser ist bei 0°K keine Bewegungsenergie mehr vorhanden und 20°K sind halb so viel wie 40°K.
+Bei der Kodierung von **verhältnisskalierten** Merkmalen ist zusätzlich noch ein **Nullpunkt** vorhanden. Dieser erlaubt es, dass Quotienten zwischen Werten gebildet werden können. Ein beliebtes Beispiel ist die Kelvin Skala. Bei dieser ist bei 0°K keine Bewegungsenergie mehr vorhanden und 20°K sind halb so viel wie 40°K.
 
-Zu guter Letzt gibt es noch <font color="#009193">**absolutskalierte** Merkmale, welche sowohl einen eindeutigen Nullpunkt als auch eine **eindeutige Einheit** der Skala (z.B. Anzahl der Kinder) vorweisen kann. Die Kodierung entspricht der natürlichen Einheit.
+Zu guter Letzt gibt es noch **absolutskalierte** Merkmale, welche sowohl einen eindeutigen Nullpunkt als auch eine **eindeutige Einheit** der Skala (z.B. Anzahl der Kinder) vorweisen kann. Die Kodierung entspricht der natürlichen Einheit.
 
 Nachfolgend finden wir eine Tabelle der möglichen Unterscheidungen der jeweiligen Messniveaus.
 
