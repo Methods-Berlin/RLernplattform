@@ -2,7 +2,7 @@
 
 Es kann in der Praxis häufiger vorkommen, dass Datensätze unvollständig sind z.B. wenn Teilnehmende einer Befragung nicht alle Fragen beantworten. Diese fehlenden Einträge nennt man **Missings**. In R werden sie (bei numeric) zumeist mit `NA` (*not available*) gekennzeichnet. 
 
-<details><summary>Welche Kodierungen für fehlende Werte gibt es neben `NA`  noch?</summary>
+<details><summary>Welche Kodierungen für fehlende Werte gibt es neben `NA` noch?</summary>
 Beim Datentyp **numeric** (Zahlen) sind fehlende Werte durch `NA` oder durch `NaN` (*Not a Number*) gekennzeichnet. 
 
 ```{r}
@@ -33,8 +33,6 @@ Später lernen wir, wie wir Werte auf `NA` umkodieren können.
 
 Wir beschränken uns in vorliegendem Kapitel auf **`NA` in numerischen Datentypen** (d.h. quantitative Daten).
 </details>
-
-
 
 Fehlende Werte sind grundsätzlich mit **drei Schwierigkeiten** verbunden: 
 
@@ -475,7 +473,7 @@ Nachteil von beiden (d.h. kompletter bzw. partieller Ausschluss von Zeilen) ist 
 Eine weitere Möglichkeit mit fehlenden Werten umzugehen ist diese zu imputieren (d.h. diese "vorherzusagen"). Da Imputation aber ein vielschichtiges Thema mit vielen verschiedenen Methodiken ist, gehen wir im Weiteren nicht darauf ein.
 
 
-## Neuen Datensatz erstellen, der keine Missings enthält
+### Neuen Datensatz erstellen, der keine Missings enthält
 
 Mit `na.omit()` löscht man *listwise/casewise*, d.h. Fälle, die mindestens ein Missing aufweisen werden komplett gelöscht. Es ist ratsam, den damit neu erstellten Datensatz als ein neues Objekt zu speichern (anstatt den originalen Satensatz zu überschreiben):
 
