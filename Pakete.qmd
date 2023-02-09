@@ -1,6 +1,6 @@
 # Pakete
 
-Ein Grund, weshalb `R` von so vielen BenutzerInnen verwendet wird, ist, dass es sich hierbei um eine **Open Source Software** handelt. `R` ist für alle kostenlos, frei verfügbar und der Quellcode ist öffentlich. Dies ermöglicht es WissenschaftlerInnen und EntwicklerInnen auf der ganzen Welt, ständig neue Funktionen in `R` zu implementieren und diese mit anderen NutzerInnen über „Pakete“ zu teilen. Wenn wir diese neu entwickelten Funktionen, die nicht ohnehin grundlegend in `R` vorhanden sind (z.B. über die stets eingeladenen Pakete *base* und *graphics*)</font>, für unsere Analysen verwenden wollen, müssen wir die Pakete, welche die entsprechenden Funktionen beinhalten, installieren und laden. 
+Ein Grund, weshalb `R` von so vielen BenutzerInnen verwendet wird, ist, dass es sich hierbei um eine **Open Source Software** handelt. `R` ist für alle kostenlos, frei verfügbar und der Quellcode ist öffentlich. Dies ermöglicht es WissenschaftlerInnen und EntwicklerInnen auf der ganzen Welt, ständig neue Funktionen in `R` zu implementieren und diese mit anderen NutzerInnen über „Pakete“ zu teilen. Wenn wir diese neu entwickelten Funktionen, die nicht ohnehin grundlegend in `R` vorhanden sind (z.B. über die stets eingeladenen Pakete *base* und *graphics*), für unsere Analysen verwenden wollen, müssen wir die Pakete, welche die entsprechenden Funktionen beinhalten, installieren und laden. 
 
 > **_Hinweis_**: Pakete, die grundlegend in `R` enthalten sind, nennt man auch **Standard**- oder **Basispakete**.
 
@@ -117,11 +117,11 @@ Es kann vorkommen, dass Funktionen aus verschiedenen Paketen die gleiche Bezeich
 knitr::include_graphics("figures/Pakete/Bilder/mask.png")
 ```
 
-Die Funktion des zuletzt eingeladenen Pakets wird mit dem gemeinsamen Funktionsnamen (hier: `alpha()` aus dem Paket **psych**)</font> aufgerufen. Die Funktion aus dem anderen Paket wird **maskiert**, d.h. wir können sie jetzt erstmal nicht mehr nutzen. 
+Die Funktion des zuletzt eingeladenen Pakets wird mit dem gemeinsamen Funktionsnamen (hier: `alpha()` aus dem Paket **psych**) aufgerufen. Die Funktion aus dem anderen Paket wird **maskiert**, d.h. wir können sie jetzt erstmal nicht mehr nutzen. 
 
 Nachfolgend schauen wir uns **drei Möglichkeiten an, Probleme mit dem Maskieren von Funktionen handzuhaben**: 1) deaktivieren und neu laden von Paketen, 2) eindeutige Referenzierung von Funktionen und 3) das Paket **conflicted** nutzen.
 
-Wenn wir die Funktion aus dem anderen Paket (**ggplot2**)</font> nutzen wollen, können wir das Paket erst deaktivieren und dann neu laden. Wir können Pakete deaktivieren, indem wir <span class="code">detach("package:ggplot2", unload = TRUE) nutzen oder indem wir das [Häkchen neben dem Paket im **Packages-Tab** entfernen](#über-das-häkchen-setzen-in-der-system-library).
+Wenn wir die Funktion aus dem anderen Paket (**ggplot2**) nutzen wollen, können wir das Paket erst deaktivieren und dann neu laden. Wir können Pakete deaktivieren, indem wir <span class="code">detach("package:ggplot2", unload = TRUE) nutzen oder indem wir das [Häkchen neben dem Paket im **Packages-Tab** entfernen](#über-das-häkchen-setzen-in-der-system-library).
 
 Wenn wir das Paket mit der gewünschten Funktion laden, erhalten wir folgende Meldung.
 
@@ -169,7 +169,7 @@ knitr::include_graphics("figures/Pakete/Bilder/update function 2.png")
 **Binärcode** ist eine Sprache, die zur Verarbeitung digitaler Informationen, d.h. von Rechnern, genutzt wird (Synonym: Maschinencode). Es heißt *binär* weil es zwei mögliche Zeichen gibt: 0 und 1. **Quellcode** bezeichnet für Menschen lesbare Programmiersprachen. Quellcode wird in Binärcode übersetzt und kann dann von Rechnern ausgeführt werden.
 </details>
 
-Wir können die jüngsten Binärcodes für die Pakete herunterladen oder die Quellcodes der aktuellsten Versionen kompilieren. Allerdings müssen wir dafür spezielle Tools in `R` installiert haben, welche man **unter Mac OS und einer älteren als R-Version 4.0.0 zusätzlich herunterladen** muss (z.B. <a href="https://cran.r-project.org/bin/macosx/tools/" target="_blank">hier</a>)</font>. Wir können hier auch pauschal **nein** antworten. Es ist ausreichend dafür ein `n` in die Konsole zu tippen. Nach einiger Zeit sollten wir erneut versuchen, die aktuellste Version herunterzuladen, da dann häufig auch die Binärcodes zur Verfügung stehen. 
+Wir können die jüngsten Binärcodes für die Pakete herunterladen oder die Quellcodes der aktuellsten Versionen kompilieren. Allerdings müssen wir dafür spezielle Tools in `R` installiert haben, welche man **unter Mac OS und einer älteren als R-Version 4.0.0 zusätzlich herunterladen** muss (z.B. <a href="https://cran.r-project.org/bin/macosx/tools/" target="_blank">hier</a>). Wir können hier auch pauschal **nein** antworten. Es ist ausreichend dafür ein `n` in die Konsole zu tippen. Nach einiger Zeit sollten wir erneut versuchen, die aktuellste Version herunterzuladen, da dann häufig auch die Binärcodes zur Verfügung stehen. 
 
 ### Über das Icon <span style="color: #75AADC">Update oder den Menüpunkt <span style="color: #75AADC">Check for Package Updates...
 
@@ -200,7 +200,7 @@ Damit öffnet sich ein neues Fenster, in dem all unsere Pakete angezeigt werden,
 knitr::include_graphics("figures/Pakete/Bilder/update 2.png")
 ```
 
-Wir sehen hier welche Version eines Pakets wir haben (**Installed**)</font>, welche neuere Version verfügbar ist (**Available**) und welche Änderungen in der neueren Version vorgenommen wurden (**NEWS**)</font>. Bei letzterem müssen wir das jeweilige Seiten-Symbol klicken und werden auf eine Website verwiesen, in der eine Übersicht der Änderungen zu finden ist.
+Wir sehen hier welche Version eines Pakets wir haben (**Installed**), welche neuere Version verfügbar ist (**Available**) und welche Änderungen in der neueren Version vorgenommen wurden (**NEWS**). Bei letzterem müssen wir das jeweilige Seiten-Symbol klicken und werden auf eine Website verwiesen, in der eine Übersicht der Änderungen zu finden ist.
 
 Wenn wir alle Pakete aktualisieren wollen, wählen wir **Select All**. Dann müssen wir nur noch auf **Install Updates** klicken.
 
@@ -229,7 +229,7 @@ knitr::include_graphics("figures/Pakete/Bilder/update gui.png")
 
 Wir werden auch hier darauf hingewiesen, dass für einige der Pakete, die wir aktualisieren wollen, noch nicht die Binärcodes der aktuellsten Versionen der Pakete für unser Betriebssystem auf CRAN bereit gestellt wurden.
 
-Wir sollen uns nun entscheiden, ob wir die betroffenen Pakete mit den Quellcodes der aktuellsten Versionen kompilieren wollen. Dafür müssen wir aber gewisse Tools in `R` implementiert haben, welche man mit Mac OS zusätzlich herunterladen muss (z.B. <a href="https://cran.r-project.org/bin/macosx/tools/" target="_blank">hier</a>)</font> Besser ist es, hier pauschal **nein** anzuwählen. Dafür reicht es auch, ein `n` in die Konsole zu tippen. Wir haben so aber nicht die aktuellste Version der Pakete und sollten in nächster Zeit erneut versuchen, diese zu aktualisieren. 
+Wir sollen uns nun entscheiden, ob wir die betroffenen Pakete mit den Quellcodes der aktuellsten Versionen kompilieren wollen. Dafür müssen wir aber gewisse Tools in `R` implementiert haben, welche man mit Mac OS zusätzlich herunterladen muss (z.B. <a href="https://cran.r-project.org/bin/macosx/tools/" target="_blank">hier</a>) Besser ist es, hier pauschal **nein** anzuwählen. Dafür reicht es auch, ein `n` in die Konsole zu tippen. Wir haben so aber nicht die aktuellste Version der Pakete und sollten in nächster Zeit erneut versuchen, diese zu aktualisieren. 
 
 ### Entwicklerpakete runterladen
 
@@ -239,9 +239,9 @@ Wir sollen uns nun entscheiden, ob wir die betroffenen Pakete mit den Quellcodes
 # https://www.datacamp.com/community/tutorials/r-packages-guide
 ```
 
-Das Paket **devtools** enthält verschiedene Funktion zum Installieren von Paketen von verschiedenen Quellen (engl.: *repositories*, z.B. CRAN)</font>.
+Das Paket **devtools** enthält verschiedene Funktion zum Installieren von Paketen von verschiedenen Quellen (engl.: *repositories*, z.B. CRAN).
 
-Mit diesem können wir u.a. sogenannte **Entwicklerpakete** herunterladen. Das sind Pakete, die man nicht direkt von CRAN runterladen kann (z.B. weil die Dokumentation des Pakets und seiner Funktionen nicht den CRAN-Standards entspricht)</font>.
+Mit diesem können wir u.a. sogenannte **Entwicklerpakete** herunterladen. Das sind Pakete, die man nicht direkt von CRAN runterladen kann (z.B. weil die Dokumentation des Pakets und seiner Funktionen nicht den CRAN-Standards entspricht).
 
 Solche Entwicklerpakete können häufig von <a href="https://github.com" target="_blank">GitHub</a> runtergeladen werden. Zuerst müssen wir dafür das Paket **devtools** installieren. Dann müssen wir dieses laden und anschließend können wir das gewünschte Zielpaket herunterladen.
 
@@ -288,7 +288,7 @@ knitr::include_graphics("figures/Pakete/Bilder/sessionInfo.png")
 
 Für noch detailliertere Informationen zu unseren geladenen Paketen können wir `session_info()` aus dem Paket **devtools** nutzen.
 
-Hier sehen wir z.B. bei **source** wo wir die Paket heruntergeladen haben (z.B. CRAN)</font> und bei **version** mit welcher `R`-Version wir sie erstellt haben (z.B. R 3.6.0)</font>.
+Hier sehen wir z.B. bei **source** wo wir die Paket heruntergeladen haben (z.B. CRAN) und bei **version** mit welcher `R`-Version wir sie erstellt haben (z.B. R 3.6.0).
 
 ```{r}
 #| out.width: 350px
@@ -320,24 +320,24 @@ Wir schauen uns das exemplarisch für das Paket **car** an. Du änderst nur noch
 
 ---
 
-(@) <font color="#009193">**Die Pakete via Befehl deinstallieren und neu installieren**</font>
+(@) <font color="#009193">**Die Pakete via Befehl deinstallieren und neu installieren**
 
 `remove.packages('car')` bzw. `remove.packages(c('car', 'survey'))` \
 `install.packages('car', dependencies=TRUE)` \
 
 <aside>Hilfe bei der **Installation von Paketen** finden wir im gleichnamigen [Kapitel](Pakete.qmd).</aside>
 
-(@) <font color="#009193">**Die neuste `R`-Version von <a href="https://cran.r-project.org/" target="_blank">`R`</a> und/oder <a href="https://www.rstudio.com/products/rstudio/download/" target="_blank"><span style="font-family: Consolas,monaco,monospace;">RStudio</a> (hierbei die kostenlose Variante)</font> auf dem Computer installieren und dann versuchen, das Paket neu zu installieren bzw. Schritt 1 durchzuführen.**</font>
+(@) <font color="#009193">**Die neuste `R`-Version von <a href="https://cran.r-project.org/" target="_blank">`R`</a> und/oder <a href="https://www.rstudio.com/products/rstudio/download/" target="_blank"><span style="font-family: Consolas,monaco,monospace;">RStudio</a> (hierbei die kostenlose Variante) auf dem Computer installieren und dann versuchen, das Paket neu zu installieren bzw. Schritt 1 durchzuführen.**
 
 Achte dabei auf die **Kompatibilität mit deiner Hardware und Software**. Unter Umständen kannst du vielleicht nicht die neueste Version installieren, aber eine neuere als deine aktuelle Version. Ältere Versionen von `R` finden wir auch unter obigem Link. Ältere Versionen von <span style="font-family: Consolas,monaco,monospace;">RStudio finden wir <a href="https://support.rstudio.com/hc/en-us/articles/206569407-Older-Versions-of-RStudio" target="_blank">hier</a>. 
 
 <aside>Hilfe bei der **Installation von `R` und <span style="font-family: Consolas,monaco,monospace;">RStudio** finden wir unserem [Kapitel](Installation.qmd).</aside>
 
-(@) <font color="#009193">**Die Pakete deinstallieren und _manuell_ neu installieren**</font>
+(@) <font color="#009193">**Die Pakete deinstallieren und _manuell_ neu installieren**
 
 `remove.packages('car')` bzw. `remove.packages(c('car', 'survey'))` \
 
-Das Paket bzw. die Pakete von <a href="https://cran.r-project.org/web/packages/available_packages_by_name.html" target="_blank">CRAN</a> als zip-Datei/en runterladen, dann öffnen (entpacken)</font>, den `R` Library Ordner lokalisieren (in dem werden alle `R`-internen Dateien gespeichert)</font> und den/die Paket-Ordner dorthin verschieben.
+Das Paket bzw. die Pakete von <a href="https://cran.r-project.org/web/packages/available_packages_by_name.html" target="_blank">CRAN</a> als zip-Datei/en runterladen, dann öffnen (entpacken), den `R` Library Ordner lokalisieren (in dem werden alle `R`-internen Dateien gespeichert) und den/die Paket-Ordner dorthin verschieben.
 
 
 ### Entwicklerpakete
@@ -354,7 +354,7 @@ Wenn man versucht Entwicklerpakete mit `install.packages()` herunterzuladen, bek
 knitr::include_graphics("figures/Pakete/Bilder/warning.png")
 ```
 
-Entwicklerpakete erhält man zumeist direkt von den Entwicklern (z.B. als Zusatzmaterial in wissenschaftlichen Publikationen oder zum Download von persönlichen Webseiten)</font>. Häufig können Entwicklerpakete auch von <a href="https://github.com" target="_blank">GitHub</a> runtergeladen werden. Dazu müssen wir zunächst das Paket **devtools**, welches wir zum Herunterladen benötigen, installieren. Dann müssen wir dieses laden und anschließend können wir das gewünschte Zielpaket installieren.
+Entwicklerpakete erhält man zumeist direkt von den Entwicklern (z.B. als Zusatzmaterial in wissenschaftlichen Publikationen oder zum Download von persönlichen Webseiten). Häufig können Entwicklerpakete auch von <a href="https://github.com" target="_blank">GitHub</a> runtergeladen werden. Dazu müssen wir zunächst das Paket **devtools**, welches wir zum Herunterladen benötigen, installieren. Dann müssen wir dieses laden und anschließend können wir das gewünschte Zielpaket installieren.
 
 ```{r}
 #| eval: false
@@ -372,4 +372,4 @@ sessionInfo()
 ```
 
 Für Informationen zur Interpretation dieses Outputs schaut auch den Abschnitt [Replizierbarkeit von Analysen](Pakete.qmd#replizierbarkeit-von-analysen) des Kapitels zu Paketen an.
-</font>
+

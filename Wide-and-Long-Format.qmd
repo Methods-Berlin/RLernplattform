@@ -10,11 +10,11 @@ library(tidyr)
 
 Wenn man wissenschaftliche Fragestellungen untersuchen möchte, benötigt man ein geeignetes Format, in dem die Daten vorliegen. Manchmal stehen die Daten, die man auswerten möchte, aber nicht im "richtigen" Format zur Verfügung. 
 
-Im Wesentlichen gibt es zwei verschiedene Darstellungsformen von Tabellendaten (Datensätzen)</font>: das Wide- und das Long-Format.
+Im Wesentlichen gibt es zwei verschiedene Darstellungsformen von Tabellendaten (Datensätzen): das Wide- und das Long-Format.
 
 Im **Wide**-Format entspricht jede Zeile einer Untersuchungseinheit. So liegen beispielsweise messwiederholte Variablen in *unterschiedlichen Spalten* vor.
 
-<div style="text-align: center">**Beispiel 1 Wide-Format: Messzeitpunkte**</font>
+<div style="text-align: center">**Beispiel 1 Wide-Format: Messzeitpunkte**
 
 ```{r}
 #| echo: false
@@ -34,12 +34,12 @@ table_wide %>% mutate(
 ```
 
 <aside>\
-<font color="darkred">Untersuchungseinheit 1</font>\
-<font color="dodgerblue">Untersuchungseinheit 2</font>\
+<font color="darkred">Untersuchungseinheit 1\
+<font color="dodgerblue">Untersuchungseinheit 2\
 <span style=" border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: grey !important;" >Messwiederholung\
 <span style=" border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lightgrey !important;" >Rater</aside>
 
-<div style="text-align: center">**Beispiel 2 Wide-Format: Rater**</font>
+<div style="text-align: center">**Beispiel 2 Wide-Format: Rater**
 
 ```{r}
 #| echo: false
@@ -57,9 +57,9 @@ table_wide %>% mutate(
 ```
 
 
-Im **Long**-Format hingegen liegen Messung von einer Untersuchungseinheit in mehreren Zeilen vor. Dabei sind die Werte einer Untersuchungseinheit, die in unterschiedlichen Modi (z.B. Messzeitpunkte, Rater)</font> erhoben wurden, untereinander gelistet. So werden beispielsweise messwiederholte Variablen in *einer Spalte* dargestellt.
+Im **Long**-Format hingegen liegen Messung von einer Untersuchungseinheit in mehreren Zeilen vor. Dabei sind die Werte einer Untersuchungseinheit, die in unterschiedlichen Modi (z.B. Messzeitpunkte, Rater) erhoben wurden, untereinander gelistet. So werden beispielsweise messwiederholte Variablen in *einer Spalte* dargestellt.
 
-<div style="text-align: center">**Beispiel 1 Long-Format: Messzeitpunkte**</font>
+<div style="text-align: center">**Beispiel 1 Long-Format: Messzeitpunkte**
 
 ```{r}
 #| echo: false
@@ -76,7 +76,7 @@ table_long %>% mutate(Messung = cell_spec(Messung, background="grey")) %>%
   kable_styling(position="center", full_width = FALSE)
 ```
 
-<div style="text-align: center">**Beispiel 2 Long-Format: Rater**</font>
+<div style="text-align: center">**Beispiel 2 Long-Format: Rater**
 
 ```{r}
 #| echo: false
@@ -100,7 +100,7 @@ Wir schauen uns zwei Möglichkeiten an, mit denen man Datensätze umformatieren 
 
 <aside>**Standard-** oder auch **Basispakete** sind Pakete, die von Anfang an in **R** enthalten sind, ohne dass man sie installieren muss.</aside> 
 
-Wir werden beide Pakete nutzen, um unsere Daten vom Long- ins Wide-Format und vom Wide- ins Long-Format zu überführen. Wir stellen beide Möglichkeiten zum Umformatieren vor, damit jeder ausprobieren kann, mit welcher Funktion sie bzw. er besser arbeiten kann. Während `gather()` und `spread()` manchen Nutzern intuitiver und einfacher erscheinen, werden die Daten mit `reshape()` etwas übersichtlicher dargestellt (z.B. durch Zeilennummerierungen)</font>.
+Wir werden beide Pakete nutzen, um unsere Daten vom Long- ins Wide-Format und vom Wide- ins Long-Format zu überführen. Wir stellen beide Möglichkeiten zum Umformatieren vor, damit jeder ausprobieren kann, mit welcher Funktion sie bzw. er besser arbeiten kann. Während `gather()` und `spread()` manchen Nutzern intuitiver und einfacher erscheinen, werden die Daten mit `reshape()` etwas übersichtlicher dargestellt (z.B. durch Zeilennummerierungen).
 
 Falls ihr das Paket **tidyr** noch nicht installiert habt, könnt ihr das folgendermaßen tun: `install.packages("tidyr", dependencies = TRUE)`\
 \
@@ -116,7 +116,7 @@ data(ChickWeight)
 ```{r}
 #| echo: false
 #| eval: false
-# <span style="color:red">**Hinweis:**Wenn ihr den Datensatz nicht in den Workspace laden könnt, könnte das daran liegen, dass dieser nicht in eurer Version des Basis-Pakets **datasets** enthalten ist. Wenn ihr eine aktuellere **R**-Version installiert, werden die Basispakete gleichfalls aktualisiert. Wie ihr **R** aktualisieren könnt, erfahrt in unserem Abschnitt zur <a href="..." target="_blank">Installation und Aktualisierung</a>.</font>
+# <span style="color:red">**Hinweis:**Wenn ihr den Datensatz nicht in den Workspace laden könnt, könnte das daran liegen, dass dieser nicht in eurer Version des Basis-Pakets **datasets** enthalten ist. Wenn ihr eine aktuellere **R**-Version installiert, werden die Basispakete gleichfalls aktualisiert. Wie ihr **R** aktualisieren könnt, erfahrt in unserem Abschnitt zur <a href="..." target="_blank">Installation und Aktualisierung</a>.
 ```
 
 Die Daten stammen aus einem **Längsschnitt**-Experiment, in dem der **Einfluss von verschiedenem Futter auf das Wachstum von Küken** untersucht wurde. 
@@ -208,9 +208,9 @@ rmarkdown::paged_table(spread_wide)
 
 ### Unterschied zwischen `reshape()` und `spread()`
 
-Bei `reshape()` werden Zeilennummerierungen auf Basis des übergebenen Datensatzes erzeugt (siehe <span class ="ex">**[Hinweis](#zeilennum)** im `reshape()`-Abschnitt)</font>.
+Bei `reshape()` werden Zeilennummerierungen auf Basis des übergebenen Datensatzes erzeugt (siehe <span class ="ex">**[Hinweis](#zeilennum)** im `reshape()`-Abschnitt).
 
-<div style="text-align: center">**Wide-Format: Argumente von `reshape()` und `spread()` gegenübergestellt**</font> 
+<div style="text-align: center">**Wide-Format: Argumente von `reshape()` und `spread()` gegenübergestellt** 
 
 ```{r}
 #| echo: false
@@ -223,7 +223,7 @@ knitr::kable(wf, align="c") %>%
 
 <aside>Während wir in `reshape()` mit dem Parameter `direction` fetslegen, welches Format wir erstellen wollen, nutzen wir in tidyr *entweder* `spread()` *oder* `gather()`.</aside>
 
-Die **Benennung der Spalten** der messwiederholten Variable unterscheidet sich in den beiden Ansätzen. Während bei `reshape()` eine Kombination aus dem Namen der messwiederholten Variablen und der Ausprägung der Zeitvariablen genutzt wird (z.B. `weight.0`), wird bei `spread()` nur die Ausprägung der Zeitvariablen genutzt (z.B. `0`)</font>.
+Die **Benennung der Spalten** der messwiederholten Variable unterscheidet sich in den beiden Ansätzen. Während bei `reshape()` eine Kombination aus dem Namen der messwiederholten Variablen und der Ausprägung der Zeitvariablen genutzt wird (z.B. `weight.0`), wird bei `spread()` nur die Ausprägung der Zeitvariablen genutzt (z.B. `0`).
 
 
 
@@ -261,7 +261,7 @@ Bei der Formatierung von Wide in Long sind folgende 6 Argumente wichtig:
 - `idvar`: **ID-Variable**, die unterschiedliche Untersuchungseinheiten kodiert
 - `direction`: vom Wide- ins **Long**-Format
 
-Mit `v.names` kann man die messwiederholte Variable, welche im Wide-Format in mehreren Spalten vorliegt und nun im Long-Format zu einer Spalte zusammengefasst wird, umbenennen. Wenn alle Spaltennamen den gleichen Stamm haben <span class ="ex">(bei uns `weight.0`, `weight.2`, ...)</font>, dann wird dieser als Name der zusammengefassten Variable genutzt. Wenn die Spalten unterschiedliche Namen haben, sollte man hier einen gemeinsamen Namen angeben.
+Mit `v.names` kann man die messwiederholte Variable, welche im Wide-Format in mehreren Spalten vorliegt und nun im Long-Format zu einer Spalte zusammengefasst wird, umbenennen. Wenn alle Spaltennamen den gleichen Stamm haben <span class ="ex">(bei uns `weight.0`, `weight.2`, ...), dann wird dieser als Name der zusammengefassten Variable genutzt. Wenn die Spalten unterschiedliche Namen haben, sollte man hier einen gemeinsamen Namen angeben.
 
 Auch hier kann man einzelne Variablen mit `drop="Variable"` bzw. mehrere Variablen mit `drop=c("Variable_1", "Variable_2", ..., "Variable_x")` aus dem umformatierten Datensatz entfernen.
 
@@ -283,7 +283,7 @@ reshape_long <- reshape(data=reshape_wide, # Name des Datensatzes
 rmarkdown::paged_table(reshape_long)
 ```
 
-> *__Achtung__*:  <a name="zeilennum2"></a> Ganz links sehen wir die neue Zeilennummerierung von `reshape_long`. Die Zeilennummerierung hat hier Nachkommastellen (z.B. 1.0)</font>, weil hier ID-Variable und Zeitvariable kombiniert wurden. Die Zahl vor dem Punkt steht für die Untersuchungseinheit (`Chick`)</font>; die Zahl nach dem Komma für den Messzeitpunkt (`Time`)</font>. \
+> *__Achtung__*:  <a name="zeilennum2"></a> Ganz links sehen wir die neue Zeilennummerierung von `reshape_long`. Die Zeilennummerierung hat hier Nachkommastellen (z.B. 1.0), weil hier ID-Variable und Zeitvariable kombiniert wurden. Die Zahl vor dem Punkt steht für die Untersuchungseinheit (`Chick`); die Zahl nach dem Komma für den Messzeitpunkt (`Time`). \
 
 <details><summary>Was macht `varying=3:14`?</summary><div class="more">
 
@@ -363,9 +363,9 @@ rmarkdown::paged_table(gather_long)
 
 ### Unterschied zwischen `reshape()` und `gather()`
 
-Bei `reshape()` werden Zeilennummerierungen auf Basis des übergebenen Datensatzes erzeugt (siehe [Hinweis](#zeilennum2) im `reshape()`-Abschnitt)</font>.
+Bei `reshape()` werden Zeilennummerierungen auf Basis des übergebenen Datensatzes erzeugt (siehe [Hinweis](#zeilennum2) im `reshape()`-Abschnitt).
 
-<div style="text-align: center">**Long-Format: Argumente von `reshape()` und `gather()` gegenübergestellt**</font> 
+<div style="text-align: center">**Long-Format: Argumente von `reshape()` und `gather()` gegenübergestellt** 
 ```{r}
 #| echo: false
 #| fig.align: center
@@ -379,7 +379,7 @@ knitr::kable(lf)  %>%
 <aside>Das Argument `direction` wurde nicht mit in die Übersicht aufgenommen. Während man bei `reshape()` angeben muss, welches Format man erstellen will, nutzt man in tidyr *entweder* `gather()` *oder* `spread()`.</aside>
 
 
-Bei `gather()` werden die **Ausprägungen der Zeitvariable** (Modi)</font> so benannt, wie vorher die einzelnen Spalten der messwiederholten Variablen hießen. Wenn wir uns das anschauen wollen, könnten wir einfach `reshape_wide` (anstatt `spread_wide`) mit `gather()` bearbeiten. Im Gegensatz dazu kann man bei `reshape()` mit `times` eine eigene Benennung der Ausprägungen festlegen.
+Bei `gather()` werden die **Ausprägungen der Zeitvariable** (Modi) so benannt, wie vorher die einzelnen Spalten der messwiederholten Variablen hießen. Wenn wir uns das anschauen wollen, könnten wir einfach `reshape_wide` (anstatt `spread_wide`) mit `gather()` bearbeiten. Im Gegensatz dazu kann man bei `reshape()` mit `times` eine eigene Benennung der Ausprägungen festlegen.
 
 Bei `reshape()` wird mit `idvar` eine **neue ID-Variable** erstellt. Dazu muss ich dem Argument nur einen Namen geben. Wenn es bereits eine ID-Variable gibt, sollte man den Namen dieser angeben, weil ansonsten *noch* eine neue ID-Variable erstellt wird.  
 
@@ -393,9 +393,9 @@ Bei `gather()` kann man mit mit `factor_key` entscheiden, ob die **neu erstellte
 
 Es gibt noch andere Funktionen, mit denen man Datensätze vom Long- ins Wide-Format oder umgekehrt umformatieren kann. 
 
-In gewisser Hinsicht sind `pivot_longer()` und `pivot_wider()` aus dem Paket **tidyr** die Nachfolger von `gather()` und `spread()`. Neben der intuitiveren Benennung enthalten sie einige Neuerungen wie z.B. die Möglichkeit, mit mehreren messwiederholten Variablen mit *verschiedenen* Datentypen zu arbeiten (dieses Feature wurde von `melt()` und `dcast()` übernommen)</font>. Außerdem wurde der Support für `gather()` und `spread()` eingestellt, d.h. bestehende Probleme mit diesen beiden Funktionen werden nicht mehr behoben werden. <a href="https://tidyr.tidyverse.org/articles/pivot.html" target="_blank">Hier</a> finden wir eine Vignette, in der die Handhabung von `pivot_longer()` und `pivot_wider()` erklärt wird.
+In gewisser Hinsicht sind `pivot_longer()` und `pivot_wider()` aus dem Paket **tidyr** die Nachfolger von `gather()` und `spread()`. Neben der intuitiveren Benennung enthalten sie einige Neuerungen wie z.B. die Möglichkeit, mit mehreren messwiederholten Variablen mit *verschiedenen* Datentypen zu arbeiten (dieses Feature wurde von `melt()` und `dcast()` übernommen). Außerdem wurde der Support für `gather()` und `spread()` eingestellt, d.h. bestehende Probleme mit diesen beiden Funktionen werden nicht mehr behoben werden. <a href="https://tidyr.tidyverse.org/articles/pivot.html" target="_blank">Hier</a> finden wir eine Vignette, in der die Handhabung von `pivot_longer()` und `pivot_wider()` erklärt wird.
 
-Wenn wir wissen wollen, wie man `melt()` (Wide zu Long)</font> und `dcast()` (Long zu Wide)</font> aus dem Paket **reshape2** nutzt, können wir dafür <a href="http://www.cookbook-r.com/Manipulating_data/Converting_data_between_wide_and_long_format/" target="_blank">hier</a> nachschauen.
+Wenn wir wissen wollen, wie man `melt()` (Wide zu Long) und `dcast()` (Long zu Wide) aus dem Paket **reshape2** nutzt, können wir dafür <a href="http://www.cookbook-r.com/Manipulating_data/Converting_data_between_wide_and_long_format/" target="_blank">hier</a> nachschauen.
 
 ---
 
@@ -406,7 +406,7 @@ sessionInfo()
 ```
 
 Für Informationen zur Interpretation dieses Outputs schaut auch den Abschnitt [Replizierbarkeit von Analysen](Pakete#replizierbarkeit-von-analysen) des Kapitels zu Paketen an.
-</font>
+
 
 
 
