@@ -22,7 +22,7 @@ Die Grafische Benutzeroberfläche, oder auch Benutzungsschnittstelle, wird häuf
 
 Die grafische Benutzeroberfläche in der Entwicklungsumgebung **RStudio** ist viel besser ausgebaut (als die des Basisprogramms **R**), weswegen wir diese auch nutzen wollen.</details>
 
-<p style="line-height:10px;"></p>
+
 
 <details><summary>Was ist das Working Directory?</summary>
 Mit dem Working Directory (WD; Arbeitsverzeichnis) legen wir u.a. fest, wo unser aktuelles R-Skript gespeichert wird und wo andere Objekte, die wir aus R exportieren (z.B. Grafiken), standarmäßig (während der aktuellen Sitzung) gespeichert werden. 
@@ -318,7 +318,7 @@ Wenn wir den Dataframe eingelesen haben, erscheint er im **Environment**.
 knitr::include_graphics("figures/Daten-importieren/Bilder/Environment_Datenobjekt.png")
 ```
 
-<p style="line-height:10px;"></p>
+
 
 <details><summary>Probleme? Nutze <font color="white">Trial-and-Error</font>!</summary>
 
@@ -382,7 +382,7 @@ knitr::include_graphics("figures/Daten-importieren/Bilder/Dateipfad.png")
 ```
 </details>
 
-<p style="line-height:10px;"></p>
+
 
 Für eine ausführlichere Anleitung zum Einlesen von Dateien in `R` gibt es ein eigenständiges [Kapitel](Daten-importieren.qmd), in dem wir lernen, wie wir die Benutzeroberfläche von RStudio und Funktionen nutzen können.
 
@@ -553,7 +553,7 @@ data_I <- read.csv("data/NPI.csv")
 Der Datensatz besteht aus `r nrow(data_I)` Zeilen und `r ncol(data_I)` Spalten.
 </p></details>
 
-<p style="line-height:10px;"></p>
+
 
 <details><summary>Lösung</summary><div class ="sol">
 Man kan die Datei z.B. mit `read.csv("Dateipfad")` oder mit `read_csv("Dateipfad")` (aus dem Paket **readr**) korrekt einlesen.
@@ -598,7 +598,7 @@ Die einzelnen Zellen (d.h. Elemente der Tabelle) sind durch Leerzeichen *(white 
 Die Information, wie die Zellen getrennt sind (siehe Tipp 2) übergibt man dem Argument `sep`.
 </p></details>
 
-<p style="line-height:10px;"></p>
+
 
 <details><summary>Lösung</summary><div class="sol">
 Man kan die Datei z.B. mit `read.csv("Dateipfad", sep="")` oder mit `read_table2("Dateipfad")` (aus dem Paket **readr**) korrekt einlesen.
@@ -640,7 +640,7 @@ Die Endung `.sav` kennzeichnet SPSS-Dateien. Um diese einzulesen benötigt man z
 Der Datensatz besteht aus `r nrow(data_III)` Zeilen und `r ncol(data_III)` Spalten.
 </p></details>
 
-<p style="line-height:10px;"></p>
+
 
 <details><summary>Lösung</summary><div class ="sol">
 Man kan die Datei z.B. mit `read.spss("Dateipfad", to.data.frame = TRUE)` (aus dem Paket **foreign**) oder mit `read_sav("Dateipfad")` (aus dem Paket **haven**) korrekt einlesen.
@@ -682,7 +682,7 @@ Die Endung `.xlsx` kennzeichnet Excel-Dateien. Um diese einzulesen benötigt man
 Der Datensatz besteht aus `r nrow(data_4)` Zeilen und `r ncol(data_4)` Spalten.
 </p></details>
 
-<p style="line-height:10px;"></p>
+
 
 <details><summary>Lösung</summary><div class="sol">
 Man kan die Datei z.B. mit `read_xlsx("Dateipfad")` (aus dem Paket **readxl**) oder mit `read.xlsx("Dateipfad")` (aus dem Paket **openxlsx**) korrekt einlesen.

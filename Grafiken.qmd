@@ -65,7 +65,7 @@ knitr::include_graphics("figures/ggplot2/Bilder/cheatsheets.png")
 ```
 </details>
 
-<p style="line-height:10px;"></p>
+
 
 <details class ="bsp"><summary>Beispieldatensatzfür dieses Kapitel</summary>
 
@@ -321,7 +321,7 @@ Auf dieser <a href="http://www.sthda.com/english/wiki/ggplot2-pie-chart-quick-st
 <!-- Im Kreisdiagramm von ggplot sind die Häufigkeiten in den Gruppen durch den *Radius* der Kreissegmente bestimmt. Der "Maßstab" für die Häufigkeit ist an der y-Achse abgetragen. Bei einem klassischen base graphics Kreisdiagramm wird der Kreisausschnitt variiert, während der Radius in allen Gruppen ("Stücken") gleichbleibt. -->
 <!-- </details> -->
 
-<!-- <p style="line-height:10px;"></p> -->
+<!--  -->
 
 <!-- Auf dieser <a href="http://www.sthda.com/english/wiki/ggplot2-pie-chart-quick-start-guide-r-software-and-data-visualization" target="_blank">Seite</a> finden wir Hilfe z.B. dazu, wie wir Farben ändern oder das Diagramm weiter anpassen können <font size="2">(customized)</font>. <a href="https://www.r-bloggers.com/pie-charts-in-ggplot2/" target="_blank">Hier</a> finden wir z.B. eine Anleitung, wie wir mehrere Kreisdiagramme für verschiedene Gruppen erstellen <font size="2">(z.B. Antworten auf ein Item, jeweils für Männer und Frauen getrennt)</font>. -->
 
@@ -376,7 +376,7 @@ Generell sollten wir <span class="highlight">nicht mehr als 20 Kategorien bilden
 
 </details>
 
-<p style="line-height:10px;"></p>
+
 
 Wir erstellen ein Histogramm von `weight` mit den empfohlenen 11 Kategorien, welche wir mit dem Argument `bins` erstellen.
 
@@ -416,7 +416,7 @@ ggplot(data=ChickWeight, aes(x=weight)) +
 Wie wir an den vertikalen Linien sehen, hält die Breite der Kategorien insgesamt jetzt den Range von `weight` ein.
 </details>
 
-<p style="line-height:10px;"></p>
+
 
 Weiterführend finden wir zusätzliche Modifikationen für Histogramme auf dieser <a href="http://www.sthda.com/english/wiki/ggplot2-histogram-easy-histogram-graph-with-ggplot2-r-package" target="_blank">Seite</a>.
 
@@ -463,7 +463,7 @@ In Boxplots werden mehrere deskriptiv-statistische Kennwerte dargestellt:
   
 </details>
 
-<p style="line-height:10px;"></p>
+
 
 Einen Boxplot erhalten wir mit `geom_boxplot()`. Wenn wir fehlende Werte in unseren Daten haben, müssen wir noch das Argument `na.rm = TRUE` ergänzen, welches diese (aus der Grafik) entfernt.
 
@@ -487,7 +487,7 @@ Mit dem Komma legen wir fest, welche der beiden Dimensionen unseres Dataframes w
 Zu beachten ist außerdem, dass wir die Indexierung bereits in der grundlegenden Ebene, d.h. in `ggplot(data, ...)`, festlegen müssen. [Zu Beginn](#grundlegender-aufbau-von-ggplot) haben wir gelernt, dass wir durch die Übergabe des Dataframes an `ggplot(data, ...)` das grundlegende Koordinatensystem erstellen und damit die Anzahl der Datenpunkte (Beobachtungen) festlegen. Folglich würde es nicht funktionieren, die Selektion erst in einer späteren Ebene vorzunehmen, weil die an Anzahl der Datenpunkte sich unterscheiden würde.
 </details>
 
-<p style="line-height:10px;"></p>
+
 
 
 #### Violinenplot
@@ -627,7 +627,7 @@ ggplot(data=ChickWeight[ChickWeight$Time == 21,], aes(x=Diet, y=weight)) +
 <!-- Als Output bekommen wir eine Liste. Um eine Matrix in einer Liste extrahieren zu können, nutzen wir zweifache eckige Klammern `[[x]]`. Um wiederum daraus Spalten oder Zeilen auszuwählen, können wir wieder einfache eckige Klammern nutzen `[y]`. Z.B. können wir uns mit `ci[[1]][1]` die untere KI-Grenze (`[1]`) des Mittelwerts der ersten Gruppe in `Diet` (`[[1]]`) ausgeben lassen. -->
 <!-- </details> -->
 
-<!-- <p style="line-height:10px;"></p> -->
+<!--  -->
 
 <!-- Die Konfidenzintervalle der Mittelwerte erstellen wir mit der Funktion `ciMean` aus dem Paket `lsr`. Diese werden in einer Liste gespeichert. Mit `rbind()` hängen wir die Grenzen der Konfidenzintervalle aneinander, und erhalten so zwei Spalten. Mit `tapply()` haben wir eine Liste erhalten, die aus 4 Matrizen besteht. Diese haben jeweils die Dimensionen 1 x 2 (eine Zeile und zwei Spalten - also ein Zeilenvektor). Deswegen erhalten wir, wenn wir diese mit `rbind()` aneinander hängen, **zwei** Spalten. -->
 
@@ -856,7 +856,7 @@ ggPredict(reg_ggP, se = TRUE, interactive = TRUE)
 
 </details>
 
-<p style="line-height:10px;"></p>
+
 
 ## Mehr als zwei Variablen
 
@@ -990,7 +990,7 @@ kable(cont_Chick)
 ```
 </details>
 
-<p style="line-height:10px;"></p>
+
 
 Bevor wir den Alluvial Plot erstellen, laden wir das benötigte Paket **ggalluvial** und überprüfen, ob unser neu erstellter Dataframe auch wirklich im korrekten Alluvial Format vorliegt.
 
@@ -1161,7 +1161,7 @@ Um zu sehen, dass die sonst weiße Hintergrundfläche der Grafik nun transparent
 
 </details>
 
-<p style="line-height:10px;"></p>
+
 
 <h3>Farbpaletten</h3>
 

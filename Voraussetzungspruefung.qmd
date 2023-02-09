@@ -18,7 +18,7 @@ Nach dem linearen Modell gilt (für Person $i=1, ..., n$ und Prädiktor $k=1, ..
 **$e_i$**: Residuum (Vorhersagefehler); gibt den Teil von y an, der nicht durch die Regressionsgleichung vorhergesagt werden kann
 </details>
 
-<p style="line-height:10px;"></p>
+
 
 Bei der Anwendung der multiplen linearen Regression müssen allerdings bestimmte Annahmen erfüllt sein. Wenn diese verletzt sind, besteht die Gefahr, dass die Parameterschätzungen inkorrekt <font size="2">(verzerrt)</font> sind und/oder wir inkorrekte Schlussfolgerungen über das Vorhandensein von Effekten in der Population ziehen <font size="2">(z.B. wir aufgrund von verzerrten Standardfehlern fälschlicherweise ein signifikantes Ergebnis erhalten)</font>.
 
@@ -49,7 +49,7 @@ Die verschiedenen Annahmen werden im Verlauf der folgenden Abschnitte kurz erlä
 In geplotteten Daten können verschiedenste Verletzungen (z.B. Missspezifikationen der Form des Zusammenhangs zwischen den Variablen) entdeckt werden, denn graphische Darstellungen machen nur geringe Annahmen über die Art des Problems. Statistische Tests hingegen haben häufig einen eingeschränkten Fokus und sie vergleichen nur, was wir vorgegeben haben. Zusätzlich funktionieren sie nur unter bestimmten Annahmen, liefern lediglich eine 0/1-Aussage ohne die Schwere des Annahmeverstoßes zu quantifizieren und hängen stark von der Stichprobengröße ab.
 </details>
 
-<p style="line-height:10px;"></p>
+
 
 <details><summary>Was ist die <a name="loess">Lowess Fit Line</a>?</summary><div class="more">
 ```{r}
@@ -62,7 +62,7 @@ Wenn wir Ergebnisse einer linearen Regression mit `plot()` darstellen, wird häu
 Lowess steht für **lo**cally **we**ighted **s**catterplot **s**moother. Die Lowess (oder auch Loess) Fit Line ist ein Verfahren, welches den besten nonparametrischen Fit für die gegeben Daten anzeigt. Sie ist eine Auswertungshilfe bei der Beurteilung der Form des Zusammenhangs. Dabei macht sie keine Annahmen über die Form des Zusammenhangs zwischen den Variablen. Der Zusammenhang zwischen zwei Variablen wird im Streudiagramm als "smoothe" Linie, die den generellen Trend der Daten beschreibt, dargestellt. Wenn der Zusammenhang zwischen zwei Variablen in der Population linear ist, so sollte sich auch die Lowess Line einer Gerade annähern. Allerdings ist die Lowess Line häufig an den Enden der Verteilung von X weniger präzise, da hier weniger Daten vorhanden sind.
 </details>
 
-<p style="line-height:10px;"></p>
+
 
 <details class ="bsp"><summary>Beispieldatensatz für dieses Kapitel</summary>
 
@@ -125,7 +125,7 @@ summary(lm_lz)
 Wenn die Annahmen für die multiple lineare Regression in unserem Beispiel nicht erfüllt sind, besteht die Gefahr, dass unsere Parameterschätzungen (`Estimate`-Spalte) und/oder Standardfehler (`Std.Error`-Spalte) inkorrekt sind. Damit wären unsere Ergebnisse u.U. untauglich.
 </details>
 
-<p style="line-height:10px;"></p>
+
 
 > *__Achtung__*:  Um eine (multiple) lineare Regression durchführen zu können, müssen unsere Daten ggf. in einem für unsere Analyse **geeigneten (Tabellen-)Format** vorliegen. Es gibt das **Long-** und das **Wide-Format**. Wie wir beide ineinander überführen können erfahren wir im gleichnamigen [Kapitel](Wide-and-Long-Format.qmd).
 
@@ -431,7 +431,7 @@ round((var_slice_1 / var_slice_3), 3)
 <span class = "ex">... und auch der Quotient zwischem dem Slice mit der größten und der kleinsten konditionalen Varianz ist relativ klein. \
 </details>
 
-<p style="line-height:10px;"></p>
+
 
 ### Umgang
 
@@ -483,7 +483,7 @@ Daher sollten wir eher OLS als WLS nutzen, *außer* wenn die Stichprobengröße 
 
 </details>
 
-<p style="line-height:10px;"></p>
+
 
 ## Unabhängigkeit der Residuen
 
@@ -574,7 +574,7 @@ abline(h=0, col="darkblue", type="l", lty=3)
 ```
 </details>
 
-<p style="line-height:10px;"></p>
+
 
 #### Ausmaß des Clusterings
 
@@ -716,7 +716,7 @@ curve( # erstellt eine Kurve ...
 <span class = "ex">Anhand dieser beiden Linien wird noch deutlicher, dass die Verteilung der Residuen in unserem Beispiel von einer Normalverteilung abweicht.
 </details>
 
-<p style="line-height:10px;"></p>
+
 
 ##### QQ-Plot
 
@@ -754,7 +754,7 @@ shapiro.test(lm_lz$residuals)
 <span class = "ex">In unserem Beispiel kann die Nullhypothese abgelehnt werden, d.h. dass die Residuen __nicht__ normalverteilt sind.
 </details>
 
-<p style="line-height:10px;"></p>
+
 
 #### Umgang
 
@@ -1126,7 +1126,7 @@ abline(h = krit.cd, lty = 2)
 ```
 </details>
 
-<p style="line-height:10px;"></p>
+
 
 #### Umgang
 

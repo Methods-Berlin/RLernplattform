@@ -136,7 +136,7 @@ Der Datensatz liegt im **Long-Format** vor und enthält vier Variablen. Mehr Inf
 Von besonderem Interesse für uns ist die Zeitvariable `Time`. Diese werden wir im Folgenden nutzen, um den Datensatz vom Long- ins Wide-Format, und dann wieder zurück ins Long-Format, zu bringen.
 </details>
 
-<p style="line-height:10px;"></p>
+
 
 > *__Achtung__*:  Der Einfachheit halber wird im Folgenden der Begriff **_messwiederholte Variable_** verwendet, wenn von einer Variablen die Rede ist, die mehrfach erhoben wurde (d.h. im Wide-Format in mehreren Spalten und im Long-Format in einer Spalte vorliegt). Im Beispiel zum Wide-Format oben sind demnach die Variablen `t1`, `t2`, `t_3` sowie `self`, `friend` und `parent` messwiederholt. <span class ="ex">In unserem Beispiel-Datensatz (der im Long-Format vorliegt) ist das die Variable `weight`. Gleiches gilt für den Begriff **_Zeitvariable_**, die die verschiedenen Modi der messwiederholten Variablen kodiert. Im Beispiel zum Long-Format oben entspricht diese den Variablen `Zeitpunkt` und `Rater`. <span class ="ex">In unserem Beispiel-Datensatz (der im Long-Format vorliegt) ist das die Variable `Time`.
 
@@ -292,7 +292,7 @@ Man kann **bestehende** Variablen auch mit ihren Indizes (d.h. hier: ihren Spalt
 Mit den Variablen, die man im Rahmen der Umformatierung erst neu erstellt (z.B. `timevar`), geht das aber nicht, da diese noch gar nicht existieren und von daher auch keine Indizes haben.
 </details>
 
-<p style="line-height:10px;"></p>
+
 
 <details><summary>Wie können wir verschiedene messwiederholte Variablen jeweils zusammenfassen? bzw. Wie nutzen wir `varying=list()` und `v.names`?</summary><div class="more">
 

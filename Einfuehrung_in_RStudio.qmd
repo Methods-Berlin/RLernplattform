@@ -261,7 +261,7 @@ Neben der Informationen, aus welchem Paket eine Funktion stammt, finden wir hier
 + <span class="r highlight">See Also: verwandte Funktionen <font size="2">(meist aus dem gleichen Paket)</font>
 + <span class="r highlight">Examples: Beispiele zur Nutzung der Funktion
 
-<p style="line-height:10px;"></p>
+
 
 Im Folgenden schauen wir uns die **R**-Dokumentation exemplarisch für die Funktion `matrix()` an. 
 

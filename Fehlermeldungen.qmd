@@ -82,7 +82,7 @@ Funktionen, die ausschließlich Parameter mit Defaults besitzen, (z.B. `matrix()
 Mehr Informationen zum Aufbau von Funktionen finden wir in der [Einführung in R](Einfuehrung_in_R.qmd)
 </details>
 
-<p style="line-height:10px;"></p>
+
 
 Eine [detaillierte Einführung zur Nutzung der Dokumentation](Einfuehrung_in_RStudio.qmd#R Dokumentation) befindet sich im Kapitel [Einführung in R Studio](Einfuehrung_in_RStudio.qmd).
 
@@ -108,7 +108,7 @@ knitr::include_graphics("figures/Fehlermeldungen/Bilder/cd dreieck 1.png")
 knitr::include_graphics("figures/Fehlermeldungen/Bilder/cd dreieck 2.png")
 ```
 
-<p style="line-height:10px;"></p>
+
 
 <details><summary>Lösung</summary><div class ="sol">
 
@@ -130,7 +130,7 @@ knitr::include_graphics("figures/Fehlermeldungen/Bilder/cd kreis 1.png")
 knitr::include_graphics("figures/Fehlermeldungen/Bilder/cd kreis 2.png")
 ```
 
-<p style="line-height:10px;"></p>
+
 
 <details><summary>Lösung</summary><div class ="sol">
 
@@ -164,7 +164,7 @@ Syntaxfehler können zumeist relativ einfach durch Korrigieren der fehlerhaften 
 
 Schauen wir uns nun einige Beispiele an:
 
-<p style="line-height:10px;"></p>
+
 
 Wenn **ein oder mehrere Zeichen überflüssig sind bzw. fehlen**, dann bekommt man <font color ="#C6180B">`Unerwartete(s) '...' in "..."`</font> ausgegeben. Hierbei teilt uns die Meldung mit, *wo* der Fehler liegt: In den Anführungszeichen <font color ="#C6180B">`"..."`</font> wird nur ein Teil des Codes ausgegeben und der Fehler ist zumeist das zuletzt ausgegebene Zeichen (oder es liegt unmittelbar davor).
 
@@ -226,7 +226,7 @@ z.B. <font color ="#930047">`daten[c(1,2)]`</font> _oder_ <font color ="#930047"
 Hier weist uns **R** darauf hin, dass das dritte Argument, welches nach dem zweiten Komma folgen sollte, leer ist. In Abhängigkeit davon, welche Spalten aus Daten extrahiert werden sollen, *löscht* man das Komma (um Spalte `1` und `2` zu extrahieren) oder man *ergänzt* einen weiteren Spaltenindex (z.B. 3; um Spalte `1`, `2` und `3` zu extrahieren).
 </details>
 
-<p style="line-height:10px;"></p>
+
 
 
 ## Suchen im Internet

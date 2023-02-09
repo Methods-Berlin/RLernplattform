@@ -61,7 +61,7 @@ Der Datensatz enthält 102 Variablen. Einige davon schauen wir uns im Laufe des 
 
 > *__Achtung__*:  <div class="rows"> Im Abschnitt [Plausibilitäts-Check] werden die Kodierungen einiger Variablen noch korrigiert. Außerdem müssen die Werte der Variablen `Q9A`, `Q13A` und `Q15A` noch invertiert werden, da diese negativ gepolt sind. Das passiert im Abschnitt [Umkodieren].
 
-<p style="line-height:10px;"></p>
+
 
 Die Datensätze <span class="highlight">vornamen_13 und <span class="highlight">vornamen_14 enthalten die **Vornamen der Neugeborenen in München**, jeweils für die Jahre 2013 und 2014. Diese werden wir nur für [**2. Datensätze zusammenführen**][Datensätze zusammenführen] nutzen.
 
@@ -95,7 +95,7 @@ Die Datensätze enthalten jeweils die gleichen 3 Variablen:
 
 </details>
 
-<p style="line-height:10px;"></p>
+
 
 > *__Achtung__*:  Es kommt häufiger zu **Problemen bei der Ausführung der Funktionen** `filter()`, `select()` und `summarise()` aus dem Paket **dpylr**, wenn die Pakete **stats** (Basispaket; `filter()`), **MASS** (`select()`) oder **plyr** (`summarise()`) ebenfalls geladen sind. Auch bei anderen gleichnamigen Funktionen aus verschiedenen geladenen Paketen kann es durch die sogenannte Maskierung zu Problemen kommen. Weil wir auch Pakete mit gleich benannten Funktionen nutzen, greifen wir teils auf die eindeutige Auswahl von Funktionen mittels `::` zurück. Für mehr **Informationen zum Maskieren** können wir im [gleichnamigen Abschnitt][Maskierung: Wenn verschiedene Pakete gleich benannte Funktionen enthalten] im Kapitel **Pakete** nachschauen. Mehr **Informationen zu dem speziellen Problem mit dpylr** finden wir in diesem <a href="https://stackoverflow.com/questions/24202120/dplyrselect-function-clashes-with-massselect" target="_blank">Forumseintrag</a>.</font>
 
@@ -305,7 +305,7 @@ Mehr Informationen gibt es im vorhergehenden Abschnitt zu [<font color="darkgrey
 
 </details>
 
-<p style="line-height:10px;"></p>
+
 
 Falls unser Datensatz kein Dataframe ist, können wir ihn folgendermaßen **umwandeln**:
 
@@ -671,7 +671,7 @@ merge_xy
 Man könnte denken, dass 6 Fälle in `merge_xy` zu finden sind. Weil aber jeweils ein Fall (`x`: Zeile 2; `y` Zeile 3) bis auf `a` die gleichen Ausprägungen in den beiden Dataframes hat, wird dieser nicht mit übernommen.
 </p></details>
 
-<p style="line-height:10px;"></p>
+
 
 <details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193">`bind_rows()`</font></summary><p>
 
@@ -710,7 +710,7 @@ dim(vornamen_bind)
 Die Anzahl der Zeilen stimmt mit der Summe der Zeilen von `vornamen_13` und `vornamen_14` überein, d.h. es wurden alle Fälle übernommen.
 </p></details>
 
-<p style="line-height:10px;"></p>
+
 
 ### Unterschiedliche Variablen, selbe Fälle
 
@@ -803,7 +803,7 @@ Wenn wir nun alle Werte aufsummieren, kommen wir auf die Anzahl der Zeilen im ge
 </details>
 </p></details>
 
-<p style="line-height:10px;"></p>
+
 
 <details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193">`_join()`</font></summary><p>
 
@@ -866,7 +866,7 @@ kable(head(vornamen_merge_row))
 </details>
 </p></details>
 
-<p style="line-height:10px;"></p>
+
 
 ## Daten extrahieren
 
@@ -942,7 +942,7 @@ Mit dieser Methode haben wir gleich den Vorteil, dass die Namen der Variablen im
 Wir können unsere Suche mit `grep()` auch noch spezifischer machen, indem wir die **regulären Operatoren** nutzen. Mit `^o` suchen wir Variablen, die mit einem "o" **beginnen**; mit `o$` jene die mit "o" **enden**. Mit `^o|o$` suchen wir Variablen, die entweder mit einem "o" beginnen **oder** enden. Ein Beispiel dazu finden wir im Abschnitt [Fälle mit `grep()` extrahieren](#grep2). Mit `^o.*o$` suchen wir Variablen, die mit einem "o" beginnen **und** enden.
 </p></details>
 
-<p style="line-height:10px;"></p>
+
 
 <details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193"><a name="dollar"></a>`$`</font></summary><p>
 
@@ -967,7 +967,7 @@ Mit dieser Methode haben wir den Nachteil, dass die Variablen im neu erstellten 
 Wir können den Variablen z.B. <span class="code">colnames(Datensatz) <- c("Var1", "Var2", ...) wieder ihren ursprünglichen (oder einen neuen) Namen geben.
 </p></details>
 
-<p style="line-height:10px;"></p>
+
 
 <details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193"><a name="select"></a>`select()`</font></summary><p>
 
@@ -1009,7 +1009,7 @@ rmarkdown::paged_table(df_without_month_day, options(rows.print=5))
 
 </p></details>
 
-<p style="line-height:10px;"></p>
+
 
 #### Datums-Variablen splitten
 
@@ -1071,7 +1071,7 @@ Wenn wir Ausprägungen suchen, die sich nicht durch logische Operatoren, sondern
 
 <div style="text-align: center">`grep(pattern, x, value)`
 
-<p style="line-height:10px;"></p>
+
 
 Die Funktion durchsucht Elemente eines Vektor (`x`) nach bestimmten Zahlen- oder Zeichenketten (`pattern`). Mit `grep()` werden in Abhängigkeit des Arguments `value` entweder Indizes (`FALSE`; *voreingestellt*), oder konkrete Werte (`TRUE`) ausgegeben. Die Werte schauen wir uns zur Überprüfung an; die Indizes benötigen wir zur Extraktion jener Fälle aus dem Datensatz.
 
@@ -1130,7 +1130,7 @@ grep("^5|5$", airquality$Temp, value=TRUE) # Werte
 
 > *__Achtung__*:  Die Zahlen bzw. Zeichenketten dürfen **nicht** durch Freizeichen getrennt werden, z.B. würden mit `"6| ^7"` nur Temperaturangaben gefiltert werden, die eine 6 enthalten.
 
-<p style="line-height:10px;"></p>
+
 
 Die Suche mit <span class="code">"^x|x$" ergibt gemeinsam die globale Suche nach <span class="code">"x".</font>
 
@@ -1152,7 +1152,7 @@ rmarkdown::paged_table(df_temp5, options(rows.print=5))
 
 </p></details>
 
-<p style="line-height:10px;"></p>
+
 
 <details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193"><a name="logop"></a>Logische Operatoren</font></summary><p>
 
@@ -1203,7 +1203,7 @@ rmarkdown::paged_table(df_temp57_66, options(rows.print = 6))
 Weitere logische Operatoren sind z.B. `!=` *(nicht)*, `<` *(kleiner)* und `>=` *(größer gleich)*.
 </p></details>
 
-<p style="line-height:10px;"></p>
+
 
 <details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193"><a name="filter"></a>`filter()`</font></summary><p>
 
@@ -1227,7 +1227,7 @@ rmarkdown::paged_table(df_month6_day15ff, options(rows.print=5))
 
 </p></details>
 
-<p style="line-height:10px;"></p>
+
 
 ## Daten sortieren
 
@@ -1285,7 +1285,7 @@ rmarkdown::paged_table(df_descend_temp_wind_1, options(rows.print=5))
 
 </p></details>
 
-<p style="line-height:10px;"></p>
+
 
 <details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193">`arrange()`</font></summary><p>
 
@@ -1312,7 +1312,7 @@ rmarkdown::paged_table(df_ascend_temp_wind_2, options(rows.print=5))
 
 </p></details>
 
-<p style="line-height:10px;"></p>
+
 
 ## Kodierung ändern
 
@@ -1334,7 +1334,7 @@ Wenn wir zum Beispiel Messwerte in Meter zu Messwerten in Zentimeter ändern ode
 
 Wir können die Kodierung von Merkmalen in <span class ="r">R auf verschiedene Arten ändern. Nachfolgend schauen wir uns zwei Funktionen an, die wir nutzen können.
 
-<p style="line-height:10px;"></p>
+
 
 <details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193">`recode()`</font></summary><p>
 
@@ -1406,7 +1406,7 @@ rmarkdown::paged_table(PWE_data[,c(88, 106)], options(rows.print=5))
 
 </p></details>
 
-<p style="line-height:10px;"></p>
+
 
 <details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193">`case_when()`</font></summary><p>
 
@@ -1450,7 +1450,7 @@ str(PWE_data$Q1E_kat) # Überprüfung Datentyp
 
 </p></details>
 
-<p style="line-height:10px;"></p>
+
 
 ### Indikatorvariablen: Kodierung nominaler Merkmale
 
@@ -1612,7 +1612,7 @@ ls.str(PWE_data[,c(103, 106)]) # zum Überprüfen
 ```
 </p></details>
 
-<p style="line-height:10px;"></p>
+
 
 <details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193">Effektkodierung</font></summary><p>
 
@@ -1654,7 +1654,7 @@ ls.str(PWE_data[,c(103, 106)]) # zum Überprüfen
 
 </font></p></details>
 
-<p style="line-height:10px;"></p>
+
 
 <details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193">Konstrastkodierung</font></summary><p>
 
@@ -1741,7 +1741,7 @@ rep(0:1, each=10) # das gleiche wie c(rep(0, 10), rep(1, 10))
 ```
 </details>
 
-<p style="line-height:10px;"></p>
+
 
 Die Gewichte einer kontrastierten Gruppe <font size="2">(hier: *jeweils* Männer bzw. Frauen)</font> werden so gewählt, dass sie aufsummiert 1 bzw. -1 ergeben. Wenn wir die gleiche Anzahl an Fällen in den zu kontrastierenden Gruppen haben, können wir die einzelnen Gewichte auch zu 1 bzw. -1 vereinfachen.
 
@@ -1764,7 +1764,7 @@ summary(lm_kontr)
 In unserem Regressionsmodell mit dem Kontrast Männer vs. Frauen entspricht der **Interzept $b_0$** dem Mittelwert der Gruppenmittelwerte der *betrachteten* Gruppen <font size="2">(d.h. Männer und Frauen)</font> und das **partiellen Steigungsgewichte $b_1$** dem Unterschied in den Mittelwerten der betrachteten Gruppen.
 </p></details>
 
-<p style="line-height:10px;"></p>
+
 
 
 ## Summary-Variablen
@@ -1775,7 +1775,7 @@ Wir nutzen zu diesem Zweck den Datensatz **PWE_data**</font>, welcher aus einer 
 
 > *__Achtung__*:  Die Werte der Variablen `Q9A`, `Q13A` und `Q15A`, die wir im Folgenden nutzen werden, wurden im Abschnitt [Umkodieren](Datenvorbereitung.qmd#Umkodieren) rekodiert, weil sie negativ gepolt sind.
 
-<p style="line-height:10px;"></p>
+
 
 <details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193">`rowSums()`</font>, <font color="#009193">`rowMeans()`</font> und <font color="#009193">`select()`</font>: Summen- und Mittelwerte</summary><p>
 
@@ -1819,7 +1819,7 @@ rmarkdown::paged_table(PWE_data[,c("mean")], options(rows.print=5))
 
 </p></details>
 
-<p style="line-height:10px;"></p>
+
 
 
 <details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193">`ifelse()`</font>: Auswahl *bestimmter* Fälle</summary><p>
@@ -1852,7 +1852,7 @@ rmarkdown::paged_table(PWE_data[687:691,c("gender", "religion", "sum_gr")], opti
 
 </p></details>
 
-<p style="line-height:10px;"></p>
+
 
 
 <details><summary><span style="font-weight:700; font-size:20px;"><font color="#009193">`mutate()`</font>: Summary-Variablen als Funktion von anderen Variablen erstellen</summary><p>
@@ -1887,7 +1887,7 @@ rmarkdown::paged_table(PWE_data_mean, options(rows.print=5))
 
 </p></details>
 
-<p style="line-height:10px;"></p>
+
 
 
 ## Weitere wichtige Hinweise
@@ -1968,7 +1968,7 @@ Die Variable `time` taucht nicht im Codebuch auf. Möglicherweise ist das die in
 <div class="hint"><details><summary>Tipp</summary>
 Standardmäßig sind Variablen die Spalten und Beobachtungen die Zeilen eines Datensatzes.</details>
 
-<p style="line-height:10px;"></p>
+
 
 <details><summary>Lösung</summary><div class="sol">
 
@@ -1999,7 +1999,7 @@ nrow(data) # Beobachtungen (Personen; N) = Anzahl der Zeilen
 <div class="hint"><details><summary>Tipp</summary>
 Im Codebuch finden wir Informationen zu den Variablen. Über die Funktionen `str()` bekommen wir Informationen zum Datentyp.
 
-<p style="line-height:10px;"></p>
+
 
 <details><summary>Lösung</summary><div class="sol">
 
@@ -2034,7 +2034,7 @@ levels(data$inc)
 <!-- <div class="hint"><details><summary>Tipp</summary> -->
 <!-- Die Information, was die Variable kodiert, finden wir im Codebuch. Den Datentyp bringen wir in R in Erfahrung. Die Ausprägungen der Variablen finden wir entweder im Codebuch oder wir nutzen eine Funktion in R.</details> -->
 
-<!-- <p style="line-height:10px;"></p> -->
+<!--  -->
 
 <!-- <details><summary>Lösung</summary><div class="sol"> -->
 
@@ -2063,7 +2063,7 @@ Den Namen der Variablen sowie deren Messskala finden wir im Codebuch. Die Häufi
 <div class="hint"><details><summary>Tipp 2</summary>
 Mit der Funktion `table()` können wir uns die Häufigkeiten der Ausprägungen *einer* Variablen ausgeben lassen. Die Funktion ist auch bereits sehr hilfreich, um einen schnellen Überblick über die möglichen Ausprägungen zu bekommen.</details>
 
-<p style="line-height:10px;"></p>
+
 
 <details><summary>Lösung</summary><div class="sol">
 
@@ -2086,7 +2086,7 @@ Hiervoll ist es sinnvoll, sich eine Übersicht der Ausprägungen aller Variablen
 <div class="hint"><details><summary>Tipp 2</summary>
 Es gibt einen Wert einer Variablen der heraussticht.
 
-<p style="line-height:10px;"></p>
+
 
 <details><summary>Lösung</summary><div class="sol">
 
@@ -2110,7 +2110,7 @@ data <- data[-which(data$age == 9),]
 <div class="hint"><details><summary>Tipp</summary>
 Das Thema "Fehlende Werte" wird im Kapitel zur Datenvorbereitung nur kurz angerissen, weil es ein [eigenständiges Kapitel](Fehlende-Werte.qmd) dazu gibt.</details>
 
-<p style="line-height:10px;"></p>
+
 
 <details><summary>Lösung</summary><div class="sol">
 
@@ -2144,7 +2144,7 @@ Jede Variable mit Ausnahme von `id` und `time` enthält fehlende Werte.
 <div class="hint"><details><summary>Tipp</summary>
 In der letzten Aufgabe haben wir uns variablenweise Missings angeschaut mit `colSums()`. Nun wollen wir uns *zeilen*weise Missings anschauen. </details>
 
-<p style="line-height:10px;"></p>
+
 
 <details><summary>Lösung</summary><div class="sol">
 
@@ -2186,13 +2186,13 @@ Im Codebuch (S. 26ff) steht, welche Variablen zu den demographischen Angaben zä
 
 > *__Achtung__*:  <div class="rows">Im Codebuch steht die Variable `sex`, welche im Datensatz <u>nicht</u> enthalten ist. Alternativ gibt es die Variable `male`.
 
-<p style="line-height:10px;"></p>
+
 </details>
 
 <div class="hint"><details><summary>Tipp 2</summary>
 Es gibt drei demographische Variablen in `data` (aber mehr im Codebuch).</details>
 
-<p style="line-height:10px;"></p>
+
 
 <details><summary>Lösung</summary><div class="sol">
 
@@ -2218,7 +2218,7 @@ Die Variablen haben denselben Wortstamm: `gen`. </details>
 <div class="hint"><details><summary>Tipp 2</summary>
 Es gibt vier Items zu grundlegenden Bedürfnissen.</details>
 
-<p style="line-height:10px;"></p>
+
 
 <details><summary>Lösung</summary><div class="sol">
 
@@ -2245,7 +2245,7 @@ Die Variablen haben zwar denselben Wortstamm – `nee` – aber den haben die Va
 <div class="hint"><details><summary>Tipp 2</summary>
 Es gibt insgesamt 18 Items zu gesellschaftlichen und interpersonellen Bedürfnissen (jeweils 9).</details>
 
-<p style="line-height:10px;"></p>
+
 
 <details><summary>Lösung</summary><div class="sol">
 
@@ -2279,7 +2279,7 @@ rmarkdown::paged_table(all_needs[grep("id|c|t", names(all_needs))], options(rows
 <div class="hint"><details><summary>Tipp</summary>
 Um beide Bedingungen (`< $500` und `> $5.000`) abzufragen, können wir den logischen Operator `|` ("oder") nutzen.</details>
 
-<p style="line-height:10px;"></p>
+
 
 <details><summary>Lösung</summary><div class="sol">
 
@@ -2313,7 +2313,7 @@ Wir können wieder den logischen Operator `|` ("oder") nutzen, um jeweils Person
 <div class="hint"><details><summary>Tipp 2</summary>
 Es gibt insgesamt zwei Extremkreuzer.</details>
 
-<p style="line-height:10px;"></p>
+
 
 <details><summary>Lösung</summary><div class="sol">
 
@@ -2363,7 +2363,7 @@ Die Reihenfolge der Auswahl, d.h. ob zuerst Variablen oder zuerst Fälle selekti
 <div class="hint"><details><summary>Tipp 2</summary>
 Der finale Datensatz besteht aus 12 Variablen (davon sind 11 die Integritäts-Items) von 54 Personen.</details>
 
-<p style="line-height:10px;"></p>
+
 
 <details><summary>Lösung</summary><div class="sol">
 
@@ -2402,7 +2402,7 @@ Wir müssen\
 <div class="hint"><details><summary>Tipp 2</summary>
 Im finalen Datensatz befinden sich 140 (von initial 296) Personen.</details>
 
-<p style="line-height:10px;"></p>
+
 
 <details><summary>Lösung</summary><div class="sol">
 
@@ -2438,7 +2438,7 @@ Im Folgenden wollen wir unseren Datensatz nach den aufsteigenden bzw. absteigend
 
 > *__Achtung__*:  Da die Kodierung der Variablen `male` im Codebuch nicht geklärt wird, gehen wir hier standarmäßig davon aus, dass `0` für *nein*  und `1` für *ja* steht.
 
-<p style="line-height:10px;"></p>
+
 
 <details><summary>Lösung</summary><div class="sol">
 
@@ -2466,7 +2466,7 @@ Mit der Funktion `order()` können wir nur jeweils auf- *oder* absteigend für *
 <div class="hint"><details><summary>Tipp 2</summary>
 Um besser beurteilen zu können, ob die Sortierung erfolgreich war, ist es sinnvoll, zuerst einen neuen Datensatz nur aus den relevanten Variablen (inklusive `id`) zu erstellen.</details>
 
-<p style="line-height:10px;"></p>
+
 
 <details><summary>Lösung</summary><div class="sol">
 
@@ -2504,7 +2504,7 @@ Nun wollen wir die Kodierungen einiger Variablen ändern bzw. Variablen mit neue
 <div class="hint"><details><summary>Tipp</summary>
 Um besser beurteilen zu können, ob die Kodierung erfolgreich war, ist es sinnvoll, zuerst einen neuen Datensatz bestehend aus `inc` und `id` zu erstellen.</details>
 
-<p style="line-height:10px;"></p>
+
 
 <details><summary>Lösung</summary><div class="sol">
 
@@ -2534,7 +2534,7 @@ rmarkdown::paged_table(data_inc, options(rows.print=5))
 <div class="hint"><details><summary>Tipp</summary>
 Um besser beurteilen zu können, ob die Kodierung erfolgreich war, ist es sinnvoll, zuerst einen neuen Datensatz bestehend aus `male` und `id` zu erstellen.</details>
 
-<p style="line-height:10px;"></p>
+
 
 <details><summary>Lösung</summary><div class="sol">
 
@@ -2566,7 +2566,7 @@ Die negativ kodierten Items sind im Codebuch jeweils mit einem **\*** markiert.<
 <div class="hint"><details><summary>Tipp 2</summary>
 Es ist sinnvoll zur Überprüfung der Aufgabe, einen neuen Datensatz bestehend aus den negativ kodierten Items und ihrem rekodierten Pendant (und natürlich `id`) zu erstellen.</details>
 
-<p style="line-height:10px;"></p>
+
 
 <details><summary>Lösung</summary><div class="sol">
 
@@ -2601,7 +2601,7 @@ Nachfolgend wollen wir neue Variablen erstellen, die Informationen aus mehreren 
 <div class="hint"><details><summary>Tipp</summary>
 Die Items aller drei Bedürfnis-Bereiche haben denselben Wortstamm: `nee`.</details>
 
-<p style="line-height:10px;"></p>
+
 
 <details><summary>Lösung</summary><div class="sol">
 
@@ -2634,7 +2634,7 @@ rmarkdown::paged_table(data_need, options(rows.print=5))
 <div class="hint"><details><summary>Tipp</summary>
 Zur Bearbeitung der Aufgabe können wir `mutate()` mit `ifelse()` kombinieren, um den beiden Bedingungen (monatliches Einkommen von mehr bzw. weniger als $1.000) unterschiedliche Werte zuzuweisen.</details>
 
-<p style="line-height:10px;"></p>
+
 
 <details><summary>Lösung</summary><div class="sol">
 

@@ -36,7 +36,7 @@ Später lernen wir, wie wir Werte auf `NA` umkodieren können.
 Wir beschränken uns in vorliegendem Kapitel auf **`NA` in numerischen Datentypen** (d.h. quantitative Daten).
 </details>
 
-<p style="line-height:10px;"></p>
+
 
 Fehlende Werte sind grundsätzlich mit **drei Schwierigkeiten** verbunden: 
 
@@ -77,7 +77,7 @@ print(daten)
 *Anmerkung: Die Variablen sind intervallskaliert mit einer Skala von 0-3.*
 </details>
 
-<p style="line-height:10px;"></p>
+
 
 > *__Achtung__*:  Wenn du Variablen, die Missings enthalten, für eine Analyse nutzt, denke immer daran, dass sich damit auch die **Stichprobengröße $N$ für diese spezifische Auswertung ändert**.
 
@@ -364,7 +364,7 @@ Es gibt grundlegend drei Mechanismen, die zur Entstehung von fehlenden Werten f�
 <details><summary><a name ="andere"></a>Was bedeutet "(alle) anderen Variablen"?</summary><div class="more">
 Die Auffassung darüber, von welchen "anderen Variablen" die Missings in einer Variable unabhängig sein sollen, unterscheidet sich zwischen verschiedenen AutorInnen und ist nicht immer eindeutig. Während einige grob von *beobachtbaren* Variablen (Vgl. [Schafer & Graham, 2002](#schafgra)), *verfügbaren* Variablen (Vgl. [Cohen, Cohen, West & Aiken, 2003](#ccwa)) oder *Variablen im Datensatz, die analysiert werden* (Vgl. [Little, 1988](#little)) sprechen, grenzen Andere diese mehr ein z.B. *Variablen, die im Modell spezifiziert sind* (Vgl. [Allison, 2002](#allison)). Letztere Definition erleichtert die Überprüfung der Zufälligkeit der Missings (d.h. ob diese MCAR, MAR, oder MNAR sind).</details>
 
-<p style="line-height:10px;"></p>
+
 
 <div style="text-align: center"><font size="2">**Übersicht der Arten von Missings**</font> 
 
@@ -687,7 +687,7 @@ Im Folgenden wollen wir einen Datensatz hinsichtlich der fehlenden Werte <font s
 
 > *__Achtung__*:  Die Aufgabenstellungen hier überschneiden sich teilweise mit denen aus der [Übung zur Datenvorbereitung][Übung Datenvorbereitung]. Wir arbeiten hier aber mit anderen Datensätzen.
 
-<p style="line-height:10px;"></p>
+
 
 <details><summary><span class="highlight">Datensatz A: *Normed Causality Statements*</summary><p>
 
@@ -697,7 +697,7 @@ Mehr Informationen zur Studie befinden sich auf der <a href="https://osf.io/bvzv
 
 > *__Achtung__*:  <div class="rows">Das Codebuch enthält nicht zu allen Variablen Informationen, da es für den aufbereiteten Datensatz erstellt wurde und wir uns aber die Rohdaten anschauen. Einen Großteil der Variablen, die nicht im Codebuch zu finden sind, entfernen wir noch.
 
-<p style="line-height:10px;"></p>
+
 
 Nach dem Herunterladen, können wir den Datensatz folgendermaßen in R einlesen:
 
@@ -726,7 +726,7 @@ rmarkdown::paged_table(data_a, options(rows.print=5))
 
 </p></details>
 
-<p style="line-height:10px;"></p>
+
 
 <details><summary><span class="highlight">Datensatz B: *Affective Forecasting and Social Anxiety*</summary><p>
 
@@ -736,7 +736,7 @@ Den Datensatz finden wir <a href="https://osf.io/jv67g/" target="_blank">hier</a
 
 > *__Achtung__*:  <div class="rows">Das Codebuch enthält leider keine Informationen zu den demographischen Variablen. Einige werden wir uns dennoch anschauen, da sie eindeutig interpretierbar erscheinen.
 
-<p style="line-height:10px;"></p>
+
 
 Den Datensatz können wir, nachdem wir ihn heruntergeladen haben, folgendermaßen in R einlesen:
 
@@ -788,7 +788,7 @@ rmarkdown::paged_table(data_b, options(rows.print=5))
 
 </p></details>
 
-<p style="line-height:10px;"></p>
+
 
 ---
 
@@ -802,7 +802,7 @@ Bevor wir uns die fehlenden Werte genauer anschauen können, ist es sinnvoll, ei
 <div class="hint"><details><summary>Tipp</summary>
 Hier vergleichen wir die möglichen Ausprägungen der Variablen, die wir im Codebuch finden, mit den tatsächlichen Ausprägungen der Variablen, die wir uns in R anschauen können.</details>
 
-<p style="line-height:10px;"></p>
+
 
 <details><summary>Lösung <font color="#009193">A</font></summary><div class="sol">
 
@@ -832,7 +832,7 @@ In `race` scheint es keine falsch kodierten Missings zu geben.
 
 > *__Achtung__*:  <div class="rows">Scheinbar wird das Messniveau der **SIAS-Items** (`sias...`) als **nominalskaliert**, und nicht wie sonst üblich als intervallskaliert, angenommen. Zumindest liegen die betreffenden Variables als ungeordnete Faktoren vor.
 
-<p style="line-height:10px;"></p>
+
 
 Es fällt außerdem auf, dass die Items des SIAS, welche eine 5-stufige Skala haben sollten, die von 0-4 geht, eine merkwürdige Kodierung der Daten aufweisen: 
 
@@ -869,7 +869,7 @@ rmarkdown::paged_table(data_b_test, options(rows.print=5))
 
 > *__Achtung__*:  <div class="rows">Wir müssen hier umdenken, da `sias5_RS` die *rekodierte* Version von `sias5` widergibt. Wir wollen allerdings die *allgemeingültige* Zuordnung von Daten und Angaben im Codebuch verstehen.
 
-<p style="line-height:10px;"></p>
+
 
 Die Zuordnung der Kodierung in den Daten (links) und der im Codebuch enthaltenen Skala (rechts) scheint wie folgt:
 
@@ -897,7 +897,7 @@ Wir kodieren mittels `<- NA` jene Ausprägungen um, die falsch kodierte fehlende
 
 </details>
 
-<p style="line-height:10px;"></p>
+
 
 <details><summary>Lösung <font color="#009193">A</font></summary><div class="sol">
 
@@ -933,14 +933,14 @@ Nun wollen wir uns ein paar deskriptive Statistiken der fehlenden Werte anschaue
 data_a <- data_a[,-5]
 ```
 
-<p style="line-height:10px;"></p>
+
 
 <span class="highlight">1.) Wie viele Missings gibt es insgesamt im Datensatz (in absoluten und relativen Zahlen)?
 
 <div class="hint"><details><summary>Tipp</summary>
 Mit der `table()`-Funktion können wir uns Häufigkeitstabellen ausgeben lassen. Jetzt müssen unsere Daten nur noch *dichotom* in fehlend und nicht fehlend eingeteilt werden.</details>
 
-<p style="line-height:10px;"></p>
+
 
 <details><summary>Lösung <font color="#009193">A</font></summary><div class="sol">
 
@@ -991,7 +991,7 @@ Mit `colSums()` werden die Summen der Spalten eines Datensatzes angegeben. Nun m
 Mit `colnames()` können wir uns Namen von Variablen ausgeben lassen. Wir müssen nur noch die relevanten auswählen. 
 </details>
 
-<p style="line-height:10px;"></p>
+
 
 <details><summary>Lösung <font color="#009193">A</font></summary><div class="sol">
 
@@ -1038,7 +1038,7 @@ Mit `rowSums()` werden die Summen der Zeilen eines Datensatzes angegeben. Zusät
 Mit `which()` können wir uns die Zeilenindizes von Fällen ausgeben lassen. Wir müssen nur noch die relevanten auswählen. 
 </details>
 
-<p style="line-height:10px;"></p>
+
 
 <details><summary>Lösung <font color="#009193">A</font></summary><div class="sol">
 
@@ -1082,7 +1082,7 @@ Die meisten Missings haben die Personen `r rownames(data_b[rowSums(is.na(data_b)
 Im Paket **VIM** gibt es die Funktion `aggr()`, die beim Visualisieren von Missings helfen kann.
 </details>
 
-<p style="line-height:10px;"></p>
+
 
 <details><summary>Lösung <font color="#009193">A</font></summary><div class="sol">
 
@@ -1163,12 +1163,12 @@ Zur Überprüfung der Zufälligkeit können wir den Test von Little (1988)^[**Li
 
 > *__Achtung__*:  <div class="rows">Die Funktion `mcar_test()` kann wir nur mit Variablen des Typs numeric (integer und double), logical und factor umgehen.
 
-<p style="line-height:10px;"></p>
+
 
 Außerdem können keine qualitativen Daten ausgewertet werden. Es gab eine qualitative Variable in <span class="highlight">Datensatz A, `gender...comment`,  welche wir aber zu Beginn des letzten Abschnitts bereits aus dem Datensatz entfernt haben.
 </details>
 
-<p style="line-height:10px;"></p>
+
 
 <details><summary>Lösung <font color="#009193">A</font></summary><div class="sol">
 
@@ -1212,7 +1212,7 @@ Da der $p$-Wert *über* unserem á priori festgelegtem Signifikanzniveau $\alpha
 
 </details>
 
-<p style="line-height:10px;"></p>
+
 
 <details><summary><font color="#009193">Konsequenzen der Verarbeitung von Daten, die MAR oder MNAR sind</font></summary><div class="sol">
 
@@ -1270,7 +1270,7 @@ Bei *pairwise deletion* gehen für die Berechnung der Mittelwerte unterschiedlic
 Dazu berechnen wir die Differenz der Mittelwerte einer Variablen, die mit *listwise*  und *pairwise deletion*  erstellt wurden. Sinnvoll ist es hier, mit `abs()` die *absolute* Differenz zu erhalten.
 </details>
 
-<p style="line-height:10px;"></p>
+
 
 <details><summary>Lösung</summary><div class="sol">
 
@@ -1342,7 +1342,7 @@ Dazu berechnen wir die Differenz der Korrelationen jeder Variablen, die mit *lis
 Mit `which(..., arr.ind = TRUE)` können wir uns Zeilenname, Zeilen- *und* Spaltenindizes ausgeben lassen.
 </details>
 
-<p style="line-height:10px;"></p>
+
 
 <details><summary>Lösung</summary><div class="sol">
 

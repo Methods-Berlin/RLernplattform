@@ -111,7 +111,7 @@ mean(nums, 0, TRUE)
 #| echo: false
 # https://www.learncpp.com/cpp-tutorial/why-functions-are-useful-and-how-to-use-them-effectively/
 ```
-<p style="line-height:10px;"></p>
+
 
 So erleichtern uns Funktionen unsere Arbeit. Zusammengefasst hat die Nutzung von Funktionen folgende Vorteile:
 
@@ -322,7 +322,7 @@ $^1$ Es gibt hierbei eine kleine Inkonsistenz zwischen Manual und Dokumentation:
 Laut dem <a href="https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Logical-vectors" target="_blank">Manual</a> sind `==` und `!=` logische Operatoren. In der Dokumentation der logischen Operatoren (`?"&"`) tauchen sie aber nicht auf; nur in der Dokumentation der allgemeinen Syntaxoperatoren (`?Syntax`). In der Dokumentation der logischen Operatoren steht nicht, dass man diese auf Elemente des Typs character anwenden kann. Wir können `==` und `!=` aber auf character anwenden, um zu testen, ob zwei Elemente (z.B. `"a"` und `"A"`) gleich (`"a" == "A"` `FALSE`) bzw. ungleich (`"a" != "A"` `TRUE`) sind.  -->
 </details>
 
-<p style="line-height:10px;"></p>
+
 
 <details><summary>Arithmetische Operatoren in R</summary><div class="more">
 Über (die meisten) arithmetischen Operatoren sind wir wohl schon zu Grundschulzeiten gestoßen. Das sind Operatoren, die wir zum Rechnen mit Zahlen (numeric) benötigen. 
@@ -410,7 +410,7 @@ knitr::include_graphics("figures/Einführung/Bilder/R/Skalenniveau.png")
 
 </details>
 
-<p style="line-height:10px;"></p>
+
 
 Die verschiedenen Messniveaus können mit unterschiedlichen Datentypen repräsentiert werden. Hauptsächlich nutzt man dafür **character** und **numeric**. Nachfolgend finden wir eine Übersicht der möglichen Kodierungen der Messniveaus.
 
@@ -591,7 +591,7 @@ str(vek_8)
 
 Generell reicht für uns aber die Unterscheidung zwischen numeric und den anderen, nicht-numerischen Datentypen. Ob integer oder double ist zumeist nicht von Relevanz.
 </details>
-<p style="line-height:10px;"></p>
+
 
 Wenn wir **Zahlenfolgen** <font size="2">(numeric)</font> erstellen wollen, können wir `seq()` nutzen.
 
@@ -642,7 +642,7 @@ rep(0:1, each=10) # das gleiche wie c(rep(0, 10), rep(1, 10))
 rep(c("A", "B"), each=10)
 ```
 </details>
-<p style="line-height:10px;"></p>
+
 
 Durch **Indexierung** via `[]` können wir uns einzelne Elemente ausgeben lassen.
 

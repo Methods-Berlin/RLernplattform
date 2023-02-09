@@ -59,7 +59,7 @@ In unserem Beispiel schauen wir, ob sich Personen mit und ohne  **Nebenjob** (`j
 
 Weil es sich bei Studierenden mit und ohne Nebenjob um zwei voneinander unabhängige Stichproben <font size="2">(d.h. unterschiedliche Personen)</font> handelt, verwenden wir den __$t$-Test für unabhängige Stichproben__. 
 
-<p style="line-height:10px;"></p>
+
 
 <details><summary>Überprüfung der Annahmen des $t$-Tests</summary><div class="more">\
 
@@ -187,7 +187,7 @@ nrow(daten[!is.na(daten$job) & !is.na(daten$zf_belastung),])
 Für mehr Informationen siehe das Kapitel zu [Fehlenden Werten](Fehlende-Werte.qmd).
 </details>
 
-<p style="line-height:10px;"></p>
+
 
 - <font color="#0533FF">`p-value`</font>: in $p$-Wert umgerechneter empirischer $t$-Wert <!--, also die Wahrscheinlichkeit, den gegebenen empirischen $t$-Wert oder einen extremeren zu erhalten, wenn die $H_0$ gilt.-->\
 Durch den Vergleich mit unserem $\alpha$-Niveau können wir anhand dieser Information zu einer Testentscheidung gelangen. Ist der $p$-Wert kleiner als $\alpha$, verwerfen wir die $H_0$. 
@@ -225,7 +225,7 @@ Mehr Informationen zum Umgang mit fehlenden Werten finden wir im Kapitel [Fehlen
 
 Das Ergebnisobjekt `lm_belastung` schauen wir uns erst *nach* der Annahmenprüfung an.
 
-<p style="line-height:10px;"></p>
+
 
 <details><summary>Überprüfung der Annahmen der (einfachen) linearen Regression</summary><div class="more">\
 
@@ -360,7 +360,7 @@ $t$-Test des Steigungs-koeffizienten $b_1$:\
 $H_0$: $\beta_1 = 0$\
 $H_1$: $\beta_1 \neq 0$</aside>
 
-<p style="line-height:10px;"></p>
+
 
 Im unteren Abschnitt finden wir Informationen bezüglich des **Gesamtmodells**:
 
@@ -415,7 +415,7 @@ Unser Signifikanzlevel legen wir auf $\alpha=.05$ fest.
 # auch im Bortz keine Hinweise auf Annahmenprüfung für ANOVA
 ```
 
-<p style="line-height:10px;"></p>
+
 
 <details><summary>Überprüfung der Annahmen der ANOVA</summary><div class="more">
 

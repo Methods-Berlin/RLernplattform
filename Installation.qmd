@@ -58,13 +58,13 @@ knitr::include_graphics("figures/Installation/Bilder/winv_info.png")
 
 Ganz oben sehen wir dort unter **Windows Edition**, welche Windows Version wir installiert haben. Wichtig ist auch der Eintrag unter **Systemtyp**. Hier steht entweder *64 bit-Betriebssystem* oder *32 bit-Betriebssystem*. **R** gibt es sowohl für das 64- als auch für das 32 bit-Betriebssystem. Wenn wir auf **Download **R** 3.6.1 for Windows** drücken, laden wir beide Versionen herunter und **R** erkennt dann automatisch, welche installiert werden kann.</details>
 
-<p style="line-height:10px;"></p>
+
 
 <details><summary>Ältere Windows-Versionen</summary><div class="more">
 Falls unser Betriebssystem **nicht** kompatibel ist, können wir <a href="https://cran.r-project.org/bin/windows/base/old/" target="_blank">hier</a> **ältere R-Versionen** finden. Wir müssen jeweils auf die Version klicken und kommen dann auf eine Seite, die genau so aufgebaut ist wie die Seite der aktuellsten Version. Um zu erfahren, ob die Version mit unserem Betriebssystem kompatibel ist, müssen wir jeweils auf **_Does **R** run under my version of Windows?_** klicken. Wenn wir die passende Version gefunden haben, klicken wir auf **Download **R** <font color="grey">[Versionsnummer]</font> for Windows**. Die Versionsnummer ist abhängig davon, welche **R** Version tatsächlich mit unserem Betriebssystem kompatibel ist.
 </details>
 
-<p style="line-height:10px;"></p>
+
 
 Nach dem Herunterladen der .exe-Datei können wir diese öffnen. Es folgen einige Einstellungen und Zustimmungen, die wir uns kurz anschauen wollen.
 
@@ -93,7 +93,7 @@ knitr::include_graphics("figures/Installation/Bilder/7.png")
 <details><summary>*Was sind Startoptionen?*</summary><div class="more">
 Bei den Startoptionen können wir z.B. einstellen, wie **R** später die Hilfe-Seiten einzelner Funktionen anzeigt. Da wir mit der Entwicklungsumgebung **RStudio** arbeiten werden, können wir diese Einstellungen einfach überspringen.</details>
 
-<p style="line-height:10px;"></p>
+
 
 Anschließend können wir den **Startmenü-Ordner auswählen**, d.h. festlegen, ob und wo Verknüpfungen zum Programm erstellt werden sollen.  Da wir **R** später über **RStudio** aufrufen werden, können wir auch hier einfach mit der Voreinstellung auf Weiter drücken.
 
@@ -127,7 +127,7 @@ knitr::include_graphics("figures/Installation/Bilder/Win_13.PNG")
 <details><summary>Bei mir steht zwar Download RStudio Desktop, aber ich kann nicht darauf klicken.</summary><div class="more">
 In diesem Fall können wir auf der Seite weiter nach unten scrollen. Dort werden unter **All Installers** alle aktuellen Versionen von **RStudio** Desktop aufgeführt. Unter dem Eintrag **OS** sind alle Betriebssysteme aufgelistet, für die es die aktuellste **RStudio** Desktop Version gibt. Wenn wir unser Betriebssystem gefunden haben, wählen wir in der Spalte **Download** die passende **RStudio** Desktop Version aus und laden diese herunter.</details>
 
-<p style="line-height:10px;"></p>
+
 
 <details><summary>Was bedeutet "RStudio 1.2 requires a 64-bit operating system. If you are on a 32 bit system, you can use an older version of RStudio."?</summary><div class="more">
 Ob wir die 32- oder die 64-bit Version von **RStudio** Desktop brauchen, hängt von unserem Computer ab. Für fast alle Computer können wir die 64-bit Version herunterladen. Sind wir uns nicht sicher, welche Version wir brauchen, können wir [hier](#winv) nachschauen. Wenn wir ein 32 bit-Betriebssystem haben, müssen wir eine ältere Version von **RStudio** Desktop herunterladen. Diese finden wir unter diesem <a href="https://support.rstudio.com/hc/en-us/articles/206569407-Older-Versions-of-RStudio" target="_blank">Link</a>. 
@@ -139,7 +139,7 @@ knitr::include_graphics("figures/Installation/Bilder/Win_R_Studio_aelter.png")
 Andernfalls können wir einfach die aktuelle Version mit **Download RStudio for Windows** herunterladen. 
 </details>
 
-<p style="line-height:10px;"></p>
+
 
 Wir speichern die .exe-Datei und klicken dann auf diese. Wir müssen auch hier wieder zustimmen, dass Änderungen am System vorgenommen werden. Dann öffnet sich Fenster mit dem Installationsassistent.
 
@@ -238,7 +238,7 @@ knitr::include_graphics("figures/Installation/Bilder/RStudio_Version.png")
 Informationen über die aktuellste **RStudio**-Version finden wir wieder unten auf der <a href="https://rstudio.com/products/rstudio/download/#download" target="_blank">**RStudio**-Seite</a>.
 </details>
 
-<p style="line-height:10px;"></p>
+
 
 Wir überprüfen, ob die uns empfohlene Version mit unserem [Betriebssystem](#winv) sowie unserer **R**-Version kompatibel ist. Wenn ja, können wir auf **Download RStudio for Windows** klicken.
 
@@ -287,7 +287,7 @@ knitr::include_graphics("figures/Installation/Bilder/XQuartz_ready.png")
 
 </details>
 
-<p style="line-height:10px;"></p>
+
 
 Nun müssen wir schauen, ob unser Betriebssystem den Mindestanforderungen für die **aktuellste** **R** Version entspricht. Wenn ja, können wir auf die .pkg-Datei klicken und den Download starten.
 
@@ -307,7 +307,7 @@ knitr::include_graphics("figures/Installation/Bilder/0_ueber_mac.png")
 ```
 </details>
 
-<p style="line-height:10px;"></p>
+
 
 Falls die Mindestanforderungen **nicht** erfüllt sind, können wir trotzdem auf der gleichen Seite runterscrollen und nachschauen, ob eine **ältere Version** <font size="2">(für Mac OS X **10.9+** oder **10.6-10.8**)</font> vorliegt. Noch ältere **R**-Versionen für **Mac OS X 10.4 und älter** finden wir <a href="https://cran.r-project.org/bin/macosx/old/index-old.html" target="_blank">hier</a>.
 
@@ -458,7 +458,7 @@ knitr::include_graphics("figures/Installation/Bilder/R-Studio_Version.png")
 Informationen über die aktuellste **RStudio**-Version finden wir wieder auf der <a href="https://rstudio.com/products/rstudio/download/#download" target="_blank">**RStudio**-Seite</a>.
 </details>
 
-<p style="line-height:10px;"></p>
+
 
 Wenn unsere Version nicht mehr aktuell ist, überprüfen wir, ob die uns empfohlene Version [mit unserem Betriebssystem](#macver) sowie unserer **R**-Version kompatibel ist.
 
