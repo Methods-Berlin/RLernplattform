@@ -1560,7 +1560,7 @@ Eine Übersicht über das Exportieren von Grafiken mit Funktionen aus dem Basisp
 
 > *__Achtung__*:  Hinweis für Windows-NutzerInnen: Manchmal kann es zu Probleme mit **Aliasing** kommen. Das ist, wenn Grafikelemente und/oder Text nach dem Export **"krisselig"** dargestellt werden. 
 
-<div style="text-align: center">**Beispiel für Aliasing**
+**Beispiel für Aliasing**
 
 ```{r}
 #| out.width: 400px
@@ -1569,7 +1569,7 @@ Eine Übersicht über das Exportieren von Grafiken mit Funktionen aus dem Basisp
 knitr::include_graphics("figures/ggplot2/Bilder/Std_PNG.png")
 ```
 
-<div style="text-align: center">Bildquelle: https://www.r-bloggers.com/exporting-nice-plots-in-r/
+Bildquelle: https://www.r-bloggers.com/exporting-nice-plots-in-r/
 
 Um das zu verhindern, können wir das Paket **Cairo**, mit dessen gleichnamiger Funktion, nutzen. Mehr Informationen zur Anwendung können wir auf <a href="https://www.r-bloggers.com/exporting-nice-plots-in-r/" target="_blank">R-bloggers</a> finden.
 

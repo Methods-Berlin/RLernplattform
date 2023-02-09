@@ -366,7 +366,7 @@ Die Auffassung darüber, von welchen "anderen Variablen" die Missings in einer V
 
 
 
-<div style="text-align: center">**Übersicht der Arten von Missings** 
+**Übersicht der Arten von Missings** 
 
 ```{r}
 #| echo: !expr F

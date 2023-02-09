@@ -25,7 +25,7 @@ Bei der Anwendung der multiplen linearen Regression müssen allerdings bestimmte
 Die wichtigsten Annahmen sind: Linearität, Exogenität, Homoskedastizität und die Unabhängigkeit der Residuen. Darüber hinaus sollten wir uns auch immer die Normalverteilung der Residuen, Multikollinearität sowie Ausreißer und einflussreiche Datenpunkte ansehen.
 
 
-<div style="text-align: center">**Gefahren bei Verletzung der Annahmen und weiterer wichtiger Punkte** 
+**Gefahren bei Verletzung der Annahmen und weiterer wichtiger Punkte** 
 ```{r}
 #| echo: false
 #| fig.align: center
@@ -1080,7 +1080,7 @@ lm_av = lm(daten_av$leb_zufr ~ daten_av$zufr_inhalt + daten_av$zufr_beding)
 plot(lm_av, which=5, main="Der Wert auf dem Kriterium wurde erhöht.", caption = "", sub="", id.n=1)
 ```
 
-<div style="text-align: center"> Das standardisierte Residuum ist größer; die Leverage ist gleich. \
+ Das standardisierte Residuum ist größer; die Leverage ist gleich. \
 Die Lowess Line ist immer noch flach und nah an der gestrichelten Linie bei $y=0$. \
 Die Cooks Distance ist wesentlich größer, sie beträgt fast $1$. \
 
@@ -1096,7 +1096,7 @@ lm_uv = lm(daten_uv$leb_zufr ~ daten_uv$zufr_inhalt + daten_uv$zufr_beding)
 plot(lm_uv, which=5, main="Der Wert auf einem Prädiktor wurde erhöht.", caption = "", sub="", id.n=1)
 ```
 
-<div style="text-align: center">Das standardisierte Residuum ist *vom Betrag* her ähnlich; die Leverage ist größer. \
+Das standardisierte Residuum ist *vom Betrag* her ähnlich; die Leverage ist größer. \
 Die Lowess Line weicht wesentlich stärker von der gestrichelten Linie bei  $y=0$ ab. \
 Die Cooks Distance ist etwas größer, aber noch $< 0.5$. \
 
@@ -1113,7 +1113,7 @@ lm_avuv = lm(daten_avuv$leb_zufr ~ daten_avuv$zufr_inhalt + daten_avuv$zufr_bedi
 plot(lm_avuv, which=5, main="Der Wert auf dem Kriterium und einem Prädiktor wurden erhöht.", caption = "", sub="", id.n=1)
 ```
 
-<div style="text-align: center">Das standardisierte Residuum ist größer; die Leverage ist größer. \
+Das standardisierte Residuum ist größer; die Leverage ist größer. \
 Die Lowess Line weicht extrem von der gestrichelten Linie bei $y=0$ ab. \
 Die Cooks Distance ist $> 1$. \
 

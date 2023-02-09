@@ -502,7 +502,7 @@ Alternativ kann man die Datei auch herunterladen und dann in Abhängigkeit ihres
    + auf *Informationen* klicken
    + Unter *Öffnen mit* `R`-Studio auswählen **und** auf *Alle ändern...* klicken
 
-<div style="text-align: center">
+
 ```{r}
 #| echo: false
 #| fig.show: hold

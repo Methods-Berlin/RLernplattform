@@ -406,7 +406,7 @@ kable(table, "html", escape = F) %>%
 knitr::include_graphics("figures/Einführung/Bilder/R/Skalenniveau.png")
 ```
 
-<div style="text-align: center">Bildquelle: https://de.wikipedia.org/wiki/Datei:Skalenniveau.png
+Bildquelle: https://de.wikipedia.org/wiki/Datei:Skalenniveau.png
 
 </details>
 

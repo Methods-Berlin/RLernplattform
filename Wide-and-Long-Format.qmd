@@ -14,7 +14,7 @@ Im Wesentlichen gibt es zwei verschiedene Darstellungsformen von Tabellendaten (
 
 Im **Wide**-Format entspricht jede Zeile einer Untersuchungseinheit. So liegen beispielsweise messwiederholte Variablen in *unterschiedlichen Spalten* vor.
 
-<div style="text-align: center">**Beispiel 1 Wide-Format: Messzeitpunkte**
+**Beispiel 1 Wide-Format: Messzeitpunkte**
 
 ```{r}
 #| echo: false
@@ -39,7 +39,7 @@ table_wide %>% mutate(
 <span style=" border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: grey !important;" >Messwiederholung\
 <span style=" border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lightgrey !important;" >Rater</aside>
 
-<div style="text-align: center">**Beispiel 2 Wide-Format: Rater**
+**Beispiel 2 Wide-Format: Rater**
 
 ```{r}
 #| echo: false
@@ -59,7 +59,7 @@ table_wide %>% mutate(
 
 Im **Long**-Format hingegen liegen Messung von einer Untersuchungseinheit in mehreren Zeilen vor. Dabei sind die Werte einer Untersuchungseinheit, die in unterschiedlichen Modi (z.B. Messzeitpunkte, Rater) erhoben wurden, untereinander gelistet. So werden beispielsweise messwiederholte Variablen in *einer Spalte* dargestellt.
 
-<div style="text-align: center">**Beispiel 1 Long-Format: Messzeitpunkte**
+**Beispiel 1 Long-Format: Messzeitpunkte**
 
 ```{r}
 #| echo: false
@@ -76,7 +76,7 @@ table_long %>% mutate(Messung = cell_spec(Messung, background="grey")) %>%
   kable_styling(position="center", full_width = FALSE)
 ```
 
-<div style="text-align: center">**Beispiel 2 Long-Format: Rater**
+**Beispiel 2 Long-Format: Rater**
 
 ```{r}
 #| echo: false
@@ -210,7 +210,7 @@ rmarkdown::paged_table(spread_wide)
 
 Bei `reshape()` werden Zeilennummerierungen auf Basis des übergebenen Datensatzes erzeugt (siehe <span class ="ex">**[Hinweis](#zeilennum)** im `reshape()`-Abschnitt).
 
-<div style="text-align: center">**Wide-Format: Argumente von `reshape()` und `spread()` gegenübergestellt** 
+**Wide-Format: Argumente von `reshape()` und `spread()` gegenübergestellt** 
 
 ```{r}
 #| echo: false
@@ -365,7 +365,7 @@ rmarkdown::paged_table(gather_long)
 
 Bei `reshape()` werden Zeilennummerierungen auf Basis des übergebenen Datensatzes erzeugt (siehe [Hinweis](#zeilennum2) im `reshape()`-Abschnitt).
 
-<div style="text-align: center">**Long-Format: Argumente von `reshape()` und `gather()` gegenübergestellt** 
+**Long-Format: Argumente von `reshape()` und `gather()` gegenübergestellt** 
 ```{r}
 #| echo: false
 #| fig.align: center

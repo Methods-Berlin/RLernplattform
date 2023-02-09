@@ -484,7 +484,7 @@ Die Unterscheidung von Wide- und Long-Format ist von Bedeutung, wenn unsere Date
 Im **Wide**-Format liegen Messungen *einer* Untersuchungseinheit in *einer* Zeile vor. Jeder Messzeitpunkt bzw. jede Messung ist eine eigene Variable.\
 
 
-<div style="text-align: center">**Beispiel 1 Wide-Format: Messzeitpunkte**
+**Beispiel 1 Wide-Format: Messzeitpunkte**
 
 ```{r}
 #| echo: false
@@ -508,7 +508,7 @@ table_wide %>% mutate(
 <span style=" border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: grey !important;" >Messwiederholung\
 <span style=" border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lightgrey !important;" >Rater</aside>
 
-<div style="text-align: center">**Beispiel 2 Wide-Format: Rater**
+**Beispiel 2 Wide-Format: Rater**
 
 ```{r}
 #| echo: false
@@ -527,7 +527,7 @@ table_wide %>% mutate(
 
 Im **Long**-Format liegen Messungen *einer* Untersuchungseinheit in *mehreren* Zeilen vor. Alle Messzeitpunkte bzw. Messungen von unterschiedlichen Ratern liegen in einer Variable vor und die Messzeitpunkte bzw. Rater werden in einer separaten Variable kodiert.
 
-<div style="text-align: center">**Beispiel 1 Long-Format: Messzeitpunkte**
+**Beispiel 1 Long-Format: Messzeitpunkte**
 
 ```{r}
 #| echo: false
@@ -544,7 +544,7 @@ table_long %>% mutate(Messung = cell_spec(Messung, background="grey")) %>%
   kable_styling(position="center", full_width = FALSE)
 ```
 
-<div style="text-align: center">**Beispiel 2 Long-Format: Rater**
+**Beispiel 2 Long-Format: Rater**
 
 ```{r}
 #| echo: false
@@ -570,7 +570,7 @@ Im Kapitel zum (**[Wide- und Long-Format]**) erfahren wir, wie wir beide Formate
 
 ## Datensätze zusammenführen
 
-<div style="text-align: center">**Synonyme**: Mergen, Fusionieren, Integrieren \
+**Synonyme**: Mergen, Fusionieren, Integrieren \
 
 Nicht immer haben wir das Glück, dass die für uns relevanten Daten in einem gemeinsamen Dataframe vorliegen.
 
@@ -870,7 +870,7 @@ kable(head(vornamen_merge_row))
 
 ## Daten extrahieren
 
-<div style="text-align: center">**Synonyme**: Splitten, Subsetten, Filtern, Selektieren, Extrahieren\
+**Synonyme**: Splitten, Subsetten, Filtern, Selektieren, Extrahieren\
 
 Manchmal möchten wir nur bestimmte Variablen bzw. bestimmte Fälle aus einem Datensatz betrachten. Generell bietet es sich an, dafür **reguläre Ausdrücke** (<a href="https://rstudio.com/wp-content/uploads/2016/09/RegExCheatsheet.pdf" target="_blank">*regular expressions*</a> z.B. die Metacharactere `.*`, `|`, `^` und `$`) und **logische Operatoren** (*logical operators* z.B. `>`, `<` und `==`) zu nutzen. 
 
@@ -913,7 +913,7 @@ kable(table, table.attr = "style='width:100%;'") %>%
 
 Wenn Variablen eines Datensatzes eine **Gemeinsamkeit** (z.B. einen gemeinsamen Wortstamm) aufweisen, können wir diese mit der Funktion `grep()` extrahieren.
 
-<div style="text-align: center"><span class="code">grep(pattern, names(Datensatz))\
+<span class="code">grep(pattern, names(Datensatz))\
 Die Funktion durchsucht die Namen der Variablen eines Dataframes - <span class="code">names(Datensatz) - nach bestimmten Zahlen- oder Zeichenketten (`pattern`). Diese müssen wir in `" "` angeben (weil Variablennamen als Character gespeichert werden). 
 
 ```{r}
@@ -1069,7 +1069,7 @@ kable(table, table.attr = "style='width:100%;'") %>%
 
 Wenn wir Ausprägungen suchen, die sich nicht durch logische Operatoren, sondern durch Ähnlichkeiten (z.B. ein gleiches Zeichen) filtern lassen, dann können wir dafür `grep()` nutzen.
 
-<div style="text-align: center">`grep(pattern, x, value)`
+`grep(pattern, x, value)`
 
 
 
@@ -1168,7 +1168,7 @@ Wenn wir logische Operatoren auf einzelne Variablen anwenden, können wir Fälle
 
 Um nur diese Fälle im gesamten Datensatz zu extrahieren, nutzen wir folgende Syntax:\
 
-<div style="text-align: center"><span class="code">Datensatz[Variable Operator Ausprägung,]
+<span class="code">Datensatz[Variable Operator Ausprägung,]
 
 Wenn wir Fälle (d.h. Zeilen) exrahieren wollen, müssen wir *nach den Indizes* immer ein Komma angeben z.B. extrahiert <span class="code">df[2,] die zweite Zeile aus `df`. Das kommt daher, dass in einem zweidimensionalen Objekt immer erst die Zeilen und dann die Variablen angegeben werden z.B. sehen wir das auch bei der Reihenfolge der Dimensionen unserer Objekte im **Environment** (bei **Data**).
 
