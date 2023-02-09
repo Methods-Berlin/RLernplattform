@@ -59,7 +59,7 @@ mean(x = nums)
 
 Wir können Funktionen **variierenden Input** übergeben. Dieser steht immer in Klammern direkt hinter der Funktion. Beispielsweise könnten wir auch den Mittelwert einer anderen Zahlenreihe als `nums` berechnen.
 
-Den Input übergeben wir an einen <span class="highlight">Parameter. Das ist eine (formale) *Variable* einer Funktion <font size="2">(z.B. <span class="code">mean(**x**))</font>, die in der Funktionsdefinition festgelegt ist. Der tatsächliche *Input* nennt sich <span class="highlight">Argument <font size="2">(z.B. <span class="code">mean(x = **nums**))</font>. Die Parameter einer Funktion werden mit Kommata getrennt. Schematisch sieht eine Funktion somit folgendermaßen aus: <font size="2"><span class="code">function(parameter_1 = argument_1, parameter_2 = argument_2, ...)</font>
+Den Input übergeben wir an einen <span class="highlight">Parameter. Das ist eine (formale) *Variable* einer Funktion (z.B. <span class="code">mean(**x**))</font>, die in der Funktionsdefinition festgelegt ist. Der tatsächliche *Input* nennt sich <span class="highlight">Argument (z.B. <span class="code">mean(x = **nums**))</font>. Die Parameter einer Funktion werden mit Kommata getrennt. Schematisch sieht eine Funktion somit folgendermaßen aus: <span class="code">function(parameter_1 = argument_1, parameter_2 = argument_2, ...)</font>
 
 Werfen wir einmal einen Blick in die **Funktionsdefinition von `mean()`**:
 
@@ -72,11 +72,11 @@ knitr::include_graphics("figures/Einführung/Bilder/R/mean.png")
 
 <aside>Die Funktionsdefinition finden wir in der Dokumentation, welche wir in RStudio unter [Files, Plots, Packages, Help & Viewer][Files, Plots, Packages, Help & Viewer] </aside>
 
-Manche Parameter besitzen *voreingestellte Argumente* <font size="2">(z.B. `na.rm=FALSE`)</font>, diese bezeichnet man als <span class="highlight">Defaults. Funktionen mit (min. einem) Parameter *ohne* Default <font size="2">(z.B. `mean()`)</font> werden ohne Spezifikation dieser nicht ausgeführt. Beispielsweise *müssen* wir dem Parameter `x` einen Vektor, von dem wir den Mittelwert berechnen wollen, übergeben.
+Manche Parameter besitzen *voreingestellte Argumente* (z.B. `na.rm=FALSE`)</font>, diese bezeichnet man als <span class="highlight">Defaults. Funktionen mit (min. einem) Parameter *ohne* Default (z.B. `mean()`)</font> werden ohne Spezifikation dieser nicht ausgeführt. Beispielsweise *müssen* wir dem Parameter `x` einen Vektor, von dem wir den Mittelwert berechnen wollen, übergeben.
 
-Parameter ermöglichen uns aber nicht nur, eine Aufgabe mit verschiedenen Daten durchzuführen, sondern auch weitere Optionen zu wählen <font size="2">(z.B. `na.rm`: Ausschluss von fehlenden Werten; `trim`: trimmen der Enden der Verteilung der Zahlenreihe vor Berechnung des Mittelwerts)</font>. 
+Parameter ermöglichen uns aber nicht nur, eine Aufgabe mit verschiedenen Daten durchzuführen, sondern auch weitere Optionen zu wählen (z.B. `na.rm`: Ausschluss von fehlenden Werten; `trim`: trimmen der Enden der Verteilung der Zahlenreihe vor Berechnung des Mittelwerts)</font>. 
 
-Wenn unsere Zahlenreihe beispielsweise fehlende Werte <font size="2">(in R: `NA`)</font> besitzt, müssen wir den Default von `mean(..., na.rm=FALSE)` ändern, sodass fehlende Werte aus der Berechnung entfernt werden.
+Wenn unsere Zahlenreihe beispielsweise fehlende Werte (in R: `NA`)</font> besitzt, müssen wir den Default von `mean(..., na.rm=FALSE)` ändern, sodass fehlende Werte aus der Berechnung entfernt werden.
 
 ```{r}
 # fehlenden Wert hinzufügen
@@ -116,24 +116,24 @@ mean(nums, 0, TRUE)
 So erleichtern uns Funktionen unsere Arbeit. Zusammengefasst hat die Nutzung von Funktionen folgende Vorteile:
 
 - <font color="#009193">**Organisation**</font>\
-Programme <font size="2">(z.B. statistische Analysen)</font> können sehr komplex werden. Durch die Nutzung von Funktionen teilen wir unser komplexes Programm in mehrere, kleinere (Unter)Programme <font size="2">(z.B. Vektor erstellen, Mittelwert berechnen, ...)</font>.
+Programme (z.B. statistische Analysen)</font> können sehr komplex werden. Durch die Nutzung von Funktionen teilen wir unser komplexes Programm in mehrere, kleinere (Unter)Programme (z.B. Vektor erstellen, Mittelwert berechnen, ...)</font>.
 - <font color="#009193">**Wiederverwendbarkeit**</font>\
-Wir können Funktionen immer wieder aufrufen. So wird unser Programm kompakter <font size="2">(**DRY**-Prinzip, Don't Repeat Yourself)</font> und wir reduzieren Fehler durch Kopieren von Code <font size="2">(z.B. Verzählen bei den Elementen durch die wir teilen wollen)</font>.
+Wir können Funktionen immer wieder aufrufen. So wird unser Programm kompakter (**DRY**-Prinzip, Don't Repeat Yourself)</font> und wir reduzieren Fehler durch Kopieren von Code (z.B. Verzählen bei den Elementen durch die wir teilen wollen)</font>.
 - <font color="#009193">**Testen**</font>\
-Weil wir weniger (redundanten) Code haben, können wir schneller Fehler finden <font size="2">(z.B. Tippfehler, fehlende Elemente)</font>. 
+Weil wir weniger (redundanten) Code haben, können wir schneller Fehler finden (z.B. Tippfehler, fehlende Elemente)</font>. 
 - <font color="#009193">**Erweiterbarkeit**</font>\
-Funktionen können erweitert werden, um verschiedene Szenarien zu händeln. Meist hat das schon jemand für uns gemacht. Wir müssen den Parametern einer Funktion nur verschiedene Argumente übergeben <font size="2">(z.B. `na.rm=TRUE` zum Ausschluss von fehlenden Werten)</font>. 
+Funktionen können erweitert werden, um verschiedene Szenarien zu händeln. Meist hat das schon jemand für uns gemacht. Wir müssen den Parametern einer Funktion nur verschiedene Argumente übergeben (z.B. `na.rm=TRUE` zum Ausschluss von fehlenden Werten)</font>. 
 - <font color="#009193">**Abstraktion**</font>\
-Wir müssen die Funktion nicht im Detail verstehen. Es reicht zu wissen, wie der *Name* der Funktion ist <font size="2">(`mean()`)</font>, welchen *Input* wir übergeben <font size="2">(`x`; `trim` und `na.rm` optional weil mit Default)</font> und welchen *Output* <font size="2">(arithmetisches Mittel)</font> wir bekommen und wo wir die Funktion finden, d.h. aus welchem *Paket* <font size="2">(base)</font> sie stammt. All diese Informationen erhalten wir in der Dokumentation der Funktion z.B. in RStudio unter @sec-files-plots-packages-help-viewer. 
+Wir müssen die Funktion nicht im Detail verstehen. Es reicht zu wissen, wie der *Name* der Funktion ist (`mean()`)</font>, welchen *Input* wir übergeben (`x`; `trim` und `na.rm` optional weil mit Default)</font> und welchen *Output* (arithmetisches Mittel)</font> wir bekommen und wo wir die Funktion finden, d.h. aus welchem *Paket* (base)</font> sie stammt. All diese Informationen erhalten wir in der Dokumentation der Funktion z.B. in RStudio unter @sec-files-plots-packages-help-viewer. 
 
-Auf <a href="https://www.freecodecamp.org" target="_blank">freecodecamp.org</a> finden wir eine kurze Einführung zu R: <a href="https://www.freecodecamp.org/news/r-programming-language-explained/" target="_blank">R Programming Language explained</a>. Es lohnt sich, **vertiefend den Part zu <a href="https://www.freecodecamp.org/news/r-programming-language-explained/#functions-in-r" target="_blank">Funktionen</a> anzuschauen** <font size="2">(~ 10min)</font>, um ein besseres Verständnis für die Arbeit mit R zu bekommen.
+Auf <a href="https://www.freecodecamp.org" target="_blank">freecodecamp.org</a> finden wir eine kurze Einführung zu R: <a href="https://www.freecodecamp.org/news/r-programming-language-explained/" target="_blank">R Programming Language explained</a>. Es lohnt sich, **vertiefend den Part zu <a href="https://www.freecodecamp.org/news/r-programming-language-explained/#functions-in-r" target="_blank">Funktionen</a> anzuschauen** (~ 10min)</font>, um ein besseres Verständnis für die Arbeit mit R zu bekommen.
 
 
 ### Pakete
 
 > Funktionen (und Dateien) werden in sogenannten Paketen gespeichert. Dabei sind in einem Paket (häufig) Funktionen, die für einen begrenzten Aufgabenbereich genutzt werden.
 
-Es gibt <font color="#009193">**Standardpakete**</font>, die man automatisch mit dem Download von R erhält und deren Funktionen und Dateien man einfach nutzen kann. Diese sind **base** <font size="2">(basale Funktionen wie z.B. `c()` und `mean()`, die wir gerade genutzt haben)</font>, **datasets** <font size="2">(Beispieldatensätze)</font>, **graphics** <font size="2">(Grafiken erstellen)</font>, **grDevices** <font size="2">(Farben und Schriften)</font>, **methods** <font size="2">(Methoden und Klassen erstellen bzw. Informationen erhalten)</font>, **stats** <font size="2">(statistische Methoden)</font> und **utils** <font size="2">(z.B. Informationen zu Add-On Paketen erhalten und diese herunterladen)</font>.
+Es gibt <font color="#009193">**Standardpakete**</font>, die man automatisch mit dem Download von R erhält und deren Funktionen und Dateien man einfach nutzen kann. Diese sind **base** (basale Funktionen wie z.B. `c()` und `mean()`, die wir gerade genutzt haben)</font>, **datasets** (Beispieldatensätze)</font>, **graphics** (Grafiken erstellen)</font>, **grDevices** (Farben und Schriften)</font>, **methods** (Methoden und Klassen erstellen bzw. Informationen erhalten)</font>, **stats** (statistische Methoden)</font> und **utils** (z.B. Informationen zu Add-On Paketen erhalten und diese herunterladen)</font>.
 
 Zum Beispiel können wir mit der Funktion `data()` auf die in **datasets** enthaltenen Datensatze zugreifen. </font>
 
@@ -151,7 +151,7 @@ Die Größe des Datensatzes sehen wir mit `dim()`.
 dim(women)
 ```
 
-Der Datensatz **women** enthält 15 Fälle <font size="2">(Zeilen)</font> und zwei Variablen <font size="2">(Spalten)</font>.</font> 
+Der Datensatz **women** enthält 15 Fälle (Zeilen)</font> und zwei Variablen (Spalten)</font>.</font> 
 
 Die Namen der Variablen erfahren wir mit `names()`.
 
@@ -162,7 +162,7 @@ names(women)
 ```
 
 
-Mit den Funktionen aus den Standardpaketen können wir schon vieles machen. Weil R **open-source** ist, kann jeder eigene Pakete schreiben und Anderen zugänglich machen. Wir können auf diese <font color="#009193">**Add-on Pakete**</font>, die andere R-NutzerInnen erstellt haben, über <a href="https://cran.r-project.org" target="_blank">CRAN</a> <font size="2">(Comprehensive R Archive Network)</font> zugreifen. Natürlich können wir selbstgeschriebene Funktionen, die wir häufig nutzen, auch in eigenen Paketen speichern, um sie unkompliziert wieder nutzen zu können oder sie der R-Community zur Verfügung zu stellen.
+Mit den Funktionen aus den Standardpaketen können wir schon vieles machen. Weil R **open-source** ist, kann jeder eigene Pakete schreiben und Anderen zugänglich machen. Wir können auf diese <font color="#009193">**Add-on Pakete**</font>, die andere R-NutzerInnen erstellt haben, über <a href="https://cran.r-project.org" target="_blank">CRAN</a> (Comprehensive R Archive Network)</font> zugreifen. Natürlich können wir selbstgeschriebene Funktionen, die wir häufig nutzen, auch in eigenen Paketen speichern, um sie unkompliziert wieder nutzen zu können oder sie der R-Community zur Verfügung zu stellen.
 
 Add-on Pakete müssen wir einmalig **herunterladen** und jedes Mal, wenn wir sie (in einer R-Session) nutzen wollen, **laden**.
 
@@ -177,7 +177,7 @@ install.packages("psych") # auf Anführungszeichen achten!
 
 Die im Paket enthaltene Funktion `describe()` gibt uns beispielsweise eine kompakte Übersicht relevanter deskriptiv-statistischer Kennwerte von Daten aus. 
 
-<!--Die Daten müssen dafür zweidimensional sein <font size="2">(d.h. als Matrix oder Data Frame vorliegen)</font>.   # laut Dok, aber funktioniert auch bei Vektoren 
+<!--Die Daten müssen dafür zweidimensional sein (d.h. als Matrix oder Data Frame vorliegen)</font>.   # laut Dok, aber funktioniert auch bei Vektoren 
 <aside>Mehr Informationen zur Organisation von Daten später unter [Datenstrukturen](Einfuehrung_in_R.qmd#Datenstrukturen).</aside>
 -->
 
@@ -354,15 +354,15 @@ tab %>%
 <details><summary>Recap: Messniveaus</summary><div class="more">
 Das Messniveau (oder auch Skalenniveau) ist eine wichtige Eigenschaft von Merkmalen (Variablen) von Untersuchungseinheiten. Es beschreibt, welche Informationen in unseren Messwerten abgebildet werden und damit auch welche mathematischen Transformationen mit den Messwerten sinnvoll sind (z.B. das Berechnen von Mittelwerten). Somit begrenzt das Messniveau auch die zulässigen Datenauswertungsverfahren unserer Variablen.
 
-Die Kodierung von <font color="#009193">**nominalskalierten**</font> Merkmalen ist insofern willkürlich, als dass lediglich auf **Gleichheit versus Ungleichheit** geachtet werden muss <font size="2">(z.B. `1`, `4`, `9` *oder* `A`, `Y`, `M`)</font>.
+Die Kodierung von <font color="#009193">**nominalskalierten**</font> Merkmalen ist insofern willkürlich, als dass lediglich auf **Gleichheit versus Ungleichheit** geachtet werden muss (z.B. `1`, `4`, `9` *oder* `A`, `Y`, `M`)</font>.
 
 Die Kodierung von <font color="#009193">**ordinalskalierten**</font> Merkmalen geschieht der Größe nach, d.h. dass die **Rangfolge** der Kodierungen einzelner Gruppen relevant ist (z.B. `1` < `4` < `9` *oder* `A` < `M` < `Y`). Man kann aber auch eine eigene Sortierung festlegen, die nicht der "natürlichen" Rangfolge (Zahlen: aufsteigend; Buchstaben: alphabetisch) entspricht (z.B. `Y` < `A` < `M`). Ein Realschulabschluss ist beispielsweise besser als ein Hauptschulabschluss. Wir können aber nicht festlegen, *wie viel besser* er ist. 
 
-Bei der Kodierung von <font color="#009193">**intervallskalierten**</font> Merkmalen sind sowohl die Rangfolge als auch die **Abstände** zwischen den Ausprägungen relevant <font size="2">(z.B. `1`, `4`, `7`; jeweils mit gleichem Abstand zueinander; *oder* `1.4`, `1.5`, `2.3`; jeweils mit verschiedenen Abständen zueinander)</font>. Ein Beispiel dafür ist die Temperatur in Grad Celsius oder Grad Fahrenheit.
+Bei der Kodierung von <font color="#009193">**intervallskalierten**</font> Merkmalen sind sowohl die Rangfolge als auch die **Abstände** zwischen den Ausprägungen relevant (z.B. `1`, `4`, `7`; jeweils mit gleichem Abstand zueinander; *oder* `1.4`, `1.5`, `2.3`; jeweils mit verschiedenen Abständen zueinander)</font>. Ein Beispiel dafür ist die Temperatur in Grad Celsius oder Grad Fahrenheit.
 
 Bei der Kodierung von <font color="#009193">**verhältnisskalierten**</font> Merkmalen ist zusätzlich noch ein **Nullpunkt** vorhanden. Dieser erlaubt es, dass Quotienten zwischen Werten gebildet werden können. Ein beliebtes Beispiel ist die Kelvin Skala. Bei dieser ist bei 0°K keine Bewegungsenergie mehr vorhanden und 20°K sind halb so viel wie 40°K.
 
-Zu guter Letzt gibt es noch <font color="#009193">**absolutskalierte**</font> Merkmale, welche sowohl einen eindeutigen Nullpunkt als auch eine **eindeutige Einheit** der Skala <font size="2">(z.B. Anzahl der Kinder)</font> vorweisen kann. Die Kodierung entspricht der natürlichen Einheit.
+Zu guter Letzt gibt es noch <font color="#009193">**absolutskalierte**</font> Merkmale, welche sowohl einen eindeutigen Nullpunkt als auch eine **eindeutige Einheit** der Skala (z.B. Anzahl der Kinder)</font> vorweisen kann. Die Kodierung entspricht der natürlichen Einheit.
 
 Nachfolgend finden wir eine Tabelle der möglichen Unterscheidungen der jeweiligen Messniveaus.
 
@@ -537,7 +537,7 @@ vek_5 <- c(1.3, 4.5) # Kommazahlen
 vek_6 <- c(1L, 4L) # ganze Zahlen
 ```
 
-Mit `str()` können wir uns den **Datentyp**, die **Länge** der Dimension <font size="2">(Anzahl der Elemente)</font> und die **ersten 10 Elemente** ausgeben lassen.
+Mit `str()` können wir uns den **Datentyp**, die **Länge** der Dimension (Anzahl der Elemente)</font> und die **ersten 10 Elemente** ausgeben lassen.
 
 ```{r}
 str(vek_1)
@@ -593,7 +593,7 @@ Generell reicht für uns aber die Unterscheidung zwischen numeric und den andere
 </details>
 
 
-Wenn wir **Zahlenfolgen** <font size="2">(numeric)</font> erstellen wollen, können wir `seq()` nutzen.
+Wenn wir **Zahlenfolgen** (numeric)</font> erstellen wollen, können wir `seq()` nutzen.
 
 ```{r}
 # seq(from,to,by)
@@ -824,7 +824,7 @@ df_1
 str(df_1) # obs. = Länge Zeilen, variables = Länge Spalten
 ```
 
-Die Benennung der Vektoren wird als Spaltenbenennung übernommen. Per Default werden Daten vom Typ character (z.B. `zwei`) als Faktoren gespeichert <font size="2">(`stringsAsFactors = default.stringsAsFactors()`, was wiederum `TRUE` ist)</font>.
+Die Benennung der Vektoren wird als Spaltenbenennung übernommen. Per Default werden Daten vom Typ character (z.B. `zwei`) als Faktoren gespeichert (`stringsAsFactors = default.stringsAsFactors()`, was wiederum `TRUE` ist)</font>.
 
 Mit `colnames()` bzw. `rownames()` können wir wieder Spalten- bzw. Zeilennamen ändern bzw. hinzufügen.
 
@@ -889,7 +889,7 @@ Zur **Benennung** von Objekten ist folgendes zu wissen:
 
 - **alle alphanumerischen Zeichen** sowie **.** und **\_** sind erlaubt\
 In Deutsch schließt das Groß- und Kleinbuchstaben des gesamten Alphabets und der Umlaute sowie die Zahlen 0-9 ein. Um Enkodierungsprobleme (u.a. zwischen verschiedenen Systemen) zu reduzieren, sollten wir aber **auf Umlaute verzichten**; auch in der Benennung unserer Ordner außerhalb von R. Namen sollten **nicht mit . oder \_ beginnen**.
-- **Groß- und Kleinschreibung** beachten <font size="2">(case-sensitivity)</font>\
+- **Groß- und Kleinschreibung** beachten (case-sensitivity)</font>\
 Das gilt auch für **Funktionen**; z.B. funktioniert `View()` nur, wenn der erste Buchstabe groß geschrieben wird.\
 Bestehende Objekte können de facto nicht mehr umbenannt werden. Wir können sie aber in einem neuen Objekt (mit einem neuen Namen) speichern (und ggf. das alte Objekt löschen).
 
@@ -900,7 +900,7 @@ Bestehende Objekte können de facto nicht mehr umbenannt werden. Wir können sie
 
 Nachfolgend finden wir einige Kurzbefehle für die beiden Betriebssysteme Windows und Mac, die unseren Workflow verbessern.
 
-> *__Achtung__*:  Mit dem letzten Kurzbefehl können wir schneller Dateipfade kopieren, was uns das [Einlesen von Daten in R](Daten-importieren.qmd) erleichtert. Dieser Kurzbefehl ist, im Gegensatz zu den anderen, nicht zur Nutzung in R geeignet; er funktioniert **nur** im Explorer <font size="2">(Windows)</font> bzw. Finder <font size="2">(Mac)</font>.
+> *__Achtung__*:  Mit dem letzten Kurzbefehl können wir schneller Dateipfade kopieren, was uns das [Einlesen von Daten in R](Daten-importieren.qmd) erleichtert. Dieser Kurzbefehl ist, im Gegensatz zu den anderen, nicht zur Nutzung in R geeignet; er funktioniert **nur** im Explorer (Windows)</font> bzw. Finder (Mac)</font>.
 
 
 ```{r}
@@ -927,7 +927,7 @@ table_dat %>%
   
 ```
 
-Eine Übersicht weiterer Kurzbefehle für R finden wir in der Leiste ganz oben unter **Help > Keyboard Shortcuts Help** <font size="2">(nicht zu verwechseln mit dem Bereich @sec-files-plots-packages-help-viewer, der uns Zugang zur Dokumentation verschafft)</font>.
+Eine Übersicht weiterer Kurzbefehle für R finden wir in der Leiste ganz oben unter **Help > Keyboard Shortcuts Help** (nicht zu verwechseln mit dem Bereich @sec-files-plots-packages-help-viewer, der uns Zugang zur Dokumentation verschafft)</font>.
 
 ```{r}
 #| echo: false
@@ -954,7 +954,7 @@ Wenn ihr den <span class="highlight">**Umgang mit R direkt in R lernen** wollt, 
 
 ---
 
-<font size="2">Um eine möglichst exakte Replikation der Funktionen zu gewährleisten gibt es im folgenden relevante Angaben zum System (**R-Version**, **Betriebssystem**, **geladene Pakete mit Angaben zur Version**), mit welchem diese Seite erstellt wurde.
+Um eine möglichst exakte Replikation der Funktionen zu gewährleisten gibt es im folgenden relevante Angaben zum System (**R-Version**, **Betriebssystem**, **geladene Pakete mit Angaben zur Version**), mit welchem diese Seite erstellt wurde.
 
 ```{r}
 sessionInfo()

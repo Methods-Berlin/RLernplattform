@@ -2,20 +2,20 @@
 
 Beim Arbeiten mit **R** wird es früher oder später einmal dazu kommen, dass wir in der Konsole eine Fehlermeldung ausgegeben bekommen.
 
-Generell kann man in **R** drei verschiedene Meldungen <font size="2">(*Conditions*)</font> erhalten:
+Generell kann man in **R** drei verschiedene Meldungen (*Conditions*)</font> erhalten:
 
 - **error**:\
-<font size="2">Durch Fehler wird die Ausführung der Funktion unterbrochen.</font>
+Durch Fehler wird die Ausführung der Funktion unterbrochen.</font>
 - **warning**\
-<font size="2">Im Gegensatz zu echten Fehlern (errors) wird die Ausführung des Codes bei warnings nicht unterbrochen. Warnmeldungen dienen dazu, die Aufmerksamkeit des Benutzers auf potentielle Probleme zu lenken. Im Unterschied zu errors kann man mehrere Warnungen von einer Funktion erhalten.</font>
+Im Gegensatz zu echten Fehlern (errors) wird die Ausführung des Codes bei warnings nicht unterbrochen. Warnmeldungen dienen dazu, die Aufmerksamkeit des Benutzers auf potentielle Probleme zu lenken. Im Unterschied zu errors kann man mehrere Warnungen von einer Funktion erhalten.</font>
 - **message**\
-<font size="2">Geben Informationen dazu, was eine Funktion (zusätzlich) gemacht hat.</font>
+Geben Informationen dazu, was eine Funktion (zusätzlich) gemacht hat.</font>
 
 <aside>Eine vertiefte Einführung in die verschiedenen Conditions finden wir auf <a href="https://adv-r.hadley.nz/conditions.html" target="_blank">Advanced R</a>.</aside>
 
 Wir konzentrieren uns in diesem Abschnitt auf ersteres: Fehlermeldungen, die unsere Arbeit in **R** anhalten lassen und nach einer Lösung verlangen.
 
-Fehlermeldungen können unterschiedliche Ursachen haben. Häufig sind es Tipp- oder Syntaxfehler, aber auch Probleme mit Datentypen <font size="2">(z.B. eine Funktion erfordert einen anderen als den genutzen Datentyp)</font> und Paketen <font size="2">(z.B. Laden des Paketes einer Funktion vergessen)</font> kommen häufiger vor.
+Fehlermeldungen können unterschiedliche Ursachen haben. Häufig sind es Tipp- oder Syntaxfehler, aber auch Probleme mit Datentypen (z.B. eine Funktion erfordert einen anderen als den genutzen Datentyp)</font> und Paketen (z.B. Laden des Paketes einer Funktion vergessen)</font> kommen häufiger vor.
 
 <aside>Es gibt keine fixe Taxonomie der Arten von Fehlern in **R**. Es seien hier nur einige genannt.</aside>
 
@@ -54,10 +54,10 @@ Bevor wir uns dem Verstehen von konkreten (Syntax-)Fehlermeldungen widmen und an
 
 ### **R**-Dokumentation
 
-Wenn wir eine uns noch unbekannte Funktion nutzen <font size="2">(aber auch wenn 
+Wenn wir eine uns noch unbekannte Funktion nutzen (aber auch wenn 
 wir aus einer Fehlermeldung nicht schlau werden)</font> können wir die Dokumentation nutzen. Diese können wir in RStudio im unteren rechten Panel unter <font color ="#649B32">Help</font> öffnen. In das <font color ="#FF1D00">Suchfeld</font> geben wir den Namen der Funktion ein. 
 
-Alternativ können wir die Hilfefunktionen `?` oder `help()` nutzen <font size="2">(z.B. <span class="code">?matrix oder <span class="code">help(matrix))</font>. 
+Alternativ können wir die Hilfefunktionen `?` oder `help()` nutzen (z.B. <span class="code">?matrix oder <span class="code">help(matrix))</font>. 
 
 Mit Klick auf das <font color ="#FD9612">eingekreiste Icon</font> kann man sich die Hilfe-Seite auch in einem extra Fenster anzeigen lassen.
 
@@ -70,7 +70,7 @@ Mit Klick auf das <font color ="#FD9612">eingekreiste Icon</font> kann man sich 
 knitr::include_graphics("figures/Fehlermeldungen/Bilder/doc.png")
 ```
 
-Wir bekommen hier (zumeist) folgende Informationen: aus welchem Paket die Funktion ist <font size="2">(oben links in **{ }**)</font>, was die Funktion macht <font size="2">(<span class="highlight">Description)</font>, die Funktionsdefinition ggf. mit Defaults <font size="2">(<span class="highlight">Usage)</font>, ihre Parameter mit jeweils gültigen Argumenten <font size="2">(<span class="highlight">Arguments)</font>, weitere Details zur Nutzung <font size="2">(<span class="highlight">Details)</font>, ähnliche Funktionen <font size="2">(<span class="highlight">See also)</font> und Beispiele zur Nutzung <font size="2">(<span class="highlight">Examples)</font>.
+Wir bekommen hier (zumeist) folgende Informationen: aus welchem Paket die Funktion ist (oben links in **{ }**)</font>, was die Funktion macht (<span class="highlight">Description)</font>, die Funktionsdefinition ggf. mit Defaults (<span class="highlight">Usage)</font>, ihre Parameter mit jeweils gültigen Argumenten (<span class="highlight">Arguments)</font>, weitere Details zur Nutzung (<span class="highlight">Details)</font>, ähnliche Funktionen (<span class="highlight">See also)</font> und Beispiele zur Nutzung (<span class="highlight">Examples)</font>.
 
 <details><summary>*Was sind Parameter, Argumente und Defaults?*</summary>
 <span class="highlight">Parameter bezeichnet die (formalen) **Variablen einer Funktion** (z.B. `nrow` aus `matrix()`), denen wir unsere (tatsächlichen) <span class="highlight">Argumente (z.B. `3`), d.h. unseren **Input**,  übergeben. <span class="highlight">Default bezeichnet ein **voreingestelltes Argument** (z.B. `nrow=1`).
@@ -137,7 +137,7 @@ knitr::include_graphics("figures/Fehlermeldungen/Bilder/cd kreis 2.png")
 Unser Code endet mit einer schließenden runden Klammer, welche kein öffnendes Pendant hat. Außerdem hat unsere öffnende eckige Klammer kein abschließendes Pendant. Wahrscheinlich haben wir uns vertippt und anstatt einer schließenden eckigen Klammer eine schließende runde Klammer eingefügt. So würde der richtige Code aussehen: <font color ="#930047">`daten[,c(1,2,3)]`</font>
 </details>\
 
-Auf dieser <a href="https://support.rstudio.com/hc/en-us/articles/205753617-Code-Diagnostics?version=1.2.1335&mode=desktop" target="_blank">Seite</a> wird die Möglichkeiten der Code Diagnostics noch detaillierter erklärt und wir erhalten eine Anleitung dazu, wie wir verschiedene Einstellungen tätigen können <font size="2">(in der oberen Menüleiste über *Tools > Global Options > Code > Diagnostics*)</font>.
+Auf dieser <a href="https://support.rstudio.com/hc/en-us/articles/205753617-Code-Diagnostics?version=1.2.1335&mode=desktop" target="_blank">Seite</a> wird die Möglichkeiten der Code Diagnostics noch detaillierter erklärt und wir erhalten eine Anleitung dazu, wie wir verschiedene Einstellungen tätigen können (in der oberen Menüleiste über *Tools > Global Options > Code > Diagnostics*)</font>.
 
 
 ## Fehlermeldungen verstehen
@@ -233,7 +233,7 @@ Hier weist uns **R** darauf hin, dass das dritte Argument, welches nach dem zwei
 
 Nun gibt es auch Fehlermeldungen, die wir nicht auf Anhieb verstehen. Dafür kann es vielfältige Ursachen geben. Wenn wir schon in der R-Dokumentation nachgeschaut haben und trotzdem noch ratlos sind, können wir im Internet nach Hilfe suchen. Wir können dafür Suchmaschinen direkt spezielle Foren nutzen.
 
-__Hierbei gibt es nicht *den einen* Weg, fündig zu werden.__ Häufig gibt es eine Fehlermeldung, die bei verschiedenen Problemen <font size="2">(mit unterschiedlichen Funktionen)</font> angezeigt wird. Dann muss man filtern, welche Seite für das eigene Anliegen relevant sein könnte. Es kann ebenso möglich sein, dass es zu manchen Problemen einfach noch keine Lösung gibt. Dieser Fall ist eher seltener und tritt vor allem bei neueren oder seltener genutzen Paketen auf. 
+__Hierbei gibt es nicht *den einen* Weg, fündig zu werden.__ Häufig gibt es eine Fehlermeldung, die bei verschiedenen Problemen (mit unterschiedlichen Funktionen)</font> angezeigt wird. Dann muss man filtern, welche Seite für das eigene Anliegen relevant sein könnte. Es kann ebenso möglich sein, dass es zu manchen Problemen einfach noch keine Lösung gibt. Dieser Fall ist eher seltener und tritt vor allem bei neueren oder seltener genutzen Paketen auf. 
 
 Im Folgenden schauen wir uns einige **wichtige Aspekte an, auf die man achten sollte**, wenn man im Internet nach Lösungen zu Fehlermeldungen sucht.
 
@@ -254,9 +254,9 @@ Sinnvoll ist es im Suchtext drei Aspekte miteinzubeziehen:
 
 - das <font color ="#649B32">**Programm**</font>, mit dem es Probleme gibt
 - die <font color ="#FF1D00">**Funktion**</font>, mit der es Probleme gibt 
-   + <font size="2">auch ersichtlich an der Information **vor** dem Doppelpunkt</font>
+   + auch ersichtlich an der Information **vor** dem Doppelpunkt</font>
 - Ausschnitte aus der <font color ="#8DA0FF">**Fehlermeldung**</font>
-   + <font size="2">von den Informationen **nach** dem Doppelpunkt</font>
+   + von den Informationen **nach** dem Doppelpunkt</font>
 
 Unsere Suche könnte folgendermaßen aussehen:
 
@@ -285,7 +285,7 @@ knitr::include_graphics("figures/Fehlermeldungen/Bilder/search links.png")
 
 Mit Ausnahme des zweiten Links sieht es so aus, als würden die Seiten zu unspezifisch für unser Problem sein. 
 
-Der zweite Link weist gleich zwei **Übereinstimmungen** auf: Wir wollten einen <span class = "ex">correlation test rechnen und haben die selbe Fehlermeldung <font size="2">(<span class = "ex">'x' must be a numeric vector)</font> bekommen.
+Der zweite Link weist gleich zwei **Übereinstimmungen** auf: Wir wollten einen <span class = "ex">correlation test rechnen und haben die selbe Fehlermeldung (<span class = "ex">'x' must be a numeric vector)</font> bekommen.
 
 Schauen wir uns also das <a href="https://stackoverflow.com/questions/43497128/r-error-in-correlation-test-x-must-be-a-numeric-vector" target="_blank">zweite Ergebnis</a> an.
 
@@ -393,7 +393,7 @@ Sys.setenv(LANGUAGE="en")
 
 Ganz generell kann es sehr hilfreich sein, wenn man ein bisschen mit der Funktion "spielt" - etwas wegnimmt oder verändert - und schaut, ob es dann funktioniert oder wie sich die Fehlermeldung verändert. Das hilft meist, das Problem etwas einzugrenzen - und man lernt nebenbei die Funktion besser kennen.
 
-Im <a href="https://www.uni-muenster.de/imperia/md/content/psyifp/ae_holling/r-fehlermeldungen.pdf" target="_blank">**R**-Fehlermeldungsleitfaden der Uni Münster</a> <font size="2">(unter *3. Fehlertextliste*)</font>, auf <a href="https://www.r-bloggers.com/common-r-programming-errors-faced-by-beginners/" target="_blank">**R**-bloggers</a> sowie <a href="http://www.programmingr.com/r-error-messages/" target="_blank">PROGRAMMINGR</a> findet man jeweils eine **Übersicht über geläufige Fehlermeldungen** mit Lösungen und teilweise auch Beispielen.
+Im <a href="https://www.uni-muenster.de/imperia/md/content/psyifp/ae_holling/r-fehlermeldungen.pdf" target="_blank">**R**-Fehlermeldungsleitfaden der Uni Münster</a> (unter *3. Fehlertextliste*)</font>, auf <a href="https://www.r-bloggers.com/common-r-programming-errors-faced-by-beginners/" target="_blank">**R**-bloggers</a> sowie <a href="http://www.programmingr.com/r-error-messages/" target="_blank">PROGRAMMINGR</a> findet man jeweils eine **Übersicht über geläufige Fehlermeldungen** mit Lösungen und teilweise auch Beispielen.
 
 <!--
 Mit der **Error-Recovery mit dem Browser** kann man sich die (Unter)Funktionen anzeigen lassen, die, bis der Fehler auftaucht, an der Ausführung des Codes beteiligt waren. So kann man eigenständig in diesen suchen, was falsch gelaufen ist. Dieser Weg ist etwas komplizierter - Vorerfahrung im Umgang mit Programmierung ist hilfreich. Für eine kleine Einführung dazu schaut euch den gleichnamigen Abschnitt dieser <a href="https://de.wikibooks.org/wiki/GNU_R:_Finden_von_Programmfehlern_und_Debugging" target="_blank">Seite</a> an.
@@ -442,7 +442,7 @@ Ob ihr das Paket nutzen möchtet oder lieber analog sucht bleibt euch überlasse
 
 ---
 
-<font size="2">Um eine möglichst exakte Replikation der Funktionen zu gewährleisten gibt es im folgenden relevante Angaben zum System (****R**-Version**, **Betriebssystem**, **geladene Pakete mit Angaben zur Version**), mit welchem diese Seite erstellt wurde.
+Um eine möglichst exakte Replikation der Funktionen zu gewährleisten gibt es im folgenden relevante Angaben zum System (****R**-Version**, **Betriebssystem**, **geladene Pakete mit Angaben zur Version**), mit welchem diese Seite erstellt wurde.
 
 ```{r}
 sessionInfo()

@@ -2,7 +2,7 @@
 
 <p style="font-weight:600; font-size:36px">Einleitung</p>
 
-<span class ="r highlight">R ist eine Statistiksoftware, die mittlerweile weit verbreitet ist - sowohl in der Forschung als auch in der Wirtschaft. **R** ist **kostenlos**, für alle gängigen Betriebssysteme verfügbar <font size="2">(Windows, Max OS X und  Linux)</font> und darüber hinaus auch noch **open-source**. Das heißt, um **R** zu nutzen, muss man keine teure Lizenz kaufen und jede/r kann sich an der (Weiter-)Entwicklung des Programms oder einzelner Pakete beteiligen. Durch die weite Verbreitung von **R** finden sich außerdem ausführliche Anleitungen im Internet, sollten wir mal nicht mehr weiter wissen.
+<span class ="r highlight">R ist eine Statistiksoftware, die mittlerweile weit verbreitet ist - sowohl in der Forschung als auch in der Wirtschaft. **R** ist **kostenlos**, für alle gängigen Betriebssysteme verfügbar (Windows, Max OS X und  Linux)</font> und darüber hinaus auch noch **open-source**. Das heißt, um **R** zu nutzen, muss man keine teure Lizenz kaufen und jede/r kann sich an der (Weiter-)Entwicklung des Programms oder einzelner Pakete beteiligen. Durch die weite Verbreitung von **R** finden sich außerdem ausführliche Anleitungen im Internet, sollten wir mal nicht mehr weiter wissen.
 
 **R** selbst ist relativ spartanisch und die meisten AnwenderInnen nutzen daher die <span class="highlight">Entwicklungsumgebung **RStudio**, welche auch eine umfassendere Benutzeroberfläche besitzt. Mit dieser können wir z.B. **Skripte** nutzen, in denen wir unsere Analysen speichern können. Außerdem gibt es ein **Environment**, das uns anzeigt, welche Objekte in **R** vorhanden sind (d.h. die wir eingelesen oder direkt in **R** erstellt haben). Hier finden wir zusätzlich einen Reiter **Help**, welcher uns Informationen und Anwendungshinweise zu Funktionen gibt.
 
@@ -24,12 +24,12 @@ Falls ihr nur Probleme mit dem Updaten auf die neuste Version habt, führt aus d
 > *__Achtung__*:  Die **R**- und **RStudio**-Versionen auf den Screenshots könnten bereits veraltet sein, wenn ihr die Anleitung nutzt. Die angegebenen Links führen euch aber dennoch zu den aktuellsten Versionen.
 
 > *__Achtung__*:  <font color="#930047">**Zur Übernahme der Pakete bei Upgrade auf **R** 4.0+**</font>\
-Wir können das Paket installr <font size="2">(Windows)</font> bzw. das manuelle Verschieben der Pakete <font size="2">(Mac)</font> hier nicht nutzen, um unsere alten Pakete zu erhalten. Wir müssen **alle Pakete neu installieren**. Falls wir sehr viele Pakete haben, hilft uns folgende <a href="https://www.r-bloggers.com/get-all-your-packages-back-on-r-4-0-0/" target="_blank">Anleitung von r-bloggers</a>. 
+Wir können das Paket installr (Windows)</font> bzw. das manuelle Verschieben der Pakete (Mac)</font> hier nicht nutzen, um unsere alten Pakete zu erhalten. Wir müssen **alle Pakete neu installieren**. Falls wir sehr viele Pakete haben, hilft uns folgende <a href="https://www.r-bloggers.com/get-all-your-packages-back-on-r-4-0-0/" target="_blank">Anleitung von r-bloggers</a>. 
 
 
 ## Windows
 
-<font size="2">Die folgenden Installationen wurden unter Nutzung von **Firefox 70.0.1** durchgeführt.</font>
+Die folgenden Installationen wurden unter Nutzung von **Firefox 70.0.1** durchgeführt.</font>
 
 ### Installation von <span class ="r">**R**
 
@@ -172,7 +172,7 @@ Wenn es eine aktuellere (kompatible) **R**-Version gibt, öffnet sich ein neues 
 knitr::include_graphics("figures/Installation/Bilder/Win_R.png")
 ```
 
-Wenn wir auf **OK** geklickt haben, werden wir gefragt, ob wir uns die Neuerungen dieser Version anschauen wollen <font size="2">(optional)</font>. Diese würden sich in einem neuen Tab im Browser öffnen.
+Wenn wir auf **OK** geklickt haben, werden wir gefragt, ob wir uns die Neuerungen dieser Version anschauen wollen (optional)</font>. Diese würden sich in einem neuen Tab im Browser öffnen.
 
 Anschließend können wir die neuere Version installieren, indem wir auf **Ja** klicken.
 
@@ -190,13 +190,13 @@ Nach Abschluss der Installation werden wir gefragt, ob wir die Pakete unserer al
 knitr::include_graphics("figures/Installation/Bilder/Copy_Packages.png") 
 ```
 
-... und die Pakete aus den alten Ordnern löschen wollen. Hier können wir **Ja** anklicken, da wir nicht vorhaben, die alte **R**-Version noch zu nutzen <font size="2">(diese könnten wir also auch löschen)</font>.
+... und die Pakete aus den alten Ordnern löschen wollen. Hier können wir **Ja** anklicken, da wir nicht vorhaben, die alte **R**-Version noch zu nutzen (diese könnten wir also auch löschen)</font>.
 
 ```{r, out.width = "400px", echo=FALSE, fig.align='center'}
 knitr::include_graphics("figures/Installation/Bilder/Remove_Packages.png") 
 ```
 
-Wir können unsere Starteinstellungen für **R** <font size="2">(<a href="https://rclickhandbuch.wordpress.com/install-r/rprofile/" target="_blank">Rprofile.site</a>)</font> ebenso in die neuere Version übernehmen. 
+Wir können unsere Starteinstellungen für **R** (<a href="https://rclickhandbuch.wordpress.com/install-r/rprofile/" target="_blank">Rprofile.site</a>)</font> ebenso in die neuere Version übernehmen. 
 
 ```{r, out.width = "400px", echo=FALSE, fig.align='center'}
 knitr::include_graphics("figures/Installation/Bilder/rprofile.png") 
@@ -213,7 +213,7 @@ knitr::include_graphics("figures/Installation/Bilder/Update_Packages.png")
 
 Aktualisierungen für die Entwicklungsumgebung **RStudio** gibt es wesentlich seltener als für das dahinter liegende Basisprogramm **R**.
 
-Zur Überprüfung, ob eine aktuellere Version vorliegt, können wir in **RStudio** auf **Help --> Check for Updates** klicken <font size="2">(in **R** gibt es diese Option **nicht**)</font>.
+Zur Überprüfung, ob eine aktuellere Version vorliegt, können wir in **RStudio** auf **Help --> Check for Updates** klicken (in **R** gibt es diese Option **nicht**)</font>.
 
 ```{r, out.width = "700px", echo=FALSE, fig.align='center'}
 knitr::include_graphics("figures/Installation/Bilder/Check_Update.png")
@@ -248,7 +248,7 @@ Das weitere Vorgehen ist ebenso analog zur [Installation von  <span class ="r">*
 
 ## Mac
 
-<font size="2">Die folgenden Installationen und Aktualisierungen wurden unter Nutzung von **Safari 13.0.3** durchgeführt.</font>
+Die folgenden Installationen und Aktualisierungen wurden unter Nutzung von **Safari 13.0.3** durchgeführt.</font>
 
 ### Installation von <span class ="r">**R**
 
@@ -309,7 +309,7 @@ knitr::include_graphics("figures/Installation/Bilder/0_ueber_mac.png")
 
 
 
-Falls die Mindestanforderungen **nicht** erfüllt sind, können wir trotzdem auf der gleichen Seite runterscrollen und nachschauen, ob eine **ältere Version** <font size="2">(für Mac OS X **10.9+** oder **10.6-10.8**)</font> vorliegt. Noch ältere **R**-Versionen für **Mac OS X 10.4 und älter** finden wir <a href="https://cran.r-project.org/bin/macosx/old/index-old.html" target="_blank">hier</a>.
+Falls die Mindestanforderungen **nicht** erfüllt sind, können wir trotzdem auf der gleichen Seite runterscrollen und nachschauen, ob eine **ältere Version** (für Mac OS X **10.9+** oder **10.6-10.8**)</font> vorliegt. Noch ältere **R**-Versionen für **Mac OS X 10.4 und älter** finden wir <a href="https://cran.r-project.org/bin/macosx/old/index-old.html" target="_blank">hier</a>.
 
 Wenn die .pkg- bzw. .dmg-Datei heruntergeladen wurde, klicken wir auf diese. Dann öffnet sich folgendes Fenster:
   
@@ -323,7 +323,7 @@ Nun müssen wir uns durchklicken und den Bedingungen zustimmen. Wenn die Install
 knitr::include_graphics("figures/Installation/Bilder/2_Installation_R_erfolgreich.png")
 ```
 
-<font size="2">Die .pkg- bzw. .dmg-Datei(en) können wir *nach* der Installation löschen. .dmg-Dateien müssen vorher noch ausgeworfen werden. Wir finden diese bei *Geräte* im Finder.</font>
+Die .pkg- bzw. .dmg-Datei(en) können wir *nach* der Installation löschen. .dmg-Dateien müssen vorher noch ausgeworfen werden. Wir finden diese bei *Geräte* im Finder.</font>
 
 ### Installation von <span class ="r">**RStudio**
 
@@ -347,13 +347,13 @@ Wenn wir die für unser Betriebssystem kompatible Version heruntergeladen haben,
 knitr::include_graphics("figures/Installation/Bilder/8_R_Studio.png")
 ```
 
-<font size="2">Die .dmg-Datei können wir *nach* der Installation löschen. Vorher muss diese noch ausgeworfen werden. Wir finden die .dmg-Datei bei *Geräte* im Finder.</font>
+Die .dmg-Datei können wir *nach* der Installation löschen. Vorher muss diese noch ausgeworfen werden. Wir finden die .dmg-Datei bei *Geräte* im Finder.</font>
 
 ### Aktualisierung von <span class ="r">**R**
 
 Wenn eine aktuellere (für unser Betriebssystem kompatible) Version von **R** vorhanden ist, ist es ratsam, diese herunterzuladen. Mit Aktualisierungen werden etwaige Fehler und Sicherheitslücken behoben und ggf. neue Funktionen eines Programms implementiert.
 
-Zur Überprüfung, ob Aktualisierungen vorhanden sind, können wir in <span class ="r">**R** oben in der Menüleiste auf <span class ="r">**R** --> **Nach **R** Updates suchen** klicken <font size="2">(in **RStudio** gibt es diese Option **nicht**)</font>.  
+Zur Überprüfung, ob Aktualisierungen vorhanden sind, können wir in <span class ="r">**R** oben in der Menüleiste auf <span class ="r">**R** --> **Nach **R** Updates suchen** klicken (in **RStudio** gibt es diese Option **nicht**)</font>.  
 
 ```{r, out.width = "700px", echo=FALSE, fig.align='center'}
 knitr::include_graphics("figures/Installation/Bilder/in_R_Updates_fuer_R.png")
@@ -410,13 +410,13 @@ Wir bekommen nun die Ordner der verschiedenen **R**-Versionen angezeigt.
 knitr::include_graphics("figures/Installation/Bilder/4_Dateipfad_gesucht.png")
 ```
 
-Wir machen nun einen Rechtsklick auf den Ordner der vorherig genutzten **R**-Version <font size="2">(hier: 3.5)</font>  und öffnen diesen in einem neuen Tab. Der Ordner enthält nur den Ordner **Resources** und dieser wiederum nur den Ordner <span style="color: #669C35">**library**. Wen wir diesen öffnen, sehen wir die Ordner aller Pakete. Wir wählen schonmal alle Ordner an.
+Wir machen nun einen Rechtsklick auf den Ordner der vorherig genutzten **R**-Version (hier: 3.5)</font>  und öffnen diesen in einem neuen Tab. Der Ordner enthält nur den Ordner **Resources** und dieser wiederum nur den Ordner <span style="color: #669C35">**library**. Wen wir diesen öffnen, sehen wir die Ordner aller Pakete. Wir wählen schonmal alle Ordner an.
 
 ```{r, out.width = "700px", echo=FALSE, fig.align='center'}
 knitr::include_graphics("figures/Installation/Bilder/5_Ordner.png")
 ```
 
-Nun gehen wir zurück auf den anderen Tab, in dem die Ordner der verschiedenen <span style="color: #0D35FE">**Versionen von **R**** gelistet sind. Wir öffnen den Ordner der aktuellesten Version <font size="2">(hier: 3.6)</font> und klicken auch hier auf den Ordner **Resources** und dann **library**.
+Nun gehen wir zurück auf den anderen Tab, in dem die Ordner der verschiedenen <span style="color: #0D35FE">**Versionen von **R**** gelistet sind. Wir öffnen den Ordner der aktuellesten Version (hier: 3.6)</font> und klicken auch hier auf den Ordner **Resources** und dann **library**.
 
 Wir gehen jetzt zurück auf den anderen Tab (der älteren **R**-Version) und ziehen die Pakete in den library-Ordner der neuen **R**-Version. 
 
@@ -433,7 +433,7 @@ Wir gehen jetzt zurück auf den anderen Tab (der älteren **R**-Version) und zie
 
 Aktualisierungen für die Entwicklungsumgebung **RStudio** gibt es wesentlich seltener als für das dahinter liegende Basisprogramm **R**.
 
-Zur Überprüfung, ob eine aktuellere Version vorliegt, können wir in **RStudio** auf **Help --> Check for Updates** klicken <font size="2">(in **R** gibt es diese Option **nicht**)</font>.
+Zur Überprüfung, ob eine aktuellere Version vorliegt, können wir in **RStudio** auf **Help --> Check for Updates** klicken (in **R** gibt es diese Option **nicht**)</font>.
 
 ```{r, out.width = "700px", echo=FALSE, fig.align='center'}
 knitr::include_graphics("figures/Installation/Bilder/Check_for_Updates.png")

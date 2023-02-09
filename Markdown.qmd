@@ -7,15 +7,15 @@
 # https://rmarkdown.rstudio.com/lesson-2.html !!!!!!!!!!!!
 ```
 
-Mit R Markdown <font size="2">(Endung .Rmd)</font> können wir R Code <font size="2">(z.B. für Datenanalyse und -visualisierung)</font> und Text in einem Dokument verbinden. Dabei dient das R Markdown als "Bauplan" für das finale Output-Dokument <font size="2">(z.B. html, pdf oder Word)</font>. 
+Mit R Markdown (Endung .Rmd)</font> können wir R Code (z.B. für Datenanalyse und -visualisierung)</font> und Text in einem Dokument verbinden. Dabei dient das R Markdown als "Bauplan" für das finale Output-Dokument (z.B. html, pdf oder Word)</font>. 
 
 <aside>Beispielsweise sind alle Inhalte der R Lernplattform mit R Markdown erstellt worden.</aside>
 
 *<span class="highlight">Was ist Markdown?*\
-Markdown ist eine Auszeichnungsprache <font size="2">(markup language)</font>. Diese werden für Formatierung und Gliederung von Text genutzt. Weitere Auszeichnungsprachen wie YAML und LaTex, die wir uns später noch genauer anschauen werden, können auch in R Markdown integriert werden.
+Markdown ist eine Auszeichnungsprache (markup language)</font>. Diese werden für Formatierung und Gliederung von Text genutzt. Weitere Auszeichnungsprachen wie YAML und LaTex, die wir uns später noch genauer anschauen werden, können auch in R Markdown integriert werden.
 
 *<span class="highlight">Warum R Markdown?*\
-Wir können R Markdown nicht nur nutzen, um schöne Zusammenfassungen für R Übungen zu schreiben. Wir können ganz einfach Tabellen <font size="2">(z.B. Korrelationstabellen oder Ergebnistabellen für eine ANOVA)</font> oder Grafiken in R erstellen und diese dann in unsere Abschlussarbeit übernehmen^[Wir können die Tabellen und Grafiken z.B. aus einem Word Dokument, welches wir mit R Markdown erstellt haben, rauskopieren und in das Word Dokument einfügen, in welchem wir unsere Arbeit schreiben. Wir können aber auch direkt unsere Arbeit in einem R Markdown Dokument schreiben (und daraus ein Word Dokument o.ö. erstellen).]. So entfällt das lästige händische Erstellen der Tabellen, bei dem sich häufig Flüchtigkeitsfehler einschleichen. 
+Wir können R Markdown nicht nur nutzen, um schöne Zusammenfassungen für R Übungen zu schreiben. Wir können ganz einfach Tabellen (z.B. Korrelationstabellen oder Ergebnistabellen für eine ANOVA)</font> oder Grafiken in R erstellen und diese dann in unsere Abschlussarbeit übernehmen^[Wir können die Tabellen und Grafiken z.B. aus einem Word Dokument, welches wir mit R Markdown erstellt haben, rauskopieren und in das Word Dokument einfügen, in welchem wir unsere Arbeit schreiben. Wir können aber auch direkt unsere Arbeit in einem R Markdown Dokument schreiben (und daraus ein Word Dokument o.ö. erstellen).]. So entfällt das lästige händische Erstellen der Tabellen, bei dem sich häufig Flüchtigkeitsfehler einschleichen. 
 
 Im Rahmen dieses Kapitels lernen wir, wie wir R Markdown Dokumente erstellen und verändern können, welche Möglichkeiten es gibt, R Code zu integrieren und wie wir Text gestalten können. 
 
@@ -31,7 +31,7 @@ install.packages("rmarkdown")
 
 ## Neues R Markdown Dokument anlegen
 
-Nachfolgend sehen wir, wie wir ein neues R Markdown Dokument <font size="2">(Rmd)</font> anlegen können.
+Nachfolgend sehen wir, wie wir ein neues R Markdown Dokument (Rmd)</font> anlegen können.
 
 ```{r}
 #| out.width: 800px
@@ -118,9 +118,9 @@ Gehen wir nochmal einen Schritt zurück und schauen uns das Rmd genauer an. Der 
 knitr::include_graphics("figures/Markdown/Bilder/4.png")
 ```
 
-> *__Achtung__*: Standardmäßig steht hier `output: html-document` <font size="2">(bzw. `output: pdf_document` oder `output: word_document`)</font> hintereinander in einer Zeile. Um weitere YAML Optionen ergänzen zu können, müssen wir `html_document` <font size="2">(bzw. `pdf_document` oder `word_document`)</font> in eine neue Zeile schreiben und einen Doppelpunkt dahinter ergänzen. Die YAML Optionen kommen jeweils auch in eine eigene Zeile.
+> *__Achtung__*: Standardmäßig steht hier `output: html-document` (bzw. `output: pdf_document` oder `output: word_document`)</font> hintereinander in einer Zeile. Um weitere YAML Optionen ergänzen zu können, müssen wir `html_document` (bzw. `pdf_document` oder `word_document`)</font> in eine neue Zeile schreiben und einen Doppelpunkt dahinter ergänzen. Die YAML Optionen kommen jeweils auch in eine eigene Zeile.
 
-Mit `toc: true` können wir eine Gliederung <font size="2">(table of contents)</font> einfügen.
+Mit `toc: true` können wir eine Gliederung (table of contents)</font> einfügen.
 
 ```{r}
 #| out.width: 800px
@@ -129,7 +129,7 @@ Mit `toc: true` können wir eine Gliederung <font size="2">(table of contents)</
 knitr::include_graphics("figures/Markdown/Bilder/toc.png")
 ```
 
-Diese können wir permanent anzeigen lassen, sodass sie trotz Scrollen immer an der gleichen Stelle <font size="2">(links)</font> bleibt. Dazu ergänzen wir `toc_float: true`.
+Diese können wir permanent anzeigen lassen, sodass sie trotz Scrollen immer an der gleichen Stelle (links)</font> bleibt. Dazu ergänzen wir `toc_float: true`.
 
 > *__Achtung__*: Diese Option funktioniert nur in **html**.
 
@@ -168,7 +168,7 @@ Einen **Überblick über bestehende YAML Optionen** finden wir <a href="https://
 
 Normaler Text wird in R Markdown einfach geschrieben. Im Gegensatz dazu konnten wir im R Skript nur Anmerkungen machen indem wir ein `#` vor unseren Text gesetzt haben.
 
-Nachfolgend schauen wir uns Möglichkeiten der Gestaltung von Text <font size="2">(d.h. die nutzbaren Auszeichnungssprachen)</font> an. Das sind Markdown, html und LaTex.
+Nachfolgend schauen wir uns Möglichkeiten der Gestaltung von Text (d.h. die nutzbaren Auszeichnungssprachen)</font> an. Das sind Markdown, html und LaTex.
 
 Eine kurze Übersicht über Textgestaltung mit Markdown können wir auch in RStudio angezeigt bekommen, wenn wir in der oberen Taskleiste in RStudio auf **Help** und dann auf **Markdown Quick Reference** klicken.
 
@@ -179,7 +179,7 @@ Eine kurze Übersicht über Textgestaltung mit Markdown können wir auch in RStu
 
 ### Überschriften
 
-Um Überschriften zu setzen, schreiben wir ein bzw. mehrere **#** an den Anfang einer Zeile. Die Überschrift wird dann im Rmd <font color="#431CFF">farblich</font> hervorgehoben. Je mehr # wir setzen, desto kleiner wird die Überschrift. Wie die einzelnen Überschriften aussehen, hängt von unserem Design <font size="2">(`theme` im YAML Header oder Template)</font> ab.
+Um Überschriften zu setzen, schreiben wir ein bzw. mehrere **#** an den Anfang einer Zeile. Die Überschrift wird dann im Rmd <font color="#431CFF">farblich</font> hervorgehoben. Je mehr # wir setzen, desto kleiner wird die Überschrift. Wie die einzelnen Überschriften aussehen, hängt von unserem Design (`theme` im YAML Header oder Template)</font> ab.
 
 <aside><font color="grey">\
 Markdown</font></aside>
@@ -200,7 +200,7 @@ knitr::include_graphics("figures/Markdown/Bilder/headers 2.png")
 
 <aside>Die Überschriften erscheinen auch in der Gliederung, wenn wir im YAML Header eine festgelegt haben (`toc: true`). Mit der Option `toc_depth` können wir festlegen, bis zu welcher Stufe die Überschriften inkludiert werden sollen.</aside>
 
-> *__Achtung__*: </i>Im R-Skript konnten wir # zum <span class="highlight">Kommentieren nutzen. Das funktioniert hier auch, aber nur in den Code Chunks. Um Textpassagen auszukommentieren, können wir den html-Kommentar-Tag `<!-- -->` nutzen. Mit folgendem Kurzbefehl können wir sowohl Text als auch Code auskommentieren <font size="2">(funktioniert in html und pdf)</font>:
+> *__Achtung__*: </i>Im R-Skript konnten wir # zum <span class="highlight">Kommentieren nutzen. Das funktioniert hier auch, aber nur in den Code Chunks. Um Textpassagen auszukommentieren, können wir den html-Kommentar-Tag `<!-- -->` nutzen. Mit folgendem Kurzbefehl können wir sowohl Text als auch Code auskommentieren (funktioniert in html und pdf)</font>:
 
 - Windows/Linux: <span class="keybord">ctrl + <span class="keybord">shift + <span class="keybord">C
 - Mac: <span class="keybord">cmd + <span class="keybord">shift + <span class="keybord">C
@@ -275,7 +275,7 @@ In <span class="highlight">html haben wir zusätzlich die Möglichkeit, **innerh
 
 Wir können Formeln und mathematische Symbole mittels <sfont color="grey">LaTex</font> integrieren. Bei der Installation von dem Paket **rmarkdown** wird (standarmäßig) automatisch das Paket **tinytex** heruntergeladen. Das ermöglicht uns die Nutzung von LaTex. Das machen wir mit **$** und speziellem LaTex-Code. Einen guten **Überblick** darüber, wie wir wichtige mathematische Symbole in LaTex schreiben, gibt uns diese <a href="https://www.caam.rice.edu/~heinken/latex/symbols.pdf" target="_blank">Seite</a>.
 
-Um Formeln **im Fließtext** zu schreiben <font size="2">(sog. Inline Formeln)</font>, nutzen wir einfache Dollarzeichen z.B. `$\alpha=0.05$` wird zu $\alpha=0.05$.
+Um Formeln **im Fließtext** zu schreiben (sog. Inline Formeln)</font>, nutzen wir einfache Dollarzeichen z.B. `$\alpha=0.05$` wird zu $\alpha=0.05$.
 
 Um Formeln als (zentrierten) **Blocksatz** zu schreiben nutzen wir doppelte Dollarzeichen z.B.  
 
@@ -360,7 +360,7 @@ Es gibt auch die Möglichkeit, **globale Optionen** für das Verhalten der Chunk
 knitr::include_graphics("figures/Markdown/Bilder/global chunk.png")
 ```
 
-<font size="2">`include=FALSE` führt den Code aus, zeigt den Output des Codes aber nicht im Output-Dokument an. Das ist eine kürzere Alternative zu `{r, echo=FALSE, eval=TRUE}`, wenn der Output aus Zeichen besteht (z.B. das Ergebnis einer Rechnung; der Inhalt eines Objektes) bzw. `{r, echo=FALSE, fig.show='hide'}` wenn der Output eine Grafik ist.</font>
+`include=FALSE` führt den Code aus, zeigt den Output des Codes aber nicht im Output-Dokument an. Das ist eine kürzere Alternative zu `{r, echo=FALSE, eval=TRUE}`, wenn der Output aus Zeichen besteht (z.B. das Ergebnis einer Rechnung; der Inhalt eines Objektes) bzw. `{r, echo=FALSE, fig.show='hide'}` wenn der Output eine Grafik ist.</font>
 
 Code Chunks können auch benannt werden, indem in den geschweiften Klammern nach einem Leerzeichen hinter dem r der gewünschte Name eingetragen wird, z.b. `{r, ...}` für den Namen setup. Das hilft uns bei der Orientierung, weil wir die Namen in der **Dokumentübersicht** in RStudio angezeigt bekommen. Wir müssen allerdings darauf achten, denselben Namen nicht mehrmals zuzuweisen. Sonst bekommen wir eine Fehlermeldung.
 
@@ -376,7 +376,7 @@ knitr::include_graphics("figures/Markdown/Bilder/overview.png")
 
 ### Inline Code
 
-Wenn es sich bei dem Output (von Code) um Zeichen handelt <font size="2">(und nicht um z.B. Tabellen und Grafiken)</font>, können wir diesen auch direkt in den Fließtext integrieren. Dazu nutzen wir <img src="figures/Markdown/Bilder/r.png" style=" width:6.5%; position: absolute;"/>.
+Wenn es sich bei dem Output (von Code) um Zeichen handelt (und nicht um z.B. Tabellen und Grafiken)</font>, können wir diesen auch direkt in den Fließtext integrieren. Dazu nutzen wir <img src="figures/Markdown/Bilder/r.png" style=" width:6.5%; position: absolute;"/>.
 
 Wir können damit z.B. Inhalte eines Objektes oder das Ergebnis einer (mathematischen) Funktion (ohne den Code) ausgeben lassen. Der Output wird außerdem so formatiert wie der Fließtext.
 
@@ -390,7 +390,7 @@ Nur mit den <img src="figures/Markdown/Bilder/hervorheben.png" style=" width:8%;
 
 Wir können mit **R-Code in den Code Chunks** außerdem auch Grafiken und Tabellen erstellen und ausgeben, sowie auch Bilder, die nicht im Rmd erstellt wurden, anzeigen.
 
-Bei <span class="highlight">Grafiken müssen wir nichts weiter beachten. Wir können denselben R-Code nutzen wie auch in einem R-Skript <font size="2">(.R)</font>.
+Bei <span class="highlight">Grafiken müssen wir nichts weiter beachten. Wir können denselben R-Code nutzen wie auch in einem R-Skript (.R)</font>.
 
 Wenn wir lokal gespeicherte <span class="highlight">Bilder integrieren wollen, können wir die Funktion <span class="code">include_graphics("dateipfad") aus dem Paket **knitr** nutzen. Dieses wurde (standardmäßig) automatisch heruntergeladen, als wir rmarkdown installiert haben.
 
@@ -414,7 +414,7 @@ include_graphics("dateipfad")
 
 Schauen wir uns noch **Code Chunk Optionen** an, die wir **für Grafiken _und_ Bilder** nutzen können. Diese schreiben wir wieder oben in den Code Chunk in `{r, ...}`.
 
-Mit `out.width` <font size="2">(Breite)</font> und `out.height` <font size="2">(Höhe)</font> können wir die Größe der Abbildungen im Outputdokument kontrollieren. Wir nehmen dafür am besten **'...px'** <font size="2">(pixel)</font>. Wenn wir wollen, dass das Seitenverhältnis beibehalten wird, sollten wir immer nur die Breite *oder* die Höhe ändern. 
+Mit `out.width` (Breite)</font> und `out.height` (Höhe)</font> können wir die Größe der Abbildungen im Outputdokument kontrollieren. Wir nehmen dafür am besten **'...px'** (pixel)</font>. Wenn wir wollen, dass das Seitenverhältnis beibehalten wird, sollten wir immer nur die Breite *oder* die Höhe ändern. 
 
 <aside>Beispiel:\
 `{r, out.width='300px'}`</aside>
@@ -462,7 +462,7 @@ Es gibt noch diverse weitere Optionen, Tabellen zu verschönern. Eine ausführli
 
 ### Templates
 
-Templates <font size="2">(Vorlagen)</font> besitzen ein vorgefertigtes Design und ggf. sogar weitere Funktionalitäten für unser Output-Dokument.
+Templates (Vorlagen)</font> besitzen ein vorgefertigtes Design und ggf. sogar weitere Funktionalitäten für unser Output-Dokument.
 
 Wenn wir **Templates** nutzen, sind in diesen ggf. nicht alle bzw. noch zusätzliche YAML Optionen nutzbar.
 
@@ -505,12 +505,12 @@ install.packages("distill")
 
 In diesem haben wir u.a. folgende zusätzliche (bzw. geänderte) Funktionalitäten:
 
-- Seitennotizen <font size="2">(am rechten Rand)</font>
-- Bilder und Grafiken können über die Seitenränder hinaus gehen <font size="2">(siehe Beispiel unten)</font>
+- Seitennotizen (am rechten Rand)</font>
+- Bilder und Grafiken können über die Seitenränder hinaus gehen (siehe Beispiel unten)</font>
 - Fußnoten werden angezeigt, wenn man mit der Maus über sie fährt^[wie hier]
 - Gliederung (nur) ganz oben im Dokument\
-<font size="2">Die YAML Option `toc_float` bewirkt in distill etwas anderes. Mit `true` wird die Gliederung am linken Rand angezeigt, wenn das Fenster, in dem das Outputdokument geöffnet wird (zumeist der Brwoser), größer gleich 1000px ist. Mit `false` wird die Gliederung immer mittig angezeigt.</font>
-- Appendix <font size="2">(wenn z.B Fußnoten oder Referenzen eingefügt)</font>
+Die YAML Option `toc_float` bewirkt in distill etwas anderes. Mit `true` wird die Gliederung am linken Rand angezeigt, wenn das Fenster, in dem das Outputdokument geöffnet wird (zumeist der Brwoser), größer gleich 1000px ist. Mit `false` wird die Gliederung immer mittig angezeigt.</font>
+- Appendix (wenn z.B Fußnoten oder Referenzen eingefügt)</font>
 
 <aside>Seitennotiz</aside>
 
@@ -527,7 +527,7 @@ knitr::include_graphics("figures/Markdown/Bilder/better_graphs.png")
 
 #### papaja
 
-Mit dem Paket **papaja** <font size="2">(**P**reparing **APA** **J**ournal **A**rticles)</font> bekommen wir ein Template, um Artikel ganz einfach im APA-Style zu schreiben. Das Outputformat ist <span class="highlight">pdf.
+Mit dem Paket **papaja** (**P**reparing **APA** **J**ournal **A**rticles)</font> bekommen wir ein Template, um Artikel ganz einfach im APA-Style zu schreiben. Das Outputformat ist <span class="highlight">pdf.
 
 ```{r}
 #| out.width: 600px
@@ -539,7 +539,7 @@ knitr::include_graphics("figures/Markdown/Bilder/papaja.png")
 > *__Achtung__*: Bevor wir das Paket herunterladen, müssen wir schauen, ob die folgenden zwei Voraussetzungen erfüllt sind:
 
 - RStudio Version größer gleich 0.98.932
-- TeX Distribution <font size="2">(neuer als 2013; Links zu den Tex Distributions sind z.B. auf der Entwicklerseite, welche unten verlinkt ist, zu finden)</font>
+- TeX Distribution (neuer als 2013; Links zu den Tex Distributions sind z.B. auf der Entwicklerseite, welche unten verlinkt ist, zu finden)</font>
 
 <aside>Unsere R Studio Version finden wir z.B. in R Studio unter **Help > About RStudio** heraus.</aside>
 
@@ -554,7 +554,7 @@ install_github("crsh/papaja")
 
 In diesem <a href="https://www.youtube.com/watch?v=I_HW5Rraqg8" target="_blank">Video</a> wird die Nutzung des Templates erklärt. 
 
-Wenn wir das kostenlose Literaturverwaltungsprogramm  <a href="https://www.zotero.org/" target="_blank">**Zotero**</a> nutzen, können wir zusätzlich direkt daraus unsere Zitationen importieren. Damit wird auch automatisch eine Bibliographie erstellt. Um Zotero und R Makrdown gemeinsam nutzen zu können, müssen wir das Paket **citr** <font size="2">(in R)</font> sowie die Software <a href="https://retorque.re/zotero-better-bibtex/installation/" target="_blank">**Better BibTex**</a> <font size="2">(auf unserem Rechner)</font> installieren.
+Wenn wir das kostenlose Literaturverwaltungsprogramm  <a href="https://www.zotero.org/" target="_blank">**Zotero**</a> nutzen, können wir zusätzlich direkt daraus unsere Zitationen importieren. Damit wird auch automatisch eine Bibliographie erstellt. Um Zotero und R Makrdown gemeinsam nutzen zu können, müssen wir das Paket **citr** (in R)</font> sowie die Software <a href="https://retorque.re/zotero-better-bibtex/installation/" target="_blank">**Better BibTex**</a> (auf unserem Rechner)</font> installieren.
 
 ```{r}
 #| eval: false
@@ -568,7 +568,7 @@ install.packages("citr")
 
 ---
 
-<font size="2">Um eine möglichst exakte Replikation der Funktionen zu gewährleisten gibt es im folgenden relevante Angaben zum System (**`R`-Version**, **Betriebssystem**, **geladene Pakete mit Angaben zur Version**), mit welchem diese Seite erstellt wurde.
+Um eine möglichst exakte Replikation der Funktionen zu gewährleisten gibt es im folgenden relevante Angaben zum System (**`R`-Version**, **Betriebssystem**, **geladene Pakete mit Angaben zur Version**), mit welchem diese Seite erstellt wurde.
 
 > *__Achtung__*: Es ist sinnvoll, die nachfolgende Funktion in einen Code Chunk im eigenen Rmd einzubetten.
 

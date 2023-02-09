@@ -32,7 +32,7 @@ Das WD müssen wir (in der Regel) in jeder R-Sitzung erneut festlegen.</details>
 
 ## Vor dem Einlesen in R
 
-In diesem Abschnitt schauen wir uns an, wie wir **Dateien aus dem Internet herunterladen** <font size="2">(z.B. aus moodle)</font> und **in unseren Arbeitsordner verschieben** können. Wir sollten der Übersichtlichkeit halber für jedes neue Projekt einen neuen Ordner anlegen. 
+In diesem Abschnitt schauen wir uns an, wie wir **Dateien aus dem Internet herunterladen** (z.B. aus moodle)</font> und **in unseren Arbeitsordner verschieben** können. Wir sollten der Übersichtlichkeit halber für jedes neue Projekt einen neuen Ordner anlegen. 
 
 Die beiden Schritte schauen wir uns jeweils für das [Windows](#windows)- und [Mac](#mac)-Betriebssystem bzw. die Browser Google Chrome und Safari an.
 
@@ -69,7 +69,7 @@ Wir wählen die Datei mit einem Rechtsklick im Ordner aus und klicken dann auf d
 knitr::include_graphics("figures/Daten-importieren/Bilder/Herunterladen_Verschieben_1.png")
 ```
 
-Als nächstes begeben wir uns in unseren Arbeitsordner <font size="2">(ggf. müssen wir diesen vorher noch erstellen)</font>. Wir machen einen Rechtsklick und wählen die Option **Einfügen** aus.
+Als nächstes begeben wir uns in unseren Arbeitsordner (ggf. müssen wir diesen vorher noch erstellen)</font>. Wir machen einen Rechtsklick und wählen die Option **Einfügen** aus.
 
 ```{r}
 #| out.width: 400px
@@ -87,7 +87,7 @@ Im folgenden Beispiel wird gezeigt, wie wir unter Benutzung des Browsers **Safar
 
 ### Datei herunterladen
 
-Wir begeben uns in den entsprechenden Moodle-Kurs und öffnen die Datei im Browser. Dann machen wir einen **Rechtsklick** <font size="2">(dabei darf nichts markiert sein)</font> und klicken auf **Seite sichern unter…**. 
+Wir begeben uns in den entsprechenden Moodle-Kurs und öffnen die Datei im Browser. Dann machen wir einen **Rechtsklick** (dabei darf nichts markiert sein)</font> und klicken auf **Seite sichern unter…**. 
 
 ```{r}
 #| out.width: 400px
@@ -105,7 +105,7 @@ In dem Fenster, welches sich dann öffnet, müssen wir bei **Format** noch festl
 knitr::include_graphics("figures/Daten-importieren/Bilder/Quelltext.png")
 ```
 
-> *__Achtung__*:  Manchmal werden wir beim Speichern gefragt, ob die **Endung .txt angehängt** werden soll <font size="2">(d.h. ob die Datei als Textformat gespeichert werden soll)</font>. Das sollten wir **verneinen**, da ansonsten unser (.csv-)Dateiformat geändert wird.</font>
+> *__Achtung__*:  Manchmal werden wir beim Speichern gefragt, ob die **Endung .txt angehängt** werden soll (d.h. ob die Datei als Textformat gespeichert werden soll)</font>. Das sollten wir **verneinen**, da ansonsten unser (.csv-)Dateiformat geändert wird.</font>
 
 Oben rechts im Browser sehen wir einen nach unten zeigenden Pfeil <img src="figures/Daten-importieren/Bilder/Download_Arrow.png" style=" width:5%"/>. 
 Wenn wir auf diesen klicken, können wir uns die heruntergeladene Datei im Finder anzeigen lassen. Standardmäßig werden heruntergeladene Dateien im Ordner **Downloads** gespeichert.
@@ -121,7 +121,7 @@ Wir machen einen Rechtsklick auf die Datei. Nun öffnet sich ein Menü, in welch
 knitr::include_graphics("figures/Daten-importieren/Bilder/Datenfile_aus_Download_Ordner_kopieren.png")
 ```
 
-Als nächstes begeben wir uns in unseren Arbeitsordner <font size="2">(ggf. müssen wir diesen vorher noch erstellen)</font>. Wir machen einen Rechtsklick und wählen die Option **Objekt einsetzen** aus.
+Als nächstes begeben wir uns in unseren Arbeitsordner (ggf. müssen wir diesen vorher noch erstellen)</font>. Wir machen einen Rechtsklick und wählen die Option **Objekt einsetzen** aus.
 
 ```{r}
 #| out.width: 400px
@@ -150,7 +150,7 @@ Nun klicken wir auf **From CSV**. Daraufhin öffnet sich ein Fenster, in dem wir
 
 Nachdem wir eine Option ausgewählt haben, öffnet sich ein Fenster, in welchem wir die gewünschte Datei in unserem Arbeitsordner auswählen können.
 
-Dann öffnet sich ein neues Fenster, welches eine **Vorschau** beinhaltet, die uns zeigt, wie die Datei mit den derzeitig festgelegten Optionen in **R** aussehen würde. Wenn es Probleme gibt <font size="2">(z.B. mit der Interpretation der Trennungszeichen)</font>, sehen wir das sofort an der Darstellung der Daten.
+Dann öffnet sich ein neues Fenster, welches eine **Vorschau** beinhaltet, die uns zeigt, wie die Datei mit den derzeitig festgelegten Optionen in **R** aussehen würde. Wenn es Probleme gibt (z.B. mit der Interpretation der Trennungszeichen)</font>, sehen wir das sofort an der Darstellung der Daten.
 
 ```{r}
 #| out.width: 700px
@@ -165,7 +165,7 @@ Zum Einlesen sind folgende Schritte nötig:
 - Überprüfen der <span style="color:#27B965">**Vorschau**, ob die Daten korrekt dargestellt werden. Die häufigsten Probleme bei der Repräsentation der Daten kommen durch die Trennungzeichen (zwischen den einzelnen Datenelementen) zustande. Diese können wir bei **Delimiter** ändern.
 - Anschließend drücken des <span style="color:#6DA8DC">**Import**-Buttons.
 
-Wenn die Datei neuro.csv erfolgreich eingelesen wurde, erscheint das neu erstellte Objekt neuro <font size="2">(oder welchen anderen Namen wir dem Objekt gegeben haben)</font> im rechten oberen Panel bei **Environment**.
+Wenn die Datei neuro.csv erfolgreich eingelesen wurde, erscheint das neu erstellte Objekt neuro (oder welchen anderen Namen wir dem Objekt gegeben haben)</font> im rechten oberen Panel bei **Environment**.
 
 ```{r}
 #| out.width: 400px
@@ -174,7 +174,7 @@ Wenn die Datei neuro.csv erfolgreich eingelesen wurde, erscheint das neu erstell
 knitr::include_graphics("figures/Daten-importieren/Bilder/environment_neuro.png")
 ```
 
-<!-- > *__Achtung__*: Das Working Directory müssten wir jetzt noch manuell setzen <font size="2">(z.B. mit [`setwd()`](#working-directory-setzen-1))</font>. -->
+<!-- > *__Achtung__*: Das Working Directory müssten wir jetzt noch manuell setzen (z.B. mit [`setwd()`](#working-directory-setzen-1))</font>. -->
 
 
 ## Weg 2: Files > Import Dataset
@@ -191,12 +191,12 @@ Schauen wir uns einen weiteren Weg an, mit der Benutzeroberfläche der Entwicklu
 <!-- knitr::include_graphics("figures/Daten-importieren/Bilder/Importieren_manuell_Directory_1.png") -->
 <!-- ``` -->
 <!-- <!-- -->
-<!-- <i class="fa fa-exclamation-triangle fa-2x"></i> <font size="2">Anstatt über **...** Ordner bzw. Dateien auf unserem Rechner auszuwählen könnten wir auch direkt auf die einzelnen Ordner bzw. Dateien in der Struktur links klicken. Über den Pfad rechts von <img src="figures/Daten-importieren/Bilder/haus.png" style=" width:3%"/> können wir den Ort der Ordner bzw. Dateien auswählen.</font> -->
+<!-- <i class="fa fa-exclamation-triangle fa-2x"></i> Anstatt über **...** Ordner bzw. Dateien auf unserem Rechner auszuwählen könnten wir auch direkt auf die einzelnen Ordner bzw. Dateien in der Struktur links klicken. Über den Pfad rechts von <img src="figures/Daten-importieren/Bilder/haus.png" style=" width:3%"/> können wir den Ort der Ordner bzw. Dateien auswählen.</font> -->
 
 <!-- Es öffnet sich nun ein kleines Fenster, in dem wir unseren Arbeitsordner anwählen können.  -->
 
 <!-- <!-- -->
-<!-- <font size="2">Wir wählen unseren Arbeitsordner an, um ihn als Working Directory festzulegen. Wir könnten auch gleich auf die Datei klicken und diese einlesen (Anleitung folgt weiter unten).</font> -->
+<!-- Wir wählen unseren Arbeitsordner an, um ihn als Working Directory festzulegen. Wir könnten auch gleich auf die Datei klicken und diese einlesen (Anleitung folgt weiter unten).</font> -->
 
 <!-- Bestätigen wir die Auswahl mit **OK**, ist neben <img src="figures/Daten-importieren/Bilder/haus.png" style=" width:3%"/> nun der Pfad des ausgewählten Ordners zu sehen. Darunter finden wir alle Dateien, die sich in diesem Ordner befinden.  -->
 
@@ -259,9 +259,9 @@ Auch wenn Möglichkeiten existieren, Dateien mithilfe der Benutzeroberfläche vo
 
 <!-- ## Working Directory setzen -->
 
-<!-- Mit der Funktion `setwd()` setzt man ein Working Directory in R. Dieser Funktion über geben wir den Pfad zu unserem gewünschten Arbeitsordner in Anführungszeichen <font size="2">(`" "` oder `' '`)</font>.  -->
+<!-- Mit der Funktion `setwd()` setzt man ein Working Directory in R. Dieser Funktion über geben wir den Pfad zu unserem gewünschten Arbeitsordner in Anführungszeichen (`" "` oder `' '`)</font>.  -->
 
-<!-- Unter <span class="highlight">Windows können wir auf <span class ="keybord">shift drücken und dann einen *Rechtsklick* auf den Ordner machen. Nun öffnet sich ein Menü, in welchem wir *Als Dateipfad kopieren* auswählen. **Wichtig** dabei ist, dass wir noch alle **\\** <font size="2">(backslashes)</font> aus dem kopierten Pfad in */* <font size="2">(forwardslashes)</font> ändern müssen. -->
+<!-- Unter <span class="highlight">Windows können wir auf <span class ="keybord">shift drücken und dann einen *Rechtsklick* auf den Ordner machen. Nun öffnet sich ein Menü, in welchem wir *Als Dateipfad kopieren* auswählen. **Wichtig** dabei ist, dass wir noch alle **\\** (backslashes)</font> aus dem kopierten Pfad in */* (forwardslashes)</font> ändern müssen. -->
 
 <!-- Unter <span class="highlight">Mac können wir die Tastaturkürzel <span class ="keybord">alt + <span class ="keybord">cmd + <span class ="keybord">c nutzen, um unseren Ordnerpfad zu kopieren. -->
 
@@ -286,13 +286,13 @@ daten <- read.csv("Dateipfad/neuro.csv")
 
 <details><summary>Einen Dateipfad kopieren</summary>
 
-Unter <span class="highlight">Windows können wir auf <span class ="keybord">shift drücken und dann einen *Rechtsklick* auf die Datei machen. Nun öffnet sich ein Menü, in welchem wir *Als Dateipfad kopieren* auswählen. **Wichtig** dabei ist, dass wir noch alle **\\** <font size="2">(backslashes)</font> aus dem kopierten Pfad in */* <font size="2">(forwardslashes)</font> ändern müssen.
+Unter <span class="highlight">Windows können wir auf <span class ="keybord">shift drücken und dann einen *Rechtsklick* auf die Datei machen. Nun öffnet sich ein Menü, in welchem wir *Als Dateipfad kopieren* auswählen. **Wichtig** dabei ist, dass wir noch alle **\\** (backslashes)</font> aus dem kopierten Pfad in */* (forwardslashes)</font> ändern müssen.
 
 Unter <span class="highlight">Mac können wir die Tastaturkürzel <span class ="keybord">alt + <span class ="keybord">cmd + <span class ="keybord">c nutzen, um unseren Dateipfad zu kopieren.
 
 </details>
 
-Diese drei Funktionen sind sehr ähnlich aufgebaut. Sind haben aber teilweise unterschiedliche Voreinstellungen <font size="2">(sog. *"Defaults"*)</font>. Zum Beispiel nimmt `read.csv()` an, dass einzelne Datenelemente mit Kommata <font size="2">(Default: `sep=","`)</font> getrennt werden. Dafür werden bei `read.table()` standarmäßig Spaltennamen nicht eingelesen <font size="2">(Default: `header=FALSE`)</font>.
+Diese drei Funktionen sind sehr ähnlich aufgebaut. Sind haben aber teilweise unterschiedliche Voreinstellungen (sog. *"Defaults"*)</font>. Zum Beispiel nimmt `read.csv()` an, dass einzelne Datenelemente mit Kommata (Default: `sep=","`)</font> getrennt werden. Dafür werden bei `read.table()` standarmäßig Spaltennamen nicht eingelesen (Default: `header=FALSE`)</font>.
 
 > *__Achtung__*:  Alle Funktionsdefinitionen (mit Defaults) finden wir in der R-Dokumentation, die wir im unteren rechten Panel bei **Help** finden. Alternativ können wir sie auch mit der Hilfefunktion `?`, z.B. `?read.table`, öffnen.
 
@@ -368,7 +368,7 @@ Im Folgenden wollen wir uns einige Methoden zum Einlesen gängiger Dateiformate 
 
 <span class="highlight">Windows
 
-Wir drücken <span class ="keybord">shift und machen dann einen *Rechtsklick* auf die Datei. Nun öffnet sich ein Menü, in welchem wir *Als Dateipfad kopieren* auswählen. **Wichtig** dabei ist, dass wir noch alle **\\** <font size="2">(backslashes)</font> aus dem kopierten Pfad in */* <font size="2">(forwardslashes)</font> ändern müssen.
+Wir drücken <span class ="keybord">shift und machen dann einen *Rechtsklick* auf die Datei. Nun öffnet sich ein Menü, in welchem wir *Als Dateipfad kopieren* auswählen. **Wichtig** dabei ist, dass wir noch alle **\\** (backslashes)</font> aus dem kopierten Pfad in */* (forwardslashes)</font> ändern müssen.
 
 <span class="highlight">Mac
 
@@ -396,9 +396,9 @@ Diese Dateiformate sind die am weitesten verbreiteten Tabellendateien. Alle drei
 - `read.delim("Dateipfad")` 
 - `read.csv("Dateipfad")` 
 
-Diese drei Funktionen sind sehr ähnlich aufgebaut. Sind haben aber teilweise unterschiedliche Voreinstellungen <font size="2">(sog. *"Defaults"*)</font>. Zum Beispiel nimmt `read.csv()` an, dass Elemente aus verschiedenen Spalten in einer Zeile jeweils mit einem Komma <font size="2">(`sep=","`)</font> getrennt sind. Dafür werden bei `read.table()` ohne weitere Spezifikation die Spaltennamen nicht eingelesen <font size="2">(`header=FALSE`)</font>.
+Diese drei Funktionen sind sehr ähnlich aufgebaut. Sind haben aber teilweise unterschiedliche Voreinstellungen (sog. *"Defaults"*)</font>. Zum Beispiel nimmt `read.csv()` an, dass Elemente aus verschiedenen Spalten in einer Zeile jeweils mit einem Komma (`sep=","`)</font> getrennt sind. Dafür werden bei `read.table()` ohne weitere Spezifikation die Spaltennamen nicht eingelesen (`header=FALSE`)</font>.
 
-In Abhängigkeit der Speicherung der Dateien muss man teilweise noch weitere Argumente der Funktionen nutzen <font size="2">(d.h. nicht die Defaults einer Funktion nutzen)</font>.
+In Abhängigkeit der Speicherung der Dateien muss man teilweise noch weitere Argumente der Funktionen nutzen (d.h. nicht die Defaults einer Funktion nutzen)</font>.
 
 - `header = TRUE` <font size="1">(bei read.table)</font>
    + Die richtigen Spaltennamen stehen sonst in der ersten Zeile und Spalten werden mit `V1`, `V2`, `V3` etc. benannt. 
@@ -406,7 +406,7 @@ In Abhängigkeit der Speicherung der Dateien muss man teilweise noch weitere Arg
    + ... wenn die Elemente verschiedener Spalten in einer Zeile mit Semikolon getrennt sind
    + Dass wir hier etwas ändern müssen erkennen wir daran, dass nicht die gesamte Anzahl an Spalten im `R`-Objekt vorhanden sind. Wenn wir uns das Objekt anschauen, dann sehen wir, mit welchem Zeichen die Elemente getrennt sind.
 - `fill = TRUE` <font size="1">(bei read.table)</font>
-   + ... wenn fehlende Werte mit `NA` <font size="2">(`R`-Kodierung für Missings)</font> befüllt werden sollen.
+   + ... wenn fehlende Werte mit `NA` (`R`-Kodierung für Missings)</font> befüllt werden sollen.
 
 
 Um in Erfahrung zu bringen, welche Argumente wir nutzen müsst, um die Daten korrekt einzulesen, können wir einen  **Trial-and-Error Ansatz** verwenden:
@@ -444,7 +444,7 @@ Nun wird die Datei korrekt dargestellt.
 
 > *__Achtung__*:  Es kann dabei sein, dass unterschiedliche Personen **zum korrekten Einlesen (derselben Datei) andere Argumenten nutzen**. Das kann auf unterschiedliche Betriebssysteme oder Programme zum Öffnen der Dateien zurückzuführen sein.
 
-Mehr Informationen zu den Funktionen und ihren Argumenten findet wir, wenn wir unter *read.table* in der `R`-Dokumentation <font size="2">(**Help** im unteren rechten Panel)</font> nachschauen, oder indem wir `?read.table` in die Konsole eingeben.
+Mehr Informationen zu den Funktionen und ihren Argumenten findet wir, wenn wir unter *read.table* in der `R`-Dokumentation (**Help** im unteren rechten Panel)</font> nachschauen, oder indem wir `?read.table` in die Konsole eingeben.
 
 
 
@@ -471,7 +471,7 @@ daten <- read_xlsx("Dateipfad")
 
 ### .sav
 
-Die Endung .sav wird z.B. für **SPSS**-Dateien genutzt wird. Hierfür muss man wieder ein zusätzliches Paket <font size="2">(z.B. **foreign**)</font> runterladen, um SPSS-Dateien in `R` einlesen zu können.
+Die Endung .sav wird z.B. für **SPSS**-Dateien genutzt wird. Hierfür muss man wieder ein zusätzliches Paket (z.B. **foreign**)</font> runterladen, um SPSS-Dateien in `R` einlesen zu können.
 
 ```{r}
 #| eval: false
@@ -517,17 +517,17 @@ knitr::include_graphics("figures/Daten-importieren/Bilder/Mac_Öffnen.png")
    + *Öffnen mit*
    + *Anderem Programm ...*
    + `R`-Studio auswählen
-   + unten mittig ein Häkchen in das Kästchen *Immer öffnen mit* setzen <font size="2">(wenn das nicht angezeigt wird, muss man erst unten rechts auf *Optionen* klicken)</font>
+   + unten mittig ein Häkchen in das Kästchen *Immer öffnen mit* setzen (wenn das nicht angezeigt wird, muss man erst unten rechts auf *Optionen* klicken)</font>
    + *Öffnen*
 
 
 ## Weiterführende Hilfe
 
-Falls wir ein **seltener genutztes Dateiformat** <font size="2">(z.B. Stata, JSON)</font> in `R` einlesen möchten, können wir in dem <a href="https://www.datacamp.com/community/tutorials/r-data-import-tutorial" target="_blank">Data Import Tutorial auf Datacamp</a> nachschauen.
+Falls wir ein **seltener genutztes Dateiformat** (z.B. Stata, JSON)</font> in `R` einlesen möchten, können wir in dem <a href="https://www.datacamp.com/community/tutorials/r-data-import-tutorial" target="_blank">Data Import Tutorial auf Datacamp</a> nachschauen.
 
 ## Übung
 
-In diesem Abschnitt finden wir verschiedene Dateien, die wir zur Übung in **R** einlesen können. Wie wir dabei vorgehen <font size="2">(d.h. welchen Weg wir nutzen)</font> bleibt ganz uns überlassen. Wenn wir möchten, können wir die Tipps nutzen, um die Aufgaben zu lösen. Zur Überprüfung finden wir *mögliche* Lösungswege und die eingelesenen Daten.
+In diesem Abschnitt finden wir verschiedene Dateien, die wir zur Übung in **R** einlesen können. Wie wir dabei vorgehen (d.h. welchen Weg wir nutzen)</font> bleibt ganz uns überlassen. Wenn wir möchten, können wir die Tipps nutzen, um die Aufgaben zu lösen. Zur Überprüfung finden wir *mögliche* Lösungswege und die eingelesenen Daten.
 
 Wenn wir **Hilfe beim Einlesen von Daten** brauchen, können wir uns das ausführliche [Kapitel](Daten-importieren.qmd) dazu anschauen.
 
@@ -703,7 +703,7 @@ kable(data_4_kurz) %>%
 
 ---
 
-<font size="2">Um eine möglichst exakte Replikation der Funktionen zu gewährleisten gibt es im folgenden relevante Angaben zum System (****R**-Version**, **Betriebssystem**, **geladene Pakete mit Angaben zur Version**), mit welchem diese Seite erstellt wurde.
+Um eine möglichst exakte Replikation der Funktionen zu gewährleisten gibt es im folgenden relevante Angaben zum System (****R**-Version**, **Betriebssystem**, **geladene Pakete mit Angaben zur Version**), mit welchem diese Seite erstellt wurde.
 
 ```{r}
 sessionInfo()
