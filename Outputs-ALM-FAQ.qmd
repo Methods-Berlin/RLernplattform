@@ -55,9 +55,9 @@ Mehr Informationen zu Datentypen und angemessener Kodierung finden wir im Kapite
 
 > Der $t$-Test untersucht, ob es signifikante Mittelwertsunterschiede in der Population hinsichtlich einer metrischen Variablen gibt. Der Begriff umfasst eine Gruppe von Hypothesentests, darunter den $t$-Test für unabhängige Stichproben und den $t$-Test für abhängige Stichproben <font size="2">(Beobachtungspaare)</font>. 
 
-<span class="ex">In unserem Beispiel schauen wir, ob sich Personen mit und ohne  **Nebenjob** (`job`) hinsichtlich der **Zufriedenheit mit der Bewältigung von Studienbelastungen** (`zf_belastung`) unterscheiden.
+In unserem Beispiel schauen wir, ob sich Personen mit und ohne  **Nebenjob** (`job`) hinsichtlich der **Zufriedenheit mit der Bewältigung von Studienbelastungen** (`zf_belastung`) unterscheiden.
 
-<span class="ex">Weil es sich bei Studierenden mit und ohne Nebenjob um zwei voneinander unabhängige Stichproben <font size="2">(d.h. unterschiedliche Personen)</font> handelt, verwenden wir den __$t$-Test für unabhängige Stichproben__. 
+Weil es sich bei Studierenden mit und ohne Nebenjob um zwei voneinander unabhängige Stichproben <font size="2">(d.h. unterschiedliche Personen)</font> handelt, verwenden wir den __$t$-Test für unabhängige Stichproben__. 
 
 <p style="line-height:10px;"></p>
 
@@ -83,7 +83,7 @@ Jetzt müssen wir noch prüfen, ob das Messniveau auch in <span class="r">R korr
 str(daten$zf_belastung)
 ```
 
-<span class="ex">Unser interessierendes Merkmal `zf_belastung` liegt als <span class="r">numeric vor.
+Unser interessierendes Merkmal `zf_belastung` liegt als <span class="r">numeric vor.
 
 Mehr zu Datentypen und -strukturen erfahren wir in [Einführung in R](Einfuehrung_in_R.qmd).
 -->
@@ -115,7 +115,7 @@ Mehr Informationen zum Erstellen von Grafiken mit dem Paket **ggplot2** finden w
 > *__Achtung__*:  <div class="rows">Hilfe zur Interpretation von QQ-Plots finden wir hier: @sec-Normalverteilung-der-Residuen.\
 **Hinweis**: Die Residuen in der linearen Regression sind beim $t$-Test dasselbe wie in den Gruppen zentrierte Werte der $AV$ (d.h. Abweichungen vom gruppenspezifischen Mittelwert) in unserem Beispiel.</div>\
 
-<span class="ex">In beiden Diagrammen weichen die Punkte leicht von der Linie ab, d.h. dass die Daten nicht perfekt normalverteilt sind. Wir können uns aber auf den zentralen Grenzwertsatz stützen, welcher besagt, dass der Mittelwert eines Merkmals bei wachsender Stichprobengröße approximativ normalverteilt ist. Generell gibt es keinen Richtwert, der besagt, wann Stichproben hinreichend groß sind. Mit unseren Stichprobengrößen ($n_{ja} = 87$ und $n_{nein} = 86$) und den geringfügigen Abweichungen von einer Normalverteilung in den beiden Gruppen können wir erwarten, dass die Annahme hinreichend erfüllt ist.\
+In beiden Diagrammen weichen die Punkte leicht von der Linie ab, d.h. dass die Daten nicht perfekt normalverteilt sind. Wir können uns aber auf den zentralen Grenzwertsatz stützen, welcher besagt, dass der Mittelwert eines Merkmals bei wachsender Stichprobengröße approximativ normalverteilt ist. Generell gibt es keinen Richtwert, der besagt, wann Stichproben hinreichend groß sind. Mit unseren Stichprobengrößen ($n_{ja} = 87$ und $n_{nein} = 86$) und den geringfügigen Abweichungen von einer Normalverteilung in den beiden Gruppen können wir erwarten, dass die Annahme hinreichend erfüllt ist.\
 
 <span class="highlight">Varianzhomogenität
 
@@ -134,7 +134,7 @@ library(car)
 leveneTest(zf_belastung ~ job, daten)
 ```
 
-<span class="ex">Da der $p$-Wert (`Pr(>F)`) größer als unser $\alpha$-Level ist, können wir die $H_0$ beibehalten. 
+Da der $p$-Wert (`Pr(>F)`) größer als unser $\alpha$-Level ist, können wir die $H_0$ beibehalten. 
 
 Nachdem die Annahmen weitgehend erfüllt erscheinen, können wir den $t$-Test für unabhängige Stichproben anwenden.
 
@@ -149,7 +149,7 @@ Mit der Funktion `t.test()` aus dem Basispaket **stats** können unterschiedlich
 
 - Mit `var.equal` spezifizieren wir, ob **Varianzhomogenität** vorliegt. Wenn die Annahme nicht erfüllt ist, legen wir mit `FALSE` fest, dass der Welch's $t$-Test durchgeführt werden soll.
 
-<span class="ex">Wir wollen einen *ungerichteten* $t$-Test für unabhängige Stichproben durchführen und legen unser Signifikanzlevel $\alpha=.05$ fest. 
+Wir wollen einen *ungerichteten* $t$-Test für unabhängige Stichproben durchführen und legen unser Signifikanzlevel $\alpha=.05$ fest. 
 
 ```{r}
 #| label: t-Test
@@ -194,7 +194,7 @@ Durch den Vergleich mit unserem $\alpha$-Niveau können wir anhand dieser Inform
 - <font color="#FF9300">`95 percent confidence interval`</font>: obere und untere Grenze des 95% Konfidenzintervalls der *Mittelwertsdifferenz*
 - <font color="#942192">`sample estimates`</font>: Stichprobenmittelwerte der Gruppen
 
-<span class="ex">Durch Betrachtung des $p$-Wertes stellen wir fest, dass die Wahrscheinlichkeit unter Gültigkeit der $H_O$, einen empirischen $t$-Wert von $\mid -1.278 \mid$ oder extremer zu erhalten, bei 20.3% liegt. Da dieser $p$-Wert deutlich über $\alpha=.05$ liegt, behalten wir die Nullhypothese bei. Wir gehen davon aus, dass Studierende mit und ohne Nebenjob sich *nicht* statistisch signifikant in ihrer Zufriedenheit mit der Bewältigung von Studienbelastungen unterscheiden. 
+Durch Betrachtung des $p$-Wertes stellen wir fest, dass die Wahrscheinlichkeit unter Gültigkeit der $H_O$, einen empirischen $t$-Wert von $\mid -1.278 \mid$ oder extremer zu erhalten, bei 20.3% liegt. Da dieser $p$-Wert deutlich über $\alpha=.05$ liegt, behalten wir die Nullhypothese bei. Wir gehen davon aus, dass Studierende mit und ohne Nebenjob sich *nicht* statistisch signifikant in ihrer Zufriedenheit mit der Bewältigung von Studienbelastungen unterscheiden. 
 
 
 ## Lineare Regression
@@ -206,9 +206,9 @@ ein Prädiktor: *einfache* lineare Regression;\
 \
 mehrere Prädiktoren: *multiple* lineare Regression</aside> 
 
-<span class="ex">Wir führen eine einfache lineare Regression durch, in der wir die **Zufriedenheit mit der Bewältigung von Studienbelastungen** (`zf_belastung`) auf das Vorhandensein eines **Nebenjobs** (`job`) zurückführen.
+Wir führen eine einfache lineare Regression durch, in der wir die **Zufriedenheit mit der Bewältigung von Studienbelastungen** (`zf_belastung`) auf das Vorhandensein eines **Nebenjobs** (`job`) zurückführen.
 
-<span class="ex">Wir legen unser Signifikanzlevel auf $\alpha=.05$ fest.
+Wir legen unser Signifikanzlevel auf $\alpha=.05$ fest.
 
 Bei der linearen Regression ist die sogenannte Residualdiagnostik ein essentieller Teil der Annahmenprüfung. Allerdings müssen wir dafür die Regression bereits durchgeführt haben. Wir können die Annahmenprüfung also erst *nach* der Regression machen.
 
@@ -260,7 +260,7 @@ plot(lm_belastung, which=1)
 ```
 Weil wir nur eine kategoriale $UV$ mit zwei Ausprägungen haben, ordnen sich die Punkte in zwei vertikalen Linien an.
 
-<span class="ex">Da sich die Lowess Fit Line <font size="2">(rote gestrichelte Linie)</font>, welche den generellen (nonparametrischen) Trend der Daten beschreibt, dem Erwartungswert der Residuen bei $y=0$ <font size="2">(schwarze gestrichelten Linie)</font> annähert, können wir annehmen, dass Linearität vorliegt.
+Da sich die Lowess Fit Line <font size="2">(rote gestrichelte Linie)</font>, welche den generellen (nonparametrischen) Trend der Daten beschreibt, dem Erwartungswert der Residuen bei $y=0$ <font size="2">(schwarze gestrichelten Linie)</font> annähert, können wir annehmen, dass Linearität vorliegt.
 
 Mehr Informationen zur Lowess Fit Line und zum Residuenplot finden wir im Kapitel zur [Prüfung der Annahmen der multiplen linearen Regression](Voraussetzungspruefung.qmd).
 
@@ -290,17 +290,17 @@ Eine Verletzung dieser Annahme ist eher in kleineren Stichproben problematisch. 
 plot(lm_belastung, which=2)
 ```
 
-<span class="ex">Unser Kriterium Zufriedenheit mit der Bewältigung von Studienbelastungen scheint in Abhängigkeit der Gruppenzugehörigkeit leicht von einer Normalverteilung abzuweichen. Die Größe unserer Stichprobe, $N = 169$, legt nahe, dass <font size="2">(nach dem zentralen Grenzwertsatz)</font> die Regressionskoeffizienten approximativ normalverteilt sind und der Standardfehler der Steigung nicht verzerrt ist.
+Unser Kriterium Zufriedenheit mit der Bewältigung von Studienbelastungen scheint in Abhängigkeit der Gruppenzugehörigkeit leicht von einer Normalverteilung abzuweichen. Die Größe unserer Stichprobe, $N = 169$, legt nahe, dass <font size="2">(nach dem zentralen Grenzwertsatz)</font> die Regressionskoeffizienten approximativ normalverteilt sind und der Standardfehler der Steigung nicht verzerrt ist.
 
 <span class="highlight">Unabhängigkeit der Residuen
 
 > Die Höhe des Residuums einer Beobachtung ist unabhängig von der Höhe des Residuums einer anderen Beobachtung.
 
-<span class="ex">**Serielle Abhängigkeit**, d.h. mehrere Messungen von *einer* Person, können wir ausschließen, da es sich nicht um ein Messwiederholungs-Design handelt.
+**Serielle Abhängigkeit**, d.h. mehrere Messungen von *einer* Person, können wir ausschließen, da es sich nicht um ein Messwiederholungs-Design handelt.
 
-<span class="ex">Zur Überprüfung auf **Clustering**, d.h. systematische Zusammenhänge *zwischen* Personen einer Gruppe, müssten wir im Verdacht stehende (erhobene) Gruppenvariablen begutachten. Da dies aber den Rahmen dieses Kapitels sprengen würde, lassen wir das außen vor.
+Zur Überprüfung auf **Clustering**, d.h. systematische Zusammenhänge *zwischen* Personen einer Gruppe, müssten wir im Verdacht stehende (erhobene) Gruppenvariablen begutachten. Da dies aber den Rahmen dieses Kapitels sprengen würde, lassen wir das außen vor.
 
-<span class="ex">Da wir keine Hinweise auf Verletzung der Annahmen gefunden haben, schauen wir uns nun die Ergebnisse der einfachen linearen Regression an.
+Da wir keine Hinweise auf Verletzung der Annahmen gefunden haben, schauen wir uns nun die Ergebnisse der einfachen linearen Regression an.
 
 </div></details>
 \
@@ -320,14 +320,14 @@ summary(lm_belastung)
 knitr::include_graphics("figures/Voraussetzungsprüfung/Bilder/lm neu.png")
 ```
 
-<span class="ex">Der Output sagt uns, inwiefern wir **Zufriedenheit mit der Bewältigung von Studienbelastungen** mit dem **Vorliegen eines Nebenjobs** vorhersagen können.
+Der Output sagt uns, inwiefern wir **Zufriedenheit mit der Bewältigung von Studienbelastungen** mit dem **Vorliegen eines Nebenjobs** vorhersagen können.
 
 Wir bekommen Auskunft über:
 
 - die Signifikanztests der geschätzten Populationskoeffizienten $\hat b_0$ und $\hat b_1 ... \hat b_k$ <font size="2">(unserer $k$ Prädiktoren)</font> 
 - den Signifikanztest der insgesamt aufgeklärten Varianz des gesamten Regressionsmodells $R^2$
 
-<span class="ex">In unserem Fall einer einfachen linearen Regression sind die Ergebnisse der Signifikanztestung von Schätzung der Steigung und Schätzung der Varianzaufklärung des Gesamtmodells identisch.
+In unserem Fall einer einfachen linearen Regression sind die Ergebnisse der Signifikanztestung von Schätzung der Steigung und Schätzung der Varianzaufklärung des Gesamtmodells identisch.
 
 Unter `Coefficients` finden wir Informationen zu den geschätzten **Regressionskoeffizienten** - Intercept und Steigungskoeffizient(en): 
 
@@ -339,21 +339,21 @@ knitr::include_graphics("figures/Voraussetzungsprüfung/Bilder/lm oben.png")
 ```
 
 - <font color="#FF2600">`Estimate`</font>: Schätzung der (Populations-)Regressionskoeffizienten
-  - `(Intercept)`: vorhergesagter Wert des Kriteriums wenn alle Prädiktoren 0 sind <font size="2">(bei metrischen Prädiktoren)</font> bzw. vorhergesagter Wert des Kriteriums in den jeweiligen Referenzgruppen <font size="2">(bei kategorialen Prädiktoren)</font>; <span class="ex">Wert von `zf_belastung` in der Referenzgruppe `job == ja` 
-  - `jobnein`: Steigungskoeffizient, der die erwartete Veränderung im Kriterium angibt, wenn der Prädiktor um eine Einheit erhöht wird <font size="2">(bei metrischen Prädiktoren)</font> bzw. in (einer) der Vergleichsgruppen <font size="2">(bei kategorialen Prädiktoren)</font>; <span class="ex">Unterschied von `job == nein` im Vergleich zur Referenzgruppe `job == ja` im Hinblick auf `zf_belastung`
+  - `(Intercept)`: vorhergesagter Wert des Kriteriums wenn alle Prädiktoren 0 sind <font size="2">(bei metrischen Prädiktoren)</font> bzw. vorhergesagter Wert des Kriteriums in den jeweiligen Referenzgruppen <font size="2">(bei kategorialen Prädiktoren)</font>; Wert von `zf_belastung` in der Referenzgruppe `job == ja` 
+  - `jobnein`: Steigungskoeffizient, der die erwartete Veränderung im Kriterium angibt, wenn der Prädiktor um eine Einheit erhöht wird <font size="2">(bei metrischen Prädiktoren)</font> bzw. in (einer) der Vergleichsgruppen <font size="2">(bei kategorialen Prädiktoren)</font>; Unterschied von `job == nein` im Vergleich zur Referenzgruppe `job == ja` im Hinblick auf `zf_belastung`
 - <font color="#77BB40">`Std.Error`</font>: Standardfehler des Regressionskoeffizienten
 - <font color="#0533FF">`t.value`</font>: empirischer $t$-Wert für die Signifikanztestung des (partiellen) Regressionskoeffizienten
 - <font color="#FF9300">`Pr(>|t|)`</font>: in $p$-Wert umgerechneter empirischer $t$-Wert
 - <font color="#942192">`Sign.codes`</font>: durch Sternchen gekennzeichnete Signifikanzniveaus der geschätzten Regressionskoeffizienten
 
-<span class="ex">Der Intercept $b_0 = 2.679$ gibt uns den Mittelwert der Personen **mit Nebenjob** (`job == "ja"`, Referenzgruppe) auf der Skala von **Zufriedenheit mit der Bewältigung von Studienbelastungen** (`zf_belastung`) an. Wir gelangen durch Betrachtung von $p < 2^{-16}$ zu der Testentscheidung, die $H_0$, dass der Intercept in der Population 0 ist, abzulehnen.
+Der Intercept $b_0 = 2.679$ gibt uns den Mittelwert der Personen **mit Nebenjob** (`job == "ja"`, Referenzgruppe) auf der Skala von **Zufriedenheit mit der Bewältigung von Studienbelastungen** (`zf_belastung`) an. Wir gelangen durch Betrachtung von $p < 2^{-16}$ zu der Testentscheidung, die $H_0$, dass der Intercept in der Population 0 ist, abzulehnen.
 
 <aside>\
 $t$-Test des Intercepts $b_0$:\
 $H_0$: $\beta_0 = 0$\
 $H_1$: $\beta_0 > 0$</aside>
 
-<span class="ex">Der Steigungskoeffizient $b_1 = 0.131$ sagt uns, dass Personen **ohne Nebenjob** (`job == "nein"`) sich im Mittel 0.131 Punkte höher auf der Skala von **Zufriedenheit mit der Bewältigung von Studienbelastungen** (`zf_belastung`) beschreiben. Zudem gelangen wir durch Betrachtung von $p = 0.203$ zu der Testentscheidung, die $H_0$, dass der Populationskoeffizient $\beta_1 = 0$ ist, beizubehalten.
+Der Steigungskoeffizient $b_1 = 0.131$ sagt uns, dass Personen **ohne Nebenjob** (`job == "nein"`) sich im Mittel 0.131 Punkte höher auf der Skala von **Zufriedenheit mit der Bewältigung von Studienbelastungen** (`zf_belastung`) beschreiben. Zudem gelangen wir durch Betrachtung von $p = 0.203$ zu der Testentscheidung, die $H_0$, dass der Populationskoeffizient $\beta_1 = 0$ ist, beizubehalten.
 
 <aside>\
 $t$-Test des Steigungs-koeffizienten $b_1$:\
@@ -385,12 +385,12 @@ Gütemaß für die Schätzgenauigkeit
 \
 \
 \
-Handelt es sich um eine einfache lineare Regression mit nur einem Prädiktor <span class="ex">(wie in unserem Fall), führt der $F$-Test des Determinations-koeffizienten zum selben Ergebnis wie der $t$-Test des Steigungs-koeffizienten.</aside> 
+Handelt es sich um eine einfache lineare Regression mit nur einem Prädiktor (wie in unserem Fall), führt der $F$-Test des Determinations-koeffizienten zum selben Ergebnis wie der $t$-Test des Steigungs-koeffizienten.</aside> 
 
-<!-- <aside> __Beachte: Als Sonderform des Allgemeinen Linearen Modells weist der zuvor besprochene *t*-Test einige Zusammenhänge mit der linearen Regression auf. So entspricht der empirische *t*-Wert von `lm()` immer der empirischen Prüfgröße des t-Tests__ <span class="ex"> __(In unserem Fall t = I0.652I).__  __Potentiell unterschiedliche Vorzeichen haben hierbei keine Bedeutung. Zudem entspricht der *F*-Wert der `lm()`-Funktion (i.d.R.) der quadrierten empirischen Prüfgröße des *t*-Tests (*t²*). Näheres zu den Zusammenhängen des ALM findet ihr [am Ende des Skripts](#github2).__
+<!-- <aside> __Beachte: Als Sonderform des Allgemeinen Linearen Modells weist der zuvor besprochene *t*-Test einige Zusammenhänge mit der linearen Regression auf. So entspricht der empirische *t*-Wert von `lm()` immer der empirischen Prüfgröße des t-Tests__  __(In unserem Fall t = I0.652I).__  __Potentiell unterschiedliche Vorzeichen haben hierbei keine Bedeutung. Zudem entspricht der *F*-Wert der `lm()`-Funktion (i.d.R.) der quadrierten empirischen Prüfgröße des *t*-Tests (*t²*). Näheres zu den Zusammenhängen des ALM findet ihr [am Ende des Skripts](#github2).__
 </aside> -->
 
-<span class="ex">Der Determinationskoeffizienten $R^2 = 0.009685$ sagt aus, dass in unserer Stichprobe knapp 1% der Variation in der **Zufriedenheit mit der Bewältigung von Studienbelastungen** (`zf_belastung`) durch das Vorhandensein eines **Nebenjobs** (`job`) erklärt werden kann. Wir können die $H_0$, dass der Determinationskoeffizient in der Population $0$ ist ($\rho^2 = 0$), durch Betrachtung von $p = 0.203$ beibehalten.
+Der Determinationskoeffizienten $R^2 = 0.009685$ sagt aus, dass in unserer Stichprobe knapp 1% der Variation in der **Zufriedenheit mit der Bewältigung von Studienbelastungen** (`zf_belastung`) durch das Vorhandensein eines **Nebenjobs** (`job`) erklärt werden kann. Wir können die $H_0$, dass der Determinationskoeffizient in der Population $0$ ist ($\rho^2 = 0$), durch Betrachtung von $p = 0.203$ beibehalten.
 
 <aside>\
 $F$-Test des Determinations-koeffizienten $R^2$:\
@@ -404,11 +404,11 @@ $H_1: \rho^2 > 0$</aside>
 
 <!--Basierend auf dem Prinzip der Varianzdekomposition testet sie, inwiefern die Gesamtunterschiedlichkeit in der $AV$ auf die unterschiedlichen Faktorstufen der $UV(s)$ zurückzuführen ist. Hierbei wird die Gesamtvarianz in die systematische Varianz *zwischen* den Gruppen (*"des Gruppierungsfaktors"*) und die Varianz *innerhalb* der Gruppen (*"der Residuen"*) zerlegt und das Verhältnis dieser beiden Varianzanteile zueinander überprüft: Ist die Varianz zwischen den Gruppen im Verhältnis zur Varianz innerhalb der Gruppen groß, wird die Nullhypothese verworfen. --> 
 
-<span class="ex">Wir wollen in unserem Beispiel überprüfen inwiefern Unterschiede in der **Zufriedenheit mit der Bewältigung von Studienbelastungen** (`zf_belastung`) auf das Vorhandensein eines **Nebenjobs** (`job`) zurückzuführen ist.
+Wir wollen in unserem Beispiel überprüfen inwiefern Unterschiede in der **Zufriedenheit mit der Bewältigung von Studienbelastungen** (`zf_belastung`) auf das Vorhandensein eines **Nebenjobs** (`job`) zurückzuführen ist.
 
-<span class="ex">Wir haben ein minimal **unbalanciertes Design**, weil die Anzahl der Beobachtungen in den Faktorstufen von `job` sich geringfügig unterscheiden mit $n_{ja} = 87$ und $n_{nein} = 86$.
+Wir haben ein minimal **unbalanciertes Design**, weil die Anzahl der Beobachtungen in den Faktorstufen von `job` sich geringfügig unterscheiden mit $n_{ja} = 87$ und $n_{nein} = 86$.
 
-<span class="ex">Unser Signifikanzlevel legen wir auf $\alpha=.05$ fest.
+Unser Signifikanzlevel legen wir auf $\alpha=.05$ fest.
 
 ```{r}
 #| echo: !expr F
@@ -467,11 +467,11 @@ entspricht dem Quotienten $\frac {MQ_{job}} {MQ_e}$
 - <font color="#942192">`Pr(>F)`</font>: in $p$-Wert umgerechneter empirischer $F$-Wert
 
 <!-- 
-<aside> __Beachte: Auch die ANOVA weist als Sonderform des Allgemeinen Linearen Modells  Zusammenhänge mit der linearen Regression auf. Hierbei entspricht der empirische *F*-Wert der aov Funktion dem *F*-Wert des globalen Tests der `lm()`-Funktion.__ <span class="ex"> __(In unserem Fall F=0.316).__  __Näheres zu den Zusammenhängen des ALM findet ihr [hier](#github2).__
+<aside> __Beachte: Auch die ANOVA weist als Sonderform des Allgemeinen Linearen Modells  Zusammenhänge mit der linearen Regression auf. Hierbei entspricht der empirische *F*-Wert der aov Funktion dem *F*-Wert des globalen Tests der `lm()`-Funktion.__  __(In unserem Fall F=0.316).__  __Näheres zu den Zusammenhängen des ALM findet ihr [hier](#github2).__
 </aside> 
 -->
 
-<span class="ex">Unser $p$-Wert deutet darauf hin, dass unter Gültigkeit der $H_0$ die Wahrscheinlichkeit, den vorliegenden $F$-Wert von 1.633 oder einen größeren zu erhalten, 20,3% beträgt. Wir kommen somit zu der Testentscheidung, die $H_0$ beizubehalten. Das bedeutet, dass wir davon ausgehen, dass zwischen den Populationen von Studierenden mit und ohne Nebenjob keine überzufälligen Mittelwertsunterschiede bezüglich der Zufriedenheit mit der Bewältigung von Studienbelastungen  existieren.
+Unser $p$-Wert deutet darauf hin, dass unter Gültigkeit der $H_0$ die Wahrscheinlichkeit, den vorliegenden $F$-Wert von 1.633 oder einen größeren zu erhalten, 20,3% beträgt. Wir kommen somit zu der Testentscheidung, die $H_0$ beizubehalten. Das bedeutet, dass wir davon ausgehen, dass zwischen den Populationen von Studierenden mit und ohne Nebenjob keine überzufälligen Mittelwertsunterschiede bezüglich der Zufriedenheit mit der Bewältigung von Studienbelastungen  existieren.
 
 
 ## ALM: Zusammenhänge der drei Verfahren  {#github2}

@@ -534,7 +534,7 @@ abline( # Linie einzeichnen
 <details><summary>Exkurs: Grafische Interpretationshilfe für den Index Plot</summary><div class="more">
 Falls wir ein Messwiederholungsdesign haben und die Daten im Long-Format (d.h. Messungen einer Person in mehreren Zeilen) vorliegen, können wir die Messungen verschiedener Person farblich unterschiedlich darstellen.
 
-<span class="ex">In unserem Fall haben wir zwar keine Messwiederholung, aber wir illustrieren die farbliche Darstellung einmal am gleichen Beispiel.
+In unserem Fall haben wir zwar keine Messwiederholung, aber wir illustrieren die farbliche Darstellung einmal am gleichen Beispiel.
 
 Die **Farbe** der geplotteten Elemente können wir mit dem Argument `col` verändern. Um die Farbe ab einer bestimmten Anzahl an Messungen (d.h. Messwiederholungen für eine Person) jeweils zu verändern, können wir `rep()` benutzen. Diese Funktion wiederholt das erste Argument `x` (bzw. die einzelnen Elemente des ersten Arguments) jeweils so oft wie das zweite Argument `each`. 
 

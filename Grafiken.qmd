@@ -139,7 +139,7 @@ Falls unser Datensatz nicht als Dataframe vorliegt, könnten wir ihn so umwandel
 ChickWeight <- as.data.frame(ChickWeight)
 ```
 
-In Abhängigkeit der eigenen Fragestellung müssen die Daten im <span class="highlight">Long- bzw. Wide-Format vorliegen. <span class="ex">Schauen wir uns den Unterschied einmal an der Fragestellung, wie sich das Gewicht der Küken (`weight`) zu unterschiedlichen Zeitpunkten (`Time`) verändert, an.
+In Abhängigkeit der eigenen Fragestellung müssen die Daten im <span class="highlight">Long- bzw. Wide-Format vorliegen. Schauen wir uns den Unterschied einmal an der Fragestellung, wie sich das Gewicht der Küken (`weight`) zu unterschiedlichen Zeitpunkten (`Time`) verändert, an.
 
 Wenn wir `Time` als Prädiktor für `weight` aufnehmen möchten, müssen die Daten im **Long**-Format vorliegen, damit `Time` auch als eigene Variable kodiert ist. 
 
@@ -222,7 +222,7 @@ Zuerst schauen wir uns an, wie wir die Häufigkeitsverteilung einer Variablen vi
 
 ### Kategorial
 
-<span class="ex">Hierfür nehmen wir die Variable `Diet`. Diese kodiert die Gruppen, in denen das Futter der Küken variiert wurde.
+Hierfür nehmen wir die Variable `Diet`. Diese kodiert die Gruppen, in denen das Futter der Küken variiert wurde.
 
 [Später](#diskrete-variablen-benennung-und-reihenfolge-der-ausprägungen) erfahren wir noch, wie wir die Reihenfolge und Benennung von kategorialen Variablen ändern können.
 
@@ -327,7 +327,7 @@ Auf dieser <a href="http://www.sthda.com/english/wiki/ggplot2-pie-chart-quick-st
 
 ### Metrisch
 
-<span class="ex">Beispielhaft schauen wir uns hierfür das Gewicht der Küken (`weight`) an.
+Beispielhaft schauen wir uns hierfür das Gewicht der Küken (`weight`) an.
 
 #### Histogramm
 
@@ -343,7 +343,7 @@ Prinzipiell gilt:
   + Als Orientierung können wir hierfür die **Sturges Regel** nutzen: \
   $m ≈ 1 + 3.32 \cdot lg(N)$ ($m$ = Anzahl der Kategorien, $N$ = Stichprobengröße, $lg$ = dekadischer Logarithmus)
 
-Schauen wir uns die ungefähre Anzahl der Kategorien nach der Sturges Regel an. Dazu nutzen wir die Funktion <span class="code">nclass.Sturges(1:<span class="ex">Stichprobengröße).
+Schauen wir uns die ungefähre Anzahl der Kategorien nach der Sturges Regel an. Dazu nutzen wir die Funktion <span class="code">nclass.Sturges(1:Stichprobengröße).
 
 ```{r}
 # Gibt es fehlende Werte?
@@ -467,7 +467,7 @@ In Boxplots werden mehrere deskriptiv-statistische Kennwerte dargestellt:
 
 Einen Boxplot erhalten wir mit `geom_boxplot()`. Wenn wir fehlende Werte in unseren Daten haben, müssen wir noch das Argument `na.rm = TRUE` ergänzen, welches diese (aus der Grafik) entfernt.
 
-<span class="ex">Wir schauen uns das Gewicht der Küken (`weight`) zum zweiten Messzeitpunkt (`Time 2`) in Abhängigkeit der Fütterung (`Diet`) an.
+Wir schauen uns das Gewicht der Küken (`weight`) zum zweiten Messzeitpunkt (`Time 2`) in Abhängigkeit der Fütterung (`Diet`) an.
 
 ```{r}
 ggplot(data=ChickWeight[ChickWeight$Time == 2,], aes(x=Diet, y=weight)) +
@@ -476,11 +476,11 @@ ggplot(data=ChickWeight[ChickWeight$Time == 2,], aes(x=Diet, y=weight)) +
 
 <a name="index"></a>
 
-<details><summary>Erweiterte Indexierung: Wie können wir nur bestimmte Daten <span class="ex">(z.B. nur Daten zum zweiten Messzeitpunkt) für `ggplot()` auswählen?</summary><div class ="more">
+<details><summary>Erweiterte Indexierung: Wie können wir nur bestimmte Daten (z.B. nur Daten zum zweiten Messzeitpunkt) für `ggplot()` auswählen?</summary><div class ="more">
 
 Wenn wir nicht alle Daten, sondern nur solche, auf die bestimmte Bedingungen zutreffen, auswählen wollen, können wir dazu die Indexierung mittels der eckigen Klammern `[]` nutzen.
 
-<span class="ex">Für unser Beispiel wollen wir uns nur die Daten des zweiten Messzeitpunkts (`Time 2`) anschauen. Formal würde (nur) die **Bedingung** so aussehen: `ChickWeight$Time == 2`. Diese wollen wir noch **auf unseren Dataframe anwenden**; dazu nutzen wir die eckigen Klammern: `ChickWeight[ChickWeight$Time == 2,]`.
+Für unser Beispiel wollen wir uns nur die Daten des zweiten Messzeitpunkts (`Time 2`) anschauen. Formal würde (nur) die **Bedingung** so aussehen: `ChickWeight$Time == 2`. Diese wollen wir noch **auf unseren Dataframe anwenden**; dazu nutzen wir die eckigen Klammern: `ChickWeight[ChickWeight$Time == 2,]`.
 
 Mit dem Komma legen wir fest, welche der beiden Dimensionen unseres Dataframes wir meinen (Zeile, Spalte). Weil wir *Fälle* mit bestimmten Ausprägungen (Bedingungen) auswählen wollen, setzen wir das Komma *am Ende*. 
 
@@ -494,13 +494,13 @@ Zu beachten ist außerdem, dass wir die Indexierung bereits in der grundlegenden
 
 Der Violinenplot ist eine Variante von Boxplots, in dem die **Dichtefunktion** eines metrischen Merkmals grafisch dargestellt wird. Diese wird an der Senkrechten zur x-Achse *gespiegelt*.
 
-<span class="ex">Um die Grafiken mit dem Boxplot aus dem letzten Abschnitt vergleichen zu können, schauen wir uns hier ebenfalls das Gewicht der Küken (`weight`) zum zweiten Messzeitpunkt (`Time 2`) in Abhängigkeit der Diät (`Diet`) an.
+Um die Grafiken mit dem Boxplot aus dem letzten Abschnitt vergleichen zu können, schauen wir uns hier ebenfalls das Gewicht der Küken (`weight`) zum zweiten Messzeitpunkt (`Time 2`) in Abhängigkeit der Diät (`Diet`) an.
 
 <aside>[Hier](#index) wird das Indexieren der Daten (zum zweiten Messzeitpunkt) erklärt.</aside>
 
 Generell können wir den Violinenplot mit `geom_violin()` erstellen. Zusätzlich gibt es hier einen sehr wichtigen Parameter: `scale`. Mit diesem legen wir fest, ob die einzelnen "Violinen" in der **gleichen Größe** <font size="2">(`area`; *voreingestellt*)</font> oder in **Größen proportional zur Anzahl der Beobachtungen in jeder Gruppe** <font size="2">(`count`)</font> dargestellt werden sollen.
 
-<span class="ex">Wir schauen uns unsere Daten einmal in beiden Modi an.
+Wir schauen uns unsere Daten einmal in beiden Modi an.
 
 ```{r}
 #| fig.width: 3.0
@@ -526,7 +526,7 @@ Wir sehen, dass die Größen derselben "Violinen" sich in den beiden Grafiken un
 # Szafir 2018: warum keine Balkendiagramme
 ```
 
-<span class="ex">_Im Folgenden schauen wir uns die finalen (`Time 21`) **Mittelwerte** des Gewichts der Küken (`weight`) in den einzelnen Futtergruppen (`Diet`) an. Dabei wollen wir außerdem die **95%-Konfidenzintervalle** für die einzelnen Mittelwerte einzeichnen._
+_Im Folgenden schauen wir uns die finalen (`Time 21`) **Mittelwerte** des Gewichts der Küken (`weight`) in den einzelnen Futtergruppen (`Diet`) an. Dabei wollen wir außerdem die **95%-Konfidenzintervalle** für die einzelnen Mittelwerte einzeichnen._
 
 <aside>[Hier](#index) wird das Indexieren der Daten (zum finalen Messzeitpunkt) erklärt.</aside>
 
@@ -622,7 +622,7 @@ ggplot(data=ChickWeight[ChickWeight$Time == 21,], aes(x=Diet, y=weight)) +
 <!-- <details><summary>Wie genau funktioniert `tapply()`?</summary><div class="more"> -->
 <!-- Mit der Funktion `tapply()` können wir eine Variable x (z.B. `weight`) nach einer anderen Variablen y (z.B. `Diet`) splitten und dann eine Funktion für jede Gruppierung (z.B. `mean`) anwenden. Die üblichen Klammern `()` hinter dem Namen der Funktion lässt man hier weg. -->
 
-<!-- <span class="code">tapply(X=<span class="ex">betrachtete Variable, INDEX=<span class="ex">Gruppierungsvariable, FUN=<span class="ex">anzuwendende Funktion) -->
+<!-- <span class="code">tapply(X=betrachtete Variable, INDEX=Gruppierungsvariable, FUN=anzuwendende Funktion) -->
 
 <!-- Als Output bekommen wir eine Liste. Um eine Matrix in einer Liste extrahieren zu können, nutzen wir zweifache eckige Klammern `[[x]]`. Um wiederum daraus Spalten oder Zeilen auszuwählen, können wir wieder einfache eckige Klammern nutzen `[y]`. Z.B. können wir uns mit `ci[[1]][1]` die untere KI-Grenze (`[1]`) des Mittelwerts der ersten Gruppe in `Diet` (`[[1]]`) ausgeben lassen. -->
 <!-- </div></details> -->
@@ -666,7 +666,7 @@ ggplot(data=ChickWeight[ChickWeight$Time == 21,], aes(x=Diet, y=weight)) +
 
 Mit Streudiagrammen <font size="2">(*Scatterplots*)</font> können wir Wertepaare zweier kontinuierlicher Variablen grafisch darstellen. Das machen wir mit `geom_point()`.
 
-<span class="ex">Wir schauen uns im Folgenden den Zusammenhang von Zeit seit dem Schlüpfen (`Time`) und dem Gewicht in Gramm (`weight`) der Küken an.
+Wir schauen uns im Folgenden den Zusammenhang von Zeit seit dem Schlüpfen (`Time`) und dem Gewicht in Gramm (`weight`) der Küken an.
 
 ```{r}
 ggplot(data=ChickWeight, aes(x=Time, y=weight)) + 
@@ -679,7 +679,7 @@ ggplot(data=ChickWeight, aes(x=Time, y=weight)) +
 
 Wenn wir sehr große Datensätze haben, könnten wir das Problem haben, dass wir individuelle Daten optisch nicht mehr gut unterscheiden können, weil viele Datenpunkte übereinander liegen. Dieses Problem nennt man auch **Overplotting**. Im Folgenden schauen wir uns einige Möglichkeiten an, wie wir das Problem beheben können. 
 
-<span class="ex">Hierfür schauen wir uns wieder den Zusammenhang von Zeit seit dem Schlüpfen (`Time`) und dem Gewicht in Gramm (`weight`) der Küken an.
+Hierfür schauen wir uns wieder den Zusammenhang von Zeit seit dem Schlüpfen (`Time`) und dem Gewicht in Gramm (`weight`) der Küken an.
 
 <h5>Punkte modifizieren</h3>
 
@@ -763,7 +763,7 @@ Datenpunkte einer bestimmten Gruppe können mit <span class ="code">**stat**_smo
 
 Hierbei müssen wir allerdings eines beachten: Zum Plotten der Punkte müssen wir `data` und `aes()` an `geom_point()`, **nicht** an `ggplot()`, übergeben (sonst bekommen wir gruppenspezifische Regressionsgeraden).
 
-<span class="ex">Wir markieren die Daten der Küken farblich nach ihrer Zugehörigkeit zur Futtergruppe (`Diet`). 
+Wir markieren die Daten der Küken farblich nach ihrer Zugehörigkeit zur Futtergruppe (`Diet`). 
 
 Das machen wir mit dem Parameter `col`, welchen wir in `geom_point(aes())` spezifizieren.
 
@@ -786,7 +786,7 @@ ggplot() + geom_point(data=ChickWeight, aes(x=Time, y=weight, col=Diet)) +
 
 <h5>Regressionsgerade eines <u>multiplen</u> linearen Regressionsmodells</h5>
 
-<span class="ex">Dafür nehmen wir `Diet` als weiteren Prädiktor auf.
+Dafür nehmen wir `Diet` als weiteren Prädiktor auf.
 
 Um die Ergebnisse einer multiplen linearen Regression zu visualisieren, können wir zwei verschiedene Möglichkeiten nutzen: 
 
@@ -866,7 +866,7 @@ Mit **Facetten** erstellen wir eine Matrix aus (Unter)Grafiken einer Art für ve
 
 Beide Grafiken können genutzt werden, wenn wir Variablen visualisieren wollen, von denen mindestens eine kategorial ist. Wir können mit ihnen mehr als drei Variablen visualisieren, wenn alle <font size="2">(Alluvial Plot)</font> bzw. alle bis auf maximal zwei <font size="2">(Facetten Plots)</font> Variablen kategorial sind. Werte kontinuierliche Variablen können wir auch in Kategorien einteilen um sie hier zu nutzen.
 
-<span class="ex">Im Folgenden nutzen wir auch den Datensatz **mpg**, weil dieser mehr kategoriale Varialen enhält als **ChickWeight**.
+Im Folgenden nutzen wir auch den Datensatz **mpg**, weil dieser mehr kategoriale Varialen enhält als **ChickWeight**.
 
 ### Mindestens eine kategoriale Variable
 
@@ -876,14 +876,14 @@ Wenn wir uns eine Art von Grafik <font size="2">(z.B. Streudiagramm)</font> in A
 
 Wir können außerdem entscheiden, wie die Facetten angeordnet sein sollen: 
 
-- <span class="code">facet_grid(<span class="ex">Variable ~ **.**)\
+- <span class="code">facet_grid(Variable ~ **.**)\
 Die Variable wird **zeilenweise** angeordnet, indem wir sie vor die Tilde schreiben *und* einen Punkt dahinter setzen.
-- <span class="code">facet_grid( ~ <span class="ex">Variable)\
+- <span class="code">facet_grid( ~ Variable)\
 Die Variable wird **spaltennweise** angeordnet, indem wir sie nach der Tilde schreiben.
 
 <aside>Die Anordnung von Zeile und Spalte in `facet_grid()` ist analog zum Indexieren von zweidimensionalen Datenstrukturen (z.B. Matrizen, Dataframes): **Z**uerst die **Z**eile, dann die Spalte.</aside>
 
-<span class="ex">Wir schauen uns die Gewichtszunahme (`weight`) über die Zeit (`Time`) getrennt für die einzelnen Experimentalgruppen (`Diet`) an.
+Wir schauen uns die Gewichtszunahme (`weight`) über die Zeit (`Time`) getrennt für die einzelnen Experimentalgruppen (`Diet`) an.
 
 ```{r}
 #| fig.width: 3.0
@@ -901,7 +901,7 @@ ggplot(data=ChickWeight, aes(x=Time, y=weight)) +
 
 Wir können auch Facetten für **mehrere** kategoriale Variablen erstellen. Das Produkt der Anzahl der Ausprägungen der Variablen gibt die Menge der (Unter)Grafiken an <font size="2">(z.B. drei Variablen mit jeweils zwei Ausprägungen: 2 x 2 x 2 = 8 Grafiken)</font>. Wenn wir mehr als zwei Variablen haben, werden Variablen, die zusammen in einer Zeile bzw. einer Spalte gestaffelt werden, mit einem `+` verbunden. Damit die einzelnen Grafiken aber noch übersichtlich bleiben, sollten wir ihre Anzahl tendenziell gering halten.
 
-<span class="ex">Wir schauen uns aus dem Datensatz **mpg** Histogramme des Hubraums (`displ`) der Autos an. Die Histogramme sind nach Jahr (`year`), Antrieb (`drv`) und Brennstofftrieb (`fl`) gestaffelt.
+Wir schauen uns aus dem Datensatz **mpg** Histogramme des Hubraums (`displ`) der Autos an. Die Histogramme sind nach Jahr (`year`), Antrieb (`drv`) und Brennstofftrieb (`fl`) gestaffelt.
 
 ```{r}
 ggplot(data=mpg, aes(x=displ)) + 
@@ -921,7 +921,7 @@ Mehr Informationen dazu, wie wir nur Plots für *einige* Gruppen erstellen, erha
 
 Alluvial Plots sind eine **Art von Flussdiagrammen**, die die Zugehörigkeit zu *mehreren* Gruppierungen visualisieren. Sie stellen somit auch eine **grafische Alternative zu Kontingenztabellen** dar.
 
-<span class="ex">Wir wollen das Gewicht der Küken zum ersten und letzten Messzeitpunkt (`Time`) in Abhängigkeit der Fütterung (`Diet`) visualisieren. Dazu werden wir die Werte der metrischen Variablen `weight` in zwei Gruppen aufteilen: größer bzw. kleiner als der Mittelwert.
+Wir wollen das Gewicht der Küken zum ersten und letzten Messzeitpunkt (`Time`) in Abhängigkeit der Fütterung (`Diet`) visualisieren. Dazu werden wir die Werte der metrischen Variablen `weight` in zwei Gruppen aufteilen: größer bzw. kleiner als der Mittelwert.
 
 **Für die Visualisierung längsschittlicher Daten müssen wir die folgenden Schritte durchlaufen:** Zuerst wählen wir die relevanten Fälle, d.h. jene zum ersten und letzten Messzeitpunkt, aus und speichern sie in einem neuen Dataframe <font size="2">(*optional*; nur wenn wir nicht alle Zeitpunkte visualisieren wollen)</font>. Diesen wandeln wir dann ins Wide-Format um. Danach erstellen wir eine neue Variable, die kodiert, ob das Gewicht eines Kükens zu einem gewissen Zeitpunkt kleiner oder größer als der Mittelwert ist. Zuletzt entfernen die nicht länger benötigten Variablen aus dem Dataframe.
 
@@ -1018,11 +1018,11 @@ ggplot(data=cont_Chick, aes(y=Freq, axis1=t0, axis2=t21)) +
 
 Um den Plot (und den Code) besser zu verstehen, werden wir noch einige wichtige Begriffe erläutern:
 
-- **axis**: vertikale Dimension einer Variablen auf der x-Achse <font size="2"><span class="ex">(weiße Balken von `t0` und `t21`)</font>
-- **stratum**: Gruppierung von axis <font size="2"><span class="ex">(für `t0` und `t21` jeweils `größer` und `kleiner`)</font>
-- **alluvium**: horizontale "Strömungen" im Hintergrund, die die kombinierten Gruppenzugehörigkeiten beschrieben <font size="2"><span class="ex">(z.B. *größer* zur *ersten Messung* und *kleiner* zur *letzten Messung*)</font> und nach einer weiteren Gruppe farblich kodiert sind <font size="2"><span class="ex">(`Diet`)</font>
+- **axis**: vertikale Dimension einer Variablen auf der x-Achse <font size="2">(weiße Balken von `t0` und `t21`)</font>
+- **stratum**: Gruppierung von axis <font size="2">(für `t0` und `t21` jeweils `größer` und `kleiner`)</font>
+- **alluvium**: horizontale "Strömungen" im Hintergrund, die die kombinierten Gruppenzugehörigkeiten beschrieben <font size="2">(z.B. *größer* zur *ersten Messung* und *kleiner* zur *letzten Messung*)</font> und nach einer weiteren Gruppe farblich kodiert sind <font size="2">(`Diet`)</font>
 
-<span class="ex">Die verschiedenen Strata zeigen uns, wie groß die Anteile an Küken sind, die ihr Gewicht gehalten oder verändert haben (jeweils im Vergleich zum Mittelwert zum jeweiligen Zeitpunkt). Wir können auch vergleichen, ob sich die Trends in den Gruppen von `Diet` unterscheiden z.B. hat Gruppe 3 den größten Zuwachs bekommen <font size="2">(erste Messung: kleiner; letzte Messung: größer)</font>.
+Die verschiedenen Strata zeigen uns, wie groß die Anteile an Küken sind, die ihr Gewicht gehalten oder verändert haben (jeweils im Vergleich zum Mittelwert zum jeweiligen Zeitpunkt). Wir können auch vergleichen, ob sich die Trends in den Gruppen von `Diet` unterscheiden z.B. hat Gruppe 3 den größten Zuwachs bekommen <font size="2">(erste Messung: kleiner; letzte Messung: größer)</font>.
 
 Mehr Informationen und weitere Beispiele für Alluvial Plots finden wir auch in der <a href="https://cran.r-project.org/web/packages/ggalluvial/vignettes/ggalluvial.html" target="_blank">Dokumentation des Pakets</a>.
 
@@ -1031,7 +1031,7 @@ Im folgenden Abschnitt werden noch weitere Erweiterungen vorgestellt z.B. wie wi
 
 ## Modifikationen
 
-Nachfolgend schauen wir uns einige Möglichkeiten der Modifikation von Grafiken an. <span class="ex">Als Beispiele nutzen wir dafür die bisher erstellten Grafiken.
+Nachfolgend schauen wir uns einige Möglichkeiten der Modifikation von Grafiken an. Als Beispiele nutzen wir dafür die bisher erstellten Grafiken.
 
 > *__Achtung__*:  Wenn wir in der **R**-Dokumentation nach **ggplot2-specs** suchen, finden wir eine Übersicht der ästhetischen Spezifikationen wie z.B. **Farben**, **Linientypen**, **Punktformen**, **Schriftarten**, **Textausrichtung** etc.
 
@@ -1260,17 +1260,17 @@ ggplot(data=ChickWeight, aes(x=Time, y=weight)) + geom_point() +
 
 <h4>Ausprägung von Variablen</h4>
 
-Mit `geom_text()` <font size="1"><span class="ex">(Bsp. 1 und 2)</font> oder `geom_label()` <font size="1"><span class="ex">(Bsp. 3 und 4)</font> können wir Ausprägungen einer Variablen als Text in unsere Grafik einfügen. 
+Mit `geom_text()` <font size="1">(Bsp. 1 und 2)</font> oder `geom_label()` <font size="1">(Bsp. 3 und 4)</font> können wir Ausprägungen einer Variablen als Text in unsere Grafik einfügen. 
 
 > *__Achtung__*: Allerdings können wir die Funktionen **nicht** bei [Facetten](#facetten-facet-grids) anwenden.
 
 Beide Funktionen machen fast das Gleiche. Optisch unterscheiden sie sich dadurch, dass `geom_label()` den Text zusätzlich mit einem weißen Feld hinterlegt.
 
-Unseren **Text** übergeben wir an `aes(label)`, welches sowohl in `ggplot()` <font size="1"><span class="ex">(Bsp. 1 und 3)</font>, als auch in `geom_text()` bzw. `geom_label()` <font size="1"><span class="ex">(Bsp. 2 und 4)</font> spezifiziert werden kann.
+Unseren **Text** übergeben wir an `aes(label)`, welches sowohl in `ggplot()` <font size="1">(Bsp. 1 und 3)</font>, als auch in `geom_text()` bzw. `geom_label()` <font size="1">(Bsp. 2 und 4)</font> spezifiziert werden kann.
 
-Zusätzlich können wir die **Ausrichtung** des Texts anpassen. Dazu nutzen wir `hjust` <font size="2">(**h**orizontal)</font> und `vjust` <font size="2">(**v**ertikale)</font> <font size="1"><span class="ex">(Bsp. 2 und 4)</font>, welchen wir einen Wert zwischen 0 und 1 übergeben (Default: `hjust=0.5` und `vjust=0.5`). Wir können auch Werte außerhalb von 0 bis 1 spezifizieren; allerdings wird in der Dokumentation davon abgeraten <font size="2">(ohne weitere Begründung; mehr Informationen dazu in der Dokumentation von *ggplot2-specs*)</font>.
+Zusätzlich können wir die **Ausrichtung** des Texts anpassen. Dazu nutzen wir `hjust` <font size="2">(**h**orizontal)</font> und `vjust` <font size="2">(**v**ertikale)</font> <font size="1">(Bsp. 2 und 4)</font>, welchen wir einen Wert zwischen 0 und 1 übergeben (Default: `hjust=0.5` und `vjust=0.5`). Wir können auch Werte außerhalb von 0 bis 1 spezifizieren; allerdings wird in der Dokumentation davon abgeraten <font size="2">(ohne weitere Begründung; mehr Informationen dazu in der Dokumentation von *ggplot2-specs*)</font>.
 
-<span class="ex">**Beispiel 1 und 2** zeigen die Gewichtsveränderung (x-Achse: `Time`, y-Achse: `weight`) über die Zeit von Küken 1 (`ChickWeight$Chick == 1`). Wir beschriften die
+**Beispiel 1 und 2** zeigen die Gewichtsveränderung (x-Achse: `Time`, y-Achse: `weight`) über die Zeit von Küken 1 (`ChickWeight$Chick == 1`). Wir beschriften die
 Datenpunkte mit den jeweiligen Messzeitpunkten (`aes(label=Time)`).
 
 ```{r}
@@ -1289,7 +1289,7 @@ ggplot(data=ChickWeight[ChickWeight$Chick == 1,],
   geom_text(aes(label=Time), vjust=1)
 ```
 
-<span class="ex">**Beispiel 3 und 4** zeigen die Gewichtsverteilung der Küken in den Futtergruppen (x-Achse: `Diet`, y-Achse: `weight`) zum letzten Messzeitpunkt (`Time 21`). Wir beschriften die Datenpunkte mit den jeweiligen Nummern der Küken (`aes(label=Chick)`).
+**Beispiel 3 und 4** zeigen die Gewichtsverteilung der Küken in den Futtergruppen (x-Achse: `Diet`, y-Achse: `weight`) zum letzten Messzeitpunkt (`Time 21`). Wir beschriften die Datenpunkte mit den jeweiligen Nummern der Küken (`aes(label=Chick)`).
 
 ```{r}
 #| fig.width: 3.0
@@ -1316,9 +1316,9 @@ Wenn wir einen eigenen Text in eine Grafik schreiben wollen, können wir `annota
 
 Anders als bei den Funktionen im vorhergehenden Abschnitt *müssen* wir eine Position festlegen (weil unser Text nicht zu bestehenden Datenpunkten gematcht wird). Dafür können wir `x` und `y`  nutzen. Diese entsprechen den Maßen der Einheiten der jeweiligen Achsen.
 
-<span class="ex">**Beispiel 1** zeigt die Gewichtsveränderung (x-Achse: `Time`, y-Achse: `weight`) über die Zeit von Küken 1 (`ChickWeight$Chick == 1`).
+**Beispiel 1** zeigt die Gewichtsveränderung (x-Achse: `Time`, y-Achse: `weight`) über die Zeit von Küken 1 (`ChickWeight$Chick == 1`).
 
-<span class="ex">**Beispiel 2** zeigt die Gewichtsverteilung der Küken in den Futtergruppen (x-Achse: `Diet`, y-Achse: `weight`) zum letzten Messzeitpunkt (`Time 21`).
+**Beispiel 2** zeigt die Gewichtsverteilung der Küken in den Futtergruppen (x-Achse: `Diet`, y-Achse: `weight`) zum letzten Messzeitpunkt (`Time 21`).
 
 ```{r}
 #| fig.width: 3.0
@@ -1364,7 +1364,7 @@ Der Einfachheit halber nutzen wir zur Kodierung von Gruppen häufig Zahlen, wie 
 
 Mit `levels()` können wir uns nicht nur die verschiedenen Stufen eines Faktors ausgeben lassen. Wir können die Funktion außerdem nutzen, um die Benennung der Stufen zu ändern.
 
-<span class="ex">Im Folgenden ändern wir die Benennungen der Gruppen von `Diet`.
+Im Folgenden ändern wir die Benennungen der Gruppen von `Diet`.
 
 ```{r}
 #| label: alternative names
@@ -1382,7 +1382,7 @@ Die Reihenfolge von Faktorstufen ist bei Wortketten standardmäßig alphabetisch
 
 Die Sortierung des Faktors können wir mit der Funktion `factor()` ändern. Dem Parameter `x` übergeben wir die Variable; `levels` einen <span class="r">character-Vektor mit der neuen Sortierung.
 
-<span class="ex">Wir ändern die Reihenfolge der Gruppen von `Diet`.
+Wir ändern die Reihenfolge der Gruppen von `Diet`.
 
 ```{r}
 #| label: alternative naming
@@ -1413,7 +1413,7 @@ Manchmal ist es sinnvoll, die Achsengrenzen von x- und y-manuell zu ändern, bei
 Im Abschnitt zu [Facetten](#facetten-facet-grids) 
 haben wir gelernt, wie wir einzelne Grafiken für jede Ausprägung einer kategorialen Variablen (bzw. für jede Kombination von Ausprägungen mehrerer kategorialer Veriablen) erstellen können. Diese werden jedoch kleiner dargestellt, je mehr Gruppierungen es gibt. Wenn wir ohnehin nur spezifische Gruppen vergleich wollen, können wir für diese **manuell Grafiken erstellen**.
 
-<span class="ex">Wenn wir uns für die Gewichtszunahme (`weight`) in den Gruppen (`Diet`) zu Beginn (`Time 0`) und zum Ende (`Time 21`) des Experiments interessieren, dann können manuell beide Grafiken erstellen.
+Wenn wir uns für die Gewichtszunahme (`weight`) in den Gruppen (`Diet`) zu Beginn (`Time 0`) und zum Ende (`Time 21`) des Experiments interessieren, dann können manuell beide Grafiken erstellen.
 
 <aside>[Hier](#index) wird das Indexieren der Daten erklärt.</aside>
 
@@ -1505,7 +1505,7 @@ So können wir die Verteilungen von `weight` in den `Diet`-Gruppen zu den zwei Z
 
 Manchmal möchten wir in einer bestehende Grafik noch zusätzliche statistische Kennwerte einfügen. Dazu können wir `stat_summary()` nutzen. Damit können wir verschiedenen Kennwerte **von y** <font size="2">(z.B. den Mittelwert, den Median, oder den minimalen und maximalen Wert)</font> in eine Grafik einzeichnen. 
 
-<span class="ex">Als Beispiel schauen wir uns ein Streudiagramm des Gewichts der Küken (`weight`) in Abhängigkeit ihrer Diät (`Diet`) am 10. Tag (`Time 10`) an.
+Als Beispiel schauen wir uns ein Streudiagramm des Gewichts der Küken (`weight`) in Abhängigkeit ihrer Diät (`Diet`) am 10. Tag (`Time 10`) an.
 
 Per Default wird mit `stat_summary()` <font size="2">(ohne Spezifikation von Argumenten)</font> der Mittelwert (als Punkt), umschlossen vom Standardfehler des Mittelwerts (als Linie), eingezeichnet. 
 

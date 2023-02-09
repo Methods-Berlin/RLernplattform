@@ -37,7 +37,7 @@ Fangen wir damit an, was Funktionen und Pakete sind, warum wir diese nutzen und 
 
 <span class="highlight q">Warum ist es sinnvoll, Funktionen zu nutzen?
 
-<span class="ex">Wenn wir beispielsweise den Mittelwert einer Zahlenreihe errechnen wollen, nutzen wir folgenden Code:
+Wenn wir beispielsweise den Mittelwert einer Zahlenreihe errechnen wollen, nutzen wir folgenden Code:
 
 ```{r}
 # Mittelwert der Zahlenreihe selbst berechnen
@@ -57,7 +57,7 @@ nums
 mean(x = nums)
 ```
 
-Wir können Funktionen **variierenden Input** übergeben. Dieser steht immer in Klammern direkt hinter der Funktion. <span class="ex">Beispielsweise könnten wir auch den Mittelwert einer anderen Zahlenreihe als `nums` berechnen.
+Wir können Funktionen **variierenden Input** übergeben. Dieser steht immer in Klammern direkt hinter der Funktion. Beispielsweise könnten wir auch den Mittelwert einer anderen Zahlenreihe als `nums` berechnen.
 
 Den Input übergeben wir an einen <span class="highlight">Parameter. Das ist eine (formale) *Variable* einer Funktion <font size="2">(z.B. <span class="code">mean(**x**))</font>, die in der Funktionsdefinition festgelegt ist. Der tatsächliche *Input* nennt sich <span class="highlight">Argument <font size="2">(z.B. <span class="code">mean(x = **nums**))</font>. Die Parameter einer Funktion werden mit Kommata getrennt. Schematisch sieht eine Funktion somit folgendermaßen aus: <font size="2"><span class="code">function(parameter_1 = argument_1, parameter_2 = argument_2, ...)</font>
 
@@ -72,11 +72,11 @@ knitr::include_graphics("figures/Einführung/Bilder/R/mean.png")
 
 <aside>Die Funktionsdefinition finden wir in der Dokumentation, welche wir in <span class="r">RStudio unter [Files, Plots, Packages, Help & Viewer][Files, Plots, Packages, Help & Viewer] </aside>
 
-Manche Parameter besitzen *voreingestellte Argumente* <font size="2"><span class="ex">(z.B. `na.rm=FALSE`)</font>, diese bezeichnet man als <span class="highlight">Defaults. Funktionen mit (min. einem) Parameter *ohne* Default <span class="ex"><font size="2">(z.B. `mean()`)</font> werden ohne Spezifikation dieser nicht ausgeführt. <span class="ex">Beispielsweise *müssen* wir dem Parameter `x` einen Vektor, von dem wir den Mittelwert berechnen wollen, übergeben.
+Manche Parameter besitzen *voreingestellte Argumente* <font size="2">(z.B. `na.rm=FALSE`)</font>, diese bezeichnet man als <span class="highlight">Defaults. Funktionen mit (min. einem) Parameter *ohne* Default <font size="2">(z.B. `mean()`)</font> werden ohne Spezifikation dieser nicht ausgeführt. Beispielsweise *müssen* wir dem Parameter `x` einen Vektor, von dem wir den Mittelwert berechnen wollen, übergeben.
 
-Parameter ermöglichen uns aber nicht nur, eine Aufgabe mit verschiedenen Daten durchzuführen, sondern auch weitere Optionen zu wählen <span class="ex"><font size="2">(z.B. `na.rm`: Ausschluss von fehlenden Werten; `trim`: trimmen der Enden der Verteilung der Zahlenreihe vor Berechnung des Mittelwerts)</font>. 
+Parameter ermöglichen uns aber nicht nur, eine Aufgabe mit verschiedenen Daten durchzuführen, sondern auch weitere Optionen zu wählen <font size="2">(z.B. `na.rm`: Ausschluss von fehlenden Werten; `trim`: trimmen der Enden der Verteilung der Zahlenreihe vor Berechnung des Mittelwerts)</font>. 
 
-<span class="ex">Wenn unsere Zahlenreihe beispielsweise fehlende Werte <font size="2">(in <span class="r">R: `NA`)</font> besitzt, müssen wir den Default von `mean(..., na.rm=FALSE)` ändern, sodass fehlende Werte aus der Berechnung entfernt werden.
+Wenn unsere Zahlenreihe beispielsweise fehlende Werte <font size="2">(in <span class="r">R: `NA`)</font> besitzt, müssen wir den Default von `mean(..., na.rm=FALSE)` ändern, sodass fehlende Werte aus der Berechnung entfernt werden.
 
 ```{r}
 # fehlenden Wert hinzufügen
@@ -116,15 +116,15 @@ mean(nums, 0, TRUE)
 So erleichtern uns Funktionen unsere Arbeit. Zusammengefasst hat die Nutzung von Funktionen folgende Vorteile:
 
 - <font color="#009193">**Organisation**</font>\
-Programme <font size="2">(z.B. statistische Analysen)</font> können sehr komplex werden. Durch die Nutzung von Funktionen teilen wir unser komplexes Programm in mehrere, kleinere (Unter)Programme <span class="ex"><font size="2">(z.B. Vektor erstellen, Mittelwert berechnen, ...)</font>.
+Programme <font size="2">(z.B. statistische Analysen)</font> können sehr komplex werden. Durch die Nutzung von Funktionen teilen wir unser komplexes Programm in mehrere, kleinere (Unter)Programme <font size="2">(z.B. Vektor erstellen, Mittelwert berechnen, ...)</font>.
 - <font color="#009193">**Wiederverwendbarkeit**</font>\
-Wir können Funktionen immer wieder aufrufen. So wird unser Programm kompakter <font size="2">(**DRY**-Prinzip, Don't Repeat Yourself)</font> und wir reduzieren Fehler durch Kopieren von Code <span class="ex"><font size="2">(z.B. Verzählen bei den Elementen durch die wir teilen wollen)</font>.
+Wir können Funktionen immer wieder aufrufen. So wird unser Programm kompakter <font size="2">(**DRY**-Prinzip, Don't Repeat Yourself)</font> und wir reduzieren Fehler durch Kopieren von Code <font size="2">(z.B. Verzählen bei den Elementen durch die wir teilen wollen)</font>.
 - <font color="#009193">**Testen**</font>\
-Weil wir weniger (redundanten) Code haben, können wir schneller Fehler finden <span class="ex"><font size="2">(z.B. Tippfehler, fehlende Elemente)</font>. 
+Weil wir weniger (redundanten) Code haben, können wir schneller Fehler finden <font size="2">(z.B. Tippfehler, fehlende Elemente)</font>. 
 - <font color="#009193">**Erweiterbarkeit**</font>\
-Funktionen können erweitert werden, um verschiedene Szenarien zu händeln. Meist hat das schon jemand für uns gemacht. Wir müssen den Parametern einer Funktion nur verschiedene Argumente übergeben <span class="ex"><font size="2">(z.B. `na.rm=TRUE` zum Ausschluss von fehlenden Werten)</font>. 
+Funktionen können erweitert werden, um verschiedene Szenarien zu händeln. Meist hat das schon jemand für uns gemacht. Wir müssen den Parametern einer Funktion nur verschiedene Argumente übergeben <font size="2">(z.B. `na.rm=TRUE` zum Ausschluss von fehlenden Werten)</font>. 
 - <font color="#009193">**Abstraktion**</font>\
-Wir müssen die Funktion nicht im Detail verstehen. Es reicht zu wissen, wie der *Name* der Funktion ist <font size="2"><span class="ex">(`mean()`)</font>, welchen *Input* wir übergeben <font size="2"><span class="ex">(`x`; `trim` und `na.rm` optional weil mit Default)</font> und welchen *Output* <font size="2"><span class="ex">(arithmetisches Mittel)</font> wir bekommen und wo wir die Funktion finden, d.h. aus welchem *Paket* <font size="2"><span class="ex">(base)</font> sie stammt. All diese Informationen erhalten wir in der Dokumentation der Funktion z.B. in <span class="r">RStudio unter @sec-files-plots-packages-help-viewer. 
+Wir müssen die Funktion nicht im Detail verstehen. Es reicht zu wissen, wie der *Name* der Funktion ist <font size="2">(`mean()`)</font>, welchen *Input* wir übergeben <font size="2">(`x`; `trim` und `na.rm` optional weil mit Default)</font> und welchen *Output* <font size="2">(arithmetisches Mittel)</font> wir bekommen und wo wir die Funktion finden, d.h. aus welchem *Paket* <font size="2">(base)</font> sie stammt. All diese Informationen erhalten wir in der Dokumentation der Funktion z.B. in <span class="r">RStudio unter @sec-files-plots-packages-help-viewer. 
 
 Auf <a href="https://www.freecodecamp.org" target="_blank">freecodecamp.org</a> finden wir eine kurze Einführung zu <span class="r">R: <a href="https://www.freecodecamp.org/news/r-programming-language-explained/" target="_blank"><span class="r">R Programming Language explained</a>. Es lohnt sich, **vertiefend den Part zu <a href="https://www.freecodecamp.org/news/r-programming-language-explained/#functions-in-r" target="_blank">Funktionen</a> anzuschauen** <font size="2">(~ 10min)</font>, um ein besseres Verständnis für die Arbeit mit <span class="r">R zu bekommen.
 
@@ -135,7 +135,7 @@ Auf <a href="https://www.freecodecamp.org" target="_blank">freecodecamp.org</a> 
 
 Es gibt <font color="#009193">**Standardpakete**</font>, die man automatisch mit dem Download von <span class="r">R erhält und deren Funktionen und Dateien man einfach nutzen kann. Diese sind **base** <font size="2">(basale Funktionen wie z.B. `c()` und `mean()`, die wir gerade genutzt haben)</font>, **datasets** <font size="2">(Beispieldatensätze)</font>, **graphics** <font size="2">(Grafiken erstellen)</font>, **grDevices** <font size="2">(Farben und Schriften)</font>, **methods** <font size="2">(Methoden und Klassen erstellen bzw. Informationen erhalten)</font>, **stats** <font size="2">(statistische Methoden)</font> und **utils** <font size="2">(z.B. Informationen zu Add-On Paketen erhalten und diese herunterladen)</font>.
 
-<span class="ex">Zum Beispiel können wir mit der Funktion `data()` auf die in **datasets** enthaltenen Datensatze zugreifen. </font>
+Zum Beispiel können wir mit der Funktion `data()` auf die in **datasets** enthaltenen Datensatze zugreifen. </font>
 
 <aside>data {utils}</aside>
 
@@ -151,7 +151,7 @@ Die Größe des Datensatzes sehen wir mit `dim()`.
 dim(women)
 ```
 
-<span class="ex">Der Datensatz **women** enthält 15 Fälle <font size="2">(Zeilen)</font> und zwei Variablen <font size="2">(Spalten)</font>.</font> 
+Der Datensatz **women** enthält 15 Fälle <font size="2">(Zeilen)</font> und zwei Variablen <font size="2">(Spalten)</font>.</font> 
 
 Die Namen der Variablen erfahren wir mit `names()`.
 
@@ -166,7 +166,7 @@ Mit den Funktionen aus den Standardpaketen können wir schon vieles machen. Weil
 
 Add-on Pakete müssen wir einmalig **herunterladen** und jedes Mal, wenn wir sie (in einer <span class="r">R-Session) nutzen wollen, **laden**.
 
-<span class="ex">Ein bei PsychologInnen beliebtes Paket ist **psych**. Dieses enthält Funktionen, die häufig in der Persönlichkeitspsychologie und Psychometrie genutzt werden.
+Ein bei PsychologInnen beliebtes Paket ist **psych**. Dieses enthält Funktionen, die häufig in der Persönlichkeitspsychologie und Psychometrie genutzt werden.
 
 Wir können ein Add-on Paket mit folgendem Befehl **herunterladen**:
 
@@ -175,7 +175,7 @@ Wir können ein Add-on Paket mit folgendem Befehl **herunterladen**:
 install.packages("psych") # auf Anführungszeichen achten!
 ```
 
-<span class="ex">Die im Paket enthaltene Funktion `describe()` gibt uns beispielsweise eine kompakte Übersicht relevanter deskriptiv-statistischer Kennwerte von Daten aus. 
+Die im Paket enthaltene Funktion `describe()` gibt uns beispielsweise eine kompakte Übersicht relevanter deskriptiv-statistischer Kennwerte von Daten aus. 
 
 <!--Die Daten müssen dafür zweidimensional sein <font size="2">(d.h. als Matrix oder Data Frame vorliegen)</font>.   # laut Dok, aber funktioniert auch bei Vektoren 
 <aside>Mehr Informationen zur Organisation von Daten später unter [Datenstrukturen](Einfuehrung_in_R.qmd#Datenstrukturen).</aside>
@@ -188,7 +188,7 @@ library(psych) # keine Anführungszeichen notwendig
 describe(women)
 ```
 
-<span class="ex">Mit `describe` erhalten wir folgende Informationen zu jeder Variable im Data Frame bzw. Matrix: Namen, Spaltennummer (`vars`), Anzahl (gültiger) Fälle (`n`), Mittelwert (`mean`), Standarabweichung (`sd`), Median (`median`), getrimmter Mittelwert (`trimmed`), Median Absolute Deviation (`mad`), Minimum (`min`), Maximum (`max`), Schiefe (`skew`), Exzess (`kurtosis`) und Standardfehler des Mittelwerts (`se`).
+Mit `describe` erhalten wir folgende Informationen zu jeder Variable im Data Frame bzw. Matrix: Namen, Spaltennummer (`vars`), Anzahl (gültiger) Fälle (`n`), Mittelwert (`mean`), Standarabweichung (`sd`), Median (`median`), getrimmter Mittelwert (`trimmed`), Median Absolute Deviation (`mad`), Minimum (`min`), Maximum (`max`), Schiefe (`skew`), Exzess (`kurtosis`) und Standardfehler des Mittelwerts (`se`).
 
 <aside>Diese Informationen finden wir in der Dokumentation, welche wir unter @sec-files-plots-packages-help-viewer in <span class="r">RStudio ansehen können.</aside>
 
@@ -577,7 +577,7 @@ Wenn wir arithmetische Operatoren (v.a. Division) anwenden, dann werden unsere g
 
 Hier haben wir mit dem `L` hinter den (ganzen) Zahlen (`c(1L, 4L)`) *explizit festgelegt*, dass wir diese als <span class="r">integer speichern wollen.
 
-Wenn wir **<span class="r">integer**-Zahlen**folgen** erstellen wollen, können wir das auch mit <span class="code"><span class="ex">Anfang:<span class="ex">Ende machen.
+Wenn wir **<span class="r">integer**-Zahlen**folgen** erstellen wollen, können wir das auch mit <span class="code">Anfang:Ende machen.
 
 ```{r}
 vek_7 <- 2:5
@@ -845,7 +845,7 @@ df_1["Fall_1",] # erste Zeile
 ```
 
 
-**Spalten** können wir uns auch mit dem \$-Operator ausgeben lassen mit der Form <span class="code"><span class="ex">df_name**$**<span class="ex">spalten_name.
+**Spalten** können wir uns auch mit dem \$-Operator ausgeben lassen mit der Form <span class="code">df_name**$**spalten_name.
 
 ```{r}
 df_1$AV
@@ -883,7 +883,7 @@ obj
 
 Alle Objekte, die derzeit in <span class="r">R vorhanden sind, bekommen wir mit `ls()` angezeigt. 
 
-Wenn wir Objekte löschen wollen, nutzen wir `rm()`. Mit <span class="code">rm(<span class="ex">objekt_1, <span class="ex">objekt_2>, ...) löschen wir einzelne Objekte; mit `rm(list = ls())` löschen wir alle.
+Wenn wir Objekte löschen wollen, nutzen wir `rm()`. Mit <span class="code">rm(objekt_1, objekt_2>, ...) löschen wir einzelne Objekte; mit `rm(list = ls())` löschen wir alle.
 
 Zur **Benennung** von Objekten ist folgendes zu wissen:
 

@@ -176,7 +176,7 @@ knitr::include_graphics("figures/Einführung/Bilder/RStudio/environ_bsp.png")
 Die Objekte werden in zwei Kategorien aufgeteilt:
 
 - Unter **Data** finden wir *Data Frames*, *Listen* und *Matrizen*. Bei allen bekommen wir die Länge der einzelnen Dimensionen angezeigt <font size="2">(**Dataframe**: obs. = Zeilen, variables = Spalten; **Matrix**: [Zeilen, Spalten]; **Liste**: List of ...)</font>. Data Frames werden mit einem vorangestellten <img src="figures/Einführung/Bilder/RStudio/df.png" style=" width:2%" /> markiert. Bei Matrizen bekommen wir zusätzlich die ersten Elemente angezeigt. Durch Klicken können wir uns diese Objekte im Data Viewer anschauen <font size="2">(alternativ zu `View()`)</font>. 
-- Unter **Values** finden wir *Vektoren.* Wir bekommen die selben Informationen angezeigt, die uns <span class="code">str(<span class="ex">vektor) gibt: Datentyp, Länge, ersten 10 Elemente. Bei Faktoren wird uns de facto nicht der Datentyp sondern die -struktur angezeigt. Der Datentyp ist eigentlich auch irrelevant, weil es nur eine diskrete Anzahl an Ausprägungen gibt, die uns auch angezeigt wird. Die Länge des Faktors erfahren wir auch nicht.
+- Unter **Values** finden wir *Vektoren.* Wir bekommen die selben Informationen angezeigt, die uns <span class="code">str(vektor) gibt: Datentyp, Länge, ersten 10 Elemente. Bei Faktoren wird uns de facto nicht der Datentyp sondern die -struktur angezeigt. Der Datentyp ist eigentlich auch irrelevant, weil es nur eine diskrete Anzahl an Ausprägungen gibt, die uns auch angezeigt wird. Die Länge des Faktors erfahren wir auch nicht.
 
 <aside>
 \
@@ -242,7 +242,7 @@ Die `R`-Dokumentation bietet uns umfassende Hilfe zum Umgang mit `R` im Allgemei
 knitr::include_graphics("figures/Einführung/Bilder/RStudio/help.png")
 ```
 
-Den Namen der Funktion geben wir in das <font color="red">Suchfeld</font> ein. Alternativ können wir auch die Funktionen <span class="code">help(<span class="ex">funktion) oder <span class="code">?<span class="ex">funktion nutzen. Wenn wir auf <img src="figures/Einführung/Bilder/RStudio/new window.png" style=" width:3%"/> klicken, öffnet sich die Dokumentationsseite in einem neuen Fenster, was die Nutzung wesentlich übersichtlicher gestaltet. 
+Den Namen der Funktion geben wir in das <font color="red">Suchfeld</font> ein. Alternativ können wir auch die Funktionen <span class="code">help(funktion) oder <span class="code">?funktion nutzen. Wenn wir auf <img src="figures/Einführung/Bilder/RStudio/new window.png" style=" width:3%"/> klicken, öffnet sich die Dokumentationsseite in einem neuen Fenster, was die Nutzung wesentlich übersichtlicher gestaltet. 
 
 ```{r}
 #| out.width: 500px
@@ -263,7 +263,7 @@ Neben der Informationen, aus welchem Paket eine Funktion stammt, finden wir hier
 
 <p style="line-height:10px;"></p>
 
-Im Folgenden schauen wir uns die **R**-Dokumentation exemplarisch für die Funktion <span class="ex">`matrix()` an. 
+Im Folgenden schauen wir uns die **R**-Dokumentation exemplarisch für die Funktion `matrix()` an. 
 
 <span class = "ex">Dazu öffnen wir die dazugehörige **R**-Dokumentations-Seite, indem wir *matrix* in das <font color ="#FF1D00">Suchfeld</font> eingeben, oder eine der Hilfe-Funktionen, `help(matrix)` oder `?matrix`, ausführen. Folgende Seite sollte sich nun öffnen:
 
@@ -302,7 +302,7 @@ knitr::include_graphics("figures/Einführung/Bilder/RStudio/doc 3.png")
 * <span class = "ex">... wird die Matrix spaltenweise <font size="2">(d.h. von oben nach unten)</font> mit Werten befüllt (`byrow=FALSE`)
 * <span class = "ex">... gibt es keine Spalten- und Zeilenbenennung (`dimnames=NULL`)
 
-<span class="ex">Um Defaults besser zu verstehen, führen wir `matrix()` ohne Spezifikation der Parameter aus und schauen uns den Output an.
+Um Defaults besser zu verstehen, führen wir `matrix()` ohne Spezifikation der Parameter aus und schauen uns den Output an.
 
 ```{r}
 #| echo: false
@@ -342,7 +342,7 @@ Wenn die Anzahl der Elemente, die wir an `data` übergeben, kleiner ist, als die
 matrix(data=c(1,1,2,2,3), nrow=3, ncol=2)
 ```
 
-<span class="ex">In Beispiel 1 und 2 können wir auch die Auswirkung des Default `byrow=FALSE` sehen. Bei beiden wurden die Elemente *spaltenweise* in die Matrix eingetragen, *ohne* dass wir das so festgelegt haben.
+In Beispiel 1 und 2 können wir auch die Auswirkung des Default `byrow=FALSE` sehen. Bei beiden wurden die Elemente *spaltenweise* in die Matrix eingetragen, *ohne* dass wir das so festgelegt haben.
 
 <img src="figures/Buttons/exclam.png" class="exclam out-rows" alt="exclamation"/> Es ist ratsam, vor der Nutzung einer (unbekannten) Funktionen oder bei einer Fehlermeldung zu einer Funktion im Abschnitt <span class="r">**Details** nachzuschauen. Oftmals findet man hier hilfreiche Erklärungen. 
 

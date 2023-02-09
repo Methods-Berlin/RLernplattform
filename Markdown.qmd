@@ -392,7 +392,7 @@ Wir können mit **<span class="r">R-Code in den Code Chunks** außerdem auch Gra
 
 Bei <span class="highlight">Grafiken müssen wir nichts weiter beachten. Wir können denselben <span class="r">R-Code nutzen wie auch in einem <span class="r">R-Skript <font size="2">(.R)</font>.
 
-Wenn wir lokal gespeicherte <span class="highlight">Bilder integrieren wollen, können wir die Funktion <span class="code">include_graphics("<span class="ex">dateipfad") aus dem Paket **knitr** nutzen. Dieses wurde (standardmäßig) automatisch heruntergeladen, als wir rmarkdown installiert haben.
+Wenn wir lokal gespeicherte <span class="highlight">Bilder integrieren wollen, können wir die Funktion <span class="code">include_graphics("dateipfad") aus dem Paket **knitr** nutzen. Dieses wurde (standardmäßig) automatisch heruntergeladen, als wir rmarkdown installiert haben.
 
 <aside>\
 **knitr** ist das Paket, welches unseren <span class="r">R-Code im Rmd ausführt.</aside>

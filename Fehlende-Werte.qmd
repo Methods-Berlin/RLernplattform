@@ -102,7 +102,7 @@ sort(unique(daten$Var_3), na.last=TRUE)
 
 Wenn man also alle möglichen Ausprägungen der Variablen kennt, kann man auf diese Weise einfach herausfinden, ob noch anderweitig kodierte Missings im Datensatz vorliegen.  
 
-Wenn der Datensatz sehr groß ist, ist der oben gezeigte Ansatz allerdings sehr mühsam. Dann können wir die Funktion `sapply()` integrieren, um `unique()` und `sort()` auf jede Variable im Datensatz anzuwenden. Diese hat die Form <span class="code">sapply(<span class="ex">Daten, <span class="ex">Funktion).
+Wenn der Datensatz sehr groß ist, ist der oben gezeigte Ansatz allerdings sehr mühsam. Dann können wir die Funktion `sapply()` integrieren, um `unique()` und `sort()` auf jede Variable im Datensatz anzuwenden. Diese hat die Form <span class="code">sapply(Daten, Funktion).
 
 Da wir zwei Funktionen auf den Datensatz anwenden wollen - `unique()` und `sort()` - müssen wir `sapply()` zweimal anwenden:
 
@@ -258,7 +258,7 @@ table(is.na(daten[,1])) # Datensatz[,Spaltenindex]
 table(is.na(daten[1,])) # Datensatz[,Zeilenindex]
 ```
 
-> *__Achtung__*:  Die ersten drei vorgestellten Möglichkeiten, `$` und <span class="code"><span class="ex">Datensatz["<span class="ex">Spalten- bzw. Zeilenname"],  funktionieren nur bei __Dataframes__, und nicht bei Matrizen. Die Möglichkeit der **Indexierung** können wir auch bei **Matrizen** nutzen. 
+> *__Achtung__*:  Die ersten drei vorgestellten Möglichkeiten, `$` und <span class="code">Datensatz["Spalten- bzw. Zeilenname"],  funktionieren nur bei __Dataframes__, und nicht bei Matrizen. Die Möglichkeit der **Indexierung** können wir auch bei **Matrizen** nutzen. 
 
 <aside>Mehr Informationen zu Datenstrukturen finden wir im Kapitel [Einführung in R](Einfuehrung_in_R.qmd).</aside>
 
@@ -512,7 +512,7 @@ Dazu schauen wir uns exemplarisch drei verschiedene Funktionen und einige ihrer 
 
 Mit `lm()` können wir eine (einfache oder multiple) lineare Regression durchführen. Mit dem Parameter `na.action` können wir über den Umgang mit den Missings bestimmen. Ein mögliches Argument dafür ist <span class="code"><span class=" highlight">na.omit. Dabei wird bei Vorhandenseins eines Missings in einer Zeile die **komplette Zeile** aus der Berechnung genommen <font size="2">(<span class="highlight">*listwise/casewise deletion*)</font>. Das ist der Default dieser Funktion. 
 
-In manchen Situationen ist es wichtig, **Informationen darüber zu haben, _wo_ Missings in einer Zeile sind** <font size="2">(z.B. bei der Prüfung der Annahmen der Unabhängigkeit der Fehlerterme in der Multiplen Linearen Regression)</font>. Wenn ich beispielsweise einen Boxplot der Residuen einer linearen Regression in einer bestimmten Gruppe erstellen möchte, benötige ich einen Vektor der Residuen, in dem noch die Information darüber enthalten ist, in welcher Zeile Werte fehlen. Wenn der Residuenvektor und der Gruppenvektor unterschiedliche Zeilenanzahlen - in Abhängigkeit der Missings - haben, kann ich den Boxplot sonst nicht erstellen. Dafür nutzen wir das Argument <span class="code"><span class=" highlight">na.exclude. Hierbei werden die Indizes der Missings nicht einfach gelöscht (und dadurch die Zeilenanzahl reduziert) sondern gespeichert. Ansonsten ist die Berechnung äquivalent zu `na.omit` <font size="2">(d.h. auch <span class="highlight">*listwise/casewise deletion*)</font>. Mittels <span class="code">residuals(<span class="ex">lm_Ergebnisobjekt) können wir dann den Residuenvektor extrahieren. 
+In manchen Situationen ist es wichtig, **Informationen darüber zu haben, _wo_ Missings in einer Zeile sind** <font size="2">(z.B. bei der Prüfung der Annahmen der Unabhängigkeit der Fehlerterme in der Multiplen Linearen Regression)</font>. Wenn ich beispielsweise einen Boxplot der Residuen einer linearen Regression in einer bestimmten Gruppe erstellen möchte, benötige ich einen Vektor der Residuen, in dem noch die Information darüber enthalten ist, in welcher Zeile Werte fehlen. Wenn der Residuenvektor und der Gruppenvektor unterschiedliche Zeilenanzahlen - in Abhängigkeit der Missings - haben, kann ich den Boxplot sonst nicht erstellen. Dafür nutzen wir das Argument <span class="code"><span class=" highlight">na.exclude. Hierbei werden die Indizes der Missings nicht einfach gelöscht (und dadurch die Zeilenanzahl reduziert) sondern gespeichert. Ansonsten ist die Berechnung äquivalent zu `na.omit` <font size="2">(d.h. auch <span class="highlight">*listwise/casewise deletion*)</font>. Mittels <span class="code">residuals(lm_Ergebnisobjekt) können wir dann den Residuenvektor extrahieren. 
 
 <aside>\
 \
@@ -536,7 +536,7 @@ Die Funktion `colMeans()`, mit der wir Spaltenmittelwerte von mehrdimensionalen 
 
 <!-- Während das Argument `na.rm` dafür sorgt, dass Missings nur für spezifische Analysen ausgeschlossen werden <font size="2">(<span class="highlight">*pairwise deletion*)</font>, werden mit `na.omit()` ganze Zeilen, in denen sich mindestens ein Missing befindet, ausgeschlossen <font size="2">(<span class="highlight">*listwise/casewise deletion*)</font>. Schauen wir uns dazu einmal mit `colMeans()` die Spaltenmittelwerte an.  -->
 
-<span class="ex">Exemplarisch begrenzen wir uns auf die ersten drei Spalten von `daten` mittels `[, 1:3]`.
+Exemplarisch begrenzen wir uns auf die ersten drei Spalten von `daten` mittels `[, 1:3]`.
 
 ```{r}
 #| results: hold
