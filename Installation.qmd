@@ -44,7 +44,7 @@ Diese Version läuft unter **Windows XP**, **Windows Vista**, **Windows 8** und 
 <details><summary>*<a name="winv"></a>Wie finde ich meine Windows Version heraus?*</summary><div class="more">
 Um die aktuelle Version unseres Windows Systems herauszufinden, drücken wir die **Windows-Taste** und die **Pause Taste** gleichzeitig. 
 
-> *__Achtung__*:  <div class="rows">Bei manchen Rechner muss man zur Aktivierung der Pause-Taste zusätzlich noch die **fn-Taste** drücken.
+> *__Achtung__*:  Bei manchen Rechner muss man zur Aktivierung der Pause-Taste zusätzlich noch die **fn-Taste** drücken.
 
 ```{r, out.width = "600px", echo=FALSE}
 knitr::include_graphics("figures/Installation/Bilder/keybord.png")

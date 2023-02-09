@@ -23,7 +23,7 @@ is.na(num_vector)
 ```
 Beim Datentyp **character** (Buchstaben, Zeichen) hingegen könnten fehlende Eingaben auch durch `""` (leere Felder) gekennzeichnet sein z.B. wenn bei Freitextfeldern in einer Umfrage nichts eingegeben wurde. Das wird in R aber <u>nicht</u> automatisch als fehlender Wert erkannt.
 
-> *__Achtung__*:  <div class="rows">Wir sehen nachfolgend auch verdeutlicht, dass `NA` eine selbstständige Kodierung ist, und <u>nicht</u> als character kodiert wird.
+> *__Achtung__*:  Wir sehen nachfolgend auch verdeutlicht, dass `NA` eine selbstständige Kodierung ist, und <u>nicht</u> als character kodiert wird.
 
 ```{r}
 char_vec <- c(NA, "NA", "") 
@@ -409,7 +409,7 @@ Auch hier muss man sich vorher überlegen, wo man das Signifikanzniveau $\alpha$
 
 Zur Durchführung des Tests in R greifen wir auf die Funktion `mcar_test()` aus dem Paket **naniar** zu. Das laden wir uns über Github herunter (wofür wir wiederum das Paket **remotes** benötigen).
 
-> *__Achtung__*:  <div class="rows">Die Funktion `mcar_test()` kann wir nur mit (quantitativen) Daten des Typs numeric (integer und double), logical und factor umgehen.
+> *__Achtung__*:  Die Funktion `mcar_test()` kann wir nur mit (quantitativen) Daten des Typs numeric (integer und double), logical und factor umgehen.
 
 ```{r}
 # install.packages("remotes")
@@ -424,7 +424,7 @@ Als Output bekommen wir den $\chi^2$-Wert (`statistic`), die Anzahl der Freiheit
 <!-- In R nutzen wir dafür die Funktion `LittleMCAR()` aus dem Paket **BaylorEdPsych**, welche dabei auch auf das Paket **mvnmle** zugreifen muss. Falls wir diese Pakete noch nicht installiert haben, machen wir das z.B. mit dem `install.packages()`-Befehl. -->
 
 <!-- \ -->
-<!-- > *__Achtung__*:  <div class="rows">Bisher gibt es noch keine Version des Pakets **BaylorEdPsych**, welche unter R 4.0.0 läuft. Im Folgenden sehen wir den Output von `LittleMCAR()` unter **R 3.6.3**. -->
+<!-- > *__Achtung__*:  Bisher gibt es noch keine Version des Pakets **BaylorEdPsych**, welche unter R 4.0.0 läuft. Im Folgenden sehen wir den Output von `LittleMCAR()` unter **R 3.6.3**. -->
 
 <!-- ```{r, echo=F} -->
 <!-- # Interpretation H0 und H1 in diesem Test: -->
@@ -695,7 +695,7 @@ In dieser querschnittlichen Studie untersuchten Hussey & De Houwer inwieweit Per
 
 Mehr Informationen zur Studie befinden sich auf der <a href="https://osf.io/bvzvy/" target="_blank">OSF-Seite</a>. Den Datensatz finden wir <a href="https://osf.io/szg8h/" target="_blank">hier</a>; ein Codebuch dazu <a href="https://osf.io/ujc75/" target="_blank">hier</a>.
 
-> *__Achtung__*:  <div class="rows">Das Codebuch enthält nicht zu allen Variablen Informationen, da es für den aufbereiteten Datensatz erstellt wurde und wir uns aber die Rohdaten anschauen. Einen Großteil der Variablen, die nicht im Codebuch zu finden sind, entfernen wir noch.
+> *__Achtung__*:  Das Codebuch enthält nicht zu allen Variablen Informationen, da es für den aufbereiteten Datensatz erstellt wurde und wir uns aber die Rohdaten anschauen. Einen Großteil der Variablen, die nicht im Codebuch zu finden sind, entfernen wir noch.
 
 
 
@@ -722,7 +722,7 @@ data_a <- data_a[,-c(2:7, 9, 145:153)]
 rmarkdown::paged_table(data_a, options(rows.print=5))
 ```
 
-> *__Achtung__*:  <div class="rows">Wir gehen im Folgenden davon aus, dass die Variablen `statements..c1.`, `statements..c2.`. `statements..c3.` und `statements..c4.` aus dem Datensatz den Variablen `catch_1`, `catch_2`, `catch_3` und `catch_4` entsprechen.
+> *__Achtung__*:  Wir gehen im Folgenden davon aus, dass die Variablen `statements..c1.`, `statements..c2.`. `statements..c3.` und `statements..c4.` aus dem Datensatz den Variablen `catch_1`, `catch_2`, `catch_3` und `catch_4` entsprechen.
 
 </details>
 
@@ -734,7 +734,7 @@ In der Studie untersuchen Glenn & Teachman, inwiefern sich Menschen mit geringer
 
 Den Datensatz finden wir <a href="https://osf.io/jv67g/" target="_blank">hier</a>; ein detailliertes Codebuch mit weiteren Informationen zur Studie  <a href="https://osf.io/qh8sz/" target="_blank">hier</a>.
 
-> *__Achtung__*:  <div class="rows">Das Codebuch enthält leider keine Informationen zu den demographischen Variablen. Einige werden wir uns dennoch anschauen, da sie eindeutig interpretierbar erscheinen.
+> *__Achtung__*:  Das Codebuch enthält leider keine Informationen zu den demographischen Variablen. Einige werden wir uns dennoch anschauen, da sie eindeutig interpretierbar erscheinen.
 
 
 
@@ -771,7 +771,7 @@ rmarkdown::paged_table(data_b, options(rows.print=5))
 # alte Selektion: 75:78, 80:82, 84, 86:97
 ```
 
-<!-- > *__Achtung__*:  <div class="rows">Die Variablen `preselect_outcome_predict` und `preselect_outcome_predict_old`, welche im Datensatz vorkommen, werden im Codebuch nicht direkt aufgeführt. Wir orientieren uns hier an den Informationen zu den Variablen `pre_outcome` und `pre_outcome_old` auf Seite 20 im Codebuch. -->
+<!-- > *__Achtung__*:  Die Variablen `preselect_outcome_predict` und `preselect_outcome_predict_old`, welche im Datensatz vorkommen, werden im Codebuch nicht direkt aufgeführt. Wir orientieren uns hier an den Informationen zu den Variablen `pre_outcome` und `pre_outcome_old` auf Seite 20 im Codebuch. -->
 
 ```{r}
 #| echo: false
@@ -830,7 +830,7 @@ levels(data_b$race)
 
 In `race` scheint es keine falsch kodierten Missings zu geben.
 
-> *__Achtung__*:  <div class="rows">Scheinbar wird das Messniveau der **SIAS-Items** (`sias...`) als **nominalskaliert**, und nicht wie sonst üblich als intervallskaliert, angenommen. Zumindest liegen die betreffenden Variables als ungeordnete Faktoren vor.
+> *__Achtung__*:  Scheinbar wird das Messniveau der **SIAS-Items** (`sias...`) als **nominalskaliert**, und nicht wie sonst üblich als intervallskaliert, angenommen. Zumindest liegen die betreffenden Variables als ungeordnete Faktoren vor.
 
 
 
@@ -867,7 +867,7 @@ data_b_test <- data_b_test[, c(79, 95)] # sias5, sias5_RS
 rmarkdown::paged_table(data_b_test, options(rows.print=5))
 ```
 
-> *__Achtung__*:  <div class="rows">Wir müssen hier umdenken, da `sias5_RS` die *rekodierte* Version von `sias5` widergibt. Wir wollen allerdings die *allgemeingültige* Zuordnung von Daten und Angaben im Codebuch verstehen.
+> *__Achtung__*:  Wir müssen hier umdenken, da `sias5_RS` die *rekodierte* Version von `sias5` widergibt. Wir wollen allerdings die *allgemeingültige* Zuordnung von Daten und Angaben im Codebuch verstehen.
 
 
 
@@ -1161,7 +1161,7 @@ Nachdem wir uns im vorhergehenden Abschnitt deskriptiv-statistische Kennwerte de
 Zur Überprüfung der Zufälligkeit können wir den Test von Little (1988)^[**Little**, R. J. A. (1988). *A test of missing completely at random for multivariate data with missing values.* Journal of the American Statistical Association, 83(404), 1198–1202.\
 (für HU-Studierende über <a href="http://ub.hu-berlin.de" target="_blank">ub.hu-berlin.de</a> zugänglich)] verwenden. Dieser überprüft, ob es signifikante Unterschiede zwischen den variablenweisen Mittelwerten der Missing Patterns gibt. Die $H0$, dass es keine überzufälligen Unterschiede der Mittelwerte in Abhängigkeit der Missing Patterns gibt (= MCAR), ist unsere Wunschhypothese. Der Test ist in der Funktion `mcar_test()` aus dem Paket **naniar** implementiert. 
 
-> *__Achtung__*:  <div class="rows">Die Funktion `mcar_test()` kann wir nur mit Variablen des Typs numeric (integer und double), logical und factor umgehen.
+> *__Achtung__*:  Die Funktion `mcar_test()` kann wir nur mit Variablen des Typs numeric (integer und double), logical und factor umgehen.
 
 
 
@@ -1208,7 +1208,7 @@ mcar_test(data_b)
 
 Da der $p$-Wert *über* unserem á priori festgelegtem Signifikanzniveau $\alpha = 0.05$ liegt, haben wir Evidenz dafür, dass die Daten MCAR sind.
 
-> *__Achtung__*:  <div class="rows">Das hier ein $p$-Wert von $1$ ausgegeben wird ist formal nicht korrekt. Das liegt wahrscheinlich an der Rundung, denn korrekterweise wäre es wohl $p=0.99$.
+> *__Achtung__*:  Das hier ein $p$-Wert von $1$ ausgegeben wird ist formal nicht korrekt. Das liegt wahrscheinlich an der Rundung, denn korrekterweise wäre es wohl $p=0.99$.
 
 </details>
 

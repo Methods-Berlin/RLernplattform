@@ -59,7 +59,7 @@ names(PWE_data)
 
 Der Datensatz enthält 102 Variablen. Einige davon schauen wir uns im Laufe des Kapitels noch genauer an. Im Codebook, welches sich ebenfalls im Ordner **PWE_data** befindet, finden wir eine Erklärung zu den Variablen. Mehr Informationen zum Erhebungsinstrument, der **P**rotestant **W**ork **E**thic Scale, finden wir in <a href="http://web.a.ebscohost.com/ehost/detail/detail?vid=5&sid=4c4ab98a-bce0-4d67-9d45-085c71a5a277%40sessionmgr4008&bdata=JnNpdGU9ZWhvc3QtbGl2ZQ%3d%3d#AN=1971-09987-001&db=pdh" target="_blank">Mirels & Garrett (1971)</a> (nur über HU-VPN zugänglich).
 
-> *__Achtung__*:  <div class="rows"> Im Abschnitt [Plausibilitäts-Check] werden die Kodierungen einiger Variablen noch korrigiert. Außerdem müssen die Werte der Variablen `Q9A`, `Q13A` und `Q15A` noch invertiert werden, da diese negativ gepolt sind. Das passiert im Abschnitt [Umkodieren].
+> *__Achtung__*:   Im Abschnitt [Plausibilitäts-Check] werden die Kodierungen einiger Variablen noch korrigiert. Außerdem müssen die Werte der Variablen `Q9A`, `Q13A` und `Q15A` noch invertiert werden, da diese negativ gepolt sind. Das passiert im Abschnitt [Umkodieren].
 
 
 
@@ -2014,7 +2014,7 @@ data$male <- factor(data$male)
 str(data$male)
 ```
 
-> *__Achtung__*:  <div class="rows">Nicht verwirren lassen: Der Faktor `male` hat die Kodierungen `0` und `1` (wie schon die integer-Variable vorher), aber die *interne* Kodierung des Faktors ist `1` und `2`.
+> *__Achtung__*:  Nicht verwirren lassen: Der Faktor `male` hat die Kodierungen `0` und `1` (wie schon die integer-Variable vorher), aber die *interne* Kodierung des Faktors ist `1` und `2`.
 
 ```{r}
 # ordinalskaliert (sortierter Faktor):
@@ -2023,7 +2023,7 @@ str(data$inc)
 levels(data$inc)
 ```
 
-> *__Achtung__*:  <div class="rows">Aus dem Codebuch ist leider nicht ersichtlich, welche Kategorie (z.B. `< $500`) für welche Kodierung steht (z.B. `1`). Wir gehen hier davon aus, dass beide aufsteigend gepaart wurden, z.B. `< $500` = `1`, aber die *interne* Kodierung eines Faktors beginnt bei `1`, d.h. in unserem Fall gibt es `1` und `2`.
+> *__Achtung__*:  Aus dem Codebuch ist leider nicht ersichtlich, welche Kategorie (z.B. `< $500`) für welche Kodierung steht (z.B. `1`). Wir gehen hier davon aus, dass beide aufsteigend gepaart wurden, z.B. `< $500` = `1`, aber die *interne* Kodierung eines Faktors beginnt bei `1`, d.h. in unserem Fall gibt es `1` und `2`.
 
 </details>\
 
@@ -2184,7 +2184,7 @@ Nun wollen wir einzelne Daten aus dem Datensatz extrahieren. Dabei interessieren
 <details><summary>Tipp 1</summary>
 Im Codebuch (S. 26ff) steht, welche Variablen zu den demographischen Angaben zählen.
 
-> *__Achtung__*:  <div class="rows">Im Codebuch steht die Variable `sex`, welche im Datensatz <u>nicht</u> enthalten ist. Alternativ gibt es die Variable `male`.
+> *__Achtung__*:  Im Codebuch steht die Variable `sex`, welche im Datensatz <u>nicht</u> enthalten ist. Alternativ gibt es die Variable `male`.
 
 
 </details>

@@ -381,7 +381,7 @@ quant <- data.frame(erstis$zuf.inh.1,
 Standardmäßig wird so die *erste* Variable X aufsteigend sortiert, weil `order(..., decreasing=FALSE)` der Default ist. Mit `decreasing=TRUE` können wir absteigend sortieren.
 
 \
-> *__Achtung__*:  <div class="rows">Bei <span class="code">order(<span class = "ex">X, -<span class = "ex">resid) ändert sich die **Sortierung innerhalb der _gleichen_ Prädiktorwerte X** in Abhängigkeit davon, ob wir bei `order()` vor die *zweite* Variable (<span class="code"><span class = "ex">resid) ein `-` setzen oder nicht:\
+> *__Achtung__*:  Bei <span class="code">order(<span class = "ex">X, -<span class = "ex">resid) ändert sich die **Sortierung innerhalb der _gleichen_ Prädiktorwerte X** in Abhängigkeit davon, ob wir bei `order()` vor die *zweite* Variable (<span class="code"><span class = "ex">resid) ein `-` setzen oder nicht:\
 Mit <span class="code"><span class = "ex">resid (so wie wir es im Beispiel machen) wird innerhalb der gleichen Prädiktorwerte **aufsteigend** sortiert.\
 Mit <span class="code">-<span class = "ex">resid wird innerhalb der gleichen Prädiktorwerte **absteigend** sortiert. \
 Dadurch kommen unterschiedliche Residuen in die Slices und folglich werden auch unterschiedliche konditionale Varianzen berechnet!
@@ -443,7 +443,7 @@ Der **w**eighted **l**east **s**quares Schätzer gewichtet jeden Fall (d.h. jede
 Es gibt mehrere Möglichkeiten, die Gewichte $w_i$ zu schätzen. Im Folgenden schauen wir uns exemplarisch eine Methode aus dem Buch von Cohen, Cohen, West & Aiken (2003, S.146-147) an. 
 
 \
-> *__Achtung__*:  <div class="rows">Wenn wir **Ausreißer** in unseren Daten haben, finden wir in der Fußnote 19 auf S.147 des Lehrbuchs eine **geeignetere Methode zur Schätzung der Gewichte $w_i$**.
+> *__Achtung__*:  Wenn wir **Ausreißer** in unseren Daten haben, finden wir in der Fußnote 19 auf S.147 des Lehrbuchs eine **geeignetere Methode zur Schätzung der Gewichte $w_i$**.
 \
 Dazu nehmen wir die Residuen aus der OLS-Regression, quadrieren diese und regredieren sie auf unsere Prädiktoren. Die Inversen dieser vorhergesagten quadrierten Residuen sind das unsere Gewichte für die WLS-Regression.
 

@@ -63,7 +63,7 @@ Weil es sich bei Studierenden mit und ohne Nebenjob um zwei voneinander unabhän
 
 <details><summary>Überprüfung der Annahmen des $t$-Tests</summary><div class="more">\
 
-> *__Achtung__*:  <div class="rows">An dieser Stelle sei wieder auf das [ausführliche Skript](Voraussetzungspruefung.qmd) zur Annahmenprüfung verwiesen. Im Folgenden schauen wir uns jeweils nur ein mögliches Verfahren zur Überprüfung der spezifischen Annahmen an.\
+> *__Achtung__*:  An dieser Stelle sei wieder auf das [ausführliche Skript](Voraussetzungspruefung.qmd) zur Annahmenprüfung verwiesen. Im Folgenden schauen wir uns jeweils nur ein mögliches Verfahren zur Überprüfung der spezifischen Annahmen an.\
 
 Zur Durchführung eines $t$-Tests für unabhängige Zufallsstichproben müssen folgende Annahmen erfüllt sein: 
 
@@ -112,7 +112,7 @@ ggplot(data = daten, aes(sample = zf_belastung)) + # Koordinatensystem
 
 Mehr Informationen zum Erstellen von Grafiken mit dem Paket **ggplot2** finden wir im Kapitel zu [Grafiken](Grafiken.qmd).\
 
-> *__Achtung__*:  <div class="rows">Hilfe zur Interpretation von QQ-Plots finden wir hier: @sec-Normalverteilung-der-Residuen.\
+> *__Achtung__*:  Hilfe zur Interpretation von QQ-Plots finden wir hier: @sec-Normalverteilung-der-Residuen.\
 **Hinweis**: Die Residuen in der linearen Regression sind beim $t$-Test dasselbe wie in den Gruppen zentrierte Werte der $AV$ (d.h. Abweichungen vom gruppenspezifischen Mittelwert) in unserem Beispiel.\
 
 In beiden Diagrammen weichen die Punkte leicht von der Linie ab, d.h. dass die Daten nicht perfekt normalverteilt sind. Wir können uns aber auf den zentralen Grenzwertsatz stützen, welcher besagt, dass der Mittelwert eines Merkmals bei wachsender Stichprobengröße approximativ normalverteilt ist. Generell gibt es keinen Richtwert, der besagt, wann Stichproben hinreichend groß sind. Mit unseren Stichprobengrößen ($n_{ja} = 87$ und $n_{nein} = 86$) und den geringfügigen Abweichungen von einer Normalverteilung in den beiden Gruppen können wir erwarten, dass die Annahme hinreichend erfüllt ist.\
@@ -229,7 +229,7 @@ Das Ergebnisobjekt `lm_belastung` schauen wir uns erst *nach* der Annahmenprüfu
 
 <details><summary>Überprüfung der Annahmen der (einfachen) linearen Regression</summary><div class="more">\
 
-> *__Achtung__*:  <div class="rows">Im Rahmen dieses Kapitels besprechen wir die Annahmen und deren Überprüfung nicht im Detail. Mehr Informationen finden wir im Kapitel zur [Prüfung der Annahmen der multiplen linearen Regression](Voraussetzungspruefung.qmd), die denen der einfachen linearen Regression sehr ähnlich ist.\
+> *__Achtung__*:  Im Rahmen dieses Kapitels besprechen wir die Annahmen und deren Überprüfung nicht im Detail. Mehr Informationen finden wir im Kapitel zur [Prüfung der Annahmen der multiplen linearen Regression](Voraussetzungspruefung.qmd), die denen der einfachen linearen Regression sehr ähnlich ist.\
 
 ```{r}
 #| echo: !expr F
@@ -508,7 +508,7 @@ kable(tabelle, escape=FALSE) %>%
 
 Wir können $t$- und $F$-Werte ineinander überführen durch folgende Formel: $F = t^2 \longrightarrow t^2=1.278^2=1.633=F$.
 
-> *__Achtung__*:  <div class="rows"> Dass der $t$-Wert einmal negativ ($t$-Test) und einmal positiv (einfache lineare Regression) ist liegt daran, dass die Gruppen jeweils vertauscht wurden.\
+> *__Achtung__*:   Dass der $t$-Wert einmal negativ ($t$-Test) und einmal positiv (einfache lineare Regression) ist liegt daran, dass die Gruppen jeweils vertauscht wurden.\
 
 Das __Allgemeine Lineare Modell__ (ALM) umfasst varianzanalytische Verfahren sowie (multiple) Korrelations- und Regressionsrechnung. Dadurch können nicht nur metrische sondern auch kategoriale Merkmale (als $UV$s) untersucht werden, sofern die kategorialen Merkmale in geeigneter Form kodiert sind.
 
