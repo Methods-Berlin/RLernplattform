@@ -799,7 +799,7 @@ Bevor wir uns die fehlenden Werte genauer anschauen können, ist es sinnvoll, ei
 
 1.) Gibt es fehlende Werte im Datensatz, die nicht mit `NA` kodiert sind?
 
-<div class="hint"><details><summary>Tipp</summary>
+<details><summary>Tipp</summary>
 Hier vergleichen wir die möglichen Ausprägungen der Variablen, die wir im Codebuch finden, mit den tatsächlichen Ausprägungen der Variablen, die wir uns in R anschauen können.</details>
 
 
@@ -891,7 +891,7 @@ Ansonsten scheinen alle fehlenden Werte korrekt kodiert zu sein.
 2.) Kodiere ggf. inkorrekt kodierte Missings zu `NA` um.
 
 
-<div class="hint"><details><summary>Tipp</summary>
+<details><summary>Tipp</summary>
 
 Wir kodieren mittels `<- NA` jene Ausprägungen um, die falsch kodierte fehlende Werte zeigen.
 
@@ -937,7 +937,7 @@ data_a <- data_a[,-5]
 
 1.) Wie viele Missings gibt es insgesamt im Datensatz (in absoluten und relativen Zahlen)?
 
-<div class="hint"><details><summary>Tipp</summary>
+<details><summary>Tipp</summary>
 Mit der `table()`-Funktion können wir uns Häufigkeitstabellen ausgeben lassen. Jetzt müssen unsere Daten nur noch *dichotom* in fehlend und nicht fehlend eingeteilt werden.</details>
 
 
@@ -983,11 +983,11 @@ Es gibt `r table(is.na(data_b))[2]` fehlende Werte. Das sind ca. `r round(table(
 
 2.) Welche *Variable* enthält die meisten Missings? Wie viele Missings sind das (in absoluten und relativen Zahlen)
 
-<div class="hint"><details><summary>Tipp: Verortung Missings</summary>
+<details><summary>Tipp: Verortung Missings</summary>
 Mit `colSums()` werden die Summen der Spalten eines Datensatzes angegeben. Nun müssen wir unsere Daten nur wieder *dichotom* in fehlend und nicht fehlend einteilen. 
 </details>
 
-<div class="hint"><details><summary>Tipp: Namen der Variablen</summary>
+<details><summary>Tipp: Namen der Variablen</summary>
 Mit `colnames()` können wir uns Namen von Variablen ausgeben lassen. Wir müssen nur noch die relevanten auswählen. 
 </details>
 
@@ -1030,11 +1030,11 @@ Die meisten Missings hat die Variable `preselect_peak_e2` mit `r max(colSums(is.
 
 3.) Welche *Person* hat die meisten Missings? Wie viele Missings sind das (in absoluten und relativen Zahlen)?
 
-<div class="hint"><details><summary>Tipp: Verortung Missings</summary>
+<details><summary>Tipp: Verortung Missings</summary>
 Mit `rowSums()` werden die Summen der Zeilen eines Datensatzes angegeben. Zusätzlich müssen wir unsere Daten nur wieder *dichotom* in fehlend und nicht fehlend einteilen.
 </details>
 
-<div class="hint"><details><summary>Tipp: Zeilenindizes der Fälle</summary>
+<details><summary>Tipp: Zeilenindizes der Fälle</summary>
 Mit `which()` können wir uns die Zeilenindizes von Fällen ausgeben lassen. Wir müssen nur noch die relevanten auswählen. 
 </details>
 
@@ -1078,7 +1078,7 @@ Die meisten Missings haben die Personen `r rownames(data_b[rowSums(is.na(data_b)
 
 4.) Welche bzw. wie viele Patterns *mit* Missings (Missings in bestimmten Kombinationen von Variablen) gibt es? Visualisiere sie. (Für Datensatz B reicht es, wenn das am häufigsten auftretende Pattern mit Missings beschrieben wird.)
 
-<div class="hint"><details><summary>Tipp</summary>
+<details><summary>Tipp</summary>
 Im Paket **VIM** gibt es die Funktion `aggr()`, die beim Visualisieren von Missings helfen kann.
 </details>
 
@@ -1149,7 +1149,7 @@ Nachdem wir uns im vorhergehenden Abschnitt deskriptiv-statistische Kennwerte de
 
 1.) Sind die fehlenden Werte MCAR? Was hätte es für Konsequenzen für die weitere Datenverarbeitung, wenn die fehlenden Werte MAR oder MNAR wären?
 
-<div class="hint"><details><summary>Auffrischung: MCAR, MAR und MNAR</summary>
+<details><summary>Auffrischung: MCAR, MAR und MNAR</summary>
 **MCAR**: Missings hängen weder von der (fehlenden) Ausprägung auf der Variablen selbst noch von anderen Variablen und deren fehlenden Werten ab. Sie sind also komplett zufällig.
 
 **MAR**: Missings hängen <u>nicht</u> von der (fehlenden) Ausprägung auf der Variablen selbst, aber von anderen Variablen und deren Missings ab. Die Missings sind also zufällig, sobald für diese andere Variablen kontrolliert wird.
@@ -1157,7 +1157,7 @@ Nachdem wir uns im vorhergehenden Abschnitt deskriptiv-statistische Kennwerte de
 **MNAR**: Missings hängen von der (fehlenden) Ausprägung auf der Variablen selbst ab. Sie sind also selbst dann nicht zufällig, wenn für die anderen Variablen kontrolliert wird.
 </details>
 
-<div class="hint"><details><summary>Tipp</summary>
+<details><summary>Tipp</summary>
 Zur Überprüfung der Zufälligkeit können wir den Test von Little (1988)^[**Little**, R. J. A. (1988). *A test of missing completely at random for multivariate data with missing values.* Journal of the American Statistical Association, 83(404), 1198–1202.\
 (für HU-Studierende über <a href="http://ub.hu-berlin.de" target="_blank">ub.hu-berlin.de</a> zugänglich)] verwenden. Dieser überprüft, ob es signifikante Unterschiede zwischen den variablenweisen Mittelwerten der Missing Patterns gibt. Die $H0$, dass es keine überzufälligen Unterschiede der Mittelwerte in Abhängigkeit der Missing Patterns gibt (= MCAR), ist unsere Wunschhypothese. Der Test ist in der Funktion `mcar_test()` aus dem Paket **naniar** implementiert. 
 
@@ -1250,23 +1250,23 @@ Bezüglich Datensatz B können wir alle Verfahren anwenden, die MCAR oder MAR fo
 
 1.) Berechne die Mittelwerte aller numerischen, mindestens intervallskalierten Variablen jeweils mit *listwise* und *pairwise deletion*. Vergleiche die jeweilige Anzahl der für die Berechnung genutzten Datenpunkte. Der Mittelwert welcher Variablen unterscheidet sich am meisten, welcher am wenigsten? 
 
-<div class="hint"><details><summary>Tipp: *listwise* und *pairwise deletion*</summary>
+<details><summary>Tipp: *listwise* und *pairwise deletion*</summary>
 *listwise/casewise deletion*: Fälle mit mind. einem Missing in einer Variablen werden aus allen Mittelwertsberechnungen ausgeschlossen.
 
 *pairwise deletion*: Fälle mit Missings werden nur aus den jeweiligen Mittelwertsberechnungen derjenigen Variablen ausgeschlossen, in denen der Wert fehlt.
 </details>
 
-<div class="hint"><details><summary>Tipp: numerisch</summary>
+<details><summary>Tipp: numerisch</summary>
 Mit `is.numeric()` können wir überprüfen, ob ein Vektor numerisch ist. Das müssen wir nur noch auf alle Spalten des Datensatzes anwenden.
 </details>
 
-<div class="hint"><details><summary>Tipp: Anzahl Beobachtungen</summary>
+<details><summary>Tipp: Anzahl Beobachtungen</summary>
 Bei *listwise deletion* gehen für die Berechnung der Mittelwerte in jede Variable die gleichen Datenpunkte ein. Wir können einfach mit `nrow()` die Anzahl herausfinden.
 
 Bei *pairwise deletion* gehen für die Berechnung der Mittelwerte unterschiedliche Datenpunkte ein. Mit `colSums()` zählen wir Spaltensummen; jetzt müssen wir nur noch die **nicht** fehlenden Werte angeben.
 </details>
 
-<div class="hint"><details><summary>Tipp: Unterschiedlichkeit der Mittelwerte</summary>
+<details><summary>Tipp: Unterschiedlichkeit der Mittelwerte</summary>
 Dazu berechnen wir die Differenz der Mittelwerte einer Variablen, die mit *listwise*  und *pairwise deletion*  erstellt wurden. Sinnvoll ist es hier, mit `abs()` die *absolute* Differenz zu erhalten.
 </details>
 
@@ -1324,21 +1324,21 @@ Die Variable mit dem geringsten Unterschied in den mit *listwise* und *pairwise 
 
 2.) Berechne die Korrelationen aller numerischen, mindestens intervallskalierten Variablen jeweils mit *listwise* und *pairwise deletion*. <!--Vergleiche die (Indizes der für die Berechnung) genutzten Datenpunkte. Zur Berechnung welcher Korrelation wurde die größte Schnittmenge derselben Fälle für *listwise*  und *pairwise deletion* genutzt?--> Die Korrelation welcher Variablen unterscheidet sich am meisten zwischen *listwise* und *pairwise deletion*, welcher am wenigsten?
 
-<div class="hint"><details><summary>Tipp: *listwise* und *pairwise deletion*</summary>
+<details><summary>Tipp: *listwise* und *pairwise deletion*</summary>
 *listwise/casewise deletion*: Fälle mit mind. einem Missing in einer Variablen werden aus allen Mittelwertsberechnungen ausgeschlossen.
 
 *pairwise deletion*: Fälle mit Missings werden nur aus der jeweiligen Korrelationsberechnungen derjenigen Variablen ausgeschlossen, in denen der Wert fehlt.
 </details>
 
-<div class="hint"><details><summary>Tipp: numerisch</summary>
+<details><summary>Tipp: numerisch</summary>
 Mit `is.numeric()` können wir überprüfen, ob ein Vektor numerisch ist. Das müssen wir nur noch auf alle Spalten des Datensatzes anwenden.
 </details>
 
-<div class="hint"><details><summary>Tipp: Unterschiedlichkeit der Korrelationen</summary>
+<details><summary>Tipp: Unterschiedlichkeit der Korrelationen</summary>
 Dazu berechnen wir die Differenz der Korrelationen jeder Variablen, die mit *listwise*  und *pairwise deletion*  erstellt wurden. Die Korrelationen von beiden Methoden sind je in einer Matrix gespeichert, d.h. für den Vergleich lohnt es sich, eine Schleife, die über alle Zeilen und Spalten geht, zu erstellen. Sinnvoll ist außerdem, mit `abs()` die *absolute* Differenz zu berechnen.
 </details>
 
-<div class="hint"><details><summary>Tipp: Korrelationen der Variablen mit den extremsten Unterschieden finden</summary>
+<details><summary>Tipp: Korrelationen der Variablen mit den extremsten Unterschieden finden</summary>
 Mit `which(..., arr.ind = TRUE)` können wir uns Zeilenname, Zeilen- *und* Spaltenindizes ausgeben lassen.
 </details>
 

@@ -549,7 +549,7 @@ data_I <- read.csv("data/NPI.csv")
 # data_I <- read_csv("~/Desktop/Arbeit_in_R/04_Daten_einlesen/Uebung/NPI/data.csv")
 ```
 
-<div class="hint"><details><summary>**Tipp 1**</summary>
+<details><summary>**Tipp 1**</summary>
 Der Datensatz besteht aus `r nrow(data_I)` Zeilen und `r ncol(data_I)` Spalten.
 </details>
 
@@ -586,15 +586,15 @@ data_II <- read.csv("data/16PF.csv", sep="")
 ```
 
 
-<div class="hint"><details><summary>**Tipp 1**</summary>
+<details><summary>**Tipp 1**</summary>
 Der Datensatz besteht aus `r nrow(data_II)` Zeilen und `r ncol(data_II)` Spalten.
 </details>
 \
-<div class="hint"><details><summary>**Tipp 2**</summary>
+<details><summary>**Tipp 2**</summary>
 Die einzelnen Zellen (d.h. Elemente der Tabelle) sind durch Leerzeichen *(white space)* getrennt.
 </details>
 \
-<div class="hint"><details><summary>**Tipp 3**</summary>
+<details><summary>**Tipp 3**</summary>
 Die Information, wie die Zellen getrennt sind (siehe Tipp 2) übergibt man dem Argument `sep`.
 </details>
 
@@ -632,11 +632,11 @@ data_III <- read.spss("data/ges7.sav", to.data.frame = TRUE)
 ```
 
 
-<div class="hint"><details><summary>**Tipp 1**</summary>
+<details><summary>**Tipp 1**</summary>
 Die Endung `.sav` kennzeichnet SPSS-Dateien. Um diese einzulesen benötigt man zusätzliche Pakete, weil es in base **R** keine Funktion dafür gibt.
 </details>
 \
-<div class="hint"><details><summary>**Tipp 2**</summary>
+<details><summary>**Tipp 2**</summary>
 Der Datensatz besteht aus `r nrow(data_III)` Zeilen und `r ncol(data_III)` Spalten.
 </details>
 
@@ -674,11 +674,11 @@ data_4 <- read_xlsx("data/DBRNI-Bahnsteigdaten-Stand2015-10.xlsx")
 ```
 
 
-<div class="hint"><details><summary>**Tipp 1**</summary>
+<details><summary>**Tipp 1**</summary>
 Die Endung `.xlsx` kennzeichnet Excel-Dateien. Um diese einzulesen benötigt man zusätzliche Pakete, weil es in base **R** keine Funktion dafür gibt.
 </details>
 \
-<div class="hint"><details><summary>**Tipp 2**</summary>
+<details><summary>**Tipp 2**</summary>
 Der Datensatz besteht aus `r nrow(data_4)` Zeilen und `r ncol(data_4)` Spalten.
 </details>
 

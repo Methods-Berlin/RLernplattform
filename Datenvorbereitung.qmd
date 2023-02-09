@@ -1965,7 +1965,7 @@ Die Variable `time` taucht nicht im Codebuch auf. Möglicherweise ist das die in
 
 2.) Wie viele Variablen und Beobachtungen enthält der Datensatz?
 
-<div class="hint"><details><summary>Tipp</summary>
+<details><summary>Tipp</summary>
 Standardmäßig sind Variablen die Spalten und Beobachtungen die Zeilen eines Datensatzes.</details>
 
 
@@ -1996,7 +1996,7 @@ nrow(data) # Beobachtungen (Personen; N) = Anzahl der Zeilen
 
 3.) Liegen alle Variablen in einem ihrem Messniveau angemessenen Datentyp vor?
 
-<div class="hint"><details><summary>Tipp</summary>
+<details><summary>Tipp</summary>
 Im Codebuch finden wir Informationen zu den Variablen. Über die Funktionen `str()` bekommen wir Informationen zum Datentyp.
 
 
@@ -2031,7 +2031,7 @@ levels(data$inc)
 <!-- 4.) Was kodiert die Variable `inc`, in welchem Datentyp liegt sie vor und wie viele Ausprägungen dieser Variablen gibt es? -->
 
 
-<!-- <div class="hint"><details><summary>Tipp</summary> -->
+<!-- <details><summary>Tipp</summary> -->
 <!-- Die Information, was die Variable kodiert, finden wir im Codebuch. Den Datentyp bringen wir in R in Erfahrung. Die Ausprägungen der Variablen finden wir entweder im Codebuch oder wir nutzen eine Funktion in R.</details> -->
 
 <!--  -->
@@ -2057,10 +2057,10 @@ levels(data$inc)
 
 4.) Wie heißt die Variable, die kodiert, inwieweit die befragte Person gerne viele Menschen um sich herum hat? Welche Antwortoption auf der *Mess*skala (hiermit ist <u>nicht</u> die Kodierung der Daten gemeint) haben die meisten befragten Personen angekreuzt?
 
-<div class="hint"><details><summary>Tipp 1</summary>
+<details><summary>Tipp 1</summary>
 Den Namen der Variablen sowie deren Messskala finden wir im Codebuch. Die Häufigkeiten der jeweiligen Ausprägungen der Variablen bringen wir in R in Erfahrung.</details>
 
-<div class="hint"><details><summary>Tipp 2</summary>
+<details><summary>Tipp 2</summary>
 Mit der Funktion `table()` können wir uns die Häufigkeiten der Ausprägungen *einer* Variablen ausgeben lassen. Die Funktion ist auch bereits sehr hilfreich, um einen schnellen Überblick über die möglichen Ausprägungen zu bekommen.</details>
 
 
@@ -2080,10 +2080,10 @@ Die Kodierung `5` kommt am häufigsten vor. Die meisten befragten Personen haben
 
 5.) Gibt es Werte von Variablen im Datensatz, die unplausibel erscheinen? Wenn ja, entferne die entsprechenden Personen aus dem Datensatz.
 
-<div class="hint"><details><summary>Tipp 1</summary>
+<details><summary>Tipp 1</summary>
 Hiervoll ist es sinnvoll, sich eine Übersicht der Ausprägungen aller Variablen anzuschauen und diese ggf. mit den Angaben im Codebuch zu vergleichen.
 
-<div class="hint"><details><summary>Tipp 2</summary>
+<details><summary>Tipp 2</summary>
 Es gibt einen Wert einer Variablen der heraussticht.
 
 
@@ -2107,7 +2107,7 @@ data <- data[-which(data$age == 9),]
 
 6.) Enthält der Datensatz fehlende Werte ("Missings"; `NA`) und wenn ja, wie viele insgesamt und auf welchen Variablen?
 
-<div class="hint"><details><summary>Tipp</summary>
+<details><summary>Tipp</summary>
 Das Thema "Fehlende Werte" wird im Kapitel zur Datenvorbereitung nur kurz angerissen, weil es ein [eigenständiges Kapitel](Fehlende-Werte.qmd) dazu gibt.</details>
 
 
@@ -2141,7 +2141,7 @@ Jede Variable mit Ausnahme von `id` und `time` enthält fehlende Werte.
 
 7.) Was ist die höchste Anzahl an fehlenden Werten von *einer* Person und welche Person hat bzw. welche Personen haben die meisten fehlenden Werte?
 
-<div class="hint"><details><summary>Tipp</summary>
+<details><summary>Tipp</summary>
 In der letzten Aufgabe haben wir uns variablenweise Missings angeschaut mit `colSums()`. Nun wollen wir uns *zeilen*weise Missings anschauen. </details>
 
 
@@ -2181,7 +2181,7 @@ Nun wollen wir einzelne Daten aus dem Datensatz extrahieren. Dabei interessieren
 
 1.) Extrahiere alle demographischen Variablen aus `data`.
 
-<div class="hint"><details><summary>Tipp 1</summary>
+<details><summary>Tipp 1</summary>
 Im Codebuch (S. 26ff) steht, welche Variablen zu den demographischen Angaben zählen.
 
 > *__Achtung__*:  <div class="rows">Im Codebuch steht die Variable `sex`, welche im Datensatz <u>nicht</u> enthalten ist. Alternativ gibt es die Variable `male`.
@@ -2189,7 +2189,7 @@ Im Codebuch (S. 26ff) steht, welche Variablen zu den demographischen Angaben zä
 
 </details>
 
-<div class="hint"><details><summary>Tipp 2</summary>
+<details><summary>Tipp 2</summary>
 Es gibt drei demographische Variablen in `data` (aber mehr im Codebuch).</details>
 
 
@@ -2212,10 +2212,10 @@ rmarkdown::paged_table(select(data, id, male, age, inc), options(rows.print=5))
 
 2.) Extrahiere alle Variablen, die grundlegende Bedürfnisse (*General Needs*) erfassen.
 
-<div class="hint"><details><summary>Tipp 1</summary>
+<details><summary>Tipp 1</summary>
 Die Variablen haben denselben Wortstamm: `gen`. </details>
 
-<div class="hint"><details><summary>Tipp 2</summary>
+<details><summary>Tipp 2</summary>
 Es gibt vier Items zu grundlegenden Bedürfnissen.</details>
 
 
@@ -2239,10 +2239,10 @@ rmarkdown::paged_table(data[,c(1, grep("gen", names(data)))], options(rows.print
 
 3.) Extrahiere alle Variablen, die gesellschaftliche (*Societal Needs*) und interpersonelle (*Interpersonal Needs*) Bedürfnisse erfassen.
 
-<div class="hint"><details><summary>Tipp 1</summary>
+<details><summary>Tipp 1</summary>
 Die Variablen haben zwar denselben Wortstamm – `nee` – aber den haben die Variablen zu grundlegenden Bedürfnissen (*General Needs*) auch. </details>
 
-<div class="hint"><details><summary>Tipp 2</summary>
+<details><summary>Tipp 2</summary>
 Es gibt insgesamt 18 Items zu gesellschaftlichen und interpersonellen Bedürfnissen (jeweils 9).</details>
 
 
@@ -2276,7 +2276,7 @@ rmarkdown::paged_table(all_needs[grep("id|c|t", names(all_needs))], options(rows
 
 4.) Extrahiere alle Personen, die weniger als \$500 oder mehr als \$5.000 monatlich zur Verfügung haben.
 
-<div class="hint"><details><summary>Tipp</summary>
+<details><summary>Tipp</summary>
 Um beide Bedingungen (`< $500` und `> $5.000`) abzufragen, können wir den logischen Operator `|` ("oder") nutzen.</details>
 
 
@@ -2307,10 +2307,10 @@ rmarkdown::paged_table(filter(data, inc == 1 | inc == 5), options(rows.print=5))
 
 5.) Extrahiere die "Extremkreuzer" (Personen, die nur die niedrigste oder höchste Ausprägung einer Frage ankreuzen) aus dem Geselligkeits-Fragebogen (Sociability).
 
-<div class="hint"><details><summary>Tipp 1</summary>
+<details><summary>Tipp 1</summary>
 Wir können wieder den logischen Operator `|` ("oder") nutzen, um jeweils Personen mit der niedrigste oder höchsten Ausprägung eines Items auszuwählen.</details>
 
-<div class="hint"><details><summary>Tipp 2</summary>
+<details><summary>Tipp 2</summary>
 Es gibt insgesamt zwei Extremkreuzer.</details>
 
 
@@ -2357,10 +2357,10 @@ Auf den Seiten 6 bis 7 sehen wir die Items des Geselligkeits-Fragebogens (oben r
 
 6.) Extrahiere die Items des Fragebogens zu Integrität (Integrity) für alle Personen, die 18 Jahre alt sind.
 
-<div class="hint"><details><summary>Tipp 1</summary>
+<details><summary>Tipp 1</summary>
 Die Reihenfolge der Auswahl, d.h. ob zuerst Variablen oder zuerst Fälle selektiert werden, ist eigentlich irrelevant, aber wenn wir erst die Fälle selektieren und dann die Variablen müssen wir die Variable `age` nicht wieder aus dem finalen Datensatz entfernen.</details>
 
-<div class="hint"><details><summary>Tipp 2</summary>
+<details><summary>Tipp 2</summary>
 Der finale Datensatz besteht aus 12 Variablen (davon sind 11 die Integritäts-Items) von 54 Personen.</details>
 
 
@@ -2390,7 +2390,7 @@ rmarkdown::paged_table(all_itg_items, options(rows.print=5))
 
 > *__Achtung__*:  Unser Vorgehen mit fehlenden Wert hier (casewise deletion) ist stark vereinfacht und sollte in echten Analysen nicht ohne Belege für MCAR durchgeführt werden.
 
-<div class="hint"><details><summary>Tipp 1</summary>
+<details><summary>Tipp 1</summary>
 Wir müssen\
 1) alle Items des Fragebogens extrahieren,\
 2) alle Personen mit mind. einem Missing entfernen,\
@@ -2399,7 +2399,7 @@ Wir müssen\
 5) die individuellen Scores mit dem Gesamtmittelwert vergleichen, um nur überdurchschnittliche Personen in unserer finalen Auswahl zu haben.\
 </details>
 
-<div class="hint"><details><summary>Tipp 2</summary>
+<details><summary>Tipp 2</summary>
 Im finalen Datensatz befinden sich 140 (von initial 296) Personen.</details>
 
 
@@ -2460,10 +2460,10 @@ rmarkdown::paged_table(data[order(data$age),], options(rows.print=5))
 
 2.) Sortiere `data` (primär) nach absteigendem Einkommen und (sekundär, tertiär, ect.) nach den aufsteigenden Ausprägungen auf den Traditionalismus-Items (Traditionalism) in ihrer natürlichen Reihenfolge (beginnend bei `_1`, endend bei `_8`).
 
-<div class="hint"><details><summary>Tipp 1</summary>
+<details><summary>Tipp 1</summary>
 Mit der Funktion `order()` können wir nur jeweils auf- *oder* absteigend für *alle* angegebenen Variablen sortieren. Daher sollten wir für diese Aufgabe auf andere Funktionen, z.B. `arrange()` aus dem Paket dplyr zurückgreifen.</details>
 
-<div class="hint"><details><summary>Tipp 2</summary>
+<details><summary>Tipp 2</summary>
 Um besser beurteilen zu können, ob die Sortierung erfolgreich war, ist es sinnvoll, zuerst einen neuen Datensatz nur aus den relevanten Variablen (inklusive `id`) zu erstellen.</details>
 
 
@@ -2501,7 +2501,7 @@ Nun wollen wir die Kodierungen einiger Variablen ändern bzw. Variablen mit neue
 
 1.) Erstelle eine neue Variable `income`, die das monatliche Einkommen der befragten Personen kodiert, und dafür die Kategorien aus dem Codebuch (S.28) nutzt.
 
-<div class="hint"><details><summary>Tipp</summary>
+<details><summary>Tipp</summary>
 Um besser beurteilen zu können, ob die Kodierung erfolgreich war, ist es sinnvoll, zuerst einen neuen Datensatz bestehend aus `inc` und `id` zu erstellen.</details>
 
 
@@ -2531,7 +2531,7 @@ rmarkdown::paged_table(data_inc, options(rows.print=5))
 
 2.) Erstelle eine neue Variable `sex`, die analog zur gleichnamigen Variablen im Codebuch das biologische Geschlecht kodiert. Gehe für diese Aufgabe davon aus, dass alle Personen, die einen fehlender Wert auf `male` haben, einer Kategorie `other` (nicht-binäres Geschlecht) zugeordnet werden.
 
-<div class="hint"><details><summary>Tipp</summary>
+<details><summary>Tipp</summary>
 Um besser beurteilen zu können, ob die Kodierung erfolgreich war, ist es sinnvoll, zuerst einen neuen Datensatz bestehend aus `male` und `id` zu erstellen.</details>
 
 
@@ -2560,10 +2560,10 @@ rmarkdown::paged_table(data_sex, options(rows.print=5))
 
 3.) Rekodiere die negativ kodierten Items des Fragebogens zu Risikovermeidung (Risk Avoidance).
 
-<div class="hint"><details><summary>Tipp 1</summary>
+<details><summary>Tipp 1</summary>
 Die negativ kodierten Items sind im Codebuch jeweils mit einem **\*** markiert.</details>
 
-<div class="hint"><details><summary>Tipp 2</summary>
+<details><summary>Tipp 2</summary>
 Es ist sinnvoll zur Überprüfung der Aufgabe, einen neuen Datensatz bestehend aus den negativ kodierten Items und ihrem rekodierten Pendant (und natürlich `id`) zu erstellen.</details>
 
 
@@ -2598,7 +2598,7 @@ Nachfolgend wollen wir neue Variablen erstellen, die Informationen aus mehreren 
 
 1.) Erstelle für die verschiedenen Bereiche von Bedürfnissen – Allgemein (General), Gesellschaftlich (Societal) und Interpersonell (Interpersonal) – jeweils separate Summenwerte und einen Gesamtsummenwert (über alle drei Bereiche).
 
-<div class="hint"><details><summary>Tipp</summary>
+<details><summary>Tipp</summary>
 Die Items aller drei Bedürfnis-Bereiche haben denselben Wortstamm: `nee`.</details>
 
 
@@ -2631,7 +2631,7 @@ rmarkdown::paged_table(data_need, options(rows.print=5))
 
 2.) Erstelle die personenspezifischen Summenwerte der Items, die interpersonelle Bedürfnisse erfassen (Needs, Interpersonal), für alle Personen, die ein monatliches Einkommen von mehr als \$1.000 haben. Bei allen Personen, die weniger zur Verfügung haben, soll ein `"/"` in der Summenwert-Variablen stehen.
 
-<div class="hint"><details><summary>Tipp</summary>
+<details><summary>Tipp</summary>
 Zur Bearbeitung der Aufgabe können wir `mutate()` mit `ifelse()` kombinieren, um den beiden Bedingungen (monatliches Einkommen von mehr bzw. weniger als $1.000) unterschiedliche Werte zuzuweisen.</details>
 
 
