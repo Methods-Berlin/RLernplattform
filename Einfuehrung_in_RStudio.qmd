@@ -55,7 +55,7 @@ knitr::include_graphics("figures/Einführung/Bilder/RStudio/RStudio 2.png")
 ```
 
 Nun gliedert sich die Entwicklungsumgebung RStudio in **vier verschiedene Bereiche**:\
-In das <span class="r script">**Skript** schreiben wir unseren Code. In der <span class="r" style="color:#0533FF;">**Konsole** wird dieser ausgeführt und die Ergebnisse angezeigt. Bestehende Objekte sehen wir im <span class="r env">**Environment**. Eine Übersicht unserer Pakete finden wir unter <span class="r" style="color:#669C35;">**Packages** und Informationen zu `R` und zu Funktionen finden wir unter <span class="r" style="color:#669C35;">**Help**.
+In das **Skript** schreiben wir unseren Code. In der <span class="r" style="color:#0533FF;">**Konsole** wird dieser ausgeführt und die Ergebnisse angezeigt. Bestehende Objekte sehen wir im <span class="r env">**Environment**. Eine Übersicht unserer Pakete finden wir unter <span class="r" style="color:#669C35;">**Packages** und Informationen zu `R` und zu Funktionen finden wir unter <span class="r" style="color:#669C35;">**Help**.
 
 ```{r}
 #| out.width: 700px
@@ -70,7 +70,7 @@ Die **Größe** der Bereiche lässt sich an den Kanten oder an den Icons in der 
 
 Die verschiedenen Bereiche (Panels) und ihre (für uns wichtigsten) Features schauen wir uns im Folgenden einmal genauer an.
 
-### <span class="r script">Skript
+### Skript
 
 Hier schreiben wir unseren **Code** und **Kommentare** rein. 
 
@@ -265,7 +265,7 @@ Neben der Informationen, aus welchem Paket eine Funktion stammt, finden wir hier
 
 Im Folgenden schauen wir uns die **R**-Dokumentation exemplarisch für die Funktion `matrix()` an. 
 
-<span class = "ex">Dazu öffnen wir die dazugehörige **R**-Dokumentations-Seite, indem wir *matrix* in das <font color ="#FF1D00">Suchfeld eingeben, oder eine der Hilfe-Funktionen, `help(matrix)` oder `?matrix`, ausführen. Folgende Seite sollte sich nun öffnen:
+Dazu öffnen wir die dazugehörige **R**-Dokumentations-Seite, indem wir *matrix* in das <font color ="#FF1D00">Suchfeld eingeben, oder eine der Hilfe-Funktionen, `help(matrix)` oder `?matrix`, ausführen. Folgende Seite sollte sich nun öffnen:
 
 ```{r}
 #| out.width: 550px
@@ -280,7 +280,7 @@ Oben links sehen wir, dass die Funktion aus dem Basispaket **base** stammt.
 
 Man findet hier zu einer Funktion bzw. einem Set an verwandten Funktionen kurze Ausführungen zum Zweck einer Funktion.
 
-<span class = "ex">Die Funktion `matrix` erstellt eine Matrix von einem gegebenem Set an Werten. Es gibt noch zwei verwandte Funktionen - `as.matrix` und `is.matrix` - welche ein Objekt in eine Matrix umwandeln bzw. überprüfen, ob das (als Argument) übergebene Objekt eine Matrix ist.
+Die Funktion `matrix` erstellt eine Matrix von einem gegebenem Set an Werten. Es gibt noch zwei verwandte Funktionen - `as.matrix` und `is.matrix` - welche ein Objekt in eine Matrix umwandeln bzw. überprüfen, ob das (als Argument) übergebene Objekt eine Matrix ist.
 
 
 ##### Usage
@@ -294,13 +294,13 @@ Hier sehen wir die **Funktionsdefinition**. Diese zeigt, welche Parameter die Fu
 knitr::include_graphics("figures/Einführung/Bilder/RStudio/doc 3.png")
 ```
 
-<span class = "ex">Per Default ...:
+Per Default ...:
 
-* <span class = "ex">... wird an `data` nur ein `NA` (Missing) übergeben
-* <span class = "ex">... gibt es eine Reihe (`nrow=1`)
-* <span class = "ex">... und eine Spalte (`ncol=1`)
-* <span class = "ex">... wird die Matrix spaltenweise (d.h. von oben nach unten) mit Werten befüllt (`byrow=FALSE`)
-* <span class = "ex">... gibt es keine Spalten- und Zeilenbenennung (`dimnames=NULL`)
+* ... wird an `data` nur ein `NA` (Missing) übergeben
+* ... gibt es eine Reihe (`nrow=1`)
+* ... und eine Spalte (`ncol=1`)
+* ... wird die Matrix spaltenweise (d.h. von oben nach unten) mit Werten befüllt (`byrow=FALSE`)
+* ... gibt es keine Spalten- und Zeilenbenennung (`dimnames=NULL`)
 
 Um Defaults besser zu verstehen, führen wir `matrix()` ohne Spezifikation der Parameter aus und schauen uns den Output an.
 
@@ -309,7 +309,7 @@ Um Defaults besser zu verstehen, führen wir `matrix()` ohne Spezifikation der P
 matrix()
 ```
 
-<span class = "ex">Bis auf `byrow=FALSE` können wir so alle Voreinstellungen im Output nachvollziehen. Dessen Funktionsweise sieht man erst bei mehreren Elementen in einer Matrix.
+Bis auf `byrow=FALSE` können wir so alle Voreinstellungen im Output nachvollziehen. Dessen Funktionsweise sieht man erst bei mehreren Elementen in einer Matrix.
 
 <!--Für manche Funktionen gibt es unterschiedliche Defaults (und teils auch unterschiedliche nutzbare Argumente) für verschiedene Datentypen. Diese werden in der R-Dokumentation mit der  Überschrift `S3 method for class ...` versehen.
 <aside>Datentypen sind z.B. Data Frames, Faktoren, Tabellen, Funktionen ...</aside> -->
@@ -317,14 +317,14 @@ matrix()
 
 ##### Arguments
 
-Argumente sind Einstellungen, die wir für eine Funktion festlegen können. In der **R**-Dokumentation sieht man links den Namen des Arguments <span class = "ex">(z.B. `byrow`) und rechts eine Beschreibung dazu <span class = "ex">(z.B. `logical`) verbunden mit verschiedenen Einstellungsoptionen <span class = "ex">(z.B. `FALSE` - spaltenweise Befüllen der Matrix).
+Argumente sind Einstellungen, die wir für eine Funktion festlegen können. In der **R**-Dokumentation sieht man links den Namen des Arguments (z.B. `byrow`) und rechts eine Beschreibung dazu (z.B. `logical`) verbunden mit verschiedenen Einstellungsoptionen (z.B. `FALSE` - spaltenweise Befüllen der Matrix).
 
 
 ##### Details
 
 Im Abschnitt Details stehen weitere Detailinformationen zur Nutzung der Funktion. 
 
-<span class = "ex">**1. Abschnitt von `matrix()`:**\
+**1. Abschnitt von `matrix()`:**\
 Wir erfahren hier, dass wenn `nrow` (Zeilenanzahl) oder `ncol` (Spaltenanzahl) nicht festgelegt wird, versucht wird, auf dessen Länge zu schließen. Das schauen wir uns mal an einem Beispiel an.
 
 ```{r}
@@ -332,9 +332,9 @@ Wir erfahren hier, dass wenn `nrow` (Zeilenanzahl) oder `ncol` (Spaltenanzahl) n
 matrix(data=c(1,1,2,2,3,3,4,4,5,5), nrow=5)
 ```
 
-<span class = "ex">Wir haben einen Vektor mit 10 Elementen reingegeben und `nrow=5` festlegt. Daraus kann **R** schließen, dass die Matrix zwei Spalten (`ncol=2`) haben muss.
+Wir haben einen Vektor mit 10 Elementen reingegeben und `nrow=5` festlegt. Daraus kann **R** schließen, dass die Matrix zwei Spalten (`ncol=2`) haben muss.
 
-<span class = "ex">**2. Abschnitt `matrix()`:**\
+**2. Abschnitt `matrix()`:**\
 Wenn die Anzahl der Elemente, die wir an `data` übergeben, kleiner ist, als die Anzahl der gewünschten Elemente in Matrix (`nrow` x `ncol`), dann wird `data` __recycled__. Das bedeutet, dass `data` nochmal genutzt wird, um die Matrix zu befüllen.
 
 ```{r}

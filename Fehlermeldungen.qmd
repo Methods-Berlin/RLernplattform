@@ -285,7 +285,7 @@ knitr::include_graphics("figures/Fehlermeldungen/Bilder/search links.png")
 
 Mit Ausnahme des zweiten Links sieht es so aus, als würden die Seiten zu unspezifisch für unser Problem sein. 
 
-Der zweite Link weist gleich zwei **Übereinstimmungen** auf: Wir wollten einen <span class = "ex">correlation test rechnen und haben die selbe Fehlermeldung (<span class = "ex">'x' must be a numeric vector) bekommen.
+Der zweite Link weist gleich zwei **Übereinstimmungen** auf: Wir wollten einen correlation test rechnen und haben die selbe Fehlermeldung ('x' must be a numeric vector) bekommen.
 
 Schauen wir uns also das <a href="https://stackoverflow.com/questions/43497128/r-error-in-correlation-test-x-must-be-a-numeric-vector" target="_blank">zweite Ergebnis</a> an.
 
@@ -315,7 +315,7 @@ Gehen wir also zurück zu unserer Suche und schauen uns andere Seiten an. So seh
 knitr::include_graphics("figures/Fehlermeldungen/Bilder/search links 2.png")
 ```
 
-Bis auf den zweiten Link sehen die Vorschläge hier auch wieder sehr unspezifisch aus. Bei diesem gibt es zwei Parallelen zu unserem Problem: <span class = "ex">cor.test wird auf einen <span class = "ex">data frame angewendet.
+Bis auf den zweiten Link sehen die Vorschläge hier auch wieder sehr unspezifisch aus. Bei diesem gibt es zwei Parallelen zu unserem Problem: cor.test wird auf einen data frame angewendet.
 Sehen wir uns die <a href="https://www.reddit.com/r/Rlanguage/comments/23infd/running_cortest_on_data_frames/" target="_blank">Seite</a> mal an.
 
 Wir landen in einem Foreneintrag. Die Antwort von <font color ="dodgerblue">dasonk weißt uns darauf hin, dass man an `cor.test()` nur *zwei Vektoren* übergeben kann. Wir haben aber 4 Vektoren übergeben. In der nächsten Antwort von <font color ="dodgerblue">anbende wird vorgeschlagen, die Korrelationstabelle mit `cor()` zu erstellen. Allerdings muss man die Signifikanztestung immer noch mit `cor.test()` machen.

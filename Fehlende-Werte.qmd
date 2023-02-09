@@ -12,7 +12,7 @@ num_vector <- c(1, 4, NA, NaN)
 num_vector
 is.na(num_vector)
 ```
-<font color="gray">Die Funktion `is.na()` gibt für jedes Element ein `TRUE` wenn es fehlt bzw. ein `FALSE` wenn es vorhanden ist. Wir werden im Laufe des Kapitels verschiedene Kombinationsmöglichkeiten für diese Funktion kennen lernen.
+Die Funktion `is.na()` gibt für jedes Element ein `TRUE` wenn es fehlt bzw. ein `FALSE` wenn es vorhanden ist. Wir werden im Laufe des Kapitels verschiedene Kombinationsmöglichkeiten für diese Funktion kennen lernen.
 
 `NaN` entstehen z.B. bei unlösbaren Rechnungen wie Division durch $0$. 
 
