@@ -104,18 +104,18 @@ Die Datensätze enthalten jeweils die gleichen 3 Variablen:
 
 Zuerst widmen wir unsere Aufmerksamkeit der Überprüfung wichtiger übergreifender Punkte der Datenvorbereitung. Diese sind: ob unser Datensatz als **[Dataframe]** vorliegt, ob unsere **[Daten plausibel](#plausibilitäts-check)** und **[fehlende Werte korrekt kodiert](#fehlende-werte)** sind, ob nominal- und v.a. ordinalskalierte Variablen **[faktorisiert](#faktorisieren)** sind, und ob wir unser bestehendes **[Tabellenformat ggf. ändern](#wide--und-long-format)** müssen. Die Schritte sind bereits in einer **sinnvollen Abfolge** angeordnet (z.B. ist es vorteilhaft, erst unplausible und fehlende Werte ausfindig zu machen und umzukodieren, bevor man Variablen faktorisiert).
 
-<font color="darkgrey">Optional können wir vorher unser Wissen zum Messen von Merkmalen und der korrekten Darstellung dieser in R auffrischen.
+Optional können wir vorher unser Wissen zum Messen von Merkmalen und der korrekten Darstellung dieser in R auffrischen.
 
 Wir schauen uns nachfolgend nur die Datensätze **airquality** und **PWE_data** an.
 
-### <font color="darkgrey">**Recap**: Kodierung von Daten
+### **Recap**: Kodierung von Daten
 
 Generell wenn wir mit Daten arbeiten, ist es ratsam, sich zuallererst Gedanken darüber zu machen, welche Informationen wir diesen entnehmen können (**Messniveau**) und ob sie so gespeichert sind, dass R sie richtig erkennt (**Datentypen und -strukturen**).
 
 Die nachfolgende Wiederholung ist eine verkürzte Variante des Abschnitts [Daten][Daten] aus dem Kapitel zu [Einführung in R](Einfuehrung_in_R.qmd).
 
 
-#### <font color="darkgrey">Messniveaus
+#### Messniveaus
 
 ```{r}
 #| echo: false
@@ -204,7 +204,7 @@ kable(table, "html", escape = F) %>%
            background = "#009193")
 ```
 
-#### <font color="darkgrey">Datentypen und Datenstrukturen
+#### Datentypen und Datenstrukturen
 
 > *__Achtung__*:  Die Unterteilung nach "Datentyp" und "Datenstruktur" sind getreu des <a href="https://cran.r-project.org/doc/manuals/r-release/R-intro.html" target="_blank">Manuals von R</a>. Man stößt in anderen Quellen aber auch auf abweichende Unterteilungen bzw. Benennungen.
 
@@ -296,7 +296,7 @@ is.data.frame(PWE_data)
 <details><summary>Was genau ist ein Dataframe?</summary><div class="more">
 Ein Dataframe ist eine **Datenstruktur**, die es uns erlaubt, Daten tabellarisch zu speichern. Der Dataframe ist eine Liste aus Vektoren mit gleicher Länge. Listen können (im Gegensatz zu Matrizen) Variablen mit **unterschiedlichen Datentypen** speichern. 
 
-Mehr Informationen gibt es im vorhergehenden Abschnitt zu [<font color="darkgrey">Datentypen und Datenstrukturen].
+Mehr Informationen gibt es im vorhergehenden Abschnitt zu [Datentypen und Datenstrukturen].
 
 ```{r}
 #| echo: false

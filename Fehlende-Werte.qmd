@@ -474,7 +474,7 @@ Zwei grundlegende Möglichkeiten sind entweder ganze Fälle mit Missings zu exkl
 
 Nachteil von beiden (d.h. kompletter bzw. partieller Ausschluss von Zeilen) ist generell, dass die Stichprobengröße $N$ sinkt und damit einhergehend größere Standardfehler und eine geringere Power resultieren. Ein weiteres Problem bei pairwise deletion ist außerdem, dass sich die Stichprobengröße $N$ sowie die Zusammensetzung der Stichproben für unterschiedliche Analysen unterscheiden wird. 
 
-<font color="darkgrey">Eine weitere Möglichkeit mit fehlenden Werten umzugehen ist diese zu imputieren (d.h. diese "vorherzusagen"). Da Imputation aber ein vielschichtiges Thema mit vielen verschiedenen Methodiken ist, gehen wir im Weiteren nicht darauf ein.
+Eine weitere Möglichkeit mit fehlenden Werten umzugehen ist diese zu imputieren (d.h. diese "vorherzusagen"). Da Imputation aber ein vielschichtiges Thema mit vielen verschiedenen Methodiken ist, gehen wir im Weiteren nicht darauf ein.
 
 
 ## Neuen Datensatz erstellen, der keine Missings enthält
