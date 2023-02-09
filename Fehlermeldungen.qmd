@@ -55,11 +55,11 @@ Bevor wir uns dem Verstehen von konkreten (Syntax-)Fehlermeldungen widmen und an
 ### **R**-Dokumentation
 
 Wenn wir eine uns noch unbekannte Funktion nutzen (aber auch wenn 
-wir aus einer Fehlermeldung nicht schlau werden) können wir die Dokumentation nutzen. Diese können wir in RStudio im unteren rechten Panel unter <font color ="#649B32">Help öffnen. In das <font color ="#FF1D00">Suchfeld geben wir den Namen der Funktion ein. 
+wir aus einer Fehlermeldung nicht schlau werden) können wir die Dokumentation nutzen. Diese können wir in RStudio im unteren rechten Panel unter Help öffnen. In das Suchfeld geben wir den Namen der Funktion ein. 
 
 Alternativ können wir die Hilfefunktionen `?` oder `help()` nutzen (z.B. `?matrix` oder `help(matrix)`). 
 
-Mit Klick auf das <font color ="#FD9612">eingekreiste Icon kann man sich die Hilfe-Seite auch in einem extra Fenster anzeigen lassen.
+Mit Klick auf das eingekreiste Icon kann man sich die Hilfe-Seite auch in einem extra Fenster anzeigen lassen.
 
 <aside>Wir finden die **R**-Dokumentation auch im Internet, allerdings ermöglicht uns **RStudio**, diese ohne Internetverbindung und direkt in der Entwicklungsumgebung zu öffnen.</aside>
 
@@ -112,7 +112,7 @@ knitr::include_graphics("figures/Fehlermeldungen/Bilder/cd dreieck 2.png")
 
 <details><summary>Lösung</summary>
 
-Das dritte Argument, welches nach dem zweiten Komma in `c()` folgen sollte, ist leer. In unserem Beispiel sind die Argumente von `c()` Zahlen (zur Indexierung der Spalten vom Dataframe `daten`). Wenn wir die Spalten `1`, `2` und `3` extrahieren wollten, würden wir das überflüssige Komma löschen: <font color ="#930047">`daten[,c(1,2,3)]`
+Das dritte Argument, welches nach dem zweiten Komma in `c()` folgen sollte, ist leer. In unserem Beispiel sind die Argumente von `c()` Zahlen (zur Indexierung der Spalten vom Dataframe `daten`). Wenn wir die Spalten `1`, `2` und `3` extrahieren wollten, würden wir das überflüssige Komma löschen: `daten[,c(1,2,3)]`
 
 </details>\
 
@@ -134,7 +134,7 @@ knitr::include_graphics("figures/Fehlermeldungen/Bilder/cd kreis 2.png")
 
 <details><summary>Lösung</summary>
 
-Unser Code endet mit einer schließenden runden Klammer, welche kein öffnendes Pendant hat. Außerdem hat unsere öffnende eckige Klammer kein abschließendes Pendant. Wahrscheinlich haben wir uns vertippt und anstatt einer schließenden eckigen Klammer eine schließende runde Klammer eingefügt. So würde der richtige Code aussehen: <font color ="#930047">`daten[,c(1,2,3)]`
+Unser Code endet mit einer schließenden runden Klammer, welche kein öffnendes Pendant hat. Außerdem hat unsere öffnende eckige Klammer kein abschließendes Pendant. Wahrscheinlich haben wir uns vertippt und anstatt einer schließenden eckigen Klammer eine schließende runde Klammer eingefügt. So würde der richtige Code aussehen: `daten[,c(1,2,3)]`
 </details>\
 
 Auf dieser <a href="https://support.rstudio.com/hc/en-us/articles/205753617-Code-Diagnostics?version=1.2.1335&mode=desktop" target="_blank">Seite</a> wird die Möglichkeiten der Code Diagnostics noch detaillierter erklärt und wir erhalten eine Anleitung dazu, wie wir verschiedene Einstellungen tätigen können (in der oberen Menüleiste über *Tools > Global Options > Code > Diagnostics*).
@@ -166,7 +166,7 @@ Schauen wir uns nun einige Beispiele an:
 
 
 
-Wenn **ein oder mehrere Zeichen überflüssig sind bzw. fehlen**, dann bekommt man <font color ="#C6180B">`Unerwartete(s) '...' in "..."` ausgegeben. Hierbei teilt uns die Meldung mit, *wo* der Fehler liegt: In den Anführungszeichen <font color ="#C6180B">`"..."` wird nur ein Teil des Codes ausgegeben und der Fehler ist zumeist das zuletzt ausgegebene Zeichen (oder es liegt unmittelbar davor).
+Wenn **ein oder mehrere Zeichen überflüssig sind bzw. fehlen**, dann bekommt man `Unerwartete(s) '...' in "..."` ausgegeben. Hierbei teilt uns die Meldung mit, *wo* der Fehler liegt: In den Anführungszeichen `"..."` wird nur ein Teil des Codes ausgegeben und der Fehler ist zumeist das zuletzt ausgegebene Zeichen (oder es liegt unmittelbar davor).
 
 ```{r}
 #| out.width: 440px
@@ -176,7 +176,7 @@ knitr::include_graphics("figures/Fehlermeldungen/Bilder/fm 1.png")
 ```
 
 <details><summary>Lösung</summary>
-z.B. <font color ="#930047">`daten[2]`
+z.B. `daten[2]`
 
 Damit extrahiert man auch die zweite Spalte aus `daten`, aber hier wird der Name der Spalte (Variable) nicht mit ausgegeben. Außerdem werden die Elemente der Spalte zeilwenweise wiedergegeben.
 </details>\
@@ -191,12 +191,12 @@ knitr::include_graphics("figures/Fehlermeldungen/Bilder/fm 2.png")
 ```
 
 <details><summary>Lösung</summary>
-z.B. <font color ="#930047">`daten[2]`
+z.B. `daten[2]`
 
 Zuerst wurde nur auf das fehlerhafte `$` hingewiesen. Nachdem dieses gelöscht wurde, wird erst auf das falsche `)` verwiesen.
 </details>\
 
-Manchmal bekommt man auch nur <font color ="#C6180B">`unerwartetes Symbol in: "..."` ausgegeben. In den Anführungszeichen <font color ="#C6180B">`"..."` wird hier nur der Teil des Codes ausgegeben, in dem der Fehler ist, nicht aber (wie oben), auch das problematische Zeichen.
+Manchmal bekommt man auch nur `unerwartetes Symbol in: "..."` ausgegeben. In den Anführungszeichen `"..."` wird hier nur der Teil des Codes ausgegeben, in dem der Fehler ist, nicht aber (wie oben), auch das problematische Zeichen.
 
 ```{r}
 #| out.width: 350px
@@ -206,7 +206,7 @@ knitr::include_graphics("figures/Fehlermeldungen/Bilder/fm 3.png")
 ```
 
 <details><summary>Lösung</summary>
-z.B. <font color ="#930047">`daten[,2]` _oder_ <font color ="#930047">`daten[2]`
+z.B. `daten[,2]` _oder_ `daten[2]`
 
 Hier wurde nicht bemerkt, dass bei der ersten Funktion `daten[,2` noch ein `]` fehlt und einfach schon die nächste Funktion `daten[,3]` ausgeführt. So nahm **R** an, dass beide zusammen gehören würden.
 </details>\
@@ -221,7 +221,7 @@ knitr::include_graphics("figures/Fehlermeldungen/Bilder/fm 4.png")
 ```
 
 <details><summary>Lösung</summary>
-z.B. <font color ="#930047">`daten[c(1,2)]` _oder_ <font color ="#930047">`daten[c(1,2,3)]`
+z.B. `daten[c(1,2)]` _oder_ `daten[c(1,2,3)]`
 
 Hier weist uns **R** darauf hin, dass das dritte Argument, welches nach dem zweiten Komma folgen sollte, leer ist. In Abhängigkeit davon, welche Spalten aus Daten extrahiert werden sollen, *löscht* man das Komma (um Spalte `1` und `2` zu extrahieren) oder man *ergänzt* einen weiteren Spaltenindex (z.B. 3; um Spalte `1`, `2` und `3` zu extrahieren).
 </details>
@@ -248,14 +248,14 @@ knitr::include_graphics("figures/Fehlermeldungen/Bilder/fehler.png")
 ```
 
 
-<h2>a\) Passende Suchbegriffe nutzen</h2>
+## a\) Passende Suchbegriffe nutzen
 
 Sinnvoll ist es im Suchtext drei Aspekte miteinzubeziehen:
 
-- das <font color ="#649B32">**Programm**, mit dem es Probleme gibt
-- die <font color ="#FF1D00">**Funktion**, mit der es Probleme gibt 
+- das **Programm**, mit dem es Probleme gibt
+- die **Funktion**, mit der es Probleme gibt 
    + auch ersichtlich an der Information **vor** dem Doppelpunkt
-- Ausschnitte aus der <font color ="#8DA0FF">**Fehlermeldung**
+- Ausschnitte aus der **Fehlermeldung**
    + von den Informationen **nach** dem Doppelpunkt
 
 Unsere Suche könnte folgendermaßen aussehen:
@@ -267,10 +267,10 @@ Unsere Suche könnte folgendermaßen aussehen:
 knitr::include_graphics("figures/Fehlermeldungen/Bilder/search words.png")
 ```
 
-Anstatt eine globale Suchmaschine wie google oder ecosia zu nutzen, kann man auch eine spezifisch für Anliegen in **R** konzipierte Suchmaschine wie <a href="https://rseek.org" target="_blank">**rseek**</a> nutzen. Dann kann man im Suchtext den Namen des <font color ="#649B32">Programms weglassen, beispielsweise nur *<font color ="#FF1D00">cor.test <font color ="#8DA0FF">x numerischer Vektor* suchen.
+Anstatt eine globale Suchmaschine wie google oder ecosia zu nutzen, kann man auch eine spezifisch für Anliegen in **R** konzipierte Suchmaschine wie <a href="https://rseek.org" target="_blank">**rseek**</a> nutzen. Dann kann man im Suchtext den Namen des Programms weglassen, beispielsweise nur *cor.test x numerischer Vektor* suchen.
 
 
-<h2>b\) Ergebnisse filtern</h2>
+## b\) Ergebnisse filtern
 
 Nachfolgend sehen wir die ersten fünf Ergebnisse der Suche.
 
@@ -289,7 +289,7 @@ Der zweite Link weist gleich zwei **Übereinstimmungen** auf: Wir wollten einen 
 
 Schauen wir uns also das <a href="https://stackoverflow.com/questions/43497128/r-error-in-correlation-test-x-must-be-a-numeric-vector" target="_blank">zweite Ergebnis</a> an.
 
-<h2>c\) Lösungsvorschläge ausprobieren</h2>
+## c\) Lösungsvorschläge ausprobieren
 
 In Foren findet man in aller Regel oben die Problembeschreibung und darunter die geposteten Lösungsvorschläge.
 
@@ -304,7 +304,7 @@ str(daten)
 Bei uns scheinen alle Spalten numerisch (`num`) zu sein. Diese Lösung scheint also nicht passend für unser Problem zu sein.
 
 
-<h2>Zurück zu b) Ergebnisse filtern und c) Lösungsvorschläge ausprobieren</h2>
+## Zurück zu b) Ergebnisse filtern und c) Lösungsvorschläge ausprobieren
 
 Gehen wir also zurück zu unserer Suche und schauen uns andere Seiten an. So sehen die nächsten fünf Ergebnisse der Suche aus.
 
@@ -318,11 +318,11 @@ knitr::include_graphics("figures/Fehlermeldungen/Bilder/search links 2.png")
 Bis auf den zweiten Link sehen die Vorschläge hier auch wieder sehr unspezifisch aus. Bei diesem gibt es zwei Parallelen zu unserem Problem: cor.test wird auf einen data frame angewendet.
 Sehen wir uns die <a href="https://www.reddit.com/r/Rlanguage/comments/23infd/running_cortest_on_data_frames/" target="_blank">Seite</a> mal an.
 
-Wir landen in einem Foreneintrag. Die Antwort von <font color ="dodgerblue">dasonk weißt uns darauf hin, dass man an `cor.test()` nur *zwei Vektoren* übergeben kann. Wir haben aber 4 Vektoren übergeben. In der nächsten Antwort von <font color ="dodgerblue">anbende wird vorgeschlagen, die Korrelationstabelle mit `cor()` zu erstellen. Allerdings muss man die Signifikanztestung immer noch mit `cor.test()` machen.
+Wir landen in einem Foreneintrag. Die Antwort von dasonk weißt uns darauf hin, dass man an `cor.test()` nur *zwei Vektoren* übergeben kann. Wir haben aber 4 Vektoren übergeben. In der nächsten Antwort von anbende wird vorgeschlagen, die Korrelationstabelle mit `cor()` zu erstellen. Allerdings muss man die Signifikanztestung immer noch mit `cor.test()` machen.
 
 Die Antwort hat uns schon weitergeholfen: Wir haben eine Vorstellung davon, wo der Fehler liegen könnte. Jetzt ist es sinnvoll, eine neue Suche zu starten, um nach einer Funktion zu suchen, die sowohl eine Korrelationstabelle erstellt, als auch eine Signifikanztestung durchführt.
 
-Hier kombinieren wir Suchwörter zum <font color ="#649B32">**Programm** und zu dem, was die <font color ="#FF230C">**Funktion**, die wir suchen, leisten soll.
+Hier kombinieren wir Suchwörter zum **Programm** und zu dem, was die **Funktion**, die wir suchen, leisten soll.
 
 ```{r}
 #| out.width: 500px
@@ -360,11 +360,11 @@ rcorr(as.matrix(daten[1:2]), as.matrix(daten[3:4]))
 
 Wir erhalten zwei Matrizen als Output. Eine enthält die Korrelationen, die andere die p-Werte. Wir haben also gefunden, wonach wir gesucht haben.
 
-<h2>Und wenn man keine Lösung gefunden hat?</h2>
+## Und wenn man keine Lösung gefunden hat?
 
 Wenn man im ersten Durchlauf nichts gefunden hat, ist es beispielsweise sinnvoll, **andere Ausschnitte aus der Fehlermeldung in den Suchtext zu inkludieren**.
 
-Manchmal ist ein Fehler so global, dass er bei verschiedenen Funktionen auftaucht. Daher lohnt es sich manchmal auch, eine __Suche *ohne* den Funktionsnamen__ durchzuführen. Spätestens, wenn man bei der Suche mit allen drei Suchbegriffen nichts gefunden hat, ist es sinnvoll, nur mit <font color ="#649B32">**Programm** + <font color ="#8DA0FF">**Fehlermeldung** zu suchen.
+Manchmal ist ein Fehler so global, dass er bei verschiedenen Funktionen auftaucht. Daher lohnt es sich manchmal auch, eine __Suche *ohne* den Funktionsnamen__ durchzuführen. Spätestens, wenn man bei der Suche mit allen drei Suchbegriffen nichts gefunden hat, ist es sinnvoll, nur mit **Programm** + **Fehlermeldung** zu suchen.
 
 Wir können auch auf **allgemeine <a href="https://www.lifewire.com/google-searches-and-power-tricks-4093009" target="_blank">Tipps zum Suchen im Internet</a>** zurückgreifen, u.a.:
 

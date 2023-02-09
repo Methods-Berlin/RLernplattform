@@ -1,6 +1,6 @@
 # Annahmen der Multiplen Linearen Regression
 
-<p style="font-weight:600; font-size:36px">Einleitung
+Einleitung
 
 Wenn wir uns den gerichteten Zusammenhang von mehr als zwei Variablen anschauen möchten, können wir dafür die multiple lineare Regression nutzen. Bei dieser können wir *eine* abhängige Variable (AV, nachfolgend *Kriterium* genannt) durch *mehrere (multiple)* unabhängige Variablen (UVs, nachfolgend *Prädiktoren* genannt) vorhersagen. Grundsätzlich gilt, dass das Kriterium metrisch sein muss (d.h. mindestens intervallskaliert). Die Prädiktoren hingegen können auch kategorial (d.h. dichotom, nominal- oder ordinalskaliert) sein, sofern diese korrekt kodiert werden (z.B. als Dummyvariablen). 
 
@@ -57,7 +57,7 @@ In geplotteten Daten können verschiedenste Verletzungen (z.B. Missspezifikation
 # C, C, W & A: S.111
 ```
 
-Wenn wir Ergebnisse einer linearen Regression mit `plot()` darstellen, wird häufig die sogenannte <font color="red">**Lowess Fit Line** eingezeichnet.
+Wenn wir Ergebnisse einer linearen Regression mit `plot()` darstellen, wird häufig die sogenannte **Lowess Fit Line** eingezeichnet.
 
 Lowess steht für **lo**cally **we**ighted **s**catterplot **s**moother. Die Lowess (oder auch Loess) Fit Line ist ein Verfahren, welches den besten nonparametrischen Fit für die gegeben Daten anzeigt. Sie ist eine Auswertungshilfe bei der Beurteilung der Form des Zusammenhangs. Dabei macht sie keine Annahmen über die Form des Zusammenhangs zwischen den Variablen. Der Zusammenhang zwischen zwei Variablen wird im Streudiagramm als "smoothe" Linie, die den generellen Trend der Daten beschreibt, dargestellt. Wenn der Zusammenhang zwischen zwei Variablen in der Population linear ist, so sollte sich auch die Lowess Line einer Gerade annähern. Allerdings ist die Lowess Line häufig an den Enden der Verteilung von X weniger präzise, da hier weniger Daten vorhanden sind.
 </details>
@@ -193,7 +193,7 @@ plot(lm_lz, which = 1)
 ```
 Die **gestrichelte Linie** bei $y = 0$ zeigt den Erwartungswert der Residuen. Diese ist immer null und die Residuen sollten sich ohne erkennbares Muster, um diese Linie verteilen.
 
-Die rote Linie ist die <span style="color:red">[Lowess Fit Line](#loess). Diese sollte sich der gestrichelten Linie annähern, wenn der Zusammenhang zwischen Prädiktoren und Kriterium linear ist.
+Die rote Linie ist die [Lowess Fit Line](#loess). Diese sollte sich der gestrichelten Linie annähern, wenn der Zusammenhang zwischen Prädiktoren und Kriterium linear ist.
 
 In unserem Beispiel legt der Residualplot nahe, dass der Zusammenhang zwischen Lebenszufriedenheit und Zufriedenheit mit Studieninhalten und -bedingungen weitgehend linear ist.
 
@@ -336,7 +336,7 @@ plot(lm_lz, which = 3)
 # dritter Plot der plot()-Funktion für ein lm-Objekt ist der Scale Location Plot
 ```
 
-Die standardisierten Residuen sollten auch hier gleichmäßig (zufällig) über den gesamten Bereich streuen. Außerdem sollte die <span style="color:red">[Lowess Line](#loess) möglichst horizontal zur $x$-Achse sein.
+Die standardisierten Residuen sollten auch hier gleichmäßig (zufällig) über den gesamten Bereich streuen. Außerdem sollte die [Lowess Line](#loess) möglichst horizontal zur $x$-Achse sein.
 
 Auch der Scale Location Plot weist in unserem Beispiel auf ungefähre Varianzhomogenität hin. Das heißt, dass die standardisierten Residuen des Teils vom Kriterium 'Lebenszufriedenheit', der nicht durch die Prädiktoren 'Zufriedenheit mit Studieninhalten' und 'Zufriedenheit mit Studienbedingungen' vorhergesagt werden kann, gleichmäßig über die vorhergesagten Werte vom Kriterium 'Lebenszufriedenheit' streut. 
 
@@ -471,7 +471,7 @@ summary(lm_wls)$coefficients
 
 Wir sehen, dass die Schätzungen von WLS denen von OLS sehr nah ist. Relevant wären hier prinzipiell mehr die Standardfehler (die bei Varianzheterogenität und OLS verzerrt wären). Da wir aber von Varianzhomogenität in unserem Beispiel ausgehen, sind auch diese sehr ähnlich.
 
-> *__Achtung__*: <div class="row">Es gibt zwei Schwierigkeiten im Umgang mit dem WLS-Schätzer:
+> *__Achtung__*: Es gibt zwei Schwierigkeiten im Umgang mit dem WLS-Schätzer:
 
 - wir müssen ein angemessenes Gewicht für jede Beobachtung wählen
   + wenn die Gewichte nicht angemessen sind, ist WLS kein guter Schätzer
@@ -516,7 +516,7 @@ Einen Eindruck darüber, ob es systematische Abhängigkeiten zwischen den Residu
 
 Hierbei können wir u.a. visualisieren, ob es zeitliche Abhängigkeiten gibt, z.B. ob Personen, die später an der Befragung teilgenommen haben, systematische Unterschiede in ihrer Lebenszufriedenheit (Kriterium) zeigen. 
 
-Um das besser beurteilen zu können, können wir auch hier wieder die <span style="color:red">[Lowess Line](#loess) einzeichnen. Diese sollte wieder möglichst horizontal zur $x$-Achse bei $y = 0$ liegen. Beide Linien fügen wir zur Vereinfachung der Beurteilung des Plots hinzu.
+Um das besser beurteilen zu können, können wir auch hier wieder die [Lowess Line](#loess) einzeichnen. Diese sollte wieder möglichst horizontal zur $x$-Achse bei $y = 0$ liegen. Beide Linien fügen wir zur Vereinfachung der Beurteilung des Plots hinzu.
 
 
 ```{r}
@@ -691,7 +691,7 @@ Für die normalverteilte Dichtefunktion der Residuen nutzen wir `curve()` und `d
 
 Um die Normalverteilung besser anschauen zu können, erweitern wir die $x$-Achse. Das machen wir mit `xlim=c(-15, >15)`. Die Wahl der Grenzen von $-15$ bis $+ 15$ - ist eine theoretische Überlegung. Bei einer Normalverteilung liegen ~ $99$% der Werte im Bereich $+/- 3$ Standardabweichungen vom Mittelwert entfernt. Die Standardabweichung der Residuen beträgt ~ `r round(sd(lm_lz$residuals), 3)`. 
 
-Für eine bessere Übersichtlichkeit stellen wir die <span style="color:orange">reale Dichtefunktion und die <span style="color:green">erwartete Dichtefunktion farblich dar. 
+Für eine bessere Übersichtlichkeit stellen wir die reale Dichtefunktion und die erwartete Dichtefunktion farblich dar. 
 
 ```{r}
 #| label: hist_advanced
@@ -734,7 +734,7 @@ abline(v = 1, col = "blue") # zur Illustration für unser Beispiel
 
 In der obigen Abbildung werden die theoretischen Quantile der Normalverteilung ($x$-Achse) gegen die standardisierten Residuen ($y$-Achse) abgetragen. Wenn die Residuen normalverteilt sind, sollten die Punkte ungefähr auf der winkelhalbierenden Geraden (gestrichelte Linie) liegen. Kleinere Abweichungen, vor allem an den Enden der Geraden (unten links und oben rechts) sind in der Praxis aber nicht ungewöhnlich und oftmals nicht weiter problematisch.
 
- In unserem Beispiel weichen viele Punkte mit höheren Ausprägungen (rechts von der  <span style="color:blue">blauen Linie) von der winkelhalbierenden Geraden ab, was für eine gewisse Verletzung der Normalverteilungsannahme spricht.
+ In unserem Beispiel weichen viele Punkte mit höheren Ausprägungen (rechts von der  blauen Linie) von der winkelhalbierenden Geraden ab, was für eine gewisse Verletzung der Normalverteilungsannahme spricht.
 
 Wenn wir sehen wollen, wie der QQ-Plot bei verschiedenen Verteilungsformen aussehen kann, können wir uns diesen <a href="https://stats.stackexchange.com/questions/101274/how-to-interpret-a-qq-plot" target="_blank">Forumseintrag</a> zu QQ-Plots anschauen.
 
@@ -872,7 +872,7 @@ Bei hoher **_essentieller_** Multikollinearität ist es oftmals ratsam, Prädikt
 \
 Die **Leverage** ist die absolute Abweichung eines beobachteten Wertes einer Person vom Mittel aller Prädiktoren $X$.</aside>
 
-In den folgenden drei Abbildungen sehen wir verdeutlicht, was mit extremen Abweichungen auf dem Kriterium bzw. den Prädiktoren gemeint ist. Dazu wurden exemplarisch **Lebenszufriedenheit** ($Y$) und **Zufriedenheit mit Studieninhalten** ($X_1$) gegeneinander geplottet. Hierbei wurde jeweils der $Y$- bzw. $X_1$-Wert von <span style="color:red">Person 50 geändert. Die <span style="color:blue">gestrichelte Linie stellt dabei jeweils die obere Grenze des Wertebereichs des Kriteriums bzw. des Prädiktors dar.
+In den folgenden drei Abbildungen sehen wir verdeutlicht, was mit extremen Abweichungen auf dem Kriterium bzw. den Prädiktoren gemeint ist. Dazu wurden exemplarisch **Lebenszufriedenheit** ($Y$) und **Zufriedenheit mit Studieninhalten** ($X_1$) gegeneinander geplottet. Hierbei wurde jeweils der $Y$- bzw. $X_1$-Wert von Person 50 geändert. Die gestrichelte Linie stellt dabei jeweils die obere Grenze des Wertebereichs des Kriteriums bzw. des Prädiktors dar.
 
 <aside>[Später](#cooklev) greifen wir nochmal auf das gleiche Beispiel zurück, um den Unterschied und die Konsequenzen von extremen Abweichungen auf dem Kriterium bzw. den Prädiktoren noch mehr zu verdeutlichen.</aside>
 
@@ -939,7 +939,7 @@ Es gibt keine einheitlichen Richtlinien darüber, ab wann ein studentisiertes ge
 
 In unserem Beispiel gibt es keine Werte, die __extrem__ von der Verteilung der anderen abweichen. Wir schauen uns dennoch exemplarisch einmal die zwei größten Werte an (d.h. die kleiner gleich - 3 sind).
 
-In folgender Abbildung schauen wir uns an, wie eine <span style="color:red">extreme Abweichung eines studentisierten gelöschten Residuums aussehen könnte. In folgendem Plot wurde nur ein studentisiertes gelöschtes Residuum eingefügt; die anderen Werte sind gleich geblieben.
+In folgender Abbildung schauen wir uns an, wie eine extreme Abweichung eines studentisierten gelöschten Residuums aussehen könnte. In folgendem Plot wurde nur ein studentisiertes gelöschtes Residuum eingefügt; die anderen Werte sind gleich geblieben.
 
 ```{r}
 #| echo: false
@@ -1030,9 +1030,9 @@ plot(lm_lz, which=5)
 # fünfter Plot der plot()-Funktion für ein lm-Objekt ist der Residuen-Leverage Plot
 ```
 
-Die <span style="color:red">[Lowess Line](#loess) sollte auch hier wieder flach und nah an der gestrichelten Linie bei $y=0$ sein.
+Die [Lowess Line](#loess) sollte auch hier wieder flach und nah an der gestrichelten Linie bei $y=0$ sein.
 
-Die Werte der Person mit dem Index 50 weisen eine leicht erhöhte hohe Cooks Distance auf. Allerdings sind die Grenzen bei 0.5 und 1 nicht einmal sichtbar, weil alle Werte der Cooks Distance relativ klein sind. Auch die <span style="color:red">[Lowess Line](#loess) ist flach an nah bei y=0. Beides spricht dafür, dass in unserem Datensatz keine einflussreichen Datenpunkte, die die Parameter verzerren könnten, enthalten sind. \
+Die Werte der Person mit dem Index 50 weisen eine leicht erhöhte hohe Cooks Distance auf. Allerdings sind die Grenzen bei 0.5 und 1 nicht einmal sichtbar, weil alle Werte der Cooks Distance relativ klein sind. Auch die [Lowess Line](#loess) ist flach an nah bei y=0. Beides spricht dafür, dass in unserem Datensatz keine einflussreichen Datenpunkte, die die Parameter verzerren könnten, enthalten sind. \
 
 In diesem <a href="https://stats.stackexchange.com/questions/58141/interpreting-plot-lm" target="_blank">Forumseintrag</a> wird der Residuen-Leverage-Plot noch ausführlicher erklärt.
 
@@ -1057,7 +1057,7 @@ Schauen wir uns den **Residuen-Leverage-Plot** noch einmal an.
 
 In den folgenden Abbildungen wurden die Werte von **Person 50** auf dem Kriterium und einem Prädiktor (Zufriedenheit mit Studieninhalten) jeweils einzeln und anschließend gemeinsam manipuliert, um den jeweiligen Einfluss im Vergleich zum bestehenden Datensatz (der schon weiter oben dargestellt war) zu veranschaulichen. 
 
-In der Einführung zu [ Extremen Werte und einflussreichen Datenpunkte](#extreme-werte-und-einflussreiche-datenpunkte) haben wir den Unterschied zwischen Ausreißern auf dem Kriterium und den Prädiktoren schon angesprochen. Die Abbildungen sollen deren Implikationen noch verdeutlichen. Bei der Interpretation helfen die durchgezogene <span style="color:red">[Lowess Fit Line](#loess) und die rot gestrichelten Grenzwerte der Cooks Distance.
+In der Einführung zu [ Extremen Werte und einflussreichen Datenpunkte](#extreme-werte-und-einflussreiche-datenpunkte) haben wir den Unterschied zwischen Ausreißern auf dem Kriterium und den Prädiktoren schon angesprochen. Die Abbildungen sollen deren Implikationen noch verdeutlichen. Bei der Interpretation helfen die durchgezogene [Lowess Fit Line](#loess) und die rot gestrichelten Grenzwerte der Cooks Distance.
 
 
 ```{r}

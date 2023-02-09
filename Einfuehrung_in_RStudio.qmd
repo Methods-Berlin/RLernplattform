@@ -55,7 +55,7 @@ knitr::include_graphics("figures/Einführung/Bilder/RStudio/RStudio 2.png")
 ```
 
 Nun gliedert sich die Entwicklungsumgebung RStudio in **vier verschiedene Bereiche**:\
-In das **Skript** schreiben wir unseren Code. In der <span class="r" style="color:#0533FF;">**Konsole** wird dieser ausgeführt und die Ergebnisse angezeigt. Bestehende Objekte sehen wir im <span class="r env">**Environment**. Eine Übersicht unserer Pakete finden wir unter <span class="r" style="color:#669C35;">**Packages** und Informationen zu `R` und zu Funktionen finden wir unter <span class="r" style="color:#669C35;">**Help**.
+In das **Skript** schreiben wir unseren Code. In der **Konsole** wird dieser ausgeführt und die Ergebnisse angezeigt. Bestehende Objekte sehen wir im **Environment**. Eine Übersicht unserer Pakete finden wir unter **Packages** und Informationen zu `R` und zu Funktionen finden wir unter **Help**.
 
 ```{r}
 #| out.width: 700px
@@ -86,7 +86,7 @@ Alle Zeichen, die in einer Zeile nach einem `#` erscheinen, gelten als Kommentar
 Unsere Skripte sollten wir regelmäßig (oder spätestens vor Beendigung des Programms) **speichern**. Um die Datei anzulegen gehen wir in der oberen Leiste auf **File > Save as...**. Wir geben der `R`-Datei einen Namen und wählen einen Speicherort.
 
 <aside>**Skript Speichern**:\
-<span style="line-height:30px;">Win: **Strg** + **S**\
+Win: **Strg** + **S**\
 Mac: **cmd** + **S**</aside>
 
 Beim allerersten Speichern müssen wir außerdem die Zeichen-Enkodierung festlegen. Wir wählen <a href="https://de.wikipedia.org/wiki/UTF-8" target="_blank">**UTF-8**</a>, das ist die am häufigsten genutzte Kodierung für Unicode-Zeichen. 
@@ -111,10 +111,10 @@ knitr::include_graphics("figures/Einführung/Bilder/RStudio/run.png")
 ```
 
 <aside>**Aktuelle Linie bzw. markierten Code ausführen:**\
-<span style="line-height:30px;">Win: **Strg** + **enter**\
+Win: **Strg** + **enter**\
 Mac: **cmd** + **enter**</aside>
 
-### <span class="r cons">Konsole
+### Konsole
 
 Hier bekommen wir den **Output** unseres Codes ausgegeben. Kommentare werden nicht ausgeführt, sondern nur wiedergegeben. 
 
@@ -149,9 +149,9 @@ knitr::include_graphics("figures/Einführung/Bilder/RStudio/fehler.png")
 Der Inhalt der Konsole wird nach jedem Schließen des Programms gelöscht und kann nicht ohne weiteres gespeichert werden. Deswegen ist es wichtig, die eigene Arbeit in Skripten zu speichern.
 
 
-### <span class="r env">Environment & History
+### Environment & History
 
-Im <font color="#942192">**Environment** sehen wir **alle Objekte**, die derzeit in `R` geladen sind. Wenn wir (externe) Datensätze einlesen, sehen wir diese auch hier. Wir bekommen außerdem weitere **Informationen** zu den Objekten und wir sehen ggf. die **ersten Elemente**.
+Im **Environment** sehen wir **alle Objekte**, die derzeit in `R` geladen sind. Wenn wir (externe) Datensätze einlesen, sehen wir diese auch hier. Wir bekommen außerdem weitere **Informationen** zu den Objekten und wir sehen ggf. die **ersten Elemente**.
 
 Beispielsweise haben wir gerade das Objekt `vektor` erstellt, welches uns hier angezeigt wird.
 
@@ -193,9 +193,9 @@ Den Datentyp eines Faktors können wir mit `typeof()`, die Länge mit `length()`
 
 Zum **Löschen** *aller* Objekte können wir auf <img src="figures/Einführung/Bilder/RStudio/Broom.png" style=" width:3%" /> klicken (alternativ zu `rm(list=ls())`).
 
-Zusätzlich können wir über das <font color="#942192">**Environment** auch externe Datensätze einlesen. Wie wir das machen, schauen wir uns im Kapitel zum [Daten einlesen](Daten-importieren.qmd) im [Abschnitt dazu](Daten-importieren.qmd#weg-1-span-class-rstudenvironmentspan--span-class-rstudimport-datasetspan) an.
+Zusätzlich können wir über das **Environment** auch externe Datensätze einlesen. Wie wir das machen, schauen wir uns im Kapitel zum [Daten einlesen](Daten-importieren.qmd) im [Abschnitt dazu](Daten-importieren.qmd#weg-1-span-class-rstudenvironmentspan--span-class-rstudimport-datasetspan) an.
 
-In der <font color="#942192">**History** sehen wir den **zuletzt ausgeführten Code**.
+In der **History** sehen wir den **zuletzt ausgeführten Code**.
 
 ```{r}
 #| out.width: 500px
@@ -210,9 +210,9 @@ Der Vorteil gegenüber der Konsole ist, dass der Inhalt der History *nicht* mit 
 
 ### Files, Plots, Packages, Help & Viewer {#sec-files-plots-packages-help-viewer}
 
-Im Folgenden werden wir hauptsächlich die Reiter <span class="r help">**Packages** und <span class="r help">**Help** besprechen. Auf die Dokumentation, auf die wir mit letzerem direkt in RStudio (anstatt im Browser) zugreifen können, gehen wir besonders stark ein. 
+Im Folgenden werden wir hauptsächlich die Reiter **Packages** und **Help** besprechen. Auf die Dokumentation, auf die wir mit letzerem direkt in RStudio (anstatt im Browser) zugreifen können, gehen wir besonders stark ein. 
 
-Unter <span class="r help">**Packages** sehen wir die Standardpakete und die von uns installierten Add-On Pakete.
+Unter **Packages** sehen wir die Standardpakete und die von uns installierten Add-On Pakete.
 
 ```{r}
 #| out.width: 500px
@@ -225,13 +225,13 @@ Wir sehen eine kurze Beschreibung des Pakets und seine Versionsnummer. Im Kästc
 
 **Mehr Informationen zum Installieren, Laden und Aktualisieren von Paketen** mit Funktionen sowie der Entwicklungsumgebung `R` finden wir im **gleichnamigen** [Kapitel](Pakete.qmd).
 
-Unter <span class="r help">**Files** sehen wir die Ordner(struktur) auf unserem Rechner. Im Kapitel zu [Daten einlesen](Daten-importieren.qmd) erfahren wir, wie wir [diesen bereich nutzen](Daten-importieren.qmd#Weg 2 Files Import Dataset) können.
+Unter **Files** sehen wir die Ordner(struktur) auf unserem Rechner. Im Kapitel zu [Daten einlesen](Daten-importieren.qmd) erfahren wir, wie wir [diesen bereich nutzen](Daten-importieren.qmd#Weg 2 Files Import Dataset) können.
 
-Unter <span class="r help">**Plots** werden (von uns erstellte) Grafiken angezeigt; unter <span class="r help">**Viewer** (von uns erstellte) Tabellen.
+Unter **Plots** werden (von uns erstellte) Grafiken angezeigt; unter **Viewer** (von uns erstellte) Tabellen.
 
-Über <span class="r help">**Help** bekommen wir Zugang zur R-Dokumentation, welche wir uns nachfolgend etwas genauer anschauen wollen.
+Über **Help** bekommen wir Zugang zur R-Dokumentation, welche wir uns nachfolgend etwas genauer anschauen wollen.
 
-#### <font color="black">`R`-Dokumentation
+#### `R`-Dokumentation
 
 Die `R`-Dokumentation bietet uns umfassende Hilfe zum Umgang mit `R` im Allgemeinen und zu Funktionen an. 
 
@@ -242,7 +242,7 @@ Die `R`-Dokumentation bietet uns umfassende Hilfe zum Umgang mit `R` im Allgemei
 knitr::include_graphics("figures/Einführung/Bilder/RStudio/help.png")
 ```
 
-Den Namen der Funktion geben wir in das <font color="red">Suchfeld ein. Alternativ können wir auch die Funktionen `help(funktion)` oder `?funktion` nutzen. Wenn wir auf <img src="figures/Einführung/Bilder/RStudio/new window.png" style=" width:3%"/> klicken, öffnet sich die Dokumentationsseite in einem neuen Fenster, was die Nutzung wesentlich übersichtlicher gestaltet. 
+Den Namen der Funktion geben wir in das Suchfeld ein. Alternativ können wir auch die Funktionen `help(funktion)` oder `?funktion` nutzen. Wenn wir auf <img src="figures/Einführung/Bilder/RStudio/new window.png" style=" width:3%"/> klicken, öffnet sich die Dokumentationsseite in einem neuen Fenster, was die Nutzung wesentlich übersichtlicher gestaltet. 
 
 ```{r}
 #| out.width: 500px

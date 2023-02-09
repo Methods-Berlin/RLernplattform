@@ -1,7 +1,5 @@
 # Fehlende Werte
 
-<p style="font-weight:600; font-size:36px">Einleitung
-
 Es kann in der Praxis häufiger vorkommen, dass Datensätze unvollständig sind z.B. wenn Teilnehmende einer Befragung nicht alle Fragen beantworten. Diese fehlenden Einträge nennt man **Missings**. In R werden sie (bei numeric) zumeist mit `NA` (*not available*) gekennzeichnet. 
 
 <details><summary>Welche Kodierungen für fehlende Werte gibt es neben `NA`  noch?</summary>

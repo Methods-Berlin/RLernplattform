@@ -503,8 +503,8 @@ table_wide %>% mutate(
 ```
 
 <aside>\
-<font color="darkred">Untersuchungseinheit 1\
-<font color="dodgerblue">Untersuchungseinheit 2\
+Untersuchungseinheit 1\
+Untersuchungseinheit 2\
 <span style=" border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: grey !important;" >Messwiederholung\
 <span style=" border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lightgrey !important;" >Rater</aside>
 
@@ -1344,7 +1344,7 @@ Wir können die Kodierung von Merkmalen in R auf verschiedene Arten ändern. Nac
 In der Funktion `recode()` (auch `Recode()` möglich) aus dem Paket **car** müssen wir grundsätzlich zwei Argumente spezifizieren: `var` und `recodes`. Ersterem übergeben wir die umzukodierende Variable, zweiterem die alte und die neue Kodierung der Variablen. 
 
 Wir müssen hierbei einige syntaktische Besonderheiten von `recodes` beachten:\
-<span class="code">recodes = <font color="red">"alt_1 = neu_k<font color="red">; alt_2 = neu_k-1<font color="red">; ...<font color="red">; alt_k = neu_1<font color="red">"</span>\
+<span class="code">recodes = "alt_1 = neu_k; alt_2 = neu_k-1; ...; alt_k = neu_1"</span>\
 (Ausprägungen der Kodierung von 1 bis $k$)
 
 * die `Input=Output`-Parameter müssen *gemeinsam* als Zeichenkette (d.h. in `" "`) vorliegen

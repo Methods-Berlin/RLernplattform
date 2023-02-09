@@ -12,7 +12,6 @@ library(knitr)
 
 ---
 
-<p style="font-weight:600; font-size:36px;">Einleitung
 
 Zur Verbreitung von wissenschaftlichen Untersuchungen ist es sinnvoll, Rohdaten oder Ergebnisse von statistischen Analysen übersichtlich darzustellen, um diese besser kommunizieren zu können. Dabei sind Grafiken zumeist die Methode der Wahl. Gute Grafiken sind anschaulich, wirkungsvoll und lassen einen wichtige Informationen auf einen Blick erfassen.
 
@@ -76,9 +75,6 @@ Im Rahmen des Kapitels werden wir hauptsächlich mit dem Datensatz `ChickWeight`
 data(ChickWeight)
 ```
 
-<!--
-<span style="color:red">**Hinweis:**Wenn ihr den Datensatz nicht in den Workspace laden könnt, könnte das daran liegen, dass dieser nicht in eurer Version des Basis-Pakets **datasets** enthalten ist. Wenn ihr eine aktuellere **R**-Version installiert, werden die Basispakete gleichfalls aktualisiert. Wie ihr **R** aktualisieren könnt, erfahrt in unserem Abschnitt zur <a href="..." target="_blank">Installation und Aktualisierung</a>.
--->
 
 Die Daten stammen aus einem Experiment, in dem der **Einfluss des Futters auf das Wachstum von Küken** untersucht wurde. 
 
@@ -557,7 +553,7 @@ ggplot(data=mean, aes(x=diet, y=weight)) +
 \
 \
 \
-<font color="red">Negativbeispiel</aside>
+Negativbeispiel</aside>
 
 > *__Achtung__*:  Das Problem bei diesem Ansatz ist, dass Personen dazu neigen, die Werte (innerhalb des 95% Konfidenzintervalls), die innerhalb der Balken liegen, als statistisch wahrscheinlicher wahrzunehmen als jene, die außerhalb der Balken liegen. Dieses Phänomen ist als Within-the-bar Bias bekannt. Es ist daher sinnvoll, für die Darstellung von Mittelwerten **keine Balkendiagramme zu nutzen**, sondern auf geeignetere Visualisierungen zurückzugreifen.
 
@@ -578,7 +574,7 @@ ggplot(data=ChickWeight[ChickWeight$Time == 21,], aes(x=Diet, y=weight)) +
 \
 \
 \
-<font color="green">Positivbeispiel</aside>
+Positivbeispiel</aside>
 
 Wenn wir zusätzlich noch unsere Informationsdichte erhöhen wollen, d.h. nicht nur den Mittelwert, sondern die **Verteilung in den einzelnen Gruppen** visualisieren wollen, können wir [Violinenplots](#violinenplot) integrieren.
 
@@ -597,7 +593,7 @@ ggplot(data=ChickWeight[ChickWeight$Time == 21,], aes(x=Diet, y=weight)) +
 \
 \
 \
-<font color="green">Positivbeispiel</aside>
+Positivbeispiel</aside>
 
 
 
@@ -616,13 +612,13 @@ ggplot(data=ChickWeight, aes(x=Time, y=weight)) +
 
 <aside>Wie wir die Datenpunkte in Abhängigkeit einer weiteren kategorialen Variablen einfärben können, erfahren wir im Abschnitt [Farben](#farben).</aside>
 
-<h4>Overplotting vermeiden</h4>
+#### Overplotting vermeiden
 
 Wenn wir sehr große Datensätze haben, könnten wir das Problem haben, dass wir individuelle Daten optisch nicht mehr gut unterscheiden können, weil viele Datenpunkte übereinander liegen. Dieses Problem nennt man auch **Overplotting**. Im Folgenden schauen wir uns einige Möglichkeiten an, wie wir das Problem beheben können. 
 
 Hierfür schauen wir uns wieder den Zusammenhang von Zeit seit dem Schlüpfen (`Time`) und dem Gewicht in Gramm (`weight`) der Küken an.
 
-<h5>Punkte modifizieren</h3>
+##### Punkte modifizieren
 
 Wir können die Formen **verkleinern** mit dem Parameter `size` (Breite der Linie in mm), ...
 
@@ -649,7 +645,7 @@ ggplot(data=ChickWeight, aes(x=Time, y=weight)) +
 ```
 
 
-<h5>Jittern</h3>
+##### Jittern
 
 "Jittern" heißt, dass wir etwas *zufälliges Rauschen* einfügen, damit die Datenpunkte etwas voneinander abweichen. 
 
@@ -673,13 +669,13 @@ ggplot(data=ChickWeight, aes(x=Time, y=weight)) + geom_jitter(width=1)
 Es gibt noch weitere Möglichkeiten Overplotting zu vermeiden. Auf dieser <a href="https://www.statworx.com/de/blog/how-not-to-overplot/" target="_blank">Seite</a> finden wir noch andere Beispiele sowie ihre Umsetzung in **R**.
 
 
-<h4>Regressionsgerade einzeichnen</h4>
+#### Regressionsgerade einzeichnen
 
 Wir können unsere **bivariaten** Daten zusätzlich noch durch eine Funktion beschreiben lassen. Häufig nutzen wir dafür Regressionsmodelle.
 
 Die Regressionsgerade eines **einfachen** linearen Regressionsmodells können wir mit `geom_smooth(method="lm")` über unser Streudiagramm legen.
 
-Per default wird nicht nur eine <span style="color:#2B61FF">Regressionsgerade eingezeichnet, sondern auch <span style="color:#CBCBCB">das 95%-Konfidenzintervall um die Gerade gelegt. 
+Per default wird nicht nur eine Regressionsgerade eingezeichnet, sondern auch das 95%-Konfidenzintervall um die Gerade gelegt. 
 
 ```{r}
 #| label: reg line and scatter
@@ -725,7 +721,7 @@ ggplot() + geom_point(data=ChickWeight, aes(x=Time, y=weight, col=Diet)) +
 </details>
 
 
-<h5>Regressionsgerade eines multiplen linearen Regressionsmodells</h5>
+##### Regressionsgerade eines multiplen linearen Regressionsmodells
 
 Dafür nehmen wir `Diet` als weiteren Prädiktor auf.
 
@@ -977,7 +973,7 @@ Nachfolgend schauen wir uns einige Möglichkeiten der Modifikation von Grafiken 
 > *__Achtung__*:  Wenn wir in der **R**-Dokumentation nach **ggplot2-specs** suchen, finden wir eine Übersicht der ästhetischen Spezifikationen wie z.B. **Farben**, **Linientypen**, **Punktformen**, **Schriftarten**, **Textausrichtung** etc.
 
 
-### <font color="#e41a1c">F<font color="#377eb8">a<font color="#4daf4a">r<font color="#984ea3">b<font color="#ff7f00">e
+### Farbe
 
 Nachfolgend schauen wir an, wie wir bestimmte Elemente bzw. Teile von Elementen einer Grafik farblich hervorheben können und welche Möglichkeiten es gibt (einzelne) Farben und Farbpaletten zu nutzen.
 
@@ -992,7 +988,7 @@ Um unsere Farbwahl auch für Menschen mit verschiedenen Sehschwächen geeignet z
 # z.B. color palettes colorBrewer dargestellt: http://www.sthda.com/english/wiki/ggplot2-colors-how-to-change-colors-automatically-and-manually#change-colors-manually
 ```
 
-<h3>Grundlegendes</h3>
+### Grundlegendes
 
 Es gibt zwei Parameter, mit denen wir jeweils festlegen können, ob Elemente **farblich umrandet und/oder komplett ausgefüllt** werden sollen.
 
@@ -1067,7 +1063,7 @@ kable(table, align = "c") %>%
 #ÜBERSICHT ÜBER COLOR UND FILL
 ```
 
-<h3>(Einzelne) Farben</h3>
+### (Einzelne) Farben
 
 Wir können in **R** standardmäßig implementierte ("built-in") Farben sowie Hex-Farben nutzen.
 
@@ -1104,7 +1100,7 @@ Um zu sehen, dass die sonst weiße Hintergrundfläche der Grafik nun transparent
 
 
 
-<h3>Farbpaletten</h3>
+### Farbpaletten
 
 Es ist zu empfehlen bei der farblichen Kodierung von Variablenausprägungen auf Farbpaletten zurückgreifen, da diese bereits gut durchdachte Farbkombinationen enthalten. Die Idee dahinter ist bei kategorialen Variablen verschiedene Farben und bei metrischen Variablen ähnliche Farben für ähnliche Ausprägungen zu nutzen.
 
@@ -1123,13 +1119,13 @@ ggplot(ChickWeight[ChickWeight$Time == 8,], aes(Diet, weight)) +
 ```
 
 
-### <span style="border:1px; border-style:solid; border-color:black; padding: 3px;">Legenden modifizieren
+### Legenden modifizieren
 
 Wenn wir Farben, Punktformen o.ä. auf Variablen(ausprägungen) anwenden (d.h. diese **in** `aes()` spezifizieren), wird **automatisch** eine Legende erstellt.
 
 Es gibt verschiedene Aspekte von Legenden, die wir ändern können. Im Folgenden schauen wir uns **Text** und **Positionierung** an. Weitere Modifikationen finden wir <a href="http://www.sthda.com/english/wiki/ggplot2-legend-easy-steps-to-change-the-position-and-the-appearance-of-a-graph-legend-in-r-software#change-the-legend-title-and-text-font-styles" target="_blank">hier</a>. 
 
-<h3>Text</h3>
+### Text
 
 Wir können sowohl den Titel als auch die einzelnen Elemente einer Legende anders benennen.
 
@@ -1151,7 +1147,7 @@ Analog dazu nutzen wir `scale_color_discrete()`, wenn wir das Argument `color` (
 Wenn wir eine metrische Variable farblich kodiert haben, nutzen wir `scale_fill_continuous` bzw. `scale_colour_continuous ()`.
 
 
-<h3>Position</h3>
+### Position
 
 Die Position der Legende können wir mit `theme(legend.position)` ändern. Wir können zwischen oben (`"top"`), unten (`"bottom"`), links (`"left"`) und rechts (`"right"`) wählen. Mit `"none"` können wir die Legende entfernen.
 
@@ -1162,11 +1158,11 @@ ggplot(data=ChickWeight, aes(x=Diet)) + geom_bar() + geom_bar(aes(fill = Diet)) 
 ```
 
 
-### <span style="font-family: Courier New,Courier,monospace;">Beschriftung
+### Beschriftung
 
 Im Folgenden schauen wir uns an, wie wir Titel und Achsenbeschriftung, sowie Beschriftungen in der Grafik ändern bzw. hinzufügen können.
 
-<h3>Überschrift</h3>
+### Überschrift
 
 Um dem Plot (nur) eine Überschrift zu verpassen nutzen wir `ggtitle()`.
 
@@ -1176,7 +1172,7 @@ ggplot(data=ChickWeight, aes(x=Time, y=weight)) + geom_point() +
 ```
 
 
-<h3>Achsenbeschriftung</h3>
+### Achsenbeschriftung
 
 Wenn wir (nur) die Beschriftung der x- oder y-Achse ändern möchten (z.B. weil diese anders benannt werden sollen als die Variablen im Datensatz), können wir `xlab()` bzw. `ylab()` nutzen.
 
@@ -1185,7 +1181,7 @@ ggplot(data=ChickWeight, aes(x=Time, y=weight)) + geom_point() +
   xlab("Zeit in Tagen") + ylab("Gewicht in Gramm")
 ```
 
-<h3>Überschrift, Achsenbeschriftung und Bildunterschrift</h3>
+### Überschrift, Achsenbeschriftung und Bildunterschrift
 
 Wir können sowohl eine Überschrift als auch Achsenbeschriftungen ergänzen, indem wir `labs(title, x, y)` nutzen. Außerdem können wir der Grafik mit `caption` noch eine Bildunterschrift verpassen.
 
@@ -1197,9 +1193,9 @@ ggplot(data=ChickWeight, aes(x=Time, y=weight)) + geom_point() +
 ```
 
 
-<h3>Beschriftung in der Grafik</h3>
+### Beschriftung in der Grafik
 
-<h4>Ausprägung von Variablen</h4>
+#### Ausprägung von Variablen
 
 Mit `geom_text()` (Bsp. 1 und 2) oder `geom_label()` (Bsp. 3 und 4) können wir Ausprägungen einer Variablen als Text in unsere Grafik einfügen. 
 
@@ -1251,7 +1247,7 @@ Es gibt noch weitere Parameter, mit denen wir u.a. das Padding des Textes, die R
 Weitere Hilfe zur Nutzung und Modifikation von `geom_text()` und `geom_label()` finden wir <a href="http://www.sthda.com/english/wiki/ggplot2-texts-add-text-annotations-to-a-graph-in-r-software" target="_blank">hier</a>.
 
 
-<h4>Beliebiger Text an beliebiger Stelle</h4>
+#### Beliebiger Text an beliebiger Stelle
 
 Wenn wir einen eigenen Text in eine Grafik schreiben wollen, können wir `annotate(geom = "text")` und `annotate(geom = "label")` nutzen. Analog zu den Funktionen im vorhergehenden Abschnitt sind beide `geom`-Optionen gleich, außer dass der Text bei `"label"` mit einem weißen Feld hinterlegt wird.
 
@@ -1299,7 +1295,7 @@ Wir können die Darstellung des Textes (wie im vorhergehenden Abschnitt) auch an
 
 ## Kategoriale Variablen: Benennung und Reihenfolge der Ausprägungen
 
-<h3>Benennung</h3>
+### Benennung
 
 Der Einfachheit halber nutzen wir zur Kodierung von Gruppen häufig Zahlen, wie z.B. bei `Diet`: 1, 2, 3, 4. In einer Grafik hingegen ist es aber sinnvoller, Begriffe zu nutzen.
 
@@ -1317,7 +1313,7 @@ ggplot(data=ChickWeight, aes(x=Diet_name, y=weight)) + geom_boxplot()
 ```
 
 
-<h3>Reihenfolge</h3>
+### Reihenfolge
 
 Die Reihenfolge von Faktorstufen ist bei Wortketten standardmäßig alphabetisch und bei Zahlen aufsteigend. Wenn wir das ändern möchten, müssen wir die Sortierung des Faktors ändern (dadurch ändert sich **nicht** die Sortierung der Variablen im Datensatz). 
 
@@ -1374,7 +1370,7 @@ ggplot(data=ChickWeight[ChickWeight$Time == 21,], aes(x=Diet, y=weight)) +
 \
 \
 \
-<i class="fa fa-times fa-2x" style="color:red;"></i></aside>
+</aside>
 
 Das **Problem** hierbei ist, dass sich die Streubreiten von `weight`, und damit die Achsengrenzen von y, zu beiden Zeitpunkten stark unterscheiden. Dadurch könnten wir einen falschen Eindruck von den Daten bekommen.
 
@@ -1397,13 +1393,13 @@ ggplot(data=ChickWeight[ChickWeight$Time == 21,], aes(x=Diet, y=weight)) +
 \
 \
 \
-<i class="fa fa-check fa-2x" style="color:green;"></i></aside>
+</aside>
 
 Bei genauer Betrachtung fällt weiterhin auf, dass unsere beiden **y-Achsen nicht bei 0 beginnen**, obwohl wir das mit `ylim(c(0,...))` scheinbar so festgelegt haben. 
 
 Standardmäßig werden Achsen (kontinuierlicher Variablen) etwas *erweitert*. Dieses Verhalten können wir z.B. mit `scale_y_continuous(expand = c(0, 0))` auf der y-Achse (und `scale_x_coninuous()` auf der x-Achse) ändern.
 
-> *__Achtung__*: </i> Etwaige Änderungen der Achsengrenzen müssen wir dann aber auch in `scale_y_continuous(limits)` machen.
+> *__Achtung__*:  Etwaige Änderungen der Achsengrenzen müssen wir dann aber auch in `scale_y_continuous(limits)` machen.
 
 ```{r}
 ggplot(data=ChickWeight[ChickWeight$Time == 21,], aes(x=Diet, y=weight)) +
@@ -1490,10 +1486,10 @@ Wenn wir unsere Grafik erstellt haben, müssen wir diese noch exportieren, um si
 
 Grundsätzlich gibt es zwei Möglichkeiten dafür: 
 
-- über das untere rechte Panel bei <span style="color: #75AADC">**Plots** > <span style="color: #75AADC">**Export** (nur in ****RStudio**** möglich)
+- über das untere rechte Panel bei **Plots** > **Export** (nur in ****RStudio**** möglich)
 - mit Hilfe von `Funktionen`
 
-Im Folgenden schauen wir uns an, wie wir den <span style="color: #75AADC">**Export**-Button und die Funktion `ggsave()`, mit der wir mit ggplot2 erstellte Grafiken exportieren können, nutzen.
+Im Folgenden schauen wir uns an, wie wir den **Export**-Button und die Funktion `ggsave()`, mit der wir mit ggplot2 erstellte Grafiken exportieren können, nutzen.
 
 Eine Übersicht über das Exportieren von Grafiken mit Funktionen aus dem Basispaket **grDevices**, finden wir <a href="http://www.cookbook-r.com/Graphs/Output_to_a_file/" target="_blank">hier</a>. Mit diesen Funktionen können wir Grafiken, die __mit einem beliebigen **R**-Paket erstellt__ wurden, exportieren.
 
@@ -1515,9 +1511,9 @@ Bildquelle: https://www.r-bloggers.com/exporting-nice-plots-in-r/
 Um das zu verhindern, können wir das Paket **Cairo**, mit dessen gleichnamiger Funktion, nutzen. Mehr Informationen zur Anwendung können wir auf <a href="https://www.r-bloggers.com/exporting-nice-plots-in-r/" target="_blank">R-bloggers</a> finden.
 
 
-### <span style="color: #75AADC">**Export-Button**
+### **Export-Button**
 
-Wenn wir die Grafik mittels der <span style="color: #75AADC">grafischen Benutzeroberfläche exportieren möchten, klicken wir auf **Export** im unteren rechten Panel. Wenn wir diese als Bild exportieren wollen, wählen wir **Save as Image...** aus.
+Wenn wir die Grafik mittels der grafischen Benutzeroberfläche exportieren möchten, klicken wir auf **Export** im unteren rechten Panel. Wenn wir diese als Bild exportieren wollen, wählen wir **Save as Image...** aus.
 
 ```{r}
 #| out.width: 400px
@@ -1539,16 +1535,16 @@ Daraufhin öffnet sich ein neues Fenster, in dem wir einige Einstellungen tätig
 knitr::include_graphics("figures/ggplot2/Bilder/export window.png")
 ```
 
-<span style="color:#E63B7A">**Bildformat**\
+**Bildformat**\
 Hier können wir wählen, in welchem Bildformat wir unsere Grafik abspeichern wollen. Standardmäßig wird sie als PNG gespeichert. Weitere Optionen sind JPEG, TIFF, BMP, SVG und EPS.
 
-<span style="color:#AA7942">**Verzeichnis**\
+**Verzeichnis**\
 Wenn wir auf den Button **Directory...** klicken, können wir festlegen, wo die Grafik gespeichert werden soll. Standardmäßig wird sie in der obersten Ordnerstruktur, bzw. wenn wir ein Workind Directory gesetzt haben in diesem, gespeichert.
 
-<span style="color:#942192">**Name der Datei**\
+**Name der Datei**\
 Hier können wir unserer Datei einen Namen geben. Standardmäßig wird als Name *Rplot* vorgeschlagen, wenn wir in dem aktuellen Verzeichnis keine andere Datei (im gleichen Format) besitzen, die den gleichen Namen trägt. Wenn es bereits eine solche Datei gibt, wird als Name für die neue Datei automatisch *Rplot01* (bzw. *Rplot02* usw.) vorgeschlagen.
 
-<span style="color:#669C35">**Größe bearbeiten**\
+**Größe bearbeiten**\
 Für die Bearbeitung der Größe der Grafik haben wir zwei Möglichkeiten:
 
 1. **Angeben** der Maße für Breite und Höhe
@@ -1583,14 +1579,14 @@ ggsave(
 )
 ```
 
-Das gewünschte <span style="color:#E63B7A">**Bildformat** können wir einfach als Endung an den <span style="color:#942192">**Namen der Grafik** anhängen. Beides übergeben wir in `" "` an das Argument `filename`.
+Das gewünschte **Bildformat** können wir einfach als Endung an den **Namen der Grafik** anhängen. Beides übergeben wir in `" "` an das Argument `filename`.
 Wir haben hier mehr Auswahl an möglichen Outputformaten. Es gibt z.B. PNG, PDF, JPEG, TIFF, EPS, PS, TEX und SVG.
 
 Wir legen mit dem Argument `plot` fest, welche Grafik wird exportieren wollen. Das funktioniert nur wenn wir diese vorher in einer Variablen gespeichert haben (z.B. `name <- ggplot(...)`). Dann erscheint der Name auch im Global Environment (oberer rechtes Panel in **R**). Standarmäßig  wird der zuletzt erstellte Plot exportiert, wenn wir das Argument `plot` weglassen (oder `plot=last_plot()` eingeben).
 
-Das <span style="color:#AA7942">**Verzeichnis**, in dem die Grafik abgelegt werden soll, können wir mit dem Argument `path` festlegen. Diesem übergeben wir den Ordnerpfad, welchen wir auch in `" "` setzen müssen. Standardmäßig wird die Grafik in der obersten Ordnersturktur bzw. im derzeitigen Working Directory (wenn eins gesetzt wurde) abgelegt.
+Das **Verzeichnis**, in dem die Grafik abgelegt werden soll, können wir mit dem Argument `path` festlegen. Diesem übergeben wir den Ordnerpfad, welchen wir auch in `" "` setzen müssen. Standardmäßig wird die Grafik in der obersten Ordnersturktur bzw. im derzeitigen Working Directory (wenn eins gesetzt wurde) abgelegt.
 
-Die <span style="color:#669C35">**Größe** der zu exportierenden Grafik können wir mit `width` und `height` ändern. Mit `units` legen wir dabei fest, in welcher Einheit die Maße sein sollen. Wenn wir `width`, `height` und `units` weglassen, wird die Größe des *current graphics device* genutzt. Diese ist von unseren jeweiligen globalen Computer-Einstellungen abhängig. 
+Die **Größe** der zu exportierenden Grafik können wir mit `width` und `height` ändern. Mit `units` legen wir dabei fest, in welcher Einheit die Maße sein sollen. Wenn wir `width`, `height` und `units` weglassen, wird die Größe des *current graphics device* genutzt. Diese ist von unseren jeweiligen globalen Computer-Einstellungen abhängig. 
 
 <aside>Manchmal müssen wir mit den Maßen ein bisschen herumspielen, bis wir die perfekte Größe gefunden haben.</aside>
 

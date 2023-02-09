@@ -179,9 +179,9 @@ Eine kurze Übersicht über Textgestaltung mit Markdown können wir auch in RStu
 
 ### Überschriften
 
-Um Überschriften zu setzen, schreiben wir ein bzw. mehrere **#** an den Anfang einer Zeile. Die Überschrift wird dann im Rmd <font color="#431CFF">farblich hervorgehoben. Je mehr # wir setzen, desto kleiner wird die Überschrift. Wie die einzelnen Überschriften aussehen, hängt von unserem Design (`theme` im YAML Header oder Template) ab.
+Um Überschriften zu setzen, schreiben wir ein bzw. mehrere **#** an den Anfang einer Zeile. Die Überschrift wird dann im Rmd farblich hervorgehoben. Je mehr # wir setzen, desto kleiner wird die Überschrift. Wie die einzelnen Überschriften aussehen, hängt von unserem Design (`theme` im YAML Header oder Template) ab.
 
-<aside><font color="grey">\
+<aside>\
 Markdown</aside>
 
 ```{r}
@@ -200,7 +200,7 @@ knitr::include_graphics("figures/Markdown/Bilder/headers 2.png")
 
 <aside>Die Überschriften erscheinen auch in der Gliederung, wenn wir im YAML Header eine festgelegt haben (`toc: true`). Mit der Option `toc_depth` können wir festlegen, bis zu welcher Stufe die Überschriften inkludiert werden sollen.</aside>
 
-> *__Achtung__*: </i>Im R-Skript konnten wir # zum Kommentieren nutzen. Das funktioniert hier auch, aber nur in den Code Chunks. Um Textpassagen auszukommentieren, können wir den html-Kommentar-Tag `<!-- -->` nutzen. Mit folgendem Kurzbefehl können wir sowohl Text als auch Code auskommentieren (funktioniert in html und pdf):
+> *__Achtung__*: Im R-Skript konnten wir # zum Kommentieren nutzen. Das funktioniert hier auch, aber nur in den Code Chunks. Um Textpassagen auszukommentieren, können wir den html-Kommentar-Tag `<!-- -->` nutzen. Mit folgendem Kurzbefehl können wir sowohl Text als auch Code auskommentieren (funktioniert in html und pdf):
 
 - Windows/Linux: ctrl + shift + C
 - Mac: cmd + shift + C
@@ -209,7 +209,7 @@ knitr::include_graphics("figures/Markdown/Bilder/headers 2.png")
 
 Wir können unseren Text auch fett und kursiv schreiben.
 
-<aside><font color="grey">\
+<aside>\
 Markdown</aside>
 
 ```{r}
@@ -239,7 +239,7 @@ Es gibt zwei verschiedenen Optionen (* oder \_) damit wir beide kombinieren kön
 
 Es gibt mehrere Möglichkeiten, einen Zeilenumbruch herbeizuführen. Entweder wir machen *mindestens* zwei **Leerzeichen** ans Ende einer Zeile oder wir nutzen einen **Backslash** (\\).
 
-<aside><font color="grey">\
+<aside>\
 Markdown</aside>
 
 <!-- ## Listen -->
@@ -273,7 +273,7 @@ In html haben wir zusätzlich die Möglichkeit, **innerhalb eines Dokuments** zu
 # https://www.calvin.edu/~rpruim/courses/s341/S17/from-class/MathinRmd.html
 ```
 
-Wir können Formeln und mathematische Symbole mittels <sfont color="grey">LaTex integrieren. Bei der Installation von dem Paket **rmarkdown** wird (standarmäßig) automatisch das Paket **tinytex** heruntergeladen. Das ermöglicht uns die Nutzung von LaTex. Das machen wir mit **$** und speziellem LaTex-Code. Einen guten **Überblick** darüber, wie wir wichtige mathematische Symbole in LaTex schreiben, gibt uns diese <a href="https://www.caam.rice.edu/~heinken/latex/symbols.pdf" target="_blank">Seite</a>.
+Wir können Formeln und mathematische Symbole mittels LaTex integrieren. Bei der Installation von dem Paket **rmarkdown** wird (standarmäßig) automatisch das Paket **tinytex** heruntergeladen. Das ermöglicht uns die Nutzung von LaTex. Das machen wir mit **$** und speziellem LaTex-Code. Einen guten **Überblick** darüber, wie wir wichtige mathematische Symbole in LaTex schreiben, gibt uns diese <a href="https://www.caam.rice.edu/~heinken/latex/symbols.pdf" target="_blank">Seite</a>.
 
 Um Formeln **im Fließtext** zu schreiben (sog. Inline Formeln), nutzen wir einfache Dollarzeichen z.B. `$\alpha=0.05$` wird zu $\alpha=0.05$.
 
@@ -281,7 +281,7 @@ Um Formeln als (zentrierten) **Blocksatz** zu schreiben nutzen wir doppelte Doll
 
 `$$ \sigma^2= \sum_{i =1}^{n} \frac{(x_i - \bar{x}) ^2}{n-1} $$` wird zu
 $$ \sigma^2= \sum _{i =1} ^{n} \frac{(x_i - \bar{x}) ^2} {n-1} $$
-> *__Achtung__*: </i>Leerzeichen haben im LaTex Code keinen Einfluss. Sie sind hier nur der Übersichtlichkeit halber eingefügt. Wenn wir in den Formeln Leerzeichen ahben wollen, müssen wir dafür speziellen LaTex Code nutzen.
+> *__Achtung__*: Leerzeichen haben im LaTex Code keinen Einfluss. Sie sind hier nur der Übersichtlichkeit halber eingefügt. Wenn wir in den Formeln Leerzeichen ahben wollen, müssen wir dafür speziellen LaTex Code nutzen.
 
 <!-- ### Textfarbe -->
 

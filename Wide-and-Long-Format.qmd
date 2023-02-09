@@ -6,7 +6,7 @@ library(rmarkdown)
 library(tidyr)
 ```
 
-<p style="font-weight:600; font-size:36px">Einleitung
+Einleitung
 
 Wenn man wissenschaftliche Fragestellungen untersuchen möchte, benötigt man ein geeignetes Format, in dem die Daten vorliegen. Manchmal stehen die Daten, die man auswerten möchte, aber nicht im "richtigen" Format zur Verfügung. 
 
@@ -34,10 +34,10 @@ table_wide %>% mutate(
 ```
 
 <aside>\
-<font color="darkred">Untersuchungseinheit 1\
-<font color="dodgerblue">Untersuchungseinheit 2\
-<span style=" border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: grey !important;" >Messwiederholung\
-<span style=" border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lightgrey !important;" >Rater</aside>
+Untersuchungseinheit 1\
+Untersuchungseinheit 2\
+Messwiederholung\
+Rater</aside>
 
 **Beispiel 2 Wide-Format: Rater**
 
@@ -116,7 +116,7 @@ data(ChickWeight)
 ```{r}
 #| echo: false
 #| eval: false
-# <span style="color:red">**Hinweis:**Wenn ihr den Datensatz nicht in den Workspace laden könnt, könnte das daran liegen, dass dieser nicht in eurer Version des Basis-Pakets **datasets** enthalten ist. Wenn ihr eine aktuellere **R**-Version installiert, werden die Basispakete gleichfalls aktualisiert. Wie ihr **R** aktualisieren könnt, erfahrt in unserem Abschnitt zur <a href="..." target="_blank">Installation und Aktualisierung</a>.
+# **Hinweis:**Wenn ihr den Datensatz nicht in den Workspace laden könnt, könnte das daran liegen, dass dieser nicht in eurer Version des Basis-Pakets **datasets** enthalten ist. Wenn ihr eine aktuellere **R**-Version installiert, werden die Basispakete gleichfalls aktualisiert. Wie ihr **R** aktualisieren könnt, erfahrt in unserem Abschnitt zur <a href="..." target="_blank">Installation und Aktualisierung</a>.
 ```
 
 Die Daten stammen aus einem **Längsschnitt**-Experiment, in dem der **Einfluss von verschiedenem Futter auf das Wachstum von Küken** untersucht wurde. 

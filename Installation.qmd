@@ -1,8 +1,6 @@
 # Installation und Aktualisierung von R und RStudio
 
-<p style="font-weight:600; font-size:36px">Einleitung
-
-<span class ="r highlight">R ist eine Statistiksoftware, die mittlerweile weit verbreitet ist - sowohl in der Forschung als auch in der Wirtschaft. **R** ist **kostenlos**, für alle gängigen Betriebssysteme verfügbar (Windows, Max OS X und  Linux) und darüber hinaus auch noch **open-source**. Das heißt, um **R** zu nutzen, muss man keine teure Lizenz kaufen und jede/r kann sich an der (Weiter-)Entwicklung des Programms oder einzelner Pakete beteiligen. Durch die weite Verbreitung von **R** finden sich außerdem ausführliche Anleitungen im Internet, sollten wir mal nicht mehr weiter wissen.
+**R** ist eine Statistiksoftware, die mittlerweile weit verbreitet ist - sowohl in der Forschung als auch in der Wirtschaft. **R** ist **kostenlos**, für alle gängigen Betriebssysteme verfügbar (Windows, Max OS X und  Linux) und darüber hinaus auch noch **open-source**. Das heißt, um **R** zu nutzen, muss man keine teure Lizenz kaufen und jede/r kann sich an der (Weiter-)Entwicklung des Programms oder einzelner Pakete beteiligen. Durch die weite Verbreitung von **R** finden sich außerdem ausführliche Anleitungen im Internet, sollten wir mal nicht mehr weiter wissen.
 
 **R** selbst ist relativ spartanisch und die meisten AnwenderInnen nutzen daher die Entwicklungsumgebung **RStudio**, welche auch eine umfassendere Benutzeroberfläche besitzt. Mit dieser können wir z.B. **Skripte** nutzen, in denen wir unsere Analysen speichern können. Außerdem gibt es ein **Environment**, das uns anzeigt, welche Objekte in **R** vorhanden sind (d.h. die wir eingelesen oder direkt in **R** erstellt haben). Hier finden wir zusätzlich einen Reiter **Help**, welcher uns Informationen und Anwendungshinweise zu Funktionen gibt.
 
@@ -23,7 +21,7 @@ Falls ihr nur Probleme mit dem Updaten auf die neuste Version habt, führt aus d
 
 > *__Achtung__*:  Die **R**- und **RStudio**-Versionen auf den Screenshots könnten bereits veraltet sein, wenn ihr die Anleitung nutzt. Die angegebenen Links führen euch aber dennoch zu den aktuellsten Versionen.
 
-> *__Achtung__*:  <font color="#930047">**Zur Übernahme der Pakete bei Upgrade auf **R** 4.0+**\
+> *__Achtung__*:  **Zur Übernahme der Pakete bei Upgrade auf **R** 4.0+**\
 Wir können das Paket installr (Windows) bzw. das manuelle Verschieben der Pakete (Mac) hier nicht nutzen, um unsere alten Pakete zu erhalten. Wir müssen **alle Pakete neu installieren**. Falls wir sehr viele Pakete haben, hilft uns folgende <a href="https://www.r-bloggers.com/get-all-your-packages-back-on-r-4-0-0/" target="_blank">Anleitung von r-bloggers</a>. 
 
 
@@ -61,7 +59,7 @@ Ganz oben sehen wir dort unter **Windows Edition**, welche Windows Version wir i
 
 
 <details><summary>Ältere Windows-Versionen</summary>
-Falls unser Betriebssystem **nicht** kompatibel ist, können wir <a href="https://cran.r-project.org/bin/windows/base/old/" target="_blank">hier</a> **ältere R-Versionen** finden. Wir müssen jeweils auf die Version klicken und kommen dann auf eine Seite, die genau so aufgebaut ist wie die Seite der aktuellsten Version. Um zu erfahren, ob die Version mit unserem Betriebssystem kompatibel ist, müssen wir jeweils auf **_Does **R** run under my version of Windows?_** klicken. Wenn wir die passende Version gefunden haben, klicken wir auf **Download **R** <font color="grey">[Versionsnummer] for Windows**. Die Versionsnummer ist abhängig davon, welche **R** Version tatsächlich mit unserem Betriebssystem kompatibel ist.
+Falls unser Betriebssystem **nicht** kompatibel ist, können wir <a href="https://cran.r-project.org/bin/windows/base/old/" target="_blank">hier</a> **ältere R-Versionen** finden. Wir müssen jeweils auf die Version klicken und kommen dann auf eine Seite, die genau so aufgebaut ist wie die Seite der aktuellsten Version. Um zu erfahren, ob die Version mit unserem Betriebssystem kompatibel ist, müssen wir jeweils auf **_Does **R** run under my version of Windows?_** klicken. Wenn wir die passende Version gefunden haben, klicken wir auf **Download **R** [Versionsnummer] for Windows**. Die Versionsnummer ist abhängig davon, welche **R** Version tatsächlich mit unserem Betriebssystem kompatibel ist.
 </details>
 
 
@@ -410,13 +408,13 @@ Wir bekommen nun die Ordner der verschiedenen **R**-Versionen angezeigt.
 knitr::include_graphics("figures/Installation/Bilder/4_Dateipfad_gesucht.png")
 ```
 
-Wir machen nun einen Rechtsklick auf den Ordner der vorherig genutzten **R**-Version (hier: 3.5)  und öffnen diesen in einem neuen Tab. Der Ordner enthält nur den Ordner **Resources** und dieser wiederum nur den Ordner <span style="color: #669C35">**library**. Wen wir diesen öffnen, sehen wir die Ordner aller Pakete. Wir wählen schonmal alle Ordner an.
+Wir machen nun einen Rechtsklick auf den Ordner der vorherig genutzten **R**-Version (hier: 3.5)  und öffnen diesen in einem neuen Tab. Der Ordner enthält nur den Ordner **Resources** und dieser wiederum nur den Ordner **library**. Wen wir diesen öffnen, sehen wir die Ordner aller Pakete. Wir wählen schonmal alle Ordner an.
 
 ```{r, out.width = "700px", echo=FALSE, fig.align='center'}
 knitr::include_graphics("figures/Installation/Bilder/5_Ordner.png")
 ```
 
-Nun gehen wir zurück auf den anderen Tab, in dem die Ordner der verschiedenen <span style="color: #0D35FE">**Versionen von **R**** gelistet sind. Wir öffnen den Ordner der aktuellesten Version (hier: 3.6) und klicken auch hier auf den Ordner **Resources** und dann **library**.
+Nun gehen wir zurück auf den anderen Tab, in dem die Ordner der verschiedenen **Versionen von **R**** gelistet sind. Wir öffnen den Ordner der aktuellesten Version (hier: 3.6) und klicken auch hier auf den Ordner **Resources** und dann **library**.
 
 Wir gehen jetzt zurück auf den anderen Tab (der älteren **R**-Version) und ziehen die Pakete in den library-Ordner der neuen **R**-Version. 
 
@@ -470,7 +468,7 @@ knitr::include_graphics("figures/Installation/Bilder/9_R_Studio_ersetzen.png")
 
 ## Hinweis zur Replizierbarkeit von Analysen
 
-Wir sollten bei Analysen in **R** immer berichten, in welcher Version unser <span style="color:#0533FF">**Betriebssystem**, <span style="color:#FF9B21">****R**** und unsere genutzten <span style="color:#669C35">**Pakete** vorliegen. Sonst kann die Replikation unserer Ergebnisse Anderen schwer fallen, z.B. weil die Funktionen sich in ihrer Berechnung oder Funktionsweise zwischen verschiedenen Versionen von Paketen unterscheiden können. Mit der Funktion `sessionInfo()` bekommen wir all diese Informationen auf einen Schlag.
+Wir sollten bei Analysen in **R** immer berichten, in welcher Version unser **Betriebssystem**, ****R**** und unsere genutzten **Pakete** vorliegen. Sonst kann die Replikation unserer Ergebnisse Anderen schwer fallen, z.B. weil die Funktionen sich in ihrer Berechnung oder Funktionsweise zwischen verschiedenen Versionen von Paketen unterscheiden können. Mit der Funktion `sessionInfo()` bekommen wir all diese Informationen auf einen Schlag.
 
 ```{r, out.width = "600px", echo=FALSE}
 knitr::include_graphics("figures/Installation/Bilder/sessionInfo.png")

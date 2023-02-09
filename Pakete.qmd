@@ -45,7 +45,7 @@ Wir können `psych` installieren, indem wir `install.packages("psych", dependenc
 
 > __*Hinweis*__: Die Funktion `install.packages()` ist Bestandteil des Standardpakets **utils**.
 
-### Über das Icon <span style="color: #75AADC">Install oder den Menüpunkt <span style="color: #75AADC">Install Packages...
+### Über das Icon Install oder den Menüpunkt Install Packages...
 
 Wir können das Paket auch installieren, indem wir im **Packages-Tab** auf das Icon **Install** ...
 
@@ -96,7 +96,7 @@ Wir können das Paket `psych` laden, indem wir `library(psych)` ausführen. Hier
 
 Alternativ kann man auch die Syntax `paket::funktion()`, z.B. `psych::alpha()`, nutzen. Was dieser Weg für Vorteile hat, erfahren wir im Unterabschnitt [**Maskierung**](#maskierung-wenn-verschiedene-pakete-gleich-benannte-funktionen-enthalten).
 
-### Über das Häkchen-Setzen in der <span style="color: #75AADC">System Library
+### Über das Häkchen-Setzen in der System Library
 
 Alternativ können wir im **Packages-Tab** ein Häkchen bei dem Paket setzen, welches wir laden wollen. Um das gewünschte Paket schneller zu finden, können wir das Suchfeld nutzen.
 
@@ -171,7 +171,7 @@ knitr::include_graphics("figures/Pakete/Bilder/update function 2.png")
 
 Wir können die jüngsten Binärcodes für die Pakete herunterladen oder die Quellcodes der aktuellsten Versionen kompilieren. Allerdings müssen wir dafür spezielle Tools in `R` installiert haben, welche man **unter Mac OS und einer älteren als R-Version 4.0.0 zusätzlich herunterladen** muss (z.B. <a href="https://cran.r-project.org/bin/macosx/tools/" target="_blank">hier</a>). Wir können hier auch pauschal **nein** antworten. Es ist ausreichend dafür ein `n` in die Konsole zu tippen. Nach einiger Zeit sollten wir erneut versuchen, die aktuellste Version herunterzuladen, da dann häufig auch die Binärcodes zur Verfügung stehen. 
 
-### Über das Icon <span style="color: #75AADC">Update oder den Menüpunkt <span style="color: #75AADC">Check for Package Updates...
+### Über das Icon Update oder den Menüpunkt Check for Package Updates...
 
 Dazu können wir im **Packages-Tab** auf das Icon **Update** ... 
 
@@ -274,9 +274,9 @@ Es ist sinnvoll, bei Analysen zu vermerken, mit welcher Version eines Pakets wir
 
 Mit der Funktion `sessionInfo()` aus dem Standardpaket **utils** bekommen wir viele wichtige Informationen auf einen Schlag:
 
-- <span style="color:#FF9B21">**`R`-Version**
-- <span style="color:#0533FF">**Betriebssystem-Version**
-- <span style="color:#669C35">**geladene Pakete mit Angaben zur Version**
+- **`R`-Version**
+- **Betriebssystem-Version**
+- **geladene Pakete mit Angaben zur Version**
 
 ```{r}
 #| out.width: 700px
@@ -327,11 +327,11 @@ Wir schauen uns das exemplarisch für das Paket **car** an. Du änderst nur noch
 
 <aside>Hilfe bei der **Installation von Paketen** finden wir im gleichnamigen [Kapitel](Pakete.qmd).</aside>
 
-(@) **Die neuste `R`-Version von <a href="https://cran.r-project.org/" target="_blank">`R`</a> und/oder <a href="https://www.rstudio.com/products/rstudio/download/" target="_blank"><span style="font-family: Consolas,monaco,monospace;">RStudio</a> (hierbei die kostenlose Variante) auf dem Computer installieren und dann versuchen, das Paket neu zu installieren bzw. Schritt 1 durchzuführen.**
+(@) **Die neuste `R`-Version von <a href="https://cran.r-project.org/" target="_blank">`R`</a> und/oder <a href="https://www.rstudio.com/products/rstudio/download/" target="_blank">RStudio</a> (hierbei die kostenlose Variante) auf dem Computer installieren und dann versuchen, das Paket neu zu installieren bzw. Schritt 1 durchzuführen.**
 
-Achte dabei auf die **Kompatibilität mit deiner Hardware und Software**. Unter Umständen kannst du vielleicht nicht die neueste Version installieren, aber eine neuere als deine aktuelle Version. Ältere Versionen von `R` finden wir auch unter obigem Link. Ältere Versionen von <span style="font-family: Consolas,monaco,monospace;">RStudio finden wir <a href="https://support.rstudio.com/hc/en-us/articles/206569407-Older-Versions-of-RStudio" target="_blank">hier</a>. 
+Achte dabei auf die **Kompatibilität mit deiner Hardware und Software**. Unter Umständen kannst du vielleicht nicht die neueste Version installieren, aber eine neuere als deine aktuelle Version. Ältere Versionen von `R` finden wir auch unter obigem Link. Ältere Versionen von RStudio finden wir <a href="https://support.rstudio.com/hc/en-us/articles/206569407-Older-Versions-of-RStudio" target="_blank">hier</a>. 
 
-<aside>Hilfe bei der **Installation von `R` und <span style="font-family: Consolas,monaco,monospace;">RStudio** finden wir unserem [Kapitel](Installation.qmd).</aside>
+<aside>Hilfe bei der **Installation von `R` und RStudio** finden wir unserem [Kapitel](Installation.qmd).</aside>
 
 (@) **Die Pakete deinstallieren und _manuell_ neu installieren**
 

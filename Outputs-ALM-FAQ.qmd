@@ -67,7 +67,7 @@ Weil es sich bei Studierenden mit und ohne Nebenjob um zwei voneinander unabhän
 
 Zur Durchführung eines $t$-Tests für unabhängige Zufallsstichproben müssen folgende Annahmen erfüllt sein: 
 
-- <font color="green">es muss sich um __einfache, voneinander unabhängige Stichproben__ handeln
+- es muss sich um __einfache, voneinander unabhängige Stichproben__ handeln
 - __Normalverteilung__ des untersuchten Merkmals in beiden Populationen 
 - __Varianzhomogenität__ des untersuchten Merkmals in beiden Populationen
 
@@ -174,10 +174,10 @@ knitr::include_graphics("figures/Voraussetzungsprüfung/Bilder/t-test.png")
 
 Wir erhalten u.a. folgende Informationen: 
 
-- <font color="#FF2600">`t`: empirische Prüfgröße des $t$-Tests
-- <font color="#77BB40">`df`: Anzahl der Freiheitsgerade der $t$-Verteilung (entspricht $N-2$)\
+- `t`: empirische Prüfgröße des $t$-Tests
+- `df`: Anzahl der Freiheitsgerade der $t$-Verteilung (entspricht $N-2$)\
 
-<details class="bsp" style="background:white; border-style: solid; border-color:black; color:black;"><summary>Wir kommen wir auf $N=169$?</summary><div>
+<details><summary>Wir kommen wir auf $N=169$?</summary>
 Wir haben alle Fälle mit fehlenden Werten auf *einer* der beiden Variablen ausgeschlossen (*casewise deletion* durch `na.action = "na.exclude"`). Wir können diese Bedingung folgendermaßen auf unseren Datensatz anwenden, um $N$ für unsere spezifische Analyse zu berechnen:
 
 ```{r}
@@ -189,10 +189,10 @@ Für mehr Informationen siehe das Kapitel zu [Fehlenden Werten](Fehlende-Werte.q
 
 
 
-- <font color="#0533FF">`p-value`: in $p$-Wert umgerechneter empirischer $t$-Wert <!--, also die Wahrscheinlichkeit, den gegebenen empirischen $t$-Wert oder einen extremeren zu erhalten, wenn die $H_0$ gilt.-->\
+- `p-value`: in $p$-Wert umgerechneter empirischer $t$-Wert <!--, also die Wahrscheinlichkeit, den gegebenen empirischen $t$-Wert oder einen extremeren zu erhalten, wenn die $H_0$ gilt.-->\
 Durch den Vergleich mit unserem $\alpha$-Niveau können wir anhand dieser Information zu einer Testentscheidung gelangen. Ist der $p$-Wert kleiner als $\alpha$, verwerfen wir die $H_0$. 
-- <font color="#FF9300">`95 percent confidence interval`: obere und untere Grenze des 95% Konfidenzintervalls der *Mittelwertsdifferenz*
-- <font color="#942192">`sample estimates`: Stichprobenmittelwerte der Gruppen
+- `95 percent confidence interval`: obere und untere Grenze des 95% Konfidenzintervalls der *Mittelwertsdifferenz*
+- `sample estimates`: Stichprobenmittelwerte der Gruppen
 
 Durch Betrachtung des $p$-Wertes stellen wir fest, dass die Wahrscheinlichkeit unter Gültigkeit der $H_O$, einen empirischen $t$-Wert von $\mid -1.278 \mid$ oder extremer zu erhalten, bei 20.3% liegt. Da dieser $p$-Wert deutlich über $\alpha=.05$ liegt, behalten wir die Nullhypothese bei. Wir gehen davon aus, dass Studierende mit und ohne Nebenjob sich *nicht* statistisch signifikant in ihrer Zufriedenheit mit der Bewältigung von Studienbelastungen unterscheiden. 
 
@@ -338,13 +338,13 @@ Unter `Coefficients` finden wir Informationen zu den geschätzten **Regressionsk
 knitr::include_graphics("figures/Voraussetzungsprüfung/Bilder/lm oben.png")
 ```
 
-- <font color="#FF2600">`Estimate`: Schätzung der (Populations-)Regressionskoeffizienten
+- `Estimate`: Schätzung der (Populations-)Regressionskoeffizienten
   - `(Intercept)`: vorhergesagter Wert des Kriteriums wenn alle Prädiktoren 0 sind (bei metrischen Prädiktoren) bzw. vorhergesagter Wert des Kriteriums in den jeweiligen Referenzgruppen (bei kategorialen Prädiktoren); Wert von `zf_belastung` in der Referenzgruppe `job == ja` 
   - `jobnein`: Steigungskoeffizient, der die erwartete Veränderung im Kriterium angibt, wenn der Prädiktor um eine Einheit erhöht wird (bei metrischen Prädiktoren) bzw. in (einer) der Vergleichsgruppen (bei kategorialen Prädiktoren); Unterschied von `job == nein` im Vergleich zur Referenzgruppe `job == ja` im Hinblick auf `zf_belastung`
-- <font color="#77BB40">`Std.Error`: Standardfehler des Regressionskoeffizienten
-- <font color="#0533FF">`t.value`: empirischer $t$-Wert für die Signifikanztestung des (partiellen) Regressionskoeffizienten
-- <font color="#FF9300">`Pr(>|t|)`: in $p$-Wert umgerechneter empirischer $t$-Wert
-- <font color="#942192">`Sign.codes`: durch Sternchen gekennzeichnete Signifikanzniveaus der geschätzten Regressionskoeffizienten
+- `Std.Error`: Standardfehler des Regressionskoeffizienten
+- `t.value`: empirischer $t$-Wert für die Signifikanztestung des (partiellen) Regressionskoeffizienten
+- `Pr(>|t|)`: in $p$-Wert umgerechneter empirischer $t$-Wert
+- `Sign.codes`: durch Sternchen gekennzeichnete Signifikanzniveaus der geschätzten Regressionskoeffizienten
 
 Der Intercept $b_0 = 2.679$ gibt uns den Mittelwert der Personen **mit Nebenjob** (`job == "ja"`, Referenzgruppe) auf der Skala von **Zufriedenheit mit der Bewältigung von Studienbelastungen** (`zf_belastung`) an. Wir gelangen durch Betrachtung von $p < 2^{-16}$ zu der Testentscheidung, die $H_0$, dass der Intercept in der Population 0 ist, abzulehnen.
 
@@ -371,12 +371,12 @@ Im unteren Abschnitt finden wir Informationen bezüglich des **Gesamtmodells**:
 knitr::include_graphics("figures/Voraussetzungsprüfung/Bilder/lm unten.png")
 ```
 
-- <font color="#FE41FF">`Residual Standard Error`: Standardschätzfehler $s_e$\
+- `Residual Standard Error`: Standardschätzfehler $s_e$\
 Gütemaß für die Genauigkeit der Regressionsvorhersage
-- <font color="#AA7942">`Multiple R-squared`: Determinationskoeffizient $R^2$\
+- `Multiple R-squared`: Determinationskoeffizient $R^2$\
 Gütemaß für die Schätzgenauigkeit
-- <font color="#AA7942">`Adjusted R squared`: korrigierter Determinationskoeffizient $R_{korr}^2$; gilt durch Korrektur der Freiheitsgrade als erwartungstreuer Schätzer für die Population
-- <font color="#00FDFF">`F-statistic`: empirischer Wert des $F$-Tests des Determinationskoeffizienten $R^2$ (d.h. des Gesamtmodells) mit Anzahl der Zähler- ($k$) und Nenner-Freiheitsgrade ($N-k-1$) der $F$-Verteilung mit zugehörigem $p$-Wert.
+- `Adjusted R squared`: korrigierter Determinationskoeffizient $R_{korr}^2$; gilt durch Korrektur der Freiheitsgrade als erwartungstreuer Schätzer für die Population
+- `F-statistic`: empirischer Wert des $F$-Tests des Determinationskoeffizienten $R^2$ (d.h. des Gesamtmodells) mit Anzahl der Zähler- ($k$) und Nenner-Freiheitsgrade ($N-k-1$) der $F$-Verteilung mit zugehörigem $p$-Wert.
 
 <aside>\
 \
@@ -454,17 +454,17 @@ knitr::include_graphics("figures/Voraussetzungsprüfung/Bilder/aov.png")
 
 Der Output liefert die folgenden Informationen für den Gruppierungsfaktor (`job`) und für die Residuen (`Residuals`): 
 
-- <font color="#FF2600">`Df`: Anzahl der Freiheitsgrade der $F$-Verteilung
+- `Df`: Anzahl der Freiheitsgrade der $F$-Verteilung
   - ... des Gruppierungsfaktor: $df_{job} = p - 1$
   - ... der Residuen:  $df_{e} = N-p$
-- <font color="#77BB40">`Sum Sq`: Quadratsumme
+- `Sum Sq`: Quadratsumme
   - ... des Gruppierungsfaktors (*"Treatmentquadratsumme"*)
   - ... der Residuen (*"Fehlerquadratsumme"*)
-- <font color="#0533FF">`Mean Sq`: Mittlere Quadratsumme (MQ)\
+- `Mean Sq`: Mittlere Quadratsumme (MQ)\
 relativieren die Quadratsumme eines Effekts an seinen Freiheitsgraden 
-- <font color="#FF9300">`F value`: empirische Prüfgröße des $F$-Tests\
+- `F value`: empirische Prüfgröße des $F$-Tests\
 entspricht dem Quotienten $\frac {MQ_{job}} {MQ_e}$
-- <font color="#942192">`Pr(>F)`: in $p$-Wert umgerechneter empirischer $F$-Wert
+- `Pr(>F)`: in $p$-Wert umgerechneter empirischer $F$-Wert
 
 <!-- 
 <aside> __Beachte: Auch die ANOVA weist als Sonderform des Allgemeinen Linearen Modells  Zusammenhänge mit der linearen Regression auf. Hierbei entspricht der empirische *F*-Wert der aov Funktion dem *F*-Wert des globalen Tests der `lm()`-Funktion.__  __(In unserem Fall F=0.316).__  __Näheres zu den Zusammenhängen des ALM findet ihr [hier](#github2).__

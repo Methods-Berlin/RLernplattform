@@ -191,7 +191,7 @@ Schauen wir uns einen weiteren Weg an, mit der Benutzeroberfläche der Entwicklu
 <!-- knitr::include_graphics("figures/Daten-importieren/Bilder/Importieren_manuell_Directory_1.png") -->
 <!-- ``` -->
 <!-- <!-- -->
-<!-- <i class="fa fa-exclamation-triangle fa-2x"></i> Anstatt über **...** Ordner bzw. Dateien auf unserem Rechner auszuwählen könnten wir auch direkt auf die einzelnen Ordner bzw. Dateien in der Struktur links klicken. Über den Pfad rechts von <img src="figures/Daten-importieren/Bilder/haus.png" style=" width:3%"/> können wir den Ort der Ordner bzw. Dateien auswählen. -->
+<!--  Anstatt über **...** Ordner bzw. Dateien auf unserem Rechner auszuwählen könnten wir auch direkt auf die einzelnen Ordner bzw. Dateien in der Struktur links klicken. Über den Pfad rechts von <img src="figures/Daten-importieren/Bilder/haus.png" style=" width:3%"/> können wir den Ort der Ordner bzw. Dateien auswählen. -->
 
 <!-- Es öffnet sich nun ein kleines Fenster, in dem wir unseren Arbeitsordner anwählen können.  -->
 
@@ -303,7 +303,7 @@ knitr::include_graphics("figures/Daten-importieren/Bilder/Environment_Datenobjek
 
 
 
-<details><summary>Probleme? Nutze <font color="white">Trial-and-Error!</summary>
+<details><summary>Probleme? Nutze Trial-and-Error!</summary>
 
 Um in Erfahrung zu bringen, welche Argumente wir nutzen müssen, um die Daten korrekt einzulesen, können wir einen  **Trial-and-Error Ansatz** verwenden:
 
@@ -480,7 +480,7 @@ Alternativ kann man die Datei auch herunterladen und dann in Abhängigkeit ihres
 
 `R`-eigene Dateien kann man am besten öffnen, indem man auf sie klickt. **Mac**-Benutzer haben dabei manchmal das Problem,  das sich die Datei per default in `R` öffnet. 
 
-- Auf Mac-Rechnern kann man `R`-Studio folgendermaßen zum **Standardprogramm** zum Öffnen von `R`-Dateien machen <font size=1">(siehe Abb. unten)
+- Auf Mac-Rechnern kann man `R`-Studio folgendermaßen zum **Standardprogramm** zum Öffnen von `R`-Dateien machen (siehe Abb. unten)
    + Rechtsklick auf die Datei
    + auf *Informationen* klicken
    + Unter *Öffnen mit* `R`-Studio auswählen **und** auf *Alle ändern...* klicken
