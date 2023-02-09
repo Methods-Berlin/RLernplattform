@@ -1,4 +1,4 @@
-# Das RLernplattform-Projekt
+# Zur R-Lernplattform Beitragen
 
 Dieses Repository enthält alle Dateien, die für die Erstellung der R-Lernplattform notwendig sind.
 Die Webseite ist als [Quarto Book](https://quarto.org/docs/books/) Projekt angelegt und kann beliebig erweitert und überarbeitet werden.
@@ -167,6 +167,28 @@ muss GitHub wissen, welche Pakete installiert werden müssen.
 
 Wenn wir die Webseite auf unserem eigenen Rechner erstellen wollen, können wir wie
 im Kapitel @sec-introduction beschrieben vorgehen.
+
+### HTML tags
+
+Markdown erlaubt es, html-tags zu verwenden, um die Formatierung des Textes weiter
+anzupassen. Beispielsweise können wir so die <p style="color:red;">Textfarbe</p>
+anpassen. Da dies jedoch schnell zu relativ unübersichtlichen Dokumenten führt,
+haben wir uns entschieden, die Nutzung von html-tags einzuschränken. Das soll es
+auch ermöglichen, das Anpassen und Erweitern bestehender Themen einfacher zu gestalten.
+Folgende html-tags dürfen genutzt werden:
+
+`<details><summary></summary></details>`: Erlaubt das Erstellen aufklappbarer Textelemente.
+
+<details><summary>Dieser Text wird immer angezeigt</summary>
+Dieser Text wir nur angezeigt, wenn die Textsektion "aufgeklappt" wird.
+</details>
+
+`<aside></aside>`: Erlaubt das Erstellen von side-notes.
+
+<aside>
+Dies ist ein Beispiel für ein aside
+</aside>
+
 
 ## Neues Thema erstellen
 
