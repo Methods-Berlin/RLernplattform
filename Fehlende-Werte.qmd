@@ -49,7 +49,7 @@ In diesem Kapitel schauen wir uns an, ob und wenn ja wo und wie viele Missings s
 Der Umgang mit Missings ist ein komplexes Thema. In diesem Kapitel werden wir uns auf zwei gängige Methoden zum Umgang mit Missings beschränken. In Abhängigkeit der eigenen Fragestellung empfiehlt es sich, passende Methoden zu recherchieren.
 
 
-<details class = "bsp"><summary>Beispieldatensatz für dieses Kapitel</summary>
+<details><summary>Beispieldatensatz für dieses Kapitel</summary>
 Das ist der Code für den Datensatz, an dem wir in diesem Kapitel arbeiten werden. Wenn du die Funktionen, die in diesem Kapitel vorgestellt werden, ausprobieren möchtest, führe den Code aus und erstelle den Datensatz.
 
 ```{r}

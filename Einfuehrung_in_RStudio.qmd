@@ -265,7 +265,7 @@ Neben der Informationen, aus welchem Paket eine Funktion stammt, finden wir hier
 
 Im Folgenden schauen wir uns die **R**-Dokumentation exemplarisch für die Funktion `matrix()` an. 
 
-Dazu öffnen wir die dazugehörige **R**-Dokumentations-Seite, indem wir *matrix* in das <font color ="#FF1D00">Suchfeld eingeben, oder eine der Hilfe-Funktionen, `help(matrix)` oder `?matrix`, ausführen. Folgende Seite sollte sich nun öffnen:
+Dazu öffnen wir die dazugehörige **R**-Dokumentations-Seite, indem wir *matrix* in das Suchfeld eingeben, oder eine der Hilfe-Funktionen, `help(matrix)` oder `?matrix`, ausführen. Folgende Seite sollte sich nun öffnen:
 
 ```{r}
 #| out.width: 550px

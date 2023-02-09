@@ -10,7 +10,7 @@ Wir gehen nur knapp auf die Prüfung der Annahmen ein. Eine ausführlichere Einl
 
 <!--Zur Veranschaulichung untersuchen wir, ob sich Studierende mit und ohne Nebenjob signifikant in ihrer Zufriedenheit mit der Bewältigung von Studienbelastungen unterscheiden. Diese ungerichtete $H_1$ überprüfen wir mit einem Signifikanzniveau von $\alpha = 0.05$. -->
 
-<details class ="bsp"><summary>Beispieldatensatz für dieses Kapitel</summary>
+<details><summary>Beispieldatensatz für dieses Kapitel</summary>
 
 Wir schauen uns im folgenden den Datensatz `erstis` an. Dieser enthalt Daten aus einer Erhebung mit Erstsemesterstudierenden der Psychologie. Das zugehörige Codebook finden wir <a href="https://www.beltz.de/fileadmin/beltz/downloads/OnlinematerialienPVU/R_fuer_Einsteiger/Datensatz%20Erstis_Codebook.pdf" target="_blank">hier</a>.
 

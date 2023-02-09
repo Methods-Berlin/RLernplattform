@@ -498,12 +498,6 @@ table_data_2 %>%
   collapse_rows(columns = 1, valign = "middle")
 ```
 
-<aside>\
-\
-\
-\
-Aus Platzgründen werden wir Arrays im Folgenden nicht behandeln.</aside>
-
 #### Vektor
 
 Vektoren sind die **elementare** Datenstruktur, aus der sich alle anderen Datenstrukturen zusammensetzen. Sie besitzen nur eine Dimension. Mit `c()` können wir Vektoren erstellen. 

@@ -64,7 +64,7 @@ Lowess steht für **lo**cally **we**ighted **s**catterplot **s**moother. Die Low
 
 
 
-<details class ="bsp"><summary>Beispieldatensatz für dieses Kapitel</summary>
+<details><summary>Beispieldatensatz für dieses Kapitel</summary>
 
 Hier sehen wir, wie wir den Datensatz `erstis`, an dem wir in diesem Kapitel arbeiten werden, einlesen können. 
 

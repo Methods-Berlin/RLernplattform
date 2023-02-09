@@ -13,7 +13,7 @@ In diesem Kapitel wollen wir uns verschiedene Schritte der Datenvorbereitung ans
 
 Wir fangen mit grundsätzlichen Überprüfungen unserer der Daten an. Nachfolgend arbeiten wir uns in spezifischere Aufbereitungsbereiche vor, die wir in Abhängigkeit unserer geplanten Auswertung ggf. benötigen.
 
-<details class="bsp"><summary><a name="data"></a>Beispieldatensätze für dieses Kapitel</summary>
+<details><summary>Beispieldatensätze für dieses Kapitel</summary>
 Für das vorliegende Kapitel nutzen wir **mehrere Datensätze**, um die unterschiedlichen Verarbeitungsschritte zu demonstrieren.
 
 Den Datensatz airquality werden wir am meisten nutzen. Dieser enthält Daten aus einer Untersuchung der **Luftqualität in New York**, die von Mai bis September des Jahres 1973 stattfand. Der Datensatz ist standardmäßig in R enthalten und wir bekommen ihn mit der Funktion `data()` in unser R-Environment:
@@ -599,7 +599,8 @@ Ein wichtiger Unterschied ist, dass `merge()` beim Zusammenführen der Dataframe
 
 In Abhängigkeit der geplanten Nutzung der Daten sollten wir individuell entscheiden, welche Funktion wir nutzen wollen.
 
-<details><summary>`merge()`</summary>
+<details>
+<summary>`merge()`</summary>
 
 Mit `merge()` können wir **zwei Dataframes**, deren Namen wir der Funktion übergeben, vertikal zusammenführen.
 
@@ -628,14 +629,11 @@ Beispielsweise kommt folgender Fall in beiden Dataframes vor:
 vornamen_13[vornamen_13$vorname == "Aadhya",]
 ```
 
-<aside>`vornamen_13`</aside>
 
 ```{r}
 #| echo: false
 vornamen_14[vornamen_14$vorname == "Aadhya",]
 ```
-
-<aside>`vornamen_14`</aside>
 
 So verschwindet die gleiche Anzahl an Fällen, die wir mit dem Default-Verhalten der Funktion (`all = FALSE`) behalten hätten.
 
@@ -667,6 +665,7 @@ merge_xy
 ```
 
 Man könnte denken, dass 6 Fälle in `merge_xy` zu finden sind. Weil aber jeweils ein Fall (`x`: Zeile 2; `y` Zeile 3) bis auf `a` die gleichen Ausprägungen in den beiden Dataframes hat, wird dieser nicht mit übernommen.
+
 </details>
 
 
@@ -1269,7 +1268,7 @@ library(rmarkdown)
 rmarkdown::paged_table(df_ascend_temp_wind, options(rows.print=5))
 ```
 
-<aside>Beispielsweise sehen wir hier, dass die Fälle 27, 25 und 18 (auf Seite 1 in den Zeilen 2, 3 und 4) anders sortiert sind als oben.</aside>
+Beispielsweise sehen wir hier, dass die Fälle 27, 25 und 18 (auf Seite 1 in den Zeilen 2, 3 und 4) anders sortiert sind als oben.
 
 Wenn wir nach den **absteigenden** Werte der Variablen sortieren wollen, hängen wir jeweils ein `-` vor diese. Alternativ können wir auch das Argument `decreasing=TRUE` setzen (dann werden aber, im Gegensatz zu unserem Beispiel, **alle** Variablen absteigend sortiert).
 
@@ -1330,8 +1329,6 @@ Für dieses Kapitel beschränken wir uns auf die Nutzung des Datensatzes **PWE_d
 
 Wenn wir zum Beispiel Messwerte in Meter zu Messwerten in Zentimeter ändern oder negativ gepolte Items umpolen wollen, spricht man von Umkodieren. 
 
-<aside>Rekodieren und Umkodieren wird häufig synonym genutzt.</aside>
-
 Wir können die Kodierung von Merkmalen in R auf verschiedene Arten ändern. Nachfolgend schauen wir uns zwei Funktionen an, die wir nutzen können.
 
 
@@ -1341,7 +1338,7 @@ Wir können die Kodierung von Merkmalen in R auf verschiedene Arten ändern. Nac
 In der Funktion `recode()` (auch `Recode()` möglich) aus dem Paket **car** müssen wir grundsätzlich zwei Argumente spezifizieren: `var` und `recodes`. Ersterem übergeben wir die umzukodierende Variable, zweiterem die alte und die neue Kodierung der Variablen. 
 
 Wir müssen hierbei einige syntaktische Besonderheiten von `recodes` beachten:\
-<span class="code">recodes = "alt_1 = neu_k; alt_2 = neu_k-1; ...; alt_k = neu_1"</span>\
+`recodes = "alt_1 = neu_k; alt_2 = neu_k-1; ...; alt_k = neu_1"`\
 (Ausprägungen der Kodierung von 1 bis $k$)
 
 * die `Input=Output`-Parameter müssen *gemeinsam* als Zeichenkette (d.h. in `" "`) vorliegen

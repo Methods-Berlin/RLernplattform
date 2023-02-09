@@ -23,7 +23,7 @@ Fehlermeldungen sind häufig nicht einfach zu verstehen. Das liegt u.a. daran, d
 
 Im Folgenden gehen wir uns zuerst darauf ein, welche Hilfe uns **RStudio** gibt, um **Fehler zu vermeiden**. Anschließend schauen wir uns an einigen konkreten (Syntax-)Fehlermeldungen an, wie man diese **verstehen** kann. Danach lernen wir, wie wir **Suchmaschinen sinnvoll nutzen** können, um Lösungen für unsere Fehlermeldungen zu finden. \
 
-<details class ="bsp"><summary>Beispieldatensatz für dieses Kapitel</summary>
+<details><summary>Beispieldatensatz für dieses Kapitel</summary>
 
 Für das vorliegende Kapitel werden wir uns einen kleinen Datensatz generieren, mit dem wir arbeiten werden.
 
