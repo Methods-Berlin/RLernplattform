@@ -93,7 +93,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./lineare-regression.html" rel="next">
 <link href="./Outputs-ALM-FAQ.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -274,11 +273,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <a href="./Zur-Lernplattform-Beitragen.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Zur R-Lernplattform Beitragen</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./lineare-regression.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Lineare Regression - Die Basics</span></a>
-  </div>
-</li>
       </ul>
   </li>
     </ul>
@@ -303,8 +297,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#neues-thema-erstellen" id="toc-neues-thema-erstellen" class="nav-link" data-scroll-target="#neues-thema-erstellen"><span class="toc-section-number">16.3</span>  Neues Thema erstellen</a></li>
   <li><a href="#webseite-erstellen" id="toc-webseite-erstellen" class="nav-link" data-scroll-target="#webseite-erstellen"><span class="toc-section-number">16.4</span>  Webseite erstellen</a>
   <ul class="collapse">
-  <li><a href="#fehler-beheben" id="toc-fehler-beheben" class="nav-link" data-scroll-target="#fehler-beheben"><span class="toc-section-number">16.4.1</span>  Fehler beheben</a></li>
-  <li><a href="#sec-dependencies" id="toc-sec-dependencies" class="nav-link" data-scroll-target="#sec-dependencies"><span class="toc-section-number">16.4.2</span>  Alle Dependencies installieren</a></li>
+  <li><a href="#online-version-erstellen" id="toc-online-version-erstellen" class="nav-link" data-scroll-target="#online-version-erstellen"><span class="toc-section-number">16.4.1</span>  Online-Version erstellen</a></li>
+  <li><a href="#offline-version-erstellen" id="toc-offline-version-erstellen" class="nav-link" data-scroll-target="#offline-version-erstellen"><span class="toc-section-number">16.4.2</span>  Offline-Version erstellen</a></li>
+  <li><a href="#fehler-beheben" id="toc-fehler-beheben" class="nav-link" data-scroll-target="#fehler-beheben"><span class="toc-section-number">16.4.3</span>  Fehler beheben</a></li>
+  <li><a href="#sec-dependencies" id="toc-sec-dependencies" class="nav-link" data-scroll-target="#sec-dependencies"><span class="toc-section-number">16.4.4</span>  Alle Dependencies installieren</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -435,11 +431,7 @@ dann die Einführung in R.</p>
 </section>
 <section id="html-tags" class="level3 page-columns page-full" data-number="16.2.6">
 <h3 data-number="16.2.6" class="anchored" data-anchor-id="html-tags"><span class="header-section-number">16.2.6</span> HTML tags</h3>
-Markdown erlaubt es, html-tags zu verwenden, um die Formatierung des Textes weiter anzupassen. Beispielsweise können wir so die
-<p style="color:red;">
-Textfarbe
-</p>
-<p>anpassen. Da dies jedoch schnell zu relativ unübersichtlichen Dokumenten führt, haben wir uns entschieden, die Nutzung von html-tags einzuschränken. Das soll es auch ermöglichen, das Anpassen und Erweitern bestehender Themen einfacher zu gestalten. Folgende html-tags dürfen genutzt werden:</p>
+<p>Markdown erlaubt es, html-tags zu verwenden, um die Formatierung des Textes weiter anzupassen. Beispielsweise können wir so die Textfarbe und die Schriftgröße anpassen. Da dies jedoch schnell zu relativ unübersichtlichen Dokumenten führt, haben wir uns entschieden, die Nutzung von html-tags einzuschränken. Das soll es auch ermöglichen, das Anpassen und Erweitern bestehender Themen einfacher zu gestalten. Folgende html-tags dürfen genutzt werden:</p>
 <p><code>&lt;details&gt;&lt;summary&gt;&lt;/summary&gt;&lt;/details&gt;</code>: Erlaubt das Erstellen aufklappbarer Textelemente.</p>
 <details>
 <summary>
@@ -470,7 +462,15 @@ Dies ist ein Beispiel für ein aside
 </section>
 <section id="webseite-erstellen" class="level2" data-number="16.4">
 <h2 data-number="16.4" class="anchored" data-anchor-id="webseite-erstellen"><span class="header-section-number">16.4</span> Webseite erstellen</h2>
-<p><strong>Aktuell ist die Webseite noch nicht online!</strong> Wir können aber eine offline-Version erstellen, die wir dann herunterlagen und auf unserem Computer anschauen können. Hierfür werden GitHub Actions genutzt.</p>
+<section id="online-version-erstellen" class="level3" data-number="16.4.1">
+<h3 data-number="16.4.1" class="anchored" data-anchor-id="online-version-erstellen"><span class="header-section-number">16.4.1</span> Online-Version erstellen</h3>
+<p>Die Online-Version können wir updaten, indem wir <a href="https://github.com/Methods-Berlin/RLernplattform/actions/workflows/create_quarto_website.yml">hier</a> auf run workflow drücken:</p>
+<p><img src="figures/documentation/create_website.png" class="img-fluid"></p>
+<p>Die Webseite wird nun automatisch erstellt.</p>
+</section>
+<section id="offline-version-erstellen" class="level3" data-number="16.4.2">
+<h3 data-number="16.4.2" class="anchored" data-anchor-id="offline-version-erstellen"><span class="header-section-number">16.4.2</span> Offline-Version erstellen</h3>
+<p>Wir können aber eine offline-Version erstellen, die wir dann herunterlagen und auf unserem Computer anschauen können. Hierfür werden GitHub Actions genutzt.</p>
 <blockquote class="blockquote">
 <p>Hinweis: Wir haben nur eine begrenzte Rechenkapazität auf GitHub. Bitte erstelle die Webseite nur dann neu, wenn Du alle Änderungen vorgenommen hast, die Du vornehmen wolltest.</p>
 </blockquote>
@@ -509,16 +509,17 @@ Dies ist ein Beispiel für ein aside
 <p><img src="figures/documentation/create_book_6.png" class="img-fluid"></p>
 <p>Im Ordner wirst Du unter anderem mehrere .html Dateien finden. Öffne eine beliebige dieser Dateien mit Deinem Browser, um die lokale Version der Webseite anzuzeigen.</p>
 <p><img src="figures/documentation/create_book_7.png" class="img-fluid"></p>
-<section id="fehler-beheben" class="level3" data-number="16.4.1">
-<h3 data-number="16.4.1" class="anchored" data-anchor-id="fehler-beheben"><span class="header-section-number">16.4.1</span> Fehler beheben</h3>
+</section>
+<section id="fehler-beheben" class="level3" data-number="16.4.3">
+<h3 data-number="16.4.3" class="anchored" data-anchor-id="fehler-beheben"><span class="header-section-number">16.4.3</span> Fehler beheben</h3>
 <p>Es kommt immer wieder vor, dass beim erstellen der Webseite Fehler auftreten. Diese sehen in RStudio beispielsweise so aus:</p>
 <p><img src="figures/documentation/fehler_1.png" class="img-fluid"></p>
 <p>Wir sehen hier auf der rechten Seite den Hinweis:</p>
 <p><img src="figures/documentation/fehler_2.png" class="img-fluid"></p>
 <p>Dieser Fehler sagt uns, dass wir im Dokument <code>_main.Rmd</code> in Zeile 11731-11733 nach einem Fehler ausschau halten müssen. Noch spezifischer sagt uns der Fehler, dass es das Objekt “noten” nicht gibt. Wenn wir das Dokument <code>_main.Rmd</code> öffnen, finden wir dort in den angegebenen Zeilen: <img src="figures/documentation/fehler_3.png" class="img-fluid"> Dieser Teil des Dokuments <code>_main.Rmd</code> kommt aus dem Dokument <code>15-Interne-Dokumentation.Rmd</code>. Schauen wir dort noch mal genauer nach, dann sehen wir, dass die Variablen <code>noten</code> und <code>stunden</code> gar nicht erstellt wurden und deshalb der Code nicht funktionieren kann. Wir können das Problem lösen, indem wir <code>eval=FALSE</code> hinzufügen.</p>
 </section>
-<section id="sec-dependencies" class="level3" data-number="16.4.2">
-<h3 data-number="16.4.2" class="anchored" data-anchor-id="sec-dependencies"><span class="header-section-number">16.4.2</span> Alle Dependencies installieren</h3>
+<section id="sec-dependencies" class="level3" data-number="16.4.4">
+<h3 data-number="16.4.4" class="anchored" data-anchor-id="sec-dependencies"><span class="header-section-number">16.4.4</span> Alle Dependencies installieren</h3>
 <p>Solltest Du nicht alle Pakete installiert haben, die auf der Webseite genutzt werden, kannst Du entweder die Datei <code>DESCRIPTION</code> öffnen und alle dort aufgeführten Pakete installieren oder Du öffnest die Datei <code>RLernplattform.Rproj</code> in RStudio und führst folgenden Code aus:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(<span class="st">"devtools"</span>))</span>
@@ -672,9 +673,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./lineare-regression.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Lineare Regression - Die Basics</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
