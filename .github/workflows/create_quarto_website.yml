@@ -1,7 +1,8 @@
 # The following builds on:
 # https://medium.com/@delucmat/how-to-publish-bookdown-projects-with-github-actions-on-github-pages-6e6aecc7331e
+# https://quarto.org/docs/publishing/github-pages.html#executing-code
 
-name: publish_website
+name: create_book
 
 on:
   workflow_dispatch
@@ -35,8 +36,7 @@ jobs:
           options(install.packages.compile.from.source = "never")
           install.packages(c("quarto", "devtools"))
           devtools::install_deps(upgrade = "never")
-          quarto::quarto_render(output_format = "html",
-                                as_job = FALSE)
+        shell: Rscript {0}
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
         with:
