@@ -171,7 +171,7 @@ im Kapitel @sec-introduction beschrieben vorgehen.
 ### HTML tags
 
 Markdown erlaubt es, html-tags zu verwenden, um die Formatierung des Textes weiter
-anzupassen. Beispielsweise können wir so die <p style="color:red;">Textfarbe</p>
+anzupassen. Beispielsweise können wir so die Textfarbe und die Schriftgröße
 anpassen. Da dies jedoch schnell zu relativ unübersichtlichen Dokumenten führt,
 haben wir uns entschieden, die Nutzung von html-tags einzuschränken. Das soll es
 auch ermöglichen, das Anpassen und Erweitern bestehender Themen einfacher zu gestalten.
