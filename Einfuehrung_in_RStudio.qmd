@@ -55,7 +55,7 @@ knitr::include_graphics("figures/Einführung/Bilder/RStudio/RStudio 2.png")
 ```
 
 Nun gliedert sich die Entwicklungsumgebung <span class="r">RStudio</span> in **vier verschiedene Bereiche**:\
-In das <span class="r script">**Skript**</span> schreiben wir unseren Code. In der <span class="r" style="color:#0533FF;">**Konsole**</span> wird dieser ausgeführt und die Ergebnisse angezeigt. Bestehende Objekte sehen wir im <span class="r env">**Environment**</span>. Eine Übersicht unserer Pakete finden wir unter <span class="r" style="color:#669C35;">**Packages**</span> und Informationen zu `R` und zu Funktionen finden wir unter <span class="r" style="color:#669C35;">**Help**</span>.
+In das <span class="r script">**Skript**</span> schreiben wir unseren Code. In der <span class="r" style="color:#0533FF;">**Konsole**</span> wird dieser ausgeführt und die Ergebnisse angezeigt. Bestehende Objekte sehen wir im <span class="r env">**Environment**</span>. Eine Übersicht unserer Pakete finden wir unter <span class="r" style="color:#669C35;">**Packages**</span> und Informationen zu R und zu Funktionen finden wir unter <span class="r" style="color:#669C35;">**Help**</span>.
 
 
 ```{r}
@@ -254,9 +254,9 @@ Neben der Informationen, aus welchem Paket eine Funktion stammt, finden wir hier
 
 
 
-Im Folgenden schauen wir uns die **R**-Dokumentation exemplarisch für die Funktion `matrix()` an. 
+Im Folgenden schauen wir uns die R-Dokumentation exemplarisch für die Funktion `matrix()` an. 
 
-Dazu öffnen wir die dazugehörige **R**-Dokumentations-Seite, indem wir *matrix* in das Suchfeld eingeben, oder eine der Hilfe-Funktionen, `help(matrix)` oder `?matrix`, ausführen. Folgende Seite sollte sich nun öffnen:
+Dazu öffnen wir die dazugehörige R-Dokumentations-Seite, indem wir *matrix* in das Suchfeld eingeben, oder eine der Hilfe-Funktionen, `help(matrix)` oder `?matrix`, ausführen. Folgende Seite sollte sich nun öffnen:
 
 ```{r}
 #| out.width: 550px
@@ -308,7 +308,7 @@ Bis auf `byrow=FALSE` können wir so alle Voreinstellungen im Output nachvollzie
 
 ##### Arguments
 
-Argumente sind Einstellungen, die wir für eine Funktion festlegen können. In der **R**-Dokumentation sieht man links den Namen des Arguments (z.B. `byrow`) und rechts eine Beschreibung dazu (z.B. `logical`) verbunden mit verschiedenen Einstellungsoptionen (z.B. `FALSE` - spaltenweise Befüllen der Matrix).
+Argumente sind Einstellungen, die wir für eine Funktion festlegen können. In der R-Dokumentation sieht man links den Namen des Arguments (z.B. `byrow`) und rechts eine Beschreibung dazu (z.B. `logical`) verbunden mit verschiedenen Einstellungsoptionen (z.B. `FALSE` - spaltenweise Befüllen der Matrix).
 
 
 ##### Details
@@ -323,7 +323,7 @@ Wir erfahren hier, dass wenn `nrow` (Zeilenanzahl) oder `ncol` (Spaltenanzahl) n
 matrix(data=c(1,1,2,2,3,3,4,4,5,5), nrow=5)
 ```
 
-Wir haben einen Vektor mit 10 Elementen reingegeben und `nrow=5` festlegt. Daraus kann **R** schließen, dass die Matrix zwei Spalten (`ncol=2`) haben muss.
+Wir haben einen Vektor mit 10 Elementen reingegeben und `nrow=5` festlegt. Daraus kann R schließen, dass die Matrix zwei Spalten (`ncol=2`) haben muss.
 
 **2. Abschnitt `matrix()`:**\
 Wenn die Anzahl der Elemente, die wir an `data` übergeben, kleiner ist, als die Anzahl der gewünschten Elemente in Matrix (`nrow` x `ncol`), dann wird `data` __recycled__. Das bedeutet, dass `data` nochmal genutzt wird, um die Matrix zu befüllen.

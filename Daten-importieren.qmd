@@ -1,8 +1,8 @@
 # Daten importieren
 
-Wir können in **R** nicht nur selbst Daten erzeugen, sondern selbstverständlich auch externe Dateien unterschiedlichen Typs einlesen. Dabei geschehen in der Regel zwei Dinge: 1) Die Informationen werden ausgelesen und 2) in einem Objekt (oftmals in Form eines Dataframes) gespeichert. 
+Wir können in R nicht nur selbst Daten erzeugen, sondern selbstverständlich auch externe Dateien unterschiedlichen Typs einlesen. Dabei geschehen in der Regel zwei Dinge: 1) Die Informationen werden ausgelesen und 2) in einem Objekt (oftmals in Form eines Dataframes) gespeichert. 
 
-Im Rahmen dieses Kapitels schauen wir uns an, wie wir Dateien **aus dem Internet herunterladen**, **in unseren Arbeitsordner verschieben** und anschließend **in **R** einlesen. Wir lernen außerdem, wie wir unser **Working Directory setzen** können.
+Im Rahmen dieses Kapitels schauen wir uns an, wie wir Dateien **aus dem Internet herunterladen**, **in unseren Arbeitsordner verschieben** und anschließend **in R einlesen. Wir lernen außerdem, wie wir unser **Working Directory setzen** können.
 
 Wir lernen **drei verschiedene Wege zum Einlesen von Dateien** kennen:
 
@@ -20,7 +20,7 @@ Exemplarisch schauen wir uns die drei Wege für die Datei neuro<a href="https://
 <details><summary>Was ist eine grafische Benutzeroberfläche?</summary>
 Die Grafische Benutzeroberfläche, oder auch Benutzungsschnittstelle, wird häufig auch mit GUI (_**G**raphical **U**ser **I**nterface_) abgekürzt. Durch diese kann man mit der Maus auf Symbole und andere Steuerelemente klicken anstatt Funktionen in der Konsole auszuführen (z.B. [Weg 1](#weg-1-environment-import-dataset) und [Weg 2](html#weg-2-files-import-dataset) zum Daten einlesen). 
 
-Die grafische Benutzeroberfläche in der Entwicklungsumgebung **RStudio** ist viel besser ausgebaut (als die des Basisprogramms **R**), weswegen wir diese auch nutzen wollen.</details>
+Die grafische Benutzeroberfläche in der Entwicklungsumgebung **RStudio** ist viel besser ausgebaut (als die des Basisprogramms R), weswegen wir diese auch nutzen wollen.</details>
 
 
 
@@ -54,7 +54,7 @@ Wir begeben uns in den entsprechenden Moodle-Kurs und wählen die Datei mit eine
 knitr::include_graphics("figures/Daten-importieren/Bilder/Herunterladen_1.png")
 ```
 
-Sehr wichtig ist es, sich immer zu merken, in welchem Ordner die heruntergeladene Datei gespeichert wird. Es ist **sinnvoll, die Datei bereits jetzt im Arbeitsordner zu speichern** (in dem wir unser **R**-Skript später speichern möchten). 
+Sehr wichtig ist es, sich immer zu merken, in welchem Ordner die heruntergeladene Datei gespeichert wird. Es ist **sinnvoll, die Datei bereits jetzt im Arbeitsordner zu speichern** (in dem wir unser R-Skript später speichern möchten). 
 
 In Google Chrome können wir den Zielordner herausfinden, indem wir rechts oben auf die drei Punkte klickt und den Menüpunkt **Downloads** anwählen. Es öffnet sich ein neuer Tab im Browser, in dem wir die Option **In Ordner anzeigen** auswählen können.
 
@@ -135,7 +135,7 @@ Die Datei ist nun im Arbeitsordner gespeichert; wir können sie nun auch aus dem
 
 ## Weg 1: Environment > Import Dataset
 
-Eine Variante, Daten in **R** ganz ohne Code zu importieren, ist es, das Icon **Import Dataset** zu nutzen. Dieses finden wir im rechten oberen Panel bei **Environment**.  
+Eine Variante, Daten in R ganz ohne Code zu importieren, ist es, das Icon **Import Dataset** zu nutzen. Dieses finden wir im rechten oberen Panel bei **Environment**.  
 
 ```{r}
 #| out.width: 700px
@@ -146,11 +146,11 @@ knitr::include_graphics("figures/Daten-importieren/Bilder/Importieren_icon_csv_t
 
 Nun klicken wir auf **From CSV**. Daraufhin öffnet sich ein Fenster, in dem wir verschiedene Optionen zum Einlesen haben. 
 
-> *__Achtung__*:  In neueren **RStudio**-Versionen gibt es die Optionen **From Text (base)** und **From Text (readr)** (anstatt zusammengefasst **From CSV**). Beides kann genutzt werden, um .csv-Dateien einzulesen. **base** ist ein Standardpaket, welches in **R** von Beginn an vorinstalliert ist. Um **readr** nutzen zu können, müssen wir erst das gleichnamige Paket herunterladen. Die nachfolgend genannten Schritte beziehen sich auf die Benutzung von **From Text (readr)**; das Fenster bei **From Text (base)** sieht auch anders aus.
+> *__Achtung__*:  In neueren **RStudio**-Versionen gibt es die Optionen **From Text (base)** und **From Text (readr)** (anstatt zusammengefasst **From CSV**). Beides kann genutzt werden, um .csv-Dateien einzulesen. **base** ist ein Standardpaket, welches in R von Beginn an vorinstalliert ist. Um **readr** nutzen zu können, müssen wir erst das gleichnamige Paket herunterladen. Die nachfolgend genannten Schritte beziehen sich auf die Benutzung von **From Text (readr)**; das Fenster bei **From Text (base)** sieht auch anders aus.
 
 Nachdem wir eine Option ausgewählt haben, öffnet sich ein Fenster, in welchem wir die gewünschte Datei in unserem Arbeitsordner auswählen können.
 
-Dann öffnet sich ein neues Fenster, welches eine **Vorschau** beinhaltet, die uns zeigt, wie die Datei mit den derzeitig festgelegten Optionen in **R** aussehen würde. Wenn es Probleme gibt (z.B. mit der Interpretation der Trennungszeichen), sehen wir das sofort an der Darstellung der Daten.
+Dann öffnet sich ein neues Fenster, welches eine **Vorschau** beinhaltet, die uns zeigt, wie die Datei mit den derzeitig festgelegten Optionen in R aussehen würde. Wenn es Probleme gibt (z.B. mit der Interpretation der Trennungszeichen), sehen wir das sofort an der Darstellung der Daten.
 
 ```{r}
 #| out.width: 700px
@@ -161,9 +161,10 @@ knitr::include_graphics("figures/Daten-importieren/Bilder/Importieren_icon_csv_t
 
 Zum Einlesen sind folgende Schritte nötig:
 
-- Anklicken des **Browse**-Buttons. Daraufhin öffnet sich ein Fenster, in welchem wir die Datei auswählen können.
-- Überprüfen der **Vorschau**, ob die Daten korrekt dargestellt werden. Die häufigsten Probleme bei der Repräsentation der Daten kommen durch die Trennungzeichen (zwischen den einzelnen Datenelementen) zustande. Diese können wir bei **Delimiter** ändern.
-- Anschließend drücken des **Import**-Buttons.
+- Anklicken des <span style="color:#FF230C">**Browse**</span>-Buttons. Daraufhin öffnet sich ein Fenster, in welchem wir die Datei auswählen können.
+- Überprüfen der <span style="color:#27B965">**Vorschau**</span>, ob die Daten korrekt dargestellt werden. Die häufigsten Probleme bei der Repräsentation der Daten kommen durch die Trennungzeichen (zwischen den einzelnen Datenelementen) zustande. Diese können wir bei **Delimiter** ändern.
+- Anschließend drücken des <span style="color:#6DA8DC">**Import**</span>-Buttons.
+
 
 Wenn die Datei neuro.csv erfolgreich eingelesen wurde, erscheint das neu erstellte Objekt neuro (oder welchen anderen Namen wir dem Objekt gegeben haben) im rechten oberen Panel bei **Environment**.
 
@@ -238,7 +239,7 @@ Es öffnet sich (weitestgehend) das gleiche Fenster wie in [Weg 1](#weg-1-enviro
 knitr::include_graphics("figures/Daten-importieren/Bilder/Importieren_manuell_2.png")
 ```
 
-Wir haben hier mit Hilfe der Vorschau wieder die Möglichkeit vor dem Einlesen zu Überprüfen, ob die Datei von **R** richtig repräsentiert wird. Die meisten Probleme hängen mit den Trennungszeichen zwischen den einzelnen Datenelementen zusammen. Diese Option können wir unter **Delimiter** anpassen. Stimmt die Vorschau mit unseren Erwartungen überein, können wir rechts unten auf **Importieren** klicken.
+Wir haben hier mit Hilfe der Vorschau wieder die Möglichkeit vor dem Einlesen zu Überprüfen, ob die Datei von R richtig repräsentiert wird. Die meisten Probleme hängen mit den Trennungszeichen zwischen den einzelnen Datenelementen zusammen. Diese Option können wir unter **Delimiter** anpassen. Stimmt die Vorschau mit unseren Erwartungen überein, können wir rechts unten auf **Importieren** klicken.
 
 Im Workspace sollten wir nun den eben eingelesenen Dataframe neuro finden. 
 
@@ -288,7 +289,7 @@ In Abhängigkeit der Speicherung der Dateien müssen wir manchmal den Parametern
 - `sep`
    + wie (angenommen wird, dass) einzelne Datenelemente getrennt sind
    + u.a. Komma (`,`), Semikolon (`,`) und Freizeichen (` `) möglich
-   + Dass wir hier etwas ändern müssen erkennen wir daran, dass nicht die gesamte Anzahl an Spalten im `R`-Objekt vorhanden sind. Wenn wir uns das Objekt anschauen, dann sehen wir, mit welchem Zeichen die Elemente getrennt sind.
+   + Dass wir hier etwas ändern müssen erkennen wir daran, dass nicht die gesamte Anzahl an Spalten im R-Objekt vorhanden sind. Wenn wir uns das Objekt anschauen, dann sehen wir, mit welchem Zeichen die Elemente getrennt sind.
 
 > *__Achtung__*:  Es kann dabei sein, dass **unterschiedliche Personen zum korrekten Einlesen derselben Datei andere Argumenten nutzen**. Das kann auf unterschiedliche Betriebssysteme oder Programme zum Öffnen der Dateien zurückzuführen sein.
 
@@ -309,7 +310,7 @@ Um in Erfahrung zu bringen, welche Argumente wir nutzen müssen, um die Daten ko
 
 - Wir lesen die Datei erstmal ohne Spezifikation von Argumenten ein z.B. mit **`read.table("Dateipfad")`**.
 
-- Dann schauen wir uns die Datei in `R` ein und beurteilen, ob diese korrekt angezeigt wird. Schauen wir uns dazu beispielhaft einmal folgende .csv-Datei aus dem lavaan - Paket an:
+- Dann schauen wir uns die Datei in R ein und beurteilen, ob diese korrekt angezeigt wird. Schauen wir uns dazu beispielhaft einmal folgende .csv-Datei aus dem lavaan - Paket an:
 
 ```{r}
 #| echo: false
@@ -343,9 +344,9 @@ Nun wird die Datei korrekt dargestellt.
 
 ## FAQ
 
-Um Daten in `R` aufbereiten und bearbeiten zu können, muss man diese erst einmal einlesen können. Manchmal gestaltet sich das leider schwieriger als erwartet.
+Um Daten in R aufbereiten und bearbeiten zu können, muss man diese erst einmal einlesen können. Manchmal gestaltet sich das leider schwieriger als erwartet.
 
-Im Folgenden wollen wir uns einige Methoden zum Einlesen gängiger Dateiformate in `R` anschauen. Das Dateiformat einer Datei erkennt man an seiner Endung.
+Im Folgenden wollen wir uns einige Methoden zum Einlesen gängiger Dateiformate in R anschauen. Das Dateiformat einer Datei erkennt man an seiner Endung.
 
 <details><summary>Kurzbefehle zum Kopieren des Dateipfads</summary>
 
@@ -367,7 +368,7 @@ knitr::include_graphics("figures/Daten-importieren/Bilder/Dateipfad.png")
 
 
 
-Für eine ausführlichere Anleitung zum Einlesen von Dateien in `R` gibt es ein eigenständiges [Kapitel](Daten-importieren.qmd), in dem wir lernen, wie wir die Benutzeroberfläche von RStudio und Funktionen nutzen können.
+Für eine ausführlichere Anleitung zum Einlesen von Dateien in R gibt es ein eigenständiges [Kapitel](Daten-importieren.qmd), in dem wir lernen, wie wir die Benutzeroberfläche von RStudio und Funktionen nutzen können.
 
 ---
 
@@ -379,61 +380,9 @@ Diese Dateiformate sind die am weitesten verbreiteten Tabellendateien. Alle drei
 - `read.delim("Dateipfad")` 
 - `read.csv("Dateipfad")` 
 
-Diese drei Funktionen sind sehr ähnlich aufgebaut. Sind haben aber teilweise unterschiedliche Voreinstellungen (sog. *"Defaults"*). Zum Beispiel nimmt `read.csv()` an, dass Elemente aus verschiedenen Spalten in einer Zeile jeweils mit einem Komma (`sep=","`) getrennt sind. Dafür werden bei `read.table()` ohne weitere Spezifikation die Spaltennamen nicht eingelesen (`header=FALSE`).
-
-In Abhängigkeit der Speicherung der Dateien muss man teilweise noch weitere Argumente der Funktionen nutzen (d.h. nicht die Defaults einer Funktion nutzen).
-
-- `header = TRUE` (bei read.table)
-   + Die richtigen Spaltennamen stehen sonst in der ersten Zeile und Spalten werden mit `V1`, `V2`, `V3` etc. benannt. 
-- `sep = ";"` 
-   + ... wenn die Elemente verschiedener Spalten in einer Zeile mit Semikolon getrennt sind
-   + Dass wir hier etwas ändern müssen erkennen wir daran, dass nicht die gesamte Anzahl an Spalten im `R`-Objekt vorhanden sind. Wenn wir uns das Objekt anschauen, dann sehen wir, mit welchem Zeichen die Elemente getrennt sind.
-- `fill = TRUE` (bei read.table)
-   + ... wenn fehlende Werte mit `NA` (`R`-Kodierung für Missings) befüllt werden sollen.
-
-
-Um in Erfahrung zu bringen, welche Argumente wir nutzen müsst, um die Daten korrekt einzulesen, können wir einen  **Trial-and-Error Ansatz** verwenden:
-
-- Wir lesen die Datei erstmal ohne Spezifikation von Argumenten ein z.B. mit **`read.table("Dateipfad")`**.
-
-- Dann schauen wir uns die Datei in `R` ein und beurteilen, ob diese korrekt angezeigt wird. Schauen wir uns dazu beispielhaft einmal folgende csv-Datei an:
-
-```{r}
-#| echo: false
-#| fig.align: center
-library(knitr)
-data_kurz <- head(data)
-kable(data_kurz) 
-```
-
-- Die Datei wird scheinbar nicht korrekt angezeigt. Dabei fallen zwei Sachen ins Auge:
-   + Es gibt **keine Spaltennamen** bzw. stehen diese in der ersten Zeile.
-     + Daher müssen wird das Argument **`header=TRUE`** nutzen, damit die Spaltennamen als solche übernommen werden.
-   + Es existiert **nur ein Spalte**.
-     + Die Daten aus verschiedenen Spalten werden alle in einer Zeile dargestellt. Wenn man sich das genauer anschaut sieht man, dass die einzelnen Daten jeweils mit einem Komma voneinander getrennt sind. Folglich müssen wird das Argument `sep=","` benutzen, damit die Spalten korrekt getrennt werden.
-   + Jetzt lesen wir die Datei nochmal mit diesen Argumenten ein: \
-   **`read.table("Dateipfad", header=TRUE, sep=",")`**
-     
-```{r}
-#| echo: false
-#| fig.align: center
-data <- read.table("data/PoliticalDemocracy.csv", sep=",", header=TRUE)
-library(knitr)
-data_kurz <- head(data)
-kable(data_kurz) 
-```
-     
-Nun wird die Datei korrekt dargestellt.
-
-> *__Achtung__*:  Es kann dabei sein, dass unterschiedliche Personen **zum korrekten Einlesen (derselben Datei) andere Argumenten nutzen**. Das kann auf unterschiedliche Betriebssysteme oder Programme zum Öffnen der Dateien zurückzuführen sein.
-
-Mehr Informationen zu den Funktionen und ihren Argumenten findet wir, wenn wir unter *read.table* in der `R`-Dokumentation (**Help** im unteren rechten Panel) nachschauen, oder indem wir `?read.table` in die Konsole eingeben.
-
-
-
 ### .xls und .xlsx
 
-Diese Endungen gehören zum Programm **Excel**. Man muss externe Pakete installieren, um Excel-Dateien in `R` einlesen zu können. 
+Diese Endungen gehören zum Programm **Excel**. Man muss externe Pakete installieren, um Excel-Dateien in R einlesen zu können. 
 
 Um **.xlsx**-Dateien einzulesen, nutzen wir das Paket **openxlsx**.
 
@@ -454,7 +403,7 @@ daten <- read_xlsx("Dateipfad")
 
 ### .sav
 
-Die Endung .sav wird z.B. für **SPSS**-Dateien genutzt wird. Hierfür muss man wieder ein zusätzliches Paket (z.B. **foreign**) runterladen, um SPSS-Dateien in `R` einlesen zu können.
+Die Endung .sav wird z.B. für **SPSS**-Dateien genutzt wird. Hierfür muss man wieder ein zusätzliches Paket (z.B. **foreign**) runterladen, um SPSS-Dateien in R einlesen zu können.
 
 ```{r}
 #| eval: false
@@ -478,39 +427,28 @@ Alternativ kann man die Datei auch herunterladen und dann in Abhängigkeit ihres
 
 ### .R, .Rda und .Rmd
 
-`R`-eigene Dateien kann man am besten öffnen, indem man auf sie klickt. **Mac**-Benutzer haben dabei manchmal das Problem,  das sich die Datei per default in `R` öffnet. 
+R-eigene Dateien kann man am besten öffnen, indem man auf sie klickt. **Mac**-Benutzer haben dabei manchmal das Problem,  das sich die Datei per default in R öffnet. 
 
-- Auf Mac-Rechnern kann man `R`-Studio folgendermaßen zum **Standardprogramm** zum Öffnen von `R`-Dateien machen (siehe Abb. unten)
+- Auf Mac-Rechnern kann man R-Studio folgendermaßen zum **Standardprogramm** zum Öffnen von R-Dateien machen (siehe Abb. unten)
    + Rechtsklick auf die Datei
    + auf *Informationen* klicken
-   + Unter *Öffnen mit* `R`-Studio auswählen **und** auf *Alle ändern...* klicken
-
-
-```{r}
-#| echo: false
-#| fig.show: hold
-knitr::include_graphics("figures/Daten-importieren/Bilder/Mac_Info.png")
-knitr::include_graphics("figures/Daten-importieren/Bilder/arrow_right.png")
-knitr::include_graphics("figures/Daten-importieren/Bilder/Mac_Öffnen.png")
-```
-
-
-- Wenn man nur die **eine** `R`-Datei regulär mit `R`-Studio öffnen möchte: 
+   + Unter *Öffnen mit* R-Studio auswählen **und** auf *Alle ändern...* klicken
+- Wenn man nur die **eine** R-Datei regulär mit R-Studio öffnen möchte: 
    + Rechtsklick auf die Datei
    + *Öffnen mit*
    + *Anderem Programm ...*
-   + `R`-Studio auswählen
+   + R-Studio auswählen
    + unten mittig ein Häkchen in das Kästchen *Immer öffnen mit* setzen (wenn das nicht angezeigt wird, muss man erst unten rechts auf *Optionen* klicken)
    + *Öffnen*
 
 
 ## Weiterführende Hilfe
 
-Falls wir ein **seltener genutztes Dateiformat** (z.B. Stata, JSON) in `R` einlesen möchten, können wir in dem <a href="https://www.datacamp.com/community/tutorials/r-data-import-tutorial" target="_blank">Data Import Tutorial auf Datacamp</a> nachschauen.
+Falls wir ein **seltener genutztes Dateiformat** (z.B. Stata, JSON) in R einlesen möchten, können wir in dem <a href="https://www.datacamp.com/community/tutorials/r-data-import-tutorial" target="_blank">Data Import Tutorial auf Datacamp</a> nachschauen.
 
 ## Übung
 
-In diesem Abschnitt finden wir verschiedene Dateien, die wir zur Übung in **R** einlesen können. Wie wir dabei vorgehen (d.h. welchen Weg wir nutzen) bleibt ganz uns überlassen. Wenn wir möchten, können wir die Tipps nutzen, um die Aufgaben zu lösen. Zur Überprüfung finden wir *mögliche* Lösungswege und die eingelesenen Daten.
+In diesem Abschnitt finden wir verschiedene Dateien, die wir zur Übung in R einlesen können. Wie wir dabei vorgehen (d.h. welchen Weg wir nutzen) bleibt ganz uns überlassen. Wenn wir möchten, können wir die Tipps nutzen, um die Aufgaben zu lösen. Zur Überprüfung finden wir *mögliche* Lösungswege und die eingelesenen Daten.
 
 Wenn wir **Hilfe beim Einlesen von Daten** brauchen, können wir uns das ausführliche [Kapitel](Daten-importieren.qmd) dazu anschauen.
 
@@ -520,7 +458,7 @@ Wenn wir **Probleme beim Installieren oder Laden von Paketen** haben, können wi
 
 ### Übung 1: **.csv**
 
-Lade dir von <a href="https://openpsychometrics.org/_rawdata/" target="_blank">openpsychometrics.org</a> die zip-Datei **NPI** runter. Entpacke diese und lese **data.csv** in **R** ein.
+Lade dir von <a href="https://openpsychometrics.org/_rawdata/" target="_blank">openpsychometrics.org</a> die zip-Datei **NPI** runter. Entpacke diese und lese **data.csv** in R ein.
 
 
 ```{r}
@@ -558,7 +496,7 @@ kable(data_I_6) %>%
 
 ### Übung 2: **.csv**
 
-Lade dir von <a href="https://openpsychometrics.org/_rawdata/" target="_blank">openpsychometrics.org</a> die zip-Datei **16PF** runter. Entpacke diese und lese **data.csv** in **R** ein.
+Lade dir von <a href="https://openpsychometrics.org/_rawdata/" target="_blank">openpsychometrics.org</a> die zip-Datei **16PF** runter. Entpacke diese und lese **data.csv** in R ein.
 
 ```{r}
 #| echo: false
@@ -603,7 +541,7 @@ kable(data_II_6) %>%
 
 ### Übung 3: **.sav**
 
-Lade dir die Datei **ges7.sav** von <a href="https://www.metheval.uni-jena.de/materialien/ges7/ges7.sav" target="_blank">metheval.uni-jena.de</a> herunter und lese diese in **R** ein.
+Lade dir die Datei **ges7.sav** von <a href="https://www.metheval.uni-jena.de/materialien/ges7/ges7.sav" target="_blank">metheval.uni-jena.de</a> herunter und lese diese in R ein.
 
 ```{r}
 #| echo: false
@@ -617,7 +555,7 @@ data_III <- read.spss("data/ges7.sav", to.data.frame = TRUE)
 
 
 <details><summary>**Tipp 1**</summary>
-Die Endung `.sav` kennzeichnet SPSS-Dateien. Um diese einzulesen benötigt man zusätzliche Pakete, weil es in base **R** keine Funktion dafür gibt.
+Die Endung `.sav` kennzeichnet SPSS-Dateien. Um diese einzulesen benötigt man zusätzliche Pakete, weil es in base R keine Funktion dafür gibt.
 </details>
 \
 <details><summary>**Tipp 2**</summary>
@@ -646,7 +584,7 @@ kable(data_III_6) %>%
 
 ### Übung 4: **.xlsx**
 
-Lade dir die **Bahnsteigdaten (RNI)** von <a href="http://download-data.deutschebahn.com/static/datasets/bahnsteig_regio/DBRNI-Bahnsteigdaten-Stand2015-10.xlsx" target="_blank">data.deutschebahn.com</a> herunter und lese diese in **R** ein.
+Lade dir die **Bahnsteigdaten (RNI)** von <a href="http://download-data.deutschebahn.com/static/datasets/bahnsteig_regio/DBRNI-Bahnsteigdaten-Stand2015-10.xlsx" target="_blank">data.deutschebahn.com</a> herunter und lese diese in R ein.
 
 ```{r}
 #| echo: false
@@ -660,7 +598,7 @@ data_4 <- read_xlsx("data/DBRNI-Bahnsteigdaten-Stand2015-10.xlsx")
 
 
 <details><summary>**Tipp 1**</summary>
-Die Endung `.xlsx` kennzeichnet Excel-Dateien. Um diese einzulesen benötigt man zusätzliche Pakete, weil es in base **R** keine Funktion dafür gibt.
+Die Endung `.xlsx` kennzeichnet Excel-Dateien. Um diese einzulesen benötigt man zusätzliche Pakete, weil es in base R keine Funktion dafür gibt.
 </details>
 \
 <details><summary>**Tipp 2**</summary>

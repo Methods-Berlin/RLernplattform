@@ -48,7 +48,7 @@ PWE_data <- read_table("Dateipfad/data.csv")
 ```
 
 ```{r}
-#| echo: false
+#| include: false
 library(readr)
 PWE_data <- read_table("data/PWE.csv")
 ```
@@ -59,11 +59,11 @@ names(PWE_data)
 
 Der Datensatz enthält 102 Variablen. Einige davon schauen wir uns im Laufe des Kapitels noch genauer an. Im Codebook, welches sich ebenfalls im Ordner **PWE_data** befindet, finden wir eine Erklärung zu den Variablen. Mehr Informationen zum Erhebungsinstrument, der **P**rotestant **W**ork **E**thic Scale, finden wir in <a href="http://web.a.ebscohost.com/ehost/detail/detail?vid=5&sid=4c4ab98a-bce0-4d67-9d45-085c71a5a277%40sessionmgr4008&bdata=JnNpdGU9ZWhvc3QtbGl2ZQ%3d%3d#AN=1971-09987-001&db=pdh" target="_blank">Mirels & Garrett (1971)</a> (nur über HU-VPN zugänglich).
 
-> *__Achtung__*:   Im Abschnitt [Plausibilitäts-Check] werden die Kodierungen einiger Variablen noch korrigiert. Außerdem müssen die Werte der Variablen `Q9A`, `Q13A` und `Q15A` noch invertiert werden, da diese negativ gepolt sind. Das passiert im Abschnitt [Umkodieren].
+> *__Achtung__*:   Im Abschnitt [Plausibilitäts-Check](Datenvorbereitung.qmd#plausibilitäts-check) werden die Kodierungen einiger Variablen noch korrigiert. Außerdem müssen die Werte der Variablen `Q9A`, `Q13A` und `Q15A` noch invertiert werden, da diese negativ gepolt sind. Das passiert im Abschnitt [Umkodieren](Datenvorbereitung.qmd#umkodieren).
 
 
 
-Die Datensätze vornamen_13 und vornamen_14 enthalten die **Vornamen der Neugeborenen in München**, jeweils für die Jahre 2013 und 2014. Diese werden wir nur für [**2. Datensätze zusammenführen**][Datensätze zusammenführen] nutzen.
+Die Datensätze vornamen_13 und vornamen_14 enthalten die **Vornamen der Neugeborenen in München**, jeweils für die Jahre 2013 und 2014. Diese werden wir nur für [2. Datensätze zusammenführen](Datenvorbereitung.qmd#datensätze-zusammenführen) nutzen.
 
 Zuerst laden wir die csv-Dateien für <a href="https://www.opengov-muenchen.de/dataset/6acc34a9-762e-4e7f-83b0-250654478134/resource/f47ec60f-8839-4e83-9c7c-492c8b17d7b5/download/vornamen-von-neugeborenen2013.csv" target="_blank">2013</a> und <a href="https://www.opengov-muenchen.de/dataset/582aac00-aa2d-4b00-ac90-c4e5be7fa485/resource/cebd2d67-94e6-4667-a850-415f863d3b10/download/vornamen-von-neugeborenen-2014.csv" target="_blank">2014</a> runter und lesen sie dann folgendermaßen in R ein:
 
@@ -97,7 +97,7 @@ Die Datensätze enthalten jeweils die gleichen 3 Variablen:
 
 
 
-> *__Achtung__*:  Es kommt häufiger zu **Problemen bei der Ausführung der Funktionen** `filter()`, `select()` und `summarise()` aus dem Paket **dpylr**, wenn die Pakete **stats** (Basispaket; `filter()`), **MASS** (`select()`) oder **plyr** (`summarise()`) ebenfalls geladen sind. Auch bei anderen gleichnamigen Funktionen aus verschiedenen geladenen Paketen kann es durch die sogenannte Maskierung zu Problemen kommen. Weil wir auch Pakete mit gleich benannten Funktionen nutzen, greifen wir teils auf die eindeutige Auswahl von Funktionen mittels `::` zurück. Für mehr **Informationen zum Maskieren** können wir im [gleichnamigen Abschnitt][Maskierung: Wenn verschiedene Pakete gleich benannte Funktionen enthalten] im Kapitel **Pakete** nachschauen. Mehr **Informationen zu dem speziellen Problem mit dpylr** finden wir in diesem <a href="https://stackoverflow.com/questions/24202120/dplyrselect-function-clashes-with-massselect" target="_blank">Forumseintrag</a>.
+> *__Achtung__*:  Es kommt häufiger zu **Problemen bei der Ausführung der Funktionen** `filter()`, `select()` und `summarise()` aus dem Paket **dpylr**, wenn die Pakete **stats** (Basispaket; `filter()`), **MASS** (`select()`) oder **plyr** (`summarise()`) ebenfalls geladen sind. Auch bei anderen gleichnamigen Funktionen aus verschiedenen geladenen Paketen kann es durch die sogenannte Maskierung zu Problemen kommen. Weil wir auch Pakete mit gleich benannten Funktionen nutzen, greifen wir teils auf die eindeutige Auswahl von Funktionen mittels `::` zurück. Für mehr **Informationen zum Maskieren** können wir im [gleichnamigen Abschnitt](Pakete.qmd#maskierung-wenn-verschiedene-pakete-gleich-benannte-funktionen-enthalten) im Kapitel **Pakete** nachschauen. Mehr **Informationen zu dem speziellen Problem mit dpylr** finden wir in diesem <a href="https://stackoverflow.com/questions/24202120/dplyrselect-function-clashes-with-massselect" target="_blank">Forumseintrag</a>.
 
 
 ## Grundlegende erste Schritte
@@ -165,7 +165,7 @@ Verhältnisse</aside>
 **airquality**: `Ozone`, `Solar.R`, `Wind`\
 **PWE_data**: `age`
 
-Zu guter Letzt gibt es noch absolutskalierte Merkmale, welche sowohl einen eindeutigen Nullpunkt als auch eine eindeutige Einheit der Skala (z.B. Anzahl der Kinder) vorweisen kann. Die Kodierung entsprcht der natürlichen Einheit.
+Zu guter Letzt gibt es noch absolutskalierte Merkmale, welche sowohl einen eindeutigen Nullpunkt als auch eine eindeutige Einheit der Skala (z.B. Anzahl der Kinder) vorweisen kann. Die Kodierung entspricht der natürlichen Einheit.
 
 **airquality**: -\
 **PWE_data**: `familysize`
@@ -240,8 +240,8 @@ Nachfolgend finden wir eine Übersicht zu den Möglichkeiten der Kodierung von M
 #| echo: false
 De <- rep("Datentyp:", 2)
 D <- c("<span style=\"font-family: Consolas,monaco,monospace;\">character</span>", "<span style=\"font-family: Consolas,monaco,monospace;\">numeric</span>")
-N <- c("X", "X$^1$")
-O <- c("X$^2$", "X$^2$")
+N <- c("X", "X<sup>1</sup>")
+O <- c("X<sup>2</sup>", "X<sup>2</sup>")
 I <- c("", "X")
 V <- c("", "X")
 A <- c("", "X")
@@ -255,7 +255,7 @@ table_kat %>%
   row_spec(0, color = "white", background = "#009193") %>%
   column_spec(1:2, bold=TRUE, color = "white", background = "#009193") %>%
   collapse_rows(columns = 1, valign = "middle") %>%
-  footnote(general = "<font size=\"1\">$^1$ Faktorisieren (unordered factor) notwendig *wenn* keine Indikatorvariable(n) genutzt $^2$ Faktorisieren (ordered factor) notwendig</font>", general_title = "", escape = FALSE) 
+  footnote(general = "<font size=\"1\"><sup>1</sup> Faktorisieren (unordered factor) notwendig *wenn* keine Indikatorvariable(n) genutzt <sup>2</sup> Faktorisieren (ordered factor) notwendig</font>", general_title = "", escape = FALSE) 
 ```
 
 Mit der Funktion `str()` können wir uns eine kompakte Übersicht der enthaltenen Variablen (d.h. ihr Datentyp bzw. die Datenstruktur Faktor sowie jeweils die ersten 10 Werte) der Datenstruktur (hier: Dataframe) ausgeben lassen. So können wir schauen, ob die Daten auch entsprechend ihres Messniveaus kodiert sind.
@@ -501,10 +501,10 @@ table_wide %>% mutate(
 ```
 
 <aside>\
-Untersuchungseinheit 1\
-Untersuchungseinheit 2\
-<span style=" border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: grey !important;" >Messwiederholung\
-<span style=" border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lightgrey !important;" >Rater</aside>
+<font color="darkred">Untersuchungseinheit 1</font>\
+<font color="dodgerblue">Untersuchungseinheit 2</font>\
+<span style=" border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: grey !important;" >Messwiederholung</span>\
+<span style=" border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lightgrey !important;" >Rater</span></aside>
 
 **Beispiel 2 Wide-Format: Rater**
 
@@ -570,10 +570,7 @@ Im Kapitel zum (**[Wide- und Long-Format]**) erfahren wir, wie wir beide Formate
 
 **Synonyme**: Mergen, Fusionieren, Integrieren \
 
-Nicht immer haben wir das Glück, dass die für uns relevanten Daten in einem gemeinsamen Dataframe vorliegen.
-
-Daher schauen wir uns nachfolgend an, wie man Dataframes zusammenführen kann. 
-
+Nicht immer haben wir das Glück, dass die für uns relevanten Daten in einem gemeinsamen Dataframe vorliegen. Daher schauen wir uns nachfolgend an, wie man Dataframes zusammenführen kann. 
 Es gibt dabei zwei Szenarien, die man unterscheiden kann:
 
 - die **selben Variablen** von **verschiedenen Fällen**
@@ -833,6 +830,8 @@ dim(vornamen_join)
 
 Wir sehen, dass der mit `full_join(..., by = "vorname")` zusammengeführte Datensatz genau die gleichen Dimensionen hat wie der mit `merge(..., by = "vorname", all = TRUE)` zusammengeführte. Die beiden Funktionen unterscheiden sich nur in der Sortierung der Fälle (welcher Dataframe zuerst eingegeben wurde vs. natürliche Sortierung der Fälle).
 
+</details>
+
 <details><summary>`full_join()` als Alternative zu `bind_rows()`</summary>
 Mit `full_join(x, y)` bekommen wir (bis auf die Sortierung der Fälle) das gleiche Ergebnis wie bei `merge(x, y, all = TRUE)`
 
@@ -861,9 +860,6 @@ dim(vornamen_merge_row)
 kable(head(vornamen_merge_row))
 ```
 </details>
-</details>
-
-
 
 ## Daten extrahieren
 
@@ -1025,32 +1021,29 @@ Wir schauen uns nachfolgend einige Möglichkeiten der Extraktion von Fällen mit
 
 Unten befindet sich eine Übersicht, der wir entnehmen können, welche Methode wir wählen sollten in Abhängigkeit davon, ob die Fälle, die wir extrahieren wollen, ähnlich oder unterschiedlich sind.
 
-```{r}
-#| echo: false
+```{r, echo=FALSE}
 # https://haozhu233.github.io/kableExtra/awesome_table_in_html.html#column__row_specification
+library(kableExtra)
+library(dplyr)
 table <-
   matrix(
     c(
-      "X", "", "", "", "",
-      "X", "X", "", "", "",
-      "X", "X", "X", "", "",
-      "X", "X", "X", "X", "",
-      "X", "X", "X", "X", "X"
+      "`grep()`",
+      "logische Operatoren, `filter()`",
+      "z.B. enthalten die Zahl 6: 67, 86, ...", "z.B. genau 57 oder >= 15"
     ),
-    nrow = 5,
-    ncol = 5,
+    nrow = 2,
+    ncol = 2,
     byrow = T
   )
-colnames(table) <- c("<span style=\"line-height:0.1;\">(Un-)\nGleichheit</span>", "Rangordnung", "Abstände", "Verhältnisse", "natürliche\nEinheit")
-rownames(table) <- c("Nominal", "Ordinal", "Intervall", "Verhältnis", "Absolut")
-kable(table, "html", escape = F) %>%
-  kable_styling(full_width = T) %>%
-  column_spec(2:6, width="7em") %>%
-  column_spec(1,        
-              bold = T,
-              color = "white",
-              background = "#009193") %>%
-  row_spec(0,  extra_css = "line-height:1.5;",
+colnames(table) <- c("... die selben Zeichen", "... einen gemeinsamen Wertebereich")
+library(kableExtra)
+library(dplyr)
+kable(table, table.attr = "style='width:100%;'") %>%
+  add_header_above(c("Die Ausprägungen der Fälle haben ..." = 2), line = F, color = "white", background = "#009193") %>%
+  kable_styling(full_width = TRUE) %>%
+  row_spec(2, font_size = 10) %>%
+  row_spec(0,
            bold = T,
            color = "white",
            background = "#009193")
@@ -1356,6 +1349,11 @@ rmarkdown::paged_table(PWE_data[,c(25,37,43)], options(rows.print=5))
 Jetzt invertieren wir die Skalen:
 
 ```{r}
+#| include: false
+library(car)
+```
+
+```{r}
 library(car)
 PWE_data$Q9A <- recode(var=PWE_data$Q9A,
                        recodes="1=5; 2=4; 3=3; 4=2; 5=1")
@@ -1420,9 +1418,7 @@ Im Gegensatz zu `recode()` können wir durch die Verwendung von logischen Operat
 
 Als Beispiel bilden wir Kategorien für das intervallskalierte Merkmal `Q1E` (mit Frage **Q1** verbrachte Zeit in Millisekunden). Den Range des Merkmals erfahren wir mit `range(PWE_data$Q1E, na.rm=TRUE)` (195 - 181.24**6**). Wir teilen `Q1E` in vier gleich breite Kategorien ein: $[195, 45457.75), [45457.75, 90720.5), [90720.5, 135983.2), [135983.2, 181247)$.
 
-<aside>**[** heißt inklusive\
-**)** heißt exklusive\
-Bei der oberen Grenze wird aufgerundet.</aside>
+Hinweis: **[** heißt inklusive, **)** heißt exklusive. Bei der oberen Grenze wird aufgerundet.
 
 ```{r}
 # library(dplyr)
@@ -1897,7 +1893,7 @@ Wer Gefallen an den tidyverse-Funktionen `select()`, `filter()`, `mutate()`,  un
 
 Es ist generell sehr wichtig, auch bei der Datenvorbereitung, ein Auge auf die Stichprobengröße zu haben. Teilweise werden bei der Datenvorbereitung einige Untersuchungseinheiten aus der Analyse exkludiert und damit sinkt die Stichprobengröße $N$. 
 
-Wenn wir Auswertungen machen, in denen wir Ergebnisobjekte bekommen (z.B. bei der Regression mit `lm()`), können wir die Information zu $N$ daraus ablesen. Dazu klicken wir auf das Ergebnisobjekt im <span style="color: #75AADC">Environment (z.B. `lm_kontr`). Unter `model` sehen wir die Dimensionalität des **genutzten** Teil des Datensatzes und können anhand der Anzahl der Zeilen $N$ ablesen (z.B. bei `lm_kontr`: `[116 x 3]` d.h. 116 Fälle).
+Wenn wir Auswertungen machen, in denen wir Ergebnisobjekte bekommen (z.B. bei der Regression mit `lm()`), können wir die Information zu $N$ daraus ablesen. Dazu klicken wir auf das Ergebnisobjekt im Environment (z.B. `lm_kontr`). Unter `model` sehen wir die Dimensionalität des **genutzten** Teil des Datensatzes und können anhand der Anzahl der Zeilen $N$ ablesen (z.B. bei `lm_kontr`: `[116 x 3]` d.h. 116 Fälle).
 
 <aside>In `lm()` wird listwise deletion angewendet, d.h. dass jede Zeile, die mindestens ein Missing enthält, aus der Analyse ausgeschlossen wird. Mehr zu Fehlenden Werten im gleichnamigen [Kapitel](Fehlende-werte.qmd).</aside>
 
