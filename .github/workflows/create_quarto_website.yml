@@ -1,7 +1,7 @@
 # The following builds on:
 # https://medium.com/@delucmat/how-to-publish-bookdown-projects-with-github-actions-on-github-pages-6e6aecc7331e
 
-name: create_book
+name: publish_website
 
 on:
   workflow_dispatch
