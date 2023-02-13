@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>R Lernplattform - 15&nbsp; Outputs - ALM - FAQ</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Zur-Lernplattform-Beitragen.html" rel="next">
+<link href="./Voraussetzungspruefung.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Outputs - ALM - FAQ</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">R Lernplattform</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Inhalte</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Einführung in R</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Installation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Installation und Aktualisierung von R und RStudio</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Einfuehrung_in_R.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Einführung in R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Einfuehrung_in_RStudio.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Einführung in RStudio</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Pakete.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Pakete</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Daten-importieren.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Daten importieren</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Fehlermeldungen.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Fehlermeldungen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Datenvorbereitung.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Datenvorbereitung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Fehlende-Werte.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Fehlende Werte</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Grafiken.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Grafiken</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Weiterführende Themen in R</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Wide-and-Long-Format.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Wide- &amp; Long-Format</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Markdown.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">R Markdown</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Git.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Git und GitLab</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Vertiefungen zu den Veranstaltungen Methodenlehre I und II</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Voraussetzungspruefung.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Annahmen der Multiplen Linearen Regression</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Outputs-ALM-FAQ.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Outputs - ALM - FAQ</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">Projekt-Dokumentation</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Zur-Lernplattform-Beitragen.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Zur R-Lernplattform Beitragen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lineare-regression.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Lineare Regression - Die Basics</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#github-link" id="toc-github-link" class="nav-link active" data-scroll-target="#github-link"><span class="toc-section-number">15.1</span>  <span class="math inline">\(t\)</span>-Test</a></li>
+  <li><a href="#lineare-regression" id="toc-lineare-regression" class="nav-link" data-scroll-target="#lineare-regression"><span class="toc-section-number">15.2</span>  Lineare Regression</a></li>
+  <li><a href="#anova" id="toc-anova" class="nav-link" data-scroll-target="#anova"><span class="toc-section-number">15.3</span>  ANOVA</a></li>
+  <li><a href="#github2" id="toc-github2" class="nav-link" data-scroll-target="#github2"><span class="toc-section-number">15.4</span>  ALM: Zusammenhänge der drei Verfahren</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Outputs - ALM - FAQ</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>Das Allgemeine Lineare Modell (ALM) umfasst verschiedene inferenzstatistische und varianzanalytische Verfahren, darunter <strong><span class="math inline">\(t\)</span>-Test</strong> (<code>t.test()</code>), <strong>ANOVA</strong> (<code>aov()</code>) und <strong>lineare Regression</strong> (<code>lm()</code>).</p>
+<p>Im Folgenden schauen wir uns an, wie die <strong>Outputs</strong> der jeweiligen Funktionen <code>t.test()</code>, <code>aov()</code> und <code>lm()</code> aufgebaut sind und wie diese interpretiert werden. Dafür nutzen wir jeweils dieselben zwei Variablen. Wir werden zudem vor der Durchführung der Methoden deren <strong>Annahmen prüfen</strong>. Abschließend beschäftigen wir uns mit den <strong>Gemeinsamkeiten der Verfahren</strong> (für unseren speziellen Fall von einer metrischen abhängigen Variablen und einer kategorialen unabhängigen Variablen).</p>
+<aside>
+<br>
+<br>
+Wir gehen nur knapp auf die Prüfung der Annahmen ein. Eine ausführlichere Einleitung befindet sich <a href="./Voraussetzungspruefung.html">hier</a>.
+</aside>
+<!--Zur Veranschaulichung untersuchen wir, ob sich Studierende mit und ohne Nebenjob signifikant in ihrer Zufriedenheit mit der Bewältigung von Studienbelastungen unterscheiden. Diese ungerichtete $H_1$ überprüfen wir mit einem Signifikanzniveau von $\alpha = 0.05$. -->
+<details>
+<summary>
+Beispieldatensatz für dieses Kapitel
+</summary>
+<p>Wir schauen uns im folgenden den Datensatz <code>erstis</code> an. Dieser enthalt Daten aus einer Erhebung mit Erstsemesterstudierenden der Psychologie. Das zugehörige Codebook finden wir <a href="https://www.beltz.de/fileadmin/beltz/downloads/OnlinematerialienPVU/R_fuer_Einsteiger/Datensatz%20Erstis_Codebook.pdf" target="_blank">hier</a>.</p>
+<p>Den Datensatz laden wir mit der <code>load()</code>-Funktion in unsere Environment:</p>
+<div class="cell">
+
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">url</span>(<span class="st">"http://www.beltz.de/fileadmin/beltz/downloads/</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="st">         OnlinematerialienPVU/R_fuer_Einsteiger/erstis.rda"</span>))</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Zeilenumbruch zwischen der ersten und zweiten Zeile noch entfernen!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Wir wollen untersuchen, ob sich das Vorhandenseins eines <strong>Nebenjobs</strong> (<code>job</code>) auf die <strong>Zufriedenheit mit der Bewältigung von Studienbelastungen</strong> (<code>zf_belastung</code>, erster Messzeitpunkt) auswirkt.</p>
+<p>Dazu speichern wir beide Variablen in einem neuen Datensatz.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Daten aus erstis in neuem Dataframe speichern und umbennenen</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>daten <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">job =</span> erstis<span class="sc">$</span>job, <span class="at">zf_belastung =</span> erstis<span class="sc">$</span>zuf.bel<span class="fl">.1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Wir müssen außerdem noch überprüfen, ob die Variablen entsprechend ihres Messniveaus kodiert sind:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(daten)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   191 obs. of  2 variables:
+ $ job         : Factor w/ 2 levels "ja","nein": 2 1 1 2 2 1 NA NA NA 2 ...
+ $ zf_belastung: num  1.33 2.67 3.67 2.33 NA ...</code></pre>
+</div>
+</div>
+<p>Wie erhofft liegt die nominalskalierte Variable <code>job</code> als ungeordneter Faktor und die intervallskalierte Variable <code>zf_belastung</code> als numeric vor.</p>
+<p>Mehr Informationen zu Datentypen und angemessener Kodierung finden wir im Kapitel <a href="./Einfuehrung_in_R.html">Einführung in R</a>.</p>
+</details>
+<p><br>
+</p>
+<section id="github-link" class="level2 page-columns page-full" data-number="15.1">
+<h2 data-number="15.1" class="anchored" data-anchor-id="github-link"><span class="header-section-number">15.1</span> <span class="math inline">\(t\)</span>-Test</h2>
+<blockquote class="blockquote">
+<p>Der <span class="math inline">\(t\)</span>-Test untersucht, ob es signifikante Mittelwertsunterschiede in der Population hinsichtlich einer metrischen Variablen gibt. Der Begriff umfasst eine Gruppe von Hypothesentests, darunter den <span class="math inline">\(t\)</span>-Test für unabhängige Stichproben und den <span class="math inline">\(t\)</span>-Test für abhängige Stichproben (Beobachtungspaare).</p>
+</blockquote>
+<p>In unserem Beispiel schauen wir, ob sich Personen mit und ohne <strong>Nebenjob</strong> (<code>job</code>) hinsichtlich der <strong>Zufriedenheit mit der Bewältigung von Studienbelastungen</strong> (<code>zf_belastung</code>) unterscheiden.</p>
+<p>Weil es sich bei Studierenden mit und ohne Nebenjob um zwei voneinander unabhängige Stichproben (d.h. unterschiedliche Personen) handelt, verwenden wir den <strong><span class="math inline">\(t\)</span>-Test für unabhängige Stichproben</strong>.</p>
+<details>
+<summary>
+Überprüfung der Annahmen des <span class="math inline">\(t\)</span>-Tests
+</summary>
+<p><br>
+</p>
+<blockquote class="blockquote">
+<p><em><strong>Achtung</strong></em>: An dieser Stelle sei wieder auf das <a href="./Voraussetzungspruefung.html">ausführliche Skript</a> zur Annahmenprüfung verwiesen. Im Folgenden schauen wir uns jeweils nur ein mögliches Verfahren zur Überprüfung der spezifischen Annahmen an.<br>
+</p>
+</blockquote>
+<p>Zur Durchführung eines <span class="math inline">\(t\)</span>-Tests für unabhängige Zufallsstichproben müssen folgende Annahmen erfüllt sein:</p>
+<ul>
+<li>es muss sich um <strong>einfache, voneinander unabhängige Stichproben</strong> handeln</li>
+<li><strong>Normalverteilung</strong> des untersuchten Merkmals in beiden Populationen</li>
+<li><strong>Varianzhomogenität</strong> des untersuchten Merkmals in beiden Populationen</li>
+</ul>
+<p><br>
+<!--
+Intervallskalierung
+
+Im Codebook steht zu `zuf.bel.1` (was bei uns `zf_belastung` ist) *"Je höher der Wert, desto stärker die Ausprägung"*, was auf eine Intervallskalierung schließen lässt. 
+
+Jetzt müssen wir noch prüfen, ob das Messniveau auch in R korrekt repräsentiert wird. Intervallskalierte Daten werden mit numerischen Datentypen kodiert. Mit der Funktion `str()` können wir diesen überprüfen.
+
+
+::: {.cell}
+
+```{.r .cell-code}
+str(daten$zf_belastung)
+```
+
+::: {.cell-output .cell-output-stdout}
+```
+ num [1:191] 1.33 2.67 3.67 2.33 NA ...
+```
+:::
+:::
+
+
+Unser interessierendes Merkmal `zf_belastung` liegt als numeric vor.
+
+Mehr zu Datentypen und -strukturen erfahren wir in [Einführung in R](Einfuehrung_in_R.qmd).
+--> Normalverteilung</p>
+<p>Schauen wir uns dazu jeweils für beide Gruppen von <code>job</code> einen <strong>QQ-Plot</strong> an.<br>
+</p>
+<!-- ```{r, warning=FALSE} -->
+<!-- library(ggplot2) -->
+<!-- ggplot(data = daten, aes(x = zf_belastung)) + # Koordinatensystem -->
+<!--   geom_histogram() + # Histogramm -->
+<!--   facet_grid(~ job) # einzelne Plots nach den Ausprägungen von job -->
+<!-- # die Kategorie NA fasst die fehlenden Werte auf der Variablen job zusammen -->
+<!-- # diese können wir hier unbeachtet lassen -->
+<!-- ``` -->
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> daten, <span class="fu">aes</span>(<span class="at">sample =</span> zf_belastung)) <span class="sc">+</span> <span class="co"># Koordinatensystem</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_qq</span>() <span class="sc">+</span> <span class="fu">stat_qq_line</span>() <span class="sc">+</span> <span class="co"># QQ-Plot + Hilfslinie</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(<span class="sc">~</span> job) <span class="co"># einzelne Plots nach den Ausprägungen von job</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Outputs-ALM-FAQ_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># die Kategorie NA fasst die fehlenden Werte auf der Variablen job zusammen</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># diese können wir hier unbeachtet lassen</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Mehr Informationen zum Erstellen von Grafiken mit dem Paket <strong>ggplot2</strong> finden wir im Kapitel zu <a href="./Grafiken.html">Grafiken</a>.<br>
+</p>
+<blockquote class="blockquote">
+<p><em><strong>Achtung</strong></em>: Hilfe zur Interpretation von QQ-Plots finden wir hier: <a href="Voraussetzungspruefung.html#sec-Normalverteilung-der-Residuen"><span>Section&nbsp;14.5.1</span></a>.<br>
+<strong>Hinweis</strong>: Die Residuen in der linearen Regression sind beim <span class="math inline">\(t\)</span>-Test dasselbe wie in den Gruppen zentrierte Werte der <span class="math inline">\(AV\)</span> (d.h. Abweichungen vom gruppenspezifischen Mittelwert) in unserem Beispiel.<br>
+</p>
+</blockquote>
+<p>In beiden Diagrammen weichen die Punkte leicht von der Linie ab, d.h. dass die Daten nicht perfekt normalverteilt sind. Wir können uns aber auf den zentralen Grenzwertsatz stützen, welcher besagt, dass der Mittelwert eines Merkmals bei wachsender Stichprobengröße approximativ normalverteilt ist. Generell gibt es keinen Richtwert, der besagt, wann Stichproben hinreichend groß sind. Mit unseren Stichprobengrößen (<span class="math inline">\(n_{ja} = 87\)</span> und <span class="math inline">\(n_{nein} = 86\)</span>) und den geringfügigen Abweichungen von einer Normalverteilung in den beiden Gruppen können wir erwarten, dass die Annahme hinreichend erfüllt ist.<br>
+</p>
+<p>Varianzhomogenität</p>
+<blockquote class="blockquote">
+<p>Varianzhomogenität bedeutet, dass die Varianzen in den untersuchten Populationen gleich sind. Wenn dies der Fall ist, sollten sich auch die Stichprobenvarianzen ähneln.</p>
+</blockquote>
+<p>Ist diese Annahme nicht erfüllt, müssen wir auf robustere Methoden, z.B. den Welch’s <span class="math inline">\(t\)</span>-Test für unabhängige Stichproben, zurückgreifen.</p>
+<p>Zur Überprüfung der Varianzhomogenität können wir beispielsweise den <strong>Levene Test</strong> nutzen. In diesem wird die Nullhypothese überprüft, dass die Populationsvarianzen homogen sind (<span class="math inline">\(\sigma^2_{ja} = \sigma^2_{nein}\)</span>). Weil die <span class="math inline">\(H_0\)</span> die Wunschhypothese ist, ist es von größerer Relevanz, diese nicht fälschlicherweise abzulehnen, d.h. einen <span class="math inline">\(\beta\)</span>-Fehler zu machen (relativ gesehen zum <span class="math inline">\(\alpha\)</span>-Fehler). Wir können das Risiko für einen <span class="math inline">\(\beta\)</span>-Fehler nur <em>indirekt</em> kontrollieren, indem wir das <span class="math inline">\(\alpha\)</span>-Level erhöhen. Daher legen wir unser Signifikanzniveau auf <span class="math inline">\(\alpha=.20\)</span> (zweiseitig) fest.</p>
+<p>Wir führen den Test mit der Funktion <code>leveneTest()</code> aus dem Paket <strong>car</strong> durch.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: carData</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">leveneTest</span>(zf_belastung <span class="sc">~</span> job, daten)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Levene's Test for Homogeneity of Variance (center = median)
+       Df F value Pr(&gt;F)
+group   1   0.807 0.3703
+      167               </code></pre>
+</div>
+</div>
+<p>Da der <span class="math inline">\(p\)</span>-Wert (<code>Pr(&gt;F)</code>) größer als unser <span class="math inline">\(\alpha\)</span>-Level ist, können wir die <span class="math inline">\(H_0\)</span> beibehalten.</p>
+<p>Nachdem die Annahmen weitgehend erfüllt erscheinen, können wir den <span class="math inline">\(t\)</span>-Test für unabhängige Stichproben anwenden.</p>
+</details>
+<p><br>
+</p>
+<p>Mit der Funktion <code>t.test()</code> aus dem Basispaket <strong>stats</strong> können unterschiedliche Arten von <span class="math inline">\(t\)</span>-Tests durchgeführt werden. Welches Verfahren verwendet werden soll, legen wir mit den Parametern <code>paired</code> und <code>var.equal</code> fest.</p>
+<ul>
+<li><p>Mit <code>paired</code> spezifizieren wir, ob eine <strong>Abhängigkeit der Stichproben</strong> besteht. <code>TRUE</code> zu einem <span class="math inline">\(t\)</span>-Test für Beobachtungspaare, <code>FALSE</code> führt zur Durchführung eines <span class="math inline">\(t\)</span>-Tests für unabhängige Stichproben.</p></li>
+<li><p>Mit <code>var.equal</code> spezifizieren wir, ob <strong>Varianzhomogenität</strong> vorliegt. Wenn die Annahme nicht erfüllt ist, legen wir mit <code>FALSE</code> fest, dass der Welch’s <span class="math inline">\(t\)</span>-Test durchgeführt werden soll.</p></li>
+</ul>
+<p>Wir wollen einen <em>ungerichteten</em> <span class="math inline">\(t\)</span>-Test für unabhängige Stichproben durchführen und legen unser Signifikanzlevel <span class="math inline">\(\alpha=.05\)</span> fest.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(<span class="at">formula =</span> zf_belastung <span class="sc">~</span> job, </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">data =</span> daten,</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">paired =</span> <span class="cn">FALSE</span>, <span class="co"># unabhängige SP</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">var.equal =</span> <span class="cn">TRUE</span>, <span class="co"># Annahme Varianzhomogenität erfüllt</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">alternative =</span><span class="st">"two.sided"</span>, <span class="co"># zweiseitige (ungerichtete) Testung</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">na.action =</span> <span class="st">"na.exclude"</span>) <span class="co"># Ausschluss fehlender Werte</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<aside>
+<br>
+Mehr Informationen zum Umgang mit fehlenden Werten finden wir im Kapitel <a href="./Fehlende-Werte.html">Fehlende Werte</a>.
+</aside>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figures/Voraussetzungsprüfung/Bilder/t-test.png" class="img-fluid" width="550"></p>
+</div>
+</div>
+<p>Wir erhalten u.a. folgende Informationen:</p>
+<ul>
+<li><code>t</code>: empirische Prüfgröße des <span class="math inline">\(t\)</span>-Tests</li>
+<li><code>df</code>: Anzahl der Freiheitsgerade der <span class="math inline">\(t\)</span>-Verteilung (entspricht <span class="math inline">\(N-2\)</span>)<br>
+</li>
+</ul>
+<details>
+<summary>
+Wir kommen wir auf <span class="math inline">\(N=169\)</span>?
+</summary>
+<p>Wir haben alle Fälle mit fehlenden Werten auf <em>einer</em> der beiden Variablen ausgeschlossen (<em>casewise deletion</em> durch <code>na.action = "na.exclude"</code>). Wir können diese Bedingung folgendermaßen auf unseren Datensatz anwenden, um <span class="math inline">\(N\)</span> für unsere spezifische Analyse zu berechnen:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(daten[<span class="sc">!</span><span class="fu">is.na</span>(daten<span class="sc">$</span>job) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(daten<span class="sc">$</span>zf_belastung),])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 169</code></pre>
+</div>
+</div>
+Für mehr Informationen siehe das Kapitel zu <a href="./Fehlende-Werte.html">Fehlenden Werten</a>.
+</details>
+<ul>
+<li><code>p-value</code>: in <span class="math inline">\(p\)</span>-Wert umgerechneter empirischer <span class="math inline">\(t\)</span>-Wert <!--, also die Wahrscheinlichkeit, den gegebenen empirischen $t$-Wert oder einen extremeren zu erhalten, wenn die $H_0$ gilt.--><br>
+Durch den Vergleich mit unserem <span class="math inline">\(\alpha\)</span>-Niveau können wir anhand dieser Information zu einer Testentscheidung gelangen. Ist der <span class="math inline">\(p\)</span>-Wert kleiner als <span class="math inline">\(\alpha\)</span>, verwerfen wir die <span class="math inline">\(H_0\)</span>.</li>
+<li><code>95 percent confidence interval</code>: obere und untere Grenze des 95% Konfidenzintervalls der <em>Mittelwertsdifferenz</em></li>
+<li><code>sample estimates</code>: Stichprobenmittelwerte der Gruppen</li>
+</ul>
+<p>Durch Betrachtung des <span class="math inline">\(p\)</span>-Wertes stellen wir fest, dass die Wahrscheinlichkeit unter Gültigkeit der <span class="math inline">\(H_O\)</span>, einen empirischen <span class="math inline">\(t\)</span>-Wert von <span class="math inline">\(\mid -1.278 \mid\)</span> oder extremer zu erhalten, bei 20.3% liegt. Da dieser <span class="math inline">\(p\)</span>-Wert deutlich über <span class="math inline">\(\alpha=.05\)</span> liegt, behalten wir die Nullhypothese bei. Wir gehen davon aus, dass Studierende mit und ohne Nebenjob sich <em>nicht</em> statistisch signifikant in ihrer Zufriedenheit mit der Bewältigung von Studienbelastungen unterscheiden.</p>
+</section>
+<section id="lineare-regression" class="level2 page-columns page-full" data-number="15.2">
+<h2 data-number="15.2" class="anchored" data-anchor-id="lineare-regression"><span class="header-section-number">15.2</span> Lineare Regression</h2>
+<blockquote class="blockquote">
+<p>Die lineare Regression ermöglicht es, eine abhängige Variable (AV, Kriterium) durch eine oder mehrere unabhängige Variablen (UVs, Prädiktoren) vorherzusagen. Das Kriterium muss metrisch sein, wohingegen die Prädiktoren auch kategorial sein können, wenn sie adäquat kodiert sind (siehe z.B. [Indikatorvariablen: Kodierung nominaler Merkmale][Indikatorvariablen: Kodierung nominaler Merkmale] im Kapitel Datenvorbereitung).</p>
+</blockquote>
+<aside>
+<br>
+ein Prädiktor: <em>einfache</em> lineare Regression;<br>
+<br>
+mehrere Prädiktoren: <em>multiple</em> lineare Regression
+</aside>
+<p>Wir führen eine einfache lineare Regression durch, in der wir die <strong>Zufriedenheit mit der Bewältigung von Studienbelastungen</strong> (<code>zf_belastung</code>) auf das Vorhandensein eines <strong>Nebenjobs</strong> (<code>job</code>) zurückführen.</p>
+<p>Wir legen unser Signifikanzlevel auf <span class="math inline">\(\alpha=.05\)</span> fest.</p>
+<p>Bei der linearen Regression ist die sogenannte Residualdiagnostik ein essentieller Teil der Annahmenprüfung. Allerdings müssen wir dafür die Regression bereits durchgeführt haben. Wir können die Annahmenprüfung also erst <em>nach</em> der Regression machen.</p>
+<p>Mit der Funktion <code>lm()</code> aus dem Basispaket <strong>stats</strong> können wir eine lineare Regression durchführen.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>lm_belastung <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="at">formula =</span> zf_belastung <span class="sc">~</span> job,</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>                   <span class="at">data =</span> daten, </span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">na.action =</span> <span class="st">"na.exclude"</span>) <span class="co"># Ausschluss fehlender Werte</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Mehr Informationen zum Umgang mit fehlenden Werten finden wir im Kapitel <a href="./Fehlende-Werte.html">Fehlende Werte</a>.</p>
+<p>Das Ergebnisobjekt <code>lm_belastung</code> schauen wir uns erst <em>nach</em> der Annahmenprüfung an.</p>
+<details>
+<summary>
+Überprüfung der Annahmen der (einfachen) linearen Regression
+</summary>
+<p><br>
+</p>
+<blockquote class="blockquote">
+<p><em><strong>Achtung</strong></em>: Im Rahmen dieses Kapitels besprechen wir die Annahmen und deren Überprüfung nicht im Detail. Mehr Informationen finden wir im Kapitel zur <a href="./Voraussetzungspruefung.html">Prüfung der Annahmen der multiplen linearen Regression</a>, die denen der einfachen linearen Regression sehr ähnlich ist.<br>
+</p>
+</blockquote>
+<div class="cell">
+
+</div>
+<p>Folgende vier Annahmen sind bei der einfachen linearen Regression mit der inferenzstatistischen Absicherung verbunden:</p>
+<ul>
+<li><strong>Linearität</strong></li>
+<li><strong>Homoskedastizität</strong></li>
+<li><strong>Normalverteilung</strong> der Residuen</li>
+<li><strong>Unabhängigkeit der Residuen</strong></li>
+</ul>
+<p><br>
+</p>
+<p>Linearität</p>
+<blockquote class="blockquote">
+<p>Die Abhängigkeit zwischen Erwartungswert des Kriteriums und Prädiktor ist linear.</p>
+</blockquote>
+<p>Diese Annahme lässt sich mittels eines <strong>Residualplots</strong> untersuchen. Dieser plottet die vorhergesagten Kriteriumswerte <span class="math inline">\(\hat y_i\)</span> gegen die Residuen <span class="math inline">\(\hat e_i\)</span>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lm_belastung, <span class="at">which=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Outputs-ALM-FAQ_files/figure-html/Linearitätsannahme-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Weil wir nur eine kategoriale <span class="math inline">\(UV\)</span> mit zwei Ausprägungen haben, ordnen sich die Punkte in zwei vertikalen Linien an.</p>
+<p>Da sich die Lowess Fit Line (rote gestrichelte Linie), welche den generellen (nonparametrischen) Trend der Daten beschreibt, dem Erwartungswert der Residuen bei <span class="math inline">\(y=0\)</span> (schwarze gestrichelten Linie) annähert, können wir annehmen, dass Linearität vorliegt.</p>
+<p>Mehr Informationen zur Lowess Fit Line und zum Residuenplot finden wir im Kapitel zur <a href="./Voraussetzungspruefung.html">Prüfung der Annahmen der multiplen linearen Regression</a>.</p>
+<p>Homoskedastizität</p>
+<blockquote class="blockquote">
+<p>Die Varianz der <span class="math inline">\(y\)</span>-Werte, die an einer bestimmten Stelle des Prädiktors vorliegt, ist für alle Prädiktorwerte gleich (Varianzhomogenität).</p>
+</blockquote>
+<p>Diese haben wir bereits im Abschnitt zum <a href="#github-link"><span class="math inline">\(t\)</span>-Test</a> mittels des <strong>Levene-Tests</strong> überprüft.</p>
+<p>Den Residualplot, den wir gerade zur Überprüfung der Annahme der Linearität genutzt haben, können wir auch zur Überprüfung der Annahme der Homoskedatizität nutzen. Weil die Residuen sich ohne erkennbares Muster um den Erwartungswert der Residuen bei <span class="math inline">\(y=0\)</span> (schwarze gestrichelten Linie) verteilen, nehmen wir Homoskedastizität an.</p>
+<p>Normalverteilung der Residuen</p>
+<blockquote class="blockquote">
+<p>Die Verteilung der <span class="math inline">\(y\)</span>-Werte an einer bestimmten Stelle der <span class="math inline">\(UV\)</span> ist eine Normalverteilung.</p>
+</blockquote>
+<div class="cell">
+
+</div>
+<p>Eine Verletzung dieser Annahme ist eher in kleineren Stichproben problematisch. In großen Stichproben sind die Regressionskoeffizienten aufgrund des zentralen Grenzwertsatzes selbst dann asymptotisch normalverteilt, wenn die Annahme nicht erfüllt ist. Es gibt jedoch keinen Richtwert, ab wann eine Stichprobe als hinreichend groß gilt. Wir sollten die Annahme immer überprüfen. Dazu schauen wir uns einen <strong>QQ-Plot</strong> der Residuen an.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lm_belastung, <span class="at">which=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Outputs-ALM-FAQ_files/figure-html/Normalität-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Unser Kriterium Zufriedenheit mit der Bewältigung von Studienbelastungen scheint in Abhängigkeit der Gruppenzugehörigkeit leicht von einer Normalverteilung abzuweichen. Die Größe unserer Stichprobe, <span class="math inline">\(N = 169\)</span>, legt nahe, dass (nach dem zentralen Grenzwertsatz) die Regressionskoeffizienten approximativ normalverteilt sind und der Standardfehler der Steigung nicht verzerrt ist.</p>
+<p>Unabhängigkeit der Residuen</p>
+<blockquote class="blockquote">
+<p>Die Höhe des Residuums einer Beobachtung ist unabhängig von der Höhe des Residuums einer anderen Beobachtung.</p>
+</blockquote>
+<p><strong>Serielle Abhängigkeit</strong>, d.h. mehrere Messungen von <em>einer</em> Person, können wir ausschließen, da es sich nicht um ein Messwiederholungs-Design handelt.</p>
+<p>Zur Überprüfung auf <strong>Clustering</strong>, d.h. systematische Zusammenhänge <em>zwischen</em> Personen einer Gruppe, müssten wir im Verdacht stehende (erhobene) Gruppenvariablen begutachten. Da dies aber den Rahmen dieses Kapitels sprengen würde, lassen wir das außen vor.</p>
+<p>Da wir keine Hinweise auf Verletzung der Annahmen gefunden haben, schauen wir uns nun die Ergebnisse der einfachen linearen Regression an.</p>
+</details>
+<p><br>
+</p>
+<p>Wir schauen uns die Ergebnis unseres Regressionsmodells mittels <code>summary()</code> an:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm_belastung)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figures/Voraussetzungsprüfung/Bilder/lm neu.png" class="img-fluid" width="550"></p>
+</div>
+</div>
+<p>Der Output sagt uns, inwiefern wir <strong>Zufriedenheit mit der Bewältigung von Studienbelastungen</strong> mit dem <strong>Vorliegen eines Nebenjobs</strong> vorhersagen können.</p>
+<p>Wir bekommen Auskunft über:</p>
+<ul>
+<li>die Signifikanztests der geschätzten Populationskoeffizienten <span class="math inline">\(\hat b_0\)</span> und <span class="math inline">\(\hat b_1 ... \hat b_k\)</span> (unserer <span class="math inline">\(k\)</span> Prädiktoren)</li>
+<li>den Signifikanztest der insgesamt aufgeklärten Varianz des gesamten Regressionsmodells <span class="math inline">\(R^2\)</span></li>
+</ul>
+<p>In unserem Fall einer einfachen linearen Regression sind die Ergebnisse der Signifikanztestung von Schätzung der Steigung und Schätzung der Varianzaufklärung des Gesamtmodells identisch.</p>
+<p>Unter <code>Coefficients</code> finden wir Informationen zu den geschätzten <strong>Regressionskoeffizienten</strong> - Intercept und Steigungskoeffizient(en):</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figures/Voraussetzungsprüfung/Bilder/lm oben.png" class="img-fluid" width="450"></p>
+</div>
+</div>
+<ul>
+<li><code>Estimate</code>: Schätzung der (Populations-)Regressionskoeffizienten
+<ul>
+<li><code>(Intercept)</code>: vorhergesagter Wert des Kriteriums wenn alle Prädiktoren 0 sind (bei metrischen Prädiktoren) bzw. vorhergesagter Wert des Kriteriums in den jeweiligen Referenzgruppen (bei kategorialen Prädiktoren); Wert von <code>zf_belastung</code> in der Referenzgruppe <code>job == ja</code></li>
+<li><code>jobnein</code>: Steigungskoeffizient, der die erwartete Veränderung im Kriterium angibt, wenn der Prädiktor um eine Einheit erhöht wird (bei metrischen Prädiktoren) bzw. in (einer) der Vergleichsgruppen (bei kategorialen Prädiktoren); Unterschied von <code>job == nein</code> im Vergleich zur Referenzgruppe <code>job == ja</code> im Hinblick auf <code>zf_belastung</code></li>
+</ul></li>
+<li><code>Std.Error</code>: Standardfehler des Regressionskoeffizienten</li>
+<li><code>t.value</code>: empirischer <span class="math inline">\(t\)</span>-Wert für die Signifikanztestung des (partiellen) Regressionskoeffizienten</li>
+<li><code>Pr(&gt;|t|)</code>: in <span class="math inline">\(p\)</span>-Wert umgerechneter empirischer <span class="math inline">\(t\)</span>-Wert</li>
+<li><code>Sign.codes</code>: durch Sternchen gekennzeichnete Signifikanzniveaus der geschätzten Regressionskoeffizienten</li>
+</ul>
+<p>Der Intercept <span class="math inline">\(b_0 = 2.679\)</span> gibt uns den Mittelwert der Personen <strong>mit Nebenjob</strong> (<code>job == "ja"</code>, Referenzgruppe) auf der Skala von <strong>Zufriedenheit mit der Bewältigung von Studienbelastungen</strong> (<code>zf_belastung</code>) an. Wir gelangen durch Betrachtung von <span class="math inline">\(p &lt; 2^{-16}\)</span> zu der Testentscheidung, die <span class="math inline">\(H_0\)</span>, dass der Intercept in der Population 0 ist, abzulehnen.</p>
+<aside>
+<br>
+<span class="math inline">\(t\)</span>-Test des Intercepts <span class="math inline">\(b_0\)</span>:<br>
+<span class="math inline">\(H_0\)</span>: <span class="math inline">\(\beta_0 = 0\)</span><br>
+<span class="math inline">\(H_1\)</span>: <span class="math inline">\(\beta_0 &gt; 0\)</span>
+</aside>
+<p>Der Steigungskoeffizient <span class="math inline">\(b_1 = 0.131\)</span> sagt uns, dass Personen <strong>ohne Nebenjob</strong> (<code>job == "nein"</code>) sich im Mittel 0.131 Punkte höher auf der Skala von <strong>Zufriedenheit mit der Bewältigung von Studienbelastungen</strong> (<code>zf_belastung</code>) beschreiben. Zudem gelangen wir durch Betrachtung von <span class="math inline">\(p = 0.203\)</span> zu der Testentscheidung, die <span class="math inline">\(H_0\)</span>, dass der Populationskoeffizient <span class="math inline">\(\beta_1 = 0\)</span> ist, beizubehalten.</p>
+<aside>
+<br>
+<span class="math inline">\(t\)</span>-Test des Steigungs-koeffizienten <span class="math inline">\(b_1\)</span>:<br>
+<span class="math inline">\(H_0\)</span>: <span class="math inline">\(\beta_1 = 0\)</span><br>
+<span class="math inline">\(H_1\)</span>: <span class="math inline">\(\beta_1 \neq 0\)</span>
+</aside>
+<p>Im unteren Abschnitt finden wir Informationen bezüglich des <strong>Gesamtmodells</strong>:</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figures/Voraussetzungsprüfung/Bilder/lm unten.png" class="img-fluid" width="475"></p>
+</div>
+</div>
+<ul>
+<li><code>Residual Standard Error</code>: Standardschätzfehler <span class="math inline">\(s_e\)</span><br>
+Gütemaß für die Genauigkeit der Regressionsvorhersage</li>
+<li><code>Multiple R-squared</code>: Determinationskoeffizient <span class="math inline">\(R^2\)</span><br>
+Gütemaß für die Schätzgenauigkeit</li>
+<li><code>Adjusted R squared</code>: korrigierter Determinationskoeffizient <span class="math inline">\(R_{korr}^2\)</span>; gilt durch Korrektur der Freiheitsgrade als erwartungstreuer Schätzer für die Population</li>
+<li><code>F-statistic</code>: empirischer Wert des <span class="math inline">\(F\)</span>-Tests des Determinationskoeffizienten <span class="math inline">\(R^2\)</span> (d.h. des Gesamtmodells) mit Anzahl der Zähler- (<span class="math inline">\(k\)</span>) und Nenner-Freiheitsgrade (<span class="math inline">\(N-k-1\)</span>) der <span class="math inline">\(F\)</span>-Verteilung mit zugehörigem <span class="math inline">\(p\)</span>-Wert.</li>
+</ul>
+<aside>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+Handelt es sich um eine einfache lineare Regression mit nur einem Prädiktor (wie in unserem Fall), führt der <span class="math inline">\(F\)</span>-Test des Determinations-koeffizienten zum selben Ergebnis wie der <span class="math inline">\(t\)</span>-Test des Steigungs-koeffizienten.
+</aside>
+<!-- <aside> __Beachte: Als Sonderform des Allgemeinen Linearen Modells weist der zuvor besprochene *t*-Test einige Zusammenhänge mit der linearen Regression auf. So entspricht der empirische *t*-Wert von `lm()` immer der empirischen Prüfgröße des t-Tests__  __(In unserem Fall t = I0.652I).__  __Potentiell unterschiedliche Vorzeichen haben hierbei keine Bedeutung. Zudem entspricht der *F*-Wert der `lm()`-Funktion (i.d.R.) der quadrierten empirischen Prüfgröße des *t*-Tests (*t²*). Näheres zu den Zusammenhängen des ALM findet ihr [am Ende des Skripts](#github2).__
+</aside> -->
+<p>Der Determinationskoeffizienten <span class="math inline">\(R^2 = 0.009685\)</span> sagt aus, dass in unserer Stichprobe knapp 1% der Variation in der <strong>Zufriedenheit mit der Bewältigung von Studienbelastungen</strong> (<code>zf_belastung</code>) durch das Vorhandensein eines <strong>Nebenjobs</strong> (<code>job</code>) erklärt werden kann. Wir können die <span class="math inline">\(H_0\)</span>, dass der Determinationskoeffizient in der Population <span class="math inline">\(0\)</span> ist (<span class="math inline">\(\rho^2 = 0\)</span>), durch Betrachtung von <span class="math inline">\(p = 0.203\)</span> beibehalten.</p>
+<aside>
+<br>
+<span class="math inline">\(F\)</span>-Test des Determinations-koeffizienten <span class="math inline">\(R^2\)</span>:<br>
+<span class="math inline">\(H_0: \rho^2 = 0\)</span><br>
+<span class="math inline">\(H_1: \rho^2 &gt; 0\)</span>
+</aside>
+</section>
+<section id="anova" class="level2 page-columns page-full" data-number="15.3">
+<h2 data-number="15.3" class="anchored" data-anchor-id="anova"><span class="header-section-number">15.3</span> ANOVA</h2>
+<blockquote class="blockquote">
+<p>Eine ANOVA (Analysis of Variance) überprüft den Einfluss von einer bzw. mehreren kategorialen unabhängigen Variablen (UVs, Faktoren) mit <span class="math inline">\(p\)</span> Faktorstufen auf eine metrische abhängige Variable (AV). Dazu wird eine Varianzdekomposition durchgeführt, welche die Gesamtvarianz in systematische und Fehlervarianz zerlegt.</p>
+</blockquote>
+<!--Basierend auf dem Prinzip der Varianzdekomposition testet sie, inwiefern die Gesamtunterschiedlichkeit in der $AV$ auf die unterschiedlichen Faktorstufen der $UV(s)$ zurückzuführen ist. Hierbei wird die Gesamtvarianz in die systematische Varianz *zwischen* den Gruppen (*"des Gruppierungsfaktors"*) und die Varianz *innerhalb* der Gruppen (*"der Residuen"*) zerlegt und das Verhältnis dieser beiden Varianzanteile zueinander überprüft: Ist die Varianz zwischen den Gruppen im Verhältnis zur Varianz innerhalb der Gruppen groß, wird die Nullhypothese verworfen. -->
+<p>Wir wollen in unserem Beispiel überprüfen inwiefern Unterschiede in der <strong>Zufriedenheit mit der Bewältigung von Studienbelastungen</strong> (<code>zf_belastung</code>) auf das Vorhandensein eines <strong>Nebenjobs</strong> (<code>job</code>) zurückzuführen ist.</p>
+<p>Wir haben ein minimal <strong>unbalanciertes Design</strong>, weil die Anzahl der Beobachtungen in den Faktorstufen von <code>job</code> sich geringfügig unterscheiden mit <span class="math inline">\(n_{ja} = 87\)</span> und <span class="math inline">\(n_{nein} = 86\)</span>.</p>
+<p>Unser Signifikanzlevel legen wir auf <span class="math inline">\(\alpha=.05\)</span> fest.</p>
+<div class="cell">
+
+</div>
+<details>
+<summary>
+Überprüfung der Annahmen der ANOVA
+</summary>
+<p>Vor der Durchführung der ANOVA mit unseren Beispieldaten müssen wir zwei Annahmen prüfen:</p>
+<ul>
+<li><strong>Normalverteilung</strong> des untersuchten Merkmals in beiden Populationen</li>
+<li><strong>Homoskedastizität</strong> des untersuchten Merkmals in beiden Populationen</li>
+</ul>
+<p><br>
+</p>
+Beides haben wir im Rahmen der Durchführung des <a href="#github-link"><span class="math inline">\(t\)</span>-Test</a> bereits untersucht und Evidenz dafür gefunden.
+</details>
+<p><br>
+</p>
+<p>Zur Durchführung der ANOVA verwenden wir die <code>aov()</code>Funktion.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>anova <span class="ot">&lt;-</span> <span class="fu">aov</span>(zf_belastung <span class="sc">~</span> job, </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">data =</span> daten, </span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">na.action =</span> <span class="st">"na.exclude"</span>) <span class="co"># Ausschluss fehlender Werte</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(anova)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<aside>
+Mehr Informationen zum Umgang mit fehlenden Werten im <a href="./Fehlende-Werte.html">gleichnamigen Kapitel</a>.
+</aside>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Voraussetzungsprüfung/Bilder/aov.png" class="img-fluid figure-img" width="400"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Der Output liefert die folgenden Informationen für den Gruppierungsfaktor (<code>job</code>) und für die Residuen (<code>Residuals</code>):</p>
+<ul>
+<li><code>Df</code>: Anzahl der Freiheitsgrade der <span class="math inline">\(F\)</span>-Verteilung
+<ul>
+<li>… des Gruppierungsfaktor: <span class="math inline">\(df_{job} = p - 1\)</span></li>
+<li>… der Residuen: <span class="math inline">\(df_{e} = N-p\)</span></li>
+</ul></li>
+<li><code>Sum Sq</code>: Quadratsumme
+<ul>
+<li>… des Gruppierungsfaktors (<em>“Treatmentquadratsumme”</em>)</li>
+<li>… der Residuen (<em>“Fehlerquadratsumme”</em>)</li>
+</ul></li>
+<li><code>Mean Sq</code>: Mittlere Quadratsumme (MQ)<br>
+relativieren die Quadratsumme eines Effekts an seinen Freiheitsgraden</li>
+<li><code>F value</code>: empirische Prüfgröße des <span class="math inline">\(F\)</span>-Tests<br>
+entspricht dem Quotienten <span class="math inline">\(\frac {MQ_{job}} {MQ_e}\)</span></li>
+<li><code>Pr(&gt;F)</code>: in <span class="math inline">\(p\)</span>-Wert umgerechneter empirischer <span class="math inline">\(F\)</span>-Wert</li>
+</ul>
+<!-- 
+<aside> __Beachte: Auch die ANOVA weist als Sonderform des Allgemeinen Linearen Modells  Zusammenhänge mit der linearen Regression auf. Hierbei entspricht der empirische *F*-Wert der aov Funktion dem *F*-Wert des globalen Tests der `lm()`-Funktion.__  __(In unserem Fall F=0.316).__  __Näheres zu den Zusammenhängen des ALM findet ihr [hier](#github2).__
+</aside> 
+-->
+<p>Unser <span class="math inline">\(p\)</span>-Wert deutet darauf hin, dass unter Gültigkeit der <span class="math inline">\(H_0\)</span> die Wahrscheinlichkeit, den vorliegenden <span class="math inline">\(F\)</span>-Wert von 1.633 oder einen größeren zu erhalten, 20,3% beträgt. Wir kommen somit zu der Testentscheidung, die <span class="math inline">\(H_0\)</span> beizubehalten. Das bedeutet, dass wir davon ausgehen, dass zwischen den Populationen von Studierenden mit und ohne Nebenjob keine überzufälligen Mittelwertsunterschiede bezüglich der Zufriedenheit mit der Bewältigung von Studienbelastungen existieren.</p>
+</section>
+<section id="github2" class="level2 page-columns page-full" data-number="15.4">
+<h2 data-number="15.4" class="anchored" data-anchor-id="github2"><span class="header-section-number">15.4</span> ALM: Zusammenhänge der drei Verfahren</h2>
+<p>Wie bereits eingangs erwähnt, gehören <span class="math inline">\(t\)</span>-Test, lineare Regression und ANOVA alle zum Allgemeinen Linearen Modell (ALM).</p>
+<p>Für den hier betrachteten Spezialfall von nur einer UV mit nur zwei Stufen (und adäquater Kodierung; siehe z.B. [Indikatorvariablen: Kodierung nominaler Merkmale][Indikatorvariablen: Kodierung nominaler Merkmale] aus dem Kapitel Datenvorbereitung) kommen die drei Verfahren zum selben Ergebnis bei der Signifikanztestung, obwohl scheinbar andere Hypothesen getestet werden.</p>
+<div class="cell page-columns page-full">
+<div class="cell-output-display column-l-body-outset">
+
+<table class="table table-condensed" style="margin-left: auto; margin-right: auto;">
+ <thead>
+<tr>
+<th style="empty-cells: hide;border-bottom:hidden;" colspan="2"></th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; color: white !important;padding-right: 4px; padding-left: 4px; background-color: #009193 !important;" colspan="3"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">Empirische Prüfgröße</div></th>
+</tr>
+  <tr>
+   <th style="text-align:left;font-weight: bold;color: white !important;background-color: #009193 !important;"> Verfahren </th>
+   <th style="text-align:left;font-weight: bold;color: white !important;background-color: #009193 !important;"> getestete Hypothesen </th>
+   <th style="text-align:left;font-weight: bold;color: white !important;background-color: #009193 !important;"> $t$ </th>
+   <th style="text-align:left;font-weight: bold;color: white !important;background-color: #009193 !important;"> $F$ </th>
+   <th style="text-align:left;font-weight: bold;color: white !important;background-color: #009193 !important;"> $p$ </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;width: 15em; font-weight: bold;color: white !important;background-color: #009193 !important;"> $t$-Test für unabhängige Stichproben </td>
+   <td style="text-align:left;"> Mittelwertsunterschied in den Gruppen
+
+$H_0$: $\mu_1 = \mu_2$
+
+$H_1$: $\mu_1 \neq \mu_2$ <font size="1">(ungerichtet) </font>
+</td>
+   <td style="text-align:left;"> -1.278 </td>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:left;"> 0.203 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;width: 15em; font-weight: bold;color: white !important;background-color: #009193 !important;"> einfache lineare Regression </td>
+   <td style="text-align:left;"> Steigungskoeffizient $b_1$
+
+$H_0$: $\beta_1 = 0$
+
+$H_1$: $\beta_1 \neq 0$ <font size="1">(ungerichtet) </font>
+</td>
+   <td style="text-align:left;"> 1.278 </td>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:left;"> 0.203 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;width: 15em; font-weight: bold;color: white !important;background-color: #009193 !important;"> einfache lineare Regression </td>
+   <td style="text-align:left;"> Determinationskoeffizient $R^2$
+
+$H_0$: $\rho^2 = 0$
+
+$H_1$: $\rho^2$ &gt; $0$ <font size="1">(gerichtet) </font>
+</td>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:left;"> 1.633 </td>
+   <td style="text-align:left;"> 0.203 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;width: 15em; font-weight: bold;color: white !important;background-color: #009193 !important;"> ANOVA </td>
+   <td style="text-align:left;"> Mittelwertsunterschied in den Gruppen
+
+$H_0$: $\mu_1 = \mu_2$
+
+$H_1$: $\mu_1 \neq \mu_2$ <font size="1">(ungerichtet) </font>
+</td>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:left;"> 1.633 </td>
+   <td style="text-align:left;"> 0.203 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<p>Wir können <span class="math inline">\(t\)</span>- und <span class="math inline">\(F\)</span>-Werte ineinander überführen durch folgende Formel: <span class="math inline">\(F = t^2 \longrightarrow t^2=1.278^2=1.633=F\)</span>.</p>
+<blockquote class="blockquote">
+<p><em><strong>Achtung</strong></em>: Dass der <span class="math inline">\(t\)</span>-Wert einmal negativ (<span class="math inline">\(t\)</span>-Test) und einmal positiv (einfache lineare Regression) ist liegt daran, dass die Gruppen jeweils vertauscht wurden.<br>
+</p>
+</blockquote>
+<p>Das <strong>Allgemeine Lineare Modell</strong> (ALM) umfasst varianzanalytische Verfahren sowie (multiple) Korrelations- und Regressionsrechnung. Dadurch können nicht nur metrische sondern auch kategoriale Merkmale (als <span class="math inline">\(UV\)</span>s) untersucht werden, sofern die kategorialen Merkmale in geeigneter Form kodiert sind.</p>
+<aside>
+<br>
+<br>
+Mehr Informationen zu Kodierung gibt es im Kapitel <a href="./Einfuehrung_in_R.html">Einführung in R</a>.
+</aside>
+<p>In unserem Fall von einer intervallskalierten <span class="math inline">\(AV\)</span> und einer nominalskalierten <span class="math inline">\(UV\)</span> werden in den drei Verfahren jeweils die Mittelwerte der <span class="math inline">\(AV\)</span> für die jeweiligen <span class="math inline">\(UV\)</span> gebildet. Beim <span class="math inline">\(t\)</span>-Test und der einfachen linearen Regression haben wir diese auch ausgegeben bekommen:</p>
+<ul>
+<li><span class="math inline">\(t\)</span>-Test:<br>
+<code>mean in group ja</code> <span class="math inline">\(= 2.67\)</span><br>
+<code>mean in group nein</code> <span class="math inline">\(= 2.80\)</span></li>
+<li>Einfache lineare Regression:<br>
+<span class="math inline">\(Intercept = 2.67\)</span><br>
+<span class="math inline">\(b_1 = 0.131\)</span><br>
+<span class="math inline">\(Intercept + b_1 = 2.81\)</span></li>
+</ul>
+<p>Dadurch sind die getesteten Hypothesen der drei Verfahren in diesem speziellen Fall (<span class="math inline">\(AV\)</span>: intervallskaliert, <span class="math inline">\(UV\)</span>: nominalskaliert) äquivalent.</p>
+<hr>
+<p>Um eine möglichst exakte Replikation der Funktionen zu gewährleisten gibt es im folgenden relevante Angaben zum System (<strong><code>R</code>-Version</strong>, <strong>Betriebssystem</strong>, <strong>geladene Pakete mit Angaben zur Version</strong>), mit welchem diese Seite erstellt wurde.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>R version 4.2.2 (2022-10-31 ucrt)
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+Running under: Windows Server x64 (build 20348)
+
+Matrix products: default
+
+locale:
+[1] LC_COLLATE=English_United States.utf8 
+[2] LC_CTYPE=English_United States.utf8   
+[3] LC_MONETARY=English_United States.utf8
+[4] LC_NUMERIC=C                          
+[5] LC_TIME=English_United States.utf8    
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] knitr_1.42       kableExtra_1.3.4 car_3.1-1        carData_3.0-5   
+[5] ggplot2_3.4.1   
+
+loaded via a namespace (and not attached):
+ [1] pillar_1.8.1      compiler_4.2.2    tools_4.2.2       digest_0.6.31    
+ [5] viridisLite_0.4.1 jsonlite_1.8.4    evaluate_0.20     lifecycle_1.0.3  
+ [9] tibble_3.1.8      gtable_0.3.1      pkgconfig_2.0.3   rlang_1.0.6      
+[13] rstudioapi_0.14   cli_3.6.0         yaml_2.3.7        xfun_0.37        
+[17] fastmap_1.1.0     stringr_1.5.0     xml2_1.3.3        httr_1.4.4       
+[21] withr_2.5.0       dplyr_1.1.0       systemfonts_1.0.4 generics_0.1.3   
+[25] vctrs_0.5.2       htmlwidgets_1.6.1 webshot_0.5.4     grid_4.2.2       
+[29] tidyselect_1.2.0  svglite_2.1.1     glue_1.6.2        R6_2.5.1         
+[33] fansi_1.0.4       rmarkdown_2.20    farver_2.1.1      magrittr_2.0.3   
+[37] scales_1.2.1      htmltools_0.5.4   rvest_1.0.3       abind_1.4-5      
+[41] colorspace_2.1-0  labeling_0.4.2    utf8_1.2.3        stringi_1.7.12   
+[45] munsell_0.5.0    </code></pre>
+</div>
+</div>
+<p>Für Informationen zur Interpretation dieses Outputs schaut auch den Abschnitt <a href="./Pakete.html#replizierbarkeit-von-analysen">Replizierbarkeit von Analysen</a> des Kapitels zu Paketen an.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./Voraussetzungspruefung.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Annahmen der Multiplen Linearen Regression</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./Zur-Lernplattform-Beitragen.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Zur R-Lernplattform Beitragen</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

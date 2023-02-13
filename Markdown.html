@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>R Lernplattform - 12&nbsp; R Markdown</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Git.html" rel="next">
+<link href="./Wide-and-Long-Format.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">R Markdown</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">R Lernplattform</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Inhalte</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Einführung in R</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Installation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Installation und Aktualisierung von R und RStudio</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Einfuehrung_in_R.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Einführung in R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Einfuehrung_in_RStudio.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Einführung in RStudio</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Pakete.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Pakete</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Daten-importieren.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Daten importieren</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Fehlermeldungen.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Fehlermeldungen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Datenvorbereitung.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Datenvorbereitung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Fehlende-Werte.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Fehlende Werte</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Grafiken.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Grafiken</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Weiterführende Themen in R</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Wide-and-Long-Format.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Wide- &amp; Long-Format</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Markdown.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">R Markdown</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Git.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Git und GitLab</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Vertiefungen zu den Veranstaltungen Methodenlehre I und II</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Voraussetzungspruefung.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Annahmen der Multiplen Linearen Regression</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Outputs-ALM-FAQ.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Outputs - ALM - FAQ</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">Projekt-Dokumentation</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Zur-Lernplattform-Beitragen.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Zur R-Lernplattform Beitragen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lineare-regression.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Lineare Regression - Die Basics</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#neues-r-markdown-dokument-anlegen" id="toc-neues-r-markdown-dokument-anlegen" class="nav-link active" data-scroll-target="#neues-r-markdown-dokument-anlegen"><span class="toc-section-number">12.1</span>  Neues R Markdown Dokument anlegen</a>
+  <ul class="collapse">
+  <li><a href="#yaml" id="toc-yaml" class="nav-link" data-scroll-target="#yaml"><span class="toc-section-number">12.1.1</span>  YAML</a></li>
+  </ul></li>
+  <li><a href="#text" id="toc-text" class="nav-link" data-scroll-target="#text"><span class="toc-section-number">12.2</span>  Text</a>
+  <ul class="collapse">
+  <li><a href="#überschriften" id="toc-überschriften" class="nav-link" data-scroll-target="#überschriften"><span class="toc-section-number">12.2.1</span>  Überschriften</a></li>
+  <li><a href="#hervorhebung" id="toc-hervorhebung" class="nav-link" data-scroll-target="#hervorhebung"><span class="toc-section-number">12.2.2</span>  Hervorhebung</a></li>
+  <li><a href="#zeilenumbruch" id="toc-zeilenumbruch" class="nav-link" data-scroll-target="#zeilenumbruch"><span class="toc-section-number">12.2.3</span>  Zeilenumbruch</a></li>
+  <li><a href="#verlinkung" id="toc-verlinkung" class="nav-link" data-scroll-target="#verlinkung"><span class="toc-section-number">12.2.4</span>  Verlinkung</a></li>
+  <li><a href="#formeln" id="toc-formeln" class="nav-link" data-scroll-target="#formeln"><span class="toc-section-number">12.2.5</span>  Formeln</a></li>
+  </ul></li>
+  <li><a href="#r-code" id="toc-r-code" class="nav-link" data-scroll-target="#r-code"><span class="toc-section-number">12.3</span>  R-Code</a>
+  <ul class="collapse">
+  <li><a href="#code-chunk" id="toc-code-chunk" class="nav-link" data-scroll-target="#code-chunk"><span class="toc-section-number">12.3.1</span>  Code Chunk</a></li>
+  <li><a href="#inline-code" id="toc-inline-code" class="nav-link" data-scroll-target="#inline-code"><span class="toc-section-number">12.3.2</span>  Inline Code</a></li>
+  <li><a href="#grafiken-bilder-und-tabellen" id="toc-grafiken-bilder-und-tabellen" class="nav-link" data-scroll-target="#grafiken-bilder-und-tabellen"><span class="toc-section-number">12.3.3</span>  Grafiken, Bilder und Tabellen</a></li>
+  </ul></li>
+  <li><a href="#weiterführend" id="toc-weiterführend" class="nav-link" data-scroll-target="#weiterführend"><span class="toc-section-number">12.4</span>  Weiterführend</a>
+  <ul class="collapse">
+  <li><a href="#templates" id="toc-templates" class="nav-link" data-scroll-target="#templates"><span class="toc-section-number">12.4.1</span>  Templates</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">R Markdown</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<div class="cell">
+
+</div>
+<p>Mit R Markdown (Endung .Rmd) können wir R Code (z.B. für Datenanalyse und -visualisierung) und Text in einem Dokument verbinden. Dabei dient das R Markdown als “Bauplan” für das finale Output-Dokument (z.B. html, pdf oder Word).</p>
+<aside>
+Beispielsweise sind alle Inhalte der R Lernplattform mit R Markdown erstellt worden.
+</aside>
+<p><em>Was ist Markdown?</em><br>
+Markdown ist eine Auszeichnungsprache (markup language). Diese werden für Formatierung und Gliederung von Text genutzt. Weitere Auszeichnungsprachen wie YAML und LaTex, die wir uns später noch genauer anschauen werden, können auch in R Markdown integriert werden.</p>
+<p><em>Warum R Markdown?</em><br>
+Wir können R Markdown nicht nur nutzen, um schöne Zusammenfassungen für R Übungen zu schreiben. Wir können ganz einfach Tabellen (z.B. Korrelationstabellen oder Ergebnistabellen für eine ANOVA) oder Grafiken in R erstellen und diese dann in unsere Abschlussarbeit übernehmen<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. So entfällt das lästige händische Erstellen der Tabellen, bei dem sich häufig Flüchtigkeitsfehler einschleichen.</p>
+<p>Im Rahmen dieses Kapitels lernen wir, wie wir R Markdown Dokumente erstellen und verändern können, welche Möglichkeiten es gibt, R Code zu integrieren und wie wir Text gestalten können.</p>
+<blockquote class="blockquote">
+<p><em><strong>Achtung</strong></em>: Wenn nicht anders vermerkt, gelten alle vorgestellten Inhalte in diesem Kapitel zu Text- und Codebarbeitung für die Outputformate pdf, Word und html.</p>
+</blockquote>
+<p>Bevor es los gehen kann müssen wir zuerst das Paket <strong>rmarkdown</strong> installieren, um R Markdown Dokumente erstellen zu können</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"rmarkdown"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="neues-r-markdown-dokument-anlegen" class="level2 page-columns page-full" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="neues-r-markdown-dokument-anlegen"><span class="header-section-number">12.1</span> Neues R Markdown Dokument anlegen</h2>
+<p>Nachfolgend sehen wir, wie wir ein neues R Markdown Dokument (Rmd) anlegen können.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Markdown/Bilder/1.png" class="img-fluid figure-img" width="800"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Wir können zwischen verschiedenen Outputformaten, u.a. html, pdf und Word, wählen.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Markdown/Bilder/2.png" class="img-fluid figure-img" width="400"></p>
+</figure>
+</div>
+</div>
+</div>
+<aside>
+<strong>html</strong> (hypertext markup language) ist auch eine Auszeichnungsprache und die Basis von Inhalten im Internet. Unser Webbrowser (z.B. Firefox, Chrome, Safari) stellt die Inhalte des html dar. Die Inhalte der Lernplattform sind ebenfalls html Dokumente.
+</aside>
+<p>So sieht das neu geöffnete Rmd aus.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Markdown/Bilder/3.png" class="img-fluid figure-img" width="800"></p>
+</figure>
+</div>
+</div>
+</div>
+<aside>
+<br>
+Hier wurde als Outputformat <strong>html</strong> festgelegt. Das sehen wir ganz oben in <code>output: html_document</code>.
+</aside>
+<p>Mit dem Knit-Button können wir unser Output-Dokument erstellen.</p>
+<p>Alternativ können wir zum Knitten einen Kurzbefehl nutzen:</p>
+<ul>
+<li>Windows: shift + ctrl + K</li>
+<li>Mac: shift + cmd + K</li>
+</ul>
+<p>Für die Outputformate html und pdf bekommen wir in einem neuen Fenster in R eine Vorschau davon. Für Word Dokumente öffnet sich (ggf.) Microsoft Word.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Markdown/Bilder/vorschau.png" class="img-fluid figure-img" width="800"></p>
+</figure>
+</div>
+</div>
+</div>
+<aside>
+<br>
+<br>
+html
+</aside>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Markdown/Bilder/pdf.png" class="img-fluid figure-img" width="800"></p>
+</figure>
+</div>
+</div>
+</div>
+<aside>
+<br>
+<br>
+pdf
+</aside>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Markdown/Bilder/word.png" class="img-fluid figure-img" width="800"></p>
+</figure>
+</div>
+</div>
+</div>
+<aside>
+<p><br>
+<br>
+Word</p>
+Dies ist nur die erste Seite des Word Dokuments. Die anderen Inhalte sind auf die zweite Seite gerutscht.
+</aside>
+<section id="yaml" class="level3" data-number="12.1.1">
+<h3 data-number="12.1.1" class="anchored" data-anchor-id="yaml"><span class="header-section-number">12.1.1</span> YAML</h3>
+<p>Gehen wir nochmal einen Schritt zurück und schauen uns das Rmd genauer an. Der Code ganz oben im Dokument ist der YAML Header. In diesem legen wir <strong>globale Dokument-Optionen</strong> fest. Nachfolgend sehen wir einige.</p>
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="figures/Markdown/Bilder/4.png" class="img-fluid figure-img" width="250"></p>
+</figure>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p><em><strong>Achtung</strong></em>: Standardmäßig steht hier <code>output: html-document</code> (bzw. <code>output: pdf_document</code> oder <code>output: word_document</code>) hintereinander in einer Zeile. Um weitere YAML Optionen ergänzen zu können, müssen wir <code>html_document</code> (bzw. <code>pdf_document</code> oder <code>word_document</code>) in eine neue Zeile schreiben und einen Doppelpunkt dahinter ergänzen. Die YAML Optionen kommen jeweils auch in eine eigene Zeile.</p>
+</blockquote>
+<p>Mit <code>toc: true</code> können wir eine Gliederung (table of contents) einfügen.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Markdown/Bilder/toc.png" class="img-fluid figure-img" width="800"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Diese können wir permanent anzeigen lassen, sodass sie trotz Scrollen immer an der gleichen Stelle (links) bleibt. Dazu ergänzen wir <code>toc_float: true</code>.</p>
+<blockquote class="blockquote">
+<p><em><strong>Achtung</strong></em>: Diese Option funktioniert nur in <strong>html</strong>.</p>
+</blockquote>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Markdown/Bilder/toc float.png" class="img-fluid figure-img" width="800"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Wir können unsere Überschriften auch automatisch nummerieren lassen indem wir <code>number_sections: true</code> nutzen.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Markdown/Bilder/numbered.png" class="img-fluid figure-img" width="800"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Die Gestaltung können wir mit der Option <code>theme</code> anpassen. Hier wurde das Theme <em>journal</em> genutzt. <a href="https://www.datadreaming.org/post/r-markdown-theme-gallery/" target="_blank">Hier</a> finden wir eine Übersicht über alle bestehenden Möglichkeiten.</p>
+<blockquote class="blockquote">
+<p><em><strong>Achtung</strong></em>: Diese Option funktioniert nur in <strong>html</strong>.</p>
+</blockquote>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Markdown/Bilder/theme.png" class="img-fluid figure-img" width="800"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Einen <strong>Überblick über bestehende YAML Optionen</strong> finden wir <a href="https://cran.r-project.org/web/packages/ymlthis/vignettes/yaml-fieldguide.html" target="_blank">hier</a>.</p>
+</section>
+</section>
+<section id="text" class="level2 page-columns page-full" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="text"><span class="header-section-number">12.2</span> Text</h2>
+<p>Normaler Text wird in R Markdown einfach geschrieben. Im Gegensatz dazu konnten wir im R Skript nur Anmerkungen machen indem wir ein <code>#</code> vor unseren Text gesetzt haben.</p>
+<p>Nachfolgend schauen wir uns Möglichkeiten der Gestaltung von Text (d.h. die nutzbaren Auszeichnungssprachen) an. Das sind Markdown, html und LaTex.</p>
+<p>Eine kurze Übersicht über Textgestaltung mit Markdown können wir auch in RStudio angezeigt bekommen, wenn wir in der oberen Taskleiste in RStudio auf <strong>Help</strong> und dann auf <strong>Markdown Quick Reference</strong> klicken.</p>
+<!-- ```{r, out.width = "800px", echo=FALSE, fig.align='center'} -->
+<!-- knitr::include_graphics("figures/Markdown/Bilder/alt/Markdown.png") -->
+<!-- ``` -->
+<section id="überschriften" class="level3 page-columns page-full" data-number="12.2.1">
+<h3 data-number="12.2.1" class="anchored" data-anchor-id="überschriften"><span class="header-section-number">12.2.1</span> Überschriften</h3>
+<p>Um Überschriften zu setzen, schreiben wir ein bzw. mehrere <strong>#</strong> an den Anfang einer Zeile. Die Überschrift wird dann im Rmd farblich hervorgehoben. Je mehr # wir setzen, desto kleiner wird die Überschrift. Wie die einzelnen Überschriften aussehen, hängt von unserem Design (<code>theme</code> im YAML Header oder Template) ab.</p>
+<aside>
+<br>
+Markdown
+</aside>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figures/Markdown/Bilder/headers 1.png" class="img-fluid" width="175"></p>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figures/Markdown/Bilder/headers 2.png" class="img-fluid" width="100"></p>
+</div>
+</div>
+<aside>
+Die Überschriften erscheinen auch in der Gliederung, wenn wir im YAML Header eine festgelegt haben (<code>toc: true</code>). Mit der Option <code>toc_depth</code> können wir festlegen, bis zu welcher Stufe die Überschriften inkludiert werden sollen.
+</aside>
+<blockquote class="blockquote">
+<p><em><strong>Achtung</strong></em>: Im R-Skript konnten wir # zum Kommentieren nutzen. Das funktioniert hier auch, aber nur in den Code Chunks. Um Textpassagen auszukommentieren, können wir den html-Kommentar-Tag <code>&lt;!-- --&gt;</code> nutzen. Mit folgendem Kurzbefehl können wir sowohl Text als auch Code auskommentieren (funktioniert in html und pdf):</p>
+</blockquote>
+<ul>
+<li>Windows/Linux: ctrl + shift + C</li>
+<li>Mac: cmd + shift + C</li>
+</ul>
+</section>
+<section id="hervorhebung" class="level3 page-columns page-full" data-number="12.2.2">
+<h3 data-number="12.2.2" class="anchored" data-anchor-id="hervorhebung"><span class="header-section-number">12.2.2</span> Hervorhebung</h3>
+<p>Wir können unseren Text auch fett und kursiv schreiben.</p>
+<aside>
+<br>
+Markdown
+</aside>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figures/Markdown/Bilder/hervor 1.png" class="img-fluid" width="250"></p>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figures/Markdown/Bilder/hervor 2.png" class="img-fluid" width="150"></p>
+</div>
+</div>
+<p>Es gibt zwei verschiedenen Optionen (* oder _) damit wir beide kombinieren können, d.h. fett und kursiv schreiben können. Dabei ist Reihenfolge (ob zuerst fett oder kursiv) egal. Wir müssen nur darauf achten, dass das Zeichen, welches zuletzt eingefügt wurde, auch zuerst beendet wird (z.B. <code>**_eine Möglichkeit_**</code>).</p>
+</section>
+<section id="zeilenumbruch" class="level3 page-columns page-full" data-number="12.2.3">
+<h3 data-number="12.2.3" class="anchored" data-anchor-id="zeilenumbruch"><span class="header-section-number">12.2.3</span> Zeilenumbruch</h3>
+<div class="cell">
+
+</div>
+<p>Es gibt mehrere Möglichkeiten, einen Zeilenumbruch herbeizuführen. Entweder wir machen <em>mindestens</em> zwei <strong>Leerzeichen</strong> ans Ende einer Zeile oder wir nutzen einen <strong>Backslash</strong> (\).</p>
+<aside>
+<br>
+Markdown
+</aside>
+<!-- ## Listen -->
+<!-- ```{r, eval=FALSE} -->
+<!-- ``` -->
+<!-- nummeriert, nicht nummeriert -->
+<!-- ## Fußnoten -->
+<!-- ## Blocktext -->
+<!-- ## Hochgestellt und tiefgestellter Text -->
+</section>
+<section id="verlinkung" class="level3" data-number="12.2.4">
+<h3 data-number="12.2.4" class="anchored" data-anchor-id="verlinkung"><span class="header-section-number">12.2.4</span> Verlinkung</h3>
+<p>Wir können in unserem Output-Dokument auch auf <strong>externe (Web-)Quellen</strong> verlinken. Dazu nutzen wir <code>[verlinkter Text](http://example.com)</code>.</p>
+<p>Wenn unser Output-Dokument ein html ist, ist es benutzerfreundlicher, wenn sie die Webseite in einem neuen Fenster öffnet. Dazu nutzen wir den html Tag <code>&lt;a href="http://example.com" target="_blank"&gt;verlinkter Text&lt;/a&gt;</code>.</p>
+<p>In html haben wir zusätzlich die Möglichkeit, <strong>innerhalb eines Dokuments</strong> zu verlinken. Am einfachsten ist es, auf eine Überschrift zu verlinken. Dazu nutzen wir einfach eckige Klammern, in die wir den Namen einer Überschrift schreiben: <code>[Überschrift]</code>.</p>
+</section>
+<section id="formeln" class="level3" data-number="12.2.5">
+<h3 data-number="12.2.5" class="anchored" data-anchor-id="formeln"><span class="header-section-number">12.2.5</span> Formeln</h3>
+<div class="cell">
+
+</div>
+<p>Wir können Formeln und mathematische Symbole mittels LaTex integrieren. Bei der Installation von dem Paket <strong>rmarkdown</strong> wird (standarmäßig) automatisch das Paket <strong>tinytex</strong> heruntergeladen. Das ermöglicht uns die Nutzung von LaTex. Das machen wir mit <strong>$</strong> und speziellem LaTex-Code. Einen guten <strong>Überblick</strong> darüber, wie wir wichtige mathematische Symbole in LaTex schreiben, gibt uns diese <a href="https://www.caam.rice.edu/~heinken/latex/symbols.pdf" target="_blank">Seite</a>.</p>
+<p>Um Formeln <strong>im Fließtext</strong> zu schreiben (sog. Inline Formeln), nutzen wir einfache Dollarzeichen z.B. <code>$\alpha=0.05$</code> wird zu <span class="math inline">\(\alpha=0.05\)</span>.</p>
+<p>Um Formeln als (zentrierten) <strong>Blocksatz</strong> zu schreiben nutzen wir doppelte Dollarzeichen z.B.</p>
+<p><code>$$ \sigma^2= \sum_{i =1}^{n} \frac{(x_i - \bar{x}) ^2}{n-1} $$</code> wird zu <span class="math display">\[ \sigma^2= \sum _{i =1} ^{n} \frac{(x_i - \bar{x}) ^2} {n-1} \]</span> &gt; <em><strong>Achtung</strong></em>: Leerzeichen haben im LaTex Code keinen Einfluss. Sie sind hier nur der Übersichtlichkeit halber eingefügt. Wenn wir in den Formeln Leerzeichen ahben wollen, müssen wir dafür speziellen LaTex Code nutzen.</p>
+<!-- ### Textfarbe -->
+<!-- ### Textgröße -->
+<!-- ### Textausrichtung -->
+</section>
+</section>
+<section id="r-code" class="level2 page-columns page-full" data-number="12.3">
+<h2 data-number="12.3" class="anchored" data-anchor-id="r-code"><span class="header-section-number">12.3</span> R-Code</h2>
+<p>Nun schauen wir uns an, welche Möglichkeiten es gibt, R-Code und/oder deren Outputs in unser Dokument zu integrieren.</p>
+<section id="code-chunk" class="level3 page-columns page-full" data-number="12.3.1">
+<h3 data-number="12.3.1" class="anchored" data-anchor-id="code-chunk"><span class="header-section-number">12.3.1</span> Code Chunk</h3>
+<p>Allen Code, denn wir sonst in ein R-Skript geschrieben haben, und der dann in der Konsole ausgeführt wurde (und ggf. im Viewer angezeigt wurde, d.h. Plots), schreiben wir in sogenannte Code Chunks.</p>
+<p>Wir können Code Chunks einfügen indem wir auf <strong>Insert</strong> &gt; <strong>R</strong> klicken …</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Markdown/Bilder/insert chunk.png" class="img-fluid figure-img" width="600"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>… oder einen Kurzbefehl nutzen:</p>
+<ul>
+<li>Windows: ctrl + alt + I</li>
+<li>Mac: alt + cmd + I</li>
+</ul>
+<p><br>
+</p>
+<p>Im Rmd sind die Code Chunks (in der Standardeinstellung) grau hinterlegt.</p>
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="figures/Markdown/Bilder/chunk.png" class="img-fluid figure-img" width="500"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Wenn wir auf den Pfeil ganz rechts klicken, können wir den Code in dem Chunk ausführen. Darunter erscheint ggf. der Output des Codes.</p>
+<p>Zum Ausführen des Code Chunks gibt es können wir auch einen Kurzbefehl nutzen:</p>
+<ul>
+<li>Windows: shift + ctrl + Enter</li>
+<li>Mac: shift + cmd + Enter</li>
+</ul>
+<p><br>
+</p>
+<blockquote class="blockquote">
+<p><em><strong>Achtung</strong></em>: Wenn wir beim Knitten Fehlermeldungen angezeigt bekommen, die auf den Code zurückzuführen sind, sollten wir diesen erstmal in einem “normalen” R-Skript ausführen. So können wir schauen, ob das Problem direkt im Code oder in der Einbettung in R Markdown liegt.</p>
+</blockquote>
+<p>Im Output-Dokument werden standarmäßig auch der Code und ggf. der Output angezeigt.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">+</span><span class="dv">2</span><span class="sc">+</span><span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 6</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>vektor <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>vektor</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1 2 3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(vektor)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2</code></pre>
+</div>
+</div>
+<p>Es gibt Optionen zur Einstellung des Verhaltens der Code Chunks, die wir oben im Code Chunk innerhalb der geschweiften Klammern <code>{r, ...}</code> festlegen. Zwei davon werden wir häufiger brauchen: <code>echo</code> und <code>eval</code>.</p>
+<p>Mit <code>echo</code> legen wir fest, ob wir den Code im Output-Dokument <strong>anzeigen</strong> wollen (<code>{r, echo=TRUE}</code>) oder nicht (<code>{r, echo=FALSE}</code>). Mit <code>eval</code> legen wir fest, ob wir den Code <strong>ausführen</strong> wollen (<code>{r, eval=TRUE}</code>) oder nicht (<code>{r, eval=FALSE}</code>).</p>
+<p>Es gibt auch die Möglichkeit, <strong>globale Optionen</strong> für das Verhalten der Chunks festzulegen. Diese werden auf <em>jeden</em> Code Chunk angewendet (außer wenn wir in einem Code Chunk eine andere Option spezifizieren) und verhindern dadurch überflüssige Wiederholungen. Globale Optionen legen wir mit <code>knitr::opts_chunk$set(...)</code> fest. Die Funktion kommt direkt in den Code Chunk (und nicht wie bei den Chunk-spezifischen Optionen in <code>{r}</code>).</p>
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="figures/Markdown/Bilder/global chunk.png" class="img-fluid figure-img" width="650"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><code>include=FALSE</code> führt den Code aus, zeigt den Output des Codes aber nicht im Output-Dokument an. Das ist eine kürzere Alternative zu <code>{r, echo=FALSE, eval=TRUE}</code>, wenn der Output aus Zeichen besteht (z.B. das Ergebnis einer Rechnung; der Inhalt eines Objektes) bzw. <code>{r, echo=FALSE, fig.show='hide'}</code> wenn der Output eine Grafik ist.</p>
+<p>Code Chunks können auch benannt werden, indem in den geschweiften Klammern nach einem Leerzeichen hinter dem r der gewünschte Name eingetragen wird, z.b. <code>{r, ...}</code> für den Namen setup. Das hilft uns bei der Orientierung, weil wir die Namen in der <strong>Dokumentübersicht</strong> in RStudio angezeigt bekommen. Wir müssen allerdings darauf achten, denselben Namen nicht mehrmals zuzuweisen. Sonst bekommen wir eine Fehlermeldung.</p>
+<aside>
+Eigentlich benennen wir einen Chunk mit einem Tag: <span class="code">{r <strong>label=</strong>setup, …}</span>. Diesen können wir aber weglassen, solange wir den Namen an die erste Stelle schreiben.
+</aside>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Markdown/Bilder/overview.png" class="img-fluid figure-img" width="800"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="inline-code" class="level3" data-number="12.3.2">
+<h3 data-number="12.3.2" class="anchored" data-anchor-id="inline-code"><span class="header-section-number">12.3.2</span> Inline Code</h3>
+<p>Wenn es sich bei dem Output (von Code) um Zeichen handelt (und nicht um z.B. Tabellen und Grafiken), können wir diesen auch direkt in den Fließtext integrieren. Dazu nutzen wir <code>r ...</code>.</p>
+<p>Wir können damit z.B. Inhalte eines Objektes oder das Ergebnis einer (mathematischen) Funktion (ohne den Code) ausgeben lassen. Der Output wird außerdem so formatiert wie der Fließtext.</p>
+<p>Im vorhergehenden Abschnitt haben wir beispielsweise das Objekt <code>vektor</code> in einem Code Chunk definiert. Dessen Inhalte können wir mit <code>r vector</code> ausgeben lassen: 1, 2, 3</p>
+<p>Wir können auch den Mittelwert von <code>vektor</code> berechnen mit <code>r mean(vector)</code>: 2</p>
+<p>Nur mit den <code>`...`</code> (ohne r) können wir außerdem Text <code>hervorheben</code>.</p>
+</section>
+<section id="grafiken-bilder-und-tabellen" class="level3 page-columns page-full" data-number="12.3.3">
+<h3 data-number="12.3.3" class="anchored" data-anchor-id="grafiken-bilder-und-tabellen"><span class="header-section-number">12.3.3</span> Grafiken, Bilder und Tabellen</h3>
+<p>Wir können mit <strong>R-Code in den Code Chunks</strong> außerdem auch Grafiken und Tabellen erstellen und ausgeben, sowie auch Bilder, die nicht im Rmd erstellt wurden, anzeigen.</p>
+<p>Bei Grafiken müssen wir nichts weiter beachten. Wir können denselben R-Code nutzen wie auch in einem R-Skript (.R).</p>
+<p>Wenn wir lokal gespeicherte Bilder integrieren wollen, können wir die Funktion <code>include_graphics("dateipfad")</code> aus dem Paket <strong>knitr</strong> nutzen. Dieses wurde (standardmäßig) automatisch heruntergeladen, als wir rmarkdown installiert haben.</p>
+<aside>
+<br>
+<strong>knitr</strong> ist das Paket, welches unseren R-Code im Rmd ausführt.
+</aside>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">include_graphics</span>(<span class="st">"dateipfad"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+
+</div>
+<!-- https://yihui.org/knitr/options/ unter Plots; Problem mit out.width und .heigth und in, cm und %; daher nur px -->
+<p>Schauen wir uns noch <strong>Code Chunk Optionen</strong> an, die wir <strong>für Grafiken <em>und</em> Bilder</strong> nutzen können. Diese schreiben wir wieder oben in den Code Chunk in <code>{r, ...}</code>.</p>
+<p>Mit <code>out.width</code> (Breite) und <code>out.height</code> (Höhe) können wir die Größe der Abbildungen im Outputdokument kontrollieren. Wir nehmen dafür am besten <strong>‘…px’</strong> (pixel). Wenn wir wollen, dass das Seitenverhältnis beibehalten wird, sollten wir immer nur die Breite <em>oder</em> die Höhe ändern.</p>
+<aside>
+Beispiel:<br>
+<code>{r, out.width='300px'}</code>
+</aside>
+<p>Mit <code>fig.align</code> können wir die Ausrichtung beeinflussen. Gültige Optionen sind: <code>'left'</code>, <code>'right'</code> and <code>'center'</code>.</p>
+<aside>
+Beispiel:<br>
+<code>{r, fig.align='center'}</code>
+</aside>
+<p>Um Tabellen zu erstellen, gibt es verschiedene Funktionen (die nur in Rmd funktionieren). Wir schauen uns im Folgenden eine an (und zwar dieselbe, die auch für die Inhalte der R-Lernplattform genutzt wird).</p>
+<!-- <aside>Man kann die Darstellung von Tabellen auch im YAML Header beeinflussen; das schauen wir uns aber nicht an.</aside> -->
+<p>Zuerst benötigen wir einen Beispieldatensatz. Wir nutzen den Datensatz <strong>women</strong>, der im Basispaket <strong>datasets</strong> enthalten ist und den wir mit der Funktion <code>data()</code> in unser Environment bekommen.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"women"</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>women</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   height weight
+1      58    115
+2      59    117
+3      60    120
+4      61    123
+5      62    126
+6      63    129
+7      64    132
+8      65    135
+9      66    139
+10     67    142
+11     68    146
+12     69    150
+13     70    154
+14     71    159
+15     72    164</code></pre>
+</div>
+</div>
+<p>So sieht es aus, wenn wir den Datensatz einfach ausgeben. Schönere Tabellen erhalten wir mit der Funktion <code>kable()</code> aus dem Paket <strong>kableExtra</strong>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"kableExtra"</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(women)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:right;"> height </th>
+   <th style="text-align:right;"> weight </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:right;"> 58 </td>
+   <td style="text-align:right;"> 115 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 117 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 60 </td>
+   <td style="text-align:right;"> 120 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 61 </td>
+   <td style="text-align:right;"> 123 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 62 </td>
+   <td style="text-align:right;"> 126 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 63 </td>
+   <td style="text-align:right;"> 129 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 64 </td>
+   <td style="text-align:right;"> 132 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 65 </td>
+   <td style="text-align:right;"> 135 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 66 </td>
+   <td style="text-align:right;"> 139 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 67 </td>
+   <td style="text-align:right;"> 142 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 68 </td>
+   <td style="text-align:right;"> 146 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 69 </td>
+   <td style="text-align:right;"> 150 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 70 </td>
+   <td style="text-align:right;"> 154 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 71 </td>
+   <td style="text-align:right;"> 159 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 72 </td>
+   <td style="text-align:right;"> 164 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<aside>
+<br>
+<br>
+Die gelbe Hintergrundfarbe sowie die grüne Schriftfarbe, die erscheinen, wenn man mit der Maus über die Zeilen geht, sind zusätzlich eingestellt für diese Seite. Wenn ihr <code>kable()</code> bei euch ausführt, ist das nicht enthalten.
+</aside>
+<p>Es gibt noch diverse weitere Optionen, Tabellen zu verschönern. Eine ausführliche Dokumentation dazu gibt es auf <a href="https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html" target="_blank">dieser Seite</a>.</p>
+</section>
+</section>
+<section id="weiterführend" class="level2 page-columns page-full" data-number="12.4">
+<h2 data-number="12.4" class="anchored" data-anchor-id="weiterführend"><span class="header-section-number">12.4</span> Weiterführend</h2>
+<section id="templates" class="level3 page-columns page-full" data-number="12.4.1">
+<h3 data-number="12.4.1" class="anchored" data-anchor-id="templates"><span class="header-section-number">12.4.1</span> Templates</h3>
+<p>Templates (Vorlagen) besitzen ein vorgefertigtes Design und ggf. sogar weitere Funktionalitäten für unser Output-Dokument.</p>
+<p>Wenn wir <strong>Templates</strong> nutzen, sind in diesen ggf. nicht alle bzw. noch zusätzliche YAML Optionen nutzbar.</p>
+<p>Wir wollen nun noch zwei Templates vorstellen, die für Projektdokumentation bzw. Veröffentlichungen hilfreich sein können. Für beide müssen wir jeweils ein zusätzliches Paket herunterladen.</p>
+<p>Nach der Installation der Pakete finden wir die Templates hier:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Markdown/Bilder/1.png" class="img-fluid figure-img" width="800"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Markdown/Bilder/template.png" class="img-fluid figure-img" width="400"></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="distill" class="level4 page-columns page-full" data-number="12.4.1.1">
+<h4 data-number="12.4.1.1" class="anchored" data-anchor-id="distill"><span class="header-section-number">12.4.1.1</span> distill</h4>
+<p>Mit dem Template <strong>Distill Article</strong> aus dem Paket <strong>distill</strong> können wir html Dokumente erstellen.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Markdown/Bilder/distill.png" class="img-fluid figure-img" width="600"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Die Inhalte der R Lernplattform basieren auch auf diesem Template. Allerdings wurden einige Designänderungen vorgenommen und zusätzliche Funktionen eingefügt.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"distill"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>In diesem haben wir u.a. folgende zusätzliche (bzw. geänderte) Funktionalitäten:</p>
+<ul>
+<li>Seitennotizen (am rechten Rand)</li>
+<li>Bilder und Grafiken können über die Seitenränder hinaus gehen (siehe Beispiel unten)</li>
+<li>Fußnoten werden angezeigt, wenn man mit der Maus über sie fährt<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></li>
+<li>Gliederung (nur) ganz oben im Dokument<br>
+Die YAML Option <code>toc_float</code> bewirkt in distill etwas anderes. Mit <code>true</code> wird die Gliederung am linken Rand angezeigt, wenn das Fenster, in dem das Outputdokument geöffnet wird (zumeist der Brwoser), größer gleich 1000px ist. Mit <code>false</code> wird die Gliederung immer mittig angezeigt.</li>
+<li>Appendix (wenn z.B Fußnoten oder Referenzen eingefügt)</li>
+</ul>
+<aside>
+Seitennotiz
+</aside>
+<p>Eine <strong>ausführliche Dokumentation</strong> zu den Funktionalitäten des Templates und ihrer Nutzung finden wir <a href="https://rstudio.github.io/distill/" target="_blank">hier</a>.</p>
+<div class="cell page-columns page-full">
+<div class="cell-output-display column-l-body-outset">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="http://methods-berlin.com/de/r-lernplattform/grafiken-ggplot"><img src="figures/Markdown/Bilder/better_graphs.png" class="img-fluid figure-img" width="814"></a></p>
+<p></p><figcaption class="figure-caption">Bildquelle: https://psyteachr.github.io/msc-data-skills/images/memes/better_graphs.png</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="papaja" class="level4 page-columns page-full" data-number="12.4.1.2">
+<h4 data-number="12.4.1.2" class="anchored" data-anchor-id="papaja"><span class="header-section-number">12.4.1.2</span> papaja</h4>
+<p>Mit dem Paket <strong>papaja</strong> (<strong>P</strong>reparing <strong>APA</strong> <strong>J</strong>ournal <strong>A</strong>rticles) bekommen wir ein Template, um Artikel ganz einfach im APA-Style zu schreiben. Das Outputformat ist pdf.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Markdown/Bilder/papaja.png" class="img-fluid figure-img" width="600"></p>
+</figure>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p><em><strong>Achtung</strong></em>: Bevor wir das Paket herunterladen, müssen wir schauen, ob die folgenden zwei Voraussetzungen erfüllt sind:</p>
+</blockquote>
+<ul>
+<li>RStudio Version größer gleich 0.98.932</li>
+<li>TeX Distribution (neuer als 2013; Links zu den Tex Distributions sind z.B. auf der Entwicklerseite, welche unten verlinkt ist, zu finden)</li>
+</ul>
+<aside>
+Unsere R Studio Version finden wir z.B. in R Studio unter <strong>Help &gt; About RStudio</strong> heraus.
+</aside>
+<p>Weil das Paket noch nicht über den CRAN Mirror verfügbar ist, müssen wir es über die Github-Seite des Entwicklers herunterladen. Dazu benötigen wir wiederum das Paket <strong>devtools</strong>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"devtools"</span>)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(devtools)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">install_github</span>(<span class="st">"crsh/papaja"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>In diesem <a href="https://www.youtube.com/watch?v=I_HW5Rraqg8" target="_blank">Video</a> wird die Nutzung des Templates erklärt.</p>
+<p>Wenn wir das kostenlose Literaturverwaltungsprogramm <a href="https://www.zotero.org/" target="_blank"><strong>Zotero</strong></a> nutzen, können wir zusätzlich direkt daraus unsere Zitationen importieren. Damit wird auch automatisch eine Bibliographie erstellt. Um Zotero und R Makrdown gemeinsam nutzen zu können, müssen wir das Paket <strong>citr</strong> (in R) sowie die Software <a href="https://retorque.re/zotero-better-bibtex/installation/" target="_blank"><strong>Better BibTex</strong></a> (auf unserem Rechner) installieren.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Installation von citr:</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"citr"</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Installation von Better BibTex siehe Link</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Weitere Informationen</strong> finden wir auf der <a href="https://github.com/ekothe/papaja" target="_blank">Githubseite</a> des Entwicklers.</p>
+<hr>
+<p>Um eine möglichst exakte Replikation der Funktionen zu gewährleisten gibt es im folgenden relevante Angaben zum System (<strong><code>R</code>-Version</strong>, <strong>Betriebssystem</strong>, <strong>geladene Pakete mit Angaben zur Version</strong>), mit welchem diese Seite erstellt wurde.</p>
+<blockquote class="blockquote">
+<p><em><strong>Achtung</strong></em>: Es ist sinnvoll, die nachfolgende Funktion in einen Code Chunk im eigenen Rmd einzubetten.</p>
+</blockquote>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>R version 4.2.2 (2022-10-31 ucrt)
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+Running under: Windows Server x64 (build 20348)
+
+Matrix products: default
+
+locale:
+[1] LC_COLLATE=English_United States.utf8 
+[2] LC_CTYPE=English_United States.utf8   
+[3] LC_MONETARY=English_United States.utf8
+[4] LC_NUMERIC=C                          
+[5] LC_TIME=English_United States.utf8    
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] kableExtra_1.3.4
+
+loaded via a namespace (and not attached):
+ [1] rstudioapi_0.14   knitr_1.42        xml2_1.3.3        magrittr_2.0.3   
+ [5] rvest_1.0.3       munsell_0.5.0     viridisLite_0.4.1 colorspace_2.1-0 
+ [9] R6_2.5.1          rlang_1.0.6       fastmap_1.1.0     highr_0.10       
+[13] stringr_1.5.0     httr_1.4.4        tools_4.2.2       webshot_0.5.4    
+[17] xfun_0.37         png_0.1-8         cli_3.6.0         htmltools_0.5.4  
+[21] systemfonts_1.0.4 yaml_2.3.7        digest_0.6.31     lifecycle_1.0.3  
+[25] htmlwidgets_1.6.1 glue_1.6.2        evaluate_0.20     rmarkdown_2.20   
+[29] stringi_1.7.12    compiler_4.2.2    scales_1.2.1      jsonlite_1.8.4   
+[33] svglite_2.1.1    </code></pre>
+</div>
+</div>
+<p>Für Informationen zur Interpretation dieses Outputs schaut auch den Abschnitt <a href="./Pakete.html#replizierbarkeit-von-analysen">Replizierbarkeit von Analysen</a> des Kapitels zu Paketen an.</p>
+
+
+</section>
+</section>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Wir können die Tabellen und Grafiken z.B. aus einem Word Dokument, welches wir mit R Markdown erstellt haben, rauskopieren und in das Word Dokument einfügen, in welchem wir unsere Arbeit schreiben. Wir können aber auch direkt unsere Arbeit in einem R Markdown Dokument schreiben (und daraus ein Word Dokument o.ö. erstellen).<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>wie hier<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./Wide-and-Long-Format.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Wide- &amp; Long-Format</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./Git.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Git und GitLab</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

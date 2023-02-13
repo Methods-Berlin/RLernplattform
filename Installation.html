@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>R Lernplattform - 2&nbsp; Installation und Aktualisierung von R und RStudio</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Einfuehrung_in_R.html" rel="next">
+<link href="./index.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Installation und Aktualisierung von R und RStudio</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">R Lernplattform</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Inhalte</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Einführung in R</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Installation.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Installation und Aktualisierung von R und RStudio</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Einfuehrung_in_R.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Einführung in R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Einfuehrung_in_RStudio.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Einführung in RStudio</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Pakete.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Pakete</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Daten-importieren.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Daten importieren</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Fehlermeldungen.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Fehlermeldungen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Datenvorbereitung.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Datenvorbereitung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Fehlende-Werte.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Fehlende Werte</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Grafiken.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Grafiken</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Weiterführende Themen in R</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Wide-and-Long-Format.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Wide- &amp; Long-Format</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Markdown.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">R Markdown</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Git.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Git und GitLab</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Vertiefungen zu den Veranstaltungen Methodenlehre I und II</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Voraussetzungspruefung.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Annahmen der Multiplen Linearen Regression</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Outputs-ALM-FAQ.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Outputs - ALM - FAQ</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">Projekt-Dokumentation</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Zur-Lernplattform-Beitragen.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Zur R-Lernplattform Beitragen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lineare-regression.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Lineare Regression - Die Basics</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#windows" id="toc-windows" class="nav-link active" data-scroll-target="#windows"><span class="toc-section-number">2.1</span>  Windows</a>
+  <ul class="collapse">
+  <li><a href="#installation-von-r" id="toc-installation-von-r" class="nav-link" data-scroll-target="#installation-von-r"><span class="toc-section-number">2.1.1</span>  Installation von <strong>R</strong></a></li>
+  <li><a href="#installation-von-rstudio" id="toc-installation-von-rstudio" class="nav-link" data-scroll-target="#installation-von-rstudio"><span class="toc-section-number">2.1.2</span>  Installation von <strong>RStudio</strong></a></li>
+  <li><a href="#aktualisierung-von-r-mit-übernahme-der-pakete-aus-der-älteren-version-paket-installr" id="toc-aktualisierung-von-r-mit-übernahme-der-pakete-aus-der-älteren-version-paket-installr" class="nav-link" data-scroll-target="#aktualisierung-von-r-mit-übernahme-der-pakete-aus-der-älteren-version-paket-installr"><span class="toc-section-number">2.1.3</span>  Aktualisierung von <strong>R</strong> mit Übernahme der Pakete aus der älteren Version (Paket <strong>installr</strong>)</a></li>
+  <li><a href="#aktualisierung-von-rstudio" id="toc-aktualisierung-von-rstudio" class="nav-link" data-scroll-target="#aktualisierung-von-rstudio"><span class="toc-section-number">2.1.4</span>  Aktualisierung von <strong>RStudio</strong></a></li>
+  </ul></li>
+  <li><a href="#mac" id="toc-mac" class="nav-link" data-scroll-target="#mac"><span class="toc-section-number">2.2</span>  Mac</a>
+  <ul class="collapse">
+  <li><a href="#installation-von-r-1" id="toc-installation-von-r-1" class="nav-link" data-scroll-target="#installation-von-r-1"><span class="toc-section-number">2.2.1</span>  Installation von <strong>R</strong></a></li>
+  <li><a href="#installation-von-rstudio-1" id="toc-installation-von-rstudio-1" class="nav-link" data-scroll-target="#installation-von-rstudio-1"><span class="toc-section-number">2.2.2</span>  Installation von <strong>RStudio</strong></a></li>
+  <li><a href="#aktualisierung-von-r" id="toc-aktualisierung-von-r" class="nav-link" data-scroll-target="#aktualisierung-von-r"><span class="toc-section-number">2.2.3</span>  Aktualisierung von <strong>R</strong></a></li>
+  <li><a href="#aktualisierung-von-rstudio-1" id="toc-aktualisierung-von-rstudio-1" class="nav-link" data-scroll-target="#aktualisierung-von-rstudio-1"><span class="toc-section-number">2.2.4</span>  Aktualisierung von <strong>RStudio</strong></a></li>
+  </ul></li>
+  <li><a href="#hinweis-zur-replizierbarkeit-von-analysen" id="toc-hinweis-zur-replizierbarkeit-von-analysen" class="nav-link" data-scroll-target="#hinweis-zur-replizierbarkeit-von-analysen"><span class="toc-section-number">2.3</span>  Hinweis zur Replizierbarkeit von Analysen</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Installation und Aktualisierung von R und RStudio</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p><strong>R</strong> ist eine Statistiksoftware, die mittlerweile weit verbreitet ist - sowohl in der Forschung als auch in der Wirtschaft. <strong>R</strong> ist <strong>kostenlos</strong>, für alle gängigen Betriebssysteme verfügbar (Windows, Max OS X und Linux) und darüber hinaus auch noch <strong>open-source</strong>. Das heißt, um <strong>R</strong> zu nutzen, muss man keine teure Lizenz kaufen und jede/r kann sich an der (Weiter-)Entwicklung des Programms oder einzelner Pakete beteiligen. Durch die weite Verbreitung von <strong>R</strong> finden sich außerdem ausführliche Anleitungen im Internet, sollten wir mal nicht mehr weiter wissen.</p>
+<p><strong>R</strong> selbst ist relativ spartanisch und die meisten AnwenderInnen nutzen daher die Entwicklungsumgebung <strong>RStudio</strong>, welche auch eine umfassendere Benutzeroberfläche besitzt. Mit dieser können wir z.B. <strong>Skripte</strong> nutzen, in denen wir unsere Analysen speichern können. Außerdem gibt es ein <strong>Environment</strong>, das uns anzeigt, welche Objekte in <strong>R</strong> vorhanden sind (d.h. die wir eingelesen oder direkt in <strong>R</strong> erstellt haben). Hier finden wir zusätzlich einen Reiter <strong>Help</strong>, welcher uns Informationen und Anwendungshinweise zu Funktionen gibt.</p>
+<aside>
+<br>
+Der Aufbau der Entwicklungsumgebung RStudio wird im Kapitel <a href="./Einfuehrung_in_R.html">Einführung in R</a> erklärt.
+</aside>
+<p>Im vorliegenden Kapitel schauen wir uns jeweils für Windows und Mac an, wie wir <strong>R</strong> und <strong>RStudio</strong> installieren oder auf eine neuere Version aktualisieren und dabei <strong>unsere bisher heruntergeladenen Pakete behalten</strong> können.</p>
+<details>
+<summary>
+<em>Was ist mit Linux?</em>
+</summary>
+<p>Bevor wir die <strong>R</strong>-Lernplattform ins Leben gerufen haben, haben wir eine Umfrage durchgeführt, in der u.a. das Betriebssystem der NutzerInnen erfragt wurde. Hierbei hat nur ein Bruchteil der Personen angegeben, mit Linux bzw. Ubuntu zu arbeiten. Aufgrund der geringen Nachfrage gibt es kein gesondertes Kapitel für Linux-UserInnen. Im Folgenden sind einige Links zur Hilfe aufgeführt.</p>
+<p>Für die Installation von <strong>R</strong> und <strong>RStudio</strong> unter Ubuntu empfiehlt sich die Installationsanleitung auf <a href="https://linuxhint.com/rstudio-for-ubuntu/" target="_blank">linuxhunt.com</a> zu nutzen (englisch). Anstatt <code>wget https://download1.rstudio.org/rstudio-0.99.896-amd64.deb</code> ändern wir den Link zur gewünschten <strong>RStudio</strong> Version für unser Betriebssystem, z.B. <code>wget [https://download1.rstudio.org/desktop/bionic/amd64/rstudio-1.3.1073-amd64.deb](https://download1.rstudio.org/electron/jammy/amd64/rstudio-2022.12.0-353-amd64.deb)</code>. Den benötigten aktuellen Link bekommen wir von der <a href="https://rstudio.com/products/rstudio/download/#download" target="_blank"><strong>RStudio</strong> Seite</a> mittels Rechtsklick auf den Link und Auswahl im erscheinenden Menü.</p>
+<p>Falls ihr das Problem habt, dass mit der obigen Anleitung nicht die aktuelle <strong>R</strong> Version 4.0 installiert wird, oder falls ihr zu <strong>R</strong> 4.0 upgraden wollt, schaut auch <a href="https://medium.com/@hpgomide/how-to-update-your-r-3-x-to-the-r-4-x-in-your-linux-ubuntu-46e2209409c3" target="_blank">diese Anleitung</a> an.</p>
+Falls ihr nur Probleme mit dem Updaten auf die neuste Version habt, führt aus dem Abschnitt <em>How can I update my R 3.x to the new shiny R4.x?</em> den Code <strong>ab</strong> <code>sudo apt-key ...</code> im Terminal aus.
+</details>
+<p><br>
+</p>
+<blockquote class="blockquote">
+<p><em><strong>Achtung</strong></em>: Die <strong>R</strong>- und <strong>RStudio</strong>-Versionen auf den Screenshots könnten bereits veraltet sein, wenn ihr die Anleitung nutzt. Die angegebenen Links führen euch aber dennoch zu den aktuellsten Versionen.</p>
+</blockquote>
+<section id="windows" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="windows"><span class="header-section-number">2.1</span> Windows</h2>
+<p>Die folgenden Installationen wurden unter Nutzung von <strong>Firefox 70.0.1</strong> durchgeführt.</p>
+<section id="installation-von-r" class="level3" data-number="2.1.1">
+<h3 data-number="2.1.1" class="anchored" data-anchor-id="installation-von-r"><span class="header-section-number">2.1.1</span> Installation von <strong>R</strong></h3>
+<p>Auf dieser <a href="https://cran.r-project.org" target="_blank">Seite</a> klicken wir auf <em>Download <strong>R</strong> for Windows</em> und auf der folgenden Seite auf <em>Install <strong>R</strong> for the first time</em>. Dann kommen wir auf eine Seite, auf der wir die aktuellste <strong>R</strong>-Version finden.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figures/Installation/Bilder/Win_R_aktuell.png" class="img-fluid" width="700"></p>
+</div>
+</div>
+<p>Diese Version läuft unter <strong>Windows XP</strong>, <strong>Windows Vista</strong>, <strong>Windows 8</strong> und <strong>Windows 10</strong>. Sollten wir eine dieser Windows Versionen auf unserem Computer haben, drücken wir auf <strong>Download R 3.6.1 for Windows</strong>.</p>
+<details>
+<summary>
+<em><a name="winv"></a>Wie finde ich meine Windows Version heraus?</em>
+</summary>
+<p>Um die aktuelle Version unseres Windows Systems herauszufinden, drücken wir die <strong>Windows-Taste</strong> und die <strong>Pause Taste</strong> gleichzeitig.</p>
+<blockquote class="blockquote">
+<p><em><strong>Achtung</strong></em>: Bei manchen Rechner muss man zur Aktivierung der Pause-Taste zusätzlich noch die <strong>fn-Taste</strong> drücken.</p>
+</blockquote>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figures/Installation/Bilder/keybord.png" class="img-fluid" width="600"></p>
+</div>
+</div>
+<p>Es öffnet sich ein Fenster mit den grundlegenden Informationen über unseren Computer.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figures/Installation/Bilder/winv_info.png" class="img-fluid" width="600"></p>
+</div>
+</div>
+Ganz oben sehen wir dort unter <strong>Windows Edition</strong>, welche Windows Version wir installiert haben. Wichtig ist auch der Eintrag unter <strong>Systemtyp</strong>. Hier steht entweder <em>64 bit-Betriebssystem</em> oder <em>32 bit-Betriebssystem</em>. <strong>R</strong> gibt es sowohl für das 64- als auch für das 32 bit-Betriebssystem. Wenn wir auf <strong>Download R 3.6.1 for Windows</strong> drücken, laden wir beide Versionen herunter und <strong>R</strong> erkennt dann automatisch, welche installiert werden kann.
+</details>
+<details>
+<summary>
+Ältere Windows-Versionen
+</summary>
+Falls unser Betriebssystem <strong>nicht</strong> kompatibel ist, können wir <a href="https://cran.r-project.org/bin/windows/base/old/" target="_blank">hier</a> <strong>ältere R-Versionen</strong> finden. Wir müssen jeweils auf die Version klicken und kommen dann auf eine Seite, die genau so aufgebaut ist wie die Seite der aktuellsten Version. Um zu erfahren, ob die Version mit unserem Betriebssystem kompatibel ist, müssen wir jeweils auf <strong><em>Does <strong>R</strong> run under my version of Windows?</em></strong> klicken. Wenn wir die passende Version gefunden haben, klicken wir auf <strong>Download </strong>R** [Versionsnummer] for Windows<strong>. Die Versionsnummer ist abhängig davon, welche </strong>R** Version tatsächlich mit unserem Betriebssystem kompatibel ist.
+</details>
+<p>Nach dem Herunterladen der .exe-Datei können wir diese öffnen. Es folgen einige Einstellungen und Zustimmungen, die wir uns kurz anschauen wollen.</p>
+<p>Wir werden gefragt, ob wir <strong>Änderungen an unseren Gerät zulassen</strong> wollen und wir bejahen.</p>
+<p>Dann können wir die Standard<strong>sprache</strong> für <strong>R</strong> einstellen. Diese kann man später auch im Programm noch ändern.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Installation/Bilder/5.png" class="img-fluid figure-img" width="200"></p>
+</figure>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p><em><strong>Achtung</strong></em>: Es kann hilfreich sein, <strong>Englisch</strong> als Sprache festzulegen. So würden wir Fehlermeldungen auf englisch ausgegeben bekommen, zu denen wir bei Suchen im Internet zumeist mehr finden.</p>
+</blockquote>
+<p>Später können wir noch den <strong>Zielordner</strong> festlegen und auswählen, welche Komponenten installiert werden sollen. Normalerweise sollten alle wichtigen Komponenten automatisch ausgewählt sein. Wenn wir ein 64 bit-Betriebssystem haben, werden sowohl die 64- als auch die 32 bit-Version von <strong>R</strong> ausgewählt. Zweiteres können wir abwählen, damit wir das Programm nicht zweimal installieren.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Installation/Bilder/6.png" class="img-fluid figure-img" width="300"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Nun werden wir gefragt, ob wir die <strong>Startoptionen</strong> von <strong>R</strong> ändern wollen. Wir können hier erstmal verneinen und diese später im Programm noch anpassen.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Installation/Bilder/7.png" class="img-fluid figure-img" width="300"></p>
+</figure>
+</div>
+</div>
+</div>
+<details>
+<summary>
+<em>Was sind Startoptionen?</em>
+</summary>
+Bei den Startoptionen können wir z.B. einstellen, wie <strong>R</strong> später die Hilfe-Seiten einzelner Funktionen anzeigt. Da wir mit der Entwicklungsumgebung <strong>RStudio</strong> arbeiten werden, können wir diese Einstellungen einfach überspringen.
+</details>
+<p>Anschließend können wir den <strong>Startmenü-Ordner auswählen</strong>, d.h. festlegen, ob und wo Verknüpfungen zum Programm erstellt werden sollen. Da wir <strong>R</strong> später über <strong>RStudio</strong> aufrufen werden, können wir auch hier einfach mit der Voreinstellung auf Weiter drücken.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Installation/Bilder/8.png" class="img-fluid figure-img" width="300"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Nun können wir noch <strong>zusätzliche Aufgaben auswählen</strong> z.B. ob auf dem Startbildschirm eine Verknüpfung zum Programm erstellt werden soll.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Installation/Bilder/9.png" class="img-fluid figure-img" width="300"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Danach müssen wir die Installation nur noch <strong>fertigstellen</strong>.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Installation/Bilder/10.png" class="img-fluid figure-img" width="300"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="installation-von-rstudio" class="level3" data-number="2.1.2">
+<h3 data-number="2.1.2" class="anchored" data-anchor-id="installation-von-rstudio"><span class="header-section-number">2.1.2</span> Installation von <strong>RStudio</strong></h3>
+<p>Nachdem wir <strong>R</strong> heruntergeladen haben, können wir nun auch die Entwicklungsumgebung <strong>RStudio</strong> herunterladen.</p>
+<p>Dazu gehen wir auf die <a href="https://rstudio.com/products/rstudio/download/" target="_blank"><strong>RStudio</strong>-Seite</a> und scrollen auf der Seite nach unten. Hier überprüfen wir, ob die uns empfohlene Version mit unserem <a href="#winv">Betriebssystem</a> sowie unserer <strong>R</strong>-Version kompatibel ist. Wenn ja, können wir auf <strong>Download RStudio for Windows</strong> klicken.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Installation/Bilder/Win_13.PNG" class="img-fluid figure-img" width="700"></p>
+</figure>
+</div>
+</div>
+</div>
+<details>
+<summary>
+Bei mir steht zwar Download RStudio Desktop, aber ich kann nicht darauf klicken.
+</summary>
+In diesem Fall können wir auf der Seite weiter nach unten scrollen. Dort werden unter <strong>All Installers</strong> alle aktuellen Versionen von <strong>RStudio</strong> Desktop aufgeführt. Unter dem Eintrag <strong>OS</strong> sind alle Betriebssysteme aufgelistet, für die es die aktuellste <strong>RStudio</strong> Desktop Version gibt. Wenn wir unser Betriebssystem gefunden haben, wählen wir in der Spalte <strong>Download</strong> die passende <strong>RStudio</strong> Desktop Version aus und laden diese herunter.
+</details>
+<details>
+<summary>
+Was bedeutet “RStudio 1.2 requires a 64-bit operating system. If you are on a 32 bit system, you can use an older version of RStudio.”?
+</summary>
+<p>Ob wir die 32- oder die 64-bit Version von <strong>RStudio</strong> Desktop brauchen, hängt von unserem Computer ab. Für fast alle Computer können wir die 64-bit Version herunterladen. Sind wir uns nicht sicher, welche Version wir brauchen, können wir <a href="#winv">hier</a> nachschauen. Wenn wir ein 32 bit-Betriebssystem haben, müssen wir eine ältere Version von <strong>RStudio</strong> Desktop herunterladen. Diese finden wir unter diesem <a href="https://support.rstudio.com/hc/en-us/articles/206569407-Older-Versions-of-RStudio" target="_blank">Link</a>.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Installation/Bilder/Win_R_Studio_aelter.png" class="img-fluid figure-img" width="300"></p>
+</figure>
+</div>
+</div>
+</div>
+Andernfalls können wir einfach die aktuelle Version mit <strong>Download RStudio for Windows</strong> herunterladen.
+</details>
+<p>Wir speichern die .exe-Datei und klicken dann auf diese. Wir müssen auch hier wieder zustimmen, dass Änderungen am System vorgenommen werden. Dann öffnet sich Fenster mit dem Installationsassistent.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Installation/Bilder/11.png" class="img-fluid figure-img" width="300"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Hier werden ähnliche Einstellungen wie bei der <a href="./Installation.html#installation-von-span-class-rrspan">Installation von R</a> besprochen. Abschließend klicken wir auch hier auf <strong>fertigstellen</strong>.</p>
+</section>
+<section id="aktualisierung-von-r-mit-übernahme-der-pakete-aus-der-älteren-version-paket-installr" class="level3" data-number="2.1.3">
+<h3 data-number="2.1.3" class="anchored" data-anchor-id="aktualisierung-von-r-mit-übernahme-der-pakete-aus-der-älteren-version-paket-installr"><span class="header-section-number">2.1.3</span> Aktualisierung von <strong>R</strong> mit Übernahme der Pakete aus der älteren Version (Paket <strong>installr</strong>)</h3>
+<div class="cell">
+
+</div>
+<p>Wenn eine aktuellere (für unser Betriebssystem kompatible) Version von <strong>R</strong> vorhanden ist, ist es ratsam, diese herunterzuladen. Mit Aktualisierungen werden etwaige Fehler und Sicherheitslücken behoben und ggf. neue Funktionen eines Programms implementiert.</p>
+<p>Für Windows können wir zur Aktualisierung von <strong>R</strong> auf das Paket <strong>installr</strong> zurück greifen, welches den Prozess weitestgehend automatisiert.</p>
+<blockquote class="blockquote">
+<p><em><strong>Achtung</strong></em>: Wenn wir von einer älteren <strong>R</strong> -Version auf <strong>R 4.0.0</strong> wechseln, müssen wir all unsere Pakete neu installieren. Das Verschieben dieser mit dem Paket <strong>installr</strong> funktioniert hier nicht.</p>
+</blockquote>
+<p>Dazu installieren wir das Paket z.B. via <code>install.packages("installr")</code>. Nachdem wir das Paket mit <code>library("installr")</code> geladen haben, führen wir die enthaltene Funktion <code>updateR()</code> aus.</p>
+<p>Wenn wir die aktuellste <strong>R</strong>-Version installiert haben, bekommen wir ein <code>FALSE</code> ausgegeben.</p>
+<p>Wenn es eine aktuellere (kompatible) <strong>R</strong>-Version gibt, öffnet sich ein neues Fenster.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Installation/Bilder/Win_R.png" class="img-fluid figure-img" width="300"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Wenn wir auf <strong>OK</strong> geklickt haben, werden wir gefragt, ob wir uns die Neuerungen dieser Version anschauen wollen (optional). Diese würden sich in einem neuen Tab im Browser öffnen.</p>
+<p>Anschließend können wir die neuere Version installieren, indem wir auf <strong>Ja</strong> klicken.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Installation/Bilder/install_latest.png" class="img-fluid figure-img" width="300"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Wenn wir in <strong>RStudio</strong> sind, werden wir gefragt, ob wir die Installation via <code>updateR()</code> lieber in <strong>R</strong> ausführen wollen. Wir können die Installation aber auch einfach in <strong>RStudio</strong> fortführen.</p>
+<p>Nun kommen die gleichen Einstellungen und Zustimmungen wie bei der <a href="./Installation.html#installation-von-span-class-rrspan">Installation von R</a>.</p>
+<p>Nach Abschluss der Installation werden wir gefragt, ob wir die Pakete unserer alten <strong>R</strong>-Version in die neue übernehmen wollen …</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Installation/Bilder/Copy_Packages.png" class="img-fluid figure-img" width="400"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>… und die Pakete aus den alten Ordnern löschen wollen. Hier können wir <strong>Ja</strong> anklicken, da wir nicht vorhaben, die alte <strong>R</strong>-Version noch zu nutzen (diese könnten wir also auch löschen).</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Installation/Bilder/Remove_Packages.png" class="img-fluid figure-img" width="400"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Wir können unsere Starteinstellungen für <strong>R</strong> (<a href="https://rclickhandbuch.wordpress.com/install-r/rprofile/" target="_blank">Rprofile.site</a>) ebenso in die neuere Version übernehmen.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Installation/Bilder/rprofile.png" class="img-fluid figure-img" width="400"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Abschließend werden wir sogar noch gefragt, ob wir unsere (verschobenen) Pakete aktualisieren wollen.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Installation/Bilder/Update_Packages.png" class="img-fluid figure-img" width="400"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="aktualisierung-von-rstudio" class="level3" data-number="2.1.4">
+<h3 data-number="2.1.4" class="anchored" data-anchor-id="aktualisierung-von-rstudio"><span class="header-section-number">2.1.4</span> Aktualisierung von <strong>RStudio</strong></h3>
+<p>Aktualisierungen für die Entwicklungsumgebung <strong>RStudio</strong> gibt es wesentlich seltener als für das dahinter liegende Basisprogramm <strong>R</strong>.</p>
+<p>Zur Überprüfung, ob eine aktuellere Version vorliegt, können wir in <strong>RStudio</strong> auf <strong>Help –&gt; Check for Updates</strong> klicken (in <strong>R</strong> gibt es diese Option <strong>nicht</strong>).</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Installation/Bilder/Check_Update.png" class="img-fluid figure-img" width="700"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Wenn es eine aktuellere Version gibt, öffnet sich die <a href="https://rstudio.com/products/rstudio/download/" target="_blank"><strong>RStudio</strong>-Seite</a> im Browser.</p>
+<details>
+<summary>
+Ich finde die Option Check for Updates nicht.
+</summary>
+<p>Manchmal gibt es die Option <strong>Check für Updates</strong> nicht im <strong>Help</strong>-Menü. Analog dazu können wir auch manuell unsere bestehende mit der aktuellsten <strong>RStudio</strong>-Version abgleichen. Dazu klicken wir in <strong>RStudio</strong> auf <strong>RStudio</strong> –&gt; About <strong>RStudio</strong> …</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Installation/Bilder/About_RStudio.png" class="img-fluid figure-img" width="700"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>… so dass sich folgendes Fenster öffnet, in dem wir unsere bestehende <strong>RStudio</strong>-Version in Erfahrung bringen können.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Installation/Bilder/RStudio_Version.png" class="img-fluid figure-img" width="500"></p>
+</figure>
+</div>
+</div>
+</div>
+Informationen über die aktuellste <strong>RStudio</strong>-Version finden wir wieder unten auf der <a href="https://rstudio.com/products/rstudio/download/#download" target="_blank"><strong>RStudio</strong>-Seite</a>.
+</details>
+<p>Wir überprüfen, ob die uns empfohlene Version mit unserem <a href="#winv">Betriebssystem</a> sowie unserer <strong>R</strong>-Version kompatibel ist. Wenn ja, können wir auf <strong>Download RStudio for Windows</strong> klicken.</p>
+<p>Das weitere Vorgehen ist ebenso analog zur <a href="#installation-von-rstudio">Installation von <strong>RStudio</strong></a>.</p>
+</section>
+</section>
+<section id="mac" class="level2 page-columns page-full" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="mac"><span class="header-section-number">2.2</span> Mac</h2>
+<p>Die folgenden Installationen und Aktualisierungen wurden unter Nutzung von <strong>Safari 13.0.3</strong> durchgeführt.</p>
+<section id="installation-von-r-1" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="installation-von-r-1"><span class="header-section-number">2.2.1</span> Installation von <strong>R</strong></h3>
+<p>Unter folgendem <a href="https://cran.r-project.org" target="_blank">Link</a> unter <em>Download <strong>R</strong> for (Mac) OS X</em> finden wir die aktuellste <strong>R</strong>-Version ganz oben. Wir kommen dann auf die folgende Seite:</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figures/Installation/Bilder/R_Website.png" class="img-fluid" width="700"></p>
+</div>
+</div>
+<blockquote class="blockquote">
+<p><em><strong>Achtung</strong></em>: Wir werden auf der Seite darauf hingewiesen, dass wir <strong>ab</strong> Mac OS X <strong>10.9</strong> (Mavericks) <strong>XQuartz</strong> nach jedem Upgrade der Betriebssoftware neu installieren sollten. Falls wir das noch nicht gemacht haben, sollten wir das <strong>vor</strong> der Installation von <strong>R</strong> noch tun.</p>
+</blockquote>
+<details>
+<summary>
+Installation von XQuartz
+</summary>
+<p>Wir klicken auf die <a href="https://www.xquartz.org" target="_blank">Verlinkung</a> und gelangen auf die XQuartz-Seite.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figures/Installation/Bilder/XQuartz.png" class="img-fluid" width="600"></p>
+</div>
+</div>
+<p>Zuerst schauen wir, ob die aktuelle XQuartz-Version <a href="#macver">mit unserem Betriebssystem kompatibel</a> ist. Wenn das der Fall sein sollte, laden wir sie herunter. Anschließend klicken wir auf die .dmg-Datei und ein neues Fenster öffnet sich.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Installation/Bilder/XQuartz_pkg.png" class="img-fluid figure-img" width="300"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Wir klicken auf die .pkg-Datei. Dadurch öffnet sich das Installationsmenü.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Installation/Bilder/XQuartz_install.png" class="img-fluid figure-img" width="300"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Wir klicken jeweils auf <em>Fortfahren</em> und stimmen dem Lizenzvertrag zu. Wir müssen den Änderungen an unserem System zustimmen, indem wir unser Benutzerpasswort eingeben. Anschließend ist die Installation abgeschlossen.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Installation/Bilder/XQuartz_ready.png" class="img-fluid figure-img" width="300"></p>
+</figure>
+</div>
+</div>
+</div>
+</details>
+<p>Nun müssen wir schauen, ob unser Betriebssystem den Mindestanforderungen für die <strong>aktuellste</strong> <strong>R</strong> Version entspricht. Wenn ja, können wir auf die .pkg-Datei klicken und den Download starten.</p>
+<details>
+<summary>
+<em><a name="macver"></a>Wie finde ich meine Mac OS Version heraus?</em>
+</summary>
+<p>Unsere Version des Betriebssystems bestimmt, welche Versionen von <strong>R</strong> und R Studio wir herunterladen können.</p>
+<p>Wir finden unsere Betriebssystem-Version heraus, indem wir auf den Apfel in der Menüleiste am oberen Bildschirm und dann auf <strong>Über diesen Mac</strong> klicken.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Installation/Bilder/00.png" class="img-fluid figure-img" width="250"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Daraufhin erscheint ein Fenster, in dem wir die Informationen ablesen können.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Installation/Bilder/0_ueber_mac.png" class="img-fluid figure-img" width="450"></p>
+</figure>
+</div>
+</div>
+</div>
+</details>
+<p>Falls die Mindestanforderungen <strong>nicht</strong> erfüllt sind, können wir trotzdem auf der gleichen Seite runterscrollen und nachschauen, ob eine <strong>ältere Version</strong> (für Mac OS X <strong>10.9+</strong> oder <strong>10.6-10.8</strong>) vorliegt. Noch ältere <strong>R</strong>-Versionen für <strong>Mac OS X 10.4 und älter</strong> finden wir <a href="https://cran.r-project.org/bin/macosx/old/index-old.html" target="_blank">hier</a>.</p>
+<p>Wenn die .pkg- bzw. .dmg-Datei heruntergeladen wurde, klicken wir auf diese. Dann öffnet sich folgendes Fenster:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Installation/Bilder/1_Installation R.png" class="img-fluid figure-img" width="400"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Nun müssen wir uns durchklicken und den Bedingungen zustimmen. Wenn die Installation erfolgreich war, erscheint folgendes Bild:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Installation/Bilder/2_Installation_R_erfolgreich.png" class="img-fluid figure-img" width="400"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Die .pkg- bzw. .dmg-Datei(en) können wir <em>nach</em> der Installation löschen. .dmg-Dateien müssen vorher noch ausgeworfen werden. Wir finden diese bei <em>Geräte</em> im Finder.</p>
+</section>
+<section id="installation-von-rstudio-1" class="level3" data-number="2.2.2">
+<h3 data-number="2.2.2" class="anchored" data-anchor-id="installation-von-rstudio-1"><span class="header-section-number">2.2.2</span> Installation von <strong>RStudio</strong></h3>
+<p>Nun können wir auf die <a href="https://rstudio.com/products/rstudio/download/" target="_blank"><strong>RStudio</strong>-Seite</a> gehen, nach unten scrollen und prüfen, ob die uns empfohlene Version <a href="#macver">mit unserem Betriebssystem</a> sowie unserer <strong>R</strong>-Version kompatibel ist.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Installation/Bilder/R-Studio_aktuell.png" class="img-fluid figure-img" width="700"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Wenn unser Betriebssystem älter ist, können wir <a href="https://support.rstudio.com/hc/en-us/articles/206569407-Older-Versions-of-RStudio" target="_blank">hier</a> eine <strong>ältere </strong>RStudio<strong>-Version</strong> herunterladen.</p>
+<p>Ganz oben finden wir hier kompatible <strong>RStudio</strong>-Versionen für <strong>Mac OS X 10.11 (El Capitan) und ältere Betriebssystemversionen</strong>.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Installation/Bilder/R_Studio_aelter_rot.png" class="img-fluid figure-img" width="300"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Wenn wir die für unser Betriebssystem kompatible Version heruntergeladen haben, können wir die .dmg-Datei öffnen und installieren. Um diesen Prozess abzuschließen, müssen wir das Programm in den Applications-Ordner verschieben.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Installation/Bilder/8_R_Studio.png" class="img-fluid figure-img" width="400"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Die .dmg-Datei können wir <em>nach</em> der Installation löschen. Vorher muss diese noch ausgeworfen werden. Wir finden die .dmg-Datei bei <em>Geräte</em> im Finder.</p>
+</section>
+<section id="aktualisierung-von-r" class="level3 page-columns page-full" data-number="2.2.3">
+<h3 data-number="2.2.3" class="anchored" data-anchor-id="aktualisierung-von-r"><span class="header-section-number">2.2.3</span> Aktualisierung von <strong>R</strong></h3>
+<p>Wenn eine aktuellere (für unser Betriebssystem kompatible) Version von <strong>R</strong> vorhanden ist, ist es ratsam, diese herunterzuladen. Mit Aktualisierungen werden etwaige Fehler und Sicherheitslücken behoben und ggf. neue Funktionen eines Programms implementiert.</p>
+<p>Zur Überprüfung, ob Aktualisierungen vorhanden sind, können wir in <strong>R</strong> oben in der Menüleiste auf <strong>R</strong> –&gt; <strong>Nach R Updates suchen</strong> klicken (in <strong>RStudio</strong> gibt es diese Option <strong>nicht</strong>).</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Installation/Bilder/in_R_Updates_fuer_R.png" class="img-fluid figure-img" width="700"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Entweder wir bekomen in der Konsole nun die Ausgabe, dass unsere Version aktuell ist …</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Installation/Bilder/uptodate_R.png" class="img-fluid figure-img" width="300"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>… oder in unserem Browser öffnet sich die <a href="https://cran.r-project.org/bin/macosx/" target="_blank">Seite von CRAN</a>, auf der wir die aktuellste Version von <strong>R</strong> herunterladen können.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Installation/Bilder/R_Website.png" class="img-fluid figure-img" width="700"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Nun müssen wir noch überprüfen, ob die Mindestanforderungen an <a href="#macver">unser Betriebssystem</a> erfüllt sind. Falls die Mindestanforderungen <strong>nicht</strong> erfüllt sind, können wir trotzdem auf der gleichen Seite runterscrollen und nachschauen, ob eine aktuellere als unsere derzeitige Version vorliegt.</p>
+<p>Das weiterführende Vorgehen ist das Gleiche wie bei der initialen <a href="#installation-von-r-1">Installation von <strong>R</strong></a>: Wir laden die .pkg-Datei herunter, öffnen sie und führen die Installation aus.</p>
+<blockquote class="blockquote">
+<p><em><strong>Achtung</strong></em>: Aus unbekannten Gründen <em>kann</em> es vorkommen, dass uns über <strong>Nach R Updates suchen</strong> nicht mitgeteilt wird, dass unsere derzeitige Version nicht die aktuellste ist. Wir können auch analog unsere derzeitige mit der aktuellsten Version abgleichen.</p>
+</blockquote>
+<p>Die Information über unsere <strong>derzeitige R-Version</strong> wird uns sowohl in <strong>R</strong> als auch in <strong>RStudio</strong> nach Öffnen des Programms ganz oben in der Konsole angezeigt.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Installation/Bilder/R-Version_in_R_Studio.png" class="img-fluid figure-img" width="600"></p>
+</figure>
+</div>
+</div>
+</div>
+<aside>
+<br>
+Der Screenshot ist aus <strong>RStudio</strong>, aber in <strong>R</strong> bekommen wir dieselbe Information.
+</aside>
+<p>Dann müssen wir diese nur noch mit der aktuellsten Version auf <a href="https://cran.r-project.org/bin/macosx/" target="_blank">CRAN</a> abgleichen.</p>
+<section id="pakete-aus-der-älteren-in-die-neuere-r-version-übernehmen" class="level4" data-number="2.2.3.1">
+<h4 data-number="2.2.3.1" class="anchored" data-anchor-id="pakete-aus-der-älteren-in-die-neuere-r-version-übernehmen"><span class="header-section-number">2.2.3.1</span> Pakete aus der älteren in die neuere <strong>R</strong>-Version übernehmen</h4>
+<blockquote class="blockquote">
+<p><em><strong>Achtung</strong></em>: Die nachfolgend beschriebene Verschiebung von Paketen ist <strong>nur notwendig, wenn sich die </strong>R<strong>-Version in der ersten Nachkommastelle ändert</strong> z.B. Version 3.5 zu 3.6. Bei kleineren Updates z.B. Version 3.6.0 zu 3.6.1 verändert sich der Pfad der Pakete nicht.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><em><strong>Achtung</strong></em>: Wenn wir von einer älteren <strong>R</strong> -Version auf <strong>R 4.0.0</strong> wechseln, müssen wir all unsere Pakete neu installieren. Das manuelle Verschieben dieser mit dem nachfolgend vorgestellten Weg funktioniert hier nicht.</p>
+</blockquote>
+<p>Wenn wir eine neuere <strong>R</strong>-Version heruntergeladen haben, sind unsere Pakete, die wir unter der vorherigen <strong>R</strong>-Version installiert haben, nicht mehr nutzbar im aktualisierten Programm. Das liegt daran, dass ein neuer Ordner für die aktuelle Version erstellt wurde, in den die Pakete <strong>nicht</strong> automatisch verschoben wurden.</p>
+<p>Um unsere Pakete im aktualisierten Programm nutzen zu können, müssen wir diese in den neuen Ordner verschieben. Dazu öffnen wir den Finder und nutzen den Kurzbefehl shift + cmd + G, um die Dateipfadsuche zu öffnen. In dieser suchen wir den Pfad <em>/Library/Frameworks/R.framework/Versions/</em>.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Installation/Bilder/3_Dateipfad_Suche.png" class="img-fluid figure-img" width="400"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Wir bekommen nun die Ordner der verschiedenen <strong>R</strong>-Versionen angezeigt.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Installation/Bilder/4_Dateipfad_gesucht.png" class="img-fluid figure-img" width="500"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Wir machen nun einen Rechtsklick auf den Ordner der vorherig genutzten <strong>R</strong>-Version (hier: 3.5) und öffnen diesen in einem neuen Tab. Der Ordner enthält nur den Ordner <strong>Resources</strong> und dieser wiederum nur den Ordner <strong>library</strong>. Wen wir diesen öffnen, sehen wir die Ordner aller Pakete. Wir wählen schonmal alle Ordner an.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Installation/Bilder/5_Ordner.png" class="img-fluid figure-img" width="700"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Nun gehen wir zurück auf den anderen Tab, in dem die Ordner der verschiedenen <strong>Versionen von R</strong> gelistet sind. Wir öffnen den Ordner der aktuellesten Version (hier: 3.6) und klicken auch hier auf den Ordner <strong>Resources</strong> und dann <strong>library</strong>.</p>
+<p>Wir gehen jetzt zurück auf den anderen Tab (der älteren <strong>R</strong>-Version) und ziehen die Pakete in den library-Ordner der neuen <strong>R</strong>-Version.</p>
+<blockquote class="blockquote">
+<p><em><strong>Achtung</strong></em>: Wenn Paket-Ordner doppelt vorliegen, dann werden wir gefragt, ob wir diese ersetzen wollen. Wir sollten <strong>verneinen</strong>, da wir ansonsten Probleme mit der Nutzung der alten Standard-Pakete in der neuen <strong>R</strong>-Version bekommen könnten.</p>
+</blockquote>
+<div class="cell">
+
+</div>
+<p><strong>Tipp</strong>: Nach der Aktualisierung von <strong>R</strong> können wir mit großer Wahrscheinlichkeit auch einige <strong>Pakete aktualisieren</strong>. Für Hilfe dabei können wir uns das gleichnamige <a href="./Pakete.html">Kapitel</a> anschauen.</p>
+</section>
+</section>
+<section id="aktualisierung-von-rstudio-1" class="level3" data-number="2.2.4">
+<h3 data-number="2.2.4" class="anchored" data-anchor-id="aktualisierung-von-rstudio-1"><span class="header-section-number">2.2.4</span> Aktualisierung von <strong>RStudio</strong></h3>
+<p>Aktualisierungen für die Entwicklungsumgebung <strong>RStudio</strong> gibt es wesentlich seltener als für das dahinter liegende Basisprogramm <strong>R</strong>.</p>
+<p>Zur Überprüfung, ob eine aktuellere Version vorliegt, können wir in <strong>RStudio</strong> auf <strong>Help –&gt; Check for Updates</strong> klicken (in <strong>R</strong> gibt es diese Option <strong>nicht</strong>).</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Installation/Bilder/Check_for_Updates.png" class="img-fluid figure-img" width="700"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Wenn es eine aktuellere Version gibt, öffnet sich die <a href="https://rstudio.com/products/rstudio/download/" target="_blank"><strong>RStudio</strong>-Seite</a> im Browser.</p>
+<details>
+<summary>
+Ich finde die Option Check for Updates nicht.
+</summary>
+<p>Manchmal gibt es die Option <strong>Check für Updates</strong> nicht im <strong>Help</strong>-Menü. Analog dazu können wir auch manuell unsere bestehende mit der aktuellsten <strong>RStudio</strong>-Version abgleichen. Dazu klicken wir in <strong>RStudio</strong> auf <strong>RStudio</strong> –&gt; About <strong>RStudio</strong> …</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Installation/Bilder/R-Studio_Version_Menue.png" class="img-fluid figure-img" width="700"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>… so dass sich folgendes Fenster öffnet, in dem wir unsere bestehende <strong>RStudio</strong>-Version in Erfahrung bringen können.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Installation/Bilder/R-Studio_Version.png" class="img-fluid figure-img" width="500"></p>
+</figure>
+</div>
+</div>
+</div>
+Informationen über die aktuellste <strong>RStudio</strong>-Version finden wir wieder auf der <a href="https://rstudio.com/products/rstudio/download/#download" target="_blank"><strong>RStudio</strong>-Seite</a>.
+</details>
+<p>Wenn unsere Version nicht mehr aktuell ist, überprüfen wir, ob die uns empfohlene Version <a href="#macver">mit unserem Betriebssystem</a> sowie unserer <strong>R</strong>-Version kompatibel ist.</p>
+<p>Das weitere Vorgehen ist weitestgehend deckungsgleich mit dem der initialen <a href="#installation-von-rstudio-1">Installation von <strong>RStudio</strong></a>. Einziger Unterschied ist, dass wir die ältere durch die neuere <strong>RStudio</strong>-Version ersetzen.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Installation/Bilder/9_R_Studio_ersetzen.png" class="img-fluid figure-img" width="350"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="hinweis-zur-replizierbarkeit-von-analysen" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="hinweis-zur-replizierbarkeit-von-analysen"><span class="header-section-number">2.3</span> Hinweis zur Replizierbarkeit von Analysen</h2>
+<p>Wir sollten bei Analysen in <strong>R</strong> immer berichten, in welcher Version unser <strong>Betriebssystem</strong>, <strong>R</strong> und unsere genutzten <strong>Pakete</strong> vorliegen. Sonst kann die Replikation unserer Ergebnisse Anderen schwer fallen, z.B. weil die Funktionen sich in ihrer Berechnung oder Funktionsweise zwischen verschiedenen Versionen von Paketen unterscheiden können. Mit der Funktion <code>sessionInfo()</code> bekommen wir all diese Informationen auf einen Schlag.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figures/Installation/Bilder/sessionInfo.png" class="img-fluid" width="600"></p>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Inhalte</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./Einfuehrung_in_R.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Einführung in R</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

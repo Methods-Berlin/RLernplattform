@@ -1,0 +1,1673 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>R Lernplattform - 14&nbsp; Annahmen der Multiplen Linearen Regression</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Outputs-ALM-FAQ.html" rel="next">
+<link href="./Git.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Annahmen der Multiplen Linearen Regression</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">R Lernplattform</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Inhalte</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Einführung in R</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Installation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Installation und Aktualisierung von R und RStudio</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Einfuehrung_in_R.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Einführung in R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Einfuehrung_in_RStudio.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Einführung in RStudio</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Pakete.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Pakete</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Daten-importieren.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Daten importieren</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Fehlermeldungen.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Fehlermeldungen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Datenvorbereitung.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Datenvorbereitung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Fehlende-Werte.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Fehlende Werte</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Grafiken.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Grafiken</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Weiterführende Themen in R</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Wide-and-Long-Format.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Wide- &amp; Long-Format</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Markdown.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">R Markdown</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Git.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Git und GitLab</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Vertiefungen zu den Veranstaltungen Methodenlehre I und II</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Voraussetzungspruefung.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Annahmen der Multiplen Linearen Regression</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Outputs-ALM-FAQ.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Outputs - ALM - FAQ</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">Projekt-Dokumentation</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Zur-Lernplattform-Beitragen.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Zur R-Lernplattform Beitragen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lineare-regression.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Lineare Regression - Die Basics</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#linearität" id="toc-linearität" class="nav-link active" data-scroll-target="#linearität"><span class="toc-section-number">14.1</span>  Linearität</a>
+  <ul class="collapse">
+  <li><a href="#überprüfung" id="toc-überprüfung" class="nav-link" data-scroll-target="#überprüfung"><span class="toc-section-number">14.1.1</span>  Überprüfung</a></li>
+  <li><a href="#umgang" id="toc-umgang" class="nav-link" data-scroll-target="#umgang"><span class="toc-section-number">14.1.2</span>  Umgang</a></li>
+  </ul></li>
+  <li><a href="#exogenität-der-prädiktoren" id="toc-exogenität-der-prädiktoren" class="nav-link" data-scroll-target="#exogenität-der-prädiktoren"><span class="toc-section-number">14.2</span>  Exogenität der Prädiktoren</a>
+  <ul class="collapse">
+  <li><a href="#überprüfung-1" id="toc-überprüfung-1" class="nav-link" data-scroll-target="#überprüfung-1"><span class="toc-section-number">14.2.1</span>  Überprüfung</a></li>
+  <li><a href="#umgang-1" id="toc-umgang-1" class="nav-link" data-scroll-target="#umgang-1"><span class="toc-section-number">14.2.2</span>  Umgang</a></li>
+  </ul></li>
+  <li><a href="#homoskedastizität" id="toc-homoskedastizität" class="nav-link" data-scroll-target="#homoskedastizität"><span class="toc-section-number">14.3</span>  Homoskedastizität</a>
+  <ul class="collapse">
+  <li><a href="#überprüfung-2" id="toc-überprüfung-2" class="nav-link" data-scroll-target="#überprüfung-2"><span class="toc-section-number">14.3.1</span>  Überprüfung</a></li>
+  <li><a href="#umgang-2" id="toc-umgang-2" class="nav-link" data-scroll-target="#umgang-2"><span class="toc-section-number">14.3.2</span>  Umgang</a></li>
+  </ul></li>
+  <li><a href="#unabhängigkeit-der-residuen" id="toc-unabhängigkeit-der-residuen" class="nav-link" data-scroll-target="#unabhängigkeit-der-residuen"><span class="toc-section-number">14.4</span>  Unabhängigkeit der Residuen</a>
+  <ul class="collapse">
+  <li><a href="#überprüfung-3" id="toc-überprüfung-3" class="nav-link" data-scroll-target="#überprüfung-3"><span class="toc-section-number">14.4.1</span>  Überprüfung</a></li>
+  <li><a href="#umgang-3" id="toc-umgang-3" class="nav-link" data-scroll-target="#umgang-3"><span class="toc-section-number">14.4.2</span>  Umgang</a></li>
+  </ul></li>
+  <li><a href="#weitere-wichtige-aspekte" id="toc-weitere-wichtige-aspekte" class="nav-link" data-scroll-target="#weitere-wichtige-aspekte"><span class="toc-section-number">14.5</span>  Weitere wichtige Aspekte</a>
+  <ul class="collapse">
+  <li><a href="#sec-Normalverteilung-der-Residuen" id="toc-sec-Normalverteilung-der-Residuen" class="nav-link" data-scroll-target="#sec-Normalverteilung-der-Residuen"><span class="toc-section-number">14.5.1</span>  Normalverteilung der Residuen</a></li>
+  <li><a href="#multikollinearität" id="toc-multikollinearität" class="nav-link" data-scroll-target="#multikollinearität"><span class="toc-section-number">14.5.2</span>  Multikollinearität</a></li>
+  <li><a href="#extreme-werte-und-einflussreiche-datenpunkte" id="toc-extreme-werte-und-einflussreiche-datenpunkte" class="nav-link" data-scroll-target="#extreme-werte-und-einflussreiche-datenpunkte"><span class="toc-section-number">14.5.3</span>  Extreme Werte und einflussreiche Datenpunkte</a></li>
+  </ul></li>
+  <li><a href="#literatur-weiterführende-hilfe" id="toc-literatur-weiterführende-hilfe" class="nav-link" data-scroll-target="#literatur-weiterführende-hilfe"><span class="toc-section-number">14.6</span>  Literatur &amp; weiterführende Hilfe</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Annahmen der Multiplen Linearen Regression</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>Einleitung</p>
+<p>Wenn wir uns den gerichteten Zusammenhang von mehr als zwei Variablen anschauen möchten, können wir dafür die multiple lineare Regression nutzen. Bei dieser können wir <em>eine</em> abhängige Variable (AV, nachfolgend <em>Kriterium</em> genannt) durch <em>mehrere (multiple)</em> unabhängige Variablen (UVs, nachfolgend <em>Prädiktoren</em> genannt) vorhersagen. Grundsätzlich gilt, dass das Kriterium metrisch sein muss (d.h. mindestens intervallskaliert). Die Prädiktoren hingegen können auch kategorial (d.h. dichotom, nominal- oder ordinalskaliert) sein, sofern diese korrekt kodiert werden (z.B. als Dummyvariablen).</p>
+<aside>
+<br>
+Wie wir u.a. Dummykodierungen erstellen können erfahren wir im Abschnitt [Indikatorvariablen: Kodierung nominaler Merkmale][Indikatorvariablen: Kodierung nominaler Merkmale] im Kapitel Datenvorbereitung.
+</aside>
+<details>
+<summary>
+Wie sieht die Regressionsgleichung aus?
+</summary>
+<p>Nach dem linearen Modell gilt (für Person <span class="math inline">\(i=1, ..., n\)</span> und Prädiktor <span class="math inline">\(k=1, ..., K\)</span>):<br>
+</p>
+<p><strong><span class="math display">\[y_i = b_0 + b_1x_1 + ... + b_Kx_K + e_i\]</span></strong></p>
+<strong><span class="math inline">\(y\)</span></strong>: Kriterium<br>
+<strong><span class="math inline">\(b_0\)</span></strong>: y-Achsenabschnitt (Intercept)<br>
+<strong><span class="math inline">\(b_1, ..., b_K\)</span></strong>: Steigungen (Slopes); hier unstandardisiert<br>
+<strong><span class="math inline">\(e_i\)</span></strong>: Residuum (Vorhersagefehler); gibt den Teil von y an, der nicht durch die Regressionsgleichung vorhergesagt werden kann
+</details>
+<p>Bei der Anwendung der multiplen linearen Regression müssen allerdings bestimmte Annahmen erfüllt sein. Wenn diese verletzt sind, besteht die Gefahr, dass die Parameterschätzungen inkorrekt (verzerrt) sind und/oder wir inkorrekte Schlussfolgerungen über das Vorhandensein von Effekten in der Population ziehen (z.B. wir aufgrund von verzerrten Standardfehlern fälschlicherweise ein signifikantes Ergebnis erhalten).</p>
+<p>Die wichtigsten Annahmen sind: Linearität, Exogenität, Homoskedastizität und die Unabhängigkeit der Residuen. Darüber hinaus sollten wir uns auch immer die Normalverteilung der Residuen, Multikollinearität sowie Ausreißer und einflussreiche Datenpunkte ansehen.</p>
+<p><strong>Gefahren bei Verletzung der Annahmen und weiterer wichtiger Punkte</strong></p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;font-weight: bold;color: white !important;background-color: #009193 !important;">   </th>
+   <th style="text-align:left;font-weight: bold;color: white !important;background-color: #009193 !important;"> verzerrte Koeffizienten </th>
+   <th style="text-align:left;font-weight: bold;color: white !important;background-color: #009193 !important;"> verzerrte Standardfehler </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;color: white !important;background-color: #009193 !important;"> **Linearität** </td>
+   <td style="text-align:left;"> X </td>
+   <td style="text-align:left;"> X </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;color: white !important;background-color: #009193 !important;"> **Exogenität** </td>
+   <td style="text-align:left;"> X </td>
+   <td style="text-align:left;"> X </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;color: white !important;background-color: #009193 !important;"> **Homoskedastizität** </td>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:left;"> X </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;color: white !important;background-color: #009193 !important;"> **Unabhängigkeit der Residuen** </td>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:left;"> X </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;color: white !important;background-color: #009193 !important;"> Normalverteilung der Residuen </td>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:left;"> X </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;color: white !important;background-color: #009193 !important;"> Multikollinearität </td>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:left;"> X </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;color: white !important;background-color: #009193 !important;"> Einflussreiche Datenpunkte </td>
+   <td style="text-align:left;"> X </td>
+   <td style="text-align:left;">  </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<p>Bei der Prüfung von Annahmen in der multiplen linearen Regression ist die <strong>Residualdiagnostik</strong> ein wichtiges Verfahren. Residuen <span class="math inline">\(\hat e_i\)</span> sind Abweichungen der vorhergesagten Werte des Kriteriums <span class="math inline">\(\hat y_i\)</span> von den beobachteten Werten des Kriteriums <span class="math inline">\(y_i\)</span> von Person <span class="math inline">\(i\)</span>. Man schaut sich anstatt der geplotteten Rohdaten häufig die Residualplots an, weil man Plots mit mehr als zwei Achsen (bei mehr als einem Prädiktor) grafisch nicht gut darstellen kann. Zusätzlich visualisieren Residuen die Abweichungen besser und lassen uns so u.a. nicht-lineare Zusammenhänge besser aufdecken.</p>
+<p>Die verschiedenen Annahmen werden im Verlauf der folgenden Abschnitte kurz erläutert und Möglichkeiten der Überprüfung (v.a. mit Hilfe von Grafiken), sowie zum Umgang mit Verletzung der Annahmen kurz skizziert.</p>
+<details>
+<summary>
+Warum werden bevorzugt Grafiken genutzt, um die Annahmen zu prüfen?
+</summary>
+In geplotteten Daten können verschiedenste Verletzungen (z.B. Missspezifikationen der Form des Zusammenhangs zwischen den Variablen) entdeckt werden, denn graphische Darstellungen machen nur geringe Annahmen über die Art des Problems. Statistische Tests hingegen haben häufig einen eingeschränkten Fokus und sie vergleichen nur, was wir vorgegeben haben. Zusätzlich funktionieren sie nur unter bestimmten Annahmen, liefern lediglich eine 0/1-Aussage ohne die Schwere des Annahmeverstoßes zu quantifizieren und hängen stark von der Stichprobengröße ab.
+</details>
+<details>
+<summary>
+Was ist die <a name="loess">Lowess Fit Line</a>?
+</summary>
+<div class="cell">
+
+</div>
+<p>Wenn wir Ergebnisse einer linearen Regression mit <code>plot()</code> darstellen, wird häufig die sogenannte <strong>Lowess Fit Line</strong> eingezeichnet.</p>
+Lowess steht für <strong>lo</strong>cally <strong>we</strong>ighted <strong>s</strong>catterplot <strong>s</strong>moother. Die Lowess (oder auch Loess) Fit Line ist ein Verfahren, welches den besten nonparametrischen Fit für die gegeben Daten anzeigt. Sie ist eine Auswertungshilfe bei der Beurteilung der Form des Zusammenhangs. Dabei macht sie keine Annahmen über die Form des Zusammenhangs zwischen den Variablen. Der Zusammenhang zwischen zwei Variablen wird im Streudiagramm als “smoothe” Linie, die den generellen Trend der Daten beschreibt, dargestellt. Wenn der Zusammenhang zwischen zwei Variablen in der Population linear ist, so sollte sich auch die Lowess Line einer Gerade annähern. Allerdings ist die Lowess Line häufig an den Enden der Verteilung von X weniger präzise, da hier weniger Daten vorhanden sind.
+</details>
+<details>
+<summary>
+Beispieldatensatz für dieses Kapitel
+</summary>
+<p>Hier sehen wir, wie wir den Datensatz <code>erstis</code>, an dem wir in diesem Kapitel arbeiten werden, einlesen können.</p>
+<div class="cell">
+
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">url</span>(<span class="st">"http://www.beltz.de/fileadmin/beltz/downloads/</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="st">         OnlinematerialienPVU/R_fuer_Einsteiger/erstis.rda"</span>))</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Zeilenumbruch zwischen der ersten und zweiten Zeile noch entfernen!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Die enthaltenen Daten sind aus einer Erhebung mit Erstsemesterstudierenden der Psychologie. Unter diesem <a href="https://www.beltz.de/fileadmin/beltz/downloads/OnlinematerialienPVU/R_fuer_Einsteiger/Datensatz%20Erstis_Codebook.pdf" target="_blank">Link</a> finden wir das Codebuch zum Datensatz.</p>
+<p>Exemplarisch schauen wir uns für dieses Kapitel an, wie gut sich <strong>lz.1</strong> (Lebenszufriedenheit T1) durch <strong>zuf.inh.1</strong> (Zufriedenheit mit Studieninhalten T1) und <strong>zuf.bed.1</strong> (Zufriedenheit mit Studienbedingungen T1) vorhersagen lässt.<br>
+</p>
+<p>Dazu erstellen wir erst einen neuen Datensatz mit diesen Variablen und führen dann die Regression durch.</p>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Daten aus erstis in neuem Dataframe speichern ...</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>daten <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(erstis<span class="sc">$</span>lz<span class="fl">.1</span>, erstis<span class="sc">$</span>zuf.inh<span class="fl">.1</span>, erstis<span class="sc">$</span>zuf.bed<span class="fl">.1</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ... und Spalten umbenennen</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(daten) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"leb_zufr"</span>, <span class="st">"zufr_inhalt"</span>, <span class="st">"zufr_beding"</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Regression durchführen</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>lm_lz <span class="ot">&lt;-</span> <span class="fu">lm</span>(daten<span class="sc">$</span>leb_zufr <span class="sc">~</span> daten<span class="sc">$</span>zufr_inhalt <span class="sc">+</span> daten<span class="sc">$</span>zufr_beding, </span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">na.action =</span> <span class="st">"na.exclude"</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># mit "na.exclude" schließen wir fehlende Werte aus</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Für mehr Informationen dazu, wie <code>lm()</code> und andere Funktionen mit Missings umgehen, können wir uns das Kapitel <a href="./Fehlende-Werte.html">Fehlende Werte</a> anschauen.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Die Residuen brauchen wir später, daher fügen wir sie jetzt ... </span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ... schon als Variable zum Datensatz hinzu.</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>daten<span class="sc">$</span>resid <span class="ot">&lt;-</span> <span class="fu">residuals</span>(lm_lz) </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># wichtig: residuals() oder resid() nehmen</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># lm_lz$residuals funktioniert hier nicht, </span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># ... weil die Zeilenanzahl geringerer ist ...</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># ... weil Zeilen mit Missings gelöscht werden</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Im Rahmen dieses Kapitels liegt der Fokus nicht auf der inhaltlichen Interpretation der Ergebnisse der multiplen linearen Regressions, sondern darauf, <strong>ob die oben genannten Annahmen erfüllt sind</strong>.</p>
+<p>Nachfolgend sehen wir den Output der <code>lm()</code>-Funktion (<code>lm_lz</code>).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm_lz)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = daten$leb_zufr ~ daten$zufr_inhalt + daten$zufr_beding, 
+    na.action = "na.exclude")
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-15.2274  -3.7319   0.8666   3.8354   8.5019 
+
+Coefficients:
+                  Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)        12.7910     2.3392   5.468  1.7e-07 ***
+daten$zufr_inhalt   2.4993     0.6870   3.638 0.000369 ***
+daten$zufr_beding   1.3128     0.5743   2.286 0.023572 *  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 5.137 on 161 degrees of freedom
+  (27 observations deleted due to missingness)
+Multiple R-squared:  0.141, Adjusted R-squared:  0.1303 
+F-statistic: 13.21 on 2 and 161 DF,  p-value: 4.87e-06</code></pre>
+</div>
+</div>
+Wenn die Annahmen für die multiple lineare Regression in unserem Beispiel nicht erfüllt sind, besteht die Gefahr, dass unsere Parameterschätzungen (<code>Estimate</code>-Spalte) und/oder Standardfehler (<code>Std.Error</code>-Spalte) inkorrekt sind. Damit wären unsere Ergebnisse u.U. untauglich.
+</details>
+<blockquote class="blockquote">
+<p><em><strong>Achtung</strong></em>: Um eine (multiple) lineare Regression durchführen zu können, müssen unsere Daten ggf. in einem für unsere Analyse <strong>geeigneten (Tabellen-)Format</strong> vorliegen. Es gibt das <strong>Long-</strong> und das <strong>Wide-Format</strong>. Wie wir beide ineinander überführen können erfahren wir im gleichnamigen <a href="./Wide-and-Long-Format.html">Kapitel</a>.</p>
+</blockquote>
+<section id="linearität" class="level2" data-number="14.1">
+<h2 data-number="14.1" class="anchored" data-anchor-id="linearität"><span class="header-section-number">14.1</span> Linearität</h2>
+<blockquote class="blockquote">
+<p>Mit Linearität ist die <strong>korrekte Spezifikation der Form des Zusammenhangs zwischen Kriterium und Prädiktoren</strong> gemeint. Genauer gesagt, meint die Annahme, dass der <strong>Erwartungswert des Kriteriums</strong> sich als <strong>Linearkombination der Prädiktoren</strong> darstellen lässt.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><em><strong>Achtung</strong></em>: Dies bedeutet jedoch <strong>nicht</strong> notwendigerweise, dass der Zusammenhang der Variablen linear sein muss.</p>
+</blockquote>
+<p>Es muss sich lediglich um eine linear additive Verknüpfung der Regressionsterme handeln. Beispielsweise spezifiziert die folgende Regressionsgleichung <span class="math inline">\(y=b_0 + b_1x^2 + e\)</span> einen quadratischen Zusammenhang zwischen <span class="math inline">\(Y\)</span> und <span class="math inline">\(X\)</span> mittels einer linear additiven Verknüpfung der Regressionsterme (hier nur ein einziger Prädiktor <span class="math inline">\(X\)</span>). Siehe auch den Abschnitt zum Umgang mit Nicht-Linearität.</p>
+<p>Wenn die Form des Zusammenhangs zwischen Kriterium und Prädiktoren nicht richtig spezifiziert wurde, können ernsthafte Probleme auftreten. Dies wäre zum Beispiel dann der Fall, wenn es zwischen Prädiktoren und Kriterium in Wirklichkeit einen quadratischen Zusammenhang gibt, wir in unserem Regressionsmodell aber nur einen linearen Zusammenhang spezifiziert haben. Sowohl die <strong>Regressionskoeffizienten</strong> als auch die <strong>Standardfehler</strong> könnten in einem solchen Fall verzerrt sein.</p>
+<section id="überprüfung" class="level3" data-number="14.1.1">
+<h3 data-number="14.1.1" class="anchored" data-anchor-id="überprüfung"><span class="header-section-number">14.1.1</span> Überprüfung</h3>
+<section id="bivariate-streudiagramme" class="level4" data-number="14.1.1.1">
+<h4 data-number="14.1.1.1" class="anchored" data-anchor-id="bivariate-streudiagramme"><span class="header-section-number">14.1.1.1</span> Bivariate Streudiagramme</h4>
+<p>In einem ersten Schritt schauen wir uns bivariate Streudiagramme an. Das heißt, wir schauen uns nicht das gesamte Modelle (mit mehreren Prädiktoren) an, sondern nur Zusammenhänge zwischen <em>einzelnen</em> Prädiktoren und dem Kriterium.</p>
+<blockquote class="blockquote">
+<p><em><strong>Achtung</strong></em>: Auch wenn die bivariaten Streudiagramme auf Linearität hinweisen, sollten wir nicht vergessen, dass auch Interkationen zwischen Prädiktoren zu nicht-linearen Zusammenhängen führen können. Die Nutzung von bivariaten Streudiagramen zur Überprüfung der Annahme der Linearität ist <strong>weder eine notwendige, noch eine hinreichende Bedingung</strong>. Sie sind daher mit Vorsicht zu beurteilen.</p>
+</blockquote>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Lebenszufriedenheit - Zufriedenheit mit Studieninhalten</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(daten<span class="sc">$</span>zufr_inhalt, daten<span class="sc">$</span>leb_zufr)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>lz_inh <span class="ot">&lt;-</span> <span class="fu">lm</span>(daten<span class="sc">$</span>leb_zufr <span class="sc">~</span> daten<span class="sc">$</span>zufr_inhalt, <span class="at">na.action=</span><span class="st">'na.exclude'</span>) <span class="co"># Einfache Regression</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(lz_inh) <span class="co"># Einzeichnen Regressionsgerade</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Voraussetzungspruefung_files/figure-html/bivariate plot 1-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Der Plot spricht für einen linearen Zusammenhang zwischen Lebenszufriedenheit (Kriterium) und Zufriedenheit mit Studieninhalten (Prädiktor).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Lebenszufriedenheit - Zufriedenheit mit Studienbedingungen</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(daten<span class="sc">$</span>zufr_beding, daten<span class="sc">$</span>leb_zufr)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>lz_bed <span class="ot">&lt;-</span> <span class="fu">lm</span>(daten<span class="sc">$</span>leb_zufr <span class="sc">~</span> daten<span class="sc">$</span>zufr_beding, <span class="at">na.action=</span><span class="st">'na.exclude'</span>) <span class="co"># Einfache Regression</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(lz_bed) <span class="co"># Einzeichnen Regressionsgerade</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Voraussetzungspruefung_files/figure-html/bivariate plot 2-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Der Plot von Lebenszufriedenheit (Kriterium) und Zufriedenheit mit Studienbedingungen (Prädiktor) weist auf einen linearen Zusammenhang hin.</p>
+</section>
+<section id="residualplot" class="level4" data-number="14.1.1.2">
+<h4 data-number="14.1.1.2" class="anchored" data-anchor-id="residualplot"><span class="header-section-number">14.1.1.2</span> Residualplot</h4>
+<p>Das wichtigste Werkzeug zur Prüfung der Linearitätsannahme ist der Residualplot. In einem Residualplot werden die vorhergesagten Werte <span class="math inline">\(\hat y_i\)</span> (auf der <span class="math inline">\(x\)</span>-Achse) gegen die Residuen <span class="math inline">\(\hat e_i = y_i - \hat y_i\)</span> (auf der <span class="math inline">\(y\)</span>-Achse) abgetragen.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lm_lz, <span class="at">which =</span> <span class="dv">1</span>) </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># erster Plot der plot()-Funktion für ein lm-Objekt ist der Residualplot</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="Voraussetzungspruefung_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Die <strong>gestrichelte Linie</strong> bei <span class="math inline">\(y = 0\)</span> zeigt den Erwartungswert der Residuen. Diese ist immer null und die Residuen sollten sich ohne erkennbares Muster, um diese Linie verteilen.</p>
+<p>Die rote Linie ist die <a href="#loess">Lowess Fit Line</a>. Diese sollte sich der gestrichelten Linie annähern, wenn der Zusammenhang zwischen Prädiktoren und Kriterium linear ist.</p>
+<p>In unserem Beispiel legt der Residualplot nahe, dass der Zusammenhang zwischen Lebenszufriedenheit und Zufriedenheit mit Studieninhalten und -bedingungen weitgehend linear ist.</p>
+<p>Die Annahme der Linearität wäre z.B. verletzt, wenn die Residuen einen U-förmigen Zusammenhang mit den vorhergesagten Werten aufweisen würden. Das würde nahelegen, dass ein quadratischer Zusammenhang zwischen dem Kriterium und den Prädiktoren besteht, der nicht adäquat modelliert wurde.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Voraussetzungsprüfung/Bilder/non_linearity.png" class="img-fluid figure-img" width="400"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="umgang" class="level3" data-number="14.1.2">
+<h3 data-number="14.1.2" class="anchored" data-anchor-id="umgang"><span class="header-section-number">14.1.2</span> Umgang</h3>
+<p>Um einen angemessen Weg zu finden, um mit nicht-linearen Zusammenhängen zwischen den Variablen umzugehen, können wir die folgenden vier Fragen zur Eingrenzung nutzen:</p>
+<ul>
+<li><em><strong>Gibt es eine Theorie, die einen spezifischen nicht-linearen Zusammenhang zwischen den integrierten Variablen vorhersagt?</strong></em>
+<ul>
+<li>Wir sollten eine Regressionsgleichung aufstellen, die dem theoretisch implizierten mathematischen Zusammenhang widerspiegelt.</li>
+</ul></li>
+<li><em><strong>Wie sieht der beobachtete bivariate Zusammenhang zwischen den Variablen aus?</strong></em>
+<ul>
+<li>Wenn der Zusammenhang zwischen dem Kriterium und einzelnen Prädiktoren oder zwischen einzelnen Prädiktoren untereinander nicht-linear ist, können die Prädiktoren transformiert werden (z.B. <span class="math inline">\(log X_1\)</span>). Die Art der Transformation hängt von der Art des Zusammenhangs ab.</li>
+</ul></li>
+<li><em><strong>Wie sieht die <a href="#loess">Lowess Line</a> in den originalen Daten aus?</strong></em> <em>und</em><br>
+</li>
+<li><em><strong>Bleibt die Varianz der Residuen über den Bereich des Kriteriums hinweg konstant?</strong> (siehe <a href="#homoskedastizität">Homoskedastizität</a>)</em>
+<ul>
+<li><strong><em>Homos</em>kedastizität</strong>: Hierbei könnten wir einzelne Regressionsterme in Polynomen höherer Ordnung darstellen (z.B. <span class="math inline">\(X_1^2\)</span>, <span class="math inline">\(X_2^3\)</span>). In einigen Fällen könnten einfache Potenzfunktionen nicht ausreichend sein. Dann könnten nichtparametrische Funktionen die bessere Lösung sein, um den Zusammenhang zwischen Kriterium und Prädiktoren zu spezifizieren.</li>
+<li><strong><em>Heteros</em>kedastizität</strong>: Wir könnten das Kriterium durch eine nichtlineare mathematische Funktion von <span class="math inline">\(Y\)</span> ersetzen (z.B. <span class="math inline">\(log Y\)</span>). Mit dieser Transformation entsprechen die Residuen nun den <em>beobachteten</em> <span class="math inline">\(log Y\)</span> minus den <em>vorhergesagten</em> <span class="math inline">\(log \hat Y\)</span>.</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="exogenität-der-prädiktoren" class="level2" data-number="14.2">
+<h2 data-number="14.2" class="anchored" data-anchor-id="exogenität-der-prädiktoren"><span class="header-section-number">14.2</span> Exogenität der Prädiktoren</h2>
+<blockquote class="blockquote">
+<p>Die <strong>Prädiktoren <span class="math inline">\(X\)</span> sind unabhängig vom Fehlerterm</strong> der Regressionsgleichung <span class="math inline">\(e\)</span>: <span class="math inline">\(E(e|X)=0\)</span>.</p>
+</blockquote>
+<p>Das impliziert z.B. perfekte Reliabilität und das alle relevanten Variablen im Modell aufgenommen sind, das heißt, dass es keine <a href="https://de.wikipedia.org/wiki/Störfaktor" target="_blank">konfundierenden Variablen</a> gibt. Das ist ein zentrales Anliegen in der Wissenschaft, jedoch ist Exogenität nicht leicht nachzuweisen.</p>
+<p>Für unser Beispiel der Regression von ‘Zufriedenheit mit Studieninhalten’ und ‘Zufriedenheit mit Studienbedingungen’ auf ‘Lebenszufriedenheit’ müssten wir überlegen, ob noch andere Variablen einen Einfluss haben könnten. Beispielsweise könnten auch verschiedene Persönlichkeitsfaktoren mit ‘Lebenszufriedenheit’ zusammenhängen. Das würde sich dann darin äußern, dass die Prädiktoren noch systematische Varianz mit dem Fehlerterm teilen.</p>
+<p>Wenn nicht alle relevanten Prädiktoren im Modell spezifiziert sind <em>oder</em> enthaltene Prädiktoren messfehlerbehaftet sind, <em>können</em> daraus verzerrte <strong>Regressionskoeffizienten</strong> und <strong>Standardfehler</strong> resultieren.</p>
+<section id="überprüfung-1" class="level3" data-number="14.2.1">
+<h3 data-number="14.2.1" class="anchored" data-anchor-id="überprüfung-1"><span class="header-section-number">14.2.1</span> Überprüfung</h3>
+<p>Vor der Erhebung müssen wir uns sorgfältig Gedanken darüber machen, welche Prädiktoren relevant sind. Diese müssen vollständig in das Modell integriert werden. Beispielsweise sollten wir stets eine Literaturrecherche durchführen, um uns über den derzeitigen Stand der Forschung in einem Themenbereich zu informieren.</p>
+<p>Zur Überprüfung der Exogenität könnten wir außerdem eine <strong>hierarchische Regression</strong> durchführen, in der wir schrittweise weitere Variablen aufnehmen. Wenn sich die Regressionsgewichte bei Aufnahme eines neuen Prädiktors ändern, war die Exogenitätsannahme der ursprünglichen Prädiktoren wahrscheinlich nicht erfüllt. Solche <strong>Modellvergleiche</strong> helfen bei der Beurteilung der Exogenität.</p>
+<p>Wir sollten uns zusätzlich theoretisch überlegen, ob die gemessenen Prädiktoren messfehlerbehaftet sein könnten. Direkt beobachtbare Variablen (z.B. Alter, höchster Bildungsabschluss oder Körpergröße) stehen <em>weniger</em> im Verdacht, messfehlerbehaftet zu sein. Nicht direkt beobachtbare (latente) Variablen hingegen (z.B. Berufserfolg, Kreativität oder Wohlbefinden) können mit <em>größerer</em> Wahrscheinlichkeit messfehlerbehaftet sein.</p>
+<p>Unsere Variablen ‘Lebenszufriedenheit’, ‘Zufriedenheit mit Studieninhalten’ und ‘Zufriedenheit mit Studienbedingungen’ sind alle latent. Von daher sind Messfehler wahrscheinlicher.</p>
+<p>Wir sollten uns außerdem für die reliabelsten Erhebungsinstrumente für die Messung der Prädiktoren entscheiden. Wenn wir nicht an der Erhebung der Variablen beteiligt waren, sollten wir uns nachträglich über die Reliabilität der Erhebungsinstrumente informieren.</p>
+<p>In unserem Fall des <code>erstis</code>-Datensatz gibt es leider keine weiteren Informationen zu den Erhebungsinstrumenten. So können wir leider nicht einschätzen, wie reliabel die Erhebungsinstrumente sind.</p>
+<p>Die Reliabilität erhobener Variablen können wir auf verschiedene Arten schätzen. Diese werden in Abhängigkeit des Forschungsdesign und der Fragestellung ausgewählt.</p>
+<p>Die Reliabilität der Messungen in unserem Beispiel könnten wir beispielsweise mit McDonald’s Omega bzw. dem gewichteten Omega berechnen.</p>
+</section>
+<section id="umgang-1" class="level3" data-number="14.2.2">
+<h3 data-number="14.2.2" class="anchored" data-anchor-id="umgang-1"><span class="header-section-number">14.2.2</span> Umgang</h3>
+<p>Wenn die Prädiktoren stark messfehlerbehaftet sind, sollten wir auf Regressionsmodelle mit latenten Variablen zurückgreifen. Beispielsweise können wir Messfehler mittels <strong>Strukturgleichungsmodellierung</strong> berücksichtigen.</p>
+</section>
+</section>
+<section id="homoskedastizität" class="level2 page-columns page-full" data-number="14.3">
+<h2 data-number="14.3" class="anchored" data-anchor-id="homoskedastizität"><span class="header-section-number">14.3</span> Homoskedastizität</h2>
+<blockquote class="blockquote">
+<p>Die <strong>Varianz der Residuen <span class="math inline">\(s^2_{e}\)</span> an einer bestimmten Stelle des Prädiktors ist für alle Prädiktorwerte gleich</strong>. Diese Varianz entspricht dem quadrierten Standardschätzfehler <span class="math inline">\(\sigma_e^2\)</span> in der Population.</p>
+</blockquote>
+<aside>
+Homoskedastizität wird auch Varianzhomogenität genannt.
+</aside>
+<p>Die Annahme wäre beispielsweise verletzt, wenn mit steigenden Prädiktorwerten die Residuen größer, d.h. die Vorhersage mittels der Regressionsgerade ungenauer, werden würde.</p>
+<p>Es kann vielfältige Gründe für Varianzheterogenität geben. So können z.B. stark abweichende Werte dafür verantwortlich sein (siehe <a href="#extreme-werte-und-einflussreiche-datenpunkte">Extreme Werte und einflussreiche Datenpunkte</a>).</p>
+<p>Nur unter Gültigkeit der Annahme ist die Berechnung der <strong>Standardfehler</strong> korrekt, aber Heteroskedastizität führt <em>nicht</em> zu verzerrten Regressionkoeffizienten.</p>
+<p>Andere als die vorgestellten Möglichkeiten zur Überprüfung und zum Umgang mit Heteroskedastizität inklusive der Umsetzung in R finden wir z.B. auf <a href="https://www.r-bloggers.com/how-to-detect-heteroscedasticity-and-rectify-it/" target="_blank">R-bloggers</a>.</p>
+<section id="überprüfung-2" class="level3" data-number="14.3.1">
+<h3 data-number="14.3.1" class="anchored" data-anchor-id="überprüfung-2"><span class="header-section-number">14.3.1</span> Überprüfung</h3>
+<section id="residualplot-1" class="level4" data-number="14.3.1.1">
+<h4 data-number="14.3.1.1" class="anchored" data-anchor-id="residualplot-1"><span class="header-section-number">14.3.1.1</span> Residualplot</h4>
+<p>Zur Überprüfung der Homoskedastizität können wir ebenfalls einen Residualplot, wie schon bei der <a href="#überprüfung">Überprüfung der Annahme der Linearität</a>, verwenden.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lm_lz, <span class="at">which =</span> <span class="dv">1</span>) </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># erster Plot der plot()-Funktion für ein lm-Objekt ist der Residualplot</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="Voraussetzungspruefung_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Die <strong>gestrichelte Linie</strong> bei <span class="math inline">\(y = 0\)</span> zeigt den Erwartungswert der Residuen. Diese ist immer null und die Residuen sollten sich ohne erkennbares Muster, um diese Linie verteilen.</p>
+<p>Die Annahme wäre z.B. verletzt, wenn die Residuen einen nach rechts geöffneten Trichter bilden würden. Das würde bedeuten, dass die Varianz mit größer werdenden <span class="math inline">\(X\)</span>-Werten wachsen würde wie in nachfolgendem Beispiel illustriert:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Voraussetzungsprüfung/Bilder/heteroskedasticity.png" class="img-fluid figure-img" width="400"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="scale-location-plot" class="level4" data-number="14.3.1.2">
+<h4 data-number="14.3.1.2" class="anchored" data-anchor-id="scale-location-plot"><span class="header-section-number">14.3.1.2</span> Scale Location Plot</h4>
+<p>Mit dem Scale Location Plot schauen wir, ob die Standardabweichung der standardisierten Residuen <span class="math inline">\(\frac{e_i}{s_e}\)</span> über den Bereich der vorhergesagten Werte hinweg gleich bleibt.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lm_lz, <span class="at">which =</span> <span class="dv">3</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Voraussetzungspruefung_files/figure-html/scale location plot-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># dritter Plot der plot()-Funktion für ein lm-Objekt ist der Scale Location Plot</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Die standardisierten Residuen sollten auch hier gleichmäßig (zufällig) über den gesamten Bereich streuen. Außerdem sollte die <a href="#loess">Lowess Line</a> möglichst horizontal zur <span class="math inline">\(x\)</span>-Achse sein.</p>
+<p>Auch der Scale Location Plot weist in unserem Beispiel auf ungefähre Varianzhomogenität hin. Das heißt, dass die standardisierten Residuen des Teils vom Kriterium ‘Lebenszufriedenheit’, der nicht durch die Prädiktoren ‘Zufriedenheit mit Studieninhalten’ und ‘Zufriedenheit mit Studienbedingungen’ vorhergesagt werden kann, gleichmäßig über die vorhergesagten Werte vom Kriterium ‘Lebenszufriedenheit’ streut.</p>
+<details>
+<summary>
+Exkurs: Quantifizieren des Ausmaßes
+</summary>
+<p>Bisher haben wir uns angeschaut, <em>ob</em> Heteroskedastizität vorliegt. Diese hat aber erst einen substanziellen Einfluss auf die Regression, wenn das Ausmaß “groß” ist. Wir können die Varianzheterogenität (<em>wenn</em> die graphische Überprüfung darauf hindeutet) quantifizieren, um zu entscheiden, ob wir korrektive Maßnahmen durchführen sollten. Dazu schauen wir uns eine Möglichkeit aus dem Lehrbuch von Cohen, Cohen, West &amp; Aiken (2003, S.146) an.</p>
+<p>Dabei betrachten wir die <strong>konditionale (Fehler-)Varianz <span class="math inline">\(s^2_{(e | slice)}\)</span> </strong>in sog. “Slices” (d.h. Gruppen) für einzelne Prädiktoren. Wir schauen uns das exemplarisch bei <em>Zufriedenheit mit Studieninhalten</em> an. Dazu nutzt man die Ergebnisse der einfachen Regression der Prädiktoren. Diese haben wir im Abschnitt <a href="#überprüfung">Bivariate Streudiagramme</a> schon einmal berechnet und darauf greifen wir jetzt wieder zurück.</p>
+<p><strong>Das Vorgehen</strong>:</p>
+<ol type="1">
+<li><strong>Sortieren der Residuen nach aufsteigendem Prädiktor X</strong> (<em>Zufriedenheit mit Studieninhalten</em>)</li>
+<li><strong>in ähnlich große Slices einteilen</strong><br>
+Die Wahl der Anzahl der Slices ist ein Tradeoff zwischen stabiler Varianzschätzung in jedem Slice (d.h. wenig Gruppen) und der Begutachtung verschiedener Anteile der Daten (d.h. viele Gruppen).</li>
+<li><strong>konditionale Varianz in den Slices berechnen</strong><br>
+Dazu quadrieren wir die einzelnen Residuen, teilen diese jeweils durch die Anzahl der Personen in diesem Slice <span class="math inline">\(n_{slice}\)</span> minus 2, und summieren die Quotienten auf.</li>
+</ol>
+<p><strong>Zur Beurteilung der konditionalen Varianz gibt es zwei Kriterien</strong>:</p>
+<ul>
+<li>der Quotient aus dem Slice mit der größten konditionalen Varianz geteilt durch den Slice mit der kleinsten konditionalen Varianz sollte kleiner als 10 sein<br>
+</li>
+<li>mit größer werdendem X sollte die konditionale Varianz in den Slices nicht systematisch variieren (z.B. konstant kleiner oder größer werden)</li>
+</ul>
+<p><strong>Wenn der Quotient <span class="math inline">\(&gt; 10\)</span> ist <em>oder</em> es systematische Variation gibt, sollten wir korrektive Maßnahmen einleiten</strong></p>
+<p>Nachfolgend schauen wir uns die Umsetzung dazu in R an:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Objekt erzeugen, ...</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ... in dem die Residuen nach aufsteigender Größe in X sortiert sind:</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>quant <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(erstis<span class="sc">$</span>zuf.inh<span class="fl">.1</span>, </span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">residuals</span>(lz_inh))[<span class="fu">order</span>(erstis<span class="sc">$</span>zuf.inh<span class="fl">.1</span>, </span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>                                             <span class="fu">residuals</span>(lz_inh)),]</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co"># data.frame() erstellt einen Dataframe aus den übergebenen Variablen</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co"># order() sortiert das erste Argument X aufsteigend (Default) ...</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co"># ... und gleiche Ausprägungen in X werden nach den Ausprägungen ..</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co"># ... des zweiten Arguments (hier: Residuen) sortiert</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># das Komma am Ende sagt, dass wir Zeilen sortieren wollen</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># mit [ ] bekommen wir die Indizes (und nicht die Werte) ausgegeben, ...</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># ... welche wiederum auf den Dataframe angewendet werden</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Standardmäßig wird so die <em>erste</em> Variable X aufsteigend sortiert, weil <code>order(..., decreasing=FALSE)</code> der Default ist. Mit <code>decreasing=TRUE</code> können wir absteigend sortieren.</p>
+<p><br>
+&gt; <em><strong>Achtung</strong></em>: Bei <code>order(X, -resid)</code> ändert sich die <strong>Sortierung innerhalb der <em>gleichen</em> Prädiktorwerte X</strong> in Abhängigkeit davon, ob wir bei <code>order()</code> vor die <em>zweite</em> Variable (<code>resid</code>) ein <code>-</code> setzen oder nicht:<br>
+Mit <code>resid</code> (so wie wir es im Beispiel machen) wird innerhalb der gleichen Prädiktorwerte <strong>aufsteigend</strong> sortiert.<br>
+Mit <code>-resid</code> wird innerhalb der gleichen Prädiktorwerte <strong>absteigend</strong> sortiert.<br>
+Dadurch kommen unterschiedliche Residuen in die Slices und folglich werden auch unterschiedliche konditionale Varianzen berechnet!<br>
+</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>quant <span class="ot">&lt;-</span> <span class="fu">na.exclude</span>(quant) <span class="co"># Missings raus</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["erstis.zuf.inh.1"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["residuals.lz_inh."],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"1.333333","2":"2.2328207","_rn_":"151"},{"1":"1.666667","2":"-7.7707482","_rn_":"47"},{"1":"1.666667","2":"-4.7707482","_rn_":"180"},{"1":"1.666667","2":"-3.7707482","_rn_":"98"},{"1":"1.666667","2":"5.2292518","_rn_":"31"},{"1":"1.666667","2":"5.2292518","_rn_":"44"},{"1":"2.000000","2":"-8.7743170","_rn_":"118"},{"1":"2.000000","2":"10.2256830","_rn_":"50"},{"1":"2.333333","2":"-8.7778859","_rn_":"40"},{"1":"2.333333","2":"-8.7778859","_rn_":"83"},{"1":"2.333333","2":"-3.7778859","_rn_":"65"},{"1":"2.333333","2":"-2.7778859","_rn_":"17"},{"1":"2.333333","2":"-0.7778859","_rn_":"156"},{"1":"2.333333","2":"0.2221141","_rn_":"141"},{"1":"2.333333","2":"1.2221141","_rn_":"43"},{"1":"2.333333","2":"2.2221141","_rn_":"49"},{"1":"2.333333","2":"3.2221141","_rn_":"52"},{"1":"2.333333","2":"3.2221141","_rn_":"190"},{"1":"2.333333","2":"6.2221141","_rn_":"58"},{"1":"2.666667","2":"-10.7814548","_rn_":"75"},{"1":"2.666667","2":"-9.7814548","_rn_":"76"},{"1":"2.666667","2":"-7.7814548","_rn_":"80"},{"1":"2.666667","2":"-5.7814548","_rn_":"42"},{"1":"2.666667","2":"-0.7814548","_rn_":"185"},{"1":"2.666667","2":"-0.7814548","_rn_":"187"},{"1":"2.666667","2":"1.2185452","_rn_":"81"},{"1":"2.666667","2":"2.2185452","_rn_":"153"},{"1":"2.666667","2":"3.2185452","_rn_":"105"},{"1":"2.666667","2":"4.2185452","_rn_":"32"},{"1":"3.000000","2":"-14.7850237","_rn_":"37"},{"1":"3.000000","2":"-12.7850237","_rn_":"11"},{"1":"3.000000","2":"-8.7850237","_rn_":"56"},{"1":"3.000000","2":"-7.7850237","_rn_":"10"},{"1":"3.000000","2":"-5.7850237","_rn_":"20"},{"1":"3.000000","2":"-5.7850237","_rn_":"84"},{"1":"3.000000","2":"-4.7850237","_rn_":"160"},{"1":"3.000000","2":"-3.7850237","_rn_":"4"},{"1":"3.000000","2":"-3.7850237","_rn_":"48"},{"1":"3.000000","2":"-3.7850237","_rn_":"96"},{"1":"3.000000","2":"-2.7850237","_rn_":"59"},{"1":"3.000000","2":"-2.7850237","_rn_":"74"},{"1":"3.000000","2":"-2.7850237","_rn_":"129"},{"1":"3.000000","2":"-2.7850237","_rn_":"147"},{"1":"3.000000","2":"-1.7850237","_rn_":"63"},{"1":"3.000000","2":"-1.7850237","_rn_":"1"},{"1":"3.000000","2":"-0.7850237","_rn_":"175"},{"1":"3.000000","2":"0.2149763","_rn_":"124"},{"1":"3.000000","2":"0.2149763","_rn_":"159"},{"1":"3.000000","2":"1.2149763","_rn_":"101"},{"1":"3.000000","2":"1.2149763","_rn_":"131"},{"1":"3.000000","2":"2.2149763","_rn_":"51"},{"1":"3.000000","2":"2.2149763","_rn_":"125"},{"1":"3.000000","2":"3.2149763","_rn_":"13"},{"1":"3.000000","2":"3.2149763","_rn_":"136"},{"1":"3.000000","2":"3.2149763","_rn_":"145"},{"1":"3.000000","2":"3.2149763","_rn_":"148"},{"1":"3.000000","2":"4.2149763","_rn_":"66"},{"1":"3.000000","2":"4.2149763","_rn_":"93"},{"1":"3.000000","2":"4.2149763","_rn_":"126"},{"1":"3.000000","2":"4.2149763","_rn_":"162"},{"1":"3.000000","2":"4.2149763","_rn_":"177"},{"1":"3.000000","2":"5.2149763","_rn_":"24"},{"1":"3.000000","2":"5.2149763","_rn_":"114"},{"1":"3.000000","2":"5.2149763","_rn_":"130"},{"1":"3.000000","2":"5.2149763","_rn_":"133"},{"1":"3.000000","2":"6.2149763","_rn_":"33"},{"1":"3.000000","2":"6.2149763","_rn_":"78"},{"1":"3.000000","2":"6.2149763","_rn_":"134"},{"1":"3.000000","2":"6.2149763","_rn_":"150"},{"1":"3.000000","2":"6.2149763","_rn_":"168"},{"1":"3.000000","2":"7.2149763","_rn_":"19"},{"1":"3.000000","2":"7.2149763","_rn_":"116"},{"1":"3.000000","2":"7.2149763","_rn_":"169"},{"1":"3.000000","2":"7.2149763","_rn_":"173"},{"1":"3.000000","2":"10.2149763","_rn_":"25"},{"1":"3.333333","2":"-9.7885926","_rn_":"155"},{"1":"3.333333","2":"-5.7885926","_rn_":"94"},{"1":"3.333333","2":"-5.7885926","_rn_":"184"},{"1":"3.333333","2":"-4.7885926","_rn_":"36"},{"1":"3.333333","2":"-4.7885926","_rn_":"132"},{"1":"3.333333","2":"-3.7885926","_rn_":"38"},{"1":"3.333333","2":"-2.7885926","_rn_":"182"},{"1":"3.333333","2":"-1.7885926","_rn_":"110"},{"1":"3.333333","2":"-1.7885926","_rn_":"149"},{"1":"3.333333","2":"-0.7885926","_rn_":"144"},{"1":"3.333333","2":"0.2114074","_rn_":"138"},{"1":"3.333333","2":"1.2114074","_rn_":"6"},{"1":"3.333333","2":"1.2114074","_rn_":"109"},{"1":"3.333333","2":"1.2114074","_rn_":"183"},{"1":"3.333333","2":"2.2114074","_rn_":"106"},{"1":"3.333333","2":"2.2114074","_rn_":"113"},{"1":"3.333333","2":"2.2114074","_rn_":"120"},{"1":"3.333333","2":"2.2114074","_rn_":"143"},{"1":"3.333333","2":"2.2114074","_rn_":"189"},{"1":"3.333333","2":"3.2114074","_rn_":"54"},{"1":"3.333333","2":"3.2114074","_rn_":"107"},{"1":"3.333333","2":"4.2114074","_rn_":"30"},{"1":"3.333333","2":"4.2114074","_rn_":"163"},{"1":"3.333333","2":"6.2114074","_rn_":"103"},{"1":"3.333333","2":"6.2114074","_rn_":"152"},{"1":"3.333333","2":"8.2114074","_rn_":"179"},{"1":"3.333333","2":"9.2114074","_rn_":"62"},{"1":"3.666667","2":"-10.7921614","_rn_":"108"},{"1":"3.666667","2":"-9.7921614","_rn_":"186"},{"1":"3.666667","2":"-7.7921614","_rn_":"29"},{"1":"3.666667","2":"-6.7921614","_rn_":"127"},{"1":"3.666667","2":"-4.7921614","_rn_":"142"},{"1":"3.666667","2":"-2.7921614","_rn_":"117"},{"1":"3.666667","2":"-1.7921614","_rn_":"77"},{"1":"3.666667","2":"-0.7921614","_rn_":"71"},{"1":"3.666667","2":"-0.7921614","_rn_":"139"},{"1":"3.666667","2":"0.2078386","_rn_":"16"},{"1":"3.666667","2":"0.2078386","_rn_":"18"},{"1":"3.666667","2":"0.2078386","_rn_":"79"},{"1":"3.666667","2":"0.2078386","_rn_":"172"},{"1":"3.666667","2":"1.2078386","_rn_":"67"},{"1":"3.666667","2":"1.2078386","_rn_":"167"},{"1":"3.666667","2":"4.2078386","_rn_":"72"},{"1":"3.666667","2":"4.2078386","_rn_":"104"},{"1":"3.666667","2":"4.2078386","_rn_":"178"},{"1":"3.666667","2":"5.2078386","_rn_":"2"},{"1":"3.666667","2":"5.2078386","_rn_":"191"},{"1":"3.666667","2":"6.2078386","_rn_":"170"},{"1":"4.000000","2":"-14.7957303","_rn_":"154"},{"1":"4.000000","2":"-9.7957303","_rn_":"146"},{"1":"4.000000","2":"-8.7957303","_rn_":"53"},{"1":"4.000000","2":"-7.7957303","_rn_":"100"},{"1":"4.000000","2":"-5.7957303","_rn_":"135"},{"1":"4.000000","2":"-4.7957303","_rn_":"68"},{"1":"4.000000","2":"-4.7957303","_rn_":"86"},{"1":"4.000000","2":"-4.7957303","_rn_":"161"},{"1":"4.000000","2":"-4.7957303","_rn_":"171"},{"1":"4.000000","2":"-3.7957303","_rn_":"15"},{"1":"4.000000","2":"-3.7957303","_rn_":"85"},{"1":"4.000000","2":"-3.7957303","_rn_":"88"},{"1":"4.000000","2":"-3.7957303","_rn_":"90"},{"1":"4.000000","2":"-2.7957303","_rn_":"112"},{"1":"4.000000","2":"-1.7957303","_rn_":"95"},{"1":"4.000000","2":"-0.7957303","_rn_":"23"},{"1":"4.000000","2":"0.2042697","_rn_":"3"},{"1":"4.000000","2":"0.2042697","_rn_":"12"},{"1":"4.000000","2":"0.2042697","_rn_":"55"},{"1":"4.000000","2":"0.2042697","_rn_":"137"},{"1":"4.000000","2":"0.2042697","_rn_":"181"},{"1":"4.000000","2":"1.2042697","_rn_":"14"},{"1":"4.000000","2":"1.2042697","_rn_":"45"},{"1":"4.000000","2":"1.2042697","_rn_":"46"},{"1":"4.000000","2":"1.2042697","_rn_":"57"},{"1":"4.000000","2":"1.2042697","_rn_":"89"},{"1":"4.000000","2":"1.2042697","_rn_":"123"},{"1":"4.000000","2":"2.2042697","_rn_":"28"},{"1":"4.000000","2":"3.2042697","_rn_":"39"},{"1":"4.000000","2":"3.2042697","_rn_":"41"},{"1":"4.000000","2":"3.2042697","_rn_":"122"},{"1":"4.000000","2":"3.2042697","_rn_":"128"},{"1":"4.000000","2":"3.2042697","_rn_":"174"},{"1":"4.000000","2":"4.2042697","_rn_":"21"},{"1":"4.000000","2":"4.2042697","_rn_":"97"},{"1":"4.000000","2":"4.2042697","_rn_":"121"},{"1":"4.000000","2":"4.2042697","_rn_":"166"},{"1":"4.000000","2":"5.2042697","_rn_":"26"},{"1":"4.000000","2":"5.2042697","_rn_":"35"},{"1":"4.000000","2":"6.2042697","_rn_":"165"},{"1":"4.000000","2":"6.2042697","_rn_":"176"},{"1":"4.000000","2":"7.2042697","_rn_":"115"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Anzahl der Fälle</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(quant) <span class="co"># 165</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Einteilung: 3 Gruppen á 41 Personen, 1 Gruppe mit 42 Personen</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>slice_1 <span class="ot">&lt;-</span> quant<span class="sc">$</span>residuals.lz_inh.[<span class="dv">1</span><span class="sc">:</span><span class="dv">41</span>] </span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>slice_2 <span class="ot">&lt;-</span> quant<span class="sc">$</span>residuals.lz_inh.[<span class="dv">42</span><span class="sc">:</span><span class="dv">82</span>]</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>slice_3 <span class="ot">&lt;-</span> quant<span class="sc">$</span>residuals.lz_inh.[<span class="dv">83</span><span class="sc">:</span><span class="dv">123</span>]</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>slice_4 <span class="ot">&lt;-</span> quant<span class="sc">$</span>residuals.lz_inh.[<span class="dv">124</span><span class="sc">:</span><span class="dv">165</span>]</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="co"># konditionale Varianz in Slices berechnen</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>var_slice_1 <span class="ot">&lt;-</span> <span class="fu">sum</span>((slice_1<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span>(<span class="fu">length</span>(slice_1)<span class="sc">-</span><span class="dv">2</span>)))</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>var_slice_2 <span class="ot">&lt;-</span> <span class="fu">sum</span>((slice_2<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span>(<span class="fu">length</span>(slice_2)<span class="sc">-</span><span class="dv">2</span>)))</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>var_slice_3 <span class="ot">&lt;-</span> <span class="fu">sum</span>((slice_3<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span>(<span class="fu">length</span>(slice_3)<span class="sc">-</span><span class="dv">2</span>)))</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>var_slice_4 <span class="ot">&lt;-</span> <span class="fu">sum</span>((slice_4<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span>(<span class="fu">length</span>(slice_4)<span class="sc">-</span><span class="dv">2</span>)))</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a><span class="co"># konditionale Varianzen in Vektor speichern</span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>sort_var <span class="ot">&lt;-</span> <span class="fu">c</span>(var_slice_1 , var_slice_2, var_slice_3, var_slice_4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>sort_var</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 40.79699 25.91895 21.15083 24.16912</code></pre>
+</div>
+</div>
+<p>In unserem Beispiel scheint es keine systematischen Zu- oder Abhnahme in den konditionalen Varianzen der Slices zu geben …</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>((var_slice_1 <span class="sc">/</span> var_slice_3), <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.929</code></pre>
+</div>
+</div>
+… und auch der Quotient zwischem dem Slice mit der größten und der kleinsten konditionalen Varianz ist relativ klein.<br>
+
+</details>
+</section>
+</section>
+<section id="umgang-2" class="level3" data-number="14.3.2">
+<h3 data-number="14.3.2" class="anchored" data-anchor-id="umgang-2"><span class="header-section-number">14.3.2</span> Umgang</h3>
+<p>Wenn wir heteroskedastische Residuen haben, sollten wir gegen die potentielle Verzerrung der Standardfehler vorgehen. Dazu könnten wir beispielsweise <strong>Methoden zur Korrektur der Standardfehler</strong> oder <strong>varianzstabilisierende Verfahren</strong>, wie die Box-Cox-Transformation, nutzen. Eine andere Alternative wäre es, auf <strong>robustere Verfahren</strong> wie die gewichtete Regression mittels WLS zurückzugreifen.</p>
+<details>
+<summary>
+Exkurs: WLS-Regression
+</summary>
+<p>Der <strong>w</strong>eighted <strong>l</strong>east <strong>s</strong>quares Schätzer gewichtet jeden Fall (d.h. jede Person) danach, wie präzise die Beobachtung von <span class="math inline">\(Y\)</span> für diesen Fall war. Das bedeutet, dass Beobachtungen mit geringen (Fehler-)Varianzen höher gewichtet werden als Beobachtungen mit großen (Fehler-)Varianzen. Anders ausgedrückt werden Beobachtungen, die näher an der Regressionsgerade sind, stärker gewichtet. Im Vergleich dazu gewichtet der standardmäßig genutzte OLS-Schätzer (Ordinary Least Squares, Methode der kleinsten Quadrate) jede Beobachtung gleich.</p>
+<p>Es gibt mehrere Möglichkeiten, die Gewichte <span class="math inline">\(w_i\)</span> zu schätzen. Im Folgenden schauen wir uns exemplarisch eine Methode aus dem Buch von Cohen, Cohen, West &amp; Aiken (2003, S.146-147) an.</p>
+<p><br>
+&gt; <em><strong>Achtung</strong></em>: Wenn wir <strong>Ausreißer</strong> in unseren Daten haben, finden wir in der Fußnote 19 auf S.147 des Lehrbuchs eine <strong>geeignetere Methode zur Schätzung der Gewichte <span class="math inline">\(w_i\)</span></strong>.<br>
+Dazu nehmen wir die Residuen aus der OLS-Regression, quadrieren diese und regredieren sie auf unsere Prädiktoren. Die Inversen dieser vorhergesagten quadrierten Residuen sind das unsere Gewichte für die WLS-Regression.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>weights_lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(daten<span class="sc">$</span>resid <span class="sc">^</span> <span class="dv">2</span> <span class="sc">~</span> daten<span class="sc">$</span>zufr_inhalt <span class="sc">+</span> daten<span class="sc">$</span>zufr_beding,</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">na.action =</span> <span class="st">"na.exclude"</span>)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co"># wieder na.exclude nutzen</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co"># sonst hat der Vektor mit den Gewichten wieder eine geringere Länge </span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>daten<span class="sc">$</span>gewichte <span class="ot">&lt;-</span> <span class="fu">fitted.values</span>(weights_lm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Zur Modellschätzung können wir wieder <code>lm()</code> nutzen. Dafür müssen wir nur zusätzlich den Gewichtsvektor im Argument <code>weights</code> spezifizieren.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># WLS-Regression</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>lm_wls <span class="ot">&lt;-</span> <span class="fu">lm</span>(daten<span class="sc">$</span>leb_zufr <span class="sc">~</span> daten<span class="sc">$</span>zufr_inhalt <span class="sc">+</span> daten<span class="sc">$</span>zufr_beding,</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">weights =</span> <span class="dv">1</span> <span class="sc">/</span> daten<span class="sc">$</span>gewichte, <span class="at">na.action =</span> <span class="st">"na.exclude"</span>)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Vergleich der OLS- und WLS-Schätzung</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm_lz)<span class="sc">$</span>coefficients</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                   Estimate Std. Error  t value     Pr(&gt;|t|)
+(Intercept)       12.791048  2.3391903 5.468152 1.704375e-07
+daten$zufr_inhalt  2.499315  0.6869872 3.638081 3.694881e-04
+daten$zufr_beding  1.312796  0.5743345 2.285769 2.357195e-02</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm_wls)<span class="sc">$</span>coefficients</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                   Estimate Std. Error  t value     Pr(&gt;|t|)
+(Intercept)       12.889931  2.3951572 5.381664 2.566204e-07
+daten$zufr_inhalt  2.545507  0.6966131 3.654119 3.488119e-04
+daten$zufr_beding  1.222937  0.5605375 2.181723 3.057982e-02</code></pre>
+</div>
+</div>
+<p>Wir sehen, dass die Schätzungen von WLS denen von OLS sehr nah ist. Relevant wären hier prinzipiell mehr die Standardfehler (die bei Varianzheterogenität und OLS verzerrt wären). Da wir aber von Varianzhomogenität in unserem Beispiel ausgehen, sind auch diese sehr ähnlich.</p>
+<blockquote class="blockquote">
+<p><em><strong>Achtung</strong></em>: Es gibt zwei Schwierigkeiten im Umgang mit dem WLS-Schätzer:</p>
+</blockquote>
+<ul>
+<li>wir müssen ein angemessenes Gewicht für jede Beobachtung wählen
+<ul>
+<li>wenn die Gewichte nicht angemessen sind, ist WLS kein guter Schätzer</li>
+<li>daher ist die WLS-Schätzung am besten, wenn die Stichprobengröße <span class="math inline">\(N\)</span> groß ist oder wenn es mehrere Beobachtungen mit identischen <span class="math inline">\(X\)</span>-Werten gibt (d.h. mehrere Personen mit den gleichen Ausprägungen auf dem jeweiligen Prädiktor)</li>
+</ul></li>
+<li>standardisierte Effektgrößen, wie z.B. der Determinationskoeffizient <span class="math inline">\(R^2\)</span>, haben keine eindeutige Interpretation (wie bei OLS)</li>
+</ul>
+<p>Daher sollten wir eher OLS als WLS nutzen, <em>außer</em> wenn die Stichprobengröße sehr groß ist oder es ein großes Problem mit Heteroskedastizität gibt.</p>
+</details>
+</section>
+</section>
+<section id="unabhängigkeit-der-residuen" class="level2 page-columns page-full" data-number="14.4">
+<h2 data-number="14.4" class="anchored" data-anchor-id="unabhängigkeit-der-residuen"><span class="header-section-number">14.4</span> Unabhängigkeit der Residuen</h2>
+<blockquote class="blockquote">
+<p>Die Höhe des Residuums einer Beobachtung <span class="math inline">\(\hat e_i\)</span> hängt <strong>nicht</strong> von der Höhe des Residuums einer anderen Beobachtung <span class="math inline">\(\hat e_x\)</span> ab.</p>
+</blockquote>
+<p>Wenn Residuen abhängig sind, <em>kann</em> sich das auch in Heteroskedastizität äußern.</p>
+<p>Residuen sind abhängig, wenn wir z.B. <strong>wiederholte Messungen</strong> oder <strong>Gruppenstrukturen</strong> untersuchen. Ersteres meint, dass mehrere Messungen von <em>einer Person</em>, d.h. zu mehreren Zeitpunkten, vorliegen. In diesem Fall sprechen wir auch von seriellen Abhängigkeiten. Zweiteres meint, dass die Daten “geclustert” sind und es somit systematische Zusammenhänge <em>zwischen Personen</em> gibt z.B. Schüler in einer Schulklasse. Beide Fälle müssen bei der Modellspezifikation berücksichtigt werden.<br>
+</p>
+<p>In unserem Beispiel könnte beispielsweise das Kriterium ‘Lebenszufriedenheit’ in Abhängigkeit vom Wohnort variieren. Damit wären die Daten geclustert.</p>
+<p>Abhängigkeit der Residuen führt zwar <em>nicht</em> zu verzerrten Regressionskoeffizienten, aber es kann zu verzerrten <strong>Standardfehlern</strong> führen.<br>
+</p>
+<section id="überprüfung-3" class="level3 page-columns page-full" data-number="14.4.1">
+<h3 data-number="14.4.1" class="anchored" data-anchor-id="überprüfung-3"><span class="header-section-number">14.4.1</span> Überprüfung</h3>
+<p>Ganz grundsätzlich können wir diese Annahme zuerst einmal theoretisch überprüfen, indem wir uns das Studiendesign der erhobenen Daten anschauen.</p>
+<p>Wenn nur zu einem Messzeitpunkt Daten erhoben wurden und jede Person nur einmal zu diesem befragt wurde, können wir serielle Abhängigkeiten ausschließen.</p>
+<p>Beim Clustering ist es etwas schwieriger, dieses nur durch Überlegung auszuschließen. Auch wenn im Studiendesign nicht vorgesehen war, dass Daten von unterschiedlichen Gruppen erhoben wurden, könnte es dennoch Ähnlichkeiten zwischen Personen hinsichtlich bestimmter Variablen geben. Um mögliche Verletzungen der Unabhängigkeitsannahme prüfen zu können, benötigen wir eine Vermutung darüber, welche Gruppierungsvariablen relevant sein könnten.<br>
+</p>
+<section id="ausmaß-serieller-abhängigkeit" class="level4" data-number="14.4.1.1">
+<h4 data-number="14.4.1.1" class="anchored" data-anchor-id="ausmaß-serieller-abhängigkeit"><span class="header-section-number">14.4.1.1</span> Ausmaß serieller Abhängigkeit</h4>
+<p>Es gibt mehrere Möglichkeiten, das Ausmaß serieller Abhängigkeit zu beurteilen. Im Folgenden werden zwei grafische Visualisierungen vorgestellt.<br>
+</p>
+<section id="index-plot" class="level5" data-number="14.4.1.1.1">
+<h5 data-number="14.4.1.1.1" class="anchored" data-anchor-id="index-plot"><span class="header-section-number">14.4.1.1.1</span> Index Plot</h5>
+<p>Einen Eindruck darüber, ob es systematische Abhängigkeiten zwischen den Residuen gibt, können wir mithilfe des Index Plot bekommen. Dieser ist ein Scatterplot, der die Residuen <span class="math inline">\(\hat e_i = y_i - \hat y_i\)</span> (<span class="math inline">\(y\)</span>-Achse) gegen den Index <span class="math inline">\(i\)</span> (<span class="math inline">\(x\)</span>-Achse), der zumeist durch die (aufsteigende) Zeilennummerierung repräsentiert wird, plottet.</p>
+<p>Hierbei können wir u.a. visualisieren, ob es zeitliche Abhängigkeiten gibt, z.B. ob Personen, die später an der Befragung teilgenommen haben, systematische Unterschiede in ihrer Lebenszufriedenheit (Kriterium) zeigen.</p>
+<p>Um das besser beurteilen zu können, können wir auch hier wieder die <a href="#loess">Lowess Line</a> einzeichnen. Diese sollte wieder möglichst horizontal zur <span class="math inline">\(x\)</span>-Achse bei <span class="math inline">\(y = 0\)</span> liegen. Beide Linien fügen wir zur Vereinfachung der Beurteilung des Plots hinzu.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lm_lz<span class="sc">$</span>residuals)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">lowess</span>(lm_lz<span class="sc">$</span>residuals), <span class="at">col =</span> <span class="st">"red"</span>) <span class="co"># Lowess Line einfügen (in rot)</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>( <span class="co"># Linie einzeichnen</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">h=</span><span class="dv">0</span>, <span class="co"># h - horizontal, 0 - Schnittpunkt mit y-Achse</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">col=</span><span class="st">"grey"</span>, <span class="co"># Farbe</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">lty=</span><span class="dv">3</span>) <span class="co"># Linien-Art: gestrichelt</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Voraussetzungspruefung_files/figure-html/index plot-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Die Abbildung impliziert, dass die Residuen unabhängig sind. Das entspricht unseren Vorüberlegungen, das wir nur Variablen haben, die zum gleichen Messzeitpunkt erhoben wurden.<br>
+</p>
+<details>
+<summary>
+Exkurs: Grafische Interpretationshilfe für den Index Plot
+</summary>
+<p>Falls wir ein Messwiederholungsdesign haben und die Daten im Long-Format (d.h. Messungen einer Person in mehreren Zeilen) vorliegen, können wir die Messungen verschiedener Person farblich unterschiedlich darstellen.</p>
+<p>In unserem Fall haben wir zwar keine Messwiederholung, aber wir illustrieren die farbliche Darstellung einmal am gleichen Beispiel.</p>
+<p>Die <strong>Farbe</strong> der geplotteten Elemente können wir mit dem Argument <code>col</code> verändern. Um die Farbe ab einer bestimmten Anzahl an Messungen (d.h. Messwiederholungen für eine Person) jeweils zu verändern, können wir <code>rep()</code> benutzen. Diese Funktion wiederholt das erste Argument <code>x</code> (bzw. die einzelnen Elemente des ersten Arguments) jeweils so oft wie das zweite Argument <code>each</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lm_lz<span class="sc">$</span>residuals, <span class="at">col =</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">17</span>, <span class="at">each =</span> <span class="dv">10</span>))</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">lowess</span>(lm_lz<span class="sc">$</span>residuals), <span class="at">col =</span> <span class="st">"red"</span>)</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h=</span><span class="dv">0</span>, <span class="at">col=</span><span class="st">"darkblue"</span>, <span class="at">type=</span><span class="st">"l"</span>, <span class="at">lty=</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in int_abline(a = a, b = b, h = h, v = v, untf = untf, ...): graphical
+parameter "type" is obsolete</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="Voraussetzungspruefung_files/figure-html/index plot colored-1.png" class="img-fluid" width="500"></p>
+</div>
+</div>
+<p>Die 10 steht dafür, dass wir 10 Messwiederholungen haben. 1 bis 17 kodiert unterschiedliche Farbe. Alternativ können wir auch die Farbnamen in einem Vektor spezifizieren - dann würden wir anstatt <code>1:17</code> z.B. <code>red', 'blue', 'green', ...)</code> einfügen.</p>
+<p>Mit dem Argument <code>pch</code> können wir analog die <strong>Form der Punkte</strong> ändern.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lm_lz<span class="sc">$</span>residuals, <span class="at">pch =</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">17</span>, <span class="at">each =</span> <span class="dv">10</span>))</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">lowess</span>(lm_lz<span class="sc">$</span>residuals), <span class="at">col =</span> <span class="st">"red"</span>)</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h=</span><span class="dv">0</span>, <span class="at">col=</span><span class="st">"darkblue"</span>, <span class="at">type=</span><span class="st">"l"</span>, <span class="at">lty=</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in int_abline(a = a, b = b, h = h, v = v, untf = untf, ...): graphical
+parameter "type" is obsolete</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="Voraussetzungspruefung_files/figure-html/index plot forms-1.png" class="img-fluid" width="500"></p>
+</div>
+</div>
+<p>Wenn es starke serielle Abhängigkeiten geben würde, würden sich die Fälle sichtlich voneinander unterscheiden bzw. Cluster bilden. Illustriert ist das im folgenden Plot:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in int_abline(a = a, b = b, h = h, v = v, untf = untf, ...): graphical
+parameter "type" is obsolete</code></pre>
+</div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Voraussetzungspruefung_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid figure-img" width="400"></p>
+</figure>
+</div>
+</div>
+</div>
+</details>
+</section>
+</section>
+<section id="ausmaß-des-clusterings" class="level4 page-columns page-full" data-number="14.4.1.2">
+<h4 data-number="14.4.1.2" class="anchored" data-anchor-id="ausmaß-des-clusterings"><span class="header-section-number">14.4.1.2</span> Ausmaß des Clusterings</h4>
+<p>Zu allererst können wir uns den Intraklassenkoeffizienten (IKK) anschauen. Dieser schätzt den Anteil der Varianz einer Variable, die durch Gruppenzugehörigkeit (Clustering) erklärt wird.</p>
+<blockquote class="blockquote">
+<p><em><strong>Achtung</strong></em>: Der IKK sollte allerdings <strong>nicht</strong> als einzige Methode zur Überprüfung des Clusterings herangezogen werden, weil wir uns hier nur Mittelwertsunterschiede anschauen. Daher wird noch eine weitere Methode, die Betrachtung von Boxplots der geclusterten Gruppen, illustriert.</p>
+</blockquote>
+<section id="intraklassenkorrelation" class="level5 page-columns page-full" data-number="14.4.1.2.1">
+<h5 data-number="14.4.1.2.1" class="anchored" data-anchor-id="intraklassenkorrelation"><span class="header-section-number">14.4.1.2.1</span> Intraklassenkorrelation</h5>
+<p>Beispielsweise können wir mit Hilfe des IKK beurteilen, wie stark sich Personen innerhalb einer Gruppe ähneln.<br>
+</p>
+<ul>
+<li>Je näher der Wert an <strong><span class="math inline">\(0\)</span></strong> ist, desto geringer ist der relative Anteil an Unterschieden <strong>zwischen</strong> den Gruppen (d.h. desto <strong>weniger Clustering</strong> liegt vor).</li>
+<li>Je näher der Wert an <strong><span class="math inline">\(1\)</span></strong> ist, desto geringer ist der relative Anteil an Unterschieden <strong>innerhalb</strong> einer Gruppe (d.h. desto <strong>mehr Clustering</strong> liegt vor).</li>
+</ul>
+<p>Zur Überprüfung können wir z.B. die Funktion <code>ICCest</code> aus dem Paket <strong>ICC</strong> nutzen.</p>
+<p>Für unser Beispiel schauen wir uns exemplarisch an, inwieweit Unterschiede in ‘Lebenszufriedenheit’ (Kriterium) durch ‘Gruppenzugehörigkeit im Wintersemester’ (<code>erstis$gruppe</code>) erklärt werden können.</p>
+<p>Dazu fügen wir diese Variable zu unserem Datensatz hinzu.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>daten<span class="sc">$</span>gruppe <span class="ot">&lt;-</span> erstis<span class="sc">$</span>gruppe</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ICC)</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ICCest</span>(daten<span class="sc">$</span>gruppe, daten<span class="sc">$</span>leb_zufr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>NAs removed from rows:
+ 27 140 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in ICCest(daten$gruppe, daten$leb_zufr):</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$ICC
+[1] 0.005398465
+
+$LowerCI
+[1] -0.01305084
+
+$UpperCI
+[1] 0.2595086
+
+$N
+[1] 4
+
+$k
+[1] 47.05115
+
+$varw
+[1] 31.43056
+
+$vara
+[1] 0.1705978</code></pre>
+</div>
+</div>
+<p>Die Funktion gibt uns folgende Outputs:</p>
+<ul>
+<li>welche Missings (d.h. Zeilen) entfernt wurden</li>
+<li><code>$ICC</code>: die IKK (<em>Punkt</em>schätzung)</li>
+<li><code>$LowerCI</code> und <code>$UpperCI</code>: die Grenzen des Konfidenzintervalls für den IKK (<em>Intervall</em>schätzung)</li>
+<li><code>$N</code>: die Anzahl an Gruppen</li>
+<li><code>$k</code>: die Anzahl der Personen in jeder Gruppe</li>
+<li><code>$varw</code>: die Varianz innerhalb einer Gruppe</li>
+<li><code>$vara</code>: die Varianz zwischen den Gruppen</li>
+</ul>
+<aside>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+Bei unbalancierter Gruppengröße ist k, die Anzahl der Personen in jeder Gruppe, kleiner als die mittlere Gruppengröße. Für mehr Informationen dazu schau dir die R-Dokumentation für <code>ICCest()</code> an.
+</aside>
+<p>Die IKK weist darauf hin, dass wenig Varianz durch die Kurszugehörigkeit erklärt wird. Es ist also nicht notwendig, dass wir die Gruppenzugehörigkeit in unserem Modell berücksichtigen.</p>
+</section>
+<section id="sec-Boxplots-der-geclusterten-Gruppen" class="level5" data-number="14.4.1.2.2">
+<h5 data-number="14.4.1.2.2" class="anchored" data-anchor-id="sec-Boxplots-der-geclusterten-Gruppen"><span class="header-section-number">14.4.1.2.2</span> Boxplots der geclusterten Gruppen</h5>
+<p>Zuletzt schauen wir uns die Boxplots der Verteilungen der Residuen in den Gruppen an.</p>
+<p>Zur Erleichterung der Interpretation zeichnen wir wieder mit Hilfe von <code>abline(h=0, col="darkblue", type="l", lty=3)</code> eine Senkrechte bei <span class="math inline">\(y=0\)</span> (weil der erwartete Mittelwert der Residuen <span class="math inline">\(0\)</span> ist).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(daten<span class="sc">$</span>resid <span class="sc">~</span> daten<span class="sc">$</span>gruppe)</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h=</span><span class="dv">0</span>, <span class="at">col=</span><span class="st">"darkblue"</span>, <span class="at">type=</span><span class="st">"l"</span>, <span class="at">lty=</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in int_abline(a = a, b = b, h = h, v = v, untf = untf, ...): graphical
+parameter "type" is obsolete</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="Voraussetzungspruefung_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Die Interpretation hier ist ähnlich zu den Resiualplots: Der Median der einzelnen Gruppen sollte jeweils nah an der gestrichelten Linie bei <span class="math inline">\(y=0\)</span> sein. Zusätzlich sollten die Verteilungen sich stark überlappen.</p>
+<p>Die Verteilungen der Residuen in den Gruppen sieht sehr ähnlich aus. Die Verteilungen überlappen sich deutlich. Es scheint keine systematischen Streuungsunterschiede in den Residuen in Abhängigkeit der Gruppenzugehörigkeit zu geben.</p>
+</section>
+</section>
+</section>
+<section id="umgang-3" class="level3" data-number="14.4.2">
+<h3 data-number="14.4.2" class="anchored" data-anchor-id="umgang-3"><span class="header-section-number">14.4.2</span> Umgang</h3>
+<section id="serielle-abhängigkeit" class="level4" data-number="14.4.2.1">
+<h4 data-number="14.4.2.1" class="anchored" data-anchor-id="serielle-abhängigkeit"><span class="header-section-number">14.4.2.1</span> Serielle Abhängigkeit</h4>
+<p>Liegen serielle Abhängigkeiten vor, müssen wir auf geeignete Verfahren zur Analyse von Längsschnittdaten zurückgreifen (z.B. gemischte lineare Modelle).</p>
+</section>
+<section id="clustering" class="level4" data-number="14.4.2.2">
+<h4 data-number="14.4.2.2" class="anchored" data-anchor-id="clustering"><span class="header-section-number">14.4.2.2</span> Clustering</h4>
+<p>Liegen Abhängigkeiten aufgrund von Gruppenunterschieden vor, können wir versuchen, die Gruppenunterschiede, in Form von weiteren Variablen, ins Modell aufzunehmen. Gelingt dies nicht, müssen wir auf geeignete Verfahren zur Analyse von „geclusterten“ Daten zurückgreifen (z.B. gemischte lineare Modelle).</p>
+</section>
+</section>
+</section>
+<section id="weitere-wichtige-aspekte" class="level2 page-columns page-full" data-number="14.5">
+<h2 data-number="14.5" class="anchored" data-anchor-id="weitere-wichtige-aspekte"><span class="header-section-number">14.5</span> Weitere wichtige Aspekte</h2>
+<section id="sec-Normalverteilung-der-Residuen" class="level3" data-number="14.5.1">
+<h3 data-number="14.5.1" class="anchored" data-anchor-id="sec-Normalverteilung-der-Residuen"><span class="header-section-number">14.5.1</span> Normalverteilung der Residuen</h3>
+<p>Die Annahme, dass die Residuen in der Population normalverteilt sind, ist eigentlich gar keine Annahme im engeren Sinne. Aufgrund des zentralen Grenzwertsatzes sind die Regressionskoeffizienten in großen Stichproben selbst dann asymptotisch normalverteilt, wenn die Annahme nicht erfüllt ist. Daher ist eine Verletzung der Annahme eher in kleineren Stichproben problematisch. Da in der Praxis aber unklar ist, wann eine Stichprobe als groß genug anzusehen ist, ist es ratsam, die Verteilung der Residuen immer auf Abweichung von einer Normalverteilung hin zu prüfen.</p>
+<p>Wenn die Normalverteilungsannahme der Residuen verletzt ist, ist der <strong>Standardfehler</strong> womöglich verzerrt, was zu falschen inferenzstatistischen Schlüssen führen kann.</p>
+<p>Nicht normalverteilte Residuen können auch auf andere Probleme wie Modellmissspezifikation hinweisen.</p>
+<section id="überprüfung-4" class="level4" data-number="14.5.1.1">
+<h4 data-number="14.5.1.1" class="anchored" data-anchor-id="überprüfung-4"><span class="header-section-number">14.5.1.1</span> Überprüfung</h4>
+<section id="histogramm" class="level5" data-number="14.5.1.1.1">
+<h5 data-number="14.5.1.1.1" class="anchored" data-anchor-id="histogramm"><span class="header-section-number">14.5.1.1.1</span> Histogramm</h5>
+<p>Mit Hilfe eines Histogramms können wir uns die Häufigkeitsverteilung einer metrischen Variable anzeigen lassen. Dafür wird diese in verschiedene Klassen (‘bins’) eingeteilt. Das schauen wir uns für die Residuen an.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(lm_lz<span class="sc">$</span>residuals)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Voraussetzungspruefung_files/figure-html/unnamed-chunk-31-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Optisch sollte ungefähr eine Normalverteilung zu erkennen sein.<br>
+</p>
+<p>In unserem Beispiel sieht es jedoch nach einer linksschiefen (d.h. rechtssteilen) Verteilung der Residuen aus.</p>
+<details>
+<summary>
+Exkurs: Graphische Interpretationshilfe für das Histogramm
+</summary>
+<p>Um die Beurteilung des Histogramms zu erleichtern, können wir zwei Linien einzeichnen - die reale Dichtefunktion der Variablen und die erwartete Dichtefunktion, wenn die Variable normalverteilt wäre. Diese können wir vergleichen, um die Annahme der Normalverteilung zu überprüfen.</p>
+<p>Eine wichtige Voraussetzung dafür, dass wir über das Histogramm die Dichtefunktionen legen können, ist dass wir das Argument <code>prob=TRUE</code> setzen.<br>
+</p>
+<p>Dann zeichnen wir die reale Dichtefunktion der Residuen ein. Dafür kombinieren wir <code>line()</code> und <code>density()</code>. Erstere zeichnet eine Linie in eine Grafik ein und mit zweiterer spezifizieren wir, dass die Linie die geschätzte Dichte (der Residuen) visualisieren soll.</p>
+<p>Für die normalverteilte Dichtefunktion der Residuen nutzen wir <code>curve()</code> und <code>dnorm()</code>. Mit ersterer wird eine Kurve auf Basis einer mathematischen Funktion eingezeichnet. Mit zweiterer geben wir an, dass es eine Dichtefunktion einer Normalverteilung sein soll, für die wir Mittelwert und Standardabweichung (der Residuen) angeben. Zusätzlich müssen wir hier mit <code>add=TRUE</code> festlegen, dass die Kurve über das Histogramm gelegt werden soll.</p>
+<p>Um die Normalverteilung besser anschauen zu können, erweitern wir die <span class="math inline">\(x\)</span>-Achse. Das machen wir mit <code>xlim=c(-15, &gt;15)</code>. Die Wahl der Grenzen von <span class="math inline">\(-15\)</span> bis <span class="math inline">\(+ 15\)</span> - ist eine theoretische Überlegung. Bei einer Normalverteilung liegen ~ <span class="math inline">\(99\)</span>% der Werte im Bereich <span class="math inline">\(+/- 3\)</span> Standardabweichungen vom Mittelwert entfernt. Die Standardabweichung der Residuen beträgt ~ 5.105.</p>
+<p>Für eine bessere Übersichtlichkeit stellen wir die reale Dichtefunktion und die erwartete Dichtefunktion farblich dar.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(lm_lz<span class="sc">$</span>residuals, <span class="co"># Histogramm der Residuen ...</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">prob =</span> <span class="cn">TRUE</span>, <span class="co"># ... als Dichte ...</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">20</span>, <span class="dv">20</span>)) <span class="co"># ... mit veränderter X-Achse</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>( <span class="co"># erstellt eine Linie ...</span></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">density</span>( <span class="co"># ... auf Basis der geschätzten Dichtefunktion ...</span></span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>    lm_lz<span class="sc">$</span>residuals), <span class="co"># ... der Residuen ...</span></span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">col =</span> <span class="st">"orange"</span>)  <span class="co"># ... in orange</span></span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>( <span class="co"># erstellt eine Kurve ...</span></span>
+<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dnorm</span>( <span class="co"># ... einer normalverteilten Dichtefunktion ...</span></span>
+<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a>    x, <span class="at">mean =</span> <span class="fu">mean</span>(lm_lz<span class="sc">$</span>residuals), <span class="co"># ... auf Basis des Mittelwerts ...</span></span>
+<span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">sd =</span> <span class="fu">sd</span>(lm_lz<span class="sc">$</span>residuals)), <span class="co"># ... und der Standardabweichung der Residuen ...</span></span>
+<span id="cb37-15"><a href="#cb37-15" aria-hidden="true" tabindex="-1"></a>      <span class="at">col =</span> <span class="st">"green"</span>, <span class="co">#... in grün ...</span></span>
+<span id="cb37-16"><a href="#cb37-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">add =</span> <span class="cn">TRUE</span>) <span class="co"># ... die zu bestehendem Plot hinzugefügt wird</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Voraussetzungspruefung_files/figure-html/hist_advanced-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+Anhand dieser beiden Linien wird noch deutlicher, dass die Verteilung der Residuen in unserem Beispiel von einer Normalverteilung abweicht.
+</details>
+</section>
+<section id="qq-plot" class="level5" data-number="14.5.1.1.2">
+<h5 data-number="14.5.1.1.2" class="anchored" data-anchor-id="qq-plot"><span class="header-section-number">14.5.1.1.2</span> QQ-Plot</h5>
+<p>Der QQ-Plot (Quantil-Quantil-Plot) plottet die aufsteigend geordneten standardisierten Residuen gegen die korrespondierenden Quantile der Normalverteilung. Dafür werden die Residuen durch den Standardschätzfehler geteilt <span class="math inline">\(\frac {e_i} {\hat {\sigma}}\)</span>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lm_lz, <span class="at">which =</span> <span class="dv">2</span>) </span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="co"># zweiter Plot der plot()-Funktion für ein lm-Objekt ist der QQ-Plot</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="dv">1</span>, <span class="at">col =</span> <span class="st">"blue"</span>) <span class="co"># zur Illustration für unser Beispiel</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Voraussetzungspruefung_files/figure-html/qq plot-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>In der obigen Abbildung werden die theoretischen Quantile der Normalverteilung (<span class="math inline">\(x\)</span>-Achse) gegen die standardisierten Residuen (<span class="math inline">\(y\)</span>-Achse) abgetragen. Wenn die Residuen normalverteilt sind, sollten die Punkte ungefähr auf der winkelhalbierenden Geraden (gestrichelte Linie) liegen. Kleinere Abweichungen, vor allem an den Enden der Geraden (unten links und oben rechts) sind in der Praxis aber nicht ungewöhnlich und oftmals nicht weiter problematisch.</p>
+<p>In unserem Beispiel weichen viele Punkte mit höheren Ausprägungen (rechts von der blauen Linie) von der winkelhalbierenden Geraden ab, was für eine gewisse Verletzung der Normalverteilungsannahme spricht.</p>
+<p>Wenn wir sehen wollen, wie der QQ-Plot bei verschiedenen Verteilungsformen aussehen kann, können wir uns diesen <a href="https://stats.stackexchange.com/questions/101274/how-to-interpret-a-qq-plot" target="_blank">Forumseintrag</a> zu QQ-Plots anschauen.</p>
+<details>
+<summary>
+Exkurs: Shapiro-Wilk-Test
+</summary>
+<p>Wir haben eingangs schon angerissen, warum graphische Verfahren besser geeignet sind, um Annahmen zu überprüfen. Für die Überprüfung der Normalverteilung der Residuen mittels statistischer Tests gelten die gleichen Vorbehalte: Wenn die Stichprobe groß ist, haben wir viel Power auch kleinste Abweichungen von der Normalverteilung zu finden. Gerade in dieser Situation (d.h. bei grossem <span class="math inline">\(N\)</span>) sind Abweichungen von der Normalverteilung aber gar nicht so problematisch. Bei kleinem <span class="math inline">\(N\)</span> hingegen (wenn Abweichungen potentiell gefährlich sind), fehlt dem Test dann aber oft die Teststärke Abweichungen korrekt zu erkennen.</p>
+<p>Mit dem Shapiro-Wilk-Test kann getestet werden, ob Daten normaltverteilt sind (<span class="math inline">\(H_0\)</span>) oder nicht (<span class="math inline">\(H_1\)</span>).</p>
+<p>Der Test wird mit der Funktion <code>shapiro.test()</code> durchgeführt. Um die Residuen der Regression zu testen, extrahieren wir diese wieder aus dem Ergebnisobjekt mit <code>lm_lz$residuals</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(lm_lz<span class="sc">$</span>residuals)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  lm_lz$residuals
+W = 0.96198, p-value = 0.0001845</code></pre>
+</div>
+</div>
+In unserem Beispiel kann die Nullhypothese abgelehnt werden, d.h. dass die Residuen <strong>nicht</strong> normalverteilt sind.
+</details>
+</section>
+</section>
+<section id="umgang-4" class="level4" data-number="14.5.1.2">
+<h4 data-number="14.5.1.2" class="anchored" data-anchor-id="umgang-4"><span class="header-section-number">14.5.1.2</span> Umgang</h4>
+<p>Zuerst sollten wir überprüfen, ob die Abweichung von der Normalverteilung auf eine Missspezifikation des Modells zurückzuführen ist.</p>
+<p>Wenn das nicht zutrifft und die Stichprobe klein ist, sollten wir korrektive Maßnahmen einleiten. Wir könnten die Daten transformieren, wie bei <a href="#umgang">Umgang mit Nicht-Linearität</a>, allerdings <em>könnte</em> das auch die getesteten Hypothesen ändern, z.B. vergleichen wir nach der log-Transformation keine arithmetischen Mittel mehr sondern geometrische Mittel. Alternativ könnten wir auch robuste Testverfahren anwenden.</p>
+</section>
+</section>
+<section id="multikollinearität" class="level3 page-columns page-full" data-number="14.5.2">
+<h3 data-number="14.5.2" class="anchored" data-anchor-id="multikollinearität"><span class="header-section-number">14.5.2</span> Multikollinearität</h3>
+<blockquote class="blockquote">
+<p>Wenn <strong>Prädiktoren sehr hoch miteinander korrelieren</strong>, spricht man von Multikollinearität. Dabei können wir außerdem zwischen <strong><em>non-essentieller</em></strong> und <strong><em>essentieller</em></strong> Mutlikollinearität unterscheiden.</p>
+</blockquote>
+<p><strong><em>Non-essentielle</em></strong> Multikollinearität entsteht dadurch, dass Prädiktoren nicht zentriert sind.</p>
+<p><strong><em>Essentielle</em></strong> Multikollinearität entsteht durch tatsächliche Zusammenhänge zwischen Variablen in der Population. Diese Abhängigkeiten zwischen Prädiktoren äußern sich dadurch, dass die Varianz eines Prädiktors großteilig durch die anderen Prädiktoren erklärt werden kann, er sich also aus einer Linearkombination der anderen Prädiktoren ergibt z.B. <span class="math inline">\(X_1=1,2,3\)</span> und <span class="math inline">\(X_2=2,4,6\)</span>.</p>
+<aside>
+Beispielsweise würde zwischen ‘Größe in cm’ und ‘Größe in m’ perfekte Multikollinearität bestehen, weil beide Vielfache voneinander sind.
+</aside>
+<p>Multikollinearität kann aber beispielsweise auch vorliegen, wenn die <strong>Anzahl an Prädiktoren <span class="math inline">\(k\)</span> größer ist als die Größe der Stichprobe <span class="math inline">\(N\)</span></strong> oder wenn wir im Modell versehentlich zweimal den <strong>gleichen Prädiktor spezifiziert</strong> haben. Multikollinearität tritt außerdem häufig bei <strong>Interaktionen zwischen Prädiktoren</strong> auf. Das kommt daher, dass eine Interaktion ein Produkt aus zwei Prädiktoren ist und folglich viel Gemeinsamkeit mit beiden Prädiktoren hat.</p>
+<p>Bei sehr hohen Korrelationen zwischen den Prädiktoren, ergeben sich folgende Probleme:</p>
+<ol type="1">
+<li><strong>Erschwerte Interpretation der partiellen Korrelationen</strong>. Weil sich die Prädiktoren einen großen Anteil an der erklärten Varianz des Kriteriums teilen ist unklar, welchem Prädiktor welcher Anteil zugeschrieben werden soll. Um die Anteile der Varianzaufklärung besser den Prädiktoren zuordnen zu können, könnten wir die Reihenfolge der Aufnahme der Prädiktoren im Modell ändern (<em>hierarchisches Vorgehen</em>). Dabei schauen wir uns die Differenzen der Determinationskoeffizienten <span class="math inline">\(R^2_{k+m} - R^2_k\)</span> der Modelle (die sich durch einen weiteren Prädiktor <span class="math inline">\(m\)</span> unterscheiden) an.</li>
+<li><strong>Erhöhte Standardfehler</strong>. Die Standardfehler der von Multikollinearität betroffenen Regressionkoeffizienten vergrößern sich (siehe <a href="#toleranz">Toleranz</a> und Formel des Standardfehlers der Regressionsgewichte), was wiederum zu breiteren Konfidenzintervallen und einer geringeren Wahrscheinlichkeit führt, die Nullhypothese abzulehnen, wenn tatsächlich ein Effekt vorliegt (d.h. geringere Power).</li>
+</ol>
+<aside>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<strong>Formel des Standardfehlers der Regressionsgewichte</strong>:<br>
+<span class="math inline">\(SE_{b_k} = \frac{sd_y}{sd_x} \cdot \sqrt{\frac{1}{1-R^2_k}} \cdot \sqrt{\frac{1-R^2_y}{N - K - 1}}\)</span><br>
+Toleranz: <span class="math inline">\(1-R^2_k\)</span><br>
+Indeterminationskoeffizient: <span class="math inline">\(1-R^2_y\)</span>
+</aside>
+<section id="überprüfung-5" class="level4" data-number="14.5.2.1">
+<h4 data-number="14.5.2.1" class="anchored" data-anchor-id="überprüfung-5"><span class="header-section-number">14.5.2.1</span> Überprüfung</h4>
+<p>Um festzustellen, ob Prädiktoren hoch miteinander korreliert sind, können wir uns die <strong>Toleranz</strong> und den <strong>Variance Inflation Factor</strong> anschauen. Beide hängen direkt miteinander zusammen, aber ihre Interpretationen sind unterschiedlich.</p>
+<p>Falls wir ein <em>ernsthaftes</em> Problem mit Multikollinearität haben, wird uns das in R teilweise mit z.B. <code>aliased coefficients</code> oder <code>1 coefficient not defined because of singularities</code> angezeigt.</p>
+<p>Im Paket <strong>mctest</strong> gibt es zwei Funktionen, die helfen, Multikollinearität zu entdecken - <code>omctest()</code> - und zu lokalisieren - <code>imctest()</code>. Hierfür werden jeweils verschiedene Maße zu Rate gezogen u.a. auch die Toleranz und der VIF. Da wir die anderen Maße aber nicht vertiefend behandeln, sei an dieser Stelle <strong>nur auf das Paket hingewiesen</strong>. Bei Interesse empfielt es sich, den Artikel der Entwickler <em><a href="https://www.researchgate.net/publication/313799182_mctest_An_R_Package_for_Detection_of_Collinearity_among_Regressors" target="_blank">mctest: An R Package for Detection of Multicollinearity among Regressors</a></em> zu lesen, in dem die Maße kurz erklärt und weiterführende Quellen angegeben werden.</p>
+<section id="toleranz" class="level5" data-number="14.5.2.1.1">
+<h5 data-number="14.5.2.1.1" class="anchored" data-anchor-id="toleranz"><span class="header-section-number">14.5.2.1.1</span> Toleranz</h5>
+<blockquote class="blockquote">
+<p>Die Toleranz sagt uns, <strong>wie viel Varianz in <span class="math inline">\(X_j\)</span> unabhängig von den anderen Prädiktoren</strong> ist.</p>
+</blockquote>
+<p>Dafür wird eine Regression von Prädiktor <span class="math inline">\(X_j\)</span> auf alle anderen Prädiktoren im Modell gerechnet (d.h. das Kriterium bleibt außen vor) und davon der Kehrwert gebildet. Sie ist somit ein Maß für die <strong>Uniqueness</strong> von <span class="math inline">\(X_j\)</span>. Die Tolreanz wird wie folgt berechnet: <span class="math inline">\(1 - R^2_j\)</span></p>
+<p>In R können wir die Toleranz z.B. über den Kehrwert des Variance Inflation Factors, mit der Funktion <code>vif()</code> aus dem Paket <strong>car</strong>, berechnen. Der Funktion übergeben wir unser lm-Objekt.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: carData</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">/</span> <span class="fu">vif</span>(lm_lz)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>daten$zufr_inhalt daten$zufr_beding 
+        0.8988664         0.8988664 </code></pre>
+</div>
+</div>
+<div class="cell">
+
+</div>
+<p>Je kleiner die Toleranz ist, desto größer das Problem mit Multikollinearität. <span class="math inline">\(Tol_j = 0\)</span> impliziert perfekte Multikollinearität. <span class="math inline">\(Tol_j~ &lt; 0.10\)</span> deutet auf ein ernsthaftes Problem mit Multikollinearität hin.</p>
+<p>Ungefähr 89.9% der Varianz in Zufriedenheit mit Studienbedingungen ist unabhängig von Zufriedenheit mit Studieninhalten (für den Fall von genau zwei Prädiktoren, wie in unserem Beispiel, gilt auch die umgekehrte Interpretation).<br>
+</p>
+</section>
+<section id="variance-inflation-factor" class="level5" data-number="14.5.2.1.2">
+<h5 data-number="14.5.2.1.2" class="anchored" data-anchor-id="variance-inflation-factor"><span class="header-section-number">14.5.2.1.2</span> Variance Inflation Factor</h5>
+<blockquote class="blockquote">
+<p><span class="math inline">\(VIF_j\)</span> gibt an, <strong>um wie viel die Varianz des Regressionskoeffizients <span class="math inline">\(X_j\)</span> (durch die Korrelation mit den anderen Prädiktoren) erhöht</strong> wird, verglichen mit dem Fall, dass alle Prädiktoren unkorreliert sind.</p>
+</blockquote>
+<p><span class="math inline">\(\sqrt {VIF_j}\)</span> gibt an, um welchen Faktor sich der Standardfehler <span class="math inline">\(SE_{b_j}\)</span> durch Einschluss weiterer korrelierter Prädiktoren erhöht (verglichen mit dem Fall, dass alle Prädiktoren unkorreliert sind).</p>
+<p>Der VIF wird für jeden Prädiktor im Modell berechnet. Er wird folgendermaßen bestimmt: <span class="math inline">\(\frac{1}{1 - R^2_j}\)</span>, wobei <span class="math inline">\(R^2_j\)</span> der Determinationskoeffizient der Regression des <span class="math inline">\(j\)</span>-ten Prädiktors auf alle anderen <span class="math inline">\((k - 1)\)</span> Prädiktoren ist. Das entspricht der quadrierten multiplen Korrelation zwischen <span class="math inline">\(X_j\)</span> und allen anderen Prädiktoren.</p>
+<blockquote class="blockquote">
+<p><em><strong>Achtung</strong></em>: Im Fall von zwei Prädiktoren bleibt die geteilte Varianz zwischen beiden Variablen gleich; egal welche Variable Kriterium und welche Prädiktor ist. Daher sind beide VIF gleich.</p>
+</blockquote>
+<p>Dazu nutzen wir aus dem Paket <strong>car</strong> die Funktion <code>vif()</code>, welcher wir unser lm-Objekt übergeben.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="fu">vif</span>(lm_lz)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>daten$zufr_inhalt daten$zufr_beding 
+         1.112512          1.112512 </code></pre>
+</div>
+</div>
+<p>Als Daumenregel gilt, dass ein VIF größer als 10 auf ein Problem mit Multikollinearit hindeutet.</p>
+<p>Der VIF in unserem Beispiel ist sehr klein, d.h. dass unsere beiden Prädiktoren Zufriedenheit mit Studieninhalten und Zufriedenheit mit Studienbedingungen nicht viel gemeinsame Varianz teilen.<br>
+</p>
+</section>
+</section>
+<section id="umgang-5" class="level4" data-number="14.5.2.2">
+<h4 data-number="14.5.2.2" class="anchored" data-anchor-id="umgang-5"><span class="header-section-number">14.5.2.2</span> Umgang</h4>
+<p>In einer Regression, die auch Interaktionen zwischen den Prädiktoren annimmt, können wir die Prädiktoren zentrieren, um <strong><em>non-essentieller</em></strong> Multikollinearität beizukommen. Hierbei sollten wir aber bei Vorhandensein von Dummyvariablen vorsichtig sein. Diese <em>müssen</em> nicht zentriert werden und eine Zentrierung erschwert zusätzlich ihre Interpretation.</p>
+<p>Bei hoher <strong><em>essentieller</em></strong> Multikollinearität ist es oftmals ratsam, Prädiktoren auszuschließen, wenn diese weitgehend redundante Informationen liefern.</p>
+</section>
+</section>
+<section id="extreme-werte-und-einflussreiche-datenpunkte" class="level3 page-columns page-full" data-number="14.5.3">
+<h3 data-number="14.5.3" class="anchored" data-anchor-id="extreme-werte-und-einflussreiche-datenpunkte"><span class="header-section-number">14.5.3</span> Extreme Werte und einflussreiche Datenpunkte</h3>
+<blockquote class="blockquote">
+<p><strong>Extreme Werte</strong>, auch <strong>Ausreißer</strong> (Outlier) genannt, meinen untypische Datenpunkte, die nicht zum Rest der Daten passen. Diese können sowohl auf dem Kriterium als auch auf den Prädiktoren vorkommen.<br>
+</p>
+</blockquote>
+<ul>
+<li>Wenn ein extremer Wert auf dem <strong>Kriterium</strong> vorkommt, heißt das, dass die Prädiktorwerte einer Person <span class="math inline">\(i\)</span> zwar im Wertebereich der anderen Personen liegen, aber der beobachtete Wert <span class="math inline">\(y_i\)</span> stark vom vorhergesagten <span class="math inline">\(\hat y_i\)</span> abweicht (Abweichung in <span class="math inline">\(Y\)</span>).</li>
+<li>Wenn extreme Werte auf den <strong>Prädiktoren</strong> vorkommen, heißt das, dass die Prädiktorwerte einer Person <span class="math inline">\(i\)</span> nicht im Wertebereich der anderen Personen liegen (Abweichung in <span class="math inline">\(X\)</span>), aber der beobachtete Wert <span class="math inline">\(y_i\)</span> dennoch nah am vorhergesagten <span class="math inline">\(\hat y_i\)</span> ist. Extreme Werte auf den Prädiktoren haben zusätzlich eine hohe <strong>Leverage/Hebelwirkung</strong> und damit <em>potenziell</em> einen starken Einfluss auf die Regressionsgerade.</li>
+</ul>
+<aside>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+Die <strong>Leverage</strong> ist die absolute Abweichung eines beobachteten Wertes einer Person vom Mittel aller Prädiktoren <span class="math inline">\(X\)</span>.
+</aside>
+<p>In den folgenden drei Abbildungen sehen wir verdeutlicht, was mit extremen Abweichungen auf dem Kriterium bzw. den Prädiktoren gemeint ist. Dazu wurden exemplarisch <strong>Lebenszufriedenheit</strong> (<span class="math inline">\(Y\)</span>) und <strong>Zufriedenheit mit Studieninhalten</strong> (<span class="math inline">\(X_1\)</span>) gegeneinander geplottet. Hierbei wurde jeweils der <span class="math inline">\(Y\)</span>- bzw. <span class="math inline">\(X_1\)</span>-Wert von Person 50 geändert. Die gestrichelte Linie stellt dabei jeweils die obere Grenze des Wertebereichs des Kriteriums bzw. des Prädiktors dar.</p>
+<aside>
+<a href="#cooklev">Später</a> greifen wir nochmal auf das gleiche Beispiel zurück, um den Unterschied und die Konsequenzen von extremen Abweichungen auf dem Kriterium bzw. den Prädiktoren noch mehr zu verdeutlichen.
+</aside>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Voraussetzungspruefung_files/figure-html/unnamed-chunk-38-1.png" class="img-fluid figure-img" width="400"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Voraussetzungspruefung_files/figure-html/unnamed-chunk-38-2.png" class="img-fluid figure-img" width="400"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Voraussetzungspruefung_files/figure-html/unnamed-chunk-38-3.png" class="img-fluid figure-img" width="400"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Wenn die Regressionsgerade stark durch einzelne Beobachtungen beeinflusst wird, bezeichnet man diese als <strong>einflussreiche Datenpunkte</strong> (<em>influentials</em>). Der Ausschluss dieser Beobachtungen würde stark abweichende Parameterschätzungen hervorbringen. Das gleichzeitige Vorhandensein von Ausreißern und Beobachtungen mit hoher Leverage könnten die Ursache dafür sein.</p>
+<section id="überprüfung-6" class="level4 page-columns page-full" data-number="14.5.3.1">
+<h4 data-number="14.5.3.1" class="anchored" data-anchor-id="überprüfung-6"><span class="header-section-number">14.5.3.1</span> Überprüfung</h4>
+<p>Stoßen wir über auffällige Werte in unserem Datensatz, sollte wir zunächst kontrollieren, ob diese durch Eingabefehler oder fehlerhafte Kodierungen fehlender Werte (<em>Missings</em>) zustande gekommen sind.</p>
+<p>Beispielsweise werden in manchen Anwendungen Missings nicht mit <code>NA</code>, sondern z.B. wie bei Unipark mit <code>99</code> oder <code>-99</code> kodiert. Wir müssen diese <em>vor</em> der Auswertung auf <code>NA</code> umkodieren, da R diese sonst nicht als Missings erkennt. Für mehr Informationen dazu können wir im <a href="./Fehlende-Werte.html">Kapitel zu Fehlenden Werten</a> nachschauen.</p>
+<p>Stark abweichende Werte lassen sich oft einfach mit Hilfe von <strong>Plots</strong> oder <strong>Deskriptivstatistiken</strong> identifizieren.</p>
+<section id="extreme-werte-auf-dem-kriterium" class="level5 page-columns page-full" data-number="14.5.3.1.1">
+<h5 data-number="14.5.3.1.1" class="anchored" data-anchor-id="extreme-werte-auf-dem-kriterium"><span class="header-section-number">14.5.3.1.1</span> Extreme Werte auf dem Kriterium</h5>
+<p>Hierbei schaut man sich vor allem die <strong>Residuen</strong> an.</p>
+<section id="plot-der-studentisierten-gelöschten-residuen" class="level6 page-columns page-full" data-number="14.5.3.1.1.1">
+<h6 data-number="14.5.3.1.1.1" class="anchored" data-anchor-id="plot-der-studentisierten-gelöschten-residuen"><span class="header-section-number">14.5.3.1.1.1</span> Plot der studentisierten gelöschten Residuen</h6>
+<p>Zur Exploration von Ausreißern auf dem Kriterium können wir uns die studentisierten gelöschten Residuen, geplottet gegen den Index <span class="math inline">\(i\)</span>, anschauen.</p>
+<aside>
+Studentisierte gelöschte Residuen werden auch als <strong>externally studentized residuals</strong> bezeichnet.
+</aside>
+<p>Studentisierte gelöschte Residuen werden wie folgt berechnet: <span class="math inline">\(\frac {e_i} {\hat {\sigma} \cdot \sqrt{1 - h_m}}\)</span> &nbsp;</p>
+<p>Sie sind theoretisch <span class="math inline">\(t\)</span>-verteilt mit <span class="math inline">\(df = N − k − 1\)</span> (N = Stichprobengröße, k = Anzahl Prädiktoren). Wir erhalten die Anzahl der Freiheitsgrade aus dem lm-Objekt mittels <code>summary(lm_lz)$fstat["dendf"]</code>.</p>
+<blockquote class="blockquote">
+<p><strong>Studentisiert</strong> heißt, dass die Residuen durch die geschätzte Populationsstandardabweichung der Residuen an der Stelle <span class="math inline">\(x_m\)</span> (das meint den Hebelwert der Person <span class="math inline">\(h_m\)</span>) geteilt werden.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><strong>Gelöscht</strong> bedeutet geschätzte Abweichung des vorhergesagten Wertes vom beobachteten Wert (das sind die normalen Residuen) in einem Modell <strong>ohne</strong> die entsprechende Person. Wir sagen also <span class="math inline">\(\hat y_i\)</span> für Person <span class="math inline">\(i\)</span> mit Hilfe eines Modells hervor, für welches Person <span class="math inline">\(i\)</span> nicht in die Parameterschätzung mit eingegangen ist.<br>
+</p>
+</blockquote>
+<p>Für mehr Informationen zu studentisierten gelöschten Residuen <em>(externally studentized residuals)</em> siehe S.399ff im Lehrbuch von Cohen, Cohen, West &amp; Aiken (2003).</p>
+<p>Wir extrahieren diese mit <code>rstudent()</code> aus dem lm-Objekt.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">rstudent</span>(lm_lz))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Voraussetzungspruefung_files/figure-html/unnamed-chunk-39-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Es gibt keine einheitlichen Richtlinien darüber, ab wann ein studentisiertes gelöschtes Residuum als extrem groß anzusehen ist. Wir schauen nur, ob einzelne Werte stark vom Cluster der anderen Werte abweichen.</p>
+<p>In unserem Beispiel gibt es keine Werte, die <strong>extrem</strong> von der Verteilung der anderen abweichen. Wir schauen uns dennoch exemplarisch einmal die zwei größten Werte an (d.h. die kleiner gleich - 3 sind).</p>
+<p>In folgender Abbildung schauen wir uns an, wie eine extreme Abweichung eines studentisierten gelöschten Residuums aussehen könnte. In folgendem Plot wurde nur ein studentisiertes gelöschtes Residuum eingefügt; die anderen Werte sind gleich geblieben.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Voraussetzungspruefung_files/figure-html/unnamed-chunk-40-1.png" class="img-fluid figure-img" width="400"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(<span class="fu">unname</span>(<span class="fu">rstudent</span>(lm_lz) <span class="sc">&lt;=</span> <span class="sc">-</span><span class="dv">3</span>))  <span class="co"># Indizes aller Werte, die kleiner gleich -3 sind</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  37 154</code></pre>
+</div>
+</div>
+<p>Mit <code>which()</code> lassen wir uns die Indizes derjenigen studentisierten gelöschten Residuen ausgeben, die <span class="math inline">\(\leq-3\)</span> sind.</p>
+<p>Wir nutzen außerdem <code>unname()</code>, weil <code>rstudent()</code> einen benannten numerischen Vektor (<em>named num</em>) erstellt und bei Nutzung von <code>which()</code> die Indizes sonst doppelt ausgegeben werden würden. Bei <em>named nums</em> werden die Indizes nämlich schon im Vektor mitgespeichert (ohne dass dieser dadurch seine Dimensionalität ändert).</p>
+</section>
+<section id="outlier-test" class="level6" data-number="14.5.3.1.1.2">
+<h6 data-number="14.5.3.1.1.2" class="anchored" data-anchor-id="outlier-test"><span class="header-section-number">14.5.3.1.1.2</span> Outlier Test</h6>
+<p>Alternativ könnten wir auch einen Signifikanztest <em>nur</em> für das größte studentisierte gelöschte Residuum durchführen. Dabei wird dessen p-Wert mit einer Bonferroni-Korrektur angepasst. Dazu wird der p-Wert mit der Stichprobengröße (hier: <span class="math inline">\(N=164\)</span>) multipliziert. Das an der Stichprobengröße relativierte (d.h. durch dieses geteilt) Signifikanzlevel <span class="math inline">\(\alpha\)</span> markiert den kritischen Wert (d.h. das korrigierte Signifkanzlevel).</p>
+<p>Dazu nutzen wir <code>outlierTest()</code> aus dem Paket <strong>car</strong>. Wir nutzen konventionell <span class="math inline">\(\alpha=0.05\)</span>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="fu">outlierTest</span>(lm_lz)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>No Studentized residuals with Bonferroni p &lt; 0.05
+Largest |rstudent|:
+    rstudent unadjusted p-value Bonferroni p
+37 -3.053226          0.0026521      0.43494</code></pre>
+</div>
+</div>
+<p>Der Test liefert Evidenz dafür, dass das größte studentisierte gelöschte Residuum nicht extrem von den anderen abweicht.</p>
+</section>
+</section>
+<section id="extreme-werte-auf-den-prädiktoren" class="level5" data-number="14.5.3.1.2">
+<h5 data-number="14.5.3.1.2" class="anchored" data-anchor-id="extreme-werte-auf-den-prädiktoren"><span class="header-section-number">14.5.3.1.2</span> Extreme Werte auf den Prädiktoren</h5>
+<p>Hierbei schauen wir uns vor allem die <strong>Hebelwerte</strong> <span class="math inline">\(h_{ii}\)</span> einzelner Beobachtungen (engl. leverage oder hatvalues) an.</p>
+<blockquote class="blockquote">
+<p>Hebelwerte geben die absolute Abweichung eines beobachteten Wertes einer Person vom Mittel aller Prädiktoren <span class="math inline">\(X\)</span> (dem sog. Schwerpunkt) an.</p>
+</blockquote>
+<p>Fälle mit großer Hebelwirkung haben <em>potenziell</em> einen größeren Einfluss auf die Parameterschätzungen (<span class="math inline">\(0 &lt; h_{ii} &lt; 1\)</span>).</p>
+<section id="plot-und-histogramm-der-hebelwerte" class="level6" data-number="14.5.3.1.2.1">
+<h6 data-number="14.5.3.1.2.1" class="anchored" data-anchor-id="plot-und-histogramm-der-hebelwerte"><span class="header-section-number">14.5.3.1.2.1</span> Plot und Histogramm der Hebelwerte</h6>
+<p>In kleinen bis mittelgroßen Datensätzen ist ein Indexplot der Hebelwerte eine ausreichende Methode, um Ausreißer auf den Prädiktoren zu erkennen.<br>
+</p>
+<p>Dazu extrahieren wir die Hebelwerte mit Hilfe der Funktion <code>hatvalues()</code> aus dem lm-Objekt. Damit fehlende Werte (<code>NA</code>) ausgeschlossen werden (ihre Hebelwirkung würde <span class="math inline">\(0\)</span> betragen), wenden wir außerdem <code>[!is.na()]</code> an. <code>is.na()</code> evaluiert, ob die Elemente vorhanden sind (<code>TRUE</code> oder <code>FALSE</code>), <code>!</code> sorgt dafür, dass <em>keine</em> Missings angewählt werden, und <code>[ ]</code> gibt die Indizes aus.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">hatvalues</span>(lm_lz)[<span class="sc">!</span><span class="fu">is.na</span>(daten<span class="sc">$</span>resid)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Voraussetzungspruefung_files/figure-html/plot hat values-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>In größeren Datensätzen sollten wir die Hebelwerte der Übersichtlichkeit halber in einem Histogramm visualisieren.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="fu">hatvalues</span>(lm_lz)[<span class="sc">!</span><span class="fu">is.na</span>(daten<span class="sc">$</span>resid)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Voraussetzungspruefung_files/figure-html/hist hat values-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Wir sollten uns hierbei auf die Inspektion weniger, extremer Werte beschränken und vor allem nur auf solche, die weit entfernt von den restlichen (nah beieinander liegenden Werten) sind.</p>
+<p>Den größten Hebelwert und seinen Index können wir uns folgendermaßen ausgeben lassen:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>((<span class="fu">hatvalues</span>(lm_lz)), <span class="at">decreasing=</span><span class="cn">TRUE</span>)[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       151 
+0.06632099 </code></pre>
+</div>
+</div>
+<p>Wenn wir z.B. die größten drei Werte betrachten möchte, schreiben wir <code>[1:3]</code> anstatt <code>[1]</code>. Wenn wir alle Werte <em>absteigend</em> (weil <code>decreasing=TRUE</code>) betrachten möchten, lassen wir die eckigen Klammern mit den Indizes komplett weg.</p>
+<p>Der Hebelwert von Person 151 liegt etwas abseits von der Verteilung der anderen. Noch extremere Werte sollten wir uns immer genauer anschauen. In unserem Beispiel liegen aber keine offensichtlich extremen Hebelwerte vor.</p>
+</section>
+</section>
+<section id="einflussreiche-datenpunkte" class="level5" data-number="14.5.3.1.3">
+<h5 data-number="14.5.3.1.3" class="anchored" data-anchor-id="einflussreiche-datenpunkte"><span class="header-section-number">14.5.3.1.3</span> Einflussreiche Datenpunkte</h5>
+<section id="residuen-leverage-plot" class="level6" data-number="14.5.3.1.3.1">
+<h6 data-number="14.5.3.1.3.1" class="anchored" data-anchor-id="residuen-leverage-plot"><span class="header-section-number">14.5.3.1.3.1</span> Residuen-Leverage Plot</h6>
+<p>Wenn es große Residuen und Hebelwerte gibt, können wir uns weiterführend den Residuen-Leverage Plot anschauen. Dieser plottet die Hebelwerte (<span class="math inline">\(x\)</span>-Achse) gegen die standardisierten Residuen (<span class="math inline">\(y\)</span>-Achse).</p>
+<p>Zur Standardisierung werden die Residuen durch den Standardschätzfehler geteilt <span class="math inline">\(\frac {e_i} {\hat {\sigma}}\)</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lm_lz, <span class="at">which=</span><span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Voraussetzungspruefung_files/figure-html/resid lev plot-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co"># fünfter Plot der plot()-Funktion für ein lm-Objekt ist der Residuen-Leverage Plot</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Die <a href="#loess">Lowess Line</a> sollte auch hier wieder flach und nah an der gestrichelten Linie bei <span class="math inline">\(y=0\)</span> sein.</p>
+<p>Die Werte der Person mit dem Index 50 weisen eine leicht erhöhte hohe Cooks Distance auf. Allerdings sind die Grenzen bei 0.5 und 1 nicht einmal sichtbar, weil alle Werte der Cooks Distance relativ klein sind. Auch die <a href="#loess">Lowess Line</a> ist flach an nah bei y=0. Beides spricht dafür, dass in unserem Datensatz keine einflussreichen Datenpunkte, die die Parameter verzerren könnten, enthalten sind.<br>
+</p>
+<p>In diesem <a href="https://stats.stackexchange.com/questions/58141/interpreting-plot-lm" target="_blank">Forumseintrag</a> wird der Residuen-Leverage-Plot noch ausführlicher erklärt.</p>
+<details>
+<summary>
+<a name="cooklev"></a>Was ist die Cooks Distance? Und wie hängt diese mit den standardisierten Residuen, der Leverage und der Lowess Fit Line zusammen?
+</summary>
+<blockquote class="blockquote">
+<p>Die Cooks Distance ist ein Maß dafür, wie sich die Regressionsgerade und damit die vorhergesagten Werte ändern würden, wenn wir die Daten einer betrachteten Person <span class="math inline">\(i\)</span> (<span class="math inline">\(Cooks D_i\)</span>) ausschliessen würden, wobei <span class="math inline">\(Cooks D_i \geq 0\)</span> ist.</p>
+</blockquote>
+<p>Je größer die <span class="math inline">\(Cooks D_i\)</span>, desto größer der Einfluss der Beobachtungen von Person <span class="math inline">\(i\)</span>.</p>
+<p>Im Residuen-Leverage-Plot werden auch Linien der <strong>Cooks Distance</strong> mit den Werten <span class="math inline">\(0.5\)</span> und <span class="math inline">\(1.0\)</span> abgetragen, <strong>wenn</strong> Beobachtungen in die Nähe dieser Grenzen kommen (was im oberen Beispiel nicht der Fall ist).</p>
+<p>Wir können uns folgendermaßen auch nur die Werte der Cooks Distance gegen den Index geplottet anschauen:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lm_lz, <span class="at">which=</span><span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Voraussetzungspruefung_files/figure-html/plot cd-1.png" class="img-fluid figure-img" width="600"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Schauen wir uns den <strong>Residuen-Leverage-Plot</strong> noch einmal an.</p>
+<p>In den folgenden Abbildungen wurden die Werte von <strong>Person 50</strong> auf dem Kriterium und einem Prädiktor (Zufriedenheit mit Studieninhalten) jeweils einzeln und anschließend gemeinsam manipuliert, um den jeweiligen Einfluss im Vergleich zum bestehenden Datensatz (der schon weiter oben dargestellt war) zu veranschaulichen.</p>
+<p>In der Einführung zu <a href="#extreme-werte-und-einflussreiche-datenpunkte">Extremen Werte und einflussreichen Datenpunkte</a> haben wir den Unterschied zwischen Ausreißern auf dem Kriterium und den Prädiktoren schon angesprochen. Die Abbildungen sollen deren Implikationen noch verdeutlichen. Bei der Interpretation helfen die durchgezogene <a href="#loess">Lowess Fit Line</a> und die rot gestrichelten Grenzwerte der Cooks Distance.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Voraussetzungspruefung_files/figure-html/resid lev plot 2-1.png" class="img-fluid figure-img" width="600"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Voraussetzungspruefung_files/figure-html/sim lev resid plot 1-1.png" class="img-fluid figure-img" width="600"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Das standardisierte Residuum ist größer; die Leverage ist gleich.<br>
+Die Lowess Line ist immer noch flach und nah an der gestrichelten Linie bei <span class="math inline">\(y=0\)</span>.<br>
+Die Cooks Distance ist wesentlich größer, sie beträgt fast <span class="math inline">\(1\)</span>.<br>
+</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Voraussetzungspruefung_files/figure-html/sim lev resid plot 2-1.png" class="img-fluid figure-img" width="600"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Das standardisierte Residuum ist <em>vom Betrag</em> her ähnlich; die Leverage ist größer.<br>
+Die Lowess Line weicht wesentlich stärker von der gestrichelten Linie bei <span class="math inline">\(y=0\)</span> ab.<br>
+Die Cooks Distance ist etwas größer, aber noch <span class="math inline">\(&lt; 0.5\)</span>.<br>
+</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Voraussetzungspruefung_files/figure-html/sim lev resid plot 3-1.png" class="img-fluid figure-img" width="600"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Das standardisierte Residuum ist größer; die Leverage ist größer.<br>
+Die Lowess Line weicht extrem von der gestrichelten Linie bei <span class="math inline">\(y=0\)</span> ab.<br>
+Die Cooks Distance ist <span class="math inline">\(&gt; 1\)</span>.<br>
+</p>
+</details>
+</section>
+</section>
+</section>
+<section id="umgang-6" class="level4" data-number="14.5.3.2">
+<h4 data-number="14.5.3.2" class="anchored" data-anchor-id="umgang-6"><span class="header-section-number">14.5.3.2</span> Umgang</h4>
+<blockquote class="blockquote">
+<p><em><strong>Achtung</strong></em>: Wir sollten abweichende Beobachtungen nicht unbedacht aus der Analyse entfernen. Sie können nicht nur durch fehlerhafte Messung, sondern auch korrekte, aber seltene Messungen zutande gekommen sein (z.B. weil wenig Leute eine gewisse Ausprägung auf einer bestimmten Variable besitzen).<br>
+</p>
+</blockquote>
+<p>Außerdem gibt es keine einheitlichen Richtlinien darüber, ab wann wir Ausreißer und einflussreiche Datenpunkte entfernen sollten. Wir sollte diese immer mit Hinblick auf die Gesamtverteilung bewerten. Jeder Ausschluss sollte plausibel begründet werden können.</p>
+<p>Am besten ist es immer, zu überprüfen, ob wir robuste Ergebnisse vorliegen haben. Wir führen die vorgestellten Analysen mit und ohne kritische Werte durch und schauen uns an, was passiert. Ändern sich die Befunde nicht, sind wir wahrscheinlich auf der sicheren Seite.</p>
+</section>
+</section>
+</section>
+<section id="literatur-weiterführende-hilfe" class="level2" data-number="14.6">
+<h2 data-number="14.6" class="anchored" data-anchor-id="literatur-weiterführende-hilfe"><span class="header-section-number">14.6</span> Literatur &amp; weiterführende Hilfe</h2>
+<p>Dieses Kapitel basiert größtenteils auf dem in der Vorlesung <em>Multivariate Verfahren</em> des Masterstudiengangs Psychologie genutzen Lehrbuch:</p>
+<blockquote class="blockquote">
+<p><strong>Cohen</strong>, J., <strong>Cohen</strong>, P., <strong>West</strong>, S. G., &amp; <strong>Aiken</strong>, L. S. (2003). <em>Applied Multiple Regression/Correlation Analysis for the Behavioral Sciences</em> Hillsdale, NJ: Erlbaum.<br>
+Abschnitt 4.3 Assumptions and Ordinary Least Squares Regresion (S.117-125)<br>
+Abschnitt 4.4 Detecting Violations of Assumptions (S.125-141)<br>
+Abschnitt 4.5 Remedies: Alternative Approaches When Problems Are Detected (S.141-149)<br>
+Abschnitt 10.3 Detecting Outliers: Regression Diagnostics” (S.394-411)<br>
+Abschnitt 10.5 Multicollinearity” (S.419-425)<br>
+(für HU-Studierende über <a href="http://ub.hu-berlin.de" target="_blank">ub.hu-berlin.de</a> zugänglich)<br>
+</p>
+</blockquote>
+<p>Für ein <strong>deutschsprachiges</strong> Buch: &nbsp;</p>
+<blockquote class="blockquote">
+<p><strong>Gollwitzer</strong>, M., <strong>Eid</strong>, M., &amp; <strong>Schmitt</strong>, M. (2017). <em>Statistik und Forschungsmethoden.</em> Weinheim: Beltz Verlagsgruppe.&nbsp;<strong>(für HU-Studierende online zugänglich)</strong><br>
+Kapitel “Regressionsdiagnostik” (S. 704-725)<br>
+(für HU-Studierende über <a href="http://ub.hu-berlin.de" target="_blank">ub.hu-berlin.de</a> zugänglich)</p>
+</blockquote>
+<p>Zur weiteren <strong>Hilfe bei der Interpretation von Plots</strong>, können wir diesen <a href="https://stats.stackexchange.com/questions/58141/interpreting-plot-lm" target="_blank">Forumseintrag</a> sowie diese <a href="https://data.library.virginia.edu/diagnostic-plots/" target="_blank">Seite</a> nutzen.</p>
+<hr>
+<p>Um eine möglichst exakte Replikation der Funktionen zu gewährleisten gibt es im folgenden relevante Angaben zum System (<strong>R-Version</strong>, <strong>Betriebssystem</strong>, <strong>geladene Pakete mit Angaben zur Version</strong>), mit welchem diese Seite erstellt wurde.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>R version 4.2.2 (2022-10-31 ucrt)
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+Running under: Windows Server x64 (build 20348)
+
+Matrix products: default
+
+locale:
+[1] LC_COLLATE=English_United States.utf8 
+[2] LC_CTYPE=English_United States.utf8   
+[3] LC_MONETARY=English_United States.utf8
+[4] LC_NUMERIC=C                          
+[5] LC_TIME=English_United States.utf8    
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] car_3.1-1        carData_3.0-5    ICC_2.4.0        rmarkdown_2.20  
+[5] knitr_1.42       kableExtra_1.3.4
+
+loaded via a namespace (and not attached):
+ [1] rstudioapi_0.14   xml2_1.3.3        magrittr_2.0.3    rvest_1.0.3      
+ [5] munsell_0.5.0     viridisLite_0.4.1 colorspace_2.1-0  R6_2.5.1         
+ [9] rlang_1.0.6       fastmap_1.1.0     highr_0.10        stringr_1.5.0    
+[13] httr_1.4.4        tools_4.2.2       webshot_0.5.4     xfun_0.37        
+[17] cli_3.6.0         htmltools_0.5.4   systemfonts_1.0.4 abind_1.4-5      
+[21] yaml_2.3.7        digest_0.6.31     lifecycle_1.0.3   vctrs_0.5.2      
+[25] htmlwidgets_1.6.1 glue_1.6.2        evaluate_0.20     stringi_1.7.12   
+[29] compiler_4.2.2    scales_1.2.1      jsonlite_1.8.4    svglite_2.1.1    </code></pre>
+</div>
+</div>
+<p>Für Informationen zur Interpretation dieses Outputs schaut auch den Abschnitt <a href="./Pakete.html#replizierbarkeit-von-analysen">Replizierbarkeit von Analysen</a> des Kapitels zu Paketen an.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./Git.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Git und GitLab</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./Outputs-ALM-FAQ.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Outputs - ALM - FAQ</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

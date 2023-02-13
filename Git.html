@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>R Lernplattform - 13&nbsp; Git und GitLab</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Voraussetzungspruefung.html" rel="next">
+<link href="./Markdown.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Git und GitLab</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">R Lernplattform</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Inhalte</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Einführung in R</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Installation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Installation und Aktualisierung von R und RStudio</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Einfuehrung_in_R.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Einführung in R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Einfuehrung_in_RStudio.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Einführung in RStudio</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Pakete.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Pakete</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Daten-importieren.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Daten importieren</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Fehlermeldungen.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Fehlermeldungen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Datenvorbereitung.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Datenvorbereitung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Fehlende-Werte.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Fehlende Werte</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Grafiken.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Grafiken</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Weiterführende Themen in R</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Wide-and-Long-Format.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Wide- &amp; Long-Format</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Markdown.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">R Markdown</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Git.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Git und GitLab</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Vertiefungen zu den Veranstaltungen Methodenlehre I und II</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Voraussetzungspruefung.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Annahmen der Multiplen Linearen Regression</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Outputs-ALM-FAQ.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Outputs - ALM - FAQ</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">Projekt-Dokumentation</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Zur-Lernplattform-Beitragen.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Zur R-Lernplattform Beitragen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lineare-regression.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Lineare Regression - Die Basics</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#git" id="toc-git" class="nav-link active" data-scroll-target="#git"><span class="toc-section-number">13.1</span>  Git</a></li>
+  <li><a href="#einführung-in-git" id="toc-einführung-in-git" class="nav-link" data-scroll-target="#einführung-in-git"><span class="toc-section-number">13.2</span>  Einführung in Git</a>
+  <ul class="collapse">
+  <li><a href="#schritt-0" id="toc-schritt-0" class="nav-link" data-scroll-target="#schritt-0"><span class="toc-section-number">13.2.1</span>  Schritt 0</a></li>
+  <li><a href="#git-init" id="toc-git-init" class="nav-link" data-scroll-target="#git-init"><span class="toc-section-number">13.2.2</span>  git init</a></li>
+  <li><a href="#git-add" id="toc-git-add" class="nav-link" data-scroll-target="#git-add"><span class="toc-section-number">13.2.3</span>  git add</a></li>
+  <li><a href="#git-status" id="toc-git-status" class="nav-link" data-scroll-target="#git-status"><span class="toc-section-number">13.2.4</span>  git status</a></li>
+  <li><a href="#git-commit" id="toc-git-commit" class="nav-link" data-scroll-target="#git-commit"><span class="toc-section-number">13.2.5</span>  git commit</a></li>
+  <li><a href="#git-log" id="toc-git-log" class="nav-link" data-scroll-target="#git-log"><span class="toc-section-number">13.2.6</span>  git log</a></li>
+  <li><a href="#zu-einem-früheren-zustand-zurückkehren" id="toc-zu-einem-früheren-zustand-zurückkehren" class="nav-link" data-scroll-target="#zu-einem-früheren-zustand-zurückkehren"><span class="toc-section-number">13.2.7</span>  Zu einem früheren Zustand zurückkehren</a></li>
+  <li><a href="#branches" id="toc-branches" class="nav-link" data-scroll-target="#branches"><span class="toc-section-number">13.2.8</span>  Branches</a></li>
+  <li><a href="#mergen" id="toc-mergen" class="nav-link" data-scroll-target="#mergen"><span class="toc-section-number">13.2.9</span>  Mergen</a></li>
+  </ul></li>
+  <li><a href="#github-gitlab-gitbucket" id="toc-github-gitlab-gitbucket" class="nav-link" data-scroll-target="#github-gitlab-gitbucket"><span class="toc-section-number">13.3</span>  GitHub, GitLab, GitBucket, …</a>
+  <ul class="collapse">
+  <li><a href="#ein-neues-projekt-erstellen" id="toc-ein-neues-projekt-erstellen" class="nav-link" data-scroll-target="#ein-neues-projekt-erstellen"><span class="toc-section-number">13.3.1</span>  Ein neues Projekt erstellen</a></li>
+  <li><a href="#git-clone" id="toc-git-clone" class="nav-link" data-scroll-target="#git-clone"><span class="toc-section-number">13.3.2</span>  git clone</a></li>
+  <li><a href="#push" id="toc-push" class="nav-link" data-scroll-target="#push"><span class="toc-section-number">13.3.3</span>  git push</a></li>
+  <li><a href="#pull" id="toc-pull" class="nav-link" data-scroll-target="#pull"><span class="toc-section-number">13.3.4</span>  git pull</a></li>
+  <li><a href="#branches-archivieren-und-löschen" id="toc-branches-archivieren-und-löschen" class="nav-link" data-scroll-target="#branches-archivieren-und-löschen"><span class="toc-section-number">13.3.5</span>  Branches archivieren und löschen</a></li>
+  </ul></li>
+  <li><a href="#weitere-ressourcen" id="toc-weitere-ressourcen" class="nav-link" data-scroll-target="#weitere-ressourcen"><span class="toc-section-number">13.4</span>  Weitere Ressourcen</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Git und GitLab</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="git" class="level2" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="git"><span class="header-section-number">13.1</span> Git</h2>
+<p>Git ist ein Programm zur Versionsverwaltung von Dateien. Das bedeutet, dass wir damit nachverfolgen können, wie sich Dateien über die Zeit verändert haben. Außerdem können wir auch sehen, wer sie verändert hat und wir können zu früheren Zuständen des Dokuments zurückkehren. Es gibt viele unterschiedliche Systeme zur Versionsverwaltung, aber git ist das am weiten verbreitetste und auch die Grundlage für zum Beispiel gitHub und gitLab. Git ist kostenlos für Windows, Mac und Linux verfügbar. Weitere Informationen zur Installation gibt es <a href="https://git-scm.com/book/de/v2/Erste-Schritte-Git-installieren">hier</a>.</p>
+</section>
+<section id="einführung-in-git" class="level2" data-number="13.2">
+<h2 data-number="13.2" class="anchored" data-anchor-id="einführung-in-git"><span class="header-section-number">13.2</span> Einführung in Git</h2>
+<p>Wir werden im Folgenden alle Befehle in der command line durchführen. Es gibt sehr viele unterschiedliche grafische Oberflächen für git, die einem das Leben erleichtern können. Aber wenn wir online nach Hilfe für git suchen, werden wir immer auf die command line Befehle stoßen und daher wollen wir uns hier auch nur mit diesen beschäftigen.</p>
+<section id="schritt-0" class="level3" data-number="13.2.1">
+<h3 data-number="13.2.1" class="anchored" data-anchor-id="schritt-0"><span class="header-section-number">13.2.1</span> Schritt 0</h3>
+<p>Wir wollen git als erstes sagen, wer wir sind. Das ist wichtig, damit später jeder nachvollziehen kann, wer was am Dokument verändert hat. Hierfür nutzen wir den <code>git&nbsp;config</code> Befehl.</p>
+<ul>
+<li><code>git&nbsp;config&nbsp;--global&nbsp;user.name&nbsp;Mein&nbsp;Name</code></li>
+<li><code>git&nbsp;config&nbsp;--global&nbsp;user.email&nbsp;MeinName@mail.com</code></li>
+</ul>
+</section>
+<section id="git-init" class="level3" data-number="13.2.2">
+<h3 data-number="13.2.2" class="anchored" data-anchor-id="git-init"><span class="header-section-number">13.2.2</span> git init</h3>
+<p>Der erste Schritt ist, git zu sagen, dass wir eine Versionskontrolle starten wollen. Hierfür gehen wir zuerst in den Ordner, in dem die Dateien liegen, die wir “nachverfolgen” wollen. Dort starten wir dann die Kommandozeile und geben den Befehl <code>git&nbsp;init</code> ein (init steht für initialize). Git erstellt nun einen .git-Ordner, der aber nur sichtbar ist, wenn wir verborgene Ordner im Betriebssystem anzeigen lassen. Diesen brauchen wir aber im Folgenden nicht; es macht also nichts, wenn ihr ihn bei euch nicht sehen könnt.</p>
+</section>
+<section id="git-add" class="level3" data-number="13.2.3">
+<h3 data-number="13.2.3" class="anchored" data-anchor-id="git-add"><span class="header-section-number">13.2.3</span> git add</h3>
+<p>Sobald wir git init ausgeführt haben, können wir Dateien zur Versionskontrolle hinzufügen. Hierfür geben wir den Befehl “git add” gefolgt vom Name der Datei ein. Z.B. <code>git&nbsp;add&nbsp;gitTutorial.tex</code>. Die Datei “gitTutorial.tex” wird nun in eine Art “Warteraum” aufgenommen. Man spricht hier von “staged”. Wichtig ist: Wir haben die Datei so noch nicht in git zur Nachverfolgung hinzugefügt! Dateien aus Unterordnern können wir über die relativen Pfadnamen hinzufügen (z.B. figures/git/gitLogo.png). Mit <code>git&nbsp;add&nbsp;.</code> werden alle Dateien im Ordner sowie in allen Unterordnern hinzugefügt. Wir können auch eine .gitignore-Datei anlegen, in der wir festlegen, welche Dateien oder Dateitypen nicht zur Nachverfolgung hinzugefügt werden sollen. Diese können wir in einem Texteditor erstellen und dann unter .gitignore im Ordner speichern</p>
+<ul>
+<li>Hinweis: Wenn wir versehentlich eine Datei in den “Warteraum” aufgenommen haben, können wir sie mit z.B. mit <code>git&nbsp;rm&nbsp;--cached&nbsp;gitTutorial.tex</code> wieder entfernen</li>
+</ul>
+<p>Beispiel für Inhalte einer .gitignore Datei:</p>
+<pre><code># Dateien mit folgenden Dateiendungen werden nicht nachverfolgt:
+.log
+.aux
+.pdf
+.gz
+.out
+# Dateien aus dem Unterordner archive werden nicht nachverfolgt
+/archive</code></pre>
+</section>
+<section id="git-status" class="level3" data-number="13.2.4">
+<h3 data-number="13.2.4" class="anchored" data-anchor-id="git-status"><span class="header-section-number">13.2.4</span> git status</h3>
+<p>Wenn wir <code>git&nbsp;status</code> aufrufen, sehen wir nun unter “Changes to be committed” welche Dateien beim nächsten commit gespeichert werden. Das ist der “Warteraum”. Darunter sehen wir außerdem, welche Dateien nicht hinzugefügt wurden. So können wir noch einmal kontrollieren, ob wir alles wichtige mit add aufgenommen haben.</p>
+<p><img src="figures/git/gitStatus.png" class="img-fluid"></p>
+</section>
+<section id="git-commit" class="level3" data-number="13.2.5">
+<h3 data-number="13.2.5" class="anchored" data-anchor-id="git-commit"><span class="header-section-number">13.2.5</span> git commit</h3>
+<p>Der wichtigste Befehl ist <code>git&nbsp;commit</code>: Mit commit halten wir die aktuelle Version aller Dateien aus dem “Warteraum” fest. Man macht hier also im Prinzip einen Schnappschuss der Dateien im aktuellen Zustand. Zu diesen Zuständen kann man dann immer wieder zurückkehren, wenn man einen Fehler gemacht hat oder schauen möchte, was sich seither verändert hat. Wenn man <code>git&nbsp;commit</code> eingibt, wird man dazu aufgefordert, auch eine commit message zu schreiben. Hier sollte eine Beschreibung der Veränderungen seit dem letzten commit eingetragen werden. Die Beschreibung speichert man mit [Strg + S] und schließt das Fenster mit [Strg + X].</p>
+<ul>
+<li>Hinweis: Unter Windows muss man zuerst <code>i</code> klicken, bevor man eine commit message schreiben kann. Nach dem Eingeben der commit message mit <code>Esc</code> den Bearbeitungsmodus schließen und :wq eingeben, um das Fenster zu schließen.</li>
+<li>alternativ kann man auch <code>git&nbsp;commit&nbsp;-m&nbsp;Dies&nbsp;ist&nbsp;meine&nbsp;commit&nbsp;message</code> eingeben; dann öffnet sich kein neues Fenster für die commit message.</li>
+</ul>
+<p><img src="figures/git/commitMessage.png" class="img-fluid"></p>
+</section>
+<section id="git-log" class="level3" data-number="13.2.6">
+<h3 data-number="13.2.6" class="anchored" data-anchor-id="git-log"><span class="header-section-number">13.2.6</span> git log</h3>
+<p>Mit <code>git&nbsp;log</code> erhaltet ihr eine Übersicht aller commits. Hier können wir auch den “Namen” des commits sehen (die sogenannten Hash-Werte).<br>
+Z.B. d3e1166c891c21ee78dcaf6c7484eaf443957435. Diese brauchen wir, wenn wir zu einem früheren Zustand zurück kehren wollen.</p>
+<p><img src="figures/git/gitLog.png" class="img-fluid"></p>
+</section>
+<section id="zu-einem-früheren-zustand-zurückkehren" class="level3" data-number="13.2.7">
+<h3 data-number="13.2.7" class="anchored" data-anchor-id="zu-einem-früheren-zustand-zurückkehren"><span class="header-section-number">13.2.7</span> Zu einem früheren Zustand zurückkehren</h3>
+<p>Um zu einem früheren Zustand zurückzukehren, müssen wir zuerst im log den Hash-Wert des Commits heraussuchen, zu dem wir zurück wollen (z.B. d3e1166c891c21ee78dcaf6c7484eaf443957435). Mit <code>git&nbsp;checkout d3e1166c891c21ee78dcaf6c7484eaf443957435</code> können wir dann zu diesem Commit zurückkehren. Dabei werden alle Dateien auf den Zustand zurück gesetzt, den sie im Commit d3e1166c891c21ee78dcaf6c7484eaf443957435 hatten. <strong>Wichtig</strong>: Dabei werden die neueren Commits <strong>nicht</strong> überschrieben! Wir können immer wieder zur aktuellsten Version zurückkehren (mit <code>git&nbsp;checkout master</code>).</p>
+</section>
+<section id="branches" class="level3" data-number="13.2.8">
+<h3 data-number="13.2.8" class="anchored" data-anchor-id="branches"><span class="header-section-number">13.2.8</span> Branches</h3>
+<p>Branches sind dann wichtig, wenn wir verschiedene Versionen eines Dokumentes ausprobieren wollen. Zur Zeit befinden wir uns auf dem “master” branch und alle Veränderungen, die wir commiten, landen in diesem master branch. Wenn wir größere Veränderungen an einem R-Skript oder einem Dokument vornehmen, das wir auch mit anderen teilen, kann das aber problematisch sein. Damit wir uns nicht immer den master “zerschießen” können wir branches (also Ableger) nutzen. Um einen solchen branch zu erstellen, geben wir <code>git&nbsp;branch&nbsp;Branchname</code> ein. Wir können zwischen dem master und dem neuen branch mit <code>git&nbsp;checkout&nbsp;Branchname</code> wechseln. Wenn wir wieder zum master zurück wollen, geben wir <code>git&nbsp;checkout&nbsp;master</code> ein.</p>
+<p><strong>Hinweise</strong>:</p>
+<ul>
+<li>Wenn man einfach nur <code>git branch</code> eingibt, bekommt man eine Übersicht über alle existierenden branches. Git markiert außerdem, welcher Branch gerade angezeigt wird.</li>
+<li>Wenn man ein Dokument verändert, aber nicht commitet hat, kann man den branch nicht wechseln. Andernfalls würde man alle Veränderungen verlieren</li>
+</ul>
+</section>
+<section id="mergen" class="level3" data-number="13.2.9">
+<h3 data-number="13.2.9" class="anchored" data-anchor-id="mergen"><span class="header-section-number">13.2.9</span> Mergen</h3>
+<p>Nachdem wir alle Änderungen in einem branch vorgenommen haben, wollen wir nun unseren neuen branch und den master vereinen (merge). Hierfür gehen wir wieder in den master (<code>git&nbsp;checkout&nbsp;master</code>). Dort geben wir nun <code>git&nbsp;merge&nbsp;Branchname</code> ein. Das kann z.B. auch genutzt werden, wenn eine andere Person an unserem Manuskript weiter geschrieben hat und wir nun diese Veränderungen in unser Dokument übernehmen wollen. Dabei schaut Git auch, ob mehrere Personen die selben Textstellen verändert haben. In solchen Fällen kommt es zu einem merge conflict. Git wird versuchen, diese Konflikte zu lösen, aber manchmal müssen wir auch selbst Hand anlegen. Weiter unten wird erklärt, wie man mit merge Konflikten in GitLab umgeht.</p>
+</section>
+</section>
+<section id="github-gitlab-gitbucket" class="level2" data-number="13.3">
+<h2 data-number="13.3" class="anchored" data-anchor-id="github-gitlab-gitbucket"><span class="header-section-number">13.3</span> GitHub, GitLab, GitBucket, …</h2>
+<p>GitHub, GitLab, GitBucket und ähnliche Plattformen sind Webseiten, auf denen wir unser git-Projekt hochladen können, um es anderen zur Verfügung zu stellen oder ein Backup zu haben. Wir werden im Folgenden die HU-eigene <a href="https://scm.cms.hu-berlin.de/">GitLab</a> Instanz nutzen. <strong>Wichtig</strong>: In GitLab können wir Projekte auch so speichern, dass nur wir selbst oder von uns ausgewählte Personen auf die Dokumente Zugriff haben!</p>
+<section id="ein-neues-projekt-erstellen" class="level3" data-number="13.3.1">
+<h3 data-number="13.3.1" class="anchored" data-anchor-id="ein-neues-projekt-erstellen"><span class="header-section-number">13.3.1</span> Ein neues Projekt erstellen</h3>
+<p>Auf GitLab können wir unter “New Project” eine neues Projekt erstellen. Hier können wir auch einstellen, ob ein Projekt nur für uns oder für alle sichtbar sein soll.</p>
+<p><img src="figures/git/newProject.png" class="img-fluid"></p>
+<p>Nachdem wir ein neues Projekt erstellt haben, können wir unser bestehendes git-Projekt hochladen. Die hierfür notwendigen Schritte werden nach dem Erstellen eines neuen Projektes direkt in gitLab angezeigt. Sie sind: <code>git remote add origin https://scm.cms.hu-berlin.de/Nutzername/Projektname.git git push -u origin master</code></p>
+<ul>
+<li><strong>remote</strong> steht für ein repository, das nicht auf dem eigenen Rechner liegt. <code>git remote add origin</code> fügt also ein neues remote repository hinzu, das <code>origin</code> heißt und in <code>https://scm.cms.hu-berlin.de/Nutzername/Projektname.git</code> liegt. Nachfolgend müssen wir nicht mehr die ganze Web-Adresse schreiben, sondern es reicht der Name des remote repository (<code>origin</code>). Wir können das remote repository auch anders nennen (z.B. <code>git remote add GitLabRemote https://scm.cms.hu-berlin.de/Nutzername/Projektname.git</code>). Aber origin hat sich als Standard durchgesetzt.</li>
+<li><code>git push -u origin master</code> lässt sich übersetzen als: lade (git push) den lokalen master in das remote repository mit dem Namen origin. Dabei wird im remote repository ebenfalls der master überschrieben.</li>
+<li>Wenn wir ein gemeinsames Projekt erstellen, können wir andere Personen auf GitLab gezielt zum Projekt hinzu fügen und ihnen bestimmte Rollen zuordnen. Mehr Infos zu den Rollen und ihrer Bedeutung gibt es <a href="https://scm.cms.hu-berlin.de/help/user/permissions">hier</a>.</li>
+</ul>
+</section>
+<section id="git-clone" class="level3" data-number="13.3.2">
+<h3 data-number="13.3.2" class="anchored" data-anchor-id="git-clone"><span class="header-section-number">13.3.2</span> git clone</h3>
+<p>Häufig wollen wir an einem Projekt einer anderen Person weiterarbeiten. Hierfür laden wir das Projekt erst einmal herunter. Zuerst gehen wir in den Ordner, in dem wir das git-Projekt speichern wollen. Dann führen wir dort in der command-line den folgenden Befehl aus: <code>git clone https://scm.cms.hu-berlin.de/orzekjan/git-einfuehrung.git</code></p>
+<p>Git lädt nun das Projekt “git-einfuehrung” herunter und wir können es lokal bearbeiten. Dabei sollten wir zuerst einen neuen Branch erstellen. So können wir sicherstellen, dass wir Veränderungen im Projekt, die von einer anderen Person im origin vorgenommen werden, leichter mit unseren Veränderungen integrieren können.</p>
+<ul>
+<li>Um den Link zum Herunterladen eines Projekts zu finden, kann man auf der Projektseite auf Clone drücken und den HTTPS Link kopieren.</li>
+<li>den lokalen branch zur Bearbeitung erstellen wir wie oben: z.B. mit <code>git branch revisionJO</code>.</li>
+</ul>
+<p><img src="figures/git/cloneProject.png" class="img-fluid"></p>
+<p><img src="figures/git/revisionJO.png" class="img-fluid"></p>
+</section>
+<section id="push" class="level3" data-number="13.3.3">
+<h3 data-number="13.3.3" class="anchored" data-anchor-id="push"><span class="header-section-number">13.3.3</span> git push</h3>
+<p>Nachdem wir ein Repository herunter geladen und verändert haben, können wir es mit <code>git push</code> wieder auf den Server laden. Wenn es sich um ein gemeinsames Projekt handelt, sollte man nicht direkt in den master pushen; sonst überschreibt man eventuell Veränderungen, die andere vorgenommen haben. Stattdessen sollte man den eigenen branch (im Beispiel den branch revisionJO) in einen neuen remote branch pushen. Dies geht mit dem Befehl:</p>
+<p><code>git push origin revisionJO</code></p>
+<p>Der lokale branch revisionJO wird so in das online-Projekt kopiert. Dort gibt es nun ebenfalls einen branch mit dem Namen revisionJO. Wenn der Branch mit diesem Namen bereits vorher existierte, wird er nur aktualisiert.</p>
+<p><img src="figures/git/branches.png" class="img-fluid"></p>
+<p>Bei unseren eigenen Projekten können wir auch direkt in den Master pushen. Das geht mit <code>git push origin master</code>.</p>
+<p>In GitLab können wir nun zu unserem branch wechseln und mit “Create merge request” ein Zusammenführen des masters und des revisionJO-branches anfragen.</p>
+<p><img src="figures/git/revisionJOMerge.png" class="img-fluid"></p>
+<p>Hier können wir auch noch einen ausführlicheren Kommentar hinterlassen, warum wir eine Veränderung vorgenommen haben.</p>
+<p>Alle Veränderungen werden im Reiter “Changes” detailliert aufgeführt:</p>
+<p><img src="figures/git/revisionJOChanges.png" class="img-fluid"></p>
+<p>Im Reiter “Overview” können Projektadministrator_innen nun den Merge annehmen und unsere vorgeschlagenen Veränderungen damit übernehmen oder ablehnen. Außerdem können dort die Veränderungen auch noch einmal diskutiert werden.</p>
+<p><img src="figures/git/mergeRevisionJOAccept.png" class="img-fluid"></p>
+</section>
+<section id="pull" class="level3" data-number="13.3.4">
+<h3 data-number="13.3.4" class="anchored" data-anchor-id="pull"><span class="header-section-number">13.3.4</span> git pull</h3>
+<p>Mit pull können wir unser git repository vom Server auf den Rechner aktualisieren. Wir können dabei festlegen, welchen branch wir herunterladen wollen. Z.B. laden wir mit</p>
+<p><code>git pull origin master</code></p>
+<p>den branch master aus dem Online-Projekt origin herunter. So können wir nach dem merge sicherstellen, dass wir auch wieder die aktuelle Version des master haben.</p>
+</section>
+<section id="branches-archivieren-und-löschen" class="level3" data-number="13.3.5">
+<h3 data-number="13.3.5" class="anchored" data-anchor-id="branches-archivieren-und-löschen"><span class="header-section-number">13.3.5</span> Branches archivieren und löschen</h3>
+<p>Nachdem man den branch revisionJO in den master gemerged haben, ist üblich, den alten branch zu löschen. So vermeidet man, am Ende sehr viele branches zu haben, die alle nicht mehr genutzt werden. Den branch revisionJO löscht man mit:</p>
+<p><code>git branch -d revisionJO</code></p>
+<p>Wenn man den branch vorher archivieren möchte, geht dies mit:</p>
+<p><code>git tag archive/revisionJO revisionJO</code></p>
+<p>So wird ein Ordner archive erstellt, in dem der branch revisionJO gespeichert ist. Wir können den branch nun löschen, aber er ist weiterhin im Ordner archive hinterlegt. Um alle tags anzuzeigen, können wir einfach <code>git tag</code> eingeben. Dort sehen wir nun auch den neu angelegten archive Ordner.</p>
+<p>Um den branch revisionJO wieder herzustellen, können wir <code>git checkout -b revisionJO archive/revisionJO</code> eingeben.</p>
+</section>
+</section>
+<section id="weitere-ressourcen" class="level2" data-number="13.4">
+<h2 data-number="13.4" class="anchored" data-anchor-id="weitere-ressourcen"><span class="header-section-number">13.4</span> Weitere Ressourcen</h2>
+<p>Einfache Einführung: <a href="https://www.youtube.com/watch?v=SWYqp7iY_Tc">Git &amp; GitHub Crash Course For Beginners</a></p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./Markdown.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">R Markdown</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./Voraussetzungspruefung.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Annahmen der Multiplen Linearen Regression</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

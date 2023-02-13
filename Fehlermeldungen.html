@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>R Lernplattform - 7&nbsp; Fehlermeldungen</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Datenvorbereitung.html" rel="next">
+<link href="./Daten-importieren.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Fehlermeldungen</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">R Lernplattform</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Inhalte</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Einführung in R</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Installation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Installation und Aktualisierung von R und RStudio</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Einfuehrung_in_R.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Einführung in R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Einfuehrung_in_RStudio.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Einführung in RStudio</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Pakete.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Pakete</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Daten-importieren.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Daten importieren</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Fehlermeldungen.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Fehlermeldungen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Datenvorbereitung.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Datenvorbereitung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Fehlende-Werte.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Fehlende Werte</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Grafiken.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Grafiken</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Weiterführende Themen in R</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Wide-and-Long-Format.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Wide- &amp; Long-Format</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Markdown.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">R Markdown</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Git.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Git und GitLab</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Vertiefungen zu den Veranstaltungen Methodenlehre I und II</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Voraussetzungspruefung.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Annahmen der Multiplen Linearen Regression</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Outputs-ALM-FAQ.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Outputs - ALM - FAQ</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">Projekt-Dokumentation</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Zur-Lernplattform-Beitragen.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Zur R-Lernplattform Beitragen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lineare-regression.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Lineare Regression - Die Basics</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#tools-die-uns-helfen-fehler-zu-vermeiden" id="toc-tools-die-uns-helfen-fehler-zu-vermeiden" class="nav-link active" data-scroll-target="#tools-die-uns-helfen-fehler-zu-vermeiden"><span class="toc-section-number">7.1</span>  Tools die uns helfen, Fehler zu vermeiden</a>
+  <ul class="collapse">
+  <li><a href="#r-dokumentation" id="toc-r-dokumentation" class="nav-link" data-scroll-target="#r-dokumentation"><span class="toc-section-number">7.1.1</span>  <strong>R</strong>-Dokumentation</a></li>
+  <li><a href="#code-diagnostik" id="toc-code-diagnostik" class="nav-link" data-scroll-target="#code-diagnostik"><span class="toc-section-number">7.1.2</span>  Code Diagnostik</a></li>
+  </ul></li>
+  <li><a href="#fehlermeldungen-verstehen" id="toc-fehlermeldungen-verstehen" class="nav-link" data-scroll-target="#fehlermeldungen-verstehen"><span class="toc-section-number">7.2</span>  Fehlermeldungen verstehen</a></li>
+  <li><a href="#suchen-im-internet" id="toc-suchen-im-internet" class="nav-link" data-scroll-target="#suchen-im-internet"><span class="toc-section-number">7.3</span>  Suchen im Internet</a></li>
+  <li><a href="#a-passende-suchbegriffe-nutzen" id="toc-a-passende-suchbegriffe-nutzen" class="nav-link" data-scroll-target="#a-passende-suchbegriffe-nutzen"><span class="toc-section-number">7.4</span>  a) Passende Suchbegriffe nutzen</a></li>
+  <li><a href="#b-ergebnisse-filtern" id="toc-b-ergebnisse-filtern" class="nav-link" data-scroll-target="#b-ergebnisse-filtern"><span class="toc-section-number">7.5</span>  b) Ergebnisse filtern</a></li>
+  <li><a href="#c-lösungsvorschläge-ausprobieren" id="toc-c-lösungsvorschläge-ausprobieren" class="nav-link" data-scroll-target="#c-lösungsvorschläge-ausprobieren"><span class="toc-section-number">7.6</span>  c) Lösungsvorschläge ausprobieren</a></li>
+  <li><a href="#zurück-zu-b-ergebnisse-filtern-und-c-lösungsvorschläge-ausprobieren" id="toc-zurück-zu-b-ergebnisse-filtern-und-c-lösungsvorschläge-ausprobieren" class="nav-link" data-scroll-target="#zurück-zu-b-ergebnisse-filtern-und-c-lösungsvorschläge-ausprobieren"><span class="toc-section-number">7.7</span>  Zurück zu b) Ergebnisse filtern und c) Lösungsvorschläge ausprobieren</a></li>
+  <li><a href="#und-wenn-man-keine-lösung-gefunden-hat" id="toc-und-wenn-man-keine-lösung-gefunden-hat" class="nav-link" data-scroll-target="#und-wenn-man-keine-lösung-gefunden-hat"><span class="toc-section-number">7.8</span>  Und wenn man keine Lösung gefunden hat?</a></li>
+  <li><a href="#weiterführende-hilfe" id="toc-weiterführende-hilfe" class="nav-link" data-scroll-target="#weiterführende-hilfe"><span class="toc-section-number">7.9</span>  Weiterführende Hilfe</a></li>
+  <li><a href="#automatische-suche-mit-dem-paket-errorist" id="toc-automatische-suche-mit-dem-paket-errorist" class="nav-link" data-scroll-target="#automatische-suche-mit-dem-paket-errorist"><span class="toc-section-number">7.10</span>  Automatische Suche mit dem Paket <strong>errorist</strong></a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Fehlermeldungen</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>Beim Arbeiten mit <strong>R</strong> wird es früher oder später einmal dazu kommen, dass wir in der Konsole eine Fehlermeldung ausgegeben bekommen.</p>
+<p>Generell kann man in <strong>R</strong> drei verschiedene Meldungen (<em>Conditions</em>) erhalten:</p>
+<ul>
+<li><strong>error</strong>:<br>
+Durch Fehler wird die Ausführung der Funktion unterbrochen.</li>
+<li><strong>warning</strong><br>
+Im Gegensatz zu echten Fehlern (errors) wird die Ausführung des Codes bei warnings nicht unterbrochen. Warnmeldungen dienen dazu, die Aufmerksamkeit des Benutzers auf potentielle Probleme zu lenken. Im Unterschied zu errors kann man mehrere Warnungen von einer Funktion erhalten.</li>
+<li><strong>message</strong><br>
+Geben Informationen dazu, was eine Funktion (zusätzlich) gemacht hat.</li>
+</ul>
+<aside>
+Eine vertiefte Einführung in die verschiedenen Conditions finden wir auf <a href="https://adv-r.hadley.nz/conditions.html" target="_blank">Advanced R</a>.
+</aside>
+<p>Wir konzentrieren uns in diesem Abschnitt auf ersteres: Fehlermeldungen, die unsere Arbeit in <strong>R</strong> anhalten lassen und nach einer Lösung verlangen.</p>
+<p>Fehlermeldungen können unterschiedliche Ursachen haben. Häufig sind es Tipp- oder Syntaxfehler, aber auch Probleme mit Datentypen (z.B. eine Funktion erfordert einen anderen als den genutzen Datentyp) und Paketen (z.B. Laden des Paketes einer Funktion vergessen) kommen häufiger vor.</p>
+<aside>
+Es gibt keine fixe Taxonomie der Arten von Fehlern in <strong>R</strong>. Es seien hier nur einige genannt.
+</aside>
+<p>Fehlermeldungen sind häufig nicht einfach zu verstehen. Das liegt u.a. daran, dass EntwicklerInnen von Paketes jeweils eigene Fehlermeldungen für die enthaltenen Funktionen formulieren. Deswegen folgen diese zumeist keinem einheitlichen Muster und sind teils schwer zu verstehen.</p>
+<p>Im Folgenden gehen wir uns zuerst darauf ein, welche Hilfe uns <strong>RStudio</strong> gibt, um <strong>Fehler zu vermeiden</strong>. Anschließend schauen wir uns an einigen konkreten (Syntax-)Fehlermeldungen an, wie man diese <strong>verstehen</strong> kann. Danach lernen wir, wie wir <strong>Suchmaschinen sinnvoll nutzen</strong> können, um Lösungen für unsere Fehlermeldungen zu finden.<br>
+</p>
+<details>
+<summary>
+Beispieldatensatz für dieses Kapitel
+</summary>
+<p>Für das vorliegende Kapitel werden wir uns einen kleinen Datensatz generieren, mit dem wir arbeiten werden.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Matrix erstellen</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>daten <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">2</span>, </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>                 <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">3</span>, <span class="dv">1</span>, </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>                 <span class="dv">3</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">1</span>,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>                 <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">3</span>), <span class="at">nrow =</span> <span class="dv">5</span>, <span class="at">ncol =</span> <span class="dv">4</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># in Dataframe umwandeln</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>daten <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(daten)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Spalten benennen</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(daten) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Var_1"</span>, <span class="st">"Var_2"</span>, <span class="st">"Var_3"</span>, <span class="st">"Var_4"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>  Var_1 Var_2 Var_3 Var_4
+1     0     3     3     1
+2     1     2     0     2
+3     3     0     1     1
+4     2     3     3     0
+5     2     1     1     3</code></pre>
+</div>
+</div>
+</details>
+<section id="tools-die-uns-helfen-fehler-zu-vermeiden" class="level2 page-columns page-full" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="tools-die-uns-helfen-fehler-zu-vermeiden"><span class="header-section-number">7.1</span> Tools die uns helfen, Fehler zu vermeiden</h2>
+<p>Bevor wir uns dem Verstehen von konkreten (Syntax-)Fehlermeldungen widmen und anschauen, wie wir effizient im Internet suchen können, schauen wir uns <strong>zwei Hilfsmittel</strong> an, die uns die Entwicklungsumgebung <strong>RStudio</strong> gibt, um <strong>Fehler zu vermeiden</strong>.</p>
+<section id="r-dokumentation" class="level3 page-columns page-full" data-number="7.1.1">
+<h3 data-number="7.1.1" class="anchored" data-anchor-id="r-dokumentation"><span class="header-section-number">7.1.1</span> <strong>R</strong>-Dokumentation</h3>
+<p>Wenn wir eine uns noch unbekannte Funktion nutzen (aber auch wenn wir aus einer Fehlermeldung nicht schlau werden) können wir die Dokumentation nutzen. Diese können wir in RStudio im unteren rechten Panel unter Help öffnen. In das Suchfeld geben wir den Namen der Funktion ein.</p>
+<p>Alternativ können wir die Hilfefunktionen <code>?</code> oder <code>help()</code> nutzen (z.B. <code>?matrix</code> oder <code>help(matrix)</code>).</p>
+<p>Mit Klick auf das eingekreiste Icon kann man sich die Hilfe-Seite auch in einem extra Fenster anzeigen lassen.</p>
+<aside>
+Wir finden die <strong>R</strong>-Dokumentation auch im Internet, allerdings ermöglicht uns <strong>RStudio</strong>, diese ohne Internetverbindung und direkt in der Entwicklungsumgebung zu öffnen.
+</aside>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Fehlermeldungen/Bilder/doc.png" class="img-fluid figure-img" width="550"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Wir bekommen hier (zumeist) folgende Informationen: aus welchem Paket die Funktion ist (oben links in <strong>{ }</strong>), was die Funktion macht (Description), die Funktionsdefinition ggf. mit Defaults (Usage), ihre Parameter mit jeweils gültigen Argumenten (Arguments), weitere Details zur Nutzung (Details), ähnliche Funktionen (See also) und Beispiele zur Nutzung (Examples).</p>
+<details>
+<summary>
+<em>Was sind Parameter, Argumente und Defaults?</em>
+</summary>
+<p>Parameter bezeichnet die (formalen) <strong>Variablen einer Funktion</strong> (z.B. <code>nrow</code> aus <code>matrix()</code>), denen wir unsere (tatsächlichen) Argumente (z.B. <code>3</code>), d.h. unseren <strong>Input</strong>, übergeben. Default bezeichnet ein <strong>voreingestelltes Argument</strong> (z.B. <code>nrow=1</code>).</p>
+<p>Ohne explizite Spezifikation des Parameters unsererseits wird (wenn vorhanden) der Default verwendet. Wir könnten natürlich auch ein anderes (als das voreingestellte) Argument festlegen.</p>
+<p>Funktionen, die ausschließlich Parameter mit Defaults besitzen, (z.B. <code>matrix()</code>) werden auch ohne Spezifikation ausgeführt. Funktionen mit (min. einem) Parameter ohne Default (z.B. <code>mean()</code>) werden ohne Spezifikation dieser nicht ausgeführt (wir müssen dem Parameter <code>x</code> einen Vektor, von dem wir den Mittelwert berechnen wollen, übergeben). Mehr Informationen zu Funktionsdefinition und etwaigen Defaults finden wir im Abschnitt Usage in der R-Dokumentation.</p>
+Mehr Informationen zum Aufbau von Funktionen finden wir in der <a href="./Einfuehrung_in_R.html">Einführung in R</a>
+</details>
+<p>Eine <a href="./Einfuehrung_in_RStudio.html#R Dokumentation">detaillierte Einführung zur Nutzung der Dokumentation</a> befindet sich im Kapitel <a href="./Einfuehrung_in_RStudio.html">Einführung in R Studio</a>.</p>
+</section>
+<section id="code-diagnostik" class="level3" data-number="7.1.2">
+<h3 data-number="7.1.2" class="anchored" data-anchor-id="code-diagnostik"><span class="header-section-number">7.1.2</span> Code Diagnostik</h3>
+<blockquote class="blockquote">
+<p><em><strong>Achtung</strong></em>: Wir können die Code Diagnostik nur nutzen, wenn wir unser <strong>Skript gespeichert</strong> haben.</p>
+</blockquote>
+<p>Vor Ausführung unseres Codes erhalten wir Hinweise, beispielsweise wenn Argumente einer Funktion fehlen oder unerwartete Zeichen auftauchen.</p>
+<p>Der Fehler wird <strong>unterstrichen</strong> und es erscheint außerdem ein <strong>Symbol</strong> links neben der Zeilennummerierung. Zusätzlich erhalten wir einen <strong>ausformulierten Hinweis</strong>, wenn wir mit der Maus über das Symbol fahren.</p>
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="figures/Fehlermeldungen/Bilder/cd dreieck 1.png" class="img-fluid figure-img" width="280"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="figures/Fehlermeldungen/Bilder/cd dreieck 2.png" class="img-fluid figure-img" width="400"></p>
+</figure>
+</div>
+</div>
+</div>
+<details>
+<summary>
+Lösung
+</summary>
+<p>Das dritte Argument, welches nach dem zweiten Komma in <code>c()</code> folgen sollte, ist leer. In unserem Beispiel sind die Argumente von <code>c()</code> Zahlen (zur Indexierung der Spalten vom Dataframe <code>daten</code>). Wenn wir die Spalten <code>1</code>, <code>2</code> und <code>3</code> extrahieren wollten, würden wir das überflüssige Komma löschen: <code>daten[,c(1,2,3)]</code></p>
+</details>
+<p><br>
+</p>
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="figures/Fehlermeldungen/Bilder/cd kreis 1.png" class="img-fluid figure-img" width="260"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="figures/Fehlermeldungen/Bilder/cd kreis 2.png" class="img-fluid figure-img" width="400"></p>
+</figure>
+</div>
+</div>
+</div>
+<details>
+<summary>
+Lösung
+</summary>
+Unser Code endet mit einer schließenden runden Klammer, welche kein öffnendes Pendant hat. Außerdem hat unsere öffnende eckige Klammer kein abschließendes Pendant. Wahrscheinlich haben wir uns vertippt und anstatt einer schließenden eckigen Klammer eine schließende runde Klammer eingefügt. So würde der richtige Code aussehen: <code>daten[,c(1,2,3)]</code>
+</details>
+<p><br>
+</p>
+<p>Auf dieser <a href="https://support.rstudio.com/hc/en-us/articles/205753617-Code-Diagnostics?version=1.2.1335&amp;mode=desktop" target="_blank">Seite</a> wird die Möglichkeiten der Code Diagnostics noch detaillierter erklärt und wir erhalten eine Anleitung dazu, wie wir verschiedene Einstellungen tätigen können (in der oberen Menüleiste über <em>Tools &gt; Global Options &gt; Code &gt; Diagnostics</em>).</p>
+</section>
+</section>
+<section id="fehlermeldungen-verstehen" class="level2 page-columns page-full" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="fehlermeldungen-verstehen"><span class="header-section-number">7.2</span> Fehlermeldungen verstehen</h2>
+<p>Schauen wir uns einmal den typischen Aufbau von Fehlermeldungen an:<br>
+</p>
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="figures/Fehlermeldungen/Bilder/fehl.png" class="img-fluid figure-img" width="600"></p>
+</figure>
+</div>
+</div>
+</div>
+<aside>
+Diese Fehlermeldung werden wir im Abschnitt [<strong>Suchen im Internet</strong>] noch aufklären.
+</aside>
+<p>Die Information <strong>vor</strong> dem Doppelpunkt gibt uns an, in welcher Funktion der Fehler steckt; die Information <strong>nach</strong> dem Doppelpunkt gibt Aufschluss über die Art des Fehlers. Zweiteres ist für die Fehlersuche (zumeist) von großer Bedeutung.</p>
+<p>Im Folgenden konzentrieren wir uns auf eine Art von Fehler, mit der vor allem AnfängerInnen häufig konfrontiert sind: Syntaxfehler.</p>
+<blockquote class="blockquote">
+<p>Syntaxfehler sind Fehler, die durch eine <strong>Verletzung des formalen Aufbaus einer Funktion</strong> zustande kommen. Manchmal entstehen sie auch nur durch Vertippen.</p>
+</blockquote>
+<p>Syntaxfehler können zumeist relativ einfach durch Korrigieren der fehlerhaften Syntax, i.d.R. dem Einfügen oder Entfernen von bestimmten Zeichen, zumeist Kommata oder Klammern, gelöst werden.</p>
+<p>Schauen wir uns nun einige Beispiele an:</p>
+<p>Wenn <strong>ein oder mehrere Zeichen überflüssig sind bzw. fehlen</strong>, dann bekommt man <code>Unerwartete(s) '...' in "..."</code> ausgegeben. Hierbei teilt uns die Meldung mit, <em>wo</em> der Fehler liegt: In den Anführungszeichen <code>"..."</code> wird nur ein Teil des Codes ausgegeben und der Fehler ist zumeist das zuletzt ausgegebene Zeichen (oder es liegt unmittelbar davor).</p>
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="figures/Fehlermeldungen/Bilder/fm 1.png" class="img-fluid figure-img" width="440"></p>
+</figure>
+</div>
+</div>
+</div>
+<details>
+<summary>
+Lösung
+</summary>
+<p>z.B. <code>daten[2]</code></p>
+Damit extrahiert man auch die zweite Spalte aus <code>daten</code>, aber hier wird der Name der Spalte (Variable) nicht mit ausgegeben. Außerdem werden die Elemente der Spalte zeilwenweise wiedergegeben.
+</details>
+<p><br>
+</p>
+<p>Wenn mehrere Syntaxfehler enthalten sind, und man nicht gleich alle erkennt, muss man diese nach und nach beseitigen.</p>
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="figures/Fehlermeldungen/Bilder/fm 2.png" class="img-fluid figure-img" width="430"></p>
+</figure>
+</div>
+</div>
+</div>
+<details>
+<summary>
+Lösung
+</summary>
+<p>z.B. <code>daten[2]</code></p>
+Zuerst wurde nur auf das fehlerhafte <code>$</code> hingewiesen. Nachdem dieses gelöscht wurde, wird erst auf das falsche <code>)</code> verwiesen.
+</details>
+<p><br>
+</p>
+<p>Manchmal bekommt man auch nur <code>unerwartetes Symbol in: "..."</code> ausgegeben. In den Anführungszeichen <code>"..."</code> wird hier nur der Teil des Codes ausgegeben, in dem der Fehler ist, nicht aber (wie oben), auch das problematische Zeichen.</p>
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="figures/Fehlermeldungen/Bilder/fm 3.png" class="img-fluid figure-img" width="350"></p>
+</figure>
+</div>
+</div>
+</div>
+<details>
+<summary>
+Lösung
+</summary>
+<p>z.B. <code>daten[,2]</code> <em>oder</em> <code>daten[2]</code></p>
+Hier wurde nicht bemerkt, dass bei der ersten Funktion <code>daten[,2</code> noch ein <code>]</code> fehlt und einfach schon die nächste Funktion <code>daten[,3]</code> ausgeführt. So nahm <strong>R</strong> an, dass beide zusammen gehören würden.
+</details>
+<p><br>
+</p>
+<p>Wenn man Komma-Fehler hat, bekommt man beispielsweise folgende Meldung angezeigt.</p>
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="figures/Fehlermeldungen/Bilder/fm 4.png" class="img-fluid figure-img" width="500"></p>
+</figure>
+</div>
+</div>
+</div>
+<details>
+<summary>
+Lösung
+</summary>
+<p>z.B. <code>daten[c(1,2)]</code> <em>oder</em> <code>daten[c(1,2,3)]</code></p>
+Hier weist uns <strong>R</strong> darauf hin, dass das dritte Argument, welches nach dem zweiten Komma folgen sollte, leer ist. In Abhängigkeit davon, welche Spalten aus Daten extrahiert werden sollen, <em>löscht</em> man das Komma (um Spalte <code>1</code> und <code>2</code> zu extrahieren) oder man <em>ergänzt</em> einen weiteren Spaltenindex (z.B. 3; um Spalte <code>1</code>, <code>2</code> und <code>3</code> zu extrahieren).
+</details>
+</section>
+<section id="suchen-im-internet" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="suchen-im-internet"><span class="header-section-number">7.3</span> Suchen im Internet</h2>
+<p>Nun gibt es auch Fehlermeldungen, die wir nicht auf Anhieb verstehen. Dafür kann es vielfältige Ursachen geben. Wenn wir schon in der R-Dokumentation nachgeschaut haben und trotzdem noch ratlos sind, können wir im Internet nach Hilfe suchen. Wir können dafür Suchmaschinen direkt spezielle Foren nutzen.</p>
+<p><strong>Hierbei gibt es nicht <em>den einen</em> Weg, fündig zu werden.</strong> Häufig gibt es eine Fehlermeldung, die bei verschiedenen Problemen (mit unterschiedlichen Funktionen) angezeigt wird. Dann muss man filtern, welche Seite für das eigene Anliegen relevant sein könnte. Es kann ebenso möglich sein, dass es zu manchen Problemen einfach noch keine Lösung gibt. Dieser Fall ist eher seltener und tritt vor allem bei neueren oder seltener genutzen Paketen auf.</p>
+<p>Im Folgenden schauen wir uns einige <strong>wichtige Aspekte an, auf die man achten sollte</strong>, wenn man im Internet nach Lösungen zu Fehlermeldungen sucht.</p>
+<p>Dafür schauen wir uns folgendes Beispiel an: Wir wollen eine Korrelationstabelle erstellen, in der wir aus <code>daten</code> die ersten beiden Spalten <code>[1:2]</code> mit den letzten beiden Spalten <code>[3:4]</code> korrelieren. Dazu wurde die Funktion <code>cor.test()</code> genutzt. Wir bekommen folgende Fehlermeldung:</p>
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="figures/Fehlermeldungen/Bilder/fehler.png" class="img-fluid figure-img" width="600"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="a-passende-suchbegriffe-nutzen" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="a-passende-suchbegriffe-nutzen"><span class="header-section-number">7.4</span> a) Passende Suchbegriffe nutzen</h2>
+<p>Sinnvoll ist es im Suchtext drei Aspekte miteinzubeziehen:</p>
+<ul>
+<li>das <strong>Programm</strong>, mit dem es Probleme gibt</li>
+<li>die <strong>Funktion</strong>, mit der es Probleme gibt
+<ul>
+<li>auch ersichtlich an der Information <strong>vor</strong> dem Doppelpunkt</li>
+</ul></li>
+<li>Ausschnitte aus der <strong>Fehlermeldung</strong>
+<ul>
+<li>von den Informationen <strong>nach</strong> dem Doppelpunkt</li>
+</ul></li>
+</ul>
+<p>Unsere Suche könnte folgendermaßen aussehen:</p>
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="figures/Fehlermeldungen/Bilder/search words.png" class="img-fluid figure-img" width="500"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Anstatt eine globale Suchmaschine wie google oder ecosia zu nutzen, kann man auch eine spezifisch für Anliegen in <strong>R</strong> konzipierte Suchmaschine wie <a href="https://rseek.org" target="_blank"><strong>rseek</strong></a> nutzen. Dann kann man im Suchtext den Namen des Programms weglassen, beispielsweise nur <em>cor.test x numerischer Vektor</em> suchen.</p>
+</section>
+<section id="b-ergebnisse-filtern" class="level2 page-columns page-full" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="b-ergebnisse-filtern"><span class="header-section-number">7.5</span> b) Ergebnisse filtern</h2>
+<p>Nachfolgend sehen wir die ersten fünf Ergebnisse der Suche.</p>
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="figures/Fehlermeldungen/Bilder/search links.png" class="img-fluid figure-img" width="500"></p>
+</figure>
+</div>
+</div>
+</div>
+<aside>
+Suche mit ecosia am 05.09.2019 um 17:30Uhr
+</aside>
+<p>Mit Ausnahme des zweiten Links sieht es so aus, als würden die Seiten zu unspezifisch für unser Problem sein.</p>
+<p>Der zweite Link weist gleich zwei <strong>Übereinstimmungen</strong> auf: Wir wollten einen correlation test rechnen und haben die selbe Fehlermeldung (‘x’ must be a numeric vector) bekommen.</p>
+<p>Schauen wir uns also das <a href="https://stackoverflow.com/questions/43497128/r-error-in-correlation-test-x-must-be-a-numeric-vector" target="_blank">zweite Ergebnis</a> an.</p>
+</section>
+<section id="c-lösungsvorschläge-ausprobieren" class="level2" data-number="7.6">
+<h2 data-number="7.6" class="anchored" data-anchor-id="c-lösungsvorschläge-ausprobieren"><span class="header-section-number">7.6</span> c) Lösungsvorschläge ausprobieren</h2>
+<p>In Foren findet man in aller Regel oben die Problembeschreibung und darunter die geposteten Lösungsvorschläge.</p>
+<p>In unserem Beispiel, hat der/die Fragende mit der gleichen Funktion (<code>cor.test()</code>) gearbeitet.</p>
+<p>Schauen wir uns den Lösungsvorschlag an: Es wird vorgeschlagen den Datensatz mit <code>str()</code> zu überprüfen, ob die enthaltenen Variablen numerische Vektoren sind. Wenn dem nicht so ist, muss man sie dementsprechend umwandeln.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(daten)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   5 obs. of  4 variables:
+ $ Var_1: num  0 1 3 2 2
+ $ Var_2: num  3 2 0 3 1
+ $ Var_3: num  3 0 1 3 1
+ $ Var_4: num  1 2 1 0 3</code></pre>
+</div>
+</div>
+<p>Bei uns scheinen alle Spalten numerisch (<code>num</code>) zu sein. Diese Lösung scheint also nicht passend für unser Problem zu sein.</p>
+</section>
+<section id="zurück-zu-b-ergebnisse-filtern-und-c-lösungsvorschläge-ausprobieren" class="level2 page-columns page-full" data-number="7.7">
+<h2 data-number="7.7" class="anchored" data-anchor-id="zurück-zu-b-ergebnisse-filtern-und-c-lösungsvorschläge-ausprobieren"><span class="header-section-number">7.7</span> Zurück zu b) Ergebnisse filtern und c) Lösungsvorschläge ausprobieren</h2>
+<p>Gehen wir also zurück zu unserer Suche und schauen uns andere Seiten an. So sehen die nächsten fünf Ergebnisse der Suche aus.</p>
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="figures/Fehlermeldungen/Bilder/search links 2.png" class="img-fluid figure-img" width="500"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Bis auf den zweiten Link sehen die Vorschläge hier auch wieder sehr unspezifisch aus. Bei diesem gibt es zwei Parallelen zu unserem Problem: cor.test wird auf einen data frame angewendet. Sehen wir uns die <a href="https://www.reddit.com/r/Rlanguage/comments/23infd/running_cortest_on_data_frames/" target="_blank">Seite</a> mal an.</p>
+<p>Wir landen in einem Foreneintrag. Die Antwort von dasonk weißt uns darauf hin, dass man an <code>cor.test()</code> nur <em>zwei Vektoren</em> übergeben kann. Wir haben aber 4 Vektoren übergeben. In der nächsten Antwort von anbende wird vorgeschlagen, die Korrelationstabelle mit <code>cor()</code> zu erstellen. Allerdings muss man die Signifikanztestung immer noch mit <code>cor.test()</code> machen.</p>
+<p>Die Antwort hat uns schon weitergeholfen: Wir haben eine Vorstellung davon, wo der Fehler liegen könnte. Jetzt ist es sinnvoll, eine neue Suche zu starten, um nach einer Funktion zu suchen, die sowohl eine Korrelationstabelle erstellt, als auch eine Signifikanztestung durchführt.</p>
+<p>Hier kombinieren wir Suchwörter zum <strong>Programm</strong> und zu dem, was die <strong>Funktion</strong>, die wir suchen, leisten soll.</p>
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="figures/Fehlermeldungen/Bilder/search words 2.png" class="img-fluid figure-img" width="500"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Dann schauen wir uns wieder die ersten 5 Vorschläge dazu an:</p>
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="figures/Fehlermeldungen/Bilder/search links neu.png" class="img-fluid figure-img" width="500"></p>
+</figure>
+</div>
+</div>
+</div>
+<aside>
+Suche mit ecosia am 06.09.2019 um 09:40Uhr
+</aside>
+<p>Der erste Vorschlag ist nicht ganz das, was wir wollen. Hier geht es scheinbar mehr um <em>elegante</em> Korrelationstabellen.</p>
+<p>Der zweite Vorschlag hingegen scheint vielversprechender. Schauen wir uns <a href="http://www.sthda.com/english/wiki/correlation-matrix-a-quick-start-guide-to-analyze-format-and-visualize-a-correlation-matrix-using-r-software" target="_blank">diesen</a> einmal an.</p>
+<p>Es ist eine Seite, auf der verschiedene Aspekte der Umsetzung von Korrelationstabellen in <strong>R</strong> erklärt werden. Oben finden wir eine Gliederung. Wir springen gleich zum Punkt <em>‘Correlation matrix with significance levels (p-value)’</em>.</p>
+<p>Hier erfahren wir, dass man die Funktion <code>rcorr()</code> aus dem <strong>Hmisc</strong>-Paket nutzen kann. Außerdem wird man darauf hingewiesen, dass diese Funktion nur mit Matrizen arbeiten kann. Der Befehl, mit dem man Objekte in Matrizen umwandeln kann, wird auch angegeben.</p>
+<p>Probieren wir diesen Weg einmal aus.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("Hmisc")</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Hmisc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: lattice</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: survival</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: Formula</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: ggplot2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'Hmisc'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    format.pval, units</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rcorr</span>(<span class="fu">as.matrix</span>(daten[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]), <span class="fu">as.matrix</span>(daten[<span class="dv">3</span><span class="sc">:</span><span class="dv">4</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      Var_1 Var_2 Var_3 Var_4
+Var_1  1.00 -0.74 -0.29 -0.04
+Var_2 -0.74  1.00  0.66 -0.44
+Var_3 -0.29  0.66  1.00 -0.69
+Var_4 -0.04 -0.44 -0.69  1.00
+
+n= 5 
+
+
+P
+      Var_1  Var_2  Var_3  Var_4 
+Var_1        0.1528 0.6309 0.9510
+Var_2 0.1528        0.2279 0.4616
+Var_3 0.6309 0.2279        0.2006
+Var_4 0.9510 0.4616 0.2006       </code></pre>
+</div>
+</div>
+<p>Wir erhalten zwei Matrizen als Output. Eine enthält die Korrelationen, die andere die p-Werte. Wir haben also gefunden, wonach wir gesucht haben.</p>
+</section>
+<section id="und-wenn-man-keine-lösung-gefunden-hat" class="level2" data-number="7.8">
+<h2 data-number="7.8" class="anchored" data-anchor-id="und-wenn-man-keine-lösung-gefunden-hat"><span class="header-section-number">7.8</span> Und wenn man keine Lösung gefunden hat?</h2>
+<p>Wenn man im ersten Durchlauf nichts gefunden hat, ist es beispielsweise sinnvoll, <strong>andere Ausschnitte aus der Fehlermeldung in den Suchtext zu inkludieren</strong>.</p>
+<p>Manchmal ist ein Fehler so global, dass er bei verschiedenen Funktionen auftaucht. Daher lohnt es sich manchmal auch, eine <strong>Suche <em>ohne</em> den Funktionsnamen</strong> durchzuführen. Spätestens, wenn man bei der Suche mit allen drei Suchbegriffen nichts gefunden hat, ist es sinnvoll, nur mit <strong>Programm</strong> + <strong>Fehlermeldung</strong> zu suchen.</p>
+<p>Wir können auch auf <strong>allgemeine <a href="https://www.lifewire.com/google-searches-and-power-tricks-4093009" target="_blank">Tipps zum Suchen im Internet</a></strong> zurückgreifen, u.a.:</p>
+<ul>
+<li>mit Zitaten exakte Phrasen suchen
+<ul>
+<li>z.B. <em>“Fehler in cor.test.default”</em></li>
+</ul></li>
+<li>alternative Begriffe suchen (logische Operatoren)
+<ul>
+<li>AND ist der Default wenn wir mehrere Wörter eingeben</li>
+<li>mit OR (oder |) können wir mehrere Optionen angeben z.B. <em>“cor.test <strong>|</strong> cor.test.default”</em></li>
+</ul></li>
+<li>aus- bzw. einschließen von Wörtern
+<ul>
+<li>vor allem in Kombination mit Zitaten ist dieses Tool sehr nützlich</li>
+<li>ausschließen z.B. <em>“Fehler in cor.test.default” <strong>-str()</strong></em>”</li>
+<li>einschließen z.B. <em>“Fehler in cor.test.default <strong>+r</strong>”</em></li>
+</ul></li>
+</ul>
+<p>Ein weiterer Tipp ist es, <strong>in englisch zu suchen</strong>. Die Wahrscheinlichkeit ist hier viel größer, dass man Lösungsvorschläge findet.</p>
+<p>Wenn man, wie in diesem Kapitel zu sehen, die Fehlermeldungen auf deutsch ausgegeben bekommt, kann man das folgendermaßen auf englisch ändern:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.setenv</span>(<span class="at">LANGUAGE=</span><span class="st">"en"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="weiterführende-hilfe" class="level2" data-number="7.9">
+<h2 data-number="7.9" class="anchored" data-anchor-id="weiterführende-hilfe"><span class="header-section-number">7.9</span> Weiterführende Hilfe</h2>
+<p><br>
+</p>
+<p>Ganz generell kann es sehr hilfreich sein, wenn man ein bisschen mit der Funktion “spielt” - etwas wegnimmt oder verändert - und schaut, ob es dann funktioniert oder wie sich die Fehlermeldung verändert. Das hilft meist, das Problem etwas einzugrenzen - und man lernt nebenbei die Funktion besser kennen.</p>
+<p>Im <a href="https://www.uni-muenster.de/imperia/md/content/psyifp/ae_holling/r-fehlermeldungen.pdf" target="_blank"><strong>R</strong>-Fehlermeldungsleitfaden der Uni Münster</a> (unter <em>3. Fehlertextliste</em>), auf <a href="https://www.r-bloggers.com/common-r-programming-errors-faced-by-beginners/" target="_blank"><strong>R</strong>-bloggers</a> sowie <a href="http://www.programmingr.com/r-error-messages/" target="_blank">PROGRAMMINGR</a> findet man jeweils eine <strong>Übersicht über geläufige Fehlermeldungen</strong> mit Lösungen und teilweise auch Beispielen.</p>
+<!--
+Mit der **Error-Recovery mit dem Browser** kann man sich die (Unter)Funktionen anzeigen lassen, die, bis der Fehler auftaucht, an der Ausführung des Codes beteiligt waren. So kann man eigenständig in diesen suchen, was falsch gelaufen ist. Dieser Weg ist etwas komplizierter - Vorerfahrung im Umgang mit Programmierung ist hilfreich. Für eine kleine Einführung dazu schaut euch den gleichnamigen Abschnitt dieser <a href="https://de.wikibooks.org/wiki/GNU_R:_Finden_von_Programmfehlern_und_Debugging" target="_blank">Seite</a> an.
+
+Wenn man beispielsweise ein Modell fitten möchte und Fehlermeldungen erwartet, diese die Ausführung des Skripts aber nicht anhalten sollen, kann man u.a. `try()` und `tryCatch()` nutzen. Mit diesen kann man **Fehlermeldungen ignorieren und informativere Fehlermeldungen generieren**. Eine gute Übersicht über das sogenannte *Condition Handling* sowie Debugging Techniques und Tools finden wir <a href="http://adv-r.had.co.nz/Exceptions-Debugging.html" target="_blank">hier</a>.-->
+<p>Eine Einführung in <strong>weitere Möglichkeitens des Debuggings</strong> und der dafür in <strong>R</strong> eingebauten Tools finden wir auf <a href="https://adv-r.hadley.nz/debugging.html#introduction-21" target="_blank">Advanced <strong>R</strong></a>.</p>
+</section>
+<section id="automatische-suche-mit-dem-paket-errorist" class="level2 page-columns page-full" data-number="7.10">
+<h2 data-number="7.10" class="anchored" data-anchor-id="automatische-suche-mit-dem-paket-errorist"><span class="header-section-number">7.10</span> Automatische Suche mit dem Paket <strong>errorist</strong></h2>
+<p>Es gibt das Paket <strong>errorist</strong>, mit dem bei jeder Fehler- und Warnmeldung eine <strong>automatische Suche in Google</strong> gestartet wird. Schauen wir uns die Funktionsweise des Pakets am im Abschnitt <a href="#suchen-im-internet">Suchen im Internet</a> genutzten Beispiels an.</p>
+<p>Zuerst installieren wir das Paket:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"errorist"</span>, <span class="at">dependencies=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Dann laden wir das Paket und schauen uns an, was bei Ausführung unseres fehlerhaften Codes passiert.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(errorist)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(daten[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>], daten[<span class="dv">3</span><span class="sc">:</span><span class="dv">4</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Sofort öffnet sich ein neues Fenster im Browser, in dem in Google folgender Text gesucht wird: <em>“Fehler in cor.test.default(daten[1:2], daten[3:4]) : ‘x’ muss ein numerischer Vektor sein r programming”</em>.</p>
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="figures/Fehlermeldungen/Bilder/errorist.png" class="img-fluid figure-img" width="500"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Das Paket übernimmt sozusagen den ersten Schritt bei der <a href="#suchen-im-internet">Suche im Internet</a>, passende Suchbegriffe zu nutzen, für uns. Die Ergebnisse müssen wir nach wie vor alleine filtern, um eine geeignete Lösung zu finden.</p>
+<p>Wenn wir uns den Aufbau des Suchtextes anschauen, sehen wir, dass die gesamte Fehlermeldung und <em>“r programming”</em> gesucht wird. In unserer manuellen Suche haben wir die gleichen Begriffe genutzt; wir haben lediglich nicht die gesamte Fehlermeldung genutzt, sondern daraus den Namen der <em>Funktion</em> und die eigentliche <em>Fehlermeldung</em>. Unser manueller Suchtext enthielt folglich weniger Wörter und generiert damit u.U. mehr Ergebnisse.</p>
+<aside>
+Vergleich der Ergebnisse der Suchen für unser Beispiel: manuell 448.000 vs.&nbsp;errorist 17.000.<br>
+Allerdings wurden auch verschiedene Suchmaschinen genutzt (ecosia vs.&nbsp;google).
+</aside>
+<p>Ob ihr das Paket nutzen möchtet oder lieber analog sucht bleibt euch überlassen.</p>
+<hr>
+<p>Um eine möglichst exakte Replikation der Funktionen zu gewährleisten gibt es im folgenden relevante Angaben zum System (<strong>R-Version</strong>, <strong>Betriebssystem</strong>, <strong>geladene Pakete mit Angaben zur Version</strong>), mit welchem diese Seite erstellt wurde.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>R version 4.2.2 (2022-10-31 ucrt)
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+Running under: Windows Server x64 (build 20348)
+
+Matrix products: default
+
+locale:
+[1] LC_COLLATE=English_United States.utf8 
+[2] LC_CTYPE=English_United States.utf8   
+[3] LC_MONETARY=English_United States.utf8
+[4] LC_NUMERIC=C                          
+[5] LC_TIME=English_United States.utf8    
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] Hmisc_4.8-0     ggplot2_3.4.1   Formula_1.2-4   survival_3.4-0 
+[5] lattice_0.20-45
+
+loaded via a namespace (and not attached):
+ [1] tidyselect_1.2.0    xfun_0.37           splines_4.2.2      
+ [4] colorspace_2.1-0    vctrs_0.5.2         generics_0.1.3     
+ [7] htmltools_0.5.4     yaml_2.3.7          base64enc_0.1-3    
+[10] utf8_1.2.3          rlang_1.0.6         pillar_1.8.1       
+[13] foreign_0.8-83      glue_1.6.2          withr_2.5.0        
+[16] RColorBrewer_1.1-3  jpeg_0.1-10         lifecycle_1.0.3    
+[19] stringr_1.5.0       munsell_0.5.0       gtable_0.3.1       
+[22] htmlwidgets_1.6.1   evaluate_0.20       latticeExtra_0.6-30
+[25] knitr_1.42          fastmap_1.1.0       fansi_1.0.4        
+[28] htmlTable_2.4.1     Rcpp_1.0.10         scales_1.2.1       
+[31] backports_1.4.1     checkmate_2.1.0     jsonlite_1.8.4     
+[34] deldir_1.0-6        interp_1.1-3        gridExtra_2.3      
+[37] png_0.1-8           digest_0.6.31       stringi_1.7.12     
+[40] dplyr_1.1.0         grid_4.2.2          cli_3.6.0          
+[43] tools_4.2.2         magrittr_2.0.3      tibble_3.1.8       
+[46] cluster_2.1.4       pkgconfig_2.0.3     Matrix_1.5-1       
+[49] data.table_1.14.6   rmarkdown_2.20      rstudioapi_0.14    
+[52] R6_2.5.1            rpart_4.1.19        nnet_7.3-18        
+[55] compiler_4.2.2     </code></pre>
+</div>
+</div>
+<p>Für Informationen zur Interpretation dieses Outputs schaut auch den Abschnitt <a href="./Pakete.html#replizierbarkeit-von-analysen">Replizierbarkeit von Analysen</a> des Kapitels zu Paketen an.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./Daten-importieren.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Daten importieren</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./Datenvorbereitung.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Datenvorbereitung</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

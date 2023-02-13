@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>R Lernplattform - 4&nbsp; Einführung in RStudio</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Pakete.html" rel="next">
+<link href="./Einfuehrung_in_R.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Einführung in RStudio</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">R Lernplattform</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Inhalte</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Einführung in R</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Installation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Installation und Aktualisierung von R und RStudio</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Einfuehrung_in_R.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Einführung in R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Einfuehrung_in_RStudio.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Einführung in RStudio</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Pakete.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Pakete</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Daten-importieren.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Daten importieren</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Fehlermeldungen.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Fehlermeldungen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Datenvorbereitung.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Datenvorbereitung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Fehlende-Werte.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Fehlende Werte</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Grafiken.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Grafiken</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Weiterführende Themen in R</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Wide-and-Long-Format.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Wide- &amp; Long-Format</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Markdown.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">R Markdown</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Git.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Git und GitLab</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Vertiefungen zu den Veranstaltungen Methodenlehre I und II</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Voraussetzungspruefung.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Annahmen der Multiplen Linearen Regression</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Outputs-ALM-FAQ.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Outputs - ALM - FAQ</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">Projekt-Dokumentation</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Zur-Lernplattform-Beitragen.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Zur R-Lernplattform Beitragen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lineare-regression.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Lineare Regression - Die Basics</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#allgemeines-zu-rstudio" id="toc-allgemeines-zu-rstudio" class="nav-link active" data-scroll-target="#allgemeines-zu-rstudio"><span class="toc-section-number">4.1</span>  Allgemeines zu <code>RStudio</code></a>
+  <ul class="collapse">
+  <li><a href="#skript" id="toc-skript" class="nav-link" data-scroll-target="#skript"><span class="toc-section-number">4.1.1</span>  <span class="r script">Skript</span></a></li>
+  <li><a href="#konsole" id="toc-konsole" class="nav-link" data-scroll-target="#konsole"><span class="toc-section-number">4.1.2</span>  <span class="r cons">Konsole</span></a></li>
+  <li><a href="#environment-history" id="toc-environment-history" class="nav-link" data-scroll-target="#environment-history"><span class="toc-section-number">4.1.3</span>  <span class="r env">Environment &amp; History</span></a></li>
+  <li><a href="#sec-files-plots-packages-help-viewer" id="toc-sec-files-plots-packages-help-viewer" class="nav-link" data-scroll-target="#sec-files-plots-packages-help-viewer"><span class="toc-section-number">4.1.4</span>  Files, Plots, Packages, Help &amp; Viewer</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Einführung in RStudio</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>Im Rahmen dieses Kapitels schauen wir uns an, wie die Benutzeroberfläche der Entwicklungsumgebung RStudio aufgebaut ist und wie sie uns den Umgang mit der (grundlegenden) Software R erleichtert. Wir lernen die vier grundlegenden Bereiche (Panels) von RStudio kennen und werden uns besonders die R-Dokumentation genauer anschauen. In dieser finden wir viele wertvolle Informationen zu Funktionen. Am Ende finden wir noch eine Übersicht über Kurzbefehle, die uns die Arbeit mit R zusätzlich erleichtern.</p>
+<p>Es ist von Vorteil, wenn wir die <a href="./Einfuehrung_in_R.html">Einführung in R</a>, in der Funktionen und Pakete, sowie die Speicherung von Daten erklärt werden, bereits durchgearbeitet haben.</p>
+<blockquote class="blockquote">
+<p><strong><em>Achtung</em></strong>: Voraussetzung zur Bearbeitung des Kapitels ist, dass wir <a href="./Installation.html">R und RStudio installiert</a> haben.</p>
+</blockquote>
+<p>Weiterführend bietet es sich an, das Kapitel zum <a href="./Daten-importieren.html">Daten einlesen</a> anzuschauen.</p>
+<section id="allgemeines-zu-rstudio" class="level2 page-columns page-full" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="allgemeines-zu-rstudio"><span class="header-section-number">4.1</span> Allgemeines zu <code>RStudio</code></h2>
+<p>RStudio ist eine <strong>integrierte Entwicklungsumgebung</strong> (<em>integrated development environment</em>, IDE) für die Statistiksoftware R. Eine IDE bietet uns verschiedene Werkzeuge an, die uns den Umgang mit einer (grundlegenden) Software erleichtern.</p>
+<p>In R steht uns standardmäßig nur die Konsole und das Skript zur Verfügung.<br>
+In RStudio gibt es u.a. zusätzlich:</p>
+<ul>
+<li><strong>Code Hervorhebung</strong><br>
+In Abhängigkeit davon, um was für Code es sich handelt (z.B. Funktionen, Datentyp, bestehende Objekte, Kommentare; Fehlermeldungen) wird dieser <strong>farblich</strong> verschieden im Skript und auch in der Konsole hervorgehoben.</li>
+<li><strong>Befehlszeilenergänzung (Autovervollständigung)</strong><br>
+Wenn wir anfangen, Code einzutippen, bekommen wir bereits Vorschläge, welche Funktionen oder bestehenden Objekte wir meinen könnten. Wenn wir mit der Maus über eine vorgeschlagene Funktion fahren, bekommen wir außerdem eine kurze <strong>Erklärung</strong>, was diese macht und welche Parameter sie besitzt. Wir können auf die Vorschläge klicken, um unseren Code (d.h. den Namen der Funktion oder des Objekts) <strong>automatisch vervollständigen</strong> zu lassen. Die Befehlszeilenergänzung können wir sowohl in der Konsole als auch im Skript nutzen.</li>
+<li><strong>Code Diagnostik</strong><br>
+Wenn wir Code im Skript schreiben, bekommen wir schon <strong>vor der Ausführung Hinweise auf Probleme bzw. Unvollständigkeiten</strong>. Unser Skript muss dazu aber bereits gespeichert sein. Auf die <a href="./Fehlermeldungen.html#code-diagnostik">Code Diagnostik</a> gehen wir im Kapitel zu <a href="./Fehlermeldungen.html">Fehlermeldungen</a> noch etwas detaillierter ein.</li>
+</ul>
+<aside>
+<br>
+Wir können aus verschiedenen Möglichkeiten zur Code Hervorhebung wählen. Diese finden wir in der oberen Menüleiste auf <strong>Tools</strong> &gt; <strong>Global Options…</strong> &gt; <strong>Appearance</strong> &gt; <strong>Editor Theme</strong>.
+</aside>
+<p>Beim ersten Öffnen sieht RStudio folgendermaßen aus:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Einführung/Bilder/RStudio/RStudio 1.png" class="img-fluid figure-img" width="700"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Zu allererst öffnen wir ein <strong>neues Skript</strong>, in das wir unseren Code schreiben werden. Dazu gehen wir in der oberen Leiste ganz links auf <img src="figures/Einführung/Bilder/RStudio/Button.png" style=" width:4%"> und dann auf <strong>R Script</strong>.</p>
+<div class="cell" data-layout-align="center">
+
+</div>
+<p>Nun gliedert sich die Entwicklungsumgebung <span class="r">RStudio</span> in <strong>vier verschiedene Bereiche</strong>:<br>
+In das <span class="r script"><strong>Skript</strong></span> schreiben wir unseren Code. In der <span class="r" style="color:#0533FF;"><strong>Konsole</strong></span> wird dieser ausgeführt und die Ergebnisse angezeigt. Bestehende Objekte sehen wir im <span class="r env"><strong>Environment</strong></span>. Eine Übersicht unserer Pakete finden wir unter <span class="r" style="color:#669C35;"><strong>Packages</strong></span> und Informationen zu <code>R</code> und zu Funktionen finden wir unter <span class="r" style="color:#669C35;"><strong>Help</strong></span>.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Einführung/Bilder/RStudio/RStudio Aufteilung Farbe.png" class="img-fluid figure-img" width="700"></p>
+</figure>
+</div>
+</div>
+</div>
+<aside>
+<br>
+<br>
+Die <strong>Größe</strong> der Bereiche lässt sich an den Kanten oder an den Icons in der oberen rechten Ecke verändern. Die <strong>Aufteilung</strong> der Panels können wir über <strong>Tools &gt; Global Options…</strong> und dann im neuen Fenster links unter <strong>Pane Layout</strong> ändern.
+</aside>
+<p>Die verschiedenen Bereiche (Panels) und ihre (für uns wichtigsten) Features schauen wir uns im Folgenden einmal genauer an.</p>
+<section id="skript" class="level3 page-columns page-full" data-number="4.1.1">
+<h3 data-number="4.1.1" class="anchored" data-anchor-id="skript"><span class="header-section-number">4.1.1</span> <span class="r script">Skript</span></h3>
+<p>Hier schreiben wir unseren <strong>Code</strong> und <strong>Kommentare</strong> rein.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Einführung/Bilder/RStudio/skript.png" class="img-fluid figure-img" width="700"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Alle Zeichen, die in einer Zeile nach einem <code>#</code> erscheinen, gelten als Kommentar. Von der Kommentarfunktion sollten wir ausgiebig Gebrauch machen. So können wir (und Andere) zu einem späteren Zeitpunkt noch nachvollziehen, was genau wir gemacht haben.</p>
+<p>Unsere Skripte sollten wir regelmäßig (oder spätestens vor Beendigung des Programms) <strong>speichern</strong>. Um die Datei anzulegen gehen wir in der oberen Leiste auf <strong>File &gt; Save as…</strong>. Wir geben der R-Datei einen Namen und wählen einen Speicherort.</p>
+<aside>
+<strong>Skript Speichern</strong>:<br>
+Win: <strong>Strg</strong> + <strong>S</strong><br>
+Mac: <strong>cmd</strong> + <strong>S</strong>
+</aside>
+<p>Beim allerersten Speichern müssen wir außerdem die Zeichen-Enkodierung festlegen. Wir wählen <a href="https://de.wikipedia.org/wiki/UTF-8" target="_blank"><strong>UTF-8</strong></a>, das ist die am häufigsten genutzte Kodierung für Unicode-Zeichen.</p>
+<div class="cell" data-layout-align="center">
+
+</div>
+<p>Ab dann können wir unser Skript über <strong>File &gt; Save</strong> speichern.</p>
+<p>Unseren Code führen wir aus, indem wir ihn markieren und auf <strong>Run</strong> klicken.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Einführung/Bilder/RStudio/run.png" class="img-fluid figure-img" width="700"></p>
+</figure>
+</div>
+</div>
+</div>
+<aside>
+<strong>Aktuelle Linie bzw. markierten Code ausführen:</strong><br>
+Win: <strong>Strg</strong> + <strong>enter</strong><br>
+Mac: <strong>cmd</strong> + <strong>enter</strong>
+</aside>
+</section>
+<section id="konsole" class="level3" data-number="4.1.2">
+<h3 data-number="4.1.2" class="anchored" data-anchor-id="konsole"><span class="header-section-number">4.1.2</span> <span class="r cons">Konsole</span></h3>
+<p>Hier bekommen wir den <strong>Output</strong> unseres Codes ausgegeben. Kommentare werden nicht ausgeführt, sondern nur wiedergegeben.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Einführung/Bilder/RStudio/Konsole.png" class="img-fluid figure-img" width="700"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Wir bekommen in der Konsole einen Hinweis, wenn wir eine <strong>eindeutig unvollständige Funktion</strong>, d.h. wenn wir <em>nur</em> am Ende einer Funktion die schließende Klammer vergessen haben, ausführen wollen. Dann wird uns in der Konsole in der nachfolgenden Zeile ein <code>+</code> ausgegeben.</p>
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="figures/Einführung/Bilder/RStudio/hinweis konsole.png" class="img-fluid figure-img" width="90"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>In der Konsole bekommen wir manchmal auch <strong>Fehler-</strong> (error) <strong>und Warnmeldungen</strong> (warning) sowie andere <strong>Informationen zu einer Funktion</strong> (message) angezeigt.</p>
+<p>Wenn wir einen Fehler in einer Funktion gemacht haben, wird die Ausführung unterbrochen und wir bekommen eine Fehlermeldungen. Wenn wir z.B. ein Komma zwischen den Elementen in <code>c()</code> vergessen hätten, bekämen wir folgende Fehlermeldung:</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figures/Einführung/Bilder/RStudio/fehler.png" class="img-fluid" width="480"></p>
+</div>
+</div>
+<p><strong>Mehr Informationen zur Interpretation von Fehlermeldungen</strong> finden wir im gleichnamigen <a href="./Fehlermeldungen.html">Kapitel</a>.</p>
+<p>Der Inhalt der Konsole wird nach jedem Schließen des Programms gelöscht und kann nicht ohne weiteres gespeichert werden. Deswegen ist es wichtig, die eigene Arbeit in Skripten zu speichern.</p>
+</section>
+<section id="environment-history" class="level3 page-columns page-full" data-number="4.1.3">
+<h3 data-number="4.1.3" class="anchored" data-anchor-id="environment-history"><span class="header-section-number">4.1.3</span> <span class="r env">Environment &amp; History</span></h3>
+<p>Im <strong>Environment</strong> sehen wir <strong>alle Objekte</strong>, die derzeit in R geladen sind. Wenn wir (externe) Datensätze einlesen, sehen wir diese auch hier. Wir bekommen außerdem weitere <strong>Informationen</strong> zu den Objekten und wir sehen ggf. die <strong>ersten Elemente</strong>.</p>
+<p>Beispielsweise haben wir gerade das Objekt <code>vektor</code> erstellt, welches uns hier angezeigt wird.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Einführung/Bilder/RStudio/environ.png" class="img-fluid figure-img" width="420"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Wir sehen, dass es sich um einen numerischen Vektor mit zwei Elementen, 1 und 3, handelt.</p>
+<p>Was für Informationen wir zu einem Objekt angezeigt bekommen ist abhängig von seiner Datenstruktur. Schauen wir uns das einmal am Beispiel der Objekte, die wir im Abschnitt zu <a href="./Einfuehrung_in_R.html#daten">Daten</a> im Kapitel <a href="./Einfuehrung_in_R.html">Einführung in R</a> erstellt haben, an.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Einführung/Bilder/RStudio/environ_bsp.png" class="img-fluid figure-img" width="420"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Die Objekte werden in zwei Kategorien aufgeteilt:</p>
+<ul>
+<li>Unter <strong>Data</strong> finden wir <em>Data Frames</em>, <em>Listen</em> und <em>Matrizen</em>. Bei allen bekommen wir die Länge der einzelnen Dimensionen angezeigt (<strong>Dataframe</strong>: obs. = Zeilen, variables = Spalten; <strong>Matrix</strong>: [Zeilen, Spalten]; <strong>Liste</strong>: List of …). Data Frames werden mit einem vorangestellten <img src="figures/Einführung/Bilder/RStudio/df.png" style=" width:2%"> markiert. Bei Matrizen bekommen wir zusätzlich die ersten Elemente angezeigt. Durch Klicken können wir uns diese Objekte im Data Viewer anschauen (alternativ zu <code>View()</code>).</li>
+<li>Unter <strong>Values</strong> finden wir <em>Vektoren.</em> Wir bekommen die selben Informationen angezeigt, die uns <code>str(vektor)</code> gibt: Datentyp, Länge, ersten 10 Elemente. Bei Faktoren wird uns de facto nicht der Datentyp sondern die -struktur angezeigt. Der Datentyp ist eigentlich auch irrelevant, weil es nur eine diskrete Anzahl an Ausprägungen gibt, die uns auch angezeigt wird. Die Länge des Faktors erfahren wir auch nicht.</li>
+</ul>
+<aside>
+Den Datentyp eines Faktors können wir mit <code>typeof()</code>, die Länge mit <code>length()</code> in Erfahrung bringen.
+</aside>
+<p>Zum <strong>Löschen</strong> <em>aller</em> Objekte können wir auf <img src="figures/Einführung/Bilder/RStudio/Broom.png" style=" width:3%"> klicken (alternativ zu <code>rm(list=ls())</code>).</p>
+<p>Zusätzlich können wir über das <strong>Environment</strong> auch externe Datensätze einlesen. Wie wir das machen, schauen wir uns im Kapitel zum <a href="./Daten-importieren.html">Daten einlesen</a> im <a href="./Daten-importieren.html#weg-1-span-class-rstudenvironmentspan--span-class-rstudimport-datasetspan">Abschnitt dazu</a> an.</p>
+<p>In der <strong>History</strong> sehen wir den <strong>zuletzt ausgeführten Code</strong>.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Einführung/Bilder/RStudio/history.png" class="img-fluid figure-img" width="500"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Mit <strong>To Source</strong> bekommen wir den markierten Code in unser Skript; mit <strong>To Console</strong> in die Konsole.</p>
+<p>Der Vorteil gegenüber der Konsole ist, dass der Inhalt der History <em>nicht</em> mit Beenden einer R-Session gelöscht wird, sondern wir auf den Code zugreifen können bis dieser explizit gelöscht wird (auch mit einem <img src="figures/Einführung/Bilder/RStudio/Broom.png" style=" width:3%">).</p>
+</section>
+<section id="sec-files-plots-packages-help-viewer" class="level3" data-number="4.1.4">
+<h3 data-number="4.1.4" class="anchored" data-anchor-id="sec-files-plots-packages-help-viewer"><span class="header-section-number">4.1.4</span> Files, Plots, Packages, Help &amp; Viewer</h3>
+<p>Im Folgenden werden wir hauptsächlich die Reiter <strong>Packages</strong> und <strong>Help</strong> besprechen. Auf die Dokumentation, auf die wir mit letzerem direkt in RStudio (anstatt im Browser) zugreifen können, gehen wir besonders stark ein.</p>
+<p>Unter <strong>Packages</strong> sehen wir die Standardpakete und die von uns installierten Add-On Pakete.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Einführung/Bilder/RStudio/packages.png" class="img-fluid figure-img" width="500"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Wir sehen eine kurze Beschreibung des Pakets und seine Versionsnummer. Im Kästchen ganz links sehen wir außerdem, ob Pakete derzeit geladen sind. Standardpakete sind immer geladen; Add-On Pakete müssen wir bei jeder Session neu laden (wenn wir sie nutzen wollen).</p>
+<p><strong>Mehr Informationen zum Installieren, Laden und Aktualisieren von Paketen</strong> mit Funktionen sowie der Entwicklungsumgebung R finden wir im <strong>gleichnamigen</strong> <a href="./Pakete.html">Kapitel</a>.</p>
+<p>Unter <strong>Files</strong> sehen wir die Ordner(struktur) auf unserem Rechner. Im Kapitel zu <a href="./Daten-importieren.html">Daten einlesen</a> erfahren wir, wie wir <a href="./Daten-importieren.html#Weg 2 Files Import Dataset">diesen bereich nutzen</a> können.</p>
+<p>Unter <strong>Plots</strong> werden (von uns erstellte) Grafiken angezeigt; unter <strong>Viewer</strong> (von uns erstellte) Tabellen.</p>
+<p>Über <strong>Help</strong> bekommen wir Zugang zur R-Dokumentation, welche wir uns nachfolgend etwas genauer anschauen wollen.</p>
+<section id="r-dokumentation" class="level4" data-number="4.1.4.1">
+<h4 data-number="4.1.4.1" class="anchored" data-anchor-id="r-dokumentation"><span class="header-section-number">4.1.4.1</span> R-Dokumentation</h4>
+<p>Die R-Dokumentation bietet uns umfassende Hilfe zum Umgang mit R im Allgemeinen und zu Funktionen an.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Einführung/Bilder/RStudio/help.png" class="img-fluid figure-img" width="500"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Den Namen der Funktion geben wir in das <font color="red">Suchfeld</font> ein. Alternativ können wir auch die Funktionen <code>help(funktion)</code> oder <code>?funktion</code> nutzen. Wenn wir auf <img src="figures/Einführung/Bilder/RStudio/new window.png" style=" width:3%"> klicken, öffnet sich die Dokumentationsseite in einem neuen Fenster, was die Nutzung wesentlich übersichtlicher gestaltet.</p>
+<div class="cell" data-layout-align="center">
+
+</div>
+<p>Neben der Informationen, aus welchem Paket eine Funktion stammt, finden wir hier zumeist folgende Abschnitte:</p>
+<ul>
+<li>Description: Beschreibung, was die Funktion macht</li>
+<li>Usage: Funktionsdefinition <fot size="2">(Parameter der Funktion und ggf. Defaults)</fot></li>
+<li>Arguments: Beschreibung der Parameter und ihrer möglichen Argumente</li>
+<li>Details: detaillierte Beschreibung zur Nutzung der Funktion und etwaigen Sonderfällen</li>
+<li>See Also: verwandte Funktionen (meist aus dem gleichen Paket)</li>
+<li>Examples: Beispiele zur Nutzung der Funktion</li>
+</ul>
+<p>Im Folgenden schauen wir uns die <strong>R</strong>-Dokumentation exemplarisch für die Funktion <code>matrix()</code> an.</p>
+<p>Dazu öffnen wir die dazugehörige <strong>R</strong>-Dokumentations-Seite, indem wir <em>matrix</em> in das Suchfeld eingeben, oder eine der Hilfe-Funktionen, <code>help(matrix)</code> oder <code>?matrix</code>, ausführen. Folgende Seite sollte sich nun öffnen:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Einführung/Bilder/RStudio/doc 2.png" class="img-fluid figure-img" width="550"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Oben links sehen wir, dass die Funktion aus dem Basispaket <strong>base</strong> stammt.</p>
+<section id="description" class="level5" data-number="4.1.4.1.1">
+<h5 data-number="4.1.4.1.1" class="anchored" data-anchor-id="description"><span class="header-section-number">4.1.4.1.1</span> Description</h5>
+<p>Man findet hier zu einer Funktion bzw. einem Set an verwandten Funktionen kurze Ausführungen zum Zweck einer Funktion.</p>
+<p>Die Funktion <code>matrix</code> erstellt eine Matrix von einem gegebenem Set an Werten. Es gibt noch zwei verwandte Funktionen - <code>as.matrix</code> und <code>is.matrix</code> - welche ein Objekt in eine Matrix umwandeln bzw. überprüfen, ob das (als Argument) übergebene Objekt eine Matrix ist.</p>
+</section>
+<section id="usage" class="level5" data-number="4.1.4.1.2">
+<h5 data-number="4.1.4.1.2" class="anchored" data-anchor-id="usage"><span class="header-section-number">4.1.4.1.2</span> Usage</h5>
+<p>Hier sehen wir die <strong>Funktionsdefinition</strong>. Diese zeigt, welche Parameter die Funktion besitzt und ggf. welche dieser Parameter voreingestellte Argumente (Defaults) besitzen.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Einführung/Bilder/RStudio/doc 3.png" class="img-fluid figure-img" width="400"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Per Default …:</p>
+<ul>
+<li>… wird an <code>data</code> nur ein <code>NA</code> (Missing) übergeben</li>
+<li>… gibt es eine Reihe (<code>nrow=1</code>)</li>
+<li>… und eine Spalte (<code>ncol=1</code>)</li>
+<li>… wird die Matrix spaltenweise (d.h. von oben nach unten) mit Werten befüllt (<code>byrow=FALSE</code>)</li>
+<li>… gibt es keine Spalten- und Zeilenbenennung (<code>dimnames=NULL</code>)</li>
+</ul>
+<p>Um Defaults besser zu verstehen, führen wir <code>matrix()</code> ohne Spezifikation der Parameter aus und schauen uns den Output an.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1]
+[1,]   NA</code></pre>
+</div>
+</div>
+<p>Bis auf <code>byrow=FALSE</code> können wir so alle Voreinstellungen im Output nachvollziehen. Dessen Funktionsweise sieht man erst bei mehreren Elementen in einer Matrix.</p>
+<!--Für manche Funktionen gibt es unterschiedliche Defaults (und teils auch unterschiedliche nutzbare Argumente) für verschiedene Datentypen. Diese werden in der R-Dokumentation mit der  Überschrift `S3 method for class ...` versehen.
+<aside>Datentypen sind z.B. Data Frames, Faktoren, Tabellen, Funktionen ...</aside> -->
+</section>
+<section id="arguments" class="level5" data-number="4.1.4.1.3">
+<h5 data-number="4.1.4.1.3" class="anchored" data-anchor-id="arguments"><span class="header-section-number">4.1.4.1.3</span> Arguments</h5>
+<p>Argumente sind Einstellungen, die wir für eine Funktion festlegen können. In der <strong>R</strong>-Dokumentation sieht man links den Namen des Arguments (z.B. <code>byrow</code>) und rechts eine Beschreibung dazu (z.B. <code>logical</code>) verbunden mit verschiedenen Einstellungsoptionen (z.B. <code>FALSE</code> - spaltenweise Befüllen der Matrix).</p>
+</section>
+<section id="details" class="level5" data-number="4.1.4.1.4">
+<h5 data-number="4.1.4.1.4" class="anchored" data-anchor-id="details"><span class="header-section-number">4.1.4.1.4</span> Details</h5>
+<p>Im Abschnitt Details stehen weitere Detailinformationen zur Nutzung der Funktion.</p>
+<p><strong>1. Abschnitt von <code>matrix()</code>:</strong><br>
+Wir erfahren hier, dass wenn <code>nrow</code> (Zeilenanzahl) oder <code>ncol</code> (Spaltenanzahl) nicht festgelegt wird, versucht wird, auf dessen Länge zu schließen. Das schauen wir uns mal an einem Beispiel an.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Beispiel 1:</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span>(<span class="at">data=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">5</span>), <span class="at">nrow=</span><span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2]
+[1,]    1    3
+[2,]    1    4
+[3,]    2    4
+[4,]    2    5
+[5,]    3    5</code></pre>
+</div>
+</div>
+<p>Wir haben einen Vektor mit 10 Elementen reingegeben und <code>nrow=5</code> festlegt. Daraus kann <strong>R</strong> schließen, dass die Matrix zwei Spalten (<code>ncol=2</code>) haben muss.</p>
+<p><strong>2. Abschnitt <code>matrix()</code>:</strong><br>
+Wenn die Anzahl der Elemente, die wir an <code>data</code> übergeben, kleiner ist, als die Anzahl der gewünschten Elemente in Matrix (<code>nrow</code> x <code>ncol</code>), dann wird <code>data</code> <strong>recycled</strong>. Das bedeutet, dass <code>data</code> nochmal genutzt wird, um die Matrix zu befüllen.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Beispiel 2:</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span>(<span class="at">data=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>), <span class="at">nrow=</span><span class="dv">3</span>, <span class="at">ncol=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in matrix(data = c(1, 1, 2, 2, 3), nrow = 3, ncol = 2): data length [5]
+is not a sub-multiple or multiple of the number of rows [3]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2]
+[1,]    1    2
+[2,]    1    3
+[3,]    2    1</code></pre>
+</div>
+</div>
+<p>In Beispiel 1 und 2 können wir auch die Auswirkung des Default <code>byrow=FALSE</code> sehen. Bei beiden wurden die Elemente <em>spaltenweise</em> in die Matrix eingetragen, <em>ohne</em> dass wir das so festgelegt haben.</p>
+<blockquote class="blockquote">
+<p><strong>Hinweis</strong>: Es ist ratsam, vor der Nutzung einer (unbekannten) Funktionen oder bei einer Fehlermeldung zu einer Funktion im Abschnitt <strong>Details</strong> nachzuschauen. Oftmals findet man hier hilfreiche Erklärungen.</p>
+</blockquote>
+</section>
+<section id="see-also" class="level5" data-number="4.1.4.1.5">
+<h5 data-number="4.1.4.1.5" class="anchored" data-anchor-id="see-also"><span class="header-section-number">4.1.4.1.5</span> See also</h5>
+<p>In diesem Abschnitt bekommt man Funktionen angezeigt, die mit der vorliegenden Funktion in enger Verbindung stehen. Diese sind häufig mit einer kurzen Erklärung versehen.</p>
+<p>Teilweise findet man hier auch Funktionen, die besser für das eigene Vorhaben geeignet sind.</p>
+</section>
+<section id="examples" class="level5" data-number="4.1.4.1.6">
+<h5 data-number="4.1.4.1.6" class="anchored" data-anchor-id="examples"><span class="header-section-number">4.1.4.1.6</span> Examples</h5>
+<p>Hier findet man einige beispielhafte Anwendungen der Funktion. Anhand der Beispiele bekommt man ein besseres Verständnis von der Syntax und Funktionsweise der Funktion. Was genau gemacht wird ist oftmals in kurzen Kommentaren (<code># ...</code>) erklärt.</p>
+
+<!--
+## Weitere Hilfen
+
+### Kurzbefehle
+
+Nachfolgend finden wir einige Kurzbefehle für die beiden Betriebssysteme Windows und Mac, die unseren Workflow verbessern.
+
+Mit dem letzten Kurzbefehl können wir schneller Dateipfade kopieren, was uns das [Einlesen von Daten in R](Daten-importieren.qmd) erleichtert. Dieser Kurzbefehl ist, im Gegensatz zu den anderen, nicht zur Nutzung in R geeignet; er funktioniert **nur** im Explorer (Windows) bzw. Finder (Mac).
+
+
+
+::: {.cell}
+::: {.cell-output-display}
+
+`````{=html}
+<table style="width:100%; margin-left: auto; margin-right: auto;" class="table">
+ <thead>
+  <tr>
+   <th style="text-align:left;color: white !important;background-color: #009193 !important;">   </th>
+   <th style="text-align:center;color: white !important;background-color: #009193 !important;"> Windows </th>
+   <th style="text-align:center;color: white !important;background-color: #009193 !important;"> Mac </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;width: 10em; font-weight: bold;color: white !important;background-color: #009193 !important;"> Code der aktuellen Linie bzw. markierten Code ausführen </td>
+   <td style="text-align:center;width: 15em; background-color: white !important;"> <span class="keybord">**Strg** + <span class="keybord">**enter** </span></span>
+</td>
+   <td style="text-align:center;width: 15em; background-color: white !important;"> <span class="keybord">**cmd** + <span class="keybord">**enter** </span></span>
+</td>
+  </tr>
+  <tr>
+   <td style="text-align:left;width: 10em; font-weight: bold;color: white !important;background-color: #009193 !important;"> Code bis zur aktuellen Linie ausführen </td>
+   <td style="text-align:center;width: 15em; background-color: white !important;"> <span class="keybord">**alt** + <span class="keybord">**Strg** + <span class="keybord">**B** </span></span></span>
+</td>
+   <td style="text-align:center;width: 15em; background-color: white !important;"> <span class="keybord">**alt** + <span class="keybord">**cmd** + <span class="keybord">**B** </span></span></span>
+</td>
+  </tr>
+  <tr>
+   <td style="text-align:left;width: 10em; font-weight: bold;color: white !important;background-color: #009193 !important;"> Skript speichern </td>
+   <td style="text-align:center;width: 15em; background-color: white !important;"> <span class="keybord">**Strg** + <span class="keybord">**S** </span></span>
+</td>
+   <td style="text-align:center;width: 15em; background-color: white !important;"> <span class="keybord">**cmd** + <span class="keybord">**S** </span></span>
+</td>
+  </tr>
+  <tr>
+   <td style="text-align:left;width: 10em; font-weight: bold;color: white !important;background-color: #009193 !important;color: black !important;background-color: #ECECEC !important;"> Dateipfad kopieren </td>
+   <td style="text-align:center;color: black !important;background-color: #ECECEC !important;width: 15em; background-color: white !important;"> <span class="keybord">**shift** + *Rechtsklick auf Datei*<br>dann *Als Pfad kopieren* </span>
+</td>
+   <td style="text-align:center;color: black !important;background-color: #ECECEC !important;width: 15em; background-color: white !important;"> <span class="keybord">**alt** + <span class="keybord">**cmd** + <span class="keybord">**C** </span></span></span>
+</td>
+  </tr>
+</tbody>
+</table>
+
+`````
+
+:::
+:::
+
+
+Eine Übersicht weiterer Kurzbefehle für R finden wir in der Leiste ganz oben unter **Help > Keyboard Shortcuts Help** (nicht zu verwechseln mit dem Bereich [**Help**](#files-plots-packages-help-viewer), der uns Zugang zur Dokumentation verschafft).
+
+
+::: {.cell}
+
+:::
+
+
+-->
+<hr>
+<p>Um eine möglichst exakte Replikation der Funktionen zu gewährleisten gibt es im folgenden relevante Angaben zum System (<strong>R-Version</strong>, <strong>Betriebssystem</strong>, <strong>geladene Pakete mit Angaben zur Version</strong>), mit welchem diese Seite erstellt wurde.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>R version 4.2.2 (2022-10-31 ucrt)
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+Running under: Windows Server x64 (build 20348)
+
+Matrix products: default
+
+locale:
+[1] LC_COLLATE=English_United States.utf8 
+[2] LC_CTYPE=English_United States.utf8   
+[3] LC_MONETARY=English_United States.utf8
+[4] LC_NUMERIC=C                          
+[5] LC_TIME=English_United States.utf8    
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] kableExtra_1.3.4 dplyr_1.1.0     
+
+loaded via a namespace (and not attached):
+ [1] rstudioapi_0.14   xml2_1.3.3        knitr_1.42        magrittr_2.0.3   
+ [5] munsell_0.5.0     tidyselect_1.2.0  rvest_1.0.3       viridisLite_0.4.1
+ [9] colorspace_2.1-0  R6_2.5.1          rlang_1.0.6       fastmap_1.1.0    
+[13] fansi_1.0.4       stringr_1.5.0     httr_1.4.4        tools_4.2.2      
+[17] webshot_0.5.4     xfun_0.37         utf8_1.2.3        cli_3.6.0        
+[21] systemfonts_1.0.4 htmltools_0.5.4   yaml_2.3.7        digest_0.6.31    
+[25] tibble_3.1.8      lifecycle_1.0.3   htmlwidgets_1.6.1 vctrs_0.5.2      
+[29] glue_1.6.2        evaluate_0.20     rmarkdown_2.20    stringi_1.7.12   
+[33] compiler_4.2.2    pillar_1.8.1      scales_1.2.1      generics_0.1.3   
+[37] svglite_2.1.1     jsonlite_1.8.4    pkgconfig_2.0.3  </code></pre>
+</div>
+</div>
+<p>Für Informationen zur Interpretation dieses Outputs schaut auch den Abschnitt <a href="./Pakete.html#replizierbarkeit-von-analysen">Replizierbarkeit von Analysen</a> des Kapitels zu <strong>Paketen</strong> an.</p>
+
+
+</section>
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./Einfuehrung_in_R.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Einführung in R</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./Pakete.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Pakete</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
