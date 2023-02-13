@@ -287,7 +287,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul>
   <li><a href="#tools-die-uns-helfen-fehler-zu-vermeiden" id="toc-tools-die-uns-helfen-fehler-zu-vermeiden" class="nav-link active" data-scroll-target="#tools-die-uns-helfen-fehler-zu-vermeiden"><span class="toc-section-number">7.1</span>  Tools die uns helfen, Fehler zu vermeiden</a>
   <ul class="collapse">
-  <li><a href="#r-dokumentation" id="toc-r-dokumentation" class="nav-link" data-scroll-target="#r-dokumentation"><span class="toc-section-number">7.1.1</span>  <strong>R</strong>-Dokumentation</a></li>
+  <li><a href="#r-dokumentation" id="toc-r-dokumentation" class="nav-link" data-scroll-target="#r-dokumentation"><span class="toc-section-number">7.1.1</span>  R-Dokumentation</a></li>
   <li><a href="#code-diagnostik" id="toc-code-diagnostik" class="nav-link" data-scroll-target="#code-diagnostik"><span class="toc-section-number">7.1.2</span>  Code Diagnostik</a></li>
   </ul></li>
   <li><a href="#fehlermeldungen-verstehen" id="toc-fehlermeldungen-verstehen" class="nav-link" data-scroll-target="#fehlermeldungen-verstehen"><span class="toc-section-number">7.2</span>  Fehlermeldungen verstehen</a></li>
@@ -322,10 +322,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<p>Beim Arbeiten mit <strong>R</strong> wird es früher oder später einmal dazu kommen, dass wir in der Konsole eine Fehlermeldung ausgegeben bekommen.</p>
-<p>Generell kann man in <strong>R</strong> drei verschiedene Meldungen (<em>Conditions</em>) erhalten:</p>
+<p>Beim Arbeiten mit R wird es früher oder später einmal dazu kommen, dass wir in der Konsole eine Fehlermeldung ausgegeben bekommen.</p>
+<p>Generell kann man in R drei verschiedene Meldungen (<em>Conditions</em>) erhalten:</p>
 <ul>
-<li><strong>error</strong>:<br>
+<li><strong>error</strong><br>
 Durch Fehler wird die Ausführung der Funktion unterbrochen.</li>
 <li><strong>warning</strong><br>
 Im Gegensatz zu echten Fehlern (errors) wird die Ausführung des Codes bei warnings nicht unterbrochen. Warnmeldungen dienen dazu, die Aufmerksamkeit des Benutzers auf potentielle Probleme zu lenken. Im Unterschied zu errors kann man mehrere Warnungen von einer Funktion erhalten.</li>
@@ -335,10 +335,10 @@ Geben Informationen dazu, was eine Funktion (zusätzlich) gemacht hat.</li>
 <aside>
 Eine vertiefte Einführung in die verschiedenen Conditions finden wir auf <a href="https://adv-r.hadley.nz/conditions.html" target="_blank">Advanced R</a>.
 </aside>
-<p>Wir konzentrieren uns in diesem Abschnitt auf ersteres: Fehlermeldungen, die unsere Arbeit in <strong>R</strong> anhalten lassen und nach einer Lösung verlangen.</p>
+<p>Wir konzentrieren uns in diesem Abschnitt auf ersteres: Fehlermeldungen, die unsere Arbeit in R anhalten lassen und nach einer Lösung verlangen.</p>
 <p>Fehlermeldungen können unterschiedliche Ursachen haben. Häufig sind es Tipp- oder Syntaxfehler, aber auch Probleme mit Datentypen (z.B. eine Funktion erfordert einen anderen als den genutzen Datentyp) und Paketen (z.B. Laden des Paketes einer Funktion vergessen) kommen häufiger vor.</p>
 <aside>
-Es gibt keine fixe Taxonomie der Arten von Fehlern in <strong>R</strong>. Es seien hier nur einige genannt.
+Es gibt keine fixe Taxonomie der Arten von Fehlern in R. Es seien hier nur einige genannt.
 </aside>
 <p>Fehlermeldungen sind häufig nicht einfach zu verstehen. Das liegt u.a. daran, dass EntwicklerInnen von Paketes jeweils eigene Fehlermeldungen für die enthaltenen Funktionen formulieren. Deswegen folgen diese zumeist keinem einheitlichen Muster und sind teils schwer zu verstehen.</p>
 <p>Im Folgenden gehen wir uns zuerst darauf ein, welche Hilfe uns <strong>RStudio</strong> gibt, um <strong>Fehler zu vermeiden</strong>. Anschließend schauen wir uns an einigen konkreten (Syntax-)Fehlermeldungen an, wie man diese <strong>verstehen</strong> kann. Danach lernen wir, wie wir <strong>Suchmaschinen sinnvoll nutzen</strong> können, um Lösungen für unsere Fehlermeldungen zu finden.<br>
@@ -351,9 +351,9 @@ Beispieldatensatz für dieses Kapitel
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Matrix erstellen</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>daten <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">2</span>, </span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>                 <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">3</span>, <span class="dv">1</span>, </span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>                 <span class="dv">3</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">1</span>,</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>                 <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">3</span>), <span class="at">nrow =</span> <span class="dv">5</span>, <span class="at">ncol =</span> <span class="dv">4</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>                  <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">3</span>, <span class="dv">1</span>, </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>                  <span class="dv">3</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">1</span>,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>                  <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">3</span>), <span class="at">nrow =</span> <span class="dv">5</span>, <span class="at">ncol =</span> <span class="dv">4</span>)</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># in Dataframe umwandeln</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>daten <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(daten)</span>
@@ -376,12 +376,12 @@ Beispieldatensatz für dieses Kapitel
 <h2 data-number="7.1" class="anchored" data-anchor-id="tools-die-uns-helfen-fehler-zu-vermeiden"><span class="header-section-number">7.1</span> Tools die uns helfen, Fehler zu vermeiden</h2>
 <p>Bevor wir uns dem Verstehen von konkreten (Syntax-)Fehlermeldungen widmen und anschauen, wie wir effizient im Internet suchen können, schauen wir uns <strong>zwei Hilfsmittel</strong> an, die uns die Entwicklungsumgebung <strong>RStudio</strong> gibt, um <strong>Fehler zu vermeiden</strong>.</p>
 <section id="r-dokumentation" class="level3 page-columns page-full" data-number="7.1.1">
-<h3 data-number="7.1.1" class="anchored" data-anchor-id="r-dokumentation"><span class="header-section-number">7.1.1</span> <strong>R</strong>-Dokumentation</h3>
-<p>Wenn wir eine uns noch unbekannte Funktion nutzen (aber auch wenn wir aus einer Fehlermeldung nicht schlau werden) können wir die Dokumentation nutzen. Diese können wir in RStudio im unteren rechten Panel unter Help öffnen. In das Suchfeld geben wir den Namen der Funktion ein.</p>
+<h3 data-number="7.1.1" class="anchored" data-anchor-id="r-dokumentation"><span class="header-section-number">7.1.1</span> R-Dokumentation</h3>
+<p>Wenn wir eine uns noch unbekannte Funktion nutzen (aber auch wenn wir aus einer Fehlermeldung nicht schlau werden) können wir die Dokumentation nutzen. Diese können wir in RStudio im unteren rechten Panel unter <font color="#649B32">Help</font> öffnen. In das <font color="#FF1D00">Suchfeld</font> geben wir den Namen der Funktion ein.</p>
 <p>Alternativ können wir die Hilfefunktionen <code>?</code> oder <code>help()</code> nutzen (z.B. <code>?matrix</code> oder <code>help(matrix)</code>).</p>
-<p>Mit Klick auf das eingekreiste Icon kann man sich die Hilfe-Seite auch in einem extra Fenster anzeigen lassen.</p>
+<p>Mit Klick auf das <font color="#FD9612">eingekreiste Icon</font> kann man sich die Hilfe-Seite auch in einem extra Fenster anzeigen lassen.</p>
 <aside>
-Wir finden die <strong>R</strong>-Dokumentation auch im Internet, allerdings ermöglicht uns <strong>RStudio</strong>, diese ohne Internetverbindung und direkt in der Entwicklungsumgebung zu öffnen.
+Wir finden die R-Dokumentation auch im Internet, allerdings ermöglicht uns <strong>RStudio</strong>, diese ohne Internetverbindung und direkt in der Entwicklungsumgebung zu öffnen.
 </aside>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -480,7 +480,7 @@ Unser Code endet mit einer schließenden runden Klammer, welche kein öffnendes 
 </div>
 </div>
 <aside>
-Diese Fehlermeldung werden wir im Abschnitt [<strong>Suchen im Internet</strong>] noch aufklären.
+Diese Fehlermeldung werden wir im Abschnitt <a href="./Fehlermeldungen.html#suchen-im-internet">Suchen im Internet</a> noch aufklären.
 </aside>
 <p>Die Information <strong>vor</strong> dem Doppelpunkt gibt uns an, in welcher Funktion der Fehler steckt; die Information <strong>nach</strong> dem Doppelpunkt gibt Aufschluss über die Art des Fehlers. Zweiteres ist für die Fehlersuche (zumeist) von großer Bedeutung.</p>
 <p>Im Folgenden konzentrieren wir uns auf eine Art von Fehler, mit der vor allem AnfängerInnen häufig konfrontiert sind: Syntaxfehler.</p>
@@ -542,7 +542,7 @@ Zuerst wurde nur auf das fehlerhafte <code>$</code> hingewiesen. Nachdem dieses 
 Lösung
 </summary>
 <p>z.B. <code>daten[,2]</code> <em>oder</em> <code>daten[2]</code></p>
-Hier wurde nicht bemerkt, dass bei der ersten Funktion <code>daten[,2</code> noch ein <code>]</code> fehlt und einfach schon die nächste Funktion <code>daten[,3]</code> ausgeführt. So nahm <strong>R</strong> an, dass beide zusammen gehören würden.
+Hier wurde nicht bemerkt, dass bei der ersten Funktion <code>daten[,2</code> noch ein <code>]</code> fehlt und einfach schon die nächste Funktion <code>daten[,3]</code> ausgeführt. So nahm R an, dass beide zusammen gehören würden.
 </details>
 <p><br>
 </p>
@@ -561,7 +561,7 @@ Hier wurde nicht bemerkt, dass bei der ersten Funktion <code>daten[,2</code> noc
 Lösung
 </summary>
 <p>z.B. <code>daten[c(1,2)]</code> <em>oder</em> <code>daten[c(1,2,3)]</code></p>
-Hier weist uns <strong>R</strong> darauf hin, dass das dritte Argument, welches nach dem zweiten Komma folgen sollte, leer ist. In Abhängigkeit davon, welche Spalten aus Daten extrahiert werden sollen, <em>löscht</em> man das Komma (um Spalte <code>1</code> und <code>2</code> zu extrahieren) oder man <em>ergänzt</em> einen weiteren Spaltenindex (z.B. 3; um Spalte <code>1</code>, <code>2</code> und <code>3</code> zu extrahieren).
+Hier weist uns R darauf hin, dass das dritte Argument, welches nach dem zweiten Komma folgen sollte, leer ist. In Abhängigkeit davon, welche Spalten aus Daten extrahiert werden sollen, <em>löscht</em> man das Komma (um Spalte <code>1</code> und <code>2</code> zu extrahieren) oder man <em>ergänzt</em> einen weiteren Spaltenindex (z.B. 3; um Spalte <code>1</code>, <code>2</code> und <code>3</code> zu extrahieren).
 </details>
 </section>
 <section id="suchen-im-internet" class="level2" data-number="7.3">
@@ -584,14 +584,14 @@ Hier weist uns <strong>R</strong> darauf hin, dass das dritte Argument, welches 
 <h2 data-number="7.4" class="anchored" data-anchor-id="a-passende-suchbegriffe-nutzen"><span class="header-section-number">7.4</span> a) Passende Suchbegriffe nutzen</h2>
 <p>Sinnvoll ist es im Suchtext drei Aspekte miteinzubeziehen:</p>
 <ul>
-<li>das <strong>Programm</strong>, mit dem es Probleme gibt</li>
-<li>die <strong>Funktion</strong>, mit der es Probleme gibt
+<li>das <font color="#649B32"><strong>Programm</strong></font>, mit dem es Probleme gibt</li>
+<li>die <font color="#FF1D00"><strong>Funktion</strong></font>, mit der es Probleme gibt
 <ul>
-<li>auch ersichtlich an der Information <strong>vor</strong> dem Doppelpunkt</li>
+<li><font size="2">auch ersichtlich an der Information <strong>vor</strong> dem Doppelpunkt</font></li>
 </ul></li>
-<li>Ausschnitte aus der <strong>Fehlermeldung</strong>
+<li>Ausschnitte aus der <font color="#8DA0FF"><strong>Fehlermeldung</strong></font>
 <ul>
-<li>von den Informationen <strong>nach</strong> dem Doppelpunkt</li>
+<li><font size="2">von den Informationen <strong>nach</strong> dem Doppelpunkt</font></li>
 </ul></li>
 </ul>
 <p>Unsere Suche könnte folgendermaßen aussehen:</p>
@@ -604,7 +604,7 @@ Hier weist uns <strong>R</strong> darauf hin, dass das dritte Argument, welches 
 </div>
 </div>
 </div>
-<p>Anstatt eine globale Suchmaschine wie google oder ecosia zu nutzen, kann man auch eine spezifisch für Anliegen in <strong>R</strong> konzipierte Suchmaschine wie <a href="https://rseek.org" target="_blank"><strong>rseek</strong></a> nutzen. Dann kann man im Suchtext den Namen des Programms weglassen, beispielsweise nur <em>cor.test x numerischer Vektor</em> suchen.</p>
+<p>Anstatt eine globale Suchmaschine wie google oder ecosia zu nutzen, kann man auch eine spezifisch für Anliegen in R konzipierte Suchmaschine wie <a href="https://rseek.org" target="_blank"><strong>rseek</strong></a> nutzen. Dann kann man im Suchtext den Namen des Programms weglassen, beispielsweise nur <em>cor.test x numerischer Vektor</em> suchen.</p>
 </section>
 <section id="b-ergebnisse-filtern" class="level2 page-columns page-full" data-number="7.5">
 <h2 data-number="7.5" class="anchored" data-anchor-id="b-ergebnisse-filtern"><span class="header-section-number">7.5</span> b) Ergebnisse filtern</h2>
@@ -657,7 +657,7 @@ Suche mit ecosia am 05.09.2019 um 17:30Uhr
 <p>Bis auf den zweiten Link sehen die Vorschläge hier auch wieder sehr unspezifisch aus. Bei diesem gibt es zwei Parallelen zu unserem Problem: cor.test wird auf einen data frame angewendet. Sehen wir uns die <a href="https://www.reddit.com/r/Rlanguage/comments/23infd/running_cortest_on_data_frames/" target="_blank">Seite</a> mal an.</p>
 <p>Wir landen in einem Foreneintrag. Die Antwort von dasonk weißt uns darauf hin, dass man an <code>cor.test()</code> nur <em>zwei Vektoren</em> übergeben kann. Wir haben aber 4 Vektoren übergeben. In der nächsten Antwort von anbende wird vorgeschlagen, die Korrelationstabelle mit <code>cor()</code> zu erstellen. Allerdings muss man die Signifikanztestung immer noch mit <code>cor.test()</code> machen.</p>
 <p>Die Antwort hat uns schon weitergeholfen: Wir haben eine Vorstellung davon, wo der Fehler liegen könnte. Jetzt ist es sinnvoll, eine neue Suche zu starten, um nach einer Funktion zu suchen, die sowohl eine Korrelationstabelle erstellt, als auch eine Signifikanztestung durchführt.</p>
-<p>Hier kombinieren wir Suchwörter zum <strong>Programm</strong> und zu dem, was die <strong>Funktion</strong>, die wir suchen, leisten soll.</p>
+<p>Hier kombinieren wir Suchwörter zum <font color="#649B32"><strong>Programm</strong></font> und zu dem, was die <font color="#FF230C"><strong>Funktion</strong></font>, die wir suchen, leisten soll.</p>
 <div class="cell" data-layout-align="left">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-left">
@@ -682,34 +682,13 @@ Suche mit ecosia am 06.09.2019 um 09:40Uhr
 </aside>
 <p>Der erste Vorschlag ist nicht ganz das, was wir wollen. Hier geht es scheinbar mehr um <em>elegante</em> Korrelationstabellen.</p>
 <p>Der zweite Vorschlag hingegen scheint vielversprechender. Schauen wir uns <a href="http://www.sthda.com/english/wiki/correlation-matrix-a-quick-start-guide-to-analyze-format-and-visualize-a-correlation-matrix-using-r-software" target="_blank">diesen</a> einmal an.</p>
-<p>Es ist eine Seite, auf der verschiedene Aspekte der Umsetzung von Korrelationstabellen in <strong>R</strong> erklärt werden. Oben finden wir eine Gliederung. Wir springen gleich zum Punkt <em>‘Correlation matrix with significance levels (p-value)’</em>.</p>
+<p>Es ist eine Seite, auf der verschiedene Aspekte der Umsetzung von Korrelationstabellen in R erklärt werden. Oben finden wir eine Gliederung. Wir springen gleich zum Punkt <em>‘Correlation matrix with significance levels (p-value)’</em>.</p>
 <p>Hier erfahren wir, dass man die Funktion <code>rcorr()</code> aus dem <strong>Hmisc</strong>-Paket nutzen kann. Außerdem wird man darauf hingewiesen, dass diese Funktion nur mit Matrizen arbeiten kann. Der Befehl, mit dem man Objekte in Matrizen umwandeln kann, wird auch angegeben.</p>
 <p>Probieren wir diesen Weg einmal aus.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("Hmisc")</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Hmisc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: lattice</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: survival</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: Formula</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: ggplot2</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'Hmisc'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:base':
-
-    format.pval, units</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rcorr</span>(<span class="fu">as.matrix</span>(daten[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]), <span class="fu">as.matrix</span>(daten[<span class="dv">3</span><span class="sc">:</span><span class="dv">4</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Hmisc)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rcorr</span>(<span class="fu">as.matrix</span>(daten[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]), <span class="fu">as.matrix</span>(daten[<span class="dv">3</span><span class="sc">:</span><span class="dv">4</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      Var_1 Var_2 Var_3 Var_4
 Var_1  1.00 -0.74 -0.29 -0.04
@@ -755,7 +734,7 @@ Var_4 0.9510 0.4616 0.2006       </code></pre>
 <p>Ein weiterer Tipp ist es, <strong>in englisch zu suchen</strong>. Die Wahrscheinlichkeit ist hier viel größer, dass man Lösungsvorschläge findet.</p>
 <p>Wenn man, wie in diesem Kapitel zu sehen, die Fehlermeldungen auf deutsch ausgegeben bekommt, kann man das folgendermaßen auf englisch ändern:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.setenv</span>(<span class="at">LANGUAGE=</span><span class="st">"en"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.setenv</span>(<span class="at">LANGUAGE=</span><span class="st">"en"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="weiterführende-hilfe" class="level2" data-number="7.9">
@@ -763,24 +742,24 @@ Var_4 0.9510 0.4616 0.2006       </code></pre>
 <p><br>
 </p>
 <p>Ganz generell kann es sehr hilfreich sein, wenn man ein bisschen mit der Funktion “spielt” - etwas wegnimmt oder verändert - und schaut, ob es dann funktioniert oder wie sich die Fehlermeldung verändert. Das hilft meist, das Problem etwas einzugrenzen - und man lernt nebenbei die Funktion besser kennen.</p>
-<p>Im <a href="https://www.uni-muenster.de/imperia/md/content/psyifp/ae_holling/r-fehlermeldungen.pdf" target="_blank"><strong>R</strong>-Fehlermeldungsleitfaden der Uni Münster</a> (unter <em>3. Fehlertextliste</em>), auf <a href="https://www.r-bloggers.com/common-r-programming-errors-faced-by-beginners/" target="_blank"><strong>R</strong>-bloggers</a> sowie <a href="http://www.programmingr.com/r-error-messages/" target="_blank">PROGRAMMINGR</a> findet man jeweils eine <strong>Übersicht über geläufige Fehlermeldungen</strong> mit Lösungen und teilweise auch Beispielen.</p>
+<p>Im <a href="https://www.uni-muenster.de/imperia/md/content/psyifp/ae_holling/r-fehlermeldungen.pdf" target="_blank">R-Fehlermeldungsleitfaden der Uni Münster</a> (unter <em>3. Fehlertextliste</em>), auf <a href="https://www.r-bloggers.com/common-r-programming-errors-faced-by-beginners/" target="_blank">R-bloggers</a> sowie <a href="http://www.programmingr.com/r-error-messages/" target="_blank">PROGRAMMINGR</a> findet man jeweils eine <strong>Übersicht über geläufige Fehlermeldungen</strong> mit Lösungen und teilweise auch Beispielen.</p>
 <!--
 Mit der **Error-Recovery mit dem Browser** kann man sich die (Unter)Funktionen anzeigen lassen, die, bis der Fehler auftaucht, an der Ausführung des Codes beteiligt waren. So kann man eigenständig in diesen suchen, was falsch gelaufen ist. Dieser Weg ist etwas komplizierter - Vorerfahrung im Umgang mit Programmierung ist hilfreich. Für eine kleine Einführung dazu schaut euch den gleichnamigen Abschnitt dieser <a href="https://de.wikibooks.org/wiki/GNU_R:_Finden_von_Programmfehlern_und_Debugging" target="_blank">Seite</a> an.
 
 Wenn man beispielsweise ein Modell fitten möchte und Fehlermeldungen erwartet, diese die Ausführung des Skripts aber nicht anhalten sollen, kann man u.a. `try()` und `tryCatch()` nutzen. Mit diesen kann man **Fehlermeldungen ignorieren und informativere Fehlermeldungen generieren**. Eine gute Übersicht über das sogenannte *Condition Handling* sowie Debugging Techniques und Tools finden wir <a href="http://adv-r.had.co.nz/Exceptions-Debugging.html" target="_blank">hier</a>.-->
-<p>Eine Einführung in <strong>weitere Möglichkeitens des Debuggings</strong> und der dafür in <strong>R</strong> eingebauten Tools finden wir auf <a href="https://adv-r.hadley.nz/debugging.html#introduction-21" target="_blank">Advanced <strong>R</strong></a>.</p>
+<p>Eine Einführung in <strong>weitere Möglichkeitens des Debuggings</strong> und der dafür in R eingebauten Tools finden wir auf <a href="https://adv-r.hadley.nz/debugging.html#introduction-21" target="_blank">Advanced R</a>.</p>
 </section>
 <section id="automatische-suche-mit-dem-paket-errorist" class="level2 page-columns page-full" data-number="7.10">
 <h2 data-number="7.10" class="anchored" data-anchor-id="automatische-suche-mit-dem-paket-errorist"><span class="header-section-number">7.10</span> Automatische Suche mit dem Paket <strong>errorist</strong></h2>
 <p>Es gibt das Paket <strong>errorist</strong>, mit dem bei jeder Fehler- und Warnmeldung eine <strong>automatische Suche in Google</strong> gestartet wird. Schauen wir uns die Funktionsweise des Pakets am im Abschnitt <a href="#suchen-im-internet">Suchen im Internet</a> genutzten Beispiels an.</p>
 <p>Zuerst installieren wir das Paket:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"errorist"</span>, <span class="at">dependencies=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"errorist"</span>, <span class="at">dependencies=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Dann laden wir das Paket und schauen uns an, was bei Ausführung unseres fehlerhaften Codes passiert.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(errorist)</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(daten[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>], daten[<span class="dv">3</span><span class="sc">:</span><span class="dv">4</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(errorist)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(daten[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>], daten[<span class="dv">3</span><span class="sc">:</span><span class="dv">4</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Sofort öffnet sich ein neues Fenster im Browser, in dem in Google folgender Text gesucht wird: <em>“Fehler in cor.test.default(daten[1:2], daten[3:4]) : ‘x’ muss ein numerischer Vektor sein r programming”</em>.</p>
 <div class="cell" data-layout-align="left">
@@ -802,7 +781,7 @@ Allerdings wurden auch verschiedene Suchmaschinen genutzt (ecosia vs.&nbsp;googl
 <hr>
 <p>Um eine möglichst exakte Replikation der Funktionen zu gewährleisten gibt es im folgenden relevante Angaben zum System (<strong>R-Version</strong>, <strong>Betriebssystem</strong>, <strong>geladene Pakete mit Angaben zur Version</strong>), mit welchem diese Seite erstellt wurde.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>R version 4.2.2 (2022-10-31 ucrt)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
