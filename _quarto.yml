@@ -36,7 +36,4 @@ bibliography: references.bib
 format:
   html:
     theme: [cosmo, style.scss]
-  pdf:
-    documentclass: scrreport
-  epub:
-    cover-image: cover.png
+    prefer-html: true
