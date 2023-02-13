@@ -298,7 +298,7 @@ Nun schauen wir uns an, welche Möglichkeiten es gibt, R-Code und/oder deren Out
 
 Allen Code, denn wir sonst in ein R-Skript geschrieben haben, und der dann in der Konsole ausgeführt wurde (und ggf. im Viewer angezeigt wurde, d.h. Plots), schreiben wir in sogenannte Code Chunks. 
 
-Wir können Code Chunks einfügen indem wir auf **Insert** > **R** klicken ...
+Wir können Code Chunks einfügen indem wir auf **Insert** > R klicken ...
 
 ```{r}
 #| out.width: 600px
@@ -568,7 +568,7 @@ install.packages("citr")
 
 ---
 
-Um eine möglichst exakte Replikation der Funktionen zu gewährleisten gibt es im folgenden relevante Angaben zum System (**`R`-Version**, **Betriebssystem**, **geladene Pakete mit Angaben zur Version**), mit welchem diese Seite erstellt wurde.
+Um eine möglichst exakte Replikation der Funktionen zu gewährleisten gibt es im folgenden relevante Angaben zum System (**R-Version**, **Betriebssystem**, **geladene Pakete mit Angaben zur Version**), mit welchem diese Seite erstellt wurde.
 
 > *__Achtung__*: Es ist sinnvoll, die nachfolgende Funktion in einen Code Chunk im eigenen Rmd einzubetten.
 

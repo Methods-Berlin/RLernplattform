@@ -10,7 +10,7 @@ Im Verlauf dieses Kapitels lernen wir, was **Funktionen und Pakete** sind und wi
 
 > *__Achtung__*: Voraussetzung zur Bearbeitung des Kapitels ist, dass wir (zumindest) [R installiert](Installation.qmd) haben.
 
-Weiterführend ist es sinnvoll, sich die [Einführung in RStudio][Einführung in RStudio] anzuschauen.
+Weiterführend ist es sinnvoll, sich die [Einführung in RStudio](Einfuehrung_in_RStudio.qmd) anzuschauen.
 
 
 ```{r}
@@ -406,8 +406,8 @@ Die verschiedenen Messniveaus können mit unterschiedlichen Datentypen repräsen
 #| echo: false
 De <- rep("Datentyp:", 2)
 D <- c("<span style=\"font-family: Consolas,monaco,monospace;\">character</span>", "<span style=\"font-family: Consolas,monaco,monospace;\">numeric</span>")
-N <- c("X", "X$^1$")
-O <- c("X$^2$", "X$^2$")
+N <- c("X", "X<sup>1</sup>")
+O <- c("X$^2$", "X<sup>2</sup>")
 I <- c("", "X")
 V <- c("", "X")
 A <- c("", "X")
@@ -421,14 +421,10 @@ table_kat %>%
   row_spec(0, color = "white", background = "#009193") %>%
   column_spec(1:2, bold=TRUE, color = "white", background = "#009193") %>%
   collapse_rows(columns = 1, valign = "middle") %>%
-  footnote(general = "<font size=\"1\">$^1$ Faktorisieren (unordered factor) notwendig *wenn* keine Indikatorvariable(n) genutzt $^2$ Faktorisieren (ordered factor) notwendig</font>", general_title = "", escape = FALSE) 
+  footnote(general = "<font size=\"1\"><sup>1</sup> Faktorisieren (unordered factor) notwendig *wenn* keine Indikatorvariable(n) genutzt <sup>2</sup> Faktorisieren (ordered factor) notwendig</font>", general_title = "", escape = FALSE) 
 ```
 
-<aside>\
-\
-\
-\
-\
+<aside>
 Ein Faktor ist eine Art von Vektor. Mehr dazu im nächsten Abschnitt.</aside>
 
 <details><summary>Können Merkmale auch mit logical kodiert werden?</summary>
