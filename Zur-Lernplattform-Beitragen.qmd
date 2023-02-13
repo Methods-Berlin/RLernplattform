@@ -220,7 +220,17 @@ Unser neues Thema wurde nun hinzugefügt!
 
 ## Webseite erstellen
 
-**Aktuell ist die Webseite noch nicht online!** Wir können aber eine offline-Version 
+### Online-Version erstellen
+
+Die Online-Version können wir updaten, indem wir [hier](https://github.com/Methods-Berlin/RLernplattform/actions/workflows/create_quarto_website.yml) auf run workflow drücken:
+
+![](figures/documentation/create_website.png)
+
+Die Webseite wird nun automatisch erstellt.
+
+### Offline-Version erstellen
+
+Wir können aber eine offline-Version 
 erstellen, die wir dann herunterlagen und auf unserem Computer anschauen können.
 Hierfür werden GitHub Actions genutzt. 
 
