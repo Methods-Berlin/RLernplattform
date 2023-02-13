@@ -30,7 +30,6 @@ book:
     - part: "Projekt-Dokumentation"
       chapters:
         - Zur-Lernplattform-Beitragen.qmd
-        - lineare-regression.qmd
 bibliography: references.bib
 
 format:
