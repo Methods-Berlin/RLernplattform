@@ -70,7 +70,7 @@ Werfen wir einmal einen Blick in die **Funktionsdefinition von `mean()`**:
 knitr::include_graphics("figures/Einführung/Bilder/R/mean.png")
 ```
 
-Die Funktionsdefinition finden wir in der Dokumentation, welche wir in RStudio unter [Files, Plots, Packages, Help & Viewer](Einfuehrung_in_RStudio.qmd#files-plots-packages-help--viewer-sec-files-plots-packages-help-viewer).
+Die Funktionsdefinition finden wir in der Dokumentation, welche wir in RStudio unter [Files, Plots, Packages, Help & Viewer](Einfuehrung_in_RStudio.qmd#sec-files-plots-packages-help-viewer).
 
 Manche Parameter besitzen *voreingestellte Argumente* (z.B. `na.rm=FALSE`), diese bezeichnet man als Defaults. Funktionen mit (min. einem) Parameter *ohne* Default (z.B. `mean()`) werden ohne Spezifikation dieser nicht ausgeführt. Beispielsweise *müssen* wir dem Parameter `x` einen Vektor, von dem wir den Mittelwert berechnen wollen, übergeben.
 
@@ -124,7 +124,7 @@ Weil wir weniger (redundanten) Code haben, können wir schneller Fehler finden (
 - **Erweiterbarkeit**\
 Funktionen können erweitert werden, um verschiedene Szenarien zu händeln. Meist hat das schon jemand für uns gemacht. Wir müssen den Parametern einer Funktion nur verschiedene Argumente übergeben (z.B. `na.rm=TRUE` zum Ausschluss von fehlenden Werten). 
 - **Abstraktion**\
-Wir müssen die Funktion nicht im Detail verstehen. Es reicht zu wissen, wie der *Name* der Funktion ist (`mean()`), welchen *Input* wir übergeben (`x`; `trim` und `na.rm` optional weil mit Default) und welchen *Output* (arithmetisches Mittel) wir bekommen und wo wir die Funktion finden, d.h. aus welchem *Paket* (base) sie stammt. All diese Informationen erhalten wir in der Dokumentation der Funktion z.B. in RStudio unter [help](Einfuehrung_in_RStudio.qmd#files-plots-packages-help--viewer-sec-files-plots-packages-help-viewer). 
+Wir müssen die Funktion nicht im Detail verstehen. Es reicht zu wissen, wie der *Name* der Funktion ist (`mean()`), welchen *Input* wir übergeben (`x`; `trim` und `na.rm` optional weil mit Default) und welchen *Output* (arithmetisches Mittel) wir bekommen und wo wir die Funktion finden, d.h. aus welchem *Paket* (base) sie stammt. All diese Informationen erhalten wir in der Dokumentation der Funktion z.B. in RStudio unter [Help](Einfuehrung_in_RStudio.qmd#sec-files-plots-packages-help-viewer). 
 
 Auf <a href="https://www.freecodecamp.org" target="_blank">freecodecamp.org</a> finden wir eine kurze Einführung zu R: <a href="https://www.freecodecamp.org/news/r-programming-language-explained/" target="_blank">R Programming Language explained</a>. Es lohnt sich, **vertiefend den Part zu <a href="https://www.freecodecamp.org/news/r-programming-language-explained/#functions-in-r" target="_blank">Funktionen</a> anzuschauen** (~ 10min), um ein besseres Verständnis für die Arbeit mit R zu bekommen.
 
@@ -206,7 +206,7 @@ Bevor wir uns die einzelnen Konzepte im Detail anschauen, sehen wir nachfolgend 
 ```{r}
 #| out.width: 500px
 #| fig.align: center
-#| include: false
+#| echo: false
 knitr::include_graphics("figures/Einführung/Bilder/R/veranschaulichung.png")
 library(dplyr)
 library(kableExtra)
@@ -407,7 +407,7 @@ Die verschiedenen Messniveaus können mit unterschiedlichen Datentypen repräsen
 De <- rep("Datentyp:", 2)
 D <- c("<span style=\"font-family: Consolas,monaco,monospace;\">character</span>", "<span style=\"font-family: Consolas,monaco,monospace;\">numeric</span>")
 N <- c("X", "X<sup>1</sup>")
-O <- c("X$^2$", "X<sup>2</sup>")
+O <- c("X<sup>2</sup>", "X<sup>2</sup>")
 I <- c("", "X")
 V <- c("", "X")
 A <- c("", "X")
@@ -421,10 +421,14 @@ table_kat %>%
   row_spec(0, color = "white", background = "#009193") %>%
   column_spec(1:2, bold=TRUE, color = "white", background = "#009193") %>%
   collapse_rows(columns = 1, valign = "middle") %>%
-  footnote(general = "<font size=\"1\"><sup>1</sup> Faktorisieren (unordered factor) notwendig *wenn* keine Indikatorvariable(n) genutzt <sup>2</sup> Faktorisieren (ordered factor) notwendig</font>", general_title = "", escape = FALSE) 
+  footnote(general = "<font size=\"1\"><sup>1</sup> Faktorisieren (unordered factor) notwendig <i>wenn</i> keine Indikatorvariable(n) genutzt <sup>2</sup> Faktorisieren (ordered factor) notwendig</font>", general_title = "", escape = FALSE) 
 ```
 
-<aside>
+<aside>\
+\
+\
+\
+\
 Ein Faktor ist eine Art von Vektor. Mehr dazu im nächsten Abschnitt.</aside>
 
 <details><summary>Können Merkmale auch mit logical kodiert werden?</summary>
@@ -485,7 +489,13 @@ table_data_2 %>%
   column_spec(1, width = "10em") %>%
   collapse_rows(columns = 1, valign = "middle")
 ```
-
+<!--
+<aside>\
+\
+\
+Aus Platzgründen werden wir Arrays im Folgenden nicht behandeln.</aside>
+-->
+  
 #### Vektor
 
 Vektoren sind die **elementare** Datenstruktur, aus der sich alle anderen Datenstrukturen zusammensetzen. Sie besitzen nur eine Dimension. Mit `c()` können wir Vektoren erstellen. 
