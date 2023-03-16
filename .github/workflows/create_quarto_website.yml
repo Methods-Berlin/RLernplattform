@@ -5,7 +5,9 @@
 name: create_website
 
 on:
-  workflow_dispatch
+  push:
+    branches:
+      - main
 
 permissions:
   contents: write
