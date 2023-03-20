@@ -1,11 +1,13 @@
 # Annahmen der Multiplen Linearen Regression
 
-Einleitung
+<span style="font-size:30px">
+  Einleitung
+</span>
 
 Wenn wir uns den gerichteten Zusammenhang von mehr als zwei Variablen anschauen möchten, können wir dafür die multiple lineare Regression nutzen. Bei dieser können wir *eine* abhängige Variable (AV, nachfolgend *Kriterium* genannt) durch *mehrere (multiple)* unabhängige Variablen (UVs, nachfolgend *Prädiktoren* genannt) vorhersagen. Grundsätzlich gilt, dass das Kriterium metrisch sein muss (d.h. mindestens intervallskaliert). Die Prädiktoren hingegen können auch kategorial (d.h. dichotom, nominal- oder ordinalskaliert) sein, sofern diese korrekt kodiert werden (z.B. als Dummyvariablen). 
 
 <aside>\
-Wie wir u.a. Dummykodierungen erstellen können erfahren wir im Abschnitt [Indikatorvariablen: Kodierung nominaler Merkmale][Indikatorvariablen: Kodierung nominaler Merkmale] im Kapitel Datenvorbereitung.</aside> 
+Wie wir u.a. Dummykodierungen erstellen können erfahren wir im Abschnitt [Indikatorvariablen: Kodierung nominaler Merkmale](Datenvorbereitung.#indikatorvariablen-kodierung-nominaler-merkmale) im Kapitel Datenvorbereitung.</aside> 
 
 <details><summary>Wie sieht die Regressionsgleichung aus?</summary>
 Nach dem linearen Modell gilt (für Person $i=1, ..., n$ und Prädiktor $k=1, ..., K$):\
@@ -33,7 +35,7 @@ library(kableExtra)
 library(knitr)
 
 verletzt <- matrix(c("X", "X", "", "", "", "", "X", "X", "X", "X", "X", "X", "X", ""), nrow = 7, ncol = 2)
-rownames(verletzt) <- c("**Linearität**", "**Exogenität**", "**Homoskedastizität**", "**Unabhängigkeit der Residuen**", "Normalverteilung der Residuen", "Multikollinearität", "Einflussreiche Datenpunkte")
+rownames(verletzt) <- c("<b>Linearität</b>", "<b>Exogenität</b>", "<b>Homoskedastizität</b>", "<b>Unabhängigkeit der Residuen</b>", "Normalverteilung der Residuen", "Multikollinearität", "Einflussreiche Datenpunkte")
 colnames(verletzt) <- c("verzerrte Koeffizienten", "verzerrte Standardfehler")
 
 kable(verletzt) %>% row_spec(0, bold = T, color = "white", background = "#009193") %>%
@@ -51,7 +53,7 @@ In geplotteten Daten können verschiedenste Verletzungen (z.B. Missspezifikation
 
 
 
-<details><summary>Was ist die <a name="loess">Lowess Fit Line</a>?</summary>
+<details><summary>Was ist die <a id="loess">Lowess Fit Line</a>?</summary>
 ```{r}
 #| echo: false
 # C, C, W & A: S.111
@@ -381,10 +383,11 @@ quant <- data.frame(erstis$zuf.inh.1,
 Standardmäßig wird so die *erste* Variable X aufsteigend sortiert, weil `order(..., decreasing=FALSE)` der Default ist. Mit `decreasing=TRUE` können wir absteigend sortieren.
 
 \
+
 > *__Achtung__*:  Bei `order(X, -resid)` ändert sich die **Sortierung innerhalb der _gleichen_ Prädiktorwerte X** in Abhängigkeit davon, ob wir bei `order()` vor die *zweite* Variable (`resid`) ein `-` setzen oder nicht:\
 Mit `resid` (so wie wir es im Beispiel machen) wird innerhalb der gleichen Prädiktorwerte **aufsteigend** sortiert.\
-Mit `-resid` wird innerhalb der gleichen Prädiktorwerte **absteigend** sortiert. \
-Dadurch kommen unterschiedliche Residuen in die Slices und folglich werden auch unterschiedliche konditionale Varianzen berechnet!
+> Mit `-resid` wird innerhalb der gleichen Prädiktorwerte **absteigend** sortiert. \
+> Dadurch kommen unterschiedliche Residuen in die Slices und folglich werden auch unterschiedliche konditionale Varianzen berechnet!
 \
 
 ```{r}
@@ -443,6 +446,7 @@ Der **w**eighted **l**east **s**quares Schätzer gewichtet jeden Fall (d.h. jede
 Es gibt mehrere Möglichkeiten, die Gewichte $w_i$ zu schätzen. Im Folgenden schauen wir uns exemplarisch eine Methode aus dem Buch von Cohen, Cohen, West & Aiken (2003, S.146-147) an. 
 
 \
+
 > *__Achtung__*:  Wenn wir **Ausreißer** in unseren Daten haben, finden wir in der Fußnote 19 auf S.147 des Lehrbuchs eine **geeignetere Methode zur Schätzung der Gewichte $w_i$**.
 \
 Dazu nehmen wir die Residuen aus der OLS-Regression, quadrieren diese und regredieren sie auf unsere Prädiktoren. Die Inversen dieser vorhergesagten quadrierten Residuen sind das unsere Gewichte für die WLS-Regression.
@@ -472,12 +476,12 @@ summary(lm_wls)$coefficients
 Wir sehen, dass die Schätzungen von WLS denen von OLS sehr nah ist. Relevant wären hier prinzipiell mehr die Standardfehler (die bei Varianzheterogenität und OLS verzerrt wären). Da wir aber von Varianzhomogenität in unserem Beispiel ausgehen, sind auch diese sehr ähnlich.
 
 > *__Achtung__*: Es gibt zwei Schwierigkeiten im Umgang mit dem WLS-Schätzer:
-
-- wir müssen ein angemessenes Gewicht für jede Beobachtung wählen
-  + wenn die Gewichte nicht angemessen sind, ist WLS kein guter Schätzer
-  + daher ist die WLS-Schätzung am besten, wenn die Stichprobengröße $N$ groß ist oder wenn es mehrere Beobachtungen mit identischen $X$-Werten gibt (d.h. mehrere Personen mit den gleichen Ausprägungen auf dem jeweiligen Prädiktor)
-
-- standardisierte Effektgrößen, wie z.B. der Determinationskoeffizient $R^2$, haben keine eindeutige Interpretation (wie bei OLS)
+> 
+> - wir müssen ein angemessenes Gewicht für jede Beobachtung wählen
+>   + wenn die Gewichte nicht angemessen sind, ist WLS kein guter Schätzer
+>   + daher ist die WLS-Schätzung am besten, wenn die Stichprobengröße $N$ groß ist oder wenn es mehrere Beobachtungen mit identischen $X$-Werten gibt (d.h. mehrere Personen mit den gleichen Ausprägungen auf dem jeweiligen Prädiktor)
+>
+> - standardisierte Effektgrößen, wie z.B. der Determinationskoeffizient $R^2$, haben keine eindeutige Interpretation (wie bei OLS)
 
 Daher sollten wir eher OLS als WLS nutzen, *außer* wenn die Stichprobengröße sehr groß ist oder es ein großes Problem mit Heteroskedastizität gibt.
 
@@ -543,7 +547,7 @@ Die **Farbe** der geplotteten Elemente können wir mit dem Argument `col` verän
 #| out.width: 500px
 plot(lm_lz$residuals, col = rep(1:17, each = 10))
 lines(lowess(lm_lz$residuals), col = "red")
-abline(h=0, col="darkblue", type="l", lty=3)
+abline(h=0, col="darkblue", lty=3)
 ```
 
 Die 10 steht dafür, dass wir 10 Messwiederholungen haben. 1 bis 17 kodiert unterschiedliche Farbe. Alternativ können wir auch die Farbnamen in einem Vektor spezifizieren - dann würden wir anstatt `1:17` z.B. `red', 'blue', 'green', ...)` einfügen. 
@@ -555,7 +559,7 @@ Mit dem Argument `pch` können wir analog die **Form der Punkte** ändern.
 #| out.width: 500px
 plot(lm_lz$residuals, pch = rep(1:17, each = 10))
 lines(lowess(lm_lz$residuals), col = "red")
-abline(h=0, col="darkblue", type="l", lty=3)
+abline(h=0, col="darkblue", lty=3)
 ```
 
 Wenn es starke serielle Abhängigkeiten geben würde, würden sich die Fälle sichtlich voneinander unterscheiden bzw. Cluster bilden. Illustriert ist das im folgenden Plot:
@@ -570,7 +574,7 @@ autocorr[11:20] = autocorr[11:20] + 10
 autocorr[21:30] = autocorr[21:30] - 20
 plot(autocorr[1:30], col = rep(c("red", "blue", "green"), each = 10), ylab="Residuals")
 lines(lowess(autocorr[1:30]), col = "red")
-abline(h=0, col="darkblue", type="l", lty=3)
+abline(h=0, col="darkblue", lty=3)
 ```
 </details>
 
@@ -596,6 +600,7 @@ Für unser Beispiel schauen wir uns exemplarisch an, inwieweit Unterschiede in '
 Dazu fügen wir diese Variable zu unserem Datensatz hinzu.
 
 ```{r}
+#| warning: false
 daten$gruppe <- erstis$gruppe
 
 library(ICC)
@@ -617,8 +622,6 @@ Die Funktion gibt uns folgende Outputs:
 \
 \
 \
-\
-\
 Bei unbalancierter Gruppengröße ist k, die Anzahl der Personen in jeder Gruppe, kleiner als die mittlere Gruppengröße. Für mehr Informationen dazu schau dir die R-Dokumentation für `ICCest()` an.</aside>
  
 
@@ -633,7 +636,7 @@ Zur Erleichterung der Interpretation zeichnen wir wieder mit Hilfe von `abline(h
 
 ```{r}
 plot(daten$resid ~ daten$gruppe)
-abline(h=0, col="darkblue", type="l", lty=3)
+abline(h=0, col="darkblue", lty=3)
 ```
 
 Die Interpretation hier ist ähnlich zu den Resiualplots: Der Median der einzelnen Gruppen sollte jeweils nah an der gestrichelten Linie bei $y=0$ sein. Zusätzlich sollten die Verteilungen sich stark überlappen.
@@ -691,7 +694,7 @@ Für die normalverteilte Dichtefunktion der Residuen nutzen wir `curve()` und `d
 
 Um die Normalverteilung besser anschauen zu können, erweitern wir die $x$-Achse. Das machen wir mit `xlim=c(-15, >15)`. Die Wahl der Grenzen von $-15$ bis $+ 15$ - ist eine theoretische Überlegung. Bei einer Normalverteilung liegen ~ $99$% der Werte im Bereich $+/- 3$ Standardabweichungen vom Mittelwert entfernt. Die Standardabweichung der Residuen beträgt ~ `r round(sd(lm_lz$residuals), 3)`. 
 
-Für eine bessere Übersichtlichkeit stellen wir die reale Dichtefunktion und die erwartete Dichtefunktion farblich dar. 
+Für eine bessere Übersichtlichkeit stellen wir die <span style="color:orange"> reale </span> Dichtefunktion und die <span style="color:green"> erwartete Dichtefunktion </span> farblich dar. 
 
 ```{r}
 #| label: hist_advanced
@@ -812,6 +815,7 @@ Dafür wird eine Regression von Prädiktor $X_j$ auf alle anderen Prädiktoren i
 In R können wir die Toleranz z.B. über den Kehrwert des Variance Inflation Factors, mit der Funktion `vif()` aus dem Paket **car**, berechnen. Der Funktion übergeben wir unser lm-Objekt.
 
 ```{r}
+#| message: false
 library(car)
 1 / vif(lm_lz)
 ```
@@ -872,7 +876,7 @@ Bei hoher **_essentieller_** Multikollinearität ist es oftmals ratsam, Prädikt
 \
 Die **Leverage** ist die absolute Abweichung eines beobachteten Wertes einer Person vom Mittel aller Prädiktoren $X$.</aside>
 
-In den folgenden drei Abbildungen sehen wir verdeutlicht, was mit extremen Abweichungen auf dem Kriterium bzw. den Prädiktoren gemeint ist. Dazu wurden exemplarisch **Lebenszufriedenheit** ($Y$) und **Zufriedenheit mit Studieninhalten** ($X_1$) gegeneinander geplottet. Hierbei wurde jeweils der $Y$- bzw. $X_1$-Wert von Person 50 geändert. Die gestrichelte Linie stellt dabei jeweils die obere Grenze des Wertebereichs des Kriteriums bzw. des Prädiktors dar.
+In den folgenden drei Abbildungen sehen wir verdeutlicht, was mit extremen Abweichungen auf dem Kriterium bzw. den Prädiktoren gemeint ist. Dazu wurden exemplarisch **Lebenszufriedenheit** ($Y$) und **Zufriedenheit mit Studieninhalten** ($X_1$) gegeneinander geplottet. Hierbei wurde jeweils der $Y$- bzw. $X_1$-Wert von <span style="color:red"> Person 50 >/span> geändert. Die gestrichelte Linie stellt dabei jeweils die obere Grenze des Wertebereichs des Kriteriums bzw. des Prädiktors dar.
 
 <aside>[Später](#cooklev) greifen wir nochmal auf das gleiche Beispiel zurück, um den Unterschied und die Konsequenzen von extremen Abweichungen auf dem Kriterium bzw. den Prädiktoren noch mehr zu verdeutlichen.</aside>
 
