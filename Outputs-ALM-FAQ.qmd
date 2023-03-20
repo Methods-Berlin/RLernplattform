@@ -130,6 +130,7 @@ Wir führen den Test mit der Funktion `leveneTest()` aus dem Paket **car** durch
 ```{r}
 #| results: markup
 #| eval: !expr T
+#| message: false
 library(car)
 leveneTest(zf_belastung ~ job, daten)
 ```
@@ -174,8 +175,8 @@ knitr::include_graphics("figures/Voraussetzungsprüfung/Bilder/t-test.png")
 
 Wir erhalten u.a. folgende Informationen: 
 
-- `t`: empirische Prüfgröße des $t$-Tests
-- `df`: Anzahl der Freiheitsgerade der $t$-Verteilung (entspricht $N-2$)\
+- `<span style="color:red"> t </span>`: empirische Prüfgröße des $t$-Tests
+- `<span style="color:#59A608"> df </span>`: Anzahl der Freiheitsgerade der $t$-Verteilung (entspricht $N-2$)\
 
 <details><summary>Wir kommen wir auf $N=169$?</summary>
 Wir haben alle Fälle mit fehlenden Werten auf *einer* der beiden Variablen ausgeschlossen (*casewise deletion* durch `na.action = "na.exclude"`). Wir können diese Bedingung folgendermaßen auf unseren Datensatz anwenden, um $N$ für unsere spezifische Analyse zu berechnen:
@@ -189,17 +190,17 @@ Für mehr Informationen siehe das Kapitel zu [Fehlenden Werten](Fehlende-Werte.q
 
 
 
-- `p-value`: in $p$-Wert umgerechneter empirischer $t$-Wert <!--, also die Wahrscheinlichkeit, den gegebenen empirischen $t$-Wert oder einen extremeren zu erhalten, wenn die $H_0$ gilt.-->\
+- `<span style="color:blue"> p-value </span>`: in $p$-Wert umgerechneter empirischer $t$-Wert <!--, also die Wahrscheinlichkeit, den gegebenen empirischen $t$-Wert oder einen extremeren zu erhalten, wenn die $H_0$ gilt.-->\
 Durch den Vergleich mit unserem $\alpha$-Niveau können wir anhand dieser Information zu einer Testentscheidung gelangen. Ist der $p$-Wert kleiner als $\alpha$, verwerfen wir die $H_0$. 
-- `95 percent confidence interval`: obere und untere Grenze des 95% Konfidenzintervalls der *Mittelwertsdifferenz*
-- `sample estimates`: Stichprobenmittelwerte der Gruppen
+- `<span style="color:orange"> 95 percent confidence interval </span>`: obere und untere Grenze des 95% Konfidenzintervalls der *Mittelwertsdifferenz*
+- `<span style="color:purple"> sample estimates </span>`: Stichprobenmittelwerte der Gruppen
 
 Durch Betrachtung des $p$-Wertes stellen wir fest, dass die Wahrscheinlichkeit unter Gültigkeit der $H_O$, einen empirischen $t$-Wert von $\mid -1.278 \mid$ oder extremer zu erhalten, bei 20.3% liegt. Da dieser $p$-Wert deutlich über $\alpha=.05$ liegt, behalten wir die Nullhypothese bei. Wir gehen davon aus, dass Studierende mit und ohne Nebenjob sich *nicht* statistisch signifikant in ihrer Zufriedenheit mit der Bewältigung von Studienbelastungen unterscheiden. 
 
 
 ## Lineare Regression
 
-> Die lineare Regression ermöglicht es, eine abhängige Variable (AV, Kriterium) durch eine oder mehrere unabhängige Variablen (UVs, Prädiktoren) vorherzusagen. Das Kriterium muss metrisch sein, wohingegen die Prädiktoren auch kategorial sein können, wenn sie adäquat kodiert sind (siehe z.B. [Indikatorvariablen: Kodierung nominaler Merkmale][Indikatorvariablen: Kodierung nominaler Merkmale] im Kapitel Datenvorbereitung).
+> Die lineare Regression ermöglicht es, eine abhängige Variable (AV, Kriterium) durch eine oder mehrere unabhängige Variablen (UVs, Prädiktoren) vorherzusagen. Das Kriterium muss metrisch sein, wohingegen die Prädiktoren auch kategorial sein können, wenn sie adäquat kodiert sind (siehe z.B. [Indikatorvariablen: Kodierung nominaler Merkmale](Datenvorbereitung.qmd#indikatorvariablen-kodierung-nominaler-merkmale) im Kapitel Datenvorbereitung).
 
 <aside>\
 ein Prädiktor: *einfache* lineare Regression;\
@@ -338,13 +339,13 @@ Unter `Coefficients` finden wir Informationen zu den geschätzten **Regressionsk
 knitr::include_graphics("figures/Voraussetzungsprüfung/Bilder/lm oben.png")
 ```
 
-- `Estimate`: Schätzung der (Populations-)Regressionskoeffizienten
+- `<span style="color:red> Estimate </span>`: Schätzung der (Populations-)Regressionskoeffizienten
   - `(Intercept)`: vorhergesagter Wert des Kriteriums wenn alle Prädiktoren 0 sind (bei metrischen Prädiktoren) bzw. vorhergesagter Wert des Kriteriums in den jeweiligen Referenzgruppen (bei kategorialen Prädiktoren); Wert von `zf_belastung` in der Referenzgruppe `job == ja` 
   - `jobnein`: Steigungskoeffizient, der die erwartete Veränderung im Kriterium angibt, wenn der Prädiktor um eine Einheit erhöht wird (bei metrischen Prädiktoren) bzw. in (einer) der Vergleichsgruppen (bei kategorialen Prädiktoren); Unterschied von `job == nein` im Vergleich zur Referenzgruppe `job == ja` im Hinblick auf `zf_belastung`
-- `Std.Error`: Standardfehler des Regressionskoeffizienten
-- `t.value`: empirischer $t$-Wert für die Signifikanztestung des (partiellen) Regressionskoeffizienten
-- `Pr(>|t|)`: in $p$-Wert umgerechneter empirischer $t$-Wert
-- `Sign.codes`: durch Sternchen gekennzeichnete Signifikanzniveaus der geschätzten Regressionskoeffizienten
+- `<span style="color:#59A608> Std.Error </span>`: Standardfehler des Regressionskoeffizienten
+- `<span style="color:blue> t.value </span>`: empirischer $t$-Wert für die Signifikanztestung des (partiellen) Regressionskoeffizienten
+- `<span style="color:orange> Pr(>|t|) </span>`: in $p$-Wert umgerechneter empirischer $t$-Wert
+- `<span style="color:purple> Sign.codes </span>`: durch Sternchen gekennzeichnete Signifikanzniveaus der geschätzten Regressionskoeffizienten
 
 Der Intercept $b_0 = 2.679$ gibt uns den Mittelwert der Personen **mit Nebenjob** (`job == "ja"`, Referenzgruppe) auf der Skala von **Zufriedenheit mit der Bewältigung von Studienbelastungen** (`zf_belastung`) an. Wir gelangen durch Betrachtung von $p < 2^{-16}$ zu der Testentscheidung, die $H_0$, dass der Intercept in der Population 0 ist, abzulehnen.
 
@@ -371,16 +372,14 @@ Im unteren Abschnitt finden wir Informationen bezüglich des **Gesamtmodells**:
 knitr::include_graphics("figures/Voraussetzungsprüfung/Bilder/lm unten.png")
 ```
 
-- `Residual Standard Error`: Standardschätzfehler $s_e$\
+- `<span style="color:pink> Residual Standard Error </span>`: Standardschätzfehler $s_e$\
 Gütemaß für die Genauigkeit der Regressionsvorhersage
-- `Multiple R-squared`: Determinationskoeffizient $R^2$\
+- `<span style="color:browm> Multiple R-squared </span>`: Determinationskoeffizient $R^2$\
 Gütemaß für die Schätzgenauigkeit
-- `Adjusted R squared`: korrigierter Determinationskoeffizient $R_{korr}^2$; gilt durch Korrektur der Freiheitsgrade als erwartungstreuer Schätzer für die Population
-- `F-statistic`: empirischer Wert des $F$-Tests des Determinationskoeffizienten $R^2$ (d.h. des Gesamtmodells) mit Anzahl der Zähler- ($k$) und Nenner-Freiheitsgrade ($N-k-1$) der $F$-Verteilung mit zugehörigem $p$-Wert.
+- `<span style="color:brown> Adjusted R squared </span>`: korrigierter Determinationskoeffizient $R_{korr}^2$; gilt durch Korrektur der Freiheitsgrade als erwartungstreuer Schätzer für die Population
+- `<span style="color:cyan> F-statistic </span>`: empirischer Wert des $F$-Tests des Determinationskoeffizienten $R^2$ (d.h. des Gesamtmodells) mit Anzahl der Zähler- ($k$) und Nenner-Freiheitsgrade ($N-k-1$) der $F$-Verteilung mit zugehörigem $p$-Wert.
 
 <aside>\
-\
-\
 \
 \
 \
@@ -454,17 +453,17 @@ knitr::include_graphics("figures/Voraussetzungsprüfung/Bilder/aov.png")
 
 Der Output liefert die folgenden Informationen für den Gruppierungsfaktor (`job`) und für die Residuen (`Residuals`): 
 
-- `Df`: Anzahl der Freiheitsgrade der $F$-Verteilung
+- `<span style="color:red> Df </span>`: Anzahl der Freiheitsgrade der $F$-Verteilung
   - ... des Gruppierungsfaktor: $df_{job} = p - 1$
   - ... der Residuen:  $df_{e} = N-p$
-- `Sum Sq`: Quadratsumme
+- `<span style="color:#59A608> Sum Sq </span>`: Quadratsumme
   - ... des Gruppierungsfaktors (*"Treatmentquadratsumme"*)
   - ... der Residuen (*"Fehlerquadratsumme"*)
-- `Mean Sq`: Mittlere Quadratsumme (MQ)\
+- `<span style="color:blue> Mean Sq`: Mittlere Quadratsumme (MQ)\
 relativieren die Quadratsumme eines Effekts an seinen Freiheitsgraden 
-- `F value`: empirische Prüfgröße des $F$-Tests\
+- `<span style="color:orange> F value </span>`: empirische Prüfgröße des $F$-Tests\
 entspricht dem Quotienten $\frac {MQ_{job}} {MQ_e}$
-- `Pr(>F)`: in $p$-Wert umgerechneter empirischer $F$-Wert
+- `<span style="color:purple> Pr(>F) </span>`: in $p$-Wert umgerechneter empirischer $F$-Wert
 
 <!-- 
 <aside> __Beachte: Auch die ANOVA weist als Sonderform des Allgemeinen Linearen Modells  Zusammenhänge mit der linearen Regression auf. Hierbei entspricht der empirische *F*-Wert der aov Funktion dem *F*-Wert des globalen Tests der `lm()`-Funktion.__  __(In unserem Fall F=0.316).__  __Näheres zu den Zusammenhängen des ALM findet ihr [hier](#github2).__
@@ -478,7 +477,7 @@ Unser $p$-Wert deutet darauf hin, dass unter Gültigkeit der $H_0$ die Wahrschei
 
 Wie bereits eingangs erwähnt, gehören $t$-Test, lineare Regression und ANOVA alle zum Allgemeinen Linearen Modell (ALM).
 
-Für den hier betrachteten Spezialfall von nur einer UV mit nur zwei Stufen (und adäquater Kodierung; siehe z.B. [Indikatorvariablen: Kodierung nominaler Merkmale][Indikatorvariablen: Kodierung nominaler Merkmale] aus dem Kapitel Datenvorbereitung) kommen die drei Verfahren zum selben Ergebnis bei der Signifikanztestung, obwohl scheinbar andere Hypothesen getestet werden.
+Für den hier betrachteten Spezialfall von nur einer UV mit nur zwei Stufen (und adäquater Kodierung; siehe z.B. [Indikatorvariablen: Kodierung nominaler Merkmale](Datenvorbereitung.qmd#indikatorvariablen-kodierung-nominaler-merkmale) aus dem Kapitel Datenvorbereitung) kommen die drei Verfahren zum selben Ergebnis bei der Signifikanztestung, obwohl scheinbar andere Hypothesen getestet werden.
 
 ```{r}
 #| echo: false
@@ -486,15 +485,15 @@ Für den hier betrachteten Spezialfall von nur einer UV mit nur zwei Stufen (und
 library(kableExtra)
 library(knitr)
 
-Verfahren <- c("$t$-Test für unabhängige Stichproben", "einfache lineare Regression",
+Verfahren <- c("<i>t</i>-Test für unabhängige Stichproben", "einfache lineare Regression",
                "einfache lineare Regression", "ANOVA")
-Hypothesentest <- c("Mittelwertsunterschied in den Gruppen\n\n$H_0$: $\\mu_1 = \\mu_2$\n\n$H_1$: $\\mu_1 \\neq \\mu_2$ <font size=\"1\">(ungerichtet)", "Steigungskoeffizient $b_1$\n\n$H_0$: $\\beta_1 = 0$\n\n$H_1$: $\\beta_1 \\neq 0$ <font size=\"1\">(ungerichtet)", "Determinationskoeffizient $R^2$\n\n$H_0$: $\\rho^2 = 0$\n\n$H_1$: $\\rho^2$ > $0$ <font size=\"1\">(gerichtet)", "Mittelwertsunterschied in den Gruppen\n\n$H_0$: $\\mu_1 = \\mu_2$\n\n$H_1$: $\\mu_1 \\neq \\mu_2$ <font size=\"1\">(ungerichtet)") 
+Hypothesentest <- c("Mittelwertsunterschied in den Gruppen\n\n<i>H<sub>0</sub></i>: $\\mu_1 = \\mu_2$\n\n$H_1$: $\\mu_1 \\neq \\mu_2$ <font size=\"1\">(ungerichtet)", "Steigungskoeffizient $b_1$\n\n$H_0$: $\\beta_1 = 0$\n\n$H_1$: $\\beta_1 \\neq 0$ <font size=\"1\">(ungerichtet)", "Determinationskoeffizient $R^2$\n\n$H_0$: $\\rho^2 = 0$\n\n$H_1$: $\\rho^2$ > $0$ <font size=\"1\">(gerichtet)", "Mittelwertsunterschied in den Gruppen\n\n$H_0$: $\\mu_1 = \\mu_2$\n\n$H_1$: $\\mu_1 \\neq \\mu_2$ <font size=\"1\">(ungerichtet)") 
 "t" <- c("-1.278", "1.278", "", "")
 "F" <- c("", "", "1.633", "1.633")
 "p" <- c("0.203", "0.203", "0.203", "0.203")
 
 tabelle <- data.frame(Verfahren, Hypothesentest, t, F, p)
-names(tabelle) <- c("Verfahren", "getestete Hypothesen", "$t$", "$F$", "$p$")
+names(tabelle) <- c("Verfahren", "getestete Hypothesen", "<i>t</i>", "<i>F</i>", "<i>p</i>")
 
 kable(tabelle, escape=FALSE) %>%
   kable_styling(full_width = TRUE, c("condensed")) %>%
