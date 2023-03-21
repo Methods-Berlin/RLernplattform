@@ -876,7 +876,7 @@ Bei hoher **_essentieller_** Multikollinearität ist es oftmals ratsam, Prädikt
 \
 Die **Leverage** ist die absolute Abweichung eines beobachteten Wertes einer Person vom Mittel aller Prädiktoren $X$.</aside>
 
-In den folgenden drei Abbildungen sehen wir verdeutlicht, was mit extremen Abweichungen auf dem Kriterium bzw. den Prädiktoren gemeint ist. Dazu wurden exemplarisch **Lebenszufriedenheit** ($Y$) und **Zufriedenheit mit Studieninhalten** ($X_1$) gegeneinander geplottet. Hierbei wurde jeweils der $Y$- bzw. $X_1$-Wert von <span style="color:red"> Person 50 >/span> geändert. Die gestrichelte Linie stellt dabei jeweils die obere Grenze des Wertebereichs des Kriteriums bzw. des Prädiktors dar.
+In den folgenden drei Abbildungen sehen wir verdeutlicht, was mit extremen Abweichungen auf dem Kriterium bzw. den Prädiktoren gemeint ist. Dazu wurden exemplarisch **Lebenszufriedenheit** ($Y$) und **Zufriedenheit mit Studieninhalten** ($X_1$) gegeneinander geplottet. Hierbei wurde jeweils der $Y$- bzw. $X_1$-Wert von <span style="color:red"> Person 50 </span> geändert. Die gestrichelte Linie stellt dabei jeweils die obere Grenze des Wertebereichs des Kriteriums bzw. des Prädiktors dar.
 
 <aside>[Später](#cooklev) greifen wir nochmal auf das gleiche Beispiel zurück, um den Unterschied und die Konsequenzen von extremen Abweichungen auf dem Kriterium bzw. den Prädiktoren noch mehr zu verdeutlichen.</aside>
 
