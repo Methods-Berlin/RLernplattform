@@ -7,7 +7,7 @@
 Wenn wir uns den gerichteten Zusammenhang von mehr als zwei Variablen anschauen möchten, können wir dafür die multiple lineare Regression nutzen. Bei dieser können wir *eine* abhängige Variable (AV, nachfolgend *Kriterium* genannt) durch *mehrere (multiple)* unabhängige Variablen (UVs, nachfolgend *Prädiktoren* genannt) vorhersagen. Grundsätzlich gilt, dass das Kriterium metrisch sein muss (d.h. mindestens intervallskaliert). Die Prädiktoren hingegen können auch kategorial (d.h. dichotom, nominal- oder ordinalskaliert) sein, sofern diese korrekt kodiert werden (z.B. als Dummyvariablen). 
 
 <aside>\
-Wie wir u.a. Dummykodierungen erstellen können erfahren wir im Abschnitt [Indikatorvariablen: Kodierung nominaler Merkmale](Datenvorbereitung.#indikatorvariablen-kodierung-nominaler-merkmale) im Kapitel Datenvorbereitung.</aside> 
+Wie wir u.a. Dummykodierungen erstellen können erfahren wir im Abschnitt [Indikatorvariablen: Kodierung nominaler Merkmale](Datenvorbereitung.qmd#indikatorvariablen-kodierung-nominaler-merkmale) im Kapitel Datenvorbereitung.</aside> 
 
 <details><summary>Wie sieht die Regressionsgleichung aus?</summary>
 Nach dem linearen Modell gilt (für Person $i=1, ..., n$ und Prädiktor $k=1, ..., K$):\
