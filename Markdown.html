@@ -392,8 +392,8 @@ Hier wurde als Outputformat <strong>html</strong> festgelegt. Das sehen wir ganz
 <p>Mit dem Knit-Button können wir unser Output-Dokument erstellen.</p>
 <p>Alternativ können wir zum Knitten einen Kurzbefehl nutzen:</p>
 <ul>
-<li>Windows: shift + ctrl + K</li>
-<li>Mac: shift + cmd + K</li>
+<li>Windows: <kbd> Shift </kbd> + <kbd> Ctrl </kbd> + <kbd> K </kbd></li>
+<li>Mac: <kbd> Shift </kbd> + <kbd> Cmd </kbd> + <kbd> K </kbd></li>
 </ul>
 <p>Für die Outputformate html und pdf bekommen wir in einem neuen Fenster in R eine Vorschau davon. Für Word Dokumente öffnet sich (ggf.) Microsoft Word.</p>
 <div class="cell" data-layout-align="center">
@@ -535,8 +535,8 @@ Die Überschriften erscheinen auch in der Gliederung, wenn wir im YAML Header ei
 <p><em><strong>Achtung</strong></em>: Im R-Skript konnten wir # zum Kommentieren nutzen. Das funktioniert hier auch, aber nur in den Code Chunks. Um Textpassagen auszukommentieren, können wir den html-Kommentar-Tag <code>&lt;!-- --&gt;</code> nutzen. Mit folgendem Kurzbefehl können wir sowohl Text als auch Code auskommentieren (funktioniert in html und pdf):</p>
 </blockquote>
 <ul>
-<li>Windows/Linux: ctrl + shift + C</li>
-<li>Mac: cmd + shift + C</li>
+<li>Windows/Linux: <kbd> Ctrl </kbd> + <kbd> Shift </kbd> + <kbd> C </kbd></li>
+<li>Mac: <kbd> Cmd </kbd> + <kbd> Shift </kbd> + <kbd> C </kbd></li>
 </ul>
 </section>
 <section id="hervorhebung" class="level3 page-columns page-full" data-number="12.2.2">
@@ -590,7 +590,10 @@ Markdown
 <p>Wir können Formeln und mathematische Symbole mittels LaTex integrieren. Bei der Installation von dem Paket <strong>rmarkdown</strong> wird (standarmäßig) automatisch das Paket <strong>tinytex</strong> heruntergeladen. Das ermöglicht uns die Nutzung von LaTex. Das machen wir mit <strong>$</strong> und speziellem LaTex-Code. Einen guten <strong>Überblick</strong> darüber, wie wir wichtige mathematische Symbole in LaTex schreiben, gibt uns diese <a href="https://www.caam.rice.edu/~heinken/latex/symbols.pdf" target="_blank">Seite</a>.</p>
 <p>Um Formeln <strong>im Fließtext</strong> zu schreiben (sog. Inline Formeln), nutzen wir einfache Dollarzeichen z.B. <code>$\alpha=0.05$</code> wird zu <span class="math inline">\(\alpha=0.05\)</span>.</p>
 <p>Um Formeln als (zentrierten) <strong>Blocksatz</strong> zu schreiben nutzen wir doppelte Dollarzeichen z.B.</p>
-<p><code>$$ \sigma^2= \sum_{i =1}^{n} \frac{(x_i - \bar{x}) ^2}{n-1} $$</code> wird zu <span class="math display">\[ \sigma^2= \sum _{i =1} ^{n} \frac{(x_i - \bar{x}) ^2} {n-1} \]</span> &gt; <em><strong>Achtung</strong></em>: Leerzeichen haben im LaTex Code keinen Einfluss. Sie sind hier nur der Übersichtlichkeit halber eingefügt. Wenn wir in den Formeln Leerzeichen ahben wollen, müssen wir dafür speziellen LaTex Code nutzen.</p>
+<p><code>$$ \sigma^2= \sum_{i =1}^{n} \frac{(x_i - \bar{x}) ^2}{n-1} $$</code> wird zu <span class="math display">\[ \sigma^2= \sum _{i =1} ^{n} \frac{(x_i - \bar{x}) ^2} {n-1} \]</span></p>
+<blockquote class="blockquote">
+<p><em><strong>Achtung</strong></em>: Leerzeichen haben im LaTex Code keinen Einfluss. Sie sind hier nur der Übersichtlichkeit halber eingefügt. Wenn wir in den Formeln Leerzeichen ahben wollen, müssen wir dafür speziellen LaTex Code nutzen.</p>
+</blockquote>
 <!-- ### Textfarbe -->
 <!-- ### Textgröße -->
 <!-- ### Textausrichtung -->
@@ -614,8 +617,8 @@ Markdown
 </div>
 <p>… oder einen Kurzbefehl nutzen:</p>
 <ul>
-<li>Windows: ctrl + alt + I</li>
-<li>Mac: alt + cmd + I</li>
+<li>Windows: <kbd> Ctrl </kbd> + <kbd> Alt </kbd> + <kbd> I </kbd></li>
+<li>Mac: <kbd> Alt </kbd> + <kbd> Cmd </kbd> + <kbd> I </kbd></li>
 </ul>
 <p><br>
 </p>
@@ -632,8 +635,8 @@ Markdown
 <p>Wenn wir auf den Pfeil ganz rechts klicken, können wir den Code in dem Chunk ausführen. Darunter erscheint ggf. der Output des Codes.</p>
 <p>Zum Ausführen des Code Chunks gibt es können wir auch einen Kurzbefehl nutzen:</p>
 <ul>
-<li>Windows: shift + ctrl + Enter</li>
-<li>Mac: shift + cmd + Enter</li>
+<li>Windows: <kbd> Shift </kbd> + <kbd> Ctrl </kbd> + <kbd> Enter </kbd></li>
+<li>Mac: <kbd> Shift </kbd> + <kbd> Cmd </kbd> + <kbd> Ctrl </kbd>Enter</li>
 </ul>
 <p><br>
 </p>
@@ -972,7 +975,7 @@ loaded via a namespace (and not attached):
 [13] stringr_1.5.0     httr_1.4.5        tools_4.2.3       webshot_0.5.4    
 [17] xfun_0.38         cli_3.6.1         htmltools_0.5.5   systemfonts_1.0.4
 [21] yaml_2.3.7        digest_0.6.31     lifecycle_1.0.3   htmlwidgets_1.6.2
-[25] glue_1.6.2        evaluate_0.20     rmarkdown_2.20    stringi_1.7.12   
+[25] glue_1.6.2        evaluate_0.20     rmarkdown_2.21    stringi_1.7.12   
 [29] compiler_4.2.3    scales_1.2.1      jsonlite_1.8.4    svglite_2.1.1    </code></pre>
 </div>
 </div>
