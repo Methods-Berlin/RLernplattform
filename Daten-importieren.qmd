@@ -9,7 +9,7 @@ Wir lernen **drei verschiedene Wege zum Einlesen von Dateien** kennen:
 ```{r}
 #| out.width: 700px
 #| echo: false
-#| column: l-body-outset
+#| column: body
 knitr::include_graphics("figures/Daten-importieren/Bilder/overview.png")
 ```
 

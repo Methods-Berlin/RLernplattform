@@ -38,7 +38,7 @@ verletzt <- matrix(c("X", "X", "", "", "", "", "X", "X", "X", "X", "X", "X", "X"
 rownames(verletzt) <- c("<b>Linearität</b>", "<b>Exogenität</b>", "<b>Homoskedastizität</b>", "<b>Unabhängigkeit der Residuen</b>", "Normalverteilung der Residuen", "Multikollinearität", "Einflussreiche Datenpunkte")
 colnames(verletzt) <- c("verzerrte Koeffizienten", "verzerrte Standardfehler")
 
-kable(verletzt) %>% row_spec(0, bold = T, color = "white", background = "#009193") %>%
+kable(verletzt, escape = FALSE) %>% row_spec(0, bold = T, color = "white", background = "#009193") %>%
   column_spec(1, color = "white", background = "#009193")
 ```
 

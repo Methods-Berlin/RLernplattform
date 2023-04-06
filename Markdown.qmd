@@ -518,7 +518,7 @@ Eine **ausführliche Dokumentation** zu den Funktionalitäten des Templates und 
 
 ```{r}
 #| echo: false
-#| column: l-body-outset
+#| column: body
 #| fig.link: http://methods-berlin.com/de/r-lernplattform/grafiken-ggplot
 #| fig.cap: 'Bildquelle: https://psyteachr.github.io/msc-data-skills/images/memes/better_graphs.png'
 knitr::include_graphics("figures/Markdown/Bilder/better_graphs.png")

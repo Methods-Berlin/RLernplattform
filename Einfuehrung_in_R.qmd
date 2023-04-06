@@ -421,7 +421,7 @@ table_kat %>%
   row_spec(0, color = "white", background = "#009193") %>%
   column_spec(1:2, bold=TRUE, color = "white", background = "#009193") %>%
   collapse_rows(columns = 1, valign = "middle") %>%
-  footnote(general = "<font size=\"1\"><sup>1</sup> Faktorisieren (unordered factor) notwendig <i>wenn</i> keine Indikatorvariable(n) genutzt <sup>2</sup> Faktorisieren (ordered factor) notwendig</font>", general_title = "", escape = FALSE) 
+  footnote(number = c("Faktorisieren (unordered factor) notwendig <i>wenn</i> keine Indikatorvariable(n) genutzt)","Faktorisieren (ordered factor) notwendig"), general_title = "", escape = FALSE, footnote_as_chunk = TRUE) 
 ```
 
 <aside>\
@@ -472,7 +472,7 @@ Datenstrukturen können nach Dimensionalität und enthaltenen Datentypen klassif
 
 ```{r}
 #| echo: false
-#| column: l-body-layout
+#| column: body
 x <- c(rep("Anzahl der Dimensionen", 3))
 y <- c("1", "2", "n")
 ho <- c("Vektor", "Matrix", "Array")
