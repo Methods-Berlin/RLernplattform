@@ -1053,6 +1053,25 @@ Nachfolgend finden wir eine Übersicht, in der die jeweiligen Unterschiede zwisc
 | fill | ![](figures/ggplot2/Bilder/static fill.png) | ![](figures/ggplot2/Bilder/variable fill.png) |
 | col  | ![](figures/ggplot2/Bilder/static col.png)  | ![](figures/ggplot2/Bilder/variable col.png)  |
 
+ 
+<table width="100%">
+    <tr>
+        <td width="20%"></td>
+        <td width="40%">statisch</td>
+        <td width="40%">Variablenausprägung</td>
+    </tr>
+    <tr>
+        <td width="20%">fill</td>
+        <td width="40%">![](figures/ggplot2/Bilder/static fill.png)</td>
+        <td width="40%">![](figures/ggplot2/Bilder/variable fill.png)</td>
+    </tr>
+    <tr>
+        <td width="20%">col</td>
+        <td width="40%">![](figures/ggplot2/Bilder/static col.png)</td>
+        <td width="40%">![](figures/ggplot2/Bilder/variable col.png)</td>
+    </tr>
+</table> 
+  
 ```{r}
 #| echo: !expr F
 # lines, points & text: only colour
