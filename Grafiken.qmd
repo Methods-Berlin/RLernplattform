@@ -1048,30 +1048,10 @@ Zusäzlich können wir **zwei Farbmodi** unterscheiden:
 
 Nachfolgend finden wir eine Übersicht, in der die jeweiligen Unterschiede zwischen `col` und `fill` sowie statischen und variablen Farben verdeutlicht werden sollen. Der Code zur Erstellung der jeweiligen Grafik befindet sich über den Abbildungen. 
 
-```{r}
-#| echo: !expr F
-# , layout="l-body-outset"
-library(kableExtra)
-library(knitr)
-
-table <- matrix(c("fill", "![](figures/ggplot2/Bilder/static fill.png)",
-                  "![](figures/ggplot2/Bilder/variable fill.png)",
-                  "col", "![](figures/ggplot2/Bilder/static col.png)",
-                  "![](figures/ggplot2/Bilder/variable col.png)"), 
-                nrow = 2, ncol = 3, byrow=T)
-
-colnames(table) <- c("", "statisch", "Variablenausprägung")
-
-# ){width} muss mit geschweifter Klammer an ) sein
-# condensed für slyghtly shorter row range
-# scheinbar kein easy way für verticales alignment
-## https://stackoverflow.com/questions/48562402/vertical-align-kables-column-name
-
-kable(table, align = "c") %>%
-  kable_styling(full_width = TRUE, c("condensed")) %>%
-  row_spec(0, bold = T, color = "white", background = "#009193") %>%
-  column_spec(1, bold = T, color = "white", background = "#009193") 
-```
+|      | statisch | Variablenausprägung |
+| ---  | -------- | ------------------- |
+| fill | ![](figures/ggplot2/Bilder/static fill.png) | ![](figures/ggplot2/Bilder/variable fill.png) |
+| col  | ![](figures/ggplot2/Bilder/static col.png)  | ![](figures/ggplot2/Bilder/variable col.png)  |
 
 ```{r}
 #| echo: !expr F
