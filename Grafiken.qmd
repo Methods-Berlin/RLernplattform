@@ -1047,12 +1047,6 @@ Zusäzlich können wir **zwei Farbmodi** unterscheiden:
 <!-- - in spezifischen Funktionen (z.B. `scale_color_discrete()` bzw. `scale_fill_discrete()`) für zusätzliche Farben -->
 
 Nachfolgend finden wir eine Übersicht, in der die jeweiligen Unterschiede zwischen `col` und `fill` sowie statischen und variablen Farben verdeutlicht werden sollen. Der Code zur Erstellung der jeweiligen Grafik befindet sich über den Abbildungen. 
-
-|      | statisch | Variablenausprägung |
-| ---  | -------- | ------------------- |
-| fill | ![](figures/ggplot2/Bilder/static fill.png) | ![](figures/ggplot2/Bilder/variable fill.png) |
-| col  | ![](figures/ggplot2/Bilder/static col.png)  | ![](figures/ggplot2/Bilder/variable col.png)  |
-
  
 <table width="100%">
     <tr>
