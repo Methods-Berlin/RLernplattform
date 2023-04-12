@@ -8,8 +8,11 @@
 
 name: create_book
 
+# On every push to development, the website will be built locally
 on:
-  workflow_dispatch
+  push:
+    branches:
+      - development
 
 permissions:
   contents: write
