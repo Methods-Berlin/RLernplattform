@@ -496,7 +496,7 @@ Für den hier betrachteten Spezialfall von nur einer UV mit nur zwei Stufen (und
 
 ```{r}
 #| echo: false
-#| column: l-body-outset
+#| column: body
 library(kableExtra)
 library(knitr)
 
