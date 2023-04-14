@@ -728,7 +728,7 @@ Was genau ist ein Dataframe?
 <p>Konkretisieren wir einmal einen hypothetischen Fall an der Variable <code>Day</code>. Wir wissen, dass diese mit Zahlen von 1-31 kodiert sein kann. Es wäre also unplausibel, wenn andere Werte (z.B. 0 oder 32) vorliegen würden.</p>
 <p>Das Auftauchen von unplausiblen Werten ist z.B. wahrscheinlicher, wenn Daten <strong>manuell digitalisiert</strong> (d.h. eingetippt) wurden (z.B. Paper-and-Pencil Tests). Gerade in diesen Fällen sollte man sicher gehen, und die Daten auf unplausible Werte hin überprüfen.</p>
 <p>Die Funktion <code>unique()</code> gibt uns einen Überblick über <strong>alle enthaltenen Ausprägungen</strong> eines Vektors. Wenn wir diese mit <code>sapply()</code> kombinieren, können wir das <strong>für jede Variable im Datensatz anwenden</strong>. Wenn wir den Output wiederum erneut an <code>sapply()</code> übergeben, und <code>sort()</code> anwenden, werden die <strong>Ausprägungen aufsteigend sortiert</strong> (weil der Default <code>decreasing = FALSE</code> ist), was die Überprüfung erleichtert. In <code>sort()</code> können wir außerdem <code>na.last=TRUE</code> nutzen, um uns das Vorhandensein von <code>NA</code>s am Ende der Ausprägungen anzeigen zu lassen.</p>
-<div class="cell column-l-body-outset">
+<div class="cell column-body">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(<span class="fu">sapply</span>(airquality, unique), sort, <span class="at">na.last=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$Ozone
@@ -787,7 +787,7 @@ $Day
 </div>
 <p>Insgesamt sehen die Daten plausibel aus. Für eine spezifischere Einschätzung der Wetter-Variablen (<code>Ozone</code>, <code>Solar.R</code>, <code>Wind</code> und <code>Temp</code>) könnte man sich zusätzlich Vergleichsdaten von anderen Erhebungen in einem ähnlichen Zeitraum und Gebiet anschauen.</p>
 <p>Für den Datensatz <strong>PWE_data</strong> schauen wir uns hier wieder nur einige Variablen an. Informationen zu den Variablen finden wir in der Codebook, welches sich im Ordner <strong>PWE_data</strong> befindet.</p>
-<div class="cell column-l-body-outset">
+<div class="cell column-body">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(<span class="fu">sapply</span>(PWE_data[,<span class="dv">88</span><span class="sc">:</span><span class="dv">101</span>], unique), sort)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$education
@@ -2216,11 +2216,11 @@ Wenn wir <code>Temp</code>-Werte mit der gleichen Ausprägung zusätzlich noch n
 <h3 data-number="8.5.2" class="anchored" data-anchor-id="indikatorvariablen-kodierung-nominaler-merkmale"><span class="header-section-number">8.5.2</span> Indikatorvariablen: Kodierung nominaler Merkmale</h3>
 <p>Nominale Merkmale kann man in Form von Dummy-, Effekt- und Kontrastkodierungen repräsentieren. Eine solche Repräsentation ist vor allem im Rahmen des Allgemeinem Linearen Modells (ALM) von Interesse.</p>
 <p>Untenstehende Tabelle gibt einen groben Überblick über die Interpretation der Parameter des ALM in Abhängigkeit der Kodierung.</p>
-<div class="cell column-l-body-outset">
+<div class="cell column-body">
 
 </div>
 <div class="cell page-columns page-full">
-<div class="cell-output-display column-l-body-outset">
+<div class="cell-output-display column-body">
 
 <table class="table table-bordered" style="margin-left: auto; margin-right: auto;border-bottom: 0;">
  <thead>
