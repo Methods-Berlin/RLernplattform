@@ -494,6 +494,7 @@ Wie bereits eingangs erwähnt, gehören $t$-Test, lineare Regression und ANOVA a
 
 Für den hier betrachteten Spezialfall von nur einer UV mit nur zwei Stufen (und adäquater Kodierung; siehe z.B. \[Indikatorvariablen: Kodierung nominaler Merkmale\]\[Indikatorvariablen: Kodierung nominaler Merkmale\] aus dem Kapitel Datenvorbereitung) kommen die drei Verfahren zum selben Ergebnis bei der Signifikanztestung, obwohl scheinbar andere Hypothesen getestet werden.
 
+<!--
 ```{r}
 #| echo: false
 #| column: body
@@ -520,7 +521,7 @@ kable(tabelle, escape=FALSE) %>%
               width="15em") %>%
   collapse_rows(columns = 1, valign = "middle")
 ```
-
+-->
 
 
 <table class="r-table">
