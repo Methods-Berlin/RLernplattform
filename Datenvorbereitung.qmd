@@ -331,7 +331,7 @@ Die Funktion `unique()` gibt uns einen Überblick über **alle enthaltenen Auspr
 
 
 ```{r}
-#| column: l-body-outset
+#| column: body
 sapply(sapply(airquality, unique), sort, na.last=TRUE)
 ```
 
@@ -347,7 +347,7 @@ Insgesamt sehen die Daten plausibel aus. Für eine spezifischere Einschätzung d
 Für den Datensatz **PWE_data** schauen wir uns hier wieder nur einige Variablen an. Informationen zu den Variablen finden wir in der Codebook, welches sich im Ordner **PWE_data** befindet.
 
 ```{r}
-#| column: l-body-outset
+#| column: body
 sapply(sapply(PWE_data[,88:101], unique), sort)
 ```
 
@@ -1453,7 +1453,7 @@ Untenstehende Tabelle gibt einen groben Überblick über die Interpretation der 
 
 ```{r}
 #| echo: false
-#| column: l-body-outset
+#| column: body
 #| eval: false
 # aus: Bortz S. 365ff: Interpretation Schätzungen; S.367: wozu besonders geeignet
 #### ALT
@@ -1492,7 +1492,7 @@ kable(table) %>%
 
 ```{r}
 #| echo: false
-#| column: l-body-outset
+#| column: body
 table <-
   matrix(
     c(

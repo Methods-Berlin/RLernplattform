@@ -1032,7 +1032,7 @@ Nachfolgend finden wir eine Übersicht, in der die jeweiligen Unterschiede zwisc
 
 ```{r}
 #| echo: !expr F
-# , layout="l-body-outset"
+# , layout="body"
 library(kableExtra)
 library(knitr)
 

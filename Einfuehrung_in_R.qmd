@@ -472,7 +472,7 @@ Datenstrukturen können nach Dimensionalität und enthaltenen Datentypen klassif
 
 ```{r}
 #| echo: false
-#| column: l-body-layout
+#| column: body
 x <- c(rep("Anzahl der Dimensionen", 3))
 y <- c("1", "2", "n")
 ho <- c("Vektor", "Matrix", "Array")
