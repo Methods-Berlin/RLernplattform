@@ -14,7 +14,7 @@ Im Folgenden wollen wir also am Beispiel des `psych`-Pakets nachvollziehen, wie 
 Die grafische Benutzeroberfläche, oder auch Benutzungsschnittstelle, wird häufig auch mit GUI (_**G**raphical **U**ser **I**nterface_) abgekürzt. Durch diese können wir mit der Maus auf Symbole und andere Steuerelemente klicken anstatt Funktionen in der Konsole auszuführen. Die grafische Benutzeroberfläche in  **RStudio** ist viel besser ausgebaut, weswegen wir diese auch nutzen wollen.
 </details>
 
-<details><summary> Was ist CRAN?</summary>
+<details><summary> Was ist <a id="cran"> CRAN </a>?</summary>
 CRAN steht für *The Comprehensive R Archive Network*. Von hier laden wir [R](https://cran.r-project.org/) sowie alle annerkannten Pakete herunterladen können. Wenn wir diese Pakete installieren oder aktualisieren, greift R automatisch auf CRAN zu.
 </details>
 
@@ -248,7 +248,7 @@ Mit diesem können wir u.a. sogenannte **Entwicklerpakete** herunterladen. Das s
 Solche Entwicklerpakete können häufig von <a href="https://github.com" target="_blank">GitHub</a> runtergeladen werden. Zuerst müssen wir dafür das Paket **devtools** installieren. Dann müssen wir dieses laden und anschließend können wir das gewünschte Zielpaket herunterladen.
 
 ```{r}
-#| echo: false
+#| include: false
 library(devtools)
 ```
 
@@ -262,7 +262,7 @@ library(devtools)
 install_github("kthorstmann/horst") # EntwicklerIn / Paket
 ```
 
-Mit **devtools** kann man auch ältere Versionen von Paketen runterladen. Für mehr Informationen dazu siehe [Ältere Paket-Versionen installieren](#ltere-paket-versionen-installieren).
+Mit **devtools** kann man auch ältere Versionen von Paketen runterladen. Für mehr Informationen dazu siehe [Ältere Paket-Versionen installieren](#ältere-paket-versionen-installieren).
 
 ## Wichtige Hinweise zur Replizierbarkeit
 
@@ -303,7 +303,7 @@ knitr::include_graphics("figures/Pakete/Bilder/session_info.png")
 
 ### Probleme mit Paketen und Funktionen
 
-Bei Problemen mit dem **Installieren bzw. Updaten oder Laden von Paketen** lohnt es sich, in unserem [FAQ-Eintrag](#FAQ) nachzuschauen.
+Bei Problemen mit dem **Installieren bzw. Updaten oder Laden von Paketen** lohnt es sich, in unserem [FAQ-Eintrag](#faq) nachzuschauen.
 
 Wenn wir bestimmte **Funktionen nicht ausführen können**, obwohl wir das notwendige Paket geladen haben, kann das auf [Maskierung](#maskierung-wenn-verschiedene-pakete-gleich-benannte-funktionen-enthalten) von gleichnamigen Funktionen aus verschiedenen geladenen Paketen zurückzuführen sein.
 
@@ -327,7 +327,7 @@ Wir schauen uns das exemplarisch für das Paket **car** an. Du änderst nur noch
 `remove.packages('car')` bzw. `remove.packages(c('car', 'survey'))` \
 `install.packages('car', dependencies=TRUE)` \
 
-<aside>Hilfe bei der **Installation von Paketen** finden wir im gleichnamigen [Kapitel](Pakete.qmd).</aside>
+<aside>Hilfe bei der **Installation von Paketen** finden wir [hier](Pakete.qmd).</aside>
 
 ### Die neuste R-Version von <a href="https://cran.r-project.org/" target="_blank">R</a> und/oder <a href="https://www.rstudio.com/products/rstudio/download/" target="_blank">RStudio</a> (hierbei die kostenlose Variante) auf dem Computer installieren und dann versuchen, das Paket neu zu installieren bzw. Schritt 1 durchzuführen.
 
