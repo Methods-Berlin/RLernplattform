@@ -11,6 +11,8 @@ name: create_book
 # On every push to development, the website will be built locally
 on:
   push:
+    branches:
+      - development
   pull_request:
     branches:
       - development
