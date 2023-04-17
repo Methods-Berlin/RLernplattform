@@ -371,7 +371,7 @@ Wenn man im ersten Durchlauf nichts gefunden hat, ist es beispielsweise sinnvoll
 
 Manchmal ist ein Fehler so global, dass er bei verschiedenen Funktionen auftaucht. Daher lohnt es sich manchmal auch, eine __Suche *ohne* den Funktionsnamen__ durchzuführen. Spätestens, wenn man bei der Suche mit allen drei Suchbegriffen nichts gefunden hat, ist es sinnvoll, nur mit **Programm** + **Fehlermeldung** zu suchen.
 
-Wir können auch auf allgemeine **<a href="https://zapier.com/blog/advanced-google-search-tricks/" target="_blank">Tipps zum Suchen im Internet</a>** zurückgreifen, u.a.:
+Wir können auch auf allgemeine **<a href="https://www.lifewire.com/web-search-tricks-to-know-4046148" target="_blank">Tipps zum Suchen im Internet</a>** zurückgreifen, u.a.:
 
 - mit Zitaten exakte Phrasen suchen
   - z.B. *"Fehler in cor.test.default"*
