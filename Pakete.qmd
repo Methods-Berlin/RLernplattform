@@ -329,7 +329,7 @@ Wir schauen uns das exemplarisch für das Paket **car** an. Du änderst nur noch
 
 <aside>Hilfe bei der **Installation von Paketen** finden wir [hier](Pakete.qmd).</aside>
 
-### Die neuste R-Version von <a href="https://cran.r-project.org/" target="_blank">R</a> und/oder <a href="https://www.rstudio.com/products/rstudio/download/" target="_blank">RStudio</a> (hierbei die kostenlose Variante) auf dem Computer installieren und dann versuchen, das Paket neu zu installieren bzw. Schritt 1 durchzuführen.
+### Die neuste R-Version von [R](https://cran.r-project.org/) und [RStudio](https://posit.co/download/rstudio-desktop/) auf dem Computer installieren und dann versuchen, das Paket neu zu installieren bzw. Schritt 1 durchzuführen.
 
 Achte dabei auf die **Kompatibilität mit deiner Hardware und Software**. Unter Umständen kannst du vielleicht nicht die neueste Version installieren, aber eine neuere als deine aktuelle Version. Ältere Versionen von R finden wir auch unter obigem Link. Ältere Versionen von RStudio finden wir <a href="https://support.rstudio.com/hc/en-us/articles/206569407-Older-Versions-of-RStudio" target="_blank">hier</a>. 
 
