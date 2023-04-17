@@ -190,6 +190,17 @@ Dies ist ein Beispiel für ein aside
 </aside>
 
 
+`<a id="wichtiges Wort"> Wichtiges Wort </a>`: Erlaubt einzelne Wörter wie Überschriften zu referenzieren
+
+<a id="wichtiges Wort"> **Wichtiges Wort** </a>
+\
+\
+Wenn man [hier](#wichtiges Wort) kann man jetzt per Click zurück zu dem wichtigen Wort (und z.B. der Definition) springen.
+
+`<kbd>Taste</kbd>`: Erlaubt es bei Kurzbefehlen die Tasten hervorzuheben.
+
+So kann man bei einem Mac mit <kbd>cmd</kbd> + <kbd>C</kbd> markierten Text kopieren.
+
 ## Neues Thema erstellen
 
 Es gibt mehrere Wege, ein neues Thema zu erstellen. Wir können, wie oben beschrieben,
