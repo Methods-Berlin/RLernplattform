@@ -342,7 +342,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </header>
 
 <p>Wir können in R nicht nur selbst Daten erzeugen, sondern selbstverständlich auch externe Dateien unterschiedlichen Typs einlesen. Dabei geschehen in der Regel zwei Dinge: 1) Die Informationen werden ausgelesen und 2) in einem Objekt (oftmals in Form eines Dataframes) gespeichert.</p>
-<p>Im Rahmen dieses Kapitels schauen wir uns an, wie wir Dateien <strong>aus dem Internet herunterladen</strong>, <strong>in unseren Arbeitsordner verschieben</strong> und anschließend <strong>in R einlesen. Wir lernen außerdem, wie wir unser </strong>Working Directory setzen** können.</p>
+<p>Im Rahmen dieses Kapitels schauen wir uns an, wie wir Dateien <strong>aus dem Internet herunterladen</strong>, <strong>in unseren Arbeitsordner verschieben</strong> und anschließend <strong>in R einlesen</strong>. Wir lernen außerdem, wie wir unser <strong>Working Directory setzen</strong> können.</p>
 <p>Wir lernen <strong>drei verschiedene Wege zum Einlesen von Dateien</strong> kennen:</p>
 <div class="cell page-columns page-full">
 <div class="cell-output-display column-body">
@@ -355,7 +355,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <summary>
 Was ist eine grafische Benutzeroberfläche?
 </summary>
-<p>Die Grafische Benutzeroberfläche, oder auch Benutzungsschnittstelle, wird häufig auch mit GUI (<em><strong>G</strong>raphical <strong>U</strong>ser <strong>I</strong>nterface</em>) abgekürzt. Durch diese kann man mit der Maus auf Symbole und andere Steuerelemente klicken anstatt Funktionen in der Konsole auszuführen (z.B. <a href="#weg-1-environment-import-dataset">Weg 1</a> und <a href="html#weg-2-files-import-dataset">Weg 2</a> zum Daten einlesen).</p>
+<p>Die Grafische Benutzeroberfläche, oder auch Benutzungsschnittstelle, wird häufig auch mit GUI (<em><strong>G</strong>raphical <strong>U</strong>ser <strong>I</strong>nterface</em>) abgekürzt. Durch diese kann man mit der Maus auf Symbole und andere Steuerelemente klicken anstatt Funktionen in der Konsole auszuführen (z.B. <a href="#weg-1-environment-import-dataset">Weg 1</a> und <a href="#weg-2-files-import-dataset">Weg 2</a> zum Daten einlesen).</p>
 Die grafische Benutzeroberfläche in der Entwicklungsumgebung <strong>RStudio</strong> ist viel besser ausgebaut (als die des Basisprogramms R), weswegen wir diese auch nutzen wollen.
 </details>
 <details>
@@ -589,8 +589,20 @@ Das WD müssen wir (in der Regel) in jeder R-Sitzung erneut festlegen.
 <summary>
 Einen Dateipfad kopieren
 </summary>
-<p>Unter Windows können wir auf shift drücken und dann einen <em>Rechtsklick</em> auf die Datei machen. Nun öffnet sich ein Menü, in welchem wir <em>Als Dateipfad kopieren</em> auswählen. <strong>Wichtig</strong> dabei ist, dass wir noch alle <strong>\</strong> (backslashes) aus dem kopierten Pfad in <em>/</em> (forwardslashes) ändern müssen.</p>
-<p>Unter Mac können wir die Tastaturkürzel alt + cmd + c nutzen, um unseren Dateipfad zu kopieren.</p>
+<p><br>
+<strong>Windows</strong></p>
+<p>Unter Windows können wir auf <kbd> shift </kbd> drücken und dann einen <em>Rechtsklick</em> auf die Datei machen. Nun öffnet sich ein Menü, in welchem wir <em>Als Dateipfad kopieren</em> auswählen. <strong>Wichtig</strong> dabei ist, dass wir noch alle <strong>\</strong> (backslashes) aus dem kopierten Pfad in <em>/</em> (forwardslashes) ändern müssen.</p>
+<p><strong>Mac</strong></p>
+<p>Wir klicken einmal auf die Datei (sodass sie markiert ist; dann ist sie blau hinterlegt) und führen dann den Kurzbefehl <kbd> alt </kbd> + <kbd> cmd </kbd> + <kbd> C </kbd> aus.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Daten-importieren/Bilder/Dateipfad.png" class="img-fluid figure-img" width="600"></p>
+</figure>
+</div>
+</div>
+</div>
 </details>
 <p>Diese drei Funktionen sind sehr ähnlich aufgebaut. Sind haben aber teilweise unterschiedliche Voreinstellungen (sog. <em>“Defaults”</em>). Zum Beispiel nimmt <code>read.csv()</code> an, dass einzelne Datenelemente mit Kommata (Default: <code>sep=","</code>) getrennt werden. Dafür werden bei <code>read.table()</code> standarmäßig Spaltennamen nicht eingelesen (Default: <code>header=FALSE</code>).</p>
 <blockquote class="blockquote">
@@ -807,10 +819,11 @@ Nun wird die Datei korrekt dargestellt.
 <summary>
 Kurzbefehle zum Kopieren des Dateipfads
 </summary>
-<p>Windows</p>
-<p>Wir drücken shift und machen dann einen <em>Rechtsklick</em> auf die Datei. Nun öffnet sich ein Menü, in welchem wir <em>Als Dateipfad kopieren</em> auswählen. <strong>Wichtig</strong> dabei ist, dass wir noch alle <strong>\</strong> (backslashes) aus dem kopierten Pfad in <em>/</em> (forwardslashes) ändern müssen.</p>
-<p>Mac</p>
-<p>Wir klicken einmal auf die Datei (sodass sie markiert ist; dann ist sie blau hinterlegt) und führen dann den Kurzbefehl alt + cmd + C aus.</p>
+<p><br>
+<strong>Windows</strong></p>
+<p>Unter Windows können wir auf <kbd> shift </kbd> drücken und dann einen <em>Rechtsklick</em> auf die Datei machen. Nun öffnet sich ein Menü, in welchem wir <em>Als Dateipfad kopieren</em> auswählen. <strong>Wichtig</strong> dabei ist, dass wir noch alle <strong>\</strong> (backslashes) aus dem kopierten Pfad in <em>/</em> (forwardslashes) ändern müssen.</p>
+<p><strong>Mac</strong></p>
+<p>Wir klicken einmal auf die Datei (sodass sie markiert ist; dann ist sie blau hinterlegt) und führen dann den Kurzbefehl <kbd> alt </kbd> + <kbd> cmd </kbd> + <kbd> C </kbd> aus.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -821,7 +834,6 @@ Kurzbefehle zum Kopieren des Dateipfads
 </div>
 </div>
 </details>
-<p>Für eine ausführlichere Anleitung zum Einlesen von Dateien in R gibt es ein eigenständiges <a href="./Daten-importieren.html">Kapitel</a>, in dem wir lernen, wie wir die Benutzeroberfläche von RStudio und Funktionen nutzen können.</p>
 <hr>
 <section id="csv-.txt-und-.dat" class="level3" data-number="6.7.1">
 <h3 data-number="6.7.1" class="anchored" data-anchor-id="csv-.txt-und-.dat"><span class="header-section-number">6.7.1</span> .csv, .txt und .dat</h3>
@@ -1263,16 +1275,12 @@ Lösung
 </summary>
 Der Datensatz besteht aus 49159 Zeilen und 169 Spalten.
 </details>
-<br>
-
 <details>
 <summary>
 <strong>Tipp 2</strong>
 </summary>
 Die einzelnen Zellen (d.h. Elemente der Tabelle) sind durch Leerzeichen <em>(white space)</em> getrennt.
 </details>
-<br>
-
 <details>
 <summary>
 <strong>Tipp 3</strong>
@@ -1677,8 +1685,6 @@ Lösung
 </summary>
 Die Endung <code>.sav</code> kennzeichnet SPSS-Dateien. Um diese einzulesen benötigt man zusätzliche Pakete, weil es in base R keine Funktion dafür gibt.
 </details>
-<br>
-
 <details>
 <summary>
 <strong>Tipp 2</strong>
@@ -2083,8 +2089,6 @@ Lösung
 </summary>
 Die Endung <code>.xlsx</code> kennzeichnet Excel-Dateien. Um diese einzulesen benötigt man zusätzliche Pakete, weil es in base R keine Funktion dafür gibt.
 </details>
-<br>
-
 <details>
 <summary>
 <strong>Tipp 2</strong>
