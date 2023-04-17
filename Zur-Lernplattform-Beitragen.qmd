@@ -195,11 +195,9 @@ Dies ist ein Beispiel für ein aside
 <a id="wichtiges Wort"> **Wichtiges Wort** </a>
 \
 \
-Wenn man [hier](#wichtiges Wort) kann man jetzt per Click zurück zu dem wichtigen Wort (und z.B. der Definition) springen.
+Wenn man [hier](#wichtiges Wort) klickt, kann man jetzt per Link zurück zu dem wichtigen Wort (und z.B. der Definition) springen.
 
-`<kbd>Taste</kbd>`: Erlaubt es bei Kurzbefehlen die Tasten hervorzuheben.
-
-So kann man bei einem Mac mit <kbd>cmd</kbd> + <kbd>C</kbd> markierten Text kopieren.
+`<kbd>Taste</kbd>`: Erlaubt es bei Kurzbefehlen die Tasten hervorzuheben. Beispiel: "So kann man bei einem Mac mit <kbd>cmd</kbd> + <kbd>C</kbd> markierten Text kopieren."
 
 ## Neues Thema erstellen
 
