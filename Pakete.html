@@ -356,7 +356,7 @@ Die grafische Benutzeroberfläche, oder auch Benutzungsschnittstelle, wird häuf
 </details>
 <details>
 <summary>
-Was ist CRAN?
+Was ist <a id="cran"> CRAN </a>?
 </summary>
 CRAN steht für <em>The Comprehensive R Archive Network</em>. Von hier laden wir <a href="https://cran.r-project.org/">R</a> sowie alle annerkannten Pakete herunterladen können. Wenn wir diese Pakete installieren oder aktualisieren, greift R automatisch auf CRAN zu.
 </details>
@@ -568,18 +568,13 @@ Was sind Binär- und Quellcode?
 <p>Mit diesem können wir u.a. sogenannte <strong>Entwicklerpakete</strong> herunterladen. Das sind Pakete, die man nicht direkt von CRAN runterladen kann (z.B. weil die Dokumentation des Pakets und seiner Funktionen nicht den CRAN-Standards entspricht).</p>
 <p>Solche Entwicklerpakete können häufig von <a href="https://github.com" target="_blank">GitHub</a> runtergeladen werden. Zuerst müssen wir dafür das Paket <strong>devtools</strong> installieren. Dann müssen wir dieses laden und anschließend können wir das gewünschte Zielpaket herunterladen.</p>
 <div class="cell">
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: usethis</code></pre>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"devtools"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(devtools)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Beispiel: Paket horst</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">install_github</span>(<span class="st">"kthorstmann/horst"</span>) <span class="co"># EntwicklerIn / Paket</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"devtools"</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(devtools)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Beispiel: Paket horst</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">install_github</span>(<span class="st">"kthorstmann/horst"</span>) <span class="co"># EntwicklerIn / Paket</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Mit <strong>devtools</strong> kann man auch ältere Versionen von Paketen runterladen. Für mehr Informationen dazu siehe <a href="#ltere-paket-versionen-installieren">Ältere Paket-Versionen installieren</a>.</p>
+<p>Mit <strong>devtools</strong> kann man auch ältere Versionen von Paketen runterladen. Für mehr Informationen dazu siehe <a href="#ältere-paket-versionen-installieren">Ältere Paket-Versionen installieren</a>.</p>
 </section>
 </section>
 <section id="wichtige-hinweise-zur-replizierbarkeit" class="level2" data-number="5.4">
@@ -622,7 +617,7 @@ Was sind Binär- und Quellcode?
 <h2 data-number="5.5" class="anchored" data-anchor-id="weitere-hilfen"><span class="header-section-number">5.5</span> Weitere Hilfen</h2>
 <section id="probleme-mit-paketen-und-funktionen" class="level3" data-number="5.5.1">
 <h3 data-number="5.5.1" class="anchored" data-anchor-id="probleme-mit-paketen-und-funktionen"><span class="header-section-number">5.5.1</span> Probleme mit Paketen und Funktionen</h3>
-<p>Bei Problemen mit dem <strong>Installieren bzw. Updaten oder Laden von Paketen</strong> lohnt es sich, in unserem <a href="#FAQ">FAQ-Eintrag</a> nachzuschauen.</p>
+<p>Bei Problemen mit dem <strong>Installieren bzw. Updaten oder Laden von Paketen</strong> lohnt es sich, in unserem <a href="#faq">FAQ-Eintrag</a> nachzuschauen.</p>
 <p>Wenn wir bestimmte <strong>Funktionen nicht ausführen können</strong>, obwohl wir das notwendige Paket geladen haben, kann das auf <a href="#maskierung-wenn-verschiedene-pakete-gleich-benannte-funktionen-enthalten">Maskierung</a> von gleichnamigen Funktionen aus verschiedenen geladenen Paketen zurückzuführen sein.</p>
 </section>
 <section id="ältere-paket-versionen-installieren" class="level3" data-number="5.5.2">
@@ -643,7 +638,7 @@ Was sind Binär- und Quellcode?
 <code>install.packages('car', dependencies=TRUE)</code><br>
 </p>
 <aside>
-Hilfe bei der <strong>Installation von Paketen</strong> finden wir im gleichnamigen <a href="./Pakete.html">Kapitel</a>.
+Hilfe bei der <strong>Installation von Paketen</strong> finden wir <a href="./Pakete.html">hier</a>.
 </aside>
 </section>
 <section id="die-neuste-r-version-von-r-und-rstudio-auf-dem-computer-installieren-und-dann-versuchen-das-paket-neu-zu-installieren-bzw.-schritt-1-durchzuführen." class="level3 page-columns page-full" data-number="5.6.2">
@@ -661,7 +656,7 @@ Hilfe bei der <strong>Installation von R und RStudio</strong> finden wir unserem
 <hr>
 <p>Um eine möglichst exakte Replikation der Funktionen zu gewährleisten gibt es im folgenden relevante Angaben zum System (<strong>R-Version</strong>, <strong>Betriebssystem</strong>, <strong>geladene Pakete mit Angaben zur Version</strong>), mit welchem diese Seite erstellt wurde.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>R version 4.2.3 (2023-03-15 ucrt)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
