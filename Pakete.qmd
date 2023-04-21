@@ -276,7 +276,7 @@ Es ist sinnvoll, bei Analysen zu vermerken, mit welcher Version eines Pakets wir
 
 Mit der Funktion `sessionInfo()` aus dem Standardpaket **utils** bekommen wir viele wichtige Informationen auf einen Schlag:
 
-- <span style="color:#FF9B21">**`R`-Version**
+- <span style="color:#FF9B21">**`R`-Version**</span>
 - <span style="color:#0533FF">**Betriebssystem-Version**</span>
 - <span style="color:#669C35">**geladene Pakete mit Angaben zur Version**</span>
 
