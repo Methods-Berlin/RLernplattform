@@ -1065,7 +1065,7 @@ Nachfolgend finden wir eine Übersicht, in der die jeweiligen Unterschiede zwisc
         <td width="40%">![](figures/ggplot2/Bilder/variable col.png)</td>
     </tr>
 </table> 
-  
+ 
 ```{r}
 #| echo: !expr F
 # lines, points & text: only colour
