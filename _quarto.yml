@@ -5,6 +5,7 @@ project:
 book:
   title: "R Lernplattform"
   author: "Methods Group Berlin"
+  cover-image: figures/Logo_Lernplattform_Farbe.png
   chapters:
     - index.qmd
     - part: "Einführung in R"

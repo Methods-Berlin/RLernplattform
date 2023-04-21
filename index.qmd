@@ -1,5 +1,10 @@
 # Inhalte
 
+Die R-Lernplattform ist ein Projekt des Lehrstuhls für Psychologische Methodenlehre der Humboldt-Universität zu Berlin, das Studierenden den Einstieg in das Statistikprogramm R erleichtern soll. Ihr findet hier Anleitungen und Hilfestellungen, Übungsaufgaben und Antworten auf häufig gestellte Fragen zum praktischen Umgang mit R und der Benutzeroberfläche R-Studio.
+
+Die Inhalte der Lernplattform orientieren sich primär an den Modulen Psychologische Methodenlehre I und II des B.Sc. Psychologie an der Humboldt-Universität zu Berlin. Studierende aus anderen Studiengängen, von anderen Hochschulen und anderweitig Interessierte sind auch herzlich eingeladen, die Lernplattform zu nutzen.
+
+Die Seite wird beständig weiterentwickelt. Wenn ihr Feedback oder Anregungen habt, könnt ihr uns <a href="http://methods-berlin.com/de/r-lernplattform-feedback/" target="_blank">hier</a> erreichen.
 
 ````{r, include = FALSE}
 # knitr options
