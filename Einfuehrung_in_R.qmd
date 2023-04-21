@@ -190,7 +190,7 @@ describe(women)
 
 Mit `describe` erhalten wir folgende Informationen zu jeder Variable im Data Frame bzw. Matrix: Namen, Spaltennummer (`vars`), Anzahl (gültiger) Fälle (`n`), Mittelwert (`mean`), Standarabweichung (`sd`), Median (`median`), getrimmter Mittelwert (`trimmed`), Median Absolute Deviation (`mad`), Minimum (`min`), Maximum (`max`), Schiefe (`skew`), Exzess (`kurtosis`) und Standardfehler des Mittelwerts (`se`).
 
-<aside>Diese Informationen finden wir in der Dokumentation, welche wir unter [help](Einfuehrung_in_RStudio.qmd#files-plots-packages-help--viewer-sec-files-plots-packages-help-viewer) in RStudio ansehen können.</aside>
+<aside>Diese Informationen finden wir in der Dokumentation, welche wir unter [Help](Einfuehrung_in_RStudio.qmd#sec-files-plots-packages-help-viewer) in RStudio ansehen können.</aside>
 
 Wenn wir R bzw. RStudio schließen und erneut öffnen, müssen wir zusätzliche Pakete vor der Nutzung erneut laden.
 
@@ -208,6 +208,9 @@ Bevor wir uns die einzelnen Konzepte im Detail anschauen, sehen wir nachfolgend 
 #| fig.align: center
 #| echo: false
 knitr::include_graphics("figures/Einführung/Bilder/R/veranschaulichung.png")
+```
+```{r}
+#| include: false
 library(dplyr)
 library(kableExtra)
 ```
@@ -421,10 +424,12 @@ table_kat %>%
   row_spec(0, color = "white", background = "#009193") %>%
   column_spec(1:2, bold=TRUE, color = "white", background = "#009193") %>%
   collapse_rows(columns = 1, valign = "middle") %>%
-  footnote(general = "<font size=\"1\"><sup>1</sup> Faktorisieren (unordered factor) notwendig <i>wenn</i> keine Indikatorvariable(n) genutzt <sup>2</sup> Faktorisieren (ordered factor) notwendig</font>", general_title = "", escape = FALSE) 
+  footnote(number = c("Faktorisieren (unordered factor) notwendig <i>wenn</i> keine Indikatorvariable(n) genutzt)","Faktorisieren (ordered factor) notwendig"), general_title = "", escape = FALSE, footnote_as_chunk = TRUE) 
 ```
 
 <aside>\
+\
+\
 \
 \
 \

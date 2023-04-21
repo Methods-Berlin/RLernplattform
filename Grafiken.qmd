@@ -34,7 +34,7 @@ ggplot(ChickWeight[ChickWeight$Time == 8,], aes(Diet, weight)) +
 ```
 
 <aside>\
-Den [**Violinenplot**] schauen wir uns später noch genauer an.</aside>
+Den [**Violinenplot**](#violinenplot) schauen wir uns später noch genauer an.</aside>
 
 Zuerst schauen wir uns die grundlegende Funktionsweise von ggplot an. Dann lernen wir, wie wir (bekannte) Grafiken erstellen und modifizieren können. Abschließend erfahren wir, wie wir Grafiken exportieren können. Am Ende befindet sich außerdem eine Auswahl weiterführender Hilfen, die für die Visualisierung der eigenen Daten nützlich sein können.
 
@@ -46,11 +46,12 @@ install.packages("ggplot2", dependencies=TRUE)
 library(ggplot2)
 ```
 
-<aside>Bei Problemen beim Installieren bzw. Laden von Paketen schaut in unserem [FAQ-Eintrag](Pakete.qmd#faq) dazu vorbei.</aside>
+<aside>\
+Bei Problemen beim Installieren bzw. Laden von Paketen schaut in unserem [FAQ-Eintrag](Pakete.qmd#faq) dazu vorbei.</aside>
 
 <details><summary>Cheatsheet zu ggplot2</summary>
 
-Um uns die Anwendung von ggplot2 zu erleichtern, können wir ein Cheatsheet in <a href="https://github.com/rstudio/cheatsheets/raw/master/translations/german/ggplot2-german.pdf" target="_blank">deutsch</a> oder <a href="https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf" target="_blank">englisch</a> herunterladen. 
+Um uns die Anwendung von ggplot2 zu erleichtern, können wir ein Cheatsheet in <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/translations/german/data-visualization_de.pdf" target="_blank">deutsch</a> oder <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization-2.1.pdf" target="_blank">englisch</a> herunterladen. 
 
 Auf der <a href="https://www.rstudio.com/resources/cheatsheets/" target="_blank">R-Studio Website</a> gibt es noch mehr Cheat Sheets, v.a. zu `tidyverse` Paketen.
 
@@ -92,7 +93,7 @@ Der Datensatz enthält vier Variablen. Mehr Informationen zu den Variablen finde
 
 \
 
-Für den Abschnitt zu Visualisierungsmöglichkeiten bei [mehr als drei Variablen](#mehr-als-drei-variablen) nutzen wir zusätzlich noch den Datensatz **mpg**, welcher im Paket **ggplot2** enthalten ist.
+Für den Abschnitt zu Visualisierungsmöglichkeiten bei [mehr als zwei Variablen](#mehr-als-zwei-variablen) nutzen wir zusätzlich noch den Datensatz **mpg**, welcher im Paket **ggplot2** enthalten ist.
 
 Wir laden diesen folgendermaßen in unser Environment:
 
@@ -112,7 +113,7 @@ Der Datensatz enthält 11 Variablen zum Benzinverbrauch von Automodellen in den 
 
 ## Bevor es losgeht
 
-Bevor wir uns in ggplot2 vertiefen, wollen wir überprüfen, ob unsere Daten in der benötigten [Datenstruktur](Daten.qmd#Datenstrukturen) vorliegen. Außerdem lernen wir einige Webseiten kennen, die uns dabei helfen, uns für eine Art der Visualisierung unserer Daten zu entscheiden.
+Bevor wir uns in ggplot2 vertiefen, wollen wir überprüfen, ob unsere Daten in der benötigten [Datenstruktur](Einfuehrung_in_R.qmd#datenstrukturen) vorliegen. Außerdem lernen wir einige Webseiten kennen, die uns dabei helfen, uns für eine Art der Visualisierung unserer Daten zu entscheiden.
 
 
 ### Richtiges Datenformat
@@ -184,7 +185,7 @@ Die Besonderheit an ggplot ist, dass wir verschiedene **Ebenen** übereinander l
 Die Ebenen können wir auch als **Teilfunktionen** begreifen, die eine Grafik konstituieren. Was wir z.B. bei `plot(..., main="...")` in einer Funktion realisieren können (das Koordinatensystem, die Art der Grafik - ein Streudiagramm - und die Beschriftung) machen wir in ggplot mit mehreren Teilfunktionen (`ggplot() + geom_point() + ggtitle()`).
 
 
-### Grundlegendes Koordinatensystem
+### Ebene 1: Grundlegendes Koordinatensystem
 
 Das Koordinatensystem spezifizieren wir mit `ggplot()`. Dem Parameter `data` übergeben wir den **Datensatz (1)**. Das **ästhetische Mapping (2)** legen wir mit `aes()` fest. Diesem geben wir die Namen der Variablen, die auf der x- und y-Achse dargestellt werden sollen. 
 
@@ -193,11 +194,12 @@ Das Koordinatensystem spezifizieren wir mit `ggplot()`. Dem Parameter `data` üb
 ggplot(data=ChickWeight, aes(x=Time, y=weight))
 ```
 
-<aside>Wir können `aes()` aber nicht nur in `ggplot()`, d.h. dem grundlegenden Koordinatensystem, sondern auch in anderen Ebenen (z.B. `geom_point()`) nutzen.</aside>
+<aside>\
+Wir können `aes()` aber nicht nur in `ggplot()`, d.h. dem grundlegenden Koordinatensystem, sondern auch in anderen Ebenen (z.B. `geom_point()`) nutzen.</aside>
 
 Wie bei anderen Funktionen können wir die Parameterbezeichnung `data`, `x` und `y` weglassen und  nur die Argumente (d.h. die Namen des Datensatzes bzw. der Variablen) angeben. Bei x und y müssen wir dann aber unbedingt die Reihenfolge einhalten: `ggplot(ChickWeight, aes(Time, weight))`.
 
-### Art der Grafik
+### Ebene 2: Art der Grafik
 
 Bisher wurde nur das Koordinatensystem mit den jeweiligen Achsengrenzen der Variablen erstellt. Wenn wir die Daten nun plotten möchten, müssen wir noch festlegen, *wie* die Daten dargestellt werden sollen (z.B. die Häufigkeit als Balken, die bivariate Verteilung als Punkte). Dazu nutzten wir **geometrische Objekte(3)**, die wir mit den `geom`-Funktionen festlegen (z.B. `geom_line()` für Linien oder `geom_bar()` für Balken). Damit ergänzen wir den Plot um eine neue Ebene.
 
@@ -206,7 +208,8 @@ ggplot(data=ChickWeight, aes(x=Time, y=weight)) +
   geom_point()
 ```
 
-<aside>Hier sehen wir, wie die 1. Ebene, das grundlegende Koordinatensystem `ggplot(...)`, mit der 2. Ebene, den geplotteten Daten `geom_point(...)` durch das `+` verknüpft wurden.</aside>
+<aside>\
+Hier sehen wir, wie die 1. Ebene, das grundlegende Koordinatensystem `ggplot(...)`, mit der 2. Ebene, den geplotteten Daten `geom_point(...)` durch das `+` verknüpft wurden.</aside>
 
 Nachdem wir uns nun mit dem grundlegenden Aufbau von `ggplot()` vertraut gemacht haben, schauen wir uns nun an, wie wir spezifische Arten von Grafiken erstellen.
 
@@ -220,22 +223,22 @@ Zuerst schauen wir uns an, wie wir die Häufigkeitsverteilung einer Variablen vi
 
 Hierfür nehmen wir die Variable `Diet`. Diese kodiert die Gruppen, in denen das Futter der Küken variiert wurde.
 
-[Später](#diskrete-variablen-benennung-und-reihenfolge-der-ausprägungen) erfahren wir noch, wie wir die Reihenfolge und Benennung von kategorialen Variablen ändern können.
+[Später](#kategoriale-variablen-benennung-und-reihenfolge-der-ausprägungen) erfahren wir noch, wie wir die Reihenfolge und Benennung von kategorialen Variablen ändern können.
 
 #### Balkendiagramm
 
-Um ein Balkendiagramm zu erzeugen, nutzen wir `geom_bar()`. Standardmäßig werden mit `geom_bar()` absolute **Häufigkeiten** (count) geplottet. 
+Um ein Balkendiagramm zu erzeugen, nutzen wir `geom_bar()`. Standardmäßig werden mit `geom_bar()` **absolute** Häufigkeiten (count) geplottet. 
 
 ```{r}
 ggplot(data=ChickWeight, aes(x=Diet)) +
   geom_bar()
 ```
 
-Wir können folgendermaßen auch die relativen **Häufigkeiten** (prob) plotten:
+Wir können folgendermaßen auch die **relativen** Häufigkeiten (prob) plotten:
 
 ```{r}
 ggplot(data=ChickWeight, aes(x=Diet)) +
-  geom_bar(aes(y = ..prop.., group=1))
+  geom_bar(aes(y = after_stat(prop), group=1))
 ```
 
 Mit `+ coord_flip()` können wir das Diagramm **um 90° nach rechts kippen**. Jetzt ist auf der x-Achse die Häufigkeit und auf der y-Achse die Gruppierung abgebildet.
@@ -246,7 +249,7 @@ ggplot(data=ChickWeight, aes(x=Diet)) +
   coord_flip()
 ```
 
-Wir können auch sogenannte gestapelte **Balkendiagramme** (*stacked bar plots*) anfertigen. 
+Wir können auch sogenannte **gestapelte Balkendiagramme** (*stacked bar plots*) anfertigen. 
 
 Dazu müssen erst einen neuen Dataframe erzeugen, in welchem die Gruppennamen sowie die (absoluten) Häufigkeiten der Variablen je als neue Variable gespeichert sind.
 
@@ -265,7 +268,8 @@ ggplot(data=freq_Diet, aes(x="", y=Häufigkeit, fill=Futtergruppe)) +
   geom_bar(stat = "identity")
 ```
 
-<aside>Auf die Integration von Farben, hier durch den Parameter `fill`, gehen wir später im Abschnitt zu [Farbe](#farbe) noch ausführlicher ein.</aside>
+<aside>\
+Auf die Integration von Farben, hier durch den Parameter `fill`, gehen wir später im Abschnitt zu [Farbe](#farbe) noch ausführlicher ein.</aside>
 
 Mehr Informationen zur Erstellung von gestapelten sowie auch gruppierten Balkendiagrammen finden wir <a href="https://www.r-graph-gallery.com/stacked-barplot.html" target="_blank">hier</a>. Beide Grafiken eignen sich auch gut, um Gruppierungskombinationen mit noch einer weitere kategorialen Variablen darzustellen.
 
@@ -290,7 +294,8 @@ ggplot(data=freq_Diet, aes(x="", y=Häufigkeit, fill=Futtergruppe)) +
   geom_bar(stat = "identity") + 
   coord_polar("y")
 ```
-<aside>Auf Farben gehen wir im [gleichnamigen Abschnitt](#farbe) später noch ausführlicher ein.</aside>
+<aside>\
+Auf Farben gehen wir im [gleichnamigen Abschnitt](#farbe) später noch ausführlicher ein.</aside>
 
 Auf dieser <a href="http://www.sthda.com/english/wiki/ggplot2-pie-chart-quick-start-guide-r-software-and-data-visualization" target="_blank">Seite</a> finden wir weitere Hilfe zur Erstellung und Modifikation von Kreisdiagrammen.
 
@@ -368,7 +373,7 @@ max(ChickWeight$weight) - min(ChickWeight$weight)
 
 Es ist sinnvoll, zuerst nach Sturges Regel eine Anzahl an Bins zu errechnen, und diese dann ggf. in Abhängigkeit der Variationsbreite des Merkmals zu verändern.
 
-Generell sollten wir nicht mehr als 20 Kategorien bilden. Diese sollten im Regelfall auch ungefähr die gleiche Breite aufweisen.
+Generell sollten wir **nicht mehr als 20 Kategorien** bilden. Diese sollten im Regelfall auch ungefähr die gleiche Breite aufweisen.
 
 </details>
 
@@ -431,7 +436,7 @@ Nun schauen wir uns die grafische Darstellung von **Zusammenhängen** zwischen z
 
 ### X kategorial, Y metrisch
 
-[Später](#diskrete-variablen-benennung-und-reihenfolge-der-ausprägungen) erfahren wir noch, wie wir die Reihenfolge und Benennung von kategorialen Variablen ändern können.
+[Später](#kategoriale-variablen-benennung-und-reihenfolge-der-ausprägungen) erfahren wir noch, wie wir die Reihenfolge und Benennung von kategorialen Variablen ändern können.
 
 #### Boxplot
 
@@ -610,7 +615,7 @@ ggplot(data=ChickWeight, aes(x=Time, y=weight)) +
   geom_point()
 ```
 
-<aside>Wie wir die Datenpunkte in Abhängigkeit einer weiteren kategorialen Variablen einfärben können, erfahren wir im Abschnitt [Farben](#farben).</aside>
+<aside>Wie wir die Datenpunkte in Abhängigkeit einer weiteren kategorialen Variablen einfärben können, erfahren wir im Abschnitt [Farben](#farbe).</aside>
 
 #### Overplotting vermeiden
 
@@ -681,10 +686,11 @@ Per default wird nicht nur eine Regressionsgerade eingezeichnet, sondern auch da
 #| label: reg line and scatter
 ggplot(data=ChickWeight, aes(x=Time, y=weight)) + 
   geom_point() +
-  geom_smooth(method="lm")
+  geom_smooth(formula = y ~ x, method="lm")
 ```
 
-<aside>Das Konfidenzintervall um die Regressionsgerade könnten wir mit `se=FALSE` weglassen. Generell ist es aber sinnvoll, die Genauigkeit unseres Regressionsmodells in die Grafik miteinzubeziehen.\
+<aside>\
+Das Konfidenzintervall um die Regressionsgerade könnten wir mit `se=FALSE` weglassen. Generell ist es aber sinnvoll, die Genauigkeit unseres Regressionsmodells in die Grafik miteinzubeziehen.\
 \
 Wenn wir die Datenpunkte in einem Streudiagramm mit Regressionsgerade einfärben wollen **ohne** gruppenspezifische Regressionsgeraden zu erhalten, müssen wir `aes(col)` in `geom_point()`, und nicht in `ggplot()`, spezifizieren.</aside>
 
@@ -779,6 +785,7 @@ Interaktiv bedeutet, dass wir in den Plot reinzoomen, uns die Funktion der Regre
 Auch hier können wir ein 95%-iges Konfidenzintervall um die Regressionsgerade legen, indem wir `se=TRUE` spezifizieren. Per Default ist hier (im Gegensatz zu `geom_smooth`) *kein* Konfidenzintervall eingezeichnet. Die Visualisierung der (Un)Genauigkeit unseres Regressionsmodells ist allerdings zu empfehlen.
 
 ```{r}
+#| warning: false
 # install.packages("ggiraphExtra", dependencies=TRUE)
 
 # Regression rechnen:
@@ -807,7 +814,7 @@ Im Folgenden nutzen wir auch den Datensatz **mpg**, weil dieser mehr kategoriale
 
 ### Mindestens eine kategoriale Variable
 
-#### Facetten** (Facet Grids)
+#### **Facetten** (Facet Grids)
 
 Wenn wir uns eine Art von Grafik (z.B. Streudiagramm) in Abhängigkeit einer kategorialen Variablen (d.h. für verschiedene Gruppen) separat anschauen wollen, können wir `+ facet_grid()` nutzen. Mit dieser Funktion bekommen wir "Facetten", d.h. (Unter)Grafiken für jede Ausprägung der kategorialen Variablen.
 
@@ -841,14 +848,16 @@ Wir können auch Facetten für **mehrere** kategoriale Variablen erstellen. Das 
 Wir schauen uns aus dem Datensatz **mpg** Histogramme des Hubraums (`displ`) der Autos an. Die Histogramme sind nach Jahr (`year`), Antrieb (`drv`) und Brennstofftrieb (`fl`) gestaffelt.
 
 ```{r}
+#| message: false
 ggplot(data=mpg, aes(x=displ)) + 
   geom_histogram() +
   facet_grid(fl ~ year + drv) # Zeilen ~ Spalten
 ```
 
-<aside>Idealerweise würde man vor der Verarbeitung] nominal- und ordinalskalierte Variablen, die als numerische Vektoren vorliegen (wie `drv` und `fl`), noch faktorisieren. Mehr dazu auch im Kapitel zu [Datenvorbereitung](Datenvorbereitung.qmd)</aside>
+<aside>\
+Idealerweise würde man vor der Verarbeitung nominal- und ordinalskalierte Variablen, die als numerische Vektoren vorliegen (wie `drv` und `fl`), noch faktorisieren. Mehr dazu auch im Kapitel zu [Datenvorbereitung](Datenvorbereitung.qmd)</aside>
 
-Weitere Informationen zu `facet_grid()`, z.B. wie man hier die Achsengrenzen und -beschriftung anpassen kann, befinden sich auf dem <a href="https://github.com/rstudio/cheatsheets/raw/master/translations/german/ggplot2-german.pdf" target="_blank">Cheat Sheet</a>.
+Weitere Informationen zu `facet_grid()`, z.B. wie man hier die Achsengrenzen und -beschriftung anpassen kann, befinden sich auf dem <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/translations/german/data-visualization_de.pdf" target="_blank">Cheat Sheet</a>.
 
 Mehr Informationen dazu, wie wir nur Plots für *einige* Gruppen erstellen, erhalten wir [später](Grafiken.qmd#grafiken-einzelner-gruppen-und-die-anpassung-von-achsengrenzen).
 
@@ -916,14 +925,20 @@ Vor der Umwandlung steht jede **Zeile** für eine **Beobachtung** (d.h. ein Kük
 
 ```{r}
 #| echo: !expr F
-kable(cont_Chick_alt)
+kable(cont_Chick_alt, escape=FALSE) %>%
+  kable_styling(full_width = FALSE, position = "left", c("condensed")) %>%
+  row_spec(0, bold = T, color = "white", background = "#009193") %>%
+  collapse_rows(columns = 1, valign = "middle")
 ```
 
 Nach der Umwandlung (in eine Kontingenztabelle und wieder zurück in einen Dataframe) steht in jeder **Zeile** eine **Kombination** (welche Futtergruppe `Diet` und jeweils kleiner oder größer zum ersten und zum zweiten Messzeitpunkt) und die **Anzahl der Beobachtungen**.
 
 ```{r}
 #| echo: !expr F
-kable(cont_Chick)
+kable(cont_Chick, escape=FALSE) %>%
+  kable_styling(full_width = FALSE, position = "left", c("condensed")) %>%
+  row_spec(0, bold = T, color = "white", background = "#009193") %>%
+  collapse_rows(columns = 1, valign = "middle")
 ```
 </details>
 
@@ -932,6 +947,7 @@ kable(cont_Chick)
 Bevor wir den Alluvial Plot erstellen, laden wir das benötigte Paket **ggalluvial** und überprüfen, ob unser neu erstellter Dataframe auch wirklich im korrekten Alluvial Format vorliegt.
 
 ```{r}
+#| message: false
 library(ggalluvial)
 is_alluvia_form(cont_Chick)
 ```
@@ -940,6 +956,7 @@ Es ist zu empfehlen, den nachfolgenden Code für die eigenen Daten größtenteil
 
 ```{r}
 #| error: true
+#| message: false
 ggplot(data=cont_Chick, aes(y=Freq, axis1=t0, axis2=t21)) + 
   # (a) grundlegender Alluvial Plot:
   geom_alluvium(aes(fill=Diet)) +
@@ -988,13 +1005,13 @@ Um unsere Farbwahl auch für Menschen mit verschiedenen Sehschwächen geeignet z
 # z.B. color palettes colorBrewer dargestellt: http://www.sthda.com/english/wiki/ggplot2-colors-how-to-change-colors-automatically-and-manually#change-colors-manually
 ```
 
-### Grundlegendes
+#### Grundlegendes
 
 Es gibt zwei Parameter, mit denen wir jeweils festlegen können, ob Elemente **farblich umrandet und/oder komplett ausgefüllt** werden sollen.
 
-- `col`, `color` oder `colour`: farbliche Umrandung eines Elements\
+- `col`, `color` oder `colour`: farbliche **Umrandung** eines Elements\
 In verschiedenen Funktionen ist das Argument zur farblichen Umrandung unterschiedlich benannt (d.h. `col`, `color` oder `colour`). Es gibt aber auch viele Funktionen, in denen alle Parameter funktionieren (und dasselbe bewirken). Genauere Informationen erhalten wir in der Dokumentation der jeweiligen Funktion.
-- `fill`: farbliche Füllung eines Elements
+- `fill`: farbliche **Füllung** eines Elements
 
 Weil `col` und `fill` separate Parameter sind, können wir auch beide gleichzeitig nutzen, um sowohl die Umrandung als auch die Ausfüllung eines Elements (geom) verschieden einzufärben. 
 
@@ -1007,7 +1024,8 @@ ggplot(data=ChickWeight, aes(x=Time, y=weight)) +
   geom_point(shape=23, fill="red", col="blue")
 ```
 
-<aside> Abbildung aus der Dokumentation von "ggplot2-specs"\
+<aside>\
+Abbildung aus der Dokumentation von "ggplot2-specs"\
 
 ```{r}
 #| echo: !expr F
@@ -1029,32 +1047,25 @@ Zusäzlich können wir **zwei Farbmodi** unterscheiden:
 <!-- - in spezifischen Funktionen (z.B. `scale_color_discrete()` bzw. `scale_fill_discrete()`) für zusätzliche Farben -->
 
 Nachfolgend finden wir eine Übersicht, in der die jeweiligen Unterschiede zwischen `col` und `fill` sowie statischen und variablen Farben verdeutlicht werden sollen. Der Code zur Erstellung der jeweiligen Grafik befindet sich über den Abbildungen. 
-
-```{r}
-#| echo: !expr F
-# , layout="body"
-library(kableExtra)
-library(knitr)
-
-table <- matrix(c("`fill`", "![](figures/ggplot2/Bilder/static fill.png)",
-                  "![](figures/ggplot2/Bilder/variable fill.png)",
-                  "`col`", "![](figures/ggplot2/Bilder/static col.png)",
-                  "![](figures/ggplot2/Bilder/variable col.png)"), 
-                nrow = 2, ncol = 3, byrow=T)
-
-colnames(table) <- c("", "statisch", "Variablenausprägung")
-
-# ){width} muss mit geschweifter Klammer an ) sein
-# condensed für slyghtly shorter row range
-# scheinbar kein easy way für verticales alignment
-## https://stackoverflow.com/questions/48562402/vertical-align-kables-column-name
-
-kable(table, align = "c") %>%
-  kable_styling(full_width = TRUE, c("condensed")) %>%
-  row_spec(0, bold = T, color = "white", background = "#009193") %>%
-  column_spec(1, bold = T, color = "white", background = "#009193") 
-```
-
+ 
+<table width="100%">
+    <tr>
+        <td width="20%"></td>
+        <td width="40%">statisch</td>
+        <td width="40%">Variablenausprägung</td>
+    </tr>
+    <tr>
+        <td width="20%">fill</td>
+        <td width="40%">![](figures/ggplot2/Bilder/static fill.png)</td>
+        <td width="40%">![](figures/ggplot2/Bilder/variable fill.png)</td>
+    </tr>
+    <tr>
+        <td width="20%">col</td>
+        <td width="40%">![](figures/ggplot2/Bilder/static col.png)</td>
+        <td width="40%">![](figures/ggplot2/Bilder/variable col.png)</td>
+    </tr>
+</table> 
+ 
 ```{r}
 #| echo: !expr F
 # lines, points & text: only colour
@@ -1063,7 +1074,7 @@ kable(table, align = "c") %>%
 #ÜBERSICHT ÜBER COLOR UND FILL
 ```
 
-### (Einzelne) Farben
+#### (Einzelne) Farben
 
 Wir können in R standardmäßig implementierte ("built-in") Farben sowie Hex-Farben nutzen.
 
@@ -1100,7 +1111,7 @@ Um zu sehen, dass die sonst weiße Hintergrundfläche der Grafik nun transparent
 
 
 
-### Farbpaletten
+#### Farbpaletten
 
 Es ist zu empfehlen bei der farblichen Kodierung von Variablenausprägungen auf Farbpaletten zurückgreifen, da diese bereits gut durchdachte Farbkombinationen enthalten. Die Idee dahinter ist bei kategorialen Variablen verschiedene Farben und bei metrischen Variablen ähnliche Farben für ähnliche Ausprägungen zu nutzen.
 
@@ -1125,7 +1136,7 @@ Wenn wir Farben, Punktformen o.ä. auf Variablen(ausprägungen) anwenden (d.h. d
 
 Es gibt verschiedene Aspekte von Legenden, die wir ändern können. Im Folgenden schauen wir uns **Text** und **Positionierung** an. Weitere Modifikationen finden wir <a href="http://www.sthda.com/english/wiki/ggplot2-legend-easy-steps-to-change-the-position-and-the-appearance-of-a-graph-legend-in-r-software#change-the-legend-title-and-text-font-styles" target="_blank">hier</a>. 
 
-### Text
+#### Text
 
 Wir können sowohl den Titel als auch die einzelnen Elemente einer Legende anders benennen.
 
@@ -1147,7 +1158,7 @@ Analog dazu nutzen wir `scale_color_discrete()`, wenn wir das Argument `color` (
 Wenn wir eine metrische Variable farblich kodiert haben, nutzen wir `scale_fill_continuous` bzw. `scale_colour_continuous ()`.
 
 
-### Position
+#### Position
 
 Die Position der Legende können wir mit `theme(legend.position)` ändern. Wir können zwischen oben (`"top"`), unten (`"bottom"`), links (`"left"`) und rechts (`"right"`) wählen. Mit `"none"` können wir die Legende entfernen.
 
@@ -1162,7 +1173,7 @@ ggplot(data=ChickWeight, aes(x=Diet)) + geom_bar() + geom_bar(aes(fill = Diet)) 
 
 Im Folgenden schauen wir uns an, wie wir Titel und Achsenbeschriftung, sowie Beschriftungen in der Grafik ändern bzw. hinzufügen können.
 
-### Überschrift
+#### Überschrift
 
 Um dem Plot (nur) eine Überschrift zu verpassen nutzen wir `ggtitle()`.
 
@@ -1172,7 +1183,7 @@ ggplot(data=ChickWeight, aes(x=Time, y=weight)) + geom_point() +
 ```
 
 
-### Achsenbeschriftung
+#### Achsenbeschriftung
 
 Wenn wir (nur) die Beschriftung der x- oder y-Achse ändern möchten (z.B. weil diese anders benannt werden sollen als die Variablen im Datensatz), können wir `xlab()` bzw. `ylab()` nutzen.
 
@@ -1181,7 +1192,7 @@ ggplot(data=ChickWeight, aes(x=Time, y=weight)) + geom_point() +
   xlab("Zeit in Tagen") + ylab("Gewicht in Gramm")
 ```
 
-### Überschrift, Achsenbeschriftung und Bildunterschrift
+#### Überschrift, Achsenbeschriftung und Bildunterschrift
 
 Wir können sowohl eine Überschrift als auch Achsenbeschriftungen ergänzen, indem wir `labs(title, x, y)` nutzen. Außerdem können wir der Grafik mit `caption` noch eine Bildunterschrift verpassen.
 
@@ -1535,16 +1546,16 @@ Daraufhin öffnet sich ein neues Fenster, in dem wir einige Einstellungen tätig
 knitr::include_graphics("figures/ggplot2/Bilder/export window.png")
 ```
 
-**Bildformat**\
+<span style="color:#E63B7A">**Bildformat**</span>\
 Hier können wir wählen, in welchem Bildformat wir unsere Grafik abspeichern wollen. Standardmäßig wird sie als PNG gespeichert. Weitere Optionen sind JPEG, TIFF, BMP, SVG und EPS.
 
-**Verzeichnis**\
+<span style="color:#AA7942">**Verzeichnis**</span>\
 Wenn wir auf den Button **Directory...** klicken, können wir festlegen, wo die Grafik gespeichert werden soll. Standardmäßig wird sie in der obersten Ordnerstruktur, bzw. wenn wir ein Workind Directory gesetzt haben in diesem, gespeichert.
 
-**Name der Datei**\
+<span style="color:#942192">**Name der Datei**</span>\
 Hier können wir unserer Datei einen Namen geben. Standardmäßig wird als Name *Rplot* vorgeschlagen, wenn wir in dem aktuellen Verzeichnis keine andere Datei (im gleichen Format) besitzen, die den gleichen Namen trägt. Wenn es bereits eine solche Datei gibt, wird als Name für die neue Datei automatisch *Rplot01* (bzw. *Rplot02* usw.) vorgeschlagen.
 
-**Größe bearbeiten**\
+<span style="color:#669C35">**Größe bearbeiten**</span>\
 Für die Bearbeitung der Größe der Grafik haben wir zwei Möglichkeiten:
 
 1. **Angeben** der Maße für Breite und Höhe
@@ -1579,14 +1590,14 @@ ggsave(
 )
 ```
 
-Das gewünschte **Bildformat** können wir einfach als Endung an den **Namen der Grafik** anhängen. Beides übergeben wir in `" "` an das Argument `filename`.
+Das gewünschte <span style="color:#E63B7A">**Bildformat**</span> können wir einfach als Endung an den <span style="color:#942192">**Namen der Grafik**</span> anhängen. Beides übergeben wir in `" "` an das Argument `filename`.
 Wir haben hier mehr Auswahl an möglichen Outputformaten. Es gibt z.B. PNG, PDF, JPEG, TIFF, EPS, PS, TEX und SVG.
 
 Wir legen mit dem Argument `plot` fest, welche Grafik wird exportieren wollen. Das funktioniert nur wenn wir diese vorher in einer Variablen gespeichert haben (z.B. `name <- ggplot(...)`). Dann erscheint der Name auch im Global Environment (oberer rechtes Panel in R). Standarmäßig  wird der zuletzt erstellte Plot exportiert, wenn wir das Argument `plot` weglassen (oder `plot=last_plot()` eingeben).
 
-Das **Verzeichnis**, in dem die Grafik abgelegt werden soll, können wir mit dem Argument `path` festlegen. Diesem übergeben wir den Ordnerpfad, welchen wir auch in `" "` setzen müssen. Standardmäßig wird die Grafik in der obersten Ordnersturktur bzw. im derzeitigen Working Directory (wenn eins gesetzt wurde) abgelegt.
+Das <span style="color:#AA7942">**Verzeichnis**</span>, in dem die Grafik abgelegt werden soll, können wir mit dem Argument `path` festlegen. Diesem übergeben wir den Ordnerpfad, welchen wir auch in `" "` setzen müssen. Standardmäßig wird die Grafik in der obersten Ordnersturktur bzw. im derzeitigen Working Directory (wenn eins gesetzt wurde) abgelegt.
 
-Die **Größe** der zu exportierenden Grafik können wir mit `width` und `height` ändern. Mit `units` legen wir dabei fest, in welcher Einheit die Maße sein sollen. Wenn wir `width`, `height` und `units` weglassen, wird die Größe des *current graphics device* genutzt. Diese ist von unseren jeweiligen globalen Computer-Einstellungen abhängig. 
+Die <span style="color:#669C35">**Größe**</span> der zu exportierenden Grafik können wir mit `width` und `height` ändern. Mit `units` legen wir dabei fest, in welcher Einheit die Maße sein sollen. Wenn wir `width`, `height` und `units` weglassen, wird die Größe des *current graphics device* genutzt. Diese ist von unseren jeweiligen globalen Computer-Einstellungen abhängig. 
 
 <aside>Manchmal müssen wir mit den Maßen ein bisschen herumspielen, bis wir die perfekte Größe gefunden haben.</aside>
 
