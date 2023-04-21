@@ -446,11 +446,8 @@ Mehr zu Datentypen und -strukturen erfahren wir in [Einführung in R](Einfuehrun
 <p>Zur Überprüfung der Varianzhomogenität können wir beispielsweise den <strong>Levene Test</strong> nutzen. In diesem wird die Nullhypothese überprüft, dass die Populationsvarianzen homogen sind (<span class="math inline">\(\sigma^2_{ja} = \sigma^2_{nein}\)</span>). Weil die <span class="math inline">\(H_0\)</span> die Wunschhypothese ist, ist es von größerer Relevanz, diese nicht fälschlicherweise abzulehnen, d.h. einen <span class="math inline">\(\beta\)</span>-Fehler zu machen (relativ gesehen zum <span class="math inline">\(\alpha\)</span>-Fehler). Wir können das Risiko für einen <span class="math inline">\(\beta\)</span>-Fehler nur <em>indirekt</em> kontrollieren, indem wir das <span class="math inline">\(\alpha\)</span>-Level erhöhen. Daher legen wir unser Signifikanzniveau auf <span class="math inline">\(\alpha=.20\)</span> (zweiseitig) fest.</p>
 <p>Wir führen den Test mit der Funktion <code>leveneTest()</code> aus dem Paket <strong>car</strong> durch.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: carData</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">leveneTest</span>(zf_belastung <span class="sc">~</span> job, daten)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">leveneTest</span>(zf_belastung <span class="sc">~</span> job, daten)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Levene's Test for Homogeneity of Variance (center = median)
        Df F value Pr(&gt;F)
@@ -470,12 +467,12 @@ group   1   0.807 0.3703
 </ul>
 <p>Wir wollen einen <em>ungerichteten</em> <span class="math inline">\(t\)</span>-Test für unabhängige Stichproben durchführen und legen unser Signifikanzlevel <span class="math inline">\(\alpha=.05\)</span> fest.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(<span class="at">formula =</span> zf_belastung <span class="sc">~</span> job, </span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">data =</span> daten,</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">paired =</span> <span class="cn">FALSE</span>, <span class="co"># unabhängige SP</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">var.equal =</span> <span class="cn">TRUE</span>, <span class="co"># Annahme Varianzhomogenität erfüllt</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">alternative =</span><span class="st">"two.sided"</span>, <span class="co"># zweiseitige (ungerichtete) Testung</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">na.action =</span> <span class="st">"na.exclude"</span>) <span class="co"># Ausschluss fehlender Werte</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(<span class="at">formula =</span> zf_belastung <span class="sc">~</span> job, </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">data =</span> daten,</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">paired =</span> <span class="cn">FALSE</span>, <span class="co"># unabhängige SP</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">var.equal =</span> <span class="cn">TRUE</span>, <span class="co"># Annahme Varianzhomogenität erfüllt</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">alternative =</span><span class="st">"two.sided"</span>, <span class="co"># zweiseitige (ungerichtete) Testung</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">na.action =</span> <span class="st">"na.exclude"</span>) <span class="co"># Ausschluss fehlender Werte</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <aside>
 <br>
@@ -488,8 +485,8 @@ Mehr Informationen zum Umgang mit fehlenden Werten finden wir im Kapitel <a href
 </div>
 <p>Wir erhalten u.a. folgende Informationen:</p>
 <ul>
-<li><code>t</code>: empirische Prüfgröße des <span class="math inline">\(t\)</span>-Tests</li>
-<li><code>df</code>: Anzahl der Freiheitsgerade der <span class="math inline">\(t\)</span>-Verteilung (entspricht <span class="math inline">\(N-2\)</span>)<br>
+<li><span style="color:red"> <code>t</code> </span>: empirische Prüfgröße des <span class="math inline">\(t\)</span>-Tests</li>
+<li><span style="color:#59A608"> <code>df</code> </span>: Anzahl der Freiheitsgerade der <span class="math inline">\(t\)</span>-Verteilung (entspricht <span class="math inline">\(N-2\)</span>)<br>
 </li>
 </ul>
 <details>
@@ -498,7 +495,7 @@ Wir kommen wir auf <span class="math inline">\(N=169\)</span>?
 </summary>
 <p>Wir haben alle Fälle mit fehlenden Werten auf <em>einer</em> der beiden Variablen ausgeschlossen (<em>casewise deletion</em> durch <code>na.action = "na.exclude"</code>). Wir können diese Bedingung folgendermaßen auf unseren Datensatz anwenden, um <span class="math inline">\(N\)</span> für unsere spezifische Analyse zu berechnen:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(daten[<span class="sc">!</span><span class="fu">is.na</span>(daten<span class="sc">$</span>job) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(daten<span class="sc">$</span>zf_belastung),])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(daten[<span class="sc">!</span><span class="fu">is.na</span>(daten<span class="sc">$</span>job) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(daten<span class="sc">$</span>zf_belastung),])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 169</code></pre>
 </div>
@@ -506,17 +503,17 @@ Wir kommen wir auf <span class="math inline">\(N=169\)</span>?
 Für mehr Informationen siehe das Kapitel zu <a href="./Fehlende-Werte.html">Fehlenden Werten</a>.
 </details>
 <ul>
-<li><code>p-value</code>: in <span class="math inline">\(p\)</span>-Wert umgerechneter empirischer <span class="math inline">\(t\)</span>-Wert <!--, also die Wahrscheinlichkeit, den gegebenen empirischen $t$-Wert oder einen extremeren zu erhalten, wenn die $H_0$ gilt.--><br>
+<li><span style="color:blue"> <code>p-value</code> </span>: in <span class="math inline">\(p\)</span>-Wert umgerechneter empirischer <span class="math inline">\(t\)</span>-Wert <!--, also die Wahrscheinlichkeit, den gegebenen empirischen $t$-Wert oder einen extremeren zu erhalten, wenn die $H_0$ gilt.--><br>
 Durch den Vergleich mit unserem <span class="math inline">\(\alpha\)</span>-Niveau können wir anhand dieser Information zu einer Testentscheidung gelangen. Ist der <span class="math inline">\(p\)</span>-Wert kleiner als <span class="math inline">\(\alpha\)</span>, verwerfen wir die <span class="math inline">\(H_0\)</span>.</li>
-<li><code>95 percent confidence interval</code>: obere und untere Grenze des 95% Konfidenzintervalls der <em>Mittelwertsdifferenz</em></li>
-<li><code>sample estimates</code>: Stichprobenmittelwerte der Gruppen</li>
+<li><span style="color:orange"> <code>95 percent confidence interval</code> </span>: obere und untere Grenze des 95% Konfidenzintervalls der <em>Mittelwertsdifferenz</em></li>
+<li><span style="color:purple"> <code>sample estimates</code> </span>: Stichprobenmittelwerte der Gruppen</li>
 </ul>
 <p>Durch Betrachtung des <span class="math inline">\(p\)</span>-Wertes stellen wir fest, dass die Wahrscheinlichkeit unter Gültigkeit der <span class="math inline">\(H_O\)</span>, einen empirischen <span class="math inline">\(t\)</span>-Wert von <span class="math inline">\(\mid -1.278 \mid\)</span> oder extremer zu erhalten, bei 20.3% liegt. Da dieser <span class="math inline">\(p\)</span>-Wert deutlich über <span class="math inline">\(\alpha=.05\)</span> liegt, behalten wir die Nullhypothese bei. Wir gehen davon aus, dass Studierende mit und ohne Nebenjob sich <em>nicht</em> statistisch signifikant in ihrer Zufriedenheit mit der Bewältigung von Studienbelastungen unterscheiden.</p>
 </section>
 <section id="lineare-regression" class="level2 page-columns page-full" data-number="15.2">
 <h2 data-number="15.2" class="anchored" data-anchor-id="lineare-regression"><span class="header-section-number">15.2</span> Lineare Regression</h2>
 <blockquote class="blockquote">
-<p>Die lineare Regression ermöglicht es, eine abhängige Variable (AV, Kriterium) durch eine oder mehrere unabhängige Variablen (UVs, Prädiktoren) vorherzusagen. Das Kriterium muss metrisch sein, wohingegen die Prädiktoren auch kategorial sein können, wenn sie adäquat kodiert sind (siehe z.B. [Indikatorvariablen: Kodierung nominaler Merkmale][Indikatorvariablen: Kodierung nominaler Merkmale] im Kapitel Datenvorbereitung).</p>
+<p>Die lineare Regression ermöglicht es, eine abhängige Variable (AV, Kriterium) durch eine oder mehrere unabhängige Variablen (UVs, Prädiktoren) vorherzusagen. Das Kriterium muss metrisch sein, wohingegen die Prädiktoren auch kategorial sein können, wenn sie adäquat kodiert sind (siehe z.B. <a href="./Datenvorbereitung.html#indikatorvariablen-kodierung-nominaler-merkmale">Indikatorvariablen: Kodierung nominaler Merkmale</a> im Kapitel Datenvorbereitung).</p>
 </blockquote>
 <aside>
 <br>
@@ -529,9 +526,9 @@ mehrere Prädiktoren: <em>multiple</em> lineare Regression
 <p>Bei der linearen Regression ist die sogenannte Residualdiagnostik ein essentieller Teil der Annahmenprüfung. Allerdings müssen wir dafür die Regression bereits durchgeführt haben. Wir können die Annahmenprüfung also erst <em>nach</em> der Regression machen.</p>
 <p>Mit der Funktion <code>lm()</code> aus dem Basispaket <strong>stats</strong> können wir eine lineare Regression durchführen.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>lm_belastung <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="at">formula =</span> zf_belastung <span class="sc">~</span> job,</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>                   <span class="at">data =</span> daten, </span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">na.action =</span> <span class="st">"na.exclude"</span>) <span class="co"># Ausschluss fehlender Werte</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>lm_belastung <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="at">formula =</span> zf_belastung <span class="sc">~</span> job,</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>                   <span class="at">data =</span> daten, </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">na.action =</span> <span class="st">"na.exclude"</span>) <span class="co"># Ausschluss fehlender Werte</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Mehr Informationen zum Umgang mit fehlenden Werten finden wir im Kapitel <a href="./Fehlende-Werte.html">Fehlende Werte</a>.</p>
 <p>Das Ergebnisobjekt <code>lm_belastung</code> schauen wir uns erst <em>nach</em> der Annahmenprüfung an.</p>
@@ -557,13 +554,13 @@ mehrere Prädiktoren: <em>multiple</em> lineare Regression
 </ul>
 <p><br>
 </p>
-<p>Linearität</p>
+<p><strong>Linearität</strong></p>
 <blockquote class="blockquote">
 <p>Die Abhängigkeit zwischen Erwartungswert des Kriteriums und Prädiktor ist linear.</p>
 </blockquote>
 <p>Diese Annahme lässt sich mittels eines <strong>Residualplots</strong> untersuchen. Dieser plottet die vorhergesagten Kriteriumswerte <span class="math inline">\(\hat y_i\)</span> gegen die Residuen <span class="math inline">\(\hat e_i\)</span>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lm_belastung, <span class="at">which=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lm_belastung, <span class="at">which=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="Outputs-ALM-FAQ_files/figure-html/Linearitätsannahme-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -571,13 +568,13 @@ mehrere Prädiktoren: <em>multiple</em> lineare Regression
 <p>Weil wir nur eine kategoriale <span class="math inline">\(UV\)</span> mit zwei Ausprägungen haben, ordnen sich die Punkte in zwei vertikalen Linien an.</p>
 <p>Da sich die Lowess Fit Line (rote gestrichelte Linie), welche den generellen (nonparametrischen) Trend der Daten beschreibt, dem Erwartungswert der Residuen bei <span class="math inline">\(y=0\)</span> (schwarze gestrichelten Linie) annähert, können wir annehmen, dass Linearität vorliegt.</p>
 <p>Mehr Informationen zur Lowess Fit Line und zum Residuenplot finden wir im Kapitel zur <a href="./Voraussetzungspruefung.html">Prüfung der Annahmen der multiplen linearen Regression</a>.</p>
-<p>Homoskedastizität</p>
+<p><strong>Homoskedastizität</strong></p>
 <blockquote class="blockquote">
 <p>Die Varianz der <span class="math inline">\(y\)</span>-Werte, die an einer bestimmten Stelle des Prädiktors vorliegt, ist für alle Prädiktorwerte gleich (Varianzhomogenität).</p>
 </blockquote>
 <p>Diese haben wir bereits im Abschnitt zum <a href="#github-link"><span class="math inline">\(t\)</span>-Test</a> mittels des <strong>Levene-Tests</strong> überprüft.</p>
 <p>Den Residualplot, den wir gerade zur Überprüfung der Annahme der Linearität genutzt haben, können wir auch zur Überprüfung der Annahme der Homoskedatizität nutzen. Weil die Residuen sich ohne erkennbares Muster um den Erwartungswert der Residuen bei <span class="math inline">\(y=0\)</span> (schwarze gestrichelten Linie) verteilen, nehmen wir Homoskedastizität an.</p>
-<p>Normalverteilung der Residuen</p>
+<p><strong>Normalverteilung der Residuen</strong></p>
 <blockquote class="blockquote">
 <p>Die Verteilung der <span class="math inline">\(y\)</span>-Werte an einer bestimmten Stelle der <span class="math inline">\(UV\)</span> ist eine Normalverteilung.</p>
 </blockquote>
@@ -586,13 +583,13 @@ mehrere Prädiktoren: <em>multiple</em> lineare Regression
 </div>
 <p>Eine Verletzung dieser Annahme ist eher in kleineren Stichproben problematisch. In großen Stichproben sind die Regressionskoeffizienten aufgrund des zentralen Grenzwertsatzes selbst dann asymptotisch normalverteilt, wenn die Annahme nicht erfüllt ist. Es gibt jedoch keinen Richtwert, ab wann eine Stichprobe als hinreichend groß gilt. Wir sollten die Annahme immer überprüfen. Dazu schauen wir uns einen <strong>QQ-Plot</strong> der Residuen an.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lm_belastung, <span class="at">which=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lm_belastung, <span class="at">which=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="Outputs-ALM-FAQ_files/figure-html/Normalität-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Unser Kriterium Zufriedenheit mit der Bewältigung von Studienbelastungen scheint in Abhängigkeit der Gruppenzugehörigkeit leicht von einer Normalverteilung abzuweichen. Die Größe unserer Stichprobe, <span class="math inline">\(N = 169\)</span>, legt nahe, dass (nach dem zentralen Grenzwertsatz) die Regressionskoeffizienten approximativ normalverteilt sind und der Standardfehler der Steigung nicht verzerrt ist.</p>
-<p>Unabhängigkeit der Residuen</p>
+<p><strong>Unabhängigkeit der Residuen</strong></p>
 <blockquote class="blockquote">
 <p>Die Höhe des Residuums einer Beobachtung ist unabhängig von der Höhe des Residuums einer anderen Beobachtung.</p>
 </blockquote>
@@ -604,7 +601,7 @@ mehrere Prädiktoren: <em>multiple</em> lineare Regression
 </p>
 <p>Wir schauen uns die Ergebnis unseres Regressionsmodells mittels <code>summary()</code> an:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm_belastung)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm_belastung)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
@@ -625,15 +622,15 @@ mehrere Prädiktoren: <em>multiple</em> lineare Regression
 </div>
 </div>
 <ul>
-<li><code>Estimate</code>: Schätzung der (Populations-)Regressionskoeffizienten
+<li><span style="color:red"> <code>Estimate</code> </span>: Schätzung der (Populations-)Regressionskoeffizienten
 <ul>
 <li><code>(Intercept)</code>: vorhergesagter Wert des Kriteriums wenn alle Prädiktoren 0 sind (bei metrischen Prädiktoren) bzw. vorhergesagter Wert des Kriteriums in den jeweiligen Referenzgruppen (bei kategorialen Prädiktoren); Wert von <code>zf_belastung</code> in der Referenzgruppe <code>job == ja</code></li>
 <li><code>jobnein</code>: Steigungskoeffizient, der die erwartete Veränderung im Kriterium angibt, wenn der Prädiktor um eine Einheit erhöht wird (bei metrischen Prädiktoren) bzw. in (einer) der Vergleichsgruppen (bei kategorialen Prädiktoren); Unterschied von <code>job == nein</code> im Vergleich zur Referenzgruppe <code>job == ja</code> im Hinblick auf <code>zf_belastung</code></li>
 </ul></li>
-<li><code>Std.Error</code>: Standardfehler des Regressionskoeffizienten</li>
-<li><code>t.value</code>: empirischer <span class="math inline">\(t\)</span>-Wert für die Signifikanztestung des (partiellen) Regressionskoeffizienten</li>
-<li><code>Pr(&gt;|t|)</code>: in <span class="math inline">\(p\)</span>-Wert umgerechneter empirischer <span class="math inline">\(t\)</span>-Wert</li>
-<li><code>Sign.codes</code>: durch Sternchen gekennzeichnete Signifikanzniveaus der geschätzten Regressionskoeffizienten</li>
+<li><span style="color:#59A608"> <code>Std.Error</code> </span>: Standardfehler des Regressionskoeffizienten</li>
+<li><span style="color:blue"> <code>t.value</code> </span>: empirischer <span class="math inline">\(t\)</span>-Wert für die Signifikanztestung des (partiellen) Regressionskoeffizienten</li>
+<li><span style="color:orange"> <code>Pr(&gt;|t|)</code> </span>: in <span class="math inline">\(p\)</span>-Wert umgerechneter empirischer <span class="math inline">\(t\)</span>-Wert</li>
+<li><span style="color:purple"> <code>Sign.codes</code> </span>: durch Sternchen gekennzeichnete Signifikanzniveaus der geschätzten Regressionskoeffizienten</li>
 </ul>
 <p>Der Intercept <span class="math inline">\(b_0 = 2.679\)</span> gibt uns den Mittelwert der Personen <strong>mit Nebenjob</strong> (<code>job == "ja"</code>, Referenzgruppe) auf der Skala von <strong>Zufriedenheit mit der Bewältigung von Studienbelastungen</strong> (<code>zf_belastung</code>) an. Wir gelangen durch Betrachtung von <span class="math inline">\(p &lt; 2^{-16}\)</span> zu der Testentscheidung, die <span class="math inline">\(H_0\)</span>, dass der Intercept in der Population 0 ist, abzulehnen.</p>
 <aside>
@@ -656,16 +653,14 @@ mehrere Prädiktoren: <em>multiple</em> lineare Regression
 </div>
 </div>
 <ul>
-<li><code>Residual Standard Error</code>: Standardschätzfehler <span class="math inline">\(s_e\)</span><br>
+<li><span style="color:#FE41FF"> <code>Residual Standard Error</code> </span>: Standardschätzfehler <span class="math inline">\(s_e\)</span><br>
 Gütemaß für die Genauigkeit der Regressionsvorhersage</li>
-<li><code>Multiple R-squared</code>: Determinationskoeffizient <span class="math inline">\(R^2\)</span><br>
+<li><span style="color:brown"> <code>Multiple R-squared</code> </span>: Determinationskoeffizient <span class="math inline">\(R^2\)</span><br>
 Gütemaß für die Schätzgenauigkeit</li>
-<li><code>Adjusted R squared</code>: korrigierter Determinationskoeffizient <span class="math inline">\(R_{korr}^2\)</span>; gilt durch Korrektur der Freiheitsgrade als erwartungstreuer Schätzer für die Population</li>
-<li><code>F-statistic</code>: empirischer Wert des <span class="math inline">\(F\)</span>-Tests des Determinationskoeffizienten <span class="math inline">\(R^2\)</span> (d.h. des Gesamtmodells) mit Anzahl der Zähler- (<span class="math inline">\(k\)</span>) und Nenner-Freiheitsgrade (<span class="math inline">\(N-k-1\)</span>) der <span class="math inline">\(F\)</span>-Verteilung mit zugehörigem <span class="math inline">\(p\)</span>-Wert.</li>
+<li><span style="color:brown"> <code>Adjusted R squared</code> </span>: korrigierter Determinationskoeffizient <span class="math inline">\(R_{korr}^2\)</span>; gilt durch Korrektur der Freiheitsgrade als erwartungstreuer Schätzer für die Population</li>
+<li><span style="color:cyan"> <code>F-statistic</code> </span>: empirischer Wert des <span class="math inline">\(F\)</span>-Tests des Determinationskoeffizienten <span class="math inline">\(R^2\)</span> (d.h. des Gesamtmodells) mit Anzahl der Zähler- (<span class="math inline">\(k\)</span>) und Nenner-Freiheitsgrade (<span class="math inline">\(N-k-1\)</span>) der <span class="math inline">\(F\)</span>-Verteilung mit zugehörigem <span class="math inline">\(p\)</span>-Wert.</li>
 </ul>
 <aside>
-<br>
-<br>
 <br>
 <br>
 <br>
@@ -712,10 +707,10 @@ Beides haben wir im Rahmen der Durchführung des <a href="#github-link"><span cl
 </p>
 <p>Zur Durchführung der ANOVA verwenden wir die <code>aov()</code>Funktion.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>anova <span class="ot">&lt;-</span> <span class="fu">aov</span>(zf_belastung <span class="sc">~</span> job, </span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">data =</span> daten, </span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">na.action =</span> <span class="st">"na.exclude"</span>) <span class="co"># Ausschluss fehlender Werte</span></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(anova)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>anova <span class="ot">&lt;-</span> <span class="fu">aov</span>(zf_belastung <span class="sc">~</span> job, </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">data =</span> daten, </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">na.action =</span> <span class="st">"na.exclude"</span>) <span class="co"># Ausschluss fehlender Werte</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(anova)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <aside>
 Mehr Informationen zum Umgang mit fehlenden Werten im <a href="./Fehlende-Werte.html">gleichnamigen Kapitel</a>.
@@ -731,21 +726,21 @@ Mehr Informationen zum Umgang mit fehlenden Werten im <a href="./Fehlende-Werte.
 </div>
 <p>Der Output liefert die folgenden Informationen für den Gruppierungsfaktor (<code>job</code>) und für die Residuen (<code>Residuals</code>):</p>
 <ul>
-<li><code>Df</code>: Anzahl der Freiheitsgrade der <span class="math inline">\(F\)</span>-Verteilung
+<li><span style="color:red"> <code>Df</code> </span>: Anzahl der Freiheitsgrade der <span class="math inline">\(F\)</span>-Verteilung
 <ul>
 <li>… des Gruppierungsfaktor: <span class="math inline">\(df_{job} = p - 1\)</span></li>
 <li>… der Residuen: <span class="math inline">\(df_{e} = N-p\)</span></li>
 </ul></li>
-<li><code>Sum Sq</code>: Quadratsumme
+<li><span style="color:#59A608"> <code>Sum Sq</code> </span>: Quadratsumme
 <ul>
 <li>… des Gruppierungsfaktors (<em>“Treatmentquadratsumme”</em>)</li>
 <li>… der Residuen (<em>“Fehlerquadratsumme”</em>)</li>
 </ul></li>
-<li><code>Mean Sq</code>: Mittlere Quadratsumme (MQ)<br>
+<li><span style="color:blue"> <code>Mean Sq</code> </span> : Mittlere Quadratsumme (MQ)<br>
 relativieren die Quadratsumme eines Effekts an seinen Freiheitsgraden</li>
-<li><code>F value</code>: empirische Prüfgröße des <span class="math inline">\(F\)</span>-Tests<br>
+<li><span style="color:orange"> <code>F value</code> </span>: empirische Prüfgröße des <span class="math inline">\(F\)</span>-Tests<br>
 entspricht dem Quotienten <span class="math inline">\(\frac {MQ_{job}} {MQ_e}\)</span></li>
-<li><code>Pr(&gt;F)</code>: in <span class="math inline">\(p\)</span>-Wert umgerechneter empirischer <span class="math inline">\(F\)</span>-Wert</li>
+<li><span style="color:purple"> <code>Pr(&gt;F)</code> </span>: in <span class="math inline">\(p\)</span>-Wert umgerechneter empirischer <span class="math inline">\(F\)</span>-Wert</li>
 </ul>
 <!-- 
 <aside> __Beachte: Auch die ANOVA weist als Sonderform des Allgemeinen Linearen Modells  Zusammenhänge mit der linearen Regression auf. Hierbei entspricht der empirische *F*-Wert der aov Funktion dem *F*-Wert des globalen Tests der `lm()`-Funktion.__  __(In unserem Fall F=0.316).__  __Näheres zu den Zusammenhängen des ALM findet ihr [hier](#github2).__
@@ -756,7 +751,7 @@ entspricht dem Quotienten <span class="math inline">\(\frac {MQ_{job}} {MQ_e}\)<
 <section id="github2" class="level2 page-columns page-full" data-number="15.4">
 <h2 data-number="15.4" class="anchored" data-anchor-id="github2"><span class="header-section-number">15.4</span> ALM: Zusammenhänge der drei Verfahren</h2>
 <p>Wie bereits eingangs erwähnt, gehören <span class="math inline">\(t\)</span>-Test, lineare Regression und ANOVA alle zum Allgemeinen Linearen Modell (ALM).</p>
-<p>Für den hier betrachteten Spezialfall von nur einer UV mit nur zwei Stufen (und adäquater Kodierung; siehe z.B. [Indikatorvariablen: Kodierung nominaler Merkmale][Indikatorvariablen: Kodierung nominaler Merkmale] aus dem Kapitel Datenvorbereitung) kommen die drei Verfahren zum selben Ergebnis bei der Signifikanztestung, obwohl scheinbar andere Hypothesen getestet werden.</p>
+<p>Für den hier betrachteten Spezialfall von nur einer UV mit nur zwei Stufen (und adäquater Kodierung; siehe z.B. <a href="./Datenvorbereitung.html#indikatorvariablen-kodierung-nominaler-merkmale">Indikatorvariablen: Kodierung nominaler Merkmale</a> aus dem Kapitel Datenvorbereitung) kommen die drei Verfahren zum selben Ergebnis bei der Signifikanztestung, obwohl scheinbar andere Hypothesen getestet werden.</p>
 <div class="cell page-columns page-full">
 <div class="cell-output-display column-body">
 
@@ -769,17 +764,17 @@ entspricht dem Quotienten <span class="math inline">\(\frac {MQ_{job}} {MQ_e}\)<
   <tr>
    <th style="text-align:left;font-weight: bold;color: white !important;background-color: #009193 !important;"> Verfahren </th>
    <th style="text-align:left;font-weight: bold;color: white !important;background-color: #009193 !important;"> getestete Hypothesen </th>
-   <th style="text-align:left;font-weight: bold;color: white !important;background-color: #009193 !important;"> $t$ </th>
-   <th style="text-align:left;font-weight: bold;color: white !important;background-color: #009193 !important;"> $F$ </th>
-   <th style="text-align:left;font-weight: bold;color: white !important;background-color: #009193 !important;"> $p$ </th>
+   <th style="text-align:left;font-weight: bold;color: white !important;background-color: #009193 !important;"> <i>t</i> </th>
+   <th style="text-align:left;font-weight: bold;color: white !important;background-color: #009193 !important;"> <i>F</i> </th>
+   <th style="text-align:left;font-weight: bold;color: white !important;background-color: #009193 !important;"> <i>p</i> </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;width: 15em; font-weight: bold;color: white !important;background-color: #009193 !important;"> $t$-Test für unabhängige Stichproben </td>
+   <td style="text-align:left;width: 15em; font-weight: bold;color: white !important;background-color: #009193 !important;"> <i>t</i>-Test für unabhängige Stichproben </td>
    <td style="text-align:left;"> Mittelwertsunterschied in den Gruppen
 
-$H_0$: $\mu_1 = \mu_2$
+<i>H<sub>0</sub></i>: $\mu_1 = \mu_2$
 
 $H_1$: $\mu_1 \neq \mu_2$ <font size="1">(ungerichtet) </font>
 </td>
@@ -853,7 +848,7 @@ Mehr Informationen zu Kodierung gibt es im Kapitel <a href="./Einfuehrung_in_R.h
 <hr>
 <p>Um eine möglichst exakte Replikation der Funktionen zu gewährleisten gibt es im folgenden relevante Angaben zum System (<strong>R-Version</strong>, <strong>Betriebssystem</strong>, <strong>geladene Pakete mit Angaben zur Version</strong>), mit welchem diese Seite erstellt wurde.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>R version 4.2.3 (2023-03-15 ucrt)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
@@ -882,7 +877,7 @@ loaded via a namespace (and not attached):
 [13] rstudioapi_0.14   cli_3.6.1         yaml_2.3.7        xfun_0.38        
 [17] fastmap_1.1.1     stringr_1.5.0     xml2_1.3.3        httr_1.4.5       
 [21] withr_2.5.0       dplyr_1.1.1       systemfonts_1.0.4 generics_0.1.3   
-[25] vctrs_0.6.1       htmlwidgets_1.6.2 webshot_0.5.4     grid_4.2.3       
+[25] vctrs_0.6.2       htmlwidgets_1.6.2 webshot_0.5.4     grid_4.2.3       
 [29] tidyselect_1.2.0  svglite_2.1.1     glue_1.6.2        R6_2.5.1         
 [33] fansi_1.0.4       rmarkdown_2.21    farver_2.1.1      magrittr_2.0.3   
 [37] scales_1.2.1      htmltools_0.5.5   rvest_1.0.3       abind_1.4-5      
