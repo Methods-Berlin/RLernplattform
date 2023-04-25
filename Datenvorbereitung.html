@@ -359,7 +359,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Wir fangen mit grundsätzlichen Überprüfungen unserer der Daten an. Nachfolgend arbeiten wir uns in spezifischere Aufbereitungsbereiche vor, die wir in Abhängigkeit unserer geplanten Auswertung ggf. benötigen.</p>
 <details>
 <summary>
-Beispieldatensätze für dieses Kapitel
+<a id="data">Beispieldatensätze für dieses Kapitel</a>
 </summary>
 <p>Für das vorliegende Kapitel nutzen wir <strong>mehrere Datensätze</strong>, um die unterschiedlichen Verarbeitungsschritte zu demonstrieren.</p>
 <p>Den Datensatz airquality werden wir am meisten nutzen. Dieser enthält Daten aus einer Untersuchung der <strong>Luftqualität in New York</strong>, die von Mai bis September des Jahres 1973 stattfand. Der Datensatz ist standardmäßig in R enthalten und wir bekommen ihn mit der Funktion <code>data()</code> in unser R-Environment:</p>
@@ -425,7 +425,7 @@ Beispieldatensätze für dieses Kapitel
 <p><em><strong>Achtung</strong></em>: Im Abschnitt <a href="./Datenvorbereitung.html#plausibilitäts-check">Plausibilitäts-Check</a> werden die Kodierungen einiger Variablen noch korrigiert. Außerdem müssen die Werte der Variablen <code>Q9A</code>, <code>Q13A</code> und <code>Q15A</code> noch invertiert werden, da diese negativ gepolt sind. Das passiert im Abschnitt <a href="./Datenvorbereitung.html#umkodieren">Umkodieren</a>.</p>
 </blockquote>
 <p>Die Datensätze vornamen_13 und vornamen_14 enthalten die <strong>Vornamen der Neugeborenen in München</strong>, jeweils für die Jahre 2013 und 2014. Diese werden wir nur für <a href="./Datenvorbereitung.html#datensätze-zusammenführen">2. Datensätze zusammenführen</a> nutzen.</p>
-<p>Zuerst laden wir die csv-Dateien für <a href="https://www.opengov-muenchen.de/dataset/6acc34a9-762e-4e7f-83b0-250654478134/resource/f47ec60f-8839-4e83-9c7c-492c8b17d7b5/download/vornamen-von-neugeborenen2013.csv" target="_blank">2013</a> und <a href="https://www.opengov-muenchen.de/dataset/582aac00-aa2d-4b00-ac90-c4e5be7fa485/resource/cebd2d67-94e6-4667-a850-415f863d3b10/download/vornamen-von-neugeborenen-2014.csv" target="_blank">2014</a> runter und lesen sie dann folgendermaßen in R ein:</p>
+<p>Zuerst laden wir die csv-Dateien für <a href="https://opendata.muenchen.de/dataset/99ad40ec-9d7b-4a2e-87eb-9bac783fb57a/resource/17c4915d-6b8b-470f-a6b6-31f61b10a285/download/vornamen_2013.csv" target="_blank">2013</a> und <a href="https://opendata.muenchen.de/dataset/99ad40ec-9d7b-4a2e-87eb-9bac783fb57a/resource/5d581ba3-4c7e-4057-8be1-04d56bb0d8d6/download/vornamen_2014.csv" target="_blank">2014</a> runter und lesen sie dann folgendermaßen in R ein:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>vornamen_13 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"Dateipfad/vornamen-von-neugeborenen2013.csv"</span>)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>vornamen_14 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"Dateipfad/vornamen-von-neugeborenen2014.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -475,7 +475,7 @@ Beispieldatensätze für dieses Kapitel
 <section id="recap-kodierung-von-daten" class="level3 page-columns page-full" data-number="8.1.1">
 <h3 data-number="8.1.1" class="anchored" data-anchor-id="recap-kodierung-von-daten"><span class="header-section-number">8.1.1</span> <strong>Recap</strong>: Kodierung von Daten</h3>
 <p>Generell wenn wir mit Daten arbeiten, ist es ratsam, sich zuallererst Gedanken darüber zu machen, welche Informationen wir diesen entnehmen können (<strong>Messniveau</strong>) und ob sie so gespeichert sind, dass R sie richtig erkennt (<strong>Datentypen und -strukturen</strong>).</p>
-<p>Die nachfolgende Wiederholung ist eine verkürzte Variante des Abschnitts [Daten][Daten] aus dem Kapitel zu <a href="./Einfuehrung_in_R.html">Einführung in R</a>.</p>
+<p>Die nachfolgende Wiederholung ist eine verkürzte Variante des Abschnitts <a href="./Einfuehrung_in_R.html#daten">Daten</a> aus dem Kapitel zu <a href="./Einfuehrung_in_R.html">Einführung in R</a>.</p>
 <section id="messniveaus" class="level4 page-columns page-full" data-number="8.1.1.1">
 <h4 data-number="8.1.1.1" class="anchored" data-anchor-id="messniveaus"><span class="header-section-number">8.1.1.1</span> Messniveaus</h4>
 <div class="cell">
@@ -643,7 +643,7 @@ Wenn wir z.B. eine Variable <span class="math inline">\(X\)</span> haben, welche
   </tr>
 </tbody>
 <tfoot><tr><td style="padding: 0; " colspan="100%">
-<sup></sup> <font size="1"><sup>1</sup> Faktorisieren (unordered factor) notwendig *wenn* keine Indikatorvariable(n) genutzt <sup>2</sup> Faktorisieren (ordered factor) notwendig</font>
+<sup></sup> <font size="1"><sup>1</sup> Faktorisieren (unordered factor) notwendig wenn keine Indikatorvariable(n) genutzt <sup>2</sup> Faktorisieren (ordered factor) notwendig</font>
 </td></tr></tfoot>
 </table>
 
@@ -1046,16 +1046,16 @@ gender_uf :  Factor w/ 3 levels "1","2","3": 1 2 2 2 2 2 1 3 2 1 ...</code></pre
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:center;color: darkred !important;"> 1 </td>
-   <td style="text-align:center;color: darkred !important;"> <span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: grey !important;">4</span> </td>
-   <td style="text-align:center;color: darkred !important;"> <span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: grey !important;">3</span> </td>
-   <td style="text-align:center;color: darkred !important;"> <span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: grey !important;">1</span> </td>
+   <td style="text-align:center;color: red !important;"> 1 </td>
+   <td style="text-align:center;color: red !important;"> <span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: grey !important;">4</span> </td>
+   <td style="text-align:center;color: red !important;"> <span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: grey !important;">3</span> </td>
+   <td style="text-align:center;color: red !important;"> <span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: grey !important;">1</span> </td>
   </tr>
   <tr>
-   <td style="text-align:center;color: dodgerblue !important;"> 2 </td>
-   <td style="text-align:center;color: dodgerblue !important;"> <span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: grey !important;">5</span> </td>
-   <td style="text-align:center;color: dodgerblue !important;"> <span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: grey !important;">2</span> </td>
-   <td style="text-align:center;color: dodgerblue !important;"> <span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: grey !important;">3</span> </td>
+   <td style="text-align:center;color: blue !important;"> 2 </td>
+   <td style="text-align:center;color: blue !important;"> <span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: grey !important;">5</span> </td>
+   <td style="text-align:center;color: blue !important;"> <span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: grey !important;">2</span> </td>
+   <td style="text-align:center;color: blue !important;"> <span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: grey !important;">3</span> </td>
   </tr>
 </tbody>
 </table>
@@ -1064,9 +1064,9 @@ gender_uf :  Factor w/ 3 levels "1","2","3": 1 2 2 2 2 2 1 3 2 1 ...</code></pre
 </div>
 <aside>
 <br>
-<font color="darkred">Untersuchungseinheit 1</font><br>
-<font color="dodgerblue">Untersuchungseinheit 2</font><br>
-<span style=" border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: grey !important;">Messwiederholung</span><br>
+<font color="red">Untersuchungseinheit 1</font><br>
+<font color="blue">Untersuchungseinheit 2</font><br>
+<span style=" border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: darkgrey !important;"> Messwiederholung </span><br>
 <span style=" border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lightgrey !important;">Rater</span>
 </aside>
 <p><strong>Beispiel 2 Wide-Format: Rater</strong></p>
@@ -1084,16 +1084,16 @@ gender_uf :  Factor w/ 3 levels "1","2","3": 1 2 2 2 2 2 1 3 2 1 ...</code></pre
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:center;color: darkred !important;"> 1 </td>
-   <td style="text-align:center;color: darkred !important;"> <span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lightgrey !important;">2</span> </td>
-   <td style="text-align:center;color: darkred !important;"> <span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lightgrey !important;">1</span> </td>
-   <td style="text-align:center;color: darkred !important;"> <span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lightgrey !important;">3</span> </td>
+   <td style="text-align:center;color: red !important;"> 1 </td>
+   <td style="text-align:center;color: red !important;"> <span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lightgrey !important;">2</span> </td>
+   <td style="text-align:center;color: red !important;"> <span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lightgrey !important;">1</span> </td>
+   <td style="text-align:center;color: red !important;"> <span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lightgrey !important;">3</span> </td>
   </tr>
   <tr>
-   <td style="text-align:center;color: dodgerblue !important;"> 2 </td>
-   <td style="text-align:center;color: dodgerblue !important;"> <span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lightgrey !important;">3</span> </td>
-   <td style="text-align:center;color: dodgerblue !important;"> <span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lightgrey !important;">4</span> </td>
-   <td style="text-align:center;color: dodgerblue !important;"> <span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lightgrey !important;">2</span> </td>
+   <td style="text-align:center;color: blue !important;"> 2 </td>
+   <td style="text-align:center;color: blue !important;"> <span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lightgrey !important;">3</span> </td>
+   <td style="text-align:center;color: blue !important;"> <span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lightgrey !important;">4</span> </td>
+   <td style="text-align:center;color: blue !important;"> <span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lightgrey !important;">2</span> </td>
   </tr>
 </tbody>
 </table>
@@ -1671,7 +1671,7 @@ Wie kommt man auf die Anzahl der Fälle <span class="math inline">\(N = 6371\)</
 <h2 data-number="8.3" class="anchored" data-anchor-id="daten-extrahieren"><span class="header-section-number">8.3</span> Daten extrahieren</h2>
 <p><strong>Synonyme</strong>: Splitten, Subsetten, Filtern, Selektieren, Extrahieren<br>
 </p>
-<p>Manchmal möchten wir nur bestimmte Variablen bzw. bestimmte Fälle aus einem Datensatz betrachten. Generell bietet es sich an, dafür <strong>reguläre Ausdrücke</strong> (<a href="https://rstudio.com/wp-content/uploads/2016/09/RegExCheatsheet.pdf" target="_blank"><em>regular expressions</em></a> z.B. die Metacharactere <code>.*</code>, <code>|</code>, <code>^</code> und <code>$</code>) und <strong>logische Operatoren</strong> (<em>logical operators</em> z.B. <code>&gt;</code>, <code>&lt;</code> und <code>==</code>) zu nutzen.</p>
+<p>Manchmal möchten wir nur bestimmte Variablen bzw. bestimmte Fälle aus einem Datensatz betrachten. Generell bietet es sich an, dafür <strong>reguläre Ausdrücke</strong> (<a href="https://github.com/rstudio/cheatsheets/raw/main/regex.pdf" target="_blank"><em>regular expressions</em></a> z.B. die Metacharactere <code>.*</code>, <code>|</code>, <code>^</code> und <code>$</code>) und <strong>logische Operatoren</strong> (<em>logical operators</em> z.B. <code>&gt;</code>, <code>&lt;</code> und <code>==</code>) zu nutzen.</p>
 <p>Wie wir Variablen (Spalten) und Fälle (Zeilen) selektieren und in einem neuen Dataframe speichern können, schauen wir uns nun an.</p>
 <div class="cell">
 
@@ -1735,7 +1735,7 @@ Wie kommt man auf die Anzahl der Fälle <span class="math inline">\(N = 6371\)</
 </div>
 </div>
 <p>Mit dieser Methode haben wir gleich den Vorteil, dass die Namen der Variablen im neuen Datensatz gleich denen im ursprünglichen Datensatz ist.</p>
-Wir können unsere Suche mit <code>grep()</code> auch noch spezifischer machen, indem wir die <strong>regulären Operatoren</strong> nutzen. Mit <code>^o</code> suchen wir Variablen, die mit einem “o” <strong>beginnen</strong>; mit <code>o$</code> jene die mit “o” <strong>enden</strong>. Mit <code>^o|o$</code> suchen wir Variablen, die entweder mit einem “o” beginnen <strong>oder</strong> enden. Ein Beispiel dazu finden wir im Abschnitt <a href="#grep2">Fälle mit <code>grep()</code> extrahieren</a>. Mit <code>^o.*o$</code> suchen wir Variablen, die mit einem “o” beginnen <strong>und</strong> enden.
+Wir können unsere Suche mit <code>grep()</code> auch noch spezifischer machen, indem wir die <strong>regulären Operatoren</strong> nutzen. Mit <code>^o</code> suchen wir Variablen, die mit einem “o” <strong>beginnen</strong>; mit <code>o$</code> jene die mit “o” <strong>enden</strong>. Mit <code>^o|o$</code> suchen wir Variablen, die entweder mit einem “o” beginnen <strong>oder</strong> enden. Mit <code>^o.*o$</code> suchen wir Variablen, die mit einem “o” beginnen <strong>und</strong> enden.
 </details>
 <details>
 <summary>
@@ -1990,7 +1990,7 @@ Weitere logische Operatoren sind z.B. <code>!=</code> <em>(nicht)</em>, <code>&l
 <div class="cell">
 <div class="sourceCode cell-code" id="cb102"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a>df_month6_day15ff <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(airquality, Month <span class="sc">==</span> <span class="dv">6</span>, Day <span class="sc">&gt;=</span> <span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><a href="#mask">Zu Beginn</a> haben wir erläutert, warum wir manchmal <code>::</code> nutzen sollten.</p>
+<p><a href="Pakete.html#maskierung-wenn-verschiedene-pakete-gleich-benannte-funktionen-enthalten">Zu Beginn</a> haben wir erläutert, warum wir manchmal <code>::</code> nutzen sollten.</p>
 <div class="cell">
 <div class="cell-output-display">
 
@@ -2088,7 +2088,7 @@ Wenn wir <code>Temp</code>-Werte mit der gleichen Ausprägung zusätzlich noch n
 </section>
 <section id="kodierung-ändern" class="level2 page-columns page-full" data-number="8.5">
 <h2 data-number="8.5" class="anchored" data-anchor-id="kodierung-ändern"><span class="header-section-number">8.5</span> Kodierung ändern</h2>
-<p>Wenn die Daten nicht in einer angemessenen Kodierung vorliegen, muss man diese nachträglich anpassen bzw. neu erstellen. Die Kodierung einer Variablen ist von ihrem <a href="#Recap:-Kodierung-von-Daten">Messniveau</a> abhängig.</p>
+<p>Wenn die Daten nicht in einer angemessenen Kodierung vorliegen, muss man diese nachträglich anpassen bzw. neu erstellen. Die Kodierung einer Variablen ist von ihrem <a href="#recap-kodierung-von-daten">Messniveau</a> abhängig.</p>
 <p>Für dieses Kapitel beschränken wir uns auf die Nutzung des Datensatzes <strong>PWE_data</strong>, welchen wir <a href="#data">zu Beginn</a> heruntergeladen haben.</p>
 <section id="umkodieren" class="level3" data-number="8.5.1">
 <h3 data-number="8.5.1" class="anchored" data-anchor-id="umkodieren"><span class="header-section-number">8.5.1</span> Umkodieren</h3>
@@ -2226,26 +2226,26 @@ Wenn wir <code>Temp</code>-Werte mit der gleichen Ausprägung zusätzlich noch n
  <thead>
   <tr>
    <th style="text-align:left;font-weight: bold;color: white !important;background-color: #009193 !important;">   </th>
-   <th style="text-align:left;font-weight: bold;color: white !important;background-color: #009193 !important;"> Interzept $b_0$ </th>
-   <th style="text-align:left;font-weight: bold;color: white !important;background-color: #009193 !important;"> Steigung $b_j$ </th>
+   <th style="text-align:left;font-weight: bold;color: white !important;background-color: #009193 !important;"> Intercept b<sub>0</sub> </th>
+   <th style="text-align:left;font-weight: bold;color: white !important;background-color: #009193 !important;"> Steigung b<sub>j</sub> </th>
    <th style="text-align:left;font-weight: bold;color: white !important;background-color: #009193 !important;"> mögliche Anwendung </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;"> **Dummy** </td>
+   <td style="text-align:left;"> <b>Dummy</b> </td>
    <td style="text-align:left;"> Mittelwert in der Referenzgruppe </td>
    <td style="text-align:left;"> Differenz des Mittelwerts der j-ten Gruppe zur Referenzgruppe </td>
    <td style="text-align:left;"> Vergleich von Experimental- und Kontrollgruppe </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> **Effekt** </td>
+   <td style="text-align:left;"> <b>Effekt</b> </td>
    <td style="text-align:left;"> Mittelwert der Gruppenmittelwerte (Gesamtmittelwert) </td>
    <td style="text-align:left;"> Differenz des Mittelwertes der j-ten Gruppe zum Gesamtmittelwert </td>
    <td style="text-align:left;"> Vergleich von Gruppen in varianzanalytischen Designs </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> **Kontrast** </td>
+   <td style="text-align:left;"> <b>Kontrast</b> </td>
    <td style="text-align:left;"> Mittelwert über die Mittelwerte der Kontrastgruppen </td>
    <td style="text-align:left;"> lässt sich als Funktion der Kontrastkoeffizienten darstellen, die den jeweiligen Kontrast kodieren </td>
    <td style="text-align:left;"> Gezielte Einzelvergleiche von (Kombinationen) von Gruppen </td>
@@ -2253,7 +2253,7 @@ Wenn wir <code>Temp</code>-Werte mit der gleichen Ausprägung zusätzlich noch n
 </tbody>
 <tfoot><tr><td style="padding: 0; " colspan="100%">
 <sup></sup> 
-<font size="2">Die Interpretation der Mittelwerte und Differenzen hängt zusätzlich davon ab, ob ein **balanciertes** oder **unbalanciertes** Design vorliegt (d.h. ob die Gruppengrößen gleich oder ungleich sind).</font>
+<font size="2">Die Interpretation der Mittelwerte und Differenzen hängt zusätzlich davon ab, ob ein <b>balanciertes</b> oder <b>unbalanciertes</b> Design vorliegt (d.h. ob die Gruppengrößen gleich oder ungleich sind).</font>
 </td></tr></tfoot>
 </table>
 
@@ -2527,7 +2527,7 @@ In unserem Regressionsmodell mit dem Kontrast Männer vs.&nbsp;Frauen entspricht
 <p>Wenn wir nicht mit den Rohdaten arbeiten wollen, sondern Informationen von mehreren, aggregierten Variablen (z.B. Summenwerte, Mittelwerte) oder anderweitig transformierten Variablen (z.B. standardisierte Werte) auswerten wollen, müssen wir Summary-Variablen erstellen.</p>
 <p>Wir nutzen zu diesem Zweck den Datensatz <strong>PWE_data</strong>, welcher aus einer psychometrischen Erhebung stammt. <a href="#data">Zu Beginn</a> des Kapitels haben wir den Datensatz heruntergeladen.</p>
 <blockquote class="blockquote">
-<p><em><strong>Achtung</strong></em>: Die Werte der Variablen <code>Q9A</code>, <code>Q13A</code> und <code>Q15A</code>, die wir im Folgenden nutzen werden, wurden im Abschnitt <a href="./Datenvorbereitung.html#Umkodieren">Umkodieren</a> rekodiert, weil sie negativ gepolt sind.</p>
+<p><em><strong>Achtung</strong></em>: Die Werte der Variablen <code>Q9A</code>, <code>Q13A</code> und <code>Q15A</code>, die wir im Folgenden nutzen werden, wurden im Abschnitt <a href="./Datenvorbereitung.html#umkodieren">Umkodieren</a> rekodiert, weil sie negativ gepolt sind.</p>
 </blockquote>
 <details>
 <summary>
@@ -2631,14 +2631,14 @@ In unserem Regressionsmodell mit dem Kontrast Männer vs.&nbsp;Frauen entspricht
 <h2 data-number="8.7" class="anchored" data-anchor-id="weitere-wichtige-hinweise"><span class="header-section-number">8.7</span> Weitere wichtige Hinweise</h2>
 <section id="cheat-sheet-dplyr" class="level3" data-number="8.7.1">
 <h3 data-number="8.7.1" class="anchored" data-anchor-id="cheat-sheet-dplyr"><span class="header-section-number">8.7.1</span> Cheat Sheet <strong>dplyr</strong></h3>
-<p>Wer Gefallen an den tidyverse-Funktionen <code>select()</code>, <code>filter()</code>, <code>mutate()</code>, und <code>summarise()</code> gefunden hat, kann ein Cheat Sheet zur <strong>Data Transformation mit dplyr</strong> in <a href="https://github.com/rstudio/cheatsheets/raw/master/translations/german/data-transformation-cheatsheet_de.pdf" target="_blank">deutsch</a> oder <a href="https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf" target="_blank">englisch</a> herunterladen.</p>
+<p>Wer Gefallen an den tidyverse-Funktionen <code>select()</code>, <code>filter()</code>, <code>mutate()</code>, und <code>summarise()</code> gefunden hat, kann ein Cheat Sheet zur <strong>Data Transformation mit dplyr</strong> in <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/translations/german/data-transformation_de.pdf" target="_blank">deutsch</a> oder <a href="https://github.com/rstudio/cheatsheets/raw/main/data-transformation.pdf" target="_blank">englisch</a> herunterladen.</p>
 </section>
 <section id="stichprobengröße" class="level3 page-columns page-full" data-number="8.7.2">
 <h3 data-number="8.7.2" class="anchored" data-anchor-id="stichprobengröße"><span class="header-section-number">8.7.2</span> Stichprobengröße</h3>
 <p>Es ist generell sehr wichtig, auch bei der Datenvorbereitung, ein Auge auf die Stichprobengröße zu haben. Teilweise werden bei der Datenvorbereitung einige Untersuchungseinheiten aus der Analyse exkludiert und damit sinkt die Stichprobengröße <span class="math inline">\(N\)</span>.</p>
 <p>Wenn wir Auswertungen machen, in denen wir Ergebnisobjekte bekommen (z.B. bei der Regression mit <code>lm()</code>), können wir die Information zu <span class="math inline">\(N\)</span> daraus ablesen. Dazu klicken wir auf das Ergebnisobjekt im Environment (z.B. <code>lm_kontr</code>). Unter <code>model</code> sehen wir die Dimensionalität des <strong>genutzten</strong> Teil des Datensatzes und können anhand der Anzahl der Zeilen <span class="math inline">\(N\)</span> ablesen (z.B. bei <code>lm_kontr</code>: <code>[116 x 3]</code> d.h. 116 Fälle).</p>
 <aside>
-In <code>lm()</code> wird listwise deletion angewendet, d.h. dass jede Zeile, die mindestens ein Missing enthält, aus der Analyse ausgeschlossen wird. Mehr zu Fehlenden Werten im gleichnamigen <a href="Fehlende-werte.qmd">Kapitel</a>.
+In <code>lm()</code> wird listwise deletion angewendet, d.h. dass jede Zeile, die mindestens ein Missing enthält, aus der Analyse ausgeschlossen wird. Mehr zu Fehlenden Werten im gleichnamigen <a href="./Fehlende-Werte.html">Kapitel</a>.
 </aside>
 </section>
 <section id="replizierbarkeit" class="level3" data-number="8.7.3">
@@ -3868,11 +3868,12 @@ Lösung
 <div class="cell">
 <div class="sourceCode cell-code" id="cb202"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb202-1"><a href="#cb202-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R version 4.2.3 (2023-03-15 ucrt)
+<pre><code>R version 4.3.0 (2023-04-21 ucrt)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
-Running under: Windows Server x64 (build 20348)
+Running under: Windows Server 2022 x64 (build 20348)
 
 Matrix products: default
+
 
 locale:
 [1] LC_COLLATE=English_United States.utf8 
@@ -3881,25 +3882,28 @@ locale:
 [4] LC_NUMERIC=C                          
 [5] LC_TIME=English_United States.utf8    
 
+time zone: UTC
+tzcode source: internal
+
 attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
 [1] car_3.1-2        carData_3.0-5    rmarkdown_2.21   knitr_1.42      
-[5] readr_2.1.4      kableExtra_1.3.4 dplyr_1.1.1     
+[5] readr_2.1.4      kableExtra_1.3.4 dplyr_1.1.2     
 
 loaded via a namespace (and not attached):
- [1] highr_0.10        pillar_1.9.0      compiler_4.2.3    tools_4.2.3      
- [5] digest_0.6.31     jsonlite_1.8.4    evaluate_0.20     lifecycle_1.0.3  
- [9] tibble_3.2.1      viridisLite_0.4.1 pkgconfig_2.0.3   rlang_1.1.0      
-[13] cli_3.6.1         rstudioapi_0.14   yaml_2.3.7        xfun_0.38        
-[17] fastmap_1.1.1     withr_2.5.0       httr_1.4.5        stringr_1.5.0    
-[21] xml2_1.3.3        hms_1.1.3         generics_0.1.3    vctrs_0.6.2      
-[25] htmlwidgets_1.6.2 systemfonts_1.0.4 webshot_0.5.4     tidyselect_1.2.0 
-[29] svglite_2.1.1     glue_1.6.2        R6_2.5.1          fansi_1.0.4      
-[33] tzdb_0.3.0        magrittr_2.0.3    scales_1.2.1      htmltools_0.5.5  
-[37] abind_1.4-5       rvest_1.0.3       colorspace_2.1-0  utf8_1.2.3       
-[41] stringi_1.7.12    munsell_0.5.0     crayon_1.5.2     </code></pre>
+ [1] jsonlite_1.8.4    highr_0.10        compiler_4.3.0    crayon_1.5.2     
+ [5] webshot_0.5.4     tidyselect_1.2.0  xml2_1.3.3        stringr_1.5.0    
+ [9] systemfonts_1.0.4 scales_1.2.1      yaml_2.3.7        fastmap_1.1.1    
+[13] R6_2.5.1          generics_0.1.3    htmlwidgets_1.6.2 tibble_3.2.1     
+[17] munsell_0.5.0     svglite_2.1.1     pillar_1.9.0      tzdb_0.3.0       
+[21] rlang_1.1.0       utf8_1.2.3        stringi_1.7.12    xfun_0.39        
+[25] viridisLite_0.4.1 cli_3.6.1         withr_2.5.0       magrittr_2.0.3   
+[29] digest_0.6.31     rvest_1.0.3       rstudioapi_0.14   hms_1.1.3        
+[33] lifecycle_1.0.3   vctrs_0.6.2       evaluate_0.20     glue_1.6.2       
+[37] abind_1.4-5       fansi_1.0.4       colorspace_2.1-0  httr_1.4.5       
+[41] tools_4.3.0       pkgconfig_2.0.3   htmltools_0.5.5  </code></pre>
 </div>
 </div>
 <p>Für Informationen zur Interpretation dieses Outputs schaut auch den Abschnitt <a href="./Pakete.html#replizierbarkeit-von-analysen">Replizierbarkeit von Analysen</a> des Kapitels zu Paketen an.</p>
