@@ -10,6 +10,8 @@ name: create_book_renv
 
 # On every push to development, the website will be built locally
 on:
+  push:
+    branches: [behnkec-renv]
   workflow_dispatch:
   
 
