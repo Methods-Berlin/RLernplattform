@@ -45,8 +45,9 @@ jobs:
         run: |
           options(pkgType = "win.binary")
           options(install.packages.compile.from.source = "never")
-          install.packages(c("quarto", "devtools"))
-          devtools::install_deps(upgrade = "never")
+          install.packages(c("quarto", "devtools", "renv"))
+          renv::restore() # install packages in version defined by renv
+          #devtools::install_deps(upgrade = "never")
           quarto::quarto_render(output_format = "html",
                                 as_job = FALSE)
         shell: Rscript {0}
