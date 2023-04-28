@@ -106,7 +106,7 @@ Da wir zwei Funktionen auf den Datensatz anwenden wollen - `unique()` und `sort(
 sapply(sapply(daten, unique), sort, na.last=TRUE)
 ```
 
-<aside>Die hier durchgeführte Überprüfung ist analog zum [Plausibilitätscheck][Plausibilitätscheck] im Kapitel zur [Datenvorbereitung](Datenvorbereitung.qmd).</aside>
+<aside>Die hier durchgeführte Überprüfung ist analog zum [Plausibilitätscheck](Datenvorbereitung.qmd#plausibilitäts-check) im Kapitel zur [Datenvorbereitung](Datenvorbereitung.qmd).</aside>
 
 In `Var_1` gibt es die Ausprägung `-99` und in `Var_5` die Ausprägung `99`, welche keine möglichen Ausprägungen sind. Es ist davon auszugehen, dass das ebenso Kodierungen für fehlende Werte sind.
 
@@ -295,6 +295,7 @@ Wenn man `summary(aggr())` nutzt, bekommt man sowohl die grafische Visualisierun
 
 ```{r}
 #| label: aggr plot
+#| message: false
 # install.packages("VIM")
 library(VIM)
 summary(aggr(daten))
@@ -464,7 +465,7 @@ Es gibt verschiedene Möglichkeiten, um mit unvollständigen Datensätzen umzuge
 <aside>\
 Weitere Methoden zum Umgang mit Missings finden wir auch in den Quellen, die wir unter [**Literaturempfehlungen**](#literaturempfehlungen) finden.</aside>
 
-Im Folgenden wollen wir uns darauf beschränken, uns einige gängige Methoden anzuschauen, die man nutzen kann, wenn die fehlenden Werte MCAR sind. Wenn diese Annahme nicht erfüllt ist, können bei Nutzung der folgenden Methoden **verzerrte Parameterschätzungen** resultieren.
+Im Folgenden wollen wir uns darauf beschränken, uns einige gängige Methoden anzuschauen, die man nutzen kann, wenn die fehlenden Werte MCAR sind. Wenn diese Annahme **nicht** erfüllt ist, können bei Nutzung der folgenden Methoden **verzerrte Parameterschätzungen** resultieren.
 
 Zwei grundlegende Möglichkeiten sind entweder ganze Fälle mit Missings zu exkludieren (*listwise/casewise deletion*) oder vorhandene Elemente von Fällen für einen Teil der Analysen zu nutzen (*pairwise deletion*). In vielen Funktionen in R können wir zwischen beiden Möglichkeiten entscheiden.
 
@@ -513,7 +514,7 @@ In manchen Situationen ist es wichtig, **Informationen darüber zu haben, _wo_ M
 <aside>\
 \
 \
-Hier gehts zur Überprüfung der Unabhängigkeit der Fehlerterme mittels Boxplots -@sec-Boxplots-der-geclusterten-Gruppen aus dem Kapitel zu [Annahmen der Regression](Voraussetztungspruefung.qmd).</aside>
+Hier gehts zur [Überprüfung der Unabhängigkeit der Fehlerterme mittels Boxplots](Voraussetzungspruefung.qmd#sec-Boxplots-der-geclusterten-Gruppen) aus dem Kapitel zu [Annahmen der Regression](Voraussetzungspruefung.qmd).</aside>
 
 
 #### mean(..., na.rm)
@@ -667,7 +668,7 @@ daten[daten == 99] <- NA
 Bei vielen Funktionen muss man festlegen, wie diese mit Missings umgehen sollen.
 Exemplarisch schauen wir uns das einmal an zwei Funktionen an.
 
-Wenn du wissen möchtest, wie du in anderen Funktionen mit Missings umgehen kannst, schau dir entweder die R-Dokumentation dazu an (unteres rechtes Panel bei Help oder alternativ `?mean`) oder suche im Internet. In unserem Kapitel zu Fehlermeldungen findest du sowohl einen Abschnitt zum Aufbau der [R-Dokumentation][R-Dokumentation] sowie einen Abschnitt zum [Suchen im Internet][Suchen im Internet]. \
+Wenn du wissen möchtest, wie du in anderen Funktionen mit Missings umgehen kannst, schau dir entweder die R-Dokumentation dazu an (unteres rechtes Panel bei Help oder alternativ `?mean`) oder suche im Internet. In unserem Kapitel zu Fehlermeldungen findest du sowohl einen Abschnitt zum Aufbau der [R-Dokumentation](Fehlermeldungen.qmd#r-dokumentation) sowie einen Abschnitt zum [Suchen im Internet](Fehlermeldungen.qmd#suchen-im-internet). \
 
 - `mean( )`
 
@@ -685,7 +686,7 @@ Im Folgenden wollen wir einen Datensatz hinsichtlich der fehlenden Werte (Missin
 
 <aside>[Hier](Fehlende-Werte.qmd) finden wir das Einführungsskript zu Fehlenden Werten.</aside>
 
-> *__Achtung__*:  Die Aufgabenstellungen hier überschneiden sich teilweise mit denen aus der [Übung zur Datenvorbereitung][Übung Datenvorbereitung]. Wir arbeiten hier aber mit anderen Datensätzen.
+> *__Achtung__*:  Die Aufgabenstellungen hier überschneiden sich teilweise mit denen aus der [Übung zur Datenvorbereitung](Datenvorbereitung.qmd#übung). Wir arbeiten hier aber mit anderen Datensätzen.
 
 
 
@@ -742,6 +743,7 @@ Den Datensatz können wir, nachdem wir ihn heruntergeladen haben, folgendermaße
 
 ```{r}
 #| echo: !expr F
+#| warning: false
 library(foreign)
 data_b <- read.spss("figures/Fehlende-Werte/Daten/AffectiveForecasting_0707017.sav", 
                     to.data.frame = TRUE)
@@ -850,6 +852,7 @@ Es fällt auf, dass Die Ausprägung `5=...` in keiner der Variablen vorkommt (H�
 
 ```{r}
 #| echo: !expr F
+#| warning: false
 data_b_test <- read.spss("figures/Fehlende-Werte/Daten/AffectiveForecasting_0707017.sav", 
                          to.data.frame = TRUE)
 data_b_test <- data_b_test[, c(79, 95)]
@@ -1200,13 +1203,14 @@ Wir bekommen hier nur eine Fehlermeldung ausgegeben. Das liegt daran, dass die F
 Das Signifikanzniveau legen wir auf $\alpha = 0.05$ fest.
 
 ```{r}
+#| warning: false
 # install.packages("remotes") 
 # remotes::install_github("njtierney/naniar") 
 library(naniar)
 mcar_test(data_b)
 ```
 
-Da der $p$-Wert *über* unserem á priori festgelegtem Signifikanzniveau $\alpha = 0.05$ liegt, haben wir Evidenz dafür, dass die Daten MCAR sind.
+Da der $p$-Wert *über* unserem a priori festgelegtem Signifikanzniveau $\alpha = 0.05$ liegt, haben wir Evidenz dafür, dass die Daten MCAR sind.
 
 > *__Achtung__*:  Das hier ein $p$-Wert von $1$ ausgegeben wird ist formal nicht korrekt. Das liegt wahrscheinlich an der Rundung, denn korrekterweise wäre es wohl $p=0.99$.
 
