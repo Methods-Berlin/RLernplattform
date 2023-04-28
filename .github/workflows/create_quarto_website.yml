@@ -36,8 +36,9 @@ jobs:
         run: |
           options(pkgType = "win.binary")
           options(install.packages.compile.from.source = "never")
-          install.packages(c("quarto", "devtools"))
-          devtools::install_deps(upgrade = "never")
+          install.packages(c("quarto", "devtools", "renv"))
+          renv::restore() # install packages in version defined by renv
+          #devtools::install_deps(upgrade = "never")
         shell: Rscript {0}
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
