@@ -15,16 +15,17 @@
 }
 ```
 
-````{r, include = FALSE}
-# knitr options
-knitr::opts_chunk$set(echo = TRUE, message = FALSE)
-````
 
 <div class="banner">
   <img src="figures/Logo_Lernplattform.png" alt="Logo" style="max-width: 100%; height: auto;">
 </div>
 
 # Willkommen auf der R-Lernplattform!
+
+````{r, include = FALSE}
+# knitr options
+knitr::opts_chunk$set(echo = TRUE, message = FALSE)
+````
 
 Die R-Lernplattform ist ein Projekt des Lehrstuhls für Psychologische Methodenlehre der Humboldt-Universität zu Berlin, das Studierenden den Einstieg in das Statistikprogramm R erleichtern soll. Ihr findet hier Anleitungen und Hilfestellungen, Übungsaufgaben und Antworten auf häufig gestellte Fragen zum praktischen Umgang mit R und der Benutzeroberfläche R-Studio.
 
