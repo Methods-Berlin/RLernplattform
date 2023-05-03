@@ -95,7 +95,7 @@ direkt Lösungshinweise.
 </div>
 
 Im zweiten Abschnitt beschäftigen wir uns mit spezielleren Themen des R-Universums.
-Hier beschäftigen wir uns mit einer etwas leidigen Angelegenheit, die uns insbesondere
+Hier widmen wir uns erst einer komplizierten Angelegenheit, die uns insbesondere
 bei Längsschnittdaten immer wieder beschäftigt: Dem Unterschied zwischen 
 [Wide- & Long-Format](Wide-and-Long-Format.qmd). Außerdem schauen wir uns
 [R Markdown](Markdown.qmd) genauer an. Mit R Markdown können wir Dokumente erstellen,
@@ -110,6 +110,12 @@ habt, dann kann Euch Git etwas weiterhelfen: Mit Git können wir "Schnappschüss
 unserer Dokumente machen (ähnlich wie ein Backup). Wenn wir das Dokument anschließend
 verändern, können wir immer wieder zum vorherigen Zustand zurückkehren. Gerade beim
 Programmieren ist das sehr hilfreich.
+
+<div class="section-banner">
+  <h2>Spezifische Themen aus der Lehre</h2>
+</div>
+
+Der dritte Abschnitt ist noch enger an den Modulen Psychologische Methodenlehre I und II des B.Sc. Psychologie an der Humboldt-Universität zu Berlin angelehnt und beschäftigt sich mit der Umsetzung und Interpretation der behandelten Analysen. Hier besprechen wir zuerst die [Annahmen der Multiplen Linearen Regression](Voraussetzungspruefung.qmd) und schauen uns dann die [Outputs der Linearen Regression](Outputs-ALM-FAQ.qmd) im Detail an.
 
 <div class="section-banner">
   <h2>Zur Plattform beitragen</h2>
