@@ -25,6 +25,7 @@ book:
         - Git.qmd
     - part: "Vertiefungen zu den Veranstaltungen Methodenlehre I und II"
       chapters:
+        - Missings.qmd
         - Voraussetzungspruefung.qmd
         - Outputs-ALM-FAQ.qmd
     - part: "Projekt-Dokumentation"
