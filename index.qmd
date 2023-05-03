@@ -83,6 +83,12 @@ Datensatz starren. Grafische Darstellungen können hier extrem hilfreich sein.
 Tatsächlich ist die grafische Darstellung von Daten eine der großen Stärken von
 R und wird ausführlich [in einem eigenen Kapitel](Grafiken.qmd) besprochen.
 
+Schlussendlich wollen wir uns noch mit einem unschönen Thema beschäftigen, das uns immer 
+wieder begegnen wird: [Fehlermeldungen](Fehlermeldungen.qmd). Wenn wir mit R arbeiten,
+machen wir immer wieder Fehler und R wird nicht müde, uns daran zu erinnern. Daher ist es
+sehr hilfreich, wenn man Fehlermeldungen lesen und verstehen kann. Diese geben uns oft auch 
+direkt Lösungshinweise.
+
 <div class="section-banner">
   <h2>Fortgeschrittene Datenanalyse mit R</h2>
 </div>
