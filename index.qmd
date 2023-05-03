@@ -80,8 +80,8 @@ umzugehen. Daher werden auch wir [Fehlende Werte](Fehlende-Werte.qmd) genauer be
 Mit Daten zu arbeiten ist oft sehr verwirrend. Zusammenhänge zwischen unterschiedlichen
 Variablen sind nur sehr schwer zu erkennen, auch wenn wir stundenlang auf unseren
 Datensatz starren. Grafische Darstellungen können hier extrem hilfreich sein. 
-Tatsächlich ist die grafische Darstellung von Daten eine der großen Stärken von
-R und wird ausführlich [in einem eigenen Kapitel](Grafiken.qmd) besprochen.
+Tatsächlich ist die [grafische Darstellung von Daten](Grafiken.qmd) eine der großen Stärken von
+R und wird ausführlich in einem eigenen Kapitel besprochen.
 
 Schlussendlich wollen wir uns noch mit einem unschönen Thema beschäftigen, das uns immer 
 wieder begegnen wird: [Fehlermeldungen](Fehlermeldungen.qmd). Wenn wir mit R arbeiten,
