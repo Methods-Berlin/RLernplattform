@@ -16,10 +16,10 @@ book:
         - Einfuehrung_in_RStudio.qmd
         - Pakete.qmd
         - Daten-importieren.qmd
-        - Fehlermeldungen.qmd
         - Datenvorbereitung.qmd
         - Fehlende-Werte.qmd
         - Grafiken.qmd
+        - Fehlermeldungen.qmd
     - part: "Weiterführende Themen in R"
       chapters:
         - Wide-and-Long-Format.qmd
