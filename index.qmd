@@ -1,12 +1,132 @@
-# Inhalte
+```{css echo=FALSE}
+/* Style for the banner */
+.banner {
+  background-color: #009193;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
 
+/* Style for the section banners */
+.section-banner {
+  background-color: #f8f9fa;
+  padding: 10px;
+  text-align: center;
+}
+```
+
+
+<div class="banner">
+  <img src="figures/Logo_Lernplattform.png" alt="Logo" style="max-width: 100%; height: auto;">
+</div>
+
+# Willkommen auf der R-Lernplattform!
 
 ````{r, include = FALSE}
 # knitr options
 knitr::opts_chunk$set(echo = TRUE, message = FALSE)
 ````
 
+Die R-Lernplattform ist ein Projekt des Lehrstuhls für Psychologische Methodenlehre der Humboldt-Universität zu Berlin, das Studierenden den Einstieg in das Statistikprogramm R erleichtern soll. Ihr findet hier Anleitungen und Hilfestellungen, Übungsaufgaben und Antworten auf häufig gestellte Fragen zum praktischen Umgang mit R und der Benutzeroberfläche R-Studio.
 
+Die Inhalte der Lernplattform orientieren sich primär an den Modulen Psychologische Methodenlehre I und II des B.Sc. Psychologie an der Humboldt-Universität zu Berlin. Studierende aus anderen Studiengängen, von anderen Hochschulen und anderweitig Interessierte sind auch herzlich eingeladen, die Lernplattform zu nutzen.
+
+Die Seite wird beständig weiterentwickelt. Wenn ihr Feedback oder Anregungen habt, könnt ihr uns <a href="http://methods-berlin.com/de/r-lernplattform-feedback/" target="_blank">hier</a> erreichen.
+
+Die R-Lernplattform gliedert sich in vier große Abschnitte, die jeweils in mehrere Kapitel unterteilt sind.
+
+<div class="section-banner">
+  <h2>Einführung in R</h2>
+</div>
+
+Dieser Abschnitt beschäftigt sich mit grundlegenden Themen, die einem den Einstieg in R erleichtern. Wenn ihr Neues erlernen oder bereits Gelerntes noch einmal auffrischen wollt, dann schaut gerne hier rein. Ihr findet hier auch weiterführende Literatur- und Websitesempfehlungen. 
+
+R ist eine Programmiersprache, die speziell für die statistische Datenanalyse entwickelt
+wurde. Mit R können wir sehr schnell, sehr komplexe Datenanalysen durchführen 
+- von z-test und t-test über lineare Regressionen und Strukturgleichungsmodelle,
+bis hin zu Machine Learning. Mit R zu arbeiten, kann allerdings sehr herausfordernd
+sein. Hier hilft RStudio, das uns viele Schritt in R vereinfacht.
+Falls Ihr noch kein R oder RStudio installiert habt, findet Ihr eine Anleitung im
+Kapitel [Installation und Aktualiserung von R und RStudio](Installation.qmd).
+
+Die Kapitel ["Einführung in R"](Einfuehrung_in_R.qmd) und ["Einführung in RStudio"](Einfuehrung_in_RStudio.qmd) vermitteln die Grundlagen der Arbeit mit
+R und RStudio.
+
+Ein großer Vorteil von R ist die Vielzahl an Paketen, die Entwickler:innen kostenfrei
+zur Verfügung stellen. Pakete können wir uns ähnlich wie Programme auf dem Computer 
+vorstellen: Wir brauchen Word, um Texte zu schreiben, Firefox, um Internetseiten 
+zu besuchen und Spotify, um Musik zu hören.  Das heißt, diese Programme erweitern
+unseren Computer um sehr spezifische Funktionen. Das gleiche gilt für R Pakete:
+Diese fügen R sehr spezifische Funktionen hinzu, die es uns beispielsweise erlauben,
+sehr einfach Daten zu importieren, zu verarbeiten und zu analysieren. Weil [Pakete](Pakete.qmd)
+so wichtig sind, haben wir ihnen ein eigenes Kapitel gewidmet.
+
+Sobald wir uns mit den Grundlagen vertraut gemacht haben, wollen wir mit unserem
+eigentlichen Thema starten: Der Analyse von Daten mit R. Hierfür müssen wir
+jedoch erst einmal [Daten einlesen](Daten-importieren.qmd). Ein Thema, das erst
+einmal einfach klingt, bei dem es aber ein paar Details zu beachten gilt.
+
+Meist lesen wir Daten im Rohzustand ein. Das heißt, diese sind noch nicht so 
+aufbereitet worden, dass wir sie gleich für unsere Analyse nutzen können. 
+Beispielsweise müssen wir noch Summenscores bilden, Items umkodieren, oder
+umbenennen. Im Kapitel ["Datenvorbereitung"](Datenvorbereitung.qmd) lernen
+wir mehr über diesen wichtigen Schritt der Datenanalyse!
+
+Fehlende Werte sind ein sehr häufiges Problem in der psychologischen Forschung.
+Diese entstehen beispielsweise, wenn Proband:innen nur einen Teil der Fragebögen
+ausfüllen oder ein technisches Problem bei der Datenerhebung auftritt. Da fehlende
+Werte so häufig auftreten, wurden auch viele Verfahren entwickelt, mit diesen 
+umzugehen. Daher werden auch wir [Fehlende Werte](Fehlende-Werte.qmd) genauer betrachten.
+
+Mit Daten zu arbeiten ist oft sehr verwirrend. Zusammenhänge zwischen unterschiedlichen
+Variablen sind nur sehr schwer zu erkennen, auch wenn wir stundenlang auf unseren
+Datensatz starren. Grafische Darstellungen können hier extrem hilfreich sein. 
+Tatsächlich ist die [grafische Darstellung von Daten](Grafiken.qmd) eine der großen Stärken von
+R und wird ausführlich in einem eigenen Kapitel besprochen.
+
+Schlussendlich wollen wir uns noch mit einem unschönen Thema beschäftigen, das uns immer 
+wieder begegnen wird: [Fehlermeldungen](Fehlermeldungen.qmd). Wenn wir mit R arbeiten,
+machen wir immer wieder Fehler und R wird nicht müde, uns daran zu erinnern. Daher ist es
+sehr hilfreich, wenn man Fehlermeldungen lesen und verstehen kann. Diese geben uns oft auch 
+direkt Lösungshinweise.
+
+<div class="section-banner">
+  <h2>Fortgeschrittene Datenanalyse mit R</h2>
+</div>
+
+Im zweiten Abschnitt beschäftigen wir uns mit spezielleren Themen des R-Universums.
+Hier widmen wir uns erst einer komplizierten Angelegenheit, die uns insbesondere
+bei Längsschnittdaten immer wieder beschäftigt: Dem Unterschied zwischen 
+[Wide- & Long-Format](Wide-and-Long-Format.qmd). Außerdem schauen wir uns
+[R Markdown](Markdown.qmd) genauer an. Mit R Markdown können wir Dokumente erstellen,
+in denen wir R und Text verbinden. Beispielsweise ist die gesamte Webseite, auf 
+der Wir uns gerade befinden in R Markdown entstanden. Die Kombination aus R und
+Text kann sehr hilfreich sein, wenn wir die Ergebnisse unserer Analysen mit anderen
+teilen wollen. Diese müssen dann nicht den R-Code ausführen sondern bekommen
+von uns direkt ein pdf mit den Ergebnissen der Analyse.
+Schlussendlich wollen wir noch einen Blick auf [Git und GitLab](Git.qmd) werfen.
+Wenn Ihr häufiger Dokumente mit dem Namen "meine_analyse.final2_final_final.R"
+habt, dann kann Euch Git etwas weiterhelfen: Mit Git können wir "Schnappschüsse" 
+unserer Dokumente machen (ähnlich wie ein Backup). Wenn wir das Dokument anschließend
+verändern, können wir immer wieder zum vorherigen Zustand zurückkehren. Gerade beim
+Programmieren ist das sehr hilfreich.
+
+<div class="section-banner">
+  <h2>Spezifische Themen aus der Lehre</h2>
+</div>
+
+Der dritte Abschnitt ist noch enger an den Modulen Psychologische Methodenlehre I und II des B.Sc. Psychologie an der Humboldt-Universität zu Berlin angelehnt und beschäftigt sich mit der Umsetzung und Interpretation der behandelten Analysen. Hier besprechen wir zuerst die [Annahmen der Multiplen Linearen Regression](Voraussetzungspruefung.qmd) und schauen uns dann die [Outputs der Linearen Regression](Outputs-ALM-FAQ.qmd) im Detail an.
+
+<div class="section-banner">
+  <h2>Zur Plattform beitragen</h2>
+</div>
+
+Die gesamte R Lernplattform ist frei zugänglich. Wenn Ihr neue Kapitel vorschlagen wollt,
+Fehler findet, oder Verbesserungen einarbeiten wollt, dann könnt Ihr dies
+auf [Github](https://github.com/Methods-Berlin/RLernplattform) tun. 
+Im Kapitel ["Zur R-Lernplattform Beitragen"](Zur-Lernplattform-Beitragen.qmd) 
+findet Ihr alles, was Ihr braucht, um am Projekt teilzuhaben. Bei Fragen wendet
+Euch sehr gerne an uns!
 
 ```{r include=FALSE}
 # automatically create a bib database for R packages

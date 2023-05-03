@@ -5,6 +5,7 @@ project:
 book:
   title: "R Lernplattform"
   author: "Methods Group Berlin"
+  favicon: figures/Logo_Favicon.png
   chapters:
     - index.qmd
     - part: "Einführung in R"
@@ -14,10 +15,10 @@ book:
         - Einfuehrung_in_RStudio.qmd
         - Pakete.qmd
         - Daten-importieren.qmd
-        - Fehlermeldungen.qmd
         - Datenvorbereitung.qmd
         - Fehlende-Werte.qmd
         - Grafiken.qmd
+        - Fehlermeldungen.qmd
     - part: "Weiterführende Themen in R"
       chapters:
         - Wide-and-Long-Format.qmd
@@ -25,6 +26,7 @@ book:
         - Git.qmd
     - part: "Vertiefungen zu den Veranstaltungen Methodenlehre I und II"
       chapters:
+        - Missings.qmd
         - Voraussetzungspruefung.qmd
         - Outputs-ALM-FAQ.qmd
     - part: "Projekt-Dokumentation"
