@@ -13,7 +13,7 @@ In diesem Kapitel wollen wir uns verschiedene Schritte der Datenvorbereitung ans
 
 Wir fangen mit grundsätzlichen Überprüfungen unserer der Daten an. Nachfolgend arbeiten wir uns in spezifischere Aufbereitungsbereiche vor, die wir in Abhängigkeit unserer geplanten Auswertung ggf. benötigen.
 
-<details><summary>Beispieldatensätze für dieses Kapitel</summary>
+<details><summary><a id="data">Beispieldatensätze für dieses Kapitel</a></summary>
 Für das vorliegende Kapitel nutzen wir **mehrere Datensätze**, um die unterschiedlichen Verarbeitungsschritte zu demonstrieren.
 
 Den Datensatz airquality werden wir am meisten nutzen. Dieser enthält Daten aus einer Untersuchung der **Luftqualität in New York**, die von Mai bis September des Jahres 1973 stattfand. Der Datensatz ist standardmäßig in R enthalten und wir bekommen ihn mit der Funktion `data()` in unser R-Environment:
@@ -65,7 +65,7 @@ Der Datensatz enthält 102 Variablen. Einige davon schauen wir uns im Laufe des 
 
 Die Datensätze vornamen_13 und vornamen_14 enthalten die **Vornamen der Neugeborenen in München**, jeweils für die Jahre 2013 und 2014. Diese werden wir nur für [2. Datensätze zusammenführen](Datenvorbereitung.qmd#datensätze-zusammenführen) nutzen.
 
-Zuerst laden wir die csv-Dateien für <a href="https://www.opengov-muenchen.de/dataset/6acc34a9-762e-4e7f-83b0-250654478134/resource/f47ec60f-8839-4e83-9c7c-492c8b17d7b5/download/vornamen-von-neugeborenen2013.csv" target="_blank">2013</a> und <a href="https://www.opengov-muenchen.de/dataset/582aac00-aa2d-4b00-ac90-c4e5be7fa485/resource/cebd2d67-94e6-4667-a850-415f863d3b10/download/vornamen-von-neugeborenen-2014.csv" target="_blank">2014</a> runter und lesen sie dann folgendermaßen in R ein:
+Zuerst laden wir die csv-Dateien für <a href="https://opendata.muenchen.de/dataset/99ad40ec-9d7b-4a2e-87eb-9bac783fb57a/resource/17c4915d-6b8b-470f-a6b6-31f61b10a285/download/vornamen_2013.csv" target="_blank">2013</a> und <a href="https://opendata.muenchen.de/dataset/99ad40ec-9d7b-4a2e-87eb-9bac783fb57a/resource/5d581ba3-4c7e-4057-8be1-04d56bb0d8d6/download/vornamen_2014.csv" target="_blank">2014</a> runter und lesen sie dann folgendermaßen in R ein:
 
 ```{r}
 #| eval: false
@@ -112,7 +112,7 @@ Wir schauen uns nachfolgend nur die Datensätze **airquality** und **PWE_data** 
 
 Generell wenn wir mit Daten arbeiten, ist es ratsam, sich zuallererst Gedanken darüber zu machen, welche Informationen wir diesen entnehmen können (**Messniveau**) und ob sie so gespeichert sind, dass R sie richtig erkennt (**Datentypen und -strukturen**).
 
-Die nachfolgende Wiederholung ist eine verkürzte Variante des Abschnitts [Daten][Daten] aus dem Kapitel zu [Einführung in R](Einfuehrung_in_R.qmd).
+Die nachfolgende Wiederholung ist eine verkürzte Variante des Abschnitts [Daten](Einfuehrung_in_R.qmd#daten) aus dem Kapitel zu [Einführung in R](Einfuehrung_in_R.qmd).
 
 
 #### Messniveaus
@@ -255,7 +255,7 @@ table_kat %>%
   row_spec(0, color = "white", background = "#009193") %>%
   column_spec(1:2, bold=TRUE, color = "white", background = "#009193") %>%
   collapse_rows(columns = 1, valign = "middle") %>%
-  footnote(general = "<font size=\"1\"><sup>1</sup> Faktorisieren (unordered factor) notwendig *wenn* keine Indikatorvariable(n) genutzt <sup>2</sup> Faktorisieren (ordered factor) notwendig</font>", general_title = "", escape = FALSE) 
+  footnote(general = "<font size=\"1\"><sup>1</sup> Faktorisieren (unordered factor) notwendig wenn keine Indikatorvariable(n) genutzt <sup>2</sup> Faktorisieren (ordered factor) notwendig</font>", general_title = "", escape = FALSE) 
 ```
 
 Mit der Funktion `str()` können wir uns eine kompakte Übersicht der enthaltenen Variablen (d.h. ihr Datentyp bzw. die Datenstruktur Faktor sowie jeweils die ersten 10 Werte) der Datenstruktur (hier: Dataframe) ausgeben lassen. So können wir schauen, ob die Daten auch entsprechend ihres Messniveaus kodiert sind.
@@ -495,15 +495,15 @@ table_wide %>% mutate(
   t2 = cell_spec(t2, background="grey"),
   t3 = cell_spec(t3, background="grey")) %>% 
   kable("html", align="c", escape=FALSE) %>%
-  row_spec(1, color="darkred") %>% 
-  row_spec(2, color="dodgerblue") %>%
+  row_spec(1, color="red") %>% 
+  row_spec(2, color="blue") %>%
   kable_styling(position="center")
 ```
 
 <aside>\
-<font color="darkred">Untersuchungseinheit 1</font>\
-<font color="dodgerblue">Untersuchungseinheit 2</font>\
-<span style=" border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: grey !important;" >Messwiederholung</span>\
+<font color="red">Untersuchungseinheit 1</font>\
+<font color="blue">Untersuchungseinheit 2</font>\
+<span style=" border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: darkgrey !important;"> Messwiederholung </span>\
 <span style=" border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lightgrey !important;" >Rater</span></aside>
 
 **Beispiel 2 Wide-Format: Rater**
@@ -518,8 +518,8 @@ table_wide %>% mutate(
   friend = cell_spec(friend, background="lightgrey"),
   parent = cell_spec(parent, background="lightgrey")) %>% 
   kable("html", align="c", escape=FALSE) %>%
-  row_spec(1, color="darkred") %>% 
-  row_spec(2, color="dodgerblue") %>%
+  row_spec(1, color="red") %>% 
+  row_spec(2, color="blue") %>%
   kable_styling(position="center")
 ```
 
@@ -865,7 +865,7 @@ kable(head(vornamen_merge_row))
 
 **Synonyme**: Splitten, Subsetten, Filtern, Selektieren, Extrahieren\
 
-Manchmal möchten wir nur bestimmte Variablen bzw. bestimmte Fälle aus einem Datensatz betrachten. Generell bietet es sich an, dafür **reguläre Ausdrücke** (<a href="https://rstudio.com/wp-content/uploads/2016/09/RegExCheatsheet.pdf" target="_blank">*regular expressions*</a> z.B. die Metacharactere `.*`, `|`, `^` und `$`) und **logische Operatoren** (*logical operators* z.B. `>`, `<` und `==`) zu nutzen. 
+Manchmal möchten wir nur bestimmte Variablen bzw. bestimmte Fälle aus einem Datensatz betrachten. Generell bietet es sich an, dafür **reguläre Ausdrücke** (<a href="https://github.com/rstudio/cheatsheets/raw/main/regex.pdf" target="_blank">*regular expressions*</a> z.B. die Metacharactere `.*`, `|`, `^` und `$`) und **logische Operatoren** (*logical operators* z.B. `>`, `<` und `==`) zu nutzen. 
 
 Wie wir Variablen (Spalten) und Fälle (Zeilen) selektieren und in einem neuen Dataframe speichern können, schauen wir uns nun an.
 
@@ -934,7 +934,7 @@ rmarkdown::paged_table(df_var_mit_o, options(rows.print=5))
 
 Mit dieser Methode haben wir gleich den Vorteil, dass die Namen der Variablen im neuen Datensatz gleich denen im ursprünglichen Datensatz ist.
 
-Wir können unsere Suche mit `grep()` auch noch spezifischer machen, indem wir die **regulären Operatoren** nutzen. Mit `^o` suchen wir Variablen, die mit einem "o" **beginnen**; mit `o$` jene die mit "o" **enden**. Mit `^o|o$` suchen wir Variablen, die entweder mit einem "o" beginnen **oder** enden. Ein Beispiel dazu finden wir im Abschnitt [Fälle mit `grep()` extrahieren](#grep2). Mit `^o.*o$` suchen wir Variablen, die mit einem "o" beginnen **und** enden.
+Wir können unsere Suche mit `grep()` auch noch spezifischer machen, indem wir die **regulären Operatoren** nutzen. Mit `^o` suchen wir Variablen, die mit einem "o" **beginnen**; mit `o$` jene die mit "o" **enden**. Mit `^o|o$` suchen wir Variablen, die entweder mit einem "o" beginnen **oder** enden. Mit `^o.*o$` suchen wir Variablen, die mit einem "o" beginnen **und** enden.
 </details>
 
 
@@ -1209,7 +1209,7 @@ Wir wollen nur jene Fälle, die in der zweiten Hälfte des Junis erhoben wurden.
 df_month6_day15ff <- dplyr::filter(airquality, Month == 6, Day >= 15)
 ```
 
-[Zu Beginn](#mask) haben wir erläutert, warum wir manchmal `::` nutzen sollten.
+[Zu Beginn](#maskierung-wenn-verschiedene-pakete-gleich-benannte-funktionen-enthalten) haben wir erläutert, warum wir manchmal `::` nutzen sollten.
 
 ```{r}
 #| echo: false
@@ -1308,7 +1308,7 @@ rmarkdown::paged_table(df_ascend_temp_wind_2, options(rows.print=5))
 
 ## Kodierung ändern
 
-Wenn die Daten nicht in einer angemessenen Kodierung vorliegen, muss man diese nachträglich anpassen bzw. neu erstellen. Die Kodierung einer Variablen ist von ihrem [Messniveau](#Recap:-Kodierung-von-Daten) abhängig.
+Wenn die Daten nicht in einer angemessenen Kodierung vorliegen, muss man diese nachträglich anpassen bzw. neu erstellen. Die Kodierung einer Variablen ist von ihrem [Messniveau](#recap-kodierung-von-daten) abhängig.
 
 Für dieses Kapitel beschränken wir uns auf die Nutzung des Datensatzes **PWE_data**, welchen wir [zu Beginn](#data) heruntergeladen haben.
 
@@ -1504,16 +1504,16 @@ table <-
     ncol = 3,
     byrow = T
   )
-colnames(table) <- c("Interzept $b_0$", "Steigung $b_j$", 
+colnames(table) <- c("Intercept b<sub>0</sub>", "Steigung b<sub>j</sub>", 
                      "mögliche Anwendung")
-rownames(table) <- c("**Dummy**", "**Effekt**", "**Kontrast**")
+rownames(table) <- c("<b>Dummy</b>", "<b>Effekt</b>", "<b>Kontrast</b>")
 
 library(kableExtra)
 library(knitr)
 
-kable(table) %>%
+kable(table, escape = FALSE) %>%
   kable_styling("bordered", full_width = TRUE) %>%
-    footnote(general = "\n<font size=\"2\">Die Interpretation der Mittelwerte und Differenzen hängt zusätzlich davon ab, ob ein **balanciertes** oder **unbalanciertes** Design vorliegt (d.h. ob die Gruppengrößen gleich oder ungleich sind).", general_title = "", escape = FALSE) %>%
+    footnote(general = "\n<font size=\"2\">Die Interpretation der Mittelwerte und Differenzen hängt zusätzlich davon ab, ob ein <b>balanciertes</b> oder <b>unbalanciertes</b> Design vorliegt (d.h. ob die Gruppengrößen gleich oder ungleich sind).", general_title = "", escape = FALSE) %>%
   row_spec(0,
            bold = T,
            color = "white",
@@ -1766,7 +1766,7 @@ Wenn wir nicht mit den Rohdaten arbeiten wollen, sondern Informationen von mehre
 
 Wir nutzen zu diesem Zweck den Datensatz **PWE_data**, welcher aus einer psychometrischen Erhebung stammt. [Zu Beginn](#data) des Kapitels haben wir den Datensatz heruntergeladen.
 
-> *__Achtung__*:  Die Werte der Variablen `Q9A`, `Q13A` und `Q15A`, die wir im Folgenden nutzen werden, wurden im Abschnitt [Umkodieren](Datenvorbereitung.qmd#Umkodieren) rekodiert, weil sie negativ gepolt sind.
+> *__Achtung__*:  Die Werte der Variablen `Q9A`, `Q13A` und `Q15A`, die wir im Folgenden nutzen werden, wurden im Abschnitt [Umkodieren](Datenvorbereitung.qmd#umkodieren) rekodiert, weil sie negativ gepolt sind.
 
 
 
@@ -1887,7 +1887,7 @@ rmarkdown::paged_table(PWE_data_mean, options(rows.print=5))
 
 ### Cheat Sheet **dplyr**
 
-Wer Gefallen an den tidyverse-Funktionen `select()`, `filter()`, `mutate()`,  und `summarise()` gefunden hat, kann ein Cheat Sheet zur **Data Transformation mit dplyr** in <a href="https://github.com/rstudio/cheatsheets/raw/master/translations/german/data-transformation-cheatsheet_de.pdf" target="_blank">deutsch</a> oder <a href="https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf" target="_blank">englisch</a> herunterladen.
+Wer Gefallen an den tidyverse-Funktionen `select()`, `filter()`, `mutate()`,  und `summarise()` gefunden hat, kann ein Cheat Sheet zur **Data Transformation mit dplyr** in <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/translations/german/data-transformation_de.pdf" target="_blank">deutsch</a> oder <a href="https://github.com/rstudio/cheatsheets/raw/main/data-transformation.pdf" target="_blank">englisch</a> herunterladen.
 
 ### Stichprobengröße
 
@@ -1895,7 +1895,7 @@ Es ist generell sehr wichtig, auch bei der Datenvorbereitung, ein Auge auf die S
 
 Wenn wir Auswertungen machen, in denen wir Ergebnisobjekte bekommen (z.B. bei der Regression mit `lm()`), können wir die Information zu $N$ daraus ablesen. Dazu klicken wir auf das Ergebnisobjekt im Environment (z.B. `lm_kontr`). Unter `model` sehen wir die Dimensionalität des **genutzten** Teil des Datensatzes und können anhand der Anzahl der Zeilen $N$ ablesen (z.B. bei `lm_kontr`: `[116 x 3]` d.h. 116 Fälle).
 
-<aside>In `lm()` wird listwise deletion angewendet, d.h. dass jede Zeile, die mindestens ein Missing enthält, aus der Analyse ausgeschlossen wird. Mehr zu Fehlenden Werten im gleichnamigen [Kapitel](Fehlende-werte.qmd).</aside>
+<aside>In `lm()` wird listwise deletion angewendet, d.h. dass jede Zeile, die mindestens ein Missing enthält, aus der Analyse ausgeschlossen wird. Mehr zu Fehlenden Werten im gleichnamigen [Kapitel](Fehlende-Werte.qmd).</aside>
 
 
 ### Replizierbarkeit
