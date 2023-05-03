@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>R Lernplattform - 8&nbsp; Datenvorbereitung</title>
+<title>R Lernplattform - 7&nbsp; Datenvorbereitung</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,7 +65,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./Fehlende-Werte.html" rel="next">
-<link href="./Fehlermeldungen.html" rel="prev">
+<link href="./Daten-importieren.html" rel="prev">
+<link href="./figures/Logo_Favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -114,7 +115,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Installation.html">Einführung in R</a></li><li class="breadcrumb-item"><a href="./Datenvorbereitung.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Datenvorbereitung</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Installation.html">Einführung in R</a></li><li class="breadcrumb-item"><a href="./Datenvorbereitung.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Datenvorbereitung</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -142,7 +143,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Inhalte</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Willkommen auf der R-Lernplattform!</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -186,26 +187,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Fehlermeldungen.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Fehlermeldungen</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./Datenvorbereitung.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Datenvorbereitung</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Datenvorbereitung</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Fehlende-Werte.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Fehlende Werte</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Fehlende Werte</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Grafiken.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Grafiken</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Grafiken</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Fehlermeldungen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Fehlermeldungen</span></span></a>
   </div>
 </li>
       </ul>
@@ -295,45 +296,45 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#grundlegende-erste-schritte" id="toc-grundlegende-erste-schritte" class="nav-link active" data-scroll-target="#grundlegende-erste-schritte"><span class="header-section-number">8.1</span> Grundlegende erste Schritte</a>
+  <li><a href="#grundlegende-erste-schritte" id="toc-grundlegende-erste-schritte" class="nav-link active" data-scroll-target="#grundlegende-erste-schritte"><span class="header-section-number">7.1</span> Grundlegende erste Schritte</a>
   <ul class="collapse">
-  <li><a href="#recap-kodierung-von-daten" id="toc-recap-kodierung-von-daten" class="nav-link" data-scroll-target="#recap-kodierung-von-daten"><span class="header-section-number">8.1.1</span> <strong>Recap</strong>: Kodierung von Daten</a></li>
-  <li><a href="#dataframe" id="toc-dataframe" class="nav-link" data-scroll-target="#dataframe"><span class="header-section-number">8.1.2</span> Dataframe</a></li>
-  <li><a href="#plausibilitäts-check" id="toc-plausibilitäts-check" class="nav-link" data-scroll-target="#plausibilitäts-check"><span class="header-section-number">8.1.3</span> Plausibilitäts-Check</a></li>
-  <li><a href="#fehlende-werte" id="toc-fehlende-werte" class="nav-link" data-scroll-target="#fehlende-werte"><span class="header-section-number">8.1.4</span> Fehlende Werte</a></li>
-  <li><a href="#faktorisieren" id="toc-faktorisieren" class="nav-link" data-scroll-target="#faktorisieren"><span class="header-section-number">8.1.5</span> Faktorisieren</a></li>
-  <li><a href="#wide--und-long-format" id="toc-wide--und-long-format" class="nav-link" data-scroll-target="#wide--und-long-format"><span class="header-section-number">8.1.6</span> Wide- und Long-Format</a></li>
+  <li><a href="#recap-kodierung-von-daten" id="toc-recap-kodierung-von-daten" class="nav-link" data-scroll-target="#recap-kodierung-von-daten"><span class="header-section-number">7.1.1</span> <strong>Recap</strong>: Kodierung von Daten</a></li>
+  <li><a href="#dataframe" id="toc-dataframe" class="nav-link" data-scroll-target="#dataframe"><span class="header-section-number">7.1.2</span> Dataframe</a></li>
+  <li><a href="#plausibilitäts-check" id="toc-plausibilitäts-check" class="nav-link" data-scroll-target="#plausibilitäts-check"><span class="header-section-number">7.1.3</span> Plausibilitäts-Check</a></li>
+  <li><a href="#fehlende-werte" id="toc-fehlende-werte" class="nav-link" data-scroll-target="#fehlende-werte"><span class="header-section-number">7.1.4</span> Fehlende Werte</a></li>
+  <li><a href="#faktorisieren" id="toc-faktorisieren" class="nav-link" data-scroll-target="#faktorisieren"><span class="header-section-number">7.1.5</span> Faktorisieren</a></li>
+  <li><a href="#wide--und-long-format" id="toc-wide--und-long-format" class="nav-link" data-scroll-target="#wide--und-long-format"><span class="header-section-number">7.1.6</span> Wide- und Long-Format</a></li>
   </ul></li>
-  <li><a href="#datensätze-zusammenführen" id="toc-datensätze-zusammenführen" class="nav-link" data-scroll-target="#datensätze-zusammenführen"><span class="header-section-number">8.2</span> Datensätze zusammenführen</a>
+  <li><a href="#datensätze-zusammenführen" id="toc-datensätze-zusammenführen" class="nav-link" data-scroll-target="#datensätze-zusammenführen"><span class="header-section-number">7.2</span> Datensätze zusammenführen</a>
   <ul class="collapse">
-  <li><a href="#selbe-variablen-unterschiedliche-fälle" id="toc-selbe-variablen-unterschiedliche-fälle" class="nav-link" data-scroll-target="#selbe-variablen-unterschiedliche-fälle"><span class="header-section-number">8.2.1</span> Selbe Variablen, unterschiedliche Fälle</a></li>
-  <li><a href="#unterschiedliche-variablen-selbe-fälle" id="toc-unterschiedliche-variablen-selbe-fälle" class="nav-link" data-scroll-target="#unterschiedliche-variablen-selbe-fälle"><span class="header-section-number">8.2.2</span> Unterschiedliche Variablen, selbe Fälle</a></li>
+  <li><a href="#selbe-variablen-unterschiedliche-fälle" id="toc-selbe-variablen-unterschiedliche-fälle" class="nav-link" data-scroll-target="#selbe-variablen-unterschiedliche-fälle"><span class="header-section-number">7.2.1</span> Selbe Variablen, unterschiedliche Fälle</a></li>
+  <li><a href="#unterschiedliche-variablen-selbe-fälle" id="toc-unterschiedliche-variablen-selbe-fälle" class="nav-link" data-scroll-target="#unterschiedliche-variablen-selbe-fälle"><span class="header-section-number">7.2.2</span> Unterschiedliche Variablen, selbe Fälle</a></li>
   </ul></li>
-  <li><a href="#daten-extrahieren" id="toc-daten-extrahieren" class="nav-link" data-scroll-target="#daten-extrahieren"><span class="header-section-number">8.3</span> Daten extrahieren</a>
+  <li><a href="#daten-extrahieren" id="toc-daten-extrahieren" class="nav-link" data-scroll-target="#daten-extrahieren"><span class="header-section-number">7.3</span> Daten extrahieren</a>
   <ul class="collapse">
-  <li><a href="#variablen" id="toc-variablen" class="nav-link" data-scroll-target="#variablen"><span class="header-section-number">8.3.1</span> Variablen</a></li>
-  <li><a href="#fälle" id="toc-fälle" class="nav-link" data-scroll-target="#fälle"><span class="header-section-number">8.3.2</span> Fälle</a></li>
+  <li><a href="#variablen" id="toc-variablen" class="nav-link" data-scroll-target="#variablen"><span class="header-section-number">7.3.1</span> Variablen</a></li>
+  <li><a href="#fälle" id="toc-fälle" class="nav-link" data-scroll-target="#fälle"><span class="header-section-number">7.3.2</span> Fälle</a></li>
   </ul></li>
-  <li><a href="#daten-sortieren" id="toc-daten-sortieren" class="nav-link" data-scroll-target="#daten-sortieren"><span class="header-section-number">8.4</span> Daten sortieren</a></li>
-  <li><a href="#kodierung-ändern" id="toc-kodierung-ändern" class="nav-link" data-scroll-target="#kodierung-ändern"><span class="header-section-number">8.5</span> Kodierung ändern</a>
+  <li><a href="#daten-sortieren" id="toc-daten-sortieren" class="nav-link" data-scroll-target="#daten-sortieren"><span class="header-section-number">7.4</span> Daten sortieren</a></li>
+  <li><a href="#kodierung-ändern" id="toc-kodierung-ändern" class="nav-link" data-scroll-target="#kodierung-ändern"><span class="header-section-number">7.5</span> Kodierung ändern</a>
   <ul class="collapse">
-  <li><a href="#umkodieren" id="toc-umkodieren" class="nav-link" data-scroll-target="#umkodieren"><span class="header-section-number">8.5.1</span> Umkodieren</a></li>
-  <li><a href="#indikatorvariablen-kodierung-nominaler-merkmale" id="toc-indikatorvariablen-kodierung-nominaler-merkmale" class="nav-link" data-scroll-target="#indikatorvariablen-kodierung-nominaler-merkmale"><span class="header-section-number">8.5.2</span> Indikatorvariablen: Kodierung nominaler Merkmale</a></li>
+  <li><a href="#umkodieren" id="toc-umkodieren" class="nav-link" data-scroll-target="#umkodieren"><span class="header-section-number">7.5.1</span> Umkodieren</a></li>
+  <li><a href="#indikatorvariablen-kodierung-nominaler-merkmale" id="toc-indikatorvariablen-kodierung-nominaler-merkmale" class="nav-link" data-scroll-target="#indikatorvariablen-kodierung-nominaler-merkmale"><span class="header-section-number">7.5.2</span> Indikatorvariablen: Kodierung nominaler Merkmale</a></li>
   </ul></li>
-  <li><a href="#summary-variablen" id="toc-summary-variablen" class="nav-link" data-scroll-target="#summary-variablen"><span class="header-section-number">8.6</span> Summary-Variablen</a></li>
-  <li><a href="#weitere-wichtige-hinweise" id="toc-weitere-wichtige-hinweise" class="nav-link" data-scroll-target="#weitere-wichtige-hinweise"><span class="header-section-number">8.7</span> Weitere wichtige Hinweise</a>
+  <li><a href="#summary-variablen" id="toc-summary-variablen" class="nav-link" data-scroll-target="#summary-variablen"><span class="header-section-number">7.6</span> Summary-Variablen</a></li>
+  <li><a href="#weitere-wichtige-hinweise" id="toc-weitere-wichtige-hinweise" class="nav-link" data-scroll-target="#weitere-wichtige-hinweise"><span class="header-section-number">7.7</span> Weitere wichtige Hinweise</a>
   <ul class="collapse">
-  <li><a href="#cheat-sheet-dplyr" id="toc-cheat-sheet-dplyr" class="nav-link" data-scroll-target="#cheat-sheet-dplyr"><span class="header-section-number">8.7.1</span> Cheat Sheet <strong>dplyr</strong></a></li>
-  <li><a href="#stichprobengröße" id="toc-stichprobengröße" class="nav-link" data-scroll-target="#stichprobengröße"><span class="header-section-number">8.7.2</span> Stichprobengröße</a></li>
-  <li><a href="#replizierbarkeit" id="toc-replizierbarkeit" class="nav-link" data-scroll-target="#replizierbarkeit"><span class="header-section-number">8.7.3</span> Replizierbarkeit</a></li>
+  <li><a href="#cheat-sheet-dplyr" id="toc-cheat-sheet-dplyr" class="nav-link" data-scroll-target="#cheat-sheet-dplyr"><span class="header-section-number">7.7.1</span> Cheat Sheet <strong>dplyr</strong></a></li>
+  <li><a href="#stichprobengröße" id="toc-stichprobengröße" class="nav-link" data-scroll-target="#stichprobengröße"><span class="header-section-number">7.7.2</span> Stichprobengröße</a></li>
+  <li><a href="#replizierbarkeit" id="toc-replizierbarkeit" class="nav-link" data-scroll-target="#replizierbarkeit"><span class="header-section-number">7.7.3</span> Replizierbarkeit</a></li>
   </ul></li>
-  <li><a href="#übung" id="toc-übung" class="nav-link" data-scroll-target="#übung"><span class="header-section-number">8.8</span> Übung</a>
+  <li><a href="#übung" id="toc-übung" class="nav-link" data-scroll-target="#übung"><span class="header-section-number">7.8</span> Übung</a>
   <ul class="collapse">
-  <li><a href="#übung-1-erste-schritte" id="toc-übung-1-erste-schritte" class="nav-link" data-scroll-target="#übung-1-erste-schritte"><span class="header-section-number">8.8.1</span> Übung 1: Erste Schritte</a></li>
-  <li><a href="#übung-2-extrahieren-von-daten" id="toc-übung-2-extrahieren-von-daten" class="nav-link" data-scroll-target="#übung-2-extrahieren-von-daten"><span class="header-section-number">8.8.2</span> Übung 2: Extrahieren von Daten</a></li>
-  <li><a href="#übung-3-sortieren-von-daten" id="toc-übung-3-sortieren-von-daten" class="nav-link" data-scroll-target="#übung-3-sortieren-von-daten"><span class="header-section-number">8.8.3</span> Übung 3: Sortieren von Daten</a></li>
-  <li><a href="#übung-4-änderung-der-kodierung-von-daten" id="toc-übung-4-änderung-der-kodierung-von-daten" class="nav-link" data-scroll-target="#übung-4-änderung-der-kodierung-von-daten"><span class="header-section-number">8.8.4</span> Übung 4: Änderung der Kodierung von Daten</a></li>
-  <li><a href="#übung-5-erstellen-von-summary-variablen" id="toc-übung-5-erstellen-von-summary-variablen" class="nav-link" data-scroll-target="#übung-5-erstellen-von-summary-variablen"><span class="header-section-number">8.8.5</span> Übung 5: Erstellen von Summary-Variablen</a></li>
+  <li><a href="#übung-1-erste-schritte" id="toc-übung-1-erste-schritte" class="nav-link" data-scroll-target="#übung-1-erste-schritte"><span class="header-section-number">7.8.1</span> Übung 1: Erste Schritte</a></li>
+  <li><a href="#übung-2-extrahieren-von-daten" id="toc-übung-2-extrahieren-von-daten" class="nav-link" data-scroll-target="#übung-2-extrahieren-von-daten"><span class="header-section-number">7.8.2</span> Übung 2: Extrahieren von Daten</a></li>
+  <li><a href="#übung-3-sortieren-von-daten" id="toc-übung-3-sortieren-von-daten" class="nav-link" data-scroll-target="#übung-3-sortieren-von-daten"><span class="header-section-number">7.8.3</span> Übung 3: Sortieren von Daten</a></li>
+  <li><a href="#übung-4-änderung-der-kodierung-von-daten" id="toc-übung-4-änderung-der-kodierung-von-daten" class="nav-link" data-scroll-target="#übung-4-änderung-der-kodierung-von-daten"><span class="header-section-number">7.8.4</span> Übung 4: Änderung der Kodierung von Daten</a></li>
+  <li><a href="#übung-5-erstellen-von-summary-variablen" id="toc-übung-5-erstellen-von-summary-variablen" class="nav-link" data-scroll-target="#übung-5-erstellen-von-summary-variablen"><span class="header-section-number">7.8.5</span> Übung 5: Erstellen von Summary-Variablen</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -343,7 +344,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Datenvorbereitung</span></h1>
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Datenvorbereitung</span></h1>
 </div>
 
 
@@ -468,17 +469,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <blockquote class="blockquote">
 <p><em><strong>Achtung</strong></em>: Es kommt häufiger zu <strong>Problemen bei der Ausführung der Funktionen</strong> <code>filter()</code>, <code>select()</code> und <code>summarise()</code> aus dem Paket <strong>dpylr</strong>, wenn die Pakete <strong>stats</strong> (Basispaket; <code>filter()</code>), <strong>MASS</strong> (<code>select()</code>) oder <strong>plyr</strong> (<code>summarise()</code>) ebenfalls geladen sind. Auch bei anderen gleichnamigen Funktionen aus verschiedenen geladenen Paketen kann es durch die sogenannte Maskierung zu Problemen kommen. Weil wir auch Pakete mit gleich benannten Funktionen nutzen, greifen wir teils auf die eindeutige Auswahl von Funktionen mittels <code>::</code> zurück. Für mehr <strong>Informationen zum Maskieren</strong> können wir im <a href="./Pakete.html#maskierung-wenn-verschiedene-pakete-gleich-benannte-funktionen-enthalten">gleichnamigen Abschnitt</a> im Kapitel <strong>Pakete</strong> nachschauen. Mehr <strong>Informationen zu dem speziellen Problem mit dpylr</strong> finden wir in diesem <a href="https://stackoverflow.com/questions/24202120/dplyrselect-function-clashes-with-massselect" target="_blank">Forumseintrag</a>.</p>
 </blockquote>
-<section id="grundlegende-erste-schritte" class="level2 page-columns page-full" data-number="8.1">
-<h2 data-number="8.1" class="anchored" data-anchor-id="grundlegende-erste-schritte"><span class="header-section-number">8.1</span> Grundlegende erste Schritte</h2>
+<section id="grundlegende-erste-schritte" class="level2 page-columns page-full" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="grundlegende-erste-schritte"><span class="header-section-number">7.1</span> Grundlegende erste Schritte</h2>
 <p>Zuerst widmen wir unsere Aufmerksamkeit der Überprüfung wichtiger übergreifender Punkte der Datenvorbereitung. Diese sind: ob unser Datensatz als <strong><a href="#dataframe">Dataframe</a></strong> vorliegt, ob unsere <strong><a href="#plausibilitäts-check">Daten plausibel</a></strong> und <strong><a href="#fehlende-werte">fehlende Werte korrekt kodiert</a></strong> sind, ob nominal- und v.a. ordinalskalierte Variablen <strong><a href="#faktorisieren">faktorisiert</a></strong> sind, und ob wir unser bestehendes <strong><a href="#wide--und-long-format">Tabellenformat ggf. ändern</a></strong> müssen. Die Schritte sind bereits in einer <strong>sinnvollen Abfolge</strong> angeordnet (z.B. ist es vorteilhaft, erst unplausible und fehlende Werte ausfindig zu machen und umzukodieren, bevor man Variablen faktorisiert).</p>
 <p>Optional können wir vorher unser Wissen zum Messen von Merkmalen und der korrekten Darstellung dieser in R auffrischen.</p>
 <p>Wir schauen uns nachfolgend nur die Datensätze <strong>airquality</strong> und <strong>PWE_data</strong> an.</p>
-<section id="recap-kodierung-von-daten" class="level3 page-columns page-full" data-number="8.1.1">
-<h3 data-number="8.1.1" class="anchored" data-anchor-id="recap-kodierung-von-daten"><span class="header-section-number">8.1.1</span> <strong>Recap</strong>: Kodierung von Daten</h3>
+<section id="recap-kodierung-von-daten" class="level3 page-columns page-full" data-number="7.1.1">
+<h3 data-number="7.1.1" class="anchored" data-anchor-id="recap-kodierung-von-daten"><span class="header-section-number">7.1.1</span> <strong>Recap</strong>: Kodierung von Daten</h3>
 <p>Generell wenn wir mit Daten arbeiten, ist es ratsam, sich zuallererst Gedanken darüber zu machen, welche Informationen wir diesen entnehmen können (<strong>Messniveau</strong>) und ob sie so gespeichert sind, dass R sie richtig erkennt (<strong>Datentypen und -strukturen</strong>).</p>
 <p>Die nachfolgende Wiederholung ist eine verkürzte Variante des Abschnitts <a href="./Einfuehrung_in_R.html#daten">Daten</a> aus dem Kapitel zu <a href="./Einfuehrung_in_R.html">Einführung in R</a>.</p>
-<section id="messniveaus" class="level4 page-columns page-full" data-number="8.1.1.1">
-<h4 data-number="8.1.1.1" class="anchored" data-anchor-id="messniveaus"><span class="header-section-number">8.1.1.1</span> Messniveaus</h4>
+<section id="messniveaus" class="level4 page-columns page-full" data-number="7.1.1.1">
+<h4 data-number="7.1.1.1" class="anchored" data-anchor-id="messniveaus"><span class="header-section-number">7.1.1.1</span> Messniveaus</h4>
 <p>Das Messniveau (oder auch Skalenniveau) ist eine wichtige Eigenschaft von Merkmalen (Variablen) von Untersuchungseinheiten. Es beschreibt, welche Informationen in unseren Messwerten abgebildet werden und damit auch welche mathematischen Transformationen mit den Messwerten sinnvoll sind (z.B. das Berechnen von Mittelwerten). Somit begrenzt das Messniveau auch die zulässigen Datenauswertungsverfahren unserer Variablen.</p>
 <p>Die Kodierung von nominalskalierten Merkmalen ist insofern willkürlich, als dass lediglich auf Gleichheit versus Ungleichheit geachtet werden muss (z.B. <code>1</code>, <code>4</code>, <code>9</code> <em>oder</em> <code>A</code>, <code>Y</code>, <code>M</code>).</p>
 <aside>
@@ -579,8 +580,8 @@ Verhältnisse
 </div>
 </div>
 </section>
-<section id="datentypen-und-datenstrukturen" class="level4" data-number="8.1.1.2">
-<h4 data-number="8.1.1.2" class="anchored" data-anchor-id="datentypen-und-datenstrukturen"><span class="header-section-number">8.1.1.2</span> Datentypen und Datenstrukturen</h4>
+<section id="datentypen-und-datenstrukturen" class="level4" data-number="7.1.1.2">
+<h4 data-number="7.1.1.2" class="anchored" data-anchor-id="datentypen-und-datenstrukturen"><span class="header-section-number">7.1.1.2</span> Datentypen und Datenstrukturen</h4>
 <blockquote class="blockquote">
 <p><em><strong>Achtung</strong></em>: Die Unterteilung nach “Datentyp” und “Datenstruktur” sind getreu des <a href="https://cran.r-project.org/doc/manuals/r-release/R-intro.html" target="_blank">Manuals von R</a>. Man stößt in anderen Quellen aber auch auf abweichende Unterteilungen bzw. Benennungen.</p>
 </blockquote>
@@ -701,8 +702,8 @@ voted :  num [1:1350] 2 2 2 2 2 2 1 2 2 1 ...</code></pre>
 <p>Wie wir sehen, liegen fast alle Variablen als numeric vor, obwohl viele nominalskaliert sind. So würden sie von R <strong>nicht</strong> entsprechend ihres Messniveaus behandelt werden. Wir müssen diese also entweder in character umwandeln oder faktorisieren (später mehr dazu).</p>
 </section>
 </section>
-<section id="dataframe" class="level3" data-number="8.1.2">
-<h3 data-number="8.1.2" class="anchored" data-anchor-id="dataframe"><span class="header-section-number">8.1.2</span> Dataframe</h3>
+<section id="dataframe" class="level3" data-number="7.1.2">
+<h3 data-number="7.1.2" class="anchored" data-anchor-id="dataframe"><span class="header-section-number">7.1.2</span> Dataframe</h3>
 <p>Für viele Anwendungen in R (z.B. für das [Erstellen von Grafiken mit ggplot2][Grafiken ggplot]) ist es notwendig, dass der Datensatz als Dataframe vorliegt. Folgendermaßen können wir <strong>prüfen</strong>, ob ein Datensatz ein Dataframe ist:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.data.frame</span>(airquality)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -727,8 +728,8 @@ Was genau ist ein Dataframe?
 </div>
 <p>Die Funktion <code>as.data.frame()</code> enthält das Argument <code>stringsAsFactors</code>, mit dem wir bestimmen können, ob Zeichenketten (character) zu Faktoren umgewandelt werden sollen (<code>TRUE</code>). Falls wir <strong>ordinalskalierte Daten</strong> haben, müssen wir den Faktor dann aber noch zusätzlich ordnen. Generell ist es sinnvoll, erst <strong>nach</strong> der Überprüfung auf unplausible und fehlende Werte zu faktorisieren, damit eventuell vorhandene Fehlkodierungen nicht als Faktorstufen behandelt werden.</p>
 </section>
-<section id="plausibilitäts-check" class="level3 page-columns page-full" data-number="8.1.3">
-<h3 data-number="8.1.3" class="anchored" data-anchor-id="plausibilitäts-check"><span class="header-section-number">8.1.3</span> Plausibilitäts-Check</h3>
+<section id="plausibilitäts-check" class="level3 page-columns page-full" data-number="7.1.3">
+<h3 data-number="7.1.3" class="anchored" data-anchor-id="plausibilitäts-check"><span class="header-section-number">7.1.3</span> Plausibilitäts-Check</h3>
 <p>Im nächsten Schritt lohnt es sich zu überprüfen, ob in den vorangegangen Schritten der Erhebung und Kodierung unserer Daten, Fehler passiert sind. Das ist wichtig damit wir solche Fehler nicht in unsere Analyse übertragen, wo sie sehr viel unwahrscheinlicher auffallen werden. Dafür überprüfen wir, ob die Messniveaus und Ausprägungen unserer interessierenden Variablen auch unseren Erwartungen entsprechen.</p>
 <p>Entweder man hat die Daten selbst erhoben und somit Wissen darüber, welche Werte möglich sind, oder man schaut sich die Dokumentation zu den Daten an.</p>
 <p>Für den Datensatz <strong>airquality</strong> finden wir die Dokumentation <a href="https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/airquality.html" target="_blank">hier</a>.</p>
@@ -927,8 +928,8 @@ Die Funktion <code>case_when()</code> wird im Abschnitt <a href="#kodierung-änd
 </div>
 <p>Hier sehen wir auch, dass für nominalskalierte Merkmale, wie z.B. <code>urban</code>, <code>orientation</code> und <code>married</code>, deskriptiv-statistische Kennwerte wie der Mittelwert gebildet werden (d.h. diese werden als mindestens intervallskaliert behandelt), weil sie als numeric vorliegen. Später werden wir diese noch <a href="#faktorisieren">faktorisieren</a>.</p>
 </section>
-<section id="fehlende-werte" class="level3" data-number="8.1.4">
-<h3 data-number="8.1.4" class="anchored" data-anchor-id="fehlende-werte"><span class="header-section-number">8.1.4</span> Fehlende Werte</h3>
+<section id="fehlende-werte" class="level3" data-number="7.1.4">
+<h3 data-number="7.1.4" class="anchored" data-anchor-id="fehlende-werte"><span class="header-section-number">7.1.4</span> Fehlende Werte</h3>
 <p>Generell werden fehlende Werte (Missings) in R mit <code>NA</code> dargestellt. In anderen Programmen mag das anders sein (z.B. werden Missings in Unipark mit <code>99</code> oder <code>-99</code> kodiert). Wie im vorhergehenden Abschnitt demonstriert, überschneidet sich die Überprüfung von plausiblen und fehlenden Werten häufig.</p>
 <p>Neben der im letzten Abschnitt vorgestellten Varianten, Missings mit <code>summary()</code> zu finden, gibt es noch weitere Optionen.</p>
 <p>Beispielsweise können wir mit der Kombination von <code>colSums()</code> und <code>is.na()</code> spaltenweise Missings zählen.</p>
@@ -983,8 +984,8 @@ surveyelapse        TIPI1        TIPI2        TIPI3        TIPI4        TIPI5
 </blockquote>
 <p>Einen ausführlichen Überblick zu Missings finden wir im Kapitel <a href="./Fehlende-Werte.html">Fehlende Werte</a>.</p>
 </section>
-<section id="faktorisieren" class="level3" data-number="8.1.5">
-<h3 data-number="8.1.5" class="anchored" data-anchor-id="faktorisieren"><span class="header-section-number">8.1.5</span> Faktorisieren</h3>
+<section id="faktorisieren" class="level3" data-number="7.1.5">
+<h3 data-number="7.1.5" class="anchored" data-anchor-id="faktorisieren"><span class="header-section-number">7.1.5</span> Faktorisieren</h3>
 <p>Wir schauen uns das Faktorisieren exemplarisch an zwei Variablen aus dem Datensatz <strong>PWE_data</strong> an:</p>
 <ul>
 <li>nominalskaliert: <code>gender</code>
@@ -1032,8 +1033,8 @@ gender_uf :  Factor w/ 3 levels "1","2","3": 1 2 2 2 2 2 1 3 2 1 ...</code></pre
 <p>Wir sehen, dass alle Variablen des gleichen Merkmals zwar die <strong>gleichen Werte</strong> (<strong>gender</strong>: 1, 2, 3 und <strong>education</strong>: 1, 2, 3, 4) haben, aber in <strong>unterschiedlichen Datentypen bzw. -strukturen</strong> (numeric, factor, Ordered factor) und <strong>teils unterschiedlichen Sortierungen</strong> vorliegen.</p>
 <p>Außerdem sehen wir, dass die selbst sortierten Faktoren <em>intern</em> eine neue Kodierung bekommen haben (siehe <code>education_of_s</code>). Wir sehen diese nur mit <code>str()</code> bzw. <code>ls.str()</code>. Diese interne Kodierung richtet sich danach, wie die Faktorstufen sortiert sind. Die erste Ausprägung (nach der eigenen Sortierung) beginnt mit 1.</p>
 </section>
-<section id="wide--und-long-format" class="level3 page-columns page-full" data-number="8.1.6">
-<h3 data-number="8.1.6" class="anchored" data-anchor-id="wide--und-long-format"><span class="header-section-number">8.1.6</span> Wide- und Long-Format</h3>
+<section id="wide--und-long-format" class="level3 page-columns page-full" data-number="7.1.6">
+<h3 data-number="7.1.6" class="anchored" data-anchor-id="wide--und-long-format"><span class="header-section-number">7.1.6</span> Wide- und Long-Format</h3>
 <p>In Abhängigkeit unserer Daten und der Analyse, die wir durchführen wollen, ist es ggf. erforderlich, dass unsere Daten in ein anderes Tabellenformat überführt werden müssen. Es gibt das Wide- und das Long-Format.</p>
 <p>Die Unterscheidung von Wide- und Long-Format ist von Bedeutung, wenn unsere Daten eine genestete Struktur aufweisen, das heisst jeweils mehrere Messungen von derselben Untersuchungseinheit vorliegen (z.B. bei Längsschnitterhebungen, mehrere Ratern oder Schülern in Klassen).</p>
 <p>Im <strong>Wide</strong>-Format liegen Messungen <em>einer</em> Untersuchungseinheit in <em>einer</em> Zeile vor. Jeder Messzeitpunkt bzw. jede Messung ist eine eigene Variable.<br>
@@ -1209,8 +1210,8 @@ gender_uf :  Factor w/ 3 levels "1","2","3": 1 2 2 2 2 2 1 3 2 1 ...</code></pre
 <p>Im Kapitel zum (<strong><a href="#wide--und-long-format">Wide- und Long-Format</a></strong>) erfahren wir, wie wir beide Formate ineinander überführen können. Hierzu werden jeweils zwei Möglichkeiten vorgestellt: <code>reshape()</code> aus dem Standardpaket <strong>stats</strong> und <code>spread()</code> bzw. <code>gather()</code> aus dem Paket <strong>tidyr</strong>.</p>
 </section>
 </section>
-<section id="datensätze-zusammenführen" class="level2 page-columns page-full" data-number="8.2">
-<h2 data-number="8.2" class="anchored" data-anchor-id="datensätze-zusammenführen"><span class="header-section-number">8.2</span> Datensätze zusammenführen</h2>
+<section id="datensätze-zusammenführen" class="level2 page-columns page-full" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="datensätze-zusammenführen"><span class="header-section-number">7.2</span> Datensätze zusammenführen</h2>
 <p><strong>Synonyme</strong>: Mergen, Fusionieren, Integrieren<br>
 </p>
 <p>Nicht immer haben wir das Glück, dass die für uns relevanten Daten in einem gemeinsamen Dataframe vorliegen. Daher schauen wir uns nachfolgend an, wie man Dataframes zusammenführen kann. Es gibt dabei zwei Szenarien, die man unterscheiden kann:</p>
@@ -1234,8 +1235,8 @@ gender_uf :  Factor w/ 3 levels "1","2","3": 1 2 2 2 2 2 1 3 2 1 ...</code></pre
 <blockquote class="blockquote">
 <p><em><strong>Achtung</strong></em>: Es kann sein, dass wir einen Dataframe <strong>nach</strong> dem Zusammenführen noch in ein anderes Format überführen müssen, um unsere Auswertung durchführen zu können (siehe <strong><a href="#wide--und-long-format">Wide- und Long-Format</a></strong>).</p>
 </blockquote>
-<section id="selbe-variablen-unterschiedliche-fälle" class="level3" data-number="8.2.1">
-<h3 data-number="8.2.1" class="anchored" data-anchor-id="selbe-variablen-unterschiedliche-fälle"><span class="header-section-number">8.2.1</span> Selbe Variablen, unterschiedliche Fälle</h3>
+<section id="selbe-variablen-unterschiedliche-fälle" class="level3" data-number="7.2.1">
+<h3 data-number="7.2.1" class="anchored" data-anchor-id="selbe-variablen-unterschiedliche-fälle"><span class="header-section-number">7.2.1</span> Selbe Variablen, unterschiedliche Fälle</h3>
 <p>Die beiden nachfolgend vorgestellten Funktionen unterscheiden sich bezüglich einiger Funktionalitäten.</p>
 <p>Ein wichtiger Unterschied ist, dass <code>merge()</code> beim Zusammenführen der Dataframes gleiche Fälle (d.h. Fälle mit gleichen Ausprägungen in den Variablen) nur einmalig übernimmt (d.h. Dopplungen löscht) während <code>bind_rows()</code> alle Fälle übernimmt, auch wenn sich diese doppeln.</p>
 <p>In Abhängigkeit der geplanten Nutzung der Daten sollten wir individuell entscheiden, welche Funktion wir nutzen wollen.</p>
@@ -1366,8 +1367,8 @@ gender_uf :  Factor w/ 3 levels "1","2","3": 1 2 2 2 2 2 1 3 2 1 ...</code></pre
 Die Anzahl der Zeilen stimmt mit der Summe der Zeilen von <code>vornamen_13</code> und <code>vornamen_14</code> überein, d.h. es wurden alle Fälle übernommen.
 </details>
 </section>
-<section id="unterschiedliche-variablen-selbe-fälle" class="level3" data-number="8.2.2">
-<h3 data-number="8.2.2" class="anchored" data-anchor-id="unterschiedliche-variablen-selbe-fälle"><span class="header-section-number">8.2.2</span> Unterschiedliche Variablen, selbe Fälle</h3>
+<section id="unterschiedliche-variablen-selbe-fälle" class="level3" data-number="7.2.2">
+<h3 data-number="7.2.2" class="anchored" data-anchor-id="unterschiedliche-variablen-selbe-fälle"><span class="header-section-number">7.2.2</span> Unterschiedliche Variablen, selbe Fälle</h3>
 <p>Im Gegensatz zu <code>merge()</code> und <code>bind_rows()</code> unterscheiden sich <code>merge(..., by)</code> und die <code>_join()</code>-Funktionen nicht in ihrer Funktionalität, sondern nur in der Reihenfolge der Fälle im zusammengeführten Dataframe.</p>
 <p>Allerdings kann man die <code>_join()</code>-Funktionen auch alternativ zu <code>bind_rows()</code> nutzen. Dann unterscheidet sich das Ergebnis im Vergleich zu <code>merge()</code> auch lediglich in der Reihenfolge der Fälle. Mehr Infos dazu finden wir im Abschnitt [<code>_join()</code>].</p>
 <details>
@@ -1665,14 +1666,14 @@ Wie kommt man auf die Anzahl der Fälle <span class="math inline">\(N = 6371\)</
 </details>
 </section>
 </section>
-<section id="daten-extrahieren" class="level2" data-number="8.3">
-<h2 data-number="8.3" class="anchored" data-anchor-id="daten-extrahieren"><span class="header-section-number">8.3</span> Daten extrahieren</h2>
+<section id="daten-extrahieren" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="daten-extrahieren"><span class="header-section-number">7.3</span> Daten extrahieren</h2>
 <p><strong>Synonyme</strong>: Splitten, Subsetten, Filtern, Selektieren, Extrahieren<br>
 </p>
 <p>Manchmal möchten wir nur bestimmte Variablen bzw. bestimmte Fälle aus einem Datensatz betrachten. Generell bietet es sich an, dafür <strong>reguläre Ausdrücke</strong> (<a href="https://github.com/rstudio/cheatsheets/raw/main/regex.pdf" target="_blank"><em>regular expressions</em></a> z.B. die Metacharactere <code>.*</code>, <code>|</code>, <code>^</code> und <code>$</code>) und <strong>logische Operatoren</strong> (<em>logical operators</em> z.B. <code>&gt;</code>, <code>&lt;</code> und <code>==</code>) zu nutzen.</p>
 <p>Wie wir Variablen (Spalten) und Fälle (Zeilen) selektieren und in einem neuen Dataframe speichern können, schauen wir uns nun an.</p>
-<section id="variablen" class="level3" data-number="8.3.1">
-<h3 data-number="8.3.1" class="anchored" data-anchor-id="variablen"><span class="header-section-number">8.3.1</span> Variablen</h3>
+<section id="variablen" class="level3" data-number="7.3.1">
+<h3 data-number="7.3.1" class="anchored" data-anchor-id="variablen"><span class="header-section-number">7.3.1</span> Variablen</h3>
 <p>Wenn wir nur einige Variablen aus einem bzw. aus mehreren Datensätzen benötigen, können wir diese mit verschiedenen Möglichkeiten entnehmen. Im Folgenden schauen wir uns dafür Möglichkeiten aus dem Standardpacket <strong>base</strong> und dem Zusatzpaket <strong>dplyr</strong> an.</p>
 <p>Unten befindet sich eine Übersicht, der wir entnehmen können, welche Methode wir wählen sollten in Abhängigkeit davon, ob die Variablen, die wir extrahieren wollen, ähnlich oder unterschiedlich sind.</p>
 <div class="cell">
@@ -1801,13 +1802,13 @@ Wir können den Variablen z.B. <code>colnames(Datensatz) &lt;- c("Var1", "Var2",
 </div>
 </div>
 </details>
-<section id="datums-variablen-splitten" class="level4" data-number="8.3.1.1">
-<h4 data-number="8.3.1.1" class="anchored" data-anchor-id="datums-variablen-splitten"><span class="header-section-number">8.3.1.1</span> Datums-Variablen splitten</h4>
+<section id="datums-variablen-splitten" class="level4" data-number="7.3.1.1">
+<h4 data-number="7.3.1.1" class="anchored" data-anchor-id="datums-variablen-splitten"><span class="header-section-number">7.3.1.1</span> Datums-Variablen splitten</h4>
 <p>Für den Fall, dass wir eine Datums-Variable in unserem Datensatz haben, welche in einem für uns unangemessenen Format vorliegt, können wir diese mit dem Paket <strong>lubridate</strong> umformatieren. Auf dieser <a href="https://psyr.djnavarro.net/manipulating-data.html#165_processing_dates" target="_blank">Seite</a> wird der Umgang mit den im Paket enthaltenen Funktionen <code>ymd()</code> und <code>mdy()</code> erklärt.</p>
 </section>
 </section>
-<section id="fälle" class="level3" data-number="8.3.2">
-<h3 data-number="8.3.2" class="anchored" data-anchor-id="fälle"><span class="header-section-number">8.3.2</span> Fälle</h3>
+<section id="fälle" class="level3" data-number="7.3.2">
+<h3 data-number="7.3.2" class="anchored" data-anchor-id="fälle"><span class="header-section-number">7.3.2</span> Fälle</h3>
 <p>Wir schauen uns nachfolgend einige Möglichkeiten der Extraktion von Fällen mit spezifischen Ausprägungen (die man z.B. für eine Subgruppenanalyse benötigt) an. Auch hier schauen wir uns wieder sowohl Funktionen aus dem Standardpaket <strong>base</strong> als auch aus dem Zusatzpaket <strong>dplyr</strong> an.</p>
 <p>Unten befindet sich eine Übersicht, der wir entnehmen können, welche Methode wir wählen sollten in Abhängigkeit davon, ob die Fälle, die wir extrahieren wollen, ähnlich oder unterschiedlich sind.</p>
 <div class="cell">
@@ -1996,8 +1997,8 @@ Weitere logische Operatoren sind z.B. <code>!=</code> <em>(nicht)</em>, <code>&l
 </details>
 </section>
 </section>
-<section id="daten-sortieren" class="level2" data-number="8.4">
-<h2 data-number="8.4" class="anchored" data-anchor-id="daten-sortieren"><span class="header-section-number">8.4</span> Daten sortieren</h2>
+<section id="daten-sortieren" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="daten-sortieren"><span class="header-section-number">7.4</span> Daten sortieren</h2>
 <p>Für manche Vorhaben, wie z.B. grafische Darstellungen oder dem Quantifizieren von Heteroskedastizität, benötigt man sortierte Daten.</p>
 <p>Wir schauen uns nachfolgend zwei Möglichkeiten an, einen Dataframe nach den Ausprägungen seiner Variablen zu sortieren.</p>
 <details>
@@ -2072,12 +2073,12 @@ Wenn wir <code>Temp</code>-Werte mit der gleichen Ausprägung zusätzlich noch n
 </div>
 </details>
 </section>
-<section id="kodierung-ändern" class="level2 page-columns page-full" data-number="8.5">
-<h2 data-number="8.5" class="anchored" data-anchor-id="kodierung-ändern"><span class="header-section-number">8.5</span> Kodierung ändern</h2>
+<section id="kodierung-ändern" class="level2 page-columns page-full" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="kodierung-ändern"><span class="header-section-number">7.5</span> Kodierung ändern</h2>
 <p>Wenn die Daten nicht in einer angemessenen Kodierung vorliegen, muss man diese nachträglich anpassen bzw. neu erstellen. Die Kodierung einer Variablen ist von ihrem <a href="#recap-kodierung-von-daten">Messniveau</a> abhängig.</p>
 <p>Für dieses Kapitel beschränken wir uns auf die Nutzung des Datensatzes <strong>PWE_data</strong>, welchen wir <a href="#data">zu Beginn</a> heruntergeladen haben.</p>
-<section id="umkodieren" class="level3" data-number="8.5.1">
-<h3 data-number="8.5.1" class="anchored" data-anchor-id="umkodieren"><span class="header-section-number">8.5.1</span> Umkodieren</h3>
+<section id="umkodieren" class="level3" data-number="7.5.1">
+<h3 data-number="7.5.1" class="anchored" data-anchor-id="umkodieren"><span class="header-section-number">7.5.1</span> Umkodieren</h3>
 <p>Wenn wir zum Beispiel Messwerte in Meter zu Messwerten in Zentimeter ändern oder negativ gepolte Items umpolen wollen, spricht man von Umkodieren.</p>
 <p>Wir können die Kodierung von Merkmalen in R auf verschiedene Arten ändern. Nachfolgend schauen wir uns zwei Funktionen an, die wir nutzen können.</p>
 <details>
@@ -2192,8 +2193,8 @@ Wenn wir <code>Temp</code>-Werte mit der gleichen Ausprägung zusätzlich noch n
 </div>
 </details>
 </section>
-<section id="indikatorvariablen-kodierung-nominaler-merkmale" class="level3 page-columns page-full" data-number="8.5.2">
-<h3 data-number="8.5.2" class="anchored" data-anchor-id="indikatorvariablen-kodierung-nominaler-merkmale"><span class="header-section-number">8.5.2</span> Indikatorvariablen: Kodierung nominaler Merkmale</h3>
+<section id="indikatorvariablen-kodierung-nominaler-merkmale" class="level3 page-columns page-full" data-number="7.5.2">
+<h3 data-number="7.5.2" class="anchored" data-anchor-id="indikatorvariablen-kodierung-nominaler-merkmale"><span class="header-section-number">7.5.2</span> Indikatorvariablen: Kodierung nominaler Merkmale</h3>
 <p>Nominale Merkmale kann man in Form von Dummy-, Effekt- und Kontrastkodierungen repräsentieren. Eine solche Repräsentation ist vor allem im Rahmen des Allgemeinem Linearen Modells (ALM) von Interesse.</p>
 <p>Untenstehende Tabelle gibt einen groben Überblick über die Interpretation der Parameter des ALM in Abhängigkeit der Kodierung.</p>
 <div class="cell column-body">
@@ -2485,8 +2486,8 @@ In unserem Regressionsmodell mit dem Kontrast Männer vs.&nbsp;Frauen entspricht
 </details>
 </section>
 </section>
-<section id="summary-variablen" class="level2" data-number="8.6">
-<h2 data-number="8.6" class="anchored" data-anchor-id="summary-variablen"><span class="header-section-number">8.6</span> Summary-Variablen</h2>
+<section id="summary-variablen" class="level2" data-number="7.6">
+<h2 data-number="7.6" class="anchored" data-anchor-id="summary-variablen"><span class="header-section-number">7.6</span> Summary-Variablen</h2>
 <p>Wenn wir nicht mit den Rohdaten arbeiten wollen, sondern Informationen von mehreren, aggregierten Variablen (z.B. Summenwerte, Mittelwerte) oder anderweitig transformierten Variablen (z.B. standardisierte Werte) auswerten wollen, müssen wir Summary-Variablen erstellen.</p>
 <p>Wir nutzen zu diesem Zweck den Datensatz <strong>PWE_data</strong>, welcher aus einer psychometrischen Erhebung stammt. <a href="#data">Zu Beginn</a> des Kapitels haben wir den Datensatz heruntergeladen.</p>
 <blockquote class="blockquote">
@@ -2587,29 +2588,29 @@ In unserem Regressionsmodell mit dem Kontrast Männer vs.&nbsp;Frauen entspricht
 </div>
 </details>
 </section>
-<section id="weitere-wichtige-hinweise" class="level2 page-columns page-full" data-number="8.7">
-<h2 data-number="8.7" class="anchored" data-anchor-id="weitere-wichtige-hinweise"><span class="header-section-number">8.7</span> Weitere wichtige Hinweise</h2>
-<section id="cheat-sheet-dplyr" class="level3" data-number="8.7.1">
-<h3 data-number="8.7.1" class="anchored" data-anchor-id="cheat-sheet-dplyr"><span class="header-section-number">8.7.1</span> Cheat Sheet <strong>dplyr</strong></h3>
+<section id="weitere-wichtige-hinweise" class="level2 page-columns page-full" data-number="7.7">
+<h2 data-number="7.7" class="anchored" data-anchor-id="weitere-wichtige-hinweise"><span class="header-section-number">7.7</span> Weitere wichtige Hinweise</h2>
+<section id="cheat-sheet-dplyr" class="level3" data-number="7.7.1">
+<h3 data-number="7.7.1" class="anchored" data-anchor-id="cheat-sheet-dplyr"><span class="header-section-number">7.7.1</span> Cheat Sheet <strong>dplyr</strong></h3>
 <p>Wer Gefallen an den tidyverse-Funktionen <code>select()</code>, <code>filter()</code>, <code>mutate()</code>, und <code>summarise()</code> gefunden hat, kann ein Cheat Sheet zur <strong>Data Transformation mit dplyr</strong> in <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/translations/german/data-transformation_de.pdf" target="_blank">deutsch</a> oder <a href="https://github.com/rstudio/cheatsheets/raw/main/data-transformation.pdf" target="_blank">englisch</a> herunterladen.</p>
 </section>
-<section id="stichprobengröße" class="level3 page-columns page-full" data-number="8.7.2">
-<h3 data-number="8.7.2" class="anchored" data-anchor-id="stichprobengröße"><span class="header-section-number">8.7.2</span> Stichprobengröße</h3>
+<section id="stichprobengröße" class="level3 page-columns page-full" data-number="7.7.2">
+<h3 data-number="7.7.2" class="anchored" data-anchor-id="stichprobengröße"><span class="header-section-number">7.7.2</span> Stichprobengröße</h3>
 <p>Es ist generell sehr wichtig, auch bei der Datenvorbereitung, ein Auge auf die Stichprobengröße zu haben. Teilweise werden bei der Datenvorbereitung einige Untersuchungseinheiten aus der Analyse exkludiert und damit sinkt die Stichprobengröße <span class="math inline">\(N\)</span>.</p>
 <p>Wenn wir Auswertungen machen, in denen wir Ergebnisobjekte bekommen (z.B. bei der Regression mit <code>lm()</code>), können wir die Information zu <span class="math inline">\(N\)</span> daraus ablesen. Dazu klicken wir auf das Ergebnisobjekt im Environment (z.B. <code>lm_kontr</code>). Unter <code>model</code> sehen wir die Dimensionalität des <strong>genutzten</strong> Teil des Datensatzes und können anhand der Anzahl der Zeilen <span class="math inline">\(N\)</span> ablesen (z.B. bei <code>lm_kontr</code>: <code>[116 x 3]</code> d.h. 116 Fälle).</p>
 <aside>
 In <code>lm()</code> wird listwise deletion angewendet, d.h. dass jede Zeile, die mindestens ein Missing enthält, aus der Analyse ausgeschlossen wird. Mehr zu Fehlenden Werten im gleichnamigen <a href="./Fehlende-Werte.html">Kapitel</a>.
 </aside>
 </section>
-<section id="replizierbarkeit" class="level3" data-number="8.7.3">
-<h3 data-number="8.7.3" class="anchored" data-anchor-id="replizierbarkeit"><span class="header-section-number">8.7.3</span> Replizierbarkeit</h3>
+<section id="replizierbarkeit" class="level3" data-number="7.7.3">
+<h3 data-number="7.7.3" class="anchored" data-anchor-id="replizierbarkeit"><span class="header-section-number">7.7.3</span> Replizierbarkeit</h3>
 <p>Wir sollten unsere R-Skripte generell großzügig <strong>kommentieren</strong> (mit <code>#</code>), damit wir (und ggf. auch Dritte) schnell nachvollziehen können, was wir da eigentlich gemacht haben.</p>
 <p>Es lohnt sich auch, wenn man einen Datensatz (teil-)aufbereitet hat, diesen zu <strong>speichern</strong>, d.h. als neue Datei außerhalb von R zu exportieren (z.B. wenn man einen Datensatz vom Wide- ins Long-Format gebracht hat).</p>
 <p>Außerdem ist es sinnvoll, <strong>alle Schritte der Datenvorbereitung sowie Datenauswertung im gleichen Programm</strong> durchzuführen, um möglichen Kompatibilitätsproblemen zwischen verschiedenen Programmen vorzubeugen.</p>
 </section>
 </section>
-<section id="übung" class="level2 page-columns page-full" data-number="8.8">
-<h2 data-number="8.8" class="anchored" data-anchor-id="übung"><span class="header-section-number">8.8</span> Übung</h2>
+<section id="übung" class="level2 page-columns page-full" data-number="7.8">
+<h2 data-number="7.8" class="anchored" data-anchor-id="übung"><span class="header-section-number">7.8</span> Übung</h2>
 <p>Im Folgenden wollen wir einige Aufgaben bearbeiten, die in den Bereich der Datenvorbereitung fallen. Dazu gehören u.a. das Extrahieren und Sortieren von Daten, die Änderung der Kodierung von Daten sowie das Erstellen von Summary-Variablen. Zuallererst sollten wir uns jedoch immer mit dem genutzten Datensatz vertraut machen.</p>
 <aside>
 <a href="./Datenvorbereitung.html">Hier</a> finden wir das Einführungsskript zu Datenvorbereitung.
@@ -2632,8 +2633,8 @@ In <code>lm()</code> wird listwise deletion angewendet, d.h. dass jede Zeile, di
 </div>
 </div>
 <hr>
-<section id="übung-1-erste-schritte" class="level3" data-number="8.8.1">
-<h3 data-number="8.8.1" class="anchored" data-anchor-id="übung-1-erste-schritte"><span class="header-section-number">8.8.1</span> Übung 1: Erste Schritte</h3>
+<section id="übung-1-erste-schritte" class="level3" data-number="7.8.1">
+<h3 data-number="7.8.1" class="anchored" data-anchor-id="übung-1-erste-schritte"><span class="header-section-number">7.8.1</span> Übung 1: Erste Schritte</h3>
 <p>Zuallererst wollen wir uns mit dem Datensatz vertraut machen. Dazu benötigen wir das Codebuch, welches uns Informationen über die erhobenen Variablen sowie deren Messung gibt. Am besten überfliegen wir das Codebuch und den Datensatz einmal, um uns damit vertraut zu machen, bevor wir die nachfolgenden Aufgaben bearbeiten.</p>
 <blockquote class="blockquote">
 <p><em><strong>Achtung</strong></em>: Es sind nicht alle Variablen, die im Codebuch auftauchen, auch im Datensatz.</p>
@@ -3241,8 +3242,8 @@ Lösung
 <p><br>
 </p>
 </details></details></details></section>
-<section id="übung-2-extrahieren-von-daten" class="level3 page-columns page-full" data-number="8.8.2">
-<h3 data-number="8.8.2" class="anchored" data-anchor-id="übung-2-extrahieren-von-daten"><span class="header-section-number">8.8.2</span> Übung 2: Extrahieren von Daten</h3>
+<section id="übung-2-extrahieren-von-daten" class="level3 page-columns page-full" data-number="7.8.2">
+<h3 data-number="7.8.2" class="anchored" data-anchor-id="übung-2-extrahieren-von-daten"><span class="header-section-number">7.8.2</span> Übung 2: Extrahieren von Daten</h3>
 <p>Nun wollen wir einzelne Daten aus dem Datensatz extrahieren. Dabei interessieren uns entweder Variablen mit bestimmten Ausprägungen (von Personen) oder Personen mit bestimmten Ausprägungen (auf Variablen).</p>
 <blockquote class="blockquote">
 <p><em><strong>Achtung</strong></em>: Achte darauf, immer auch die <code>id</code>-Variable mit zu extrahieren, um Beobachtungseinheiten identifizieren zu können, auch wenn das nicht jedes mal erneut in der Aufgabenbeschreibung steht.</p>
@@ -3543,8 +3544,8 @@ Lösung
 <p><br>
 </p>
 </section>
-<section id="übung-3-sortieren-von-daten" class="level3" data-number="8.8.3">
-<h3 data-number="8.8.3" class="anchored" data-anchor-id="übung-3-sortieren-von-daten"><span class="header-section-number">8.8.3</span> Übung 3: Sortieren von Daten</h3>
+<section id="übung-3-sortieren-von-daten" class="level3" data-number="7.8.3">
+<h3 data-number="7.8.3" class="anchored" data-anchor-id="übung-3-sortieren-von-daten"><span class="header-section-number">7.8.3</span> Übung 3: Sortieren von Daten</h3>
 <p>Im Folgenden wollen wir unseren Datensatz nach den aufsteigenden bzw. absteigenden Ausprägungen auf einer der enthaltenen Variablen sortieren.</p>
 <p>1.) Sortiere <code>data</code> (primär) nach den aufsteigenden Ausprägungen in <code>age</code> und (sekundär) nach dem Geschlecht (Frauen zuerst).</p>
 <blockquote class="blockquote">
@@ -3618,8 +3619,8 @@ Caused by warning in `Ops.ordered()`:
 <p><br>
 </p>
 </section>
-<section id="übung-4-änderung-der-kodierung-von-daten" class="level3" data-number="8.8.4">
-<h3 data-number="8.8.4" class="anchored" data-anchor-id="übung-4-änderung-der-kodierung-von-daten"><span class="header-section-number">8.8.4</span> Übung 4: Änderung der Kodierung von Daten</h3>
+<section id="übung-4-änderung-der-kodierung-von-daten" class="level3" data-number="7.8.4">
+<h3 data-number="7.8.4" class="anchored" data-anchor-id="übung-4-änderung-der-kodierung-von-daten"><span class="header-section-number">7.8.4</span> Übung 4: Änderung der Kodierung von Daten</h3>
 <p>Nun wollen wir die Kodierungen einiger Variablen ändern bzw. Variablen mit neuen Kodierungen erstellen.</p>
 <p>1.) Erstelle eine neue Variable <code>income</code>, die das monatliche Einkommen der befragten Personen kodiert, und dafür die Kategorien aus dem Codebuch (S.28) nutzt.</p>
 <details>
@@ -3731,8 +3732,8 @@ Lösung
 <p><br>
 </p>
 </section>
-<section id="übung-5-erstellen-von-summary-variablen" class="level3" data-number="8.8.5">
-<h3 data-number="8.8.5" class="anchored" data-anchor-id="übung-5-erstellen-von-summary-variablen"><span class="header-section-number">8.8.5</span> Übung 5: Erstellen von Summary-Variablen</h3>
+<section id="übung-5-erstellen-von-summary-variablen" class="level3" data-number="7.8.5">
+<h3 data-number="7.8.5" class="anchored" data-anchor-id="übung-5-erstellen-von-summary-variablen"><span class="header-section-number">7.8.5</span> Übung 5: Erstellen von Summary-Variablen</h3>
 <p>Nachfolgend wollen wir neue Variablen erstellen, die Informationen aus mehreren Variablen des Datensatzes zusammenfassen.</p>
 <p>1.) Erstelle für die verschiedenen Bereiche von Bedürfnissen – Allgemein (General), Gesellschaftlich (Societal) und Interpersonell (Interpersonal) – jeweils separate Summenwerte und einen Gesamtsummenwert (über alle drei Bereiche).</p>
 <details>
@@ -4102,13 +4103,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./Fehlermeldungen.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Fehlermeldungen</span></span>
+      <a href="./Daten-importieren.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Daten importieren</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./Fehlende-Werte.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Fehlende Werte</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Fehlende Werte</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
