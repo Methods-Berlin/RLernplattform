@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.475">
+<meta name="generator" content="quarto-1.3.340">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -17,9 +17,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -46,43 +47,13 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -129,6 +100,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
@@ -137,11 +109,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Datenvorbereitung</span></h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Installation.html">Einführung in R</a></li><li class="breadcrumb-item"><a href="./Datenvorbereitung.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Datenvorbereitung</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
       </button>
     </div>
   </nav>
@@ -149,135 +126,161 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">R Lernplattform</a> 
     </div>
       </div>
-      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
         </div>
-      </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Inhalte</span></a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Inhalte</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Einführung in R</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Einführung in R</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Installation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Installation und Aktualisierung von R und RStudio</span></a>
+  <a href="./Installation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Installation und Aktualisierung von R und RStudio</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Einfuehrung_in_R.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Einführung in R</span></a>
+  <a href="./Einfuehrung_in_R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Einführung in R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Einfuehrung_in_RStudio.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Einführung in RStudio</span></a>
+  <a href="./Einfuehrung_in_RStudio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Einführung in RStudio</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Pakete.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Pakete</span></a>
+  <a href="./Pakete.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Pakete</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Daten-importieren.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Daten importieren</span></a>
+  <a href="./Daten-importieren.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Daten importieren</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Fehlermeldungen.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Fehlermeldungen</span></a>
+  <a href="./Fehlermeldungen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Fehlermeldungen</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Datenvorbereitung.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Datenvorbereitung</span></a>
+  <a href="./Datenvorbereitung.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Datenvorbereitung</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Fehlende-Werte.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Fehlende Werte</span></a>
+  <a href="./Fehlende-Werte.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Fehlende Werte</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Grafiken.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Grafiken</span></a>
+  <a href="./Grafiken.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Grafiken</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Weiterführende Themen in R</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Weiterführende Themen in R</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Wide-and-Long-Format.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Wide- &amp; Long-Format</span></a>
+  <a href="./Wide-and-Long-Format.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Wide- &amp; Long-Format</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Markdown.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">R Markdown</span></a>
+  <a href="./Markdown.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">R Markdown</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Git.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Git und GitLab</span></a>
+  <a href="./Git.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Git und GitLab</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Vertiefungen zu den Veranstaltungen Methodenlehre I und II</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Vertiefungen zu den Veranstaltungen Methodenlehre I und II</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Voraussetzungspruefung.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Annahmen der Multiplen Linearen Regression</span></a>
+  <a href="./Missings.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Sind die Missings zufällig?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Outputs-ALM-FAQ.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Outputs - ALM - FAQ</span></a>
+  <a href="./Voraussetzungspruefung.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Annahmen der Multiplen Linearen Regression</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Outputs-ALM-FAQ.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Outputs - ALM - FAQ</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">Projekt-Dokumentation</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text">Projekt-Dokumentation</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Zur-Lernplattform-Beitragen.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Zur R-Lernplattform Beitragen</span></a>
+  <a href="./Zur-Lernplattform-Beitragen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Zur R-Lernplattform Beitragen</span></span></a>
   </div>
 </li>
       </ul>
@@ -285,51 +288,52 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#grundlegende-erste-schritte" id="toc-grundlegende-erste-schritte" class="nav-link active" data-scroll-target="#grundlegende-erste-schritte"><span class="toc-section-number">8.1</span>  Grundlegende erste Schritte</a>
+  <li><a href="#grundlegende-erste-schritte" id="toc-grundlegende-erste-schritte" class="nav-link active" data-scroll-target="#grundlegende-erste-schritte"><span class="header-section-number">8.1</span> Grundlegende erste Schritte</a>
   <ul class="collapse">
-  <li><a href="#recap-kodierung-von-daten" id="toc-recap-kodierung-von-daten" class="nav-link" data-scroll-target="#recap-kodierung-von-daten"><span class="toc-section-number">8.1.1</span>  <strong>Recap</strong>: Kodierung von Daten</a></li>
-  <li><a href="#dataframe" id="toc-dataframe" class="nav-link" data-scroll-target="#dataframe"><span class="toc-section-number">8.1.2</span>  Dataframe</a></li>
-  <li><a href="#plausibilitäts-check" id="toc-plausibilitäts-check" class="nav-link" data-scroll-target="#plausibilitäts-check"><span class="toc-section-number">8.1.3</span>  Plausibilitäts-Check</a></li>
-  <li><a href="#fehlende-werte" id="toc-fehlende-werte" class="nav-link" data-scroll-target="#fehlende-werte"><span class="toc-section-number">8.1.4</span>  Fehlende Werte</a></li>
-  <li><a href="#faktorisieren" id="toc-faktorisieren" class="nav-link" data-scroll-target="#faktorisieren"><span class="toc-section-number">8.1.5</span>  Faktorisieren</a></li>
-  <li><a href="#wide--und-long-format" id="toc-wide--und-long-format" class="nav-link" data-scroll-target="#wide--und-long-format"><span class="toc-section-number">8.1.6</span>  Wide- und Long-Format</a></li>
+  <li><a href="#recap-kodierung-von-daten" id="toc-recap-kodierung-von-daten" class="nav-link" data-scroll-target="#recap-kodierung-von-daten"><span class="header-section-number">8.1.1</span> <strong>Recap</strong>: Kodierung von Daten</a></li>
+  <li><a href="#dataframe" id="toc-dataframe" class="nav-link" data-scroll-target="#dataframe"><span class="header-section-number">8.1.2</span> Dataframe</a></li>
+  <li><a href="#plausibilitäts-check" id="toc-plausibilitäts-check" class="nav-link" data-scroll-target="#plausibilitäts-check"><span class="header-section-number">8.1.3</span> Plausibilitäts-Check</a></li>
+  <li><a href="#fehlende-werte" id="toc-fehlende-werte" class="nav-link" data-scroll-target="#fehlende-werte"><span class="header-section-number">8.1.4</span> Fehlende Werte</a></li>
+  <li><a href="#faktorisieren" id="toc-faktorisieren" class="nav-link" data-scroll-target="#faktorisieren"><span class="header-section-number">8.1.5</span> Faktorisieren</a></li>
+  <li><a href="#wide--und-long-format" id="toc-wide--und-long-format" class="nav-link" data-scroll-target="#wide--und-long-format"><span class="header-section-number">8.1.6</span> Wide- und Long-Format</a></li>
   </ul></li>
-  <li><a href="#datensätze-zusammenführen" id="toc-datensätze-zusammenführen" class="nav-link" data-scroll-target="#datensätze-zusammenführen"><span class="toc-section-number">8.2</span>  Datensätze zusammenführen</a>
+  <li><a href="#datensätze-zusammenführen" id="toc-datensätze-zusammenführen" class="nav-link" data-scroll-target="#datensätze-zusammenführen"><span class="header-section-number">8.2</span> Datensätze zusammenführen</a>
   <ul class="collapse">
-  <li><a href="#selbe-variablen-unterschiedliche-fälle" id="toc-selbe-variablen-unterschiedliche-fälle" class="nav-link" data-scroll-target="#selbe-variablen-unterschiedliche-fälle"><span class="toc-section-number">8.2.1</span>  Selbe Variablen, unterschiedliche Fälle</a></li>
-  <li><a href="#unterschiedliche-variablen-selbe-fälle" id="toc-unterschiedliche-variablen-selbe-fälle" class="nav-link" data-scroll-target="#unterschiedliche-variablen-selbe-fälle"><span class="toc-section-number">8.2.2</span>  Unterschiedliche Variablen, selbe Fälle</a></li>
+  <li><a href="#selbe-variablen-unterschiedliche-fälle" id="toc-selbe-variablen-unterschiedliche-fälle" class="nav-link" data-scroll-target="#selbe-variablen-unterschiedliche-fälle"><span class="header-section-number">8.2.1</span> Selbe Variablen, unterschiedliche Fälle</a></li>
+  <li><a href="#unterschiedliche-variablen-selbe-fälle" id="toc-unterschiedliche-variablen-selbe-fälle" class="nav-link" data-scroll-target="#unterschiedliche-variablen-selbe-fälle"><span class="header-section-number">8.2.2</span> Unterschiedliche Variablen, selbe Fälle</a></li>
   </ul></li>
-  <li><a href="#daten-extrahieren" id="toc-daten-extrahieren" class="nav-link" data-scroll-target="#daten-extrahieren"><span class="toc-section-number">8.3</span>  Daten extrahieren</a>
+  <li><a href="#daten-extrahieren" id="toc-daten-extrahieren" class="nav-link" data-scroll-target="#daten-extrahieren"><span class="header-section-number">8.3</span> Daten extrahieren</a>
   <ul class="collapse">
-  <li><a href="#variablen" id="toc-variablen" class="nav-link" data-scroll-target="#variablen"><span class="toc-section-number">8.3.1</span>  Variablen</a></li>
-  <li><a href="#fälle" id="toc-fälle" class="nav-link" data-scroll-target="#fälle"><span class="toc-section-number">8.3.2</span>  Fälle</a></li>
+  <li><a href="#variablen" id="toc-variablen" class="nav-link" data-scroll-target="#variablen"><span class="header-section-number">8.3.1</span> Variablen</a></li>
+  <li><a href="#fälle" id="toc-fälle" class="nav-link" data-scroll-target="#fälle"><span class="header-section-number">8.3.2</span> Fälle</a></li>
   </ul></li>
-  <li><a href="#daten-sortieren" id="toc-daten-sortieren" class="nav-link" data-scroll-target="#daten-sortieren"><span class="toc-section-number">8.4</span>  Daten sortieren</a></li>
-  <li><a href="#kodierung-ändern" id="toc-kodierung-ändern" class="nav-link" data-scroll-target="#kodierung-ändern"><span class="toc-section-number">8.5</span>  Kodierung ändern</a>
+  <li><a href="#daten-sortieren" id="toc-daten-sortieren" class="nav-link" data-scroll-target="#daten-sortieren"><span class="header-section-number">8.4</span> Daten sortieren</a></li>
+  <li><a href="#kodierung-ändern" id="toc-kodierung-ändern" class="nav-link" data-scroll-target="#kodierung-ändern"><span class="header-section-number">8.5</span> Kodierung ändern</a>
   <ul class="collapse">
-  <li><a href="#umkodieren" id="toc-umkodieren" class="nav-link" data-scroll-target="#umkodieren"><span class="toc-section-number">8.5.1</span>  Umkodieren</a></li>
-  <li><a href="#indikatorvariablen-kodierung-nominaler-merkmale" id="toc-indikatorvariablen-kodierung-nominaler-merkmale" class="nav-link" data-scroll-target="#indikatorvariablen-kodierung-nominaler-merkmale"><span class="toc-section-number">8.5.2</span>  Indikatorvariablen: Kodierung nominaler Merkmale</a></li>
+  <li><a href="#umkodieren" id="toc-umkodieren" class="nav-link" data-scroll-target="#umkodieren"><span class="header-section-number">8.5.1</span> Umkodieren</a></li>
+  <li><a href="#indikatorvariablen-kodierung-nominaler-merkmale" id="toc-indikatorvariablen-kodierung-nominaler-merkmale" class="nav-link" data-scroll-target="#indikatorvariablen-kodierung-nominaler-merkmale"><span class="header-section-number">8.5.2</span> Indikatorvariablen: Kodierung nominaler Merkmale</a></li>
   </ul></li>
-  <li><a href="#summary-variablen" id="toc-summary-variablen" class="nav-link" data-scroll-target="#summary-variablen"><span class="toc-section-number">8.6</span>  Summary-Variablen</a></li>
-  <li><a href="#weitere-wichtige-hinweise" id="toc-weitere-wichtige-hinweise" class="nav-link" data-scroll-target="#weitere-wichtige-hinweise"><span class="toc-section-number">8.7</span>  Weitere wichtige Hinweise</a>
+  <li><a href="#summary-variablen" id="toc-summary-variablen" class="nav-link" data-scroll-target="#summary-variablen"><span class="header-section-number">8.6</span> Summary-Variablen</a></li>
+  <li><a href="#weitere-wichtige-hinweise" id="toc-weitere-wichtige-hinweise" class="nav-link" data-scroll-target="#weitere-wichtige-hinweise"><span class="header-section-number">8.7</span> Weitere wichtige Hinweise</a>
   <ul class="collapse">
-  <li><a href="#cheat-sheet-dplyr" id="toc-cheat-sheet-dplyr" class="nav-link" data-scroll-target="#cheat-sheet-dplyr"><span class="toc-section-number">8.7.1</span>  Cheat Sheet <strong>dplyr</strong></a></li>
-  <li><a href="#stichprobengröße" id="toc-stichprobengröße" class="nav-link" data-scroll-target="#stichprobengröße"><span class="toc-section-number">8.7.2</span>  Stichprobengröße</a></li>
-  <li><a href="#replizierbarkeit" id="toc-replizierbarkeit" class="nav-link" data-scroll-target="#replizierbarkeit"><span class="toc-section-number">8.7.3</span>  Replizierbarkeit</a></li>
+  <li><a href="#cheat-sheet-dplyr" id="toc-cheat-sheet-dplyr" class="nav-link" data-scroll-target="#cheat-sheet-dplyr"><span class="header-section-number">8.7.1</span> Cheat Sheet <strong>dplyr</strong></a></li>
+  <li><a href="#stichprobengröße" id="toc-stichprobengröße" class="nav-link" data-scroll-target="#stichprobengröße"><span class="header-section-number">8.7.2</span> Stichprobengröße</a></li>
+  <li><a href="#replizierbarkeit" id="toc-replizierbarkeit" class="nav-link" data-scroll-target="#replizierbarkeit"><span class="header-section-number">8.7.3</span> Replizierbarkeit</a></li>
   </ul></li>
-  <li><a href="#übung" id="toc-übung" class="nav-link" data-scroll-target="#übung"><span class="toc-section-number">8.8</span>  Übung</a>
+  <li><a href="#übung" id="toc-übung" class="nav-link" data-scroll-target="#übung"><span class="header-section-number">8.8</span> Übung</a>
   <ul class="collapse">
-  <li><a href="#übung-1-erste-schritte" id="toc-übung-1-erste-schritte" class="nav-link" data-scroll-target="#übung-1-erste-schritte"><span class="toc-section-number">8.8.1</span>  Übung 1: Erste Schritte</a></li>
-  <li><a href="#übung-2-extrahieren-von-daten" id="toc-übung-2-extrahieren-von-daten" class="nav-link" data-scroll-target="#übung-2-extrahieren-von-daten"><span class="toc-section-number">8.8.2</span>  Übung 2: Extrahieren von Daten</a></li>
-  <li><a href="#übung-3-sortieren-von-daten" id="toc-übung-3-sortieren-von-daten" class="nav-link" data-scroll-target="#übung-3-sortieren-von-daten"><span class="toc-section-number">8.8.3</span>  Übung 3: Sortieren von Daten</a></li>
-  <li><a href="#übung-4-änderung-der-kodierung-von-daten" id="toc-übung-4-änderung-der-kodierung-von-daten" class="nav-link" data-scroll-target="#übung-4-änderung-der-kodierung-von-daten"><span class="toc-section-number">8.8.4</span>  Übung 4: Änderung der Kodierung von Daten</a></li>
-  <li><a href="#übung-5-erstellen-von-summary-variablen" id="toc-übung-5-erstellen-von-summary-variablen" class="nav-link" data-scroll-target="#übung-5-erstellen-von-summary-variablen"><span class="toc-section-number">8.8.5</span>  Übung 5: Erstellen von Summary-Variablen</a></li>
+  <li><a href="#übung-1-erste-schritte" id="toc-übung-1-erste-schritte" class="nav-link" data-scroll-target="#übung-1-erste-schritte"><span class="header-section-number">8.8.1</span> Übung 1: Erste Schritte</a></li>
+  <li><a href="#übung-2-extrahieren-von-daten" id="toc-übung-2-extrahieren-von-daten" class="nav-link" data-scroll-target="#übung-2-extrahieren-von-daten"><span class="header-section-number">8.8.2</span> Übung 2: Extrahieren von Daten</a></li>
+  <li><a href="#übung-3-sortieren-von-daten" id="toc-übung-3-sortieren-von-daten" class="nav-link" data-scroll-target="#übung-3-sortieren-von-daten"><span class="header-section-number">8.8.3</span> Übung 3: Sortieren von Daten</a></li>
+  <li><a href="#übung-4-änderung-der-kodierung-von-daten" id="toc-übung-4-änderung-der-kodierung-von-daten" class="nav-link" data-scroll-target="#übung-4-änderung-der-kodierung-von-daten"><span class="header-section-number">8.8.4</span> Übung 4: Änderung der Kodierung von Daten</a></li>
+  <li><a href="#übung-5-erstellen-von-summary-variablen" id="toc-übung-5-erstellen-von-summary-variablen" class="nav-link" data-scroll-target="#übung-5-erstellen-von-summary-variablen"><span class="header-section-number">8.8.5</span> Übung 5: Erstellen von Summary-Variablen</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -339,7 +343,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Datenvorbereitung</span></h1>
+<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Datenvorbereitung</span></h1>
 </div>
 
 
@@ -431,9 +435,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>vornamen_14 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"Dateipfad/vornamen-von-neugeborenen2014.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-
-</div>
-<div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(vornamen_13)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     vorname anzahl geschlecht
@@ -478,9 +479,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Die nachfolgende Wiederholung ist eine verkürzte Variante des Abschnitts <a href="./Einfuehrung_in_R.html#daten">Daten</a> aus dem Kapitel zu <a href="./Einfuehrung_in_R.html">Einführung in R</a>.</p>
 <section id="messniveaus" class="level4 page-columns page-full" data-number="8.1.1.1">
 <h4 data-number="8.1.1.1" class="anchored" data-anchor-id="messniveaus"><span class="header-section-number">8.1.1.1</span> Messniveaus</h4>
-<div class="cell">
-
-</div>
 <p>Das Messniveau (oder auch Skalenniveau) ist eine wichtige Eigenschaft von Merkmalen (Variablen) von Untersuchungseinheiten. Es beschreibt, welche Informationen in unseren Messwerten abgebildet werden und damit auch welche mathematischen Transformationen mit den Messwerten sinnvoll sind (z.B. das Berechnen von Mittelwerten). Somit begrenzt das Messniveau auch die zulässigen Datenauswertungsverfahren unserer Variablen.</p>
 <p>Die Kodierung von nominalskalierten Merkmalen ist insofern willkürlich, als dass lediglich auf Gleichheit versus Ungleichheit geachtet werden muss (z.B. <code>1</code>, <code>4</code>, <code>9</code> <em>oder</em> <code>A</code>, <code>Y</code>, <code>M</code>).</p>
 <aside>
@@ -522,64 +520,61 @@ Verhältnisse
 <p>Nachfolgend finden wir eine Tabelle der möglichen Unterscheidungen der jeweiligen Messiniveaus.</p>
 <div class="cell">
 <div class="cell-output-display">
-
-<table class="table" style="margin-left: auto; margin-right: auto;">
- <thead>
-  <tr>
-   <th style="text-align:left;font-weight: bold;color: white !important;background-color: #009193 !important;line-height:1.5;">   </th>
-   <th style="text-align:left;font-weight: bold;color: white !important;background-color: #009193 !important;line-height:1.5;"> <span style="line-height:0.1;">(Un-)
-Gleichheit </span>
-</th>
-   <th style="text-align:left;font-weight: bold;color: white !important;background-color: #009193 !important;line-height:1.5;"> Rangordnung </th>
-   <th style="text-align:left;font-weight: bold;color: white !important;background-color: #009193 !important;line-height:1.5;"> Abstände </th>
-   <th style="text-align:left;font-weight: bold;color: white !important;background-color: #009193 !important;line-height:1.5;"> Verhältnisse </th>
-   <th style="text-align:left;font-weight: bold;color: white !important;background-color: #009193 !important;line-height:1.5;"> natürliche
-Einheit </th>
-  </tr>
- </thead>
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold; color: white !important; background-color: #009193 !important; line-height: 1.5;"></th>
+<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold; color: white !important; background-color: #009193 !important; line-height: 1.5;"><span style="line-height:0.1;">(Un-) Gleichheit </span></th>
+<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold; color: white !important; background-color: #009193 !important; line-height: 1.5;">Rangordnung</th>
+<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold; color: white !important; background-color: #009193 !important; line-height: 1.5;">Abstände</th>
+<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold; color: white !important; background-color: #009193 !important; line-height: 1.5;">Verhältnisse</th>
+<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold; color: white !important; background-color: #009193 !important; line-height: 1.5;">natürliche Einheit</th>
+</tr>
+</thead>
 <tbody>
-  <tr>
-   <td style="text-align:left;font-weight: bold;color: white !important;background-color: #009193 !important;"> Nominal </td>
-   <td style="text-align:left;width: 7em; "> X </td>
-   <td style="text-align:left;width: 7em; ">  </td>
-   <td style="text-align:left;width: 7em; ">  </td>
-   <td style="text-align:left;width: 7em; ">  </td>
-   <td style="text-align:left;width: 7em; ">  </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;font-weight: bold;color: white !important;background-color: #009193 !important;"> Ordinal </td>
-   <td style="text-align:left;width: 7em; "> X </td>
-   <td style="text-align:left;width: 7em; "> X </td>
-   <td style="text-align:left;width: 7em; ">  </td>
-   <td style="text-align:left;width: 7em; ">  </td>
-   <td style="text-align:left;width: 7em; ">  </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;font-weight: bold;color: white !important;background-color: #009193 !important;"> Intervall </td>
-   <td style="text-align:left;width: 7em; "> X </td>
-   <td style="text-align:left;width: 7em; "> X </td>
-   <td style="text-align:left;width: 7em; "> X </td>
-   <td style="text-align:left;width: 7em; ">  </td>
-   <td style="text-align:left;width: 7em; ">  </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;font-weight: bold;color: white !important;background-color: #009193 !important;"> Verhältnis </td>
-   <td style="text-align:left;width: 7em; "> X </td>
-   <td style="text-align:left;width: 7em; "> X </td>
-   <td style="text-align:left;width: 7em; "> X </td>
-   <td style="text-align:left;width: 7em; "> X </td>
-   <td style="text-align:left;width: 7em; ">  </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;font-weight: bold;color: white !important;background-color: #009193 !important;"> Absolut </td>
-   <td style="text-align:left;width: 7em; "> X </td>
-   <td style="text-align:left;width: 7em; "> X </td>
-   <td style="text-align:left;width: 7em; "> X </td>
-   <td style="text-align:left;width: 7em; "> X </td>
-   <td style="text-align:left;width: 7em; "> X </td>
-  </tr>
+<tr class="odd">
+<td style="text-align: left; font-weight: bold; color: white !important; background-color: #009193 !important;">Nominal</td>
+<td style="text-align: left; width: 7em;">X</td>
+<td style="text-align: left; width: 7em;"></td>
+<td style="text-align: left; width: 7em;"></td>
+<td style="text-align: left; width: 7em;"></td>
+<td style="text-align: left; width: 7em;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; font-weight: bold; color: white !important; background-color: #009193 !important;">Ordinal</td>
+<td style="text-align: left; width: 7em;">X</td>
+<td style="text-align: left; width: 7em;">X</td>
+<td style="text-align: left; width: 7em;"></td>
+<td style="text-align: left; width: 7em;"></td>
+<td style="text-align: left; width: 7em;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; font-weight: bold; color: white !important; background-color: #009193 !important;">Intervall</td>
+<td style="text-align: left; width: 7em;">X</td>
+<td style="text-align: left; width: 7em;">X</td>
+<td style="text-align: left; width: 7em;">X</td>
+<td style="text-align: left; width: 7em;"></td>
+<td style="text-align: left; width: 7em;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; font-weight: bold; color: white !important; background-color: #009193 !important;">Verhältnis</td>
+<td style="text-align: left; width: 7em;">X</td>
+<td style="text-align: left; width: 7em;">X</td>
+<td style="text-align: left; width: 7em;">X</td>
+<td style="text-align: left; width: 7em;">X</td>
+<td style="text-align: left; width: 7em;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; font-weight: bold; color: white !important; background-color: #009193 !important;">Absolut</td>
+<td style="text-align: left; width: 7em;">X</td>
+<td style="text-align: left; width: 7em;">X</td>
+<td style="text-align: left; width: 7em;">X</td>
+<td style="text-align: left; width: 7em;">X</td>
+<td style="text-align: left; width: 7em;">X</td>
+</tr>
 </tbody>
 </table>
+
 
 </div>
 </div>
@@ -589,9 +584,6 @@ Einheit </th>
 <blockquote class="blockquote">
 <p><em><strong>Achtung</strong></em>: Die Unterteilung nach “Datentyp” und “Datenstruktur” sind getreu des <a href="https://cran.r-project.org/doc/manuals/r-release/R-intro.html" target="_blank">Manuals von R</a>. Man stößt in anderen Quellen aber auch auf abweichende Unterteilungen bzw. Benennungen.</p>
 </blockquote>
-<div class="cell">
-
-</div>
 <p>Der Datentyp gibt an, um was für Daten es sich handelt, d.h. welche <strong>Werte</strong>(bereiche) diese haben und welche <strong>Operationen</strong> wir auf sie anwenden können. Wir nutzen zumeist Zeichen, Wahrheitswerte und Zahlen. Diese werden in R als <strong>character</strong>, <strong>logical</strong>, <strong>integer</strong> und <strong>double</strong> gespeichert, wobei letztere beiden häufig als <strong>numeric</strong> zusammengefasst werden.</p>
 <p>Die Datenstruktur bestimmt die <strong>Organisation</strong> und <strong>Speicherung</strong> von Daten(typen). In R gibt es z.B. <strong>Vektoren</strong>, <strong>Matrizen</strong>, <strong>Dataframes</strong>, <strong>Listen</strong> und <strong>Faktoren</strong>. Beispielsweise können Vektoren und Matrizen jeweils nur <em>einen</em> Datentypen enthalten, während Dataframes <em>mehrere</em> Datentypen enthalten können.</p>
 <p>Datentyp und -struktur sind ausschlaggebend dafür, welche Funktionen wir anwenden können bzw. welchen Output wir bekommen.</p>
@@ -605,47 +597,68 @@ Wenn wir z.B. eine Variable <span class="math inline">\(X\)</span> haben, welche
 <p>Nachfolgend finden wir eine Übersicht zu den Möglichkeiten der Kodierung von Merkmalen mit verschiedenen Skalenniveaus.</p>
 <div class="cell">
 <div class="cell-output-display">
-
-<table style="width:100%; margin-left: auto; margin-right: auto;border-bottom: 0;" class="table">
- <thead>
-<tr>
-<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; color: white !important;padding-right: 4px; padding-left: 4px; background-color: #009193 !important;" colspan="2"><div style=""><span style="display:none;">_</span></div></th>
-<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; color: white !important;padding-right: 4px; padding-left: 4px; background-color: #009193 !important;" colspan="5"><div style="">Art der Skala:</div></th>
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th colspan="2" data-quarto-table-cell-role="th" style="text-align: center; border-bottom: hidden; padding-bottom: 0; padding-left: 3px; padding-right: 3px; color: white !important; padding-right: 4px; padding-left: 4px; background-color: #009193 !important;"><div style="">
+<span style="display:none;">_</span>
+</div></th>
+<th colspan="5" data-quarto-table-cell-role="th" style="text-align: center; border-bottom: hidden; padding-bottom: 0; padding-left: 3px; padding-right: 3px; color: white !important; padding-right: 4px; padding-left: 4px; background-color: #009193 !important;"><div style="">
+Art der Skala:
+</div></th>
 </tr>
-  <tr>
-   <th style="text-align:center;color: white !important;background-color: #009193 !important;">  </th>
-   <th style="text-align:center;color: white !important;background-color: #009193 !important;">  </th>
-   <th style="text-align:center;color: white !important;background-color: #009193 !important;"> Nominal- </th>
-   <th style="text-align:center;color: white !important;background-color: #009193 !important;"> Ordinal- </th>
-   <th style="text-align:center;color: white !important;background-color: #009193 !important;"> Intervall- </th>
-   <th style="text-align:center;color: white !important;background-color: #009193 !important;"> Verhältnis- </th>
-   <th style="text-align:center;color: white !important;background-color: #009193 !important;"> Absolut- </th>
-  </tr>
- </thead>
+<tr class="odd">
+<th data-quarto-table-cell-role="th" style="text-align: center; color: white !important; background-color: #009193 !important;"></th>
+<th data-quarto-table-cell-role="th" style="text-align: center; color: white !important; background-color: #009193 !important;"></th>
+<th data-quarto-table-cell-role="th" style="text-align: center; color: white !important; background-color: #009193 !important;">Nominal-</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; color: white !important; background-color: #009193 !important;">Ordinal-</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; color: white !important; background-color: #009193 !important;">Intervall-</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; color: white !important; background-color: #009193 !important;">Verhältnis-</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; color: white !important; background-color: #009193 !important;">Absolut-</th>
+</tr>
+</thead>
 <tbody>
-  <tr>
-   <td style="text-align:center;font-weight: bold;color: white !important;background-color: #009193 !important;"> Datentyp: </td>
-   <td style="text-align:center;font-weight: bold;color: white !important;background-color: #009193 !important;"> <span style="font-family: Consolas,monaco,monospace;">character</span> </td>
-   <td style="text-align:center;"> X </td>
-   <td style="text-align:center;"> X<sup>2</sup> </td>
-   <td style="text-align:center;">  </td>
-   <td style="text-align:center;">  </td>
-   <td style="text-align:center;">  </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;color: white !important;background-color: #009193 !important;"> Datentyp: </td>
-   <td style="text-align:center;font-weight: bold;color: white !important;background-color: #009193 !important;"> <span style="font-family: Consolas,monaco,monospace;">numeric</span> </td>
-   <td style="text-align:center;"> X<sup>1</sup> </td>
-   <td style="text-align:center;"> X<sup>2</sup> </td>
-   <td style="text-align:center;"> X </td>
-   <td style="text-align:center;"> X </td>
-   <td style="text-align:center;"> X </td>
-  </tr>
-</tbody>
-<tfoot><tr><td style="padding: 0; " colspan="100%">
-<sup></sup> <font size="1"><sup>1</sup> Faktorisieren (unordered factor) notwendig wenn keine Indikatorvariable(n) genutzt <sup>2</sup> Faktorisieren (ordered factor) notwendig</font>
-</td></tr></tfoot>
+<tr class="odd">
+<td style="text-align: center; font-weight: bold; color: white !important; background-color: #009193 !important;">Datentyp:</td>
+<td style="text-align: center; font-weight: bold; color: white !important; background-color: #009193 !important;"><span style="font-family: Consolas,monaco,monospace;">character</span></td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">X<sup>2</sup></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center; font-weight: bold; color: white !important; background-color: #009193 !important;">Datentyp:</td>
+<td style="text-align: center; font-weight: bold; color: white !important; background-color: #009193 !important;"><span style="font-family: Consolas,monaco,monospace;">numeric</span></td>
+<td style="text-align: center;">X<sup>1</sup></td>
+<td style="text-align: center;">X<sup>2</sup></td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">X</td>
+</tr>
+</tbody><tfoot>
+<tr class="even">
+<td style="text-align: center; padding: 0;"><sup></sup> <sup>1</sup> Faktorisieren (unordered factor) notwendig wenn keine Indikatorvariable(n) genutzt <sup>2</sup> Faktorisieren (ordered factor) notwendig</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tfoot>
+
 </table>
+
 
 </div>
 </div>
@@ -690,9 +703,6 @@ voted :  num [1:1350] 2 2 2 2 2 2 1 2 2 1 ...</code></pre>
 </section>
 <section id="dataframe" class="level3" data-number="8.1.2">
 <h3 data-number="8.1.2" class="anchored" data-anchor-id="dataframe"><span class="header-section-number">8.1.2</span> Dataframe</h3>
-<div class="cell">
-
-</div>
 <p>Für viele Anwendungen in R (z.B. für das [Erstellen von Grafiken mit ggplot2][Grafiken ggplot]) ist es notwendig, dass der Datensatz als Dataframe vorliegt. Folgendermaßen können wir <strong>prüfen</strong>, ob ein Datensatz ein Dataframe ist:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.data.frame</span>(airquality)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -710,9 +720,6 @@ Was genau ist ein Dataframe?
 </summary>
 <p>Ein Dataframe ist eine <strong>Datenstruktur</strong>, die es uns erlaubt, Daten tabellarisch zu speichern. Der Dataframe ist eine Liste aus Vektoren mit gleicher Länge. Listen können (im Gegensatz zu Matrizen) Variablen mit <strong>unterschiedlichen Datentypen</strong> speichern.</p>
 <p>Mehr Informationen gibt es im vorhergehenden Abschnitt zu <a href="#datentypen-und-datenstrukturen">Datentypen und Datenstrukturen</a>.</p>
-<div class="cell">
-
-</div>
 </details>
 <p>Falls unser Datensatz kein Dataframe ist, können wir ihn folgendermaßen <strong>umwandeln</strong>:</p>
 <div class="cell">
@@ -1034,31 +1041,31 @@ gender_uf :  Factor w/ 3 levels "1","2","3": 1 2 2 2 2 2 1 3 2 1 ...</code></pre
 <p><strong>Beispiel 1 Wide-Format: Messzeitpunkte</strong></p>
 <div class="cell">
 <div class="cell-output-display">
-
-<table class="table" style="margin-left: auto; margin-right: auto;">
- <thead>
-  <tr>
-   <th style="text-align:center;"> Untersuchungseinheit </th>
-   <th style="text-align:center;"> t1 </th>
-   <th style="text-align:center;"> t2 </th>
-   <th style="text-align:center;"> t3 </th>
-  </tr>
- </thead>
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: center;" data-quarto-table-cell-role="th">Untersuchungseinheit</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">t1</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">t2</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">t3</th>
+</tr>
+</thead>
 <tbody>
-  <tr>
-   <td style="text-align:center;color: red !important;"> 1 </td>
-   <td style="text-align:center;color: red !important;"> <span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: grey !important;">4</span> </td>
-   <td style="text-align:center;color: red !important;"> <span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: grey !important;">3</span> </td>
-   <td style="text-align:center;color: red !important;"> <span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: grey !important;">1</span> </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;color: blue !important;"> 2 </td>
-   <td style="text-align:center;color: blue !important;"> <span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: grey !important;">5</span> </td>
-   <td style="text-align:center;color: blue !important;"> <span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: grey !important;">2</span> </td>
-   <td style="text-align:center;color: blue !important;"> <span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: grey !important;">3</span> </td>
-  </tr>
+<tr class="odd">
+<td style="text-align: center; color: red !important;">1</td>
+<td style="text-align: center; color: red !important;"><span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: grey !important;">4</span></td>
+<td style="text-align: center; color: red !important;"><span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: grey !important;">3</span></td>
+<td style="text-align: center; color: red !important;"><span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: grey !important;">1</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center; color: blue !important;">2</td>
+<td style="text-align: center; color: blue !important;"><span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: grey !important;">5</span></td>
+<td style="text-align: center; color: blue !important;"><span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: grey !important;">2</span></td>
+<td style="text-align: center; color: blue !important;"><span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: grey !important;">3</span></td>
+</tr>
 </tbody>
 </table>
+
 
 </div>
 </div>
@@ -1072,31 +1079,31 @@ gender_uf :  Factor w/ 3 levels "1","2","3": 1 2 2 2 2 2 1 3 2 1 ...</code></pre
 <p><strong>Beispiel 2 Wide-Format: Rater</strong></p>
 <div class="cell">
 <div class="cell-output-display">
-
-<table class="table" style="margin-left: auto; margin-right: auto;">
- <thead>
-  <tr>
-   <th style="text-align:center;"> Untersuchungseinheit </th>
-   <th style="text-align:center;"> self </th>
-   <th style="text-align:center;"> friend </th>
-   <th style="text-align:center;"> parent </th>
-  </tr>
- </thead>
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: center;" data-quarto-table-cell-role="th">Untersuchungseinheit</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">self</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">friend</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">parent</th>
+</tr>
+</thead>
 <tbody>
-  <tr>
-   <td style="text-align:center;color: red !important;"> 1 </td>
-   <td style="text-align:center;color: red !important;"> <span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lightgrey !important;">2</span> </td>
-   <td style="text-align:center;color: red !important;"> <span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lightgrey !important;">1</span> </td>
-   <td style="text-align:center;color: red !important;"> <span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lightgrey !important;">3</span> </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;color: blue !important;"> 2 </td>
-   <td style="text-align:center;color: blue !important;"> <span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lightgrey !important;">3</span> </td>
-   <td style="text-align:center;color: blue !important;"> <span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lightgrey !important;">4</span> </td>
-   <td style="text-align:center;color: blue !important;"> <span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lightgrey !important;">2</span> </td>
-  </tr>
+<tr class="odd">
+<td style="text-align: center; color: red !important;">1</td>
+<td style="text-align: center; color: red !important;"><span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lightgrey !important;">2</span></td>
+<td style="text-align: center; color: red !important;"><span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lightgrey !important;">1</span></td>
+<td style="text-align: center; color: red !important;"><span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lightgrey !important;">3</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center; color: blue !important;">2</td>
+<td style="text-align: center; color: blue !important;"><span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lightgrey !important;">3</span></td>
+<td style="text-align: center; color: blue !important;"><span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lightgrey !important;">4</span></td>
+<td style="text-align: center; color: blue !important;"><span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lightgrey !important;">2</span></td>
+</tr>
 </tbody>
 </table>
+
 
 </div>
 </div>
@@ -1104,96 +1111,96 @@ gender_uf :  Factor w/ 3 levels "1","2","3": 1 2 2 2 2 2 1 3 2 1 ...</code></pre
 <p><strong>Beispiel 1 Long-Format: Messzeitpunkte</strong></p>
 <div class="cell">
 <div class="cell-output-display">
-
-<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
- <thead>
-  <tr>
-   <th style="text-align:center;"> Untersuchungseinheit </th>
-   <th style="text-align:center;"> Zeitpunkt </th>
-   <th style="text-align:center;"> Messung </th>
-  </tr>
- </thead>
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: center;" data-quarto-table-cell-role="th">Untersuchungseinheit</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Zeitpunkt</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Messung</th>
+</tr>
+</thead>
 <tbody>
-  <tr>
-   <td style="text-align:center;color: darkred !important;"> 1 </td>
-   <td style="text-align:center;color: darkred !important;"> 1 </td>
-   <td style="text-align:center;color: darkred !important;"> <span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: grey !important;">4</span> </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;color: darkred !important;"> 1 </td>
-   <td style="text-align:center;color: darkred !important;"> 2 </td>
-   <td style="text-align:center;color: darkred !important;"> <span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: grey !important;">3</span> </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;color: darkred !important;"> 1 </td>
-   <td style="text-align:center;color: darkred !important;"> 3 </td>
-   <td style="text-align:center;color: darkred !important;"> <span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: grey !important;">1</span> </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;color: dodgerblue !important;"> 2 </td>
-   <td style="text-align:center;color: dodgerblue !important;"> 1 </td>
-   <td style="text-align:center;color: dodgerblue !important;"> <span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: grey !important;">5</span> </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;color: dodgerblue !important;"> 2 </td>
-   <td style="text-align:center;color: dodgerblue !important;"> 2 </td>
-   <td style="text-align:center;color: dodgerblue !important;"> <span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: grey !important;">2</span> </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;color: dodgerblue !important;"> 2 </td>
-   <td style="text-align:center;color: dodgerblue !important;"> 3 </td>
-   <td style="text-align:center;color: dodgerblue !important;"> <span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: grey !important;">3</span> </td>
-  </tr>
+<tr class="odd">
+<td style="text-align: center; color: darkred !important;">1</td>
+<td style="text-align: center; color: darkred !important;">1</td>
+<td style="text-align: center; color: darkred !important;"><span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: grey !important;">4</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center; color: darkred !important;">1</td>
+<td style="text-align: center; color: darkred !important;">2</td>
+<td style="text-align: center; color: darkred !important;"><span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: grey !important;">3</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center; color: darkred !important;">1</td>
+<td style="text-align: center; color: darkred !important;">3</td>
+<td style="text-align: center; color: darkred !important;"><span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: grey !important;">1</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center; color: dodgerblue !important;">2</td>
+<td style="text-align: center; color: dodgerblue !important;">1</td>
+<td style="text-align: center; color: dodgerblue !important;"><span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: grey !important;">5</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center; color: dodgerblue !important;">2</td>
+<td style="text-align: center; color: dodgerblue !important;">2</td>
+<td style="text-align: center; color: dodgerblue !important;"><span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: grey !important;">2</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center; color: dodgerblue !important;">2</td>
+<td style="text-align: center; color: dodgerblue !important;">3</td>
+<td style="text-align: center; color: dodgerblue !important;"><span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: grey !important;">3</span></td>
+</tr>
 </tbody>
 </table>
+
 
 </div>
 </div>
 <p><strong>Beispiel 2 Long-Format: Rater</strong></p>
 <div class="cell">
 <div class="cell-output-display">
-
-<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
- <thead>
-  <tr>
-   <th style="text-align:center;"> Untersuchungseinheit </th>
-   <th style="text-align:center;"> Rater </th>
-   <th style="text-align:center;"> Messung </th>
-  </tr>
- </thead>
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: center;" data-quarto-table-cell-role="th">Untersuchungseinheit</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Rater</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Messung</th>
+</tr>
+</thead>
 <tbody>
-  <tr>
-   <td style="text-align:center;color: darkred !important;"> 1 </td>
-   <td style="text-align:center;color: darkred !important;"> self </td>
-   <td style="text-align:center;color: darkred !important;"> <span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lightgrey !important;">2</span> </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;color: darkred !important;"> 1 </td>
-   <td style="text-align:center;color: darkred !important;"> friend </td>
-   <td style="text-align:center;color: darkred !important;"> <span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lightgrey !important;">1</span> </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;color: darkred !important;"> 1 </td>
-   <td style="text-align:center;color: darkred !important;"> parent </td>
-   <td style="text-align:center;color: darkred !important;"> <span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lightgrey !important;">3</span> </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;color: dodgerblue !important;"> 2 </td>
-   <td style="text-align:center;color: dodgerblue !important;"> self </td>
-   <td style="text-align:center;color: dodgerblue !important;"> <span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lightgrey !important;">3</span> </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;color: dodgerblue !important;"> 2 </td>
-   <td style="text-align:center;color: dodgerblue !important;"> friend </td>
-   <td style="text-align:center;color: dodgerblue !important;"> <span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lightgrey !important;">4</span> </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;color: dodgerblue !important;"> 2 </td>
-   <td style="text-align:center;color: dodgerblue !important;"> parent </td>
-   <td style="text-align:center;color: dodgerblue !important;"> <span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lightgrey !important;">2</span> </td>
-  </tr>
+<tr class="odd">
+<td style="text-align: center; color: darkred !important;">1</td>
+<td style="text-align: center; color: darkred !important;">self</td>
+<td style="text-align: center; color: darkred !important;"><span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lightgrey !important;">2</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center; color: darkred !important;">1</td>
+<td style="text-align: center; color: darkred !important;">friend</td>
+<td style="text-align: center; color: darkred !important;"><span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lightgrey !important;">1</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center; color: darkred !important;">1</td>
+<td style="text-align: center; color: darkred !important;">parent</td>
+<td style="text-align: center; color: darkred !important;"><span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lightgrey !important;">3</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center; color: dodgerblue !important;">2</td>
+<td style="text-align: center; color: dodgerblue !important;">self</td>
+<td style="text-align: center; color: dodgerblue !important;"><span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lightgrey !important;">3</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center; color: dodgerblue !important;">2</td>
+<td style="text-align: center; color: dodgerblue !important;">friend</td>
+<td style="text-align: center; color: dodgerblue !important;"><span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lightgrey !important;">4</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center; color: dodgerblue !important;">2</td>
+<td style="text-align: center; color: dodgerblue !important;">parent</td>
+<td style="text-align: center; color: dodgerblue !important;"><span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: lightgrey !important;">2</span></td>
+</tr>
 </tbody>
 </table>
+
 
 </div>
 </div>
@@ -1272,9 +1279,6 @@ gender_uf :  Factor w/ 3 levels "1","2","3": 1 2 2 2 2 2 1 3 2 1 ...</code></pre
 <p>Nehmen wir an, dass ein Dataframe <code>x</code> eine zusätzliche Variable <code>a</code> hat. Für die Fälle des anderen Dataframe <code>y</code> würden auf <code>a</code> im zusammengeführten Objekt nur fehlende Werte (<code>NA</code>) stehen. So würde die Funktion solche Fälle (im Vergleich der beiden Dataframes), die bis auf die Variable <code>a</code> die gleichen Ausprägungen haben, nicht übernehmen.</p>
 <p><code>x</code> und <code>y</code> haben jeweils drei Fälle. <code>x</code> hat drei Variablen; <code>y</code> hat zwei.</p>
 <div class="cell">
-
-</div>
-<div class="cell">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  c b a
@@ -1310,9 +1314,6 @@ gender_uf :  Factor w/ 3 levels "1","2","3": 1 2 2 2 2 2 1 3 2 1 ...</code></pre
 <summary>
 <code>bind_rows()</code>
 </summary>
-<div class="cell">
-
-</div>
 <p>Der Funktion <code>bind_rows()</code> übergeben wir einfach die Dataframes, die wir vertikal aneinander reihen wollen. Die <strong>Reihenfolge der übergebenen Dataframes</strong> entscheidet dabei auch über die Reihenfolge der Zeilen des zusammengeführten Dataframes (z.B. erst alle Zeilen von <code>vornamen_13</code>, dann von <code>vornamen_14</code>).</p>
 <p>Optional können wir der Funktion das Argument <code>.id</code> übergeben, mit dem wir eine ID-Variable erstellen, welche die Datensätze kodiert (beginnend mit 1).</p>
 <div class="cell">
@@ -1321,34 +1322,34 @@ gender_uf :  Factor w/ 3 levels "1","2","3": 1 2 2 2 2 2 1 3 2 1 ...</code></pre
 </div>
 <div class="cell">
 <div class="cell-output-display">
-
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;">   </th>
-   <th style="text-align:left;"> id </th>
-   <th style="text-align:left;"> vorname </th>
-   <th style="text-align:right;"> anzahl </th>
-   <th style="text-align:left;"> geschlecht </th>
-  </tr>
- </thead>
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">id</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">vorname</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">anzahl</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">geschlecht</th>
+</tr>
+</thead>
 <tbody>
-  <tr>
-   <td style="text-align:left;"> 1 </td>
-   <td style="text-align:left;"> 1 </td>
-   <td style="text-align:left;"> Maximilian </td>
-   <td style="text-align:right;"> 166 </td>
-   <td style="text-align:left;"> m </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 4013 </td>
-   <td style="text-align:left;"> 2 </td>
-   <td style="text-align:left;"> Maximilian </td>
-   <td style="text-align:right;"> 178 </td>
-   <td style="text-align:left;"> m </td>
-  </tr>
+<tr class="odd">
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">Maximilian</td>
+<td style="text-align: right;">166</td>
+<td style="text-align: left;">m</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4013</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">Maximilian</td>
+<td style="text-align: right;">178</td>
+<td style="text-align: left;">m</td>
+</tr>
 </tbody>
 </table>
+
 
 </div>
 </div>
@@ -1391,62 +1392,62 @@ Die Anzahl der Zeilen stimmt mit der Summe der Zeilen von <code>vornamen_13</cod
 <p>Nun schauen wir uns einmal die (ersten 6 Fälle der) neu erstellten Variablen an.</p>
 <div class="cell">
 <div class="cell-output-display">
-
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> vorname </th>
-   <th style="text-align:right;"> anzahl.x </th>
-   <th style="text-align:left;"> geschlecht.x </th>
-   <th style="text-align:right;"> anzahl.y </th>
-   <th style="text-align:left;"> geschlecht.y </th>
-  </tr>
- </thead>
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">vorname</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">anzahl.x</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">geschlecht.x</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">anzahl.y</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">geschlecht.y</th>
+</tr>
+</thead>
 <tbody>
-  <tr>
-   <td style="text-align:left;"> + </td>
-   <td style="text-align:right;"> NA </td>
-   <td style="text-align:left;"> NA </td>
-   <td style="text-align:right;"> 9 </td>
-   <td style="text-align:left;"> w </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> + </td>
-   <td style="text-align:right;"> NA </td>
-   <td style="text-align:left;"> NA </td>
-   <td style="text-align:right;"> 7 </td>
-   <td style="text-align:left;"> m </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Aadhavan </td>
-   <td style="text-align:right;"> NA </td>
-   <td style="text-align:left;"> NA </td>
-   <td style="text-align:right;"> 2 </td>
-   <td style="text-align:left;"> m </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Aadhya </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:left;"> w </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:left;"> w </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Aahana </td>
-   <td style="text-align:right;"> NA </td>
-   <td style="text-align:left;"> NA </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:left;"> w </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Aahel </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:left;"> m </td>
-   <td style="text-align:right;"> NA </td>
-   <td style="text-align:left;"> NA </td>
-  </tr>
+<tr class="odd">
+<td style="text-align: left;">+</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: left;">w</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">+</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: left;">m</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Aadhavan</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">m</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Aadhya</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">w</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">w</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Aahana</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">w</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Aahel</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">m</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
 </tbody>
 </table>
+
 
 </div>
 </div>
@@ -1519,9 +1520,6 @@ Wie kommt man auf die Anzahl der Fälle <span class="math inline">\(N = 6371\)</
 <summary>
 <code>_join()</code>
 </summary>
-<div class="cell">
-
-</div>
 <p>Die <code>_join()</code>-Funktionen aus <strong>dplyr</strong> sind danach differenziert, welche Daten wir aus den Datensätzen übernehmen möchten. Diese Unterscheidung ist analog zu dem Argument <code>all</code> in <code>merge()</code>.</p>
 <p>Für Daten aus beiden Datensätzen nutzt man <code>full_join()</code>. Analog zu <code>all = TRUE</code> in <code>merge()</code>.</p>
 <p>Für Daten aus dem ersten bzw. zweiten Datensatz und den überlappenden Fällen nutzt man <code>left_join()</code> bzw. <code>right_join()</code>. Analog zu <code>all.x = TRUE</code> bzw. <code>all.y = TRUE</code> in <code>merge()</code>.</p>
@@ -1566,48 +1564,48 @@ Wie kommt man auf die Anzahl der Fälle <span class="math inline">\(N = 6371\)</
 </div>
 <div class="cell">
 <div class="cell-output-display">
-
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> vorname </th>
-   <th style="text-align:right;"> anzahl </th>
-   <th style="text-align:left;"> geschlecht </th>
-  </tr>
- </thead>
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">vorname</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">anzahl</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">geschlecht</th>
+</tr>
+</thead>
 <tbody>
-  <tr>
-   <td style="text-align:left;"> Maximilian </td>
-   <td style="text-align:right;"> 166 </td>
-   <td style="text-align:left;"> m </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Felix </td>
-   <td style="text-align:right;"> 124 </td>
-   <td style="text-align:left;"> m </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Anna </td>
-   <td style="text-align:right;"> 109 </td>
-   <td style="text-align:left;"> w </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> David </td>
-   <td style="text-align:right;"> 109 </td>
-   <td style="text-align:left;"> m </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Sophia </td>
-   <td style="text-align:right;"> 108 </td>
-   <td style="text-align:left;"> w </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Emilia </td>
-   <td style="text-align:right;"> 103 </td>
-   <td style="text-align:left;"> w </td>
-  </tr>
+<tr class="odd">
+<td style="text-align: left;">Maximilian</td>
+<td style="text-align: right;">166</td>
+<td style="text-align: left;">m</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Felix</td>
+<td style="text-align: right;">124</td>
+<td style="text-align: left;">m</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Anna</td>
+<td style="text-align: right;">109</td>
+<td style="text-align: left;">w</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">David</td>
+<td style="text-align: right;">109</td>
+<td style="text-align: left;">m</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sophia</td>
+<td style="text-align: right;">108</td>
+<td style="text-align: left;">w</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Emilia</td>
+<td style="text-align: right;">103</td>
+<td style="text-align: left;">w</td>
+</tr>
 </tbody>
 </table>
+
 
 </div>
 </div>
@@ -1619,48 +1617,48 @@ Wie kommt man auf die Anzahl der Fälle <span class="math inline">\(N = 6371\)</
 </div>
 <div class="cell">
 <div class="cell-output-display">
-
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> vorname </th>
-   <th style="text-align:right;"> anzahl </th>
-   <th style="text-align:left;"> geschlecht </th>
-  </tr>
- </thead>
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">vorname</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">anzahl</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">geschlecht</th>
+</tr>
+</thead>
 <tbody>
-  <tr>
-   <td style="text-align:left;"> + </td>
-   <td style="text-align:right;"> 7 </td>
-   <td style="text-align:left;"> m </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> + </td>
-   <td style="text-align:right;"> 9 </td>
-   <td style="text-align:left;"> w </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Aadhavan </td>
-   <td style="text-align:right;"> 2 </td>
-   <td style="text-align:left;"> m </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Aadhya </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:left;"> w </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Aahana </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:left;"> w </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Aahel </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:left;"> m </td>
-  </tr>
+<tr class="odd">
+<td style="text-align: left;">+</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: left;">m</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">+</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: left;">w</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Aadhavan</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">m</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Aadhya</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">w</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Aahana</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">w</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Aahel</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">m</td>
+</tr>
 </tbody>
 </table>
+
 
 </div>
 </div>
@@ -1673,36 +1671,40 @@ Wie kommt man auf die Anzahl der Fälle <span class="math inline">\(N = 6371\)</
 </p>
 <p>Manchmal möchten wir nur bestimmte Variablen bzw. bestimmte Fälle aus einem Datensatz betrachten. Generell bietet es sich an, dafür <strong>reguläre Ausdrücke</strong> (<a href="https://github.com/rstudio/cheatsheets/raw/main/regex.pdf" target="_blank"><em>regular expressions</em></a> z.B. die Metacharactere <code>.*</code>, <code>|</code>, <code>^</code> und <code>$</code>) und <strong>logische Operatoren</strong> (<em>logical operators</em> z.B. <code>&gt;</code>, <code>&lt;</code> und <code>==</code>) zu nutzen.</p>
 <p>Wie wir Variablen (Spalten) und Fälle (Zeilen) selektieren und in einem neuen Dataframe speichern können, schauen wir uns nun an.</p>
-<div class="cell">
-
-</div>
 <section id="variablen" class="level3" data-number="8.3.1">
 <h3 data-number="8.3.1" class="anchored" data-anchor-id="variablen"><span class="header-section-number">8.3.1</span> Variablen</h3>
 <p>Wenn wir nur einige Variablen aus einem bzw. aus mehreren Datensätzen benötigen, können wir diese mit verschiedenen Möglichkeiten entnehmen. Im Folgenden schauen wir uns dafür Möglichkeiten aus dem Standardpacket <strong>base</strong> und dem Zusatzpaket <strong>dplyr</strong> an.</p>
 <p>Unten befindet sich eine Übersicht, der wir entnehmen können, welche Methode wir wählen sollten in Abhängigkeit davon, ob die Variablen, die wir extrahieren wollen, ähnlich oder unterschiedlich sind.</p>
 <div class="cell">
 <div class="cell-output-display">
-
-<table style="width:100%; margin-left: auto; margin-right: auto;" class="table">
- <thead>
-<tr><th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; color: white !important;padding-right: 4px; padding-left: 4px; background-color: #009193 !important;" colspan="2"><div style="">Die Variablennamen sind ...</div></th></tr>
-  <tr>
-   <th style="text-align:left;font-weight: bold;color: white !important;background-color: #009193 !important;"> ... sich ähnlich </th>
-   <th style="text-align:left;font-weight: bold;color: white !important;background-color: #009193 !important;"> ... unterschiedlich </th>
-  </tr>
- </thead>
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th colspan="2" data-quarto-table-cell-role="th" style="text-align: center; border-bottom: hidden; padding-bottom: 0; padding-left: 3px; padding-right: 3px; color: white !important; padding-right: 4px; padding-left: 4px; background-color: #009193 !important;"><div style="">
+Die Variablennamen sind ...
+</div></th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold; color: white !important; background-color: #009193 !important;">... sich ähnlich</th>
+<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold; color: white !important; background-color: #009193 !important;">... unterschiedlich</th>
+</tr>
+</thead>
 <tbody>
-  <tr>
-   <td style="text-align:left;"> `grep()` </td>
-   <td style="text-align:left;"> `$`, `select()` </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;font-size: 10px;"> z.B. enthalten den Buchstaben 'o':
-`Ozone`, `Solar.R`, `Month` </td>
-   <td style="text-align:left;font-size: 10px;"> z.B. `Month` und `Day` </td>
-  </tr>
+<tr class="odd">
+<td style="text-align: left;">`grep()`</td>
+<td style="text-align: left;">`$`, `select()`</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; font-size: 10px;">z.B. enthalten den Buchstaben 'o': `Ozone`, `Solar.R`, `Month`</td>
+<td style="text-align: left; font-size: 10px;">z.B. `Month` und `Day`</td>
+</tr>
 </tbody>
 </table>
+
 
 </div>
 </div>
@@ -1713,9 +1715,6 @@ Wie kommt man auf die Anzahl der Fälle <span class="math inline">\(N = 6371\)</
 <p>Wenn Variablen eines Datensatzes eine <strong>Gemeinsamkeit</strong> (z.B. einen gemeinsamen Wortstamm) aufweisen, können wir diese mit der Funktion <code>grep()</code> extrahieren.</p>
 <pre><code>grep(pattern, names(Datensatz))</code></pre>
 <p>Die Funktion durchsucht die Namen der Variablen eines Dataframes - <code>names(Datensatz)</code> - nach bestimmten Zahlen- oder Zeichenketten (<code>pattern</code>). Diese müssen wir in <code>" "</code> angeben (weil Variablennamen als Character gespeichert werden).</p>
-<div class="cell">
-
-</div>
 <p>Wir wollen beispielshalber alle Variablen extrahieren, die <strong>irgendwo</strong> ein <strong>o</strong> im Namen haben.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Selektion der Namen</span></span>
@@ -1804,9 +1803,6 @@ Wir können den Variablen z.B. <code>colnames(Datensatz) &lt;- c("Var1", "Var2",
 </details>
 <section id="datums-variablen-splitten" class="level4" data-number="8.3.1.1">
 <h4 data-number="8.3.1.1" class="anchored" data-anchor-id="datums-variablen-splitten"><span class="header-section-number">8.3.1.1</span> Datums-Variablen splitten</h4>
-<div class="cell">
-
-</div>
 <p>Für den Fall, dass wir eine Datums-Variable in unserem Datensatz haben, welche in einem für uns unangemessenen Format vorliegt, können wir diese mit dem Paket <strong>lubridate</strong> umformatieren. Auf dieser <a href="https://psyr.djnavarro.net/manipulating-data.html#165_processing_dates" target="_blank">Seite</a> wird der Umgang mit den im Paket enthaltenen Funktionen <code>ymd()</code> und <code>mdy()</code> erklärt.</p>
 </section>
 </section>
@@ -1816,26 +1812,34 @@ Wir können den Variablen z.B. <code>colnames(Datensatz) &lt;- c("Var1", "Var2",
 <p>Unten befindet sich eine Übersicht, der wir entnehmen können, welche Methode wir wählen sollten in Abhängigkeit davon, ob die Fälle, die wir extrahieren wollen, ähnlich oder unterschiedlich sind.</p>
 <div class="cell">
 <div class="cell-output-display">
-
-<table style="width:100%; margin-left: auto; margin-right: auto;" class="table">
- <thead>
-<tr><th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; color: white !important;padding-right: 4px; padding-left: 4px; background-color: #009193 !important;" colspan="2"><div style="">Die Ausprägungen der Fälle haben ...</div></th></tr>
-  <tr>
-   <th style="text-align:left;font-weight: bold;color: white !important;background-color: #009193 !important;"> ... die selben Zeichen </th>
-   <th style="text-align:left;font-weight: bold;color: white !important;background-color: #009193 !important;"> ... einen gemeinsamen Wertebereich </th>
-  </tr>
- </thead>
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th colspan="2" data-quarto-table-cell-role="th" style="text-align: center; border-bottom: hidden; padding-bottom: 0; padding-left: 3px; padding-right: 3px; color: white !important; padding-right: 4px; padding-left: 4px; background-color: #009193 !important;"><div style="">
+Die Ausprägungen der Fälle haben ...
+</div></th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold; color: white !important; background-color: #009193 !important;">... die selben Zeichen</th>
+<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold; color: white !important; background-color: #009193 !important;">... einen gemeinsamen Wertebereich</th>
+</tr>
+</thead>
 <tbody>
-  <tr>
-   <td style="text-align:left;"> `grep()` </td>
-   <td style="text-align:left;"> logische Operatoren, `filter()` </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;font-size: 10px;"> z.B. enthalten die Zahl 6: 67, 86, ... </td>
-   <td style="text-align:left;font-size: 10px;"> z.B. genau 57 oder &gt;= 15 </td>
-  </tr>
+<tr class="odd">
+<td style="text-align: left;">`grep()`</td>
+<td style="text-align: left;">logische Operatoren, `filter()`</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; font-size: 10px;">z.B. enthalten die Zahl 6: 67, 86, ...</td>
+<td style="text-align: left; font-size: 10px;">z.B. genau 57 oder &gt;= 15</td>
+</tr>
 </tbody>
 </table>
+
 
 </div>
 </div>
@@ -1843,21 +1847,12 @@ Wir können den Variablen z.B. <code>colnames(Datensatz) &lt;- c("Var1", "Var2",
 <summary>
 <code>grep()</code>
 </summary>
-<div class="cell">
-
-</div>
 <p>Wenn wir Ausprägungen suchen, die sich nicht durch logische Operatoren, sondern durch Ähnlichkeiten (z.B. ein gleiches Zeichen) filtern lassen, dann können wir dafür <code>grep()</code> nutzen.</p>
 <p><code>grep(pattern, x, value)</code></p>
 <p>Die Funktion durchsucht Elemente eines Vektor (<code>x</code>) nach bestimmten Zahlen- oder Zeichenketten (<code>pattern</code>). Mit <code>grep()</code> werden in Abhängigkeit des Arguments <code>value</code> entweder Indizes (<code>FALSE</code>; <em>voreingestellt</em>), oder konkrete Werte (<code>TRUE</code>) ausgegeben. Die Werte schauen wir uns zur Überprüfung an; die Indizes benötigen wir zur Extraktion jener Fälle aus dem Datensatz.</p>
-<div class="cell">
-
-</div>
 <p>Unsere gesuchten Zahlen- oder Zeichenketten, die wir an das Argument <code>pattern</code> übergeben, sowie die ausgegeben Werte, werden immer als Character behandelt und von daher in <code>" "</code> ausgegeben.</p>
 <p>Wenn eine Ausprägung <strong>irgendwo</strong> eine bestimmten Zahlen- oder Zeichenketten enthalten soll, geben wir diese einfach ein.</p>
 <p>Wir durchsuchen die Variable <code>Temp</code> nach den Tagen, an denen eine 6 im Messwert war.</p>
-<div class="cell">
-
-</div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb83"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">"6"</span>, airquality<span class="sc">$</span>Temp) <span class="co"># Indizes</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1939,9 +1934,6 @@ Wir können den Variablen z.B. <code>colnames(Datensatz) &lt;- c("Var1", "Var2",
 <summary>
 <a name="logop"></a>Logische Operatoren
 </summary>
-<div class="cell">
-
-</div>
 <p>Wenn wir logische Operatoren auf einzelne Variablen anwenden, können wir Fälle mit bestimmten Ausprägungen filtern.</p>
 <p><a href="https://www.phonetik.uni-muenchen.de/~jmh/lehre/sem/ws0809/R/RTeil2.pdf" target="_blank">Hier</a> finden wir eine Einführung zu logischen Operatoren mit Übungsfragen.</p>
 <p>Um nur diese Fälle im gesamten Datensatz zu extrahieren, nutzen wir folgende Syntax:<br>
@@ -2006,9 +1998,6 @@ Weitere logische Operatoren sind z.B. <code>!=</code> <em>(nicht)</em>, <code>&l
 </section>
 <section id="daten-sortieren" class="level2" data-number="8.4">
 <h2 data-number="8.4" class="anchored" data-anchor-id="daten-sortieren"><span class="header-section-number">8.4</span> Daten sortieren</h2>
-<div class="cell">
-
-</div>
 <p>Für manche Vorhaben, wie z.B. grafische Darstellungen oder dem Quantifizieren von Heteroskedastizität, benötigt man sortierte Daten.</p>
 <p>Wir schauen uns nachfolgend zwei Möglichkeiten an, einen Dataframe nach den Ausprägungen seiner Variablen zu sortieren.</p>
 <details>
@@ -2065,9 +2054,6 @@ Wenn wir <code>Temp</code>-Werte mit der gleichen Ausprägung zusätzlich noch n
 <summary>
 <code>arrange()</code>
 </summary>
-<div class="cell">
-
-</div>
 <p>Die Funktion <code>arrange()</code> aus dem Paket <strong>dplyr</strong> hat ein sehr ähnliches Prinzip wie <code>order()</code>. Sie ist dabei in der Handhabung übersichtlicher, weil man der Funktion den Namen des Dataframes einmalig übergibt und nachfolgend nur noch die Variablen angeben muss, nach denen sortiert werden soll. Außerdem muss man den Output nicht zusätzlich auf den Dataframe anwenden, weil <code>arrange()</code> das ohnehin macht.</p>
 <p>Standardmäßig wird hier ebenso wie bei <code>order()</code> aufsteigend sortiert solange man das nicht mit dem Voranstellen eines <code>-</code> ändert.</p>
 <p>Schauen wir uns das für das letzte Beispiel im vorhergehenden Abschnitt an. Wir sortieren den Dataframe <strong>absteigend</strong> nach <code>Temp</code> und gleiche Werte <strong>aufsteigend</strong> nach <code>Wind</code>.</p>
@@ -2092,9 +2078,6 @@ Wenn wir <code>Temp</code>-Werte mit der gleichen Ausprägung zusätzlich noch n
 <p>Für dieses Kapitel beschränken wir uns auf die Nutzung des Datensatzes <strong>PWE_data</strong>, welchen wir <a href="#data">zu Beginn</a> heruntergeladen haben.</p>
 <section id="umkodieren" class="level3" data-number="8.5.1">
 <h3 data-number="8.5.1" class="anchored" data-anchor-id="umkodieren"><span class="header-section-number">8.5.1</span> Umkodieren</h3>
-<div class="cell">
-
-</div>
 <p>Wenn wir zum Beispiel Messwerte in Meter zu Messwerten in Zentimeter ändern oder negativ gepolte Items umpolen wollen, spricht man von Umkodieren.</p>
 <p>Wir können die Kodierung von Merkmalen in R auf verschiedene Arten ändern. Nachfolgend schauen wir uns zwei Funktionen an, die wir nutzen können.</p>
 <details>
@@ -2176,9 +2159,6 @@ Wenn wir <code>Temp</code>-Werte mit der gleichen Ausprägung zusätzlich noch n
 <summary>
 <code>case_when()</code>
 </summary>
-<div class="cell">
-
-</div>
 <p>Mit der Funktion <code>case_when()</code> aus dem Paket <strong>dplyr</strong> können wir für verschiedene Fälle (d.h. Bedingungen) der ursprünglichen Variable angeben, wie diese umkodiert werden soll. Auf die <strong>linke</strong> Seite schreiben wir eine logische Bedingung (z.B. größer als mit <code>&gt;</code>); auf die <strong>rechte</strong> Seite die neue Kodierung. Verbunden werden beide mit einer Tilde (<code>~</code>).</p>
 <p>Im Gegensatz zu <code>recode()</code> können wir durch die Verwendung von logischen Operatoren (z.B. <code>&gt;</code>) ganzen Zahlenintervallen dieselbe Kodierung zuweisen.</p>
 <p>Als Beispiel bilden wir Kategorien für das intervallskalierte Merkmal <code>Q1E</code> (mit Frage <strong>Q1</strong> verbrachte Zeit in Millisekunden). Den Range des Merkmals erfahren wir mit <code>range(PWE_data$Q1E, na.rm=TRUE)</code> (195 - 181.24<strong>6</strong>). Wir teilen <code>Q1E</code> in vier gleich breite Kategorien ein: <span class="math inline">\([195, 45457.75), [45457.75, 90720.5), [90720.5, 135983.2), [135983.2, 181247)\)</span>.</p>
@@ -2221,41 +2201,45 @@ Wenn wir <code>Temp</code>-Werte mit der gleichen Ausprägung zusätzlich noch n
 </div>
 <div class="cell page-columns page-full">
 <div class="cell-output-display column-body">
-
-<table class="table table-bordered" style="margin-left: auto; margin-right: auto;border-bottom: 0;">
- <thead>
-  <tr>
-   <th style="text-align:left;font-weight: bold;color: white !important;background-color: #009193 !important;">   </th>
-   <th style="text-align:left;font-weight: bold;color: white !important;background-color: #009193 !important;"> Intercept b<sub>0</sub> </th>
-   <th style="text-align:left;font-weight: bold;color: white !important;background-color: #009193 !important;"> Steigung b<sub>j</sub> </th>
-   <th style="text-align:left;font-weight: bold;color: white !important;background-color: #009193 !important;"> mögliche Anwendung </th>
-  </tr>
- </thead>
+<table class="table table-bordered table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold; color: white !important; background-color: #009193 !important;"></th>
+<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold; color: white !important; background-color: #009193 !important;">Intercept b<sub>0</sub></th>
+<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold; color: white !important; background-color: #009193 !important;">Steigung b<sub>j</sub></th>
+<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold; color: white !important; background-color: #009193 !important;">mögliche Anwendung</th>
+</tr>
+</thead>
 <tbody>
-  <tr>
-   <td style="text-align:left;"> <b>Dummy</b> </td>
-   <td style="text-align:left;"> Mittelwert in der Referenzgruppe </td>
-   <td style="text-align:left;"> Differenz des Mittelwerts der j-ten Gruppe zur Referenzgruppe </td>
-   <td style="text-align:left;"> Vergleich von Experimental- und Kontrollgruppe </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> <b>Effekt</b> </td>
-   <td style="text-align:left;"> Mittelwert der Gruppenmittelwerte (Gesamtmittelwert) </td>
-   <td style="text-align:left;"> Differenz des Mittelwertes der j-ten Gruppe zum Gesamtmittelwert </td>
-   <td style="text-align:left;"> Vergleich von Gruppen in varianzanalytischen Designs </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> <b>Kontrast</b> </td>
-   <td style="text-align:left;"> Mittelwert über die Mittelwerte der Kontrastgruppen </td>
-   <td style="text-align:left;"> lässt sich als Funktion der Kontrastkoeffizienten darstellen, die den jeweiligen Kontrast kodieren </td>
-   <td style="text-align:left;"> Gezielte Einzelvergleiche von (Kombinationen) von Gruppen </td>
-  </tr>
-</tbody>
-<tfoot><tr><td style="padding: 0; " colspan="100%">
-<sup></sup> 
-<font size="2">Die Interpretation der Mittelwerte und Differenzen hängt zusätzlich davon ab, ob ein <b>balanciertes</b> oder <b>unbalanciertes</b> Design vorliegt (d.h. ob die Gruppengrößen gleich oder ungleich sind).</font>
-</td></tr></tfoot>
+<tr class="odd">
+<td style="text-align: left;"><strong>Dummy</strong></td>
+<td style="text-align: left;">Mittelwert in der Referenzgruppe</td>
+<td style="text-align: left;">Differenz des Mittelwerts der j-ten Gruppe zur Referenzgruppe</td>
+<td style="text-align: left;">Vergleich von Experimental- und Kontrollgruppe</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Effekt</strong></td>
+<td style="text-align: left;">Mittelwert der Gruppenmittelwerte (Gesamtmittelwert)</td>
+<td style="text-align: left;">Differenz des Mittelwertes der j-ten Gruppe zum Gesamtmittelwert</td>
+<td style="text-align: left;">Vergleich von Gruppen in varianzanalytischen Designs</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Kontrast</strong></td>
+<td style="text-align: left;">Mittelwert über die Mittelwerte der Kontrastgruppen</td>
+<td style="text-align: left;">lässt sich als Funktion der Kontrastkoeffizienten darstellen, die den jeweiligen Kontrast kodieren</td>
+<td style="text-align: left;">Gezielte Einzelvergleiche von (Kombinationen) von Gruppen</td>
+</tr>
+</tbody><tfoot>
+<tr class="even">
+<td style="text-align: left; padding: 0;"><sup></sup> Die Interpretation der Mittelwerte und Differenzen hängt zusätzlich davon ab, ob ein <strong>balanciertes</strong> oder <strong>unbalanciertes</strong> Design vorliegt (d.h. ob die Gruppengrößen gleich oder ungleich sind).</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tfoot>
+
 </table>
+
 
 </div>
 </div>
@@ -2277,9 +2261,6 @@ Wenn wir <code>Temp</code>-Werte mit der gleichen Ausprägung zusätzlich noch n
 Dummy-Kodierung
 </summary>
 <p>Viele Funktionen in R (z.B. <code>lm()</code>, <code>lme()</code> und <code>lmer()</code>) kodieren nominalskalierte Variablen intern <em>automatisch</em> nach der Dummy-Kodierung um, wenn diese vorher <a href="#faktorisieren">als Faktoren deklariert</a> wurden. Dabei wird die <em>erste Kategorie als Referenzkategorie</em> genutzt. Wenn wir eine andere Referenzkategorie haben wollen, können wir dafür die im Folgenden vorgestellten Funktionen (<code>C(..., contr.treatment(n, base))</code> oder <code>relevel()</code>) nutzen.</p>
-<div class="cell">
-
-</div>
 <p>Man benötigt für eine Dummykodierung mit <span class="math inline">\(k\)</span>-Kategorien <span class="math inline">\(k-1\)</span> Indikatorvariablen. Die jeweils interessierende Gruppe wird in der jeweiligen Indikatorvariablen mit 1 kodiert; die anderen mit 0. Als <strong>Referenzkategorie</strong> (von der die Abweichung berechnet wird) gilt jene, welche in allen Indikatorvariablen mit <strong>0</strong> kodiert wird.</p>
 <p>Die Indikatorvariablen erstellt uns die Funktion <code>contr.treatment()</code> automatisch, wenn wir die Anzahl der Faktorstufen (<code>n</code>) und die Referenz (<code>base</code>) angeben.</p>
 <p>Um die faktorisierte Variable <code>gender_uf</code>, welche 3 Ausprägungen hat, zu kodieren, benötigen wir 2 Dummy-Variablen. Wir wählen die erste Kategorie (<code>1</code> = Male) als Referenzkategorie.</p>
@@ -2319,9 +2300,6 @@ Residual standard error: 26970 on 1340 degrees of freedom
 Multiple R-squared:  0.0007689, Adjusted R-squared:  -0.0007224 
 F-statistic: 0.5156 on 2 and 1340 DF,  p-value: 0.5973</code></pre>
 </div>
-</div>
-<div class="cell">
-
 </div>
 <p>Nun vergleichen wir das Regressionsmodell mit den Dummy-kodierten Indikatorariablen (<code>C(gender_uf, contr.treatment(n=4, base=1)</code>) mit dem Regressionsmodell mit dem unsortierten Faktor (<code>gender_uf</code>), bei dem ebenfalls die erste Kategorie als Referenzkategorie genutzt wird.</p>
 <div class="cell">
@@ -2369,9 +2347,6 @@ gender_uf :  Factor w/ 3 levels "1","2","3": 1 2 2 2 2 2 1 3 2 1 ...</code></pre
 <summary>
 Effektkodierung
 </summary>
-<div class="cell">
-
-</div>
 <p>Für diese Kodierung benötigen wir ebenfalls <span class="math inline">\(k-1\)</span> Indikatorvariablen. Die jeweils zutreffende Gruppe wird in der jeweiligen Indikatorvariablen mit 1 kodiert; die nicht zutreffende mit 0 (ebenso wie bei der Dummy-Kodierung). Die <strong>“Referenzkategorie”</strong> (in unserem Beispiel <code>No</code>) wird in allen Indikatorvariablen mit <strong>-1</strong> kodiert.</p>
 <p>Es gibt eigentlich keine echte Referenzkategorie (wie bei der Dummy-Kodierung). Vielmehr entspricht der Interzept dem Mittelwert über alle Gruppen hinweg.</p>
 <p>Analog zu <code>contr.treatment(n, ...)</code> bei der Dummy-Kodierung können wir <code>contr.sum(n)</code> nutzen, um eine effektkodierte Matrix eines Faktors zu erstellen.</p>
@@ -2422,12 +2397,6 @@ F-statistic: 0.5156 on 2 and 1340 DF,  p-value: 0.5973</code></pre>
 <summary>
 Konstrastkodierung
 </summary>
-<div class="cell">
-
-</div>
-<div class="cell">
-
-</div>
 <p>Bei der Kontrastkodierung können wir uns eigens gewählte Kontraste zwischen verschiedenen Gruppen anschauen. Die Gewichte <span class="math inline">\(c_i\)</span> <em>eines</em> Kontrastes müssen der Bedingung genügen, dass die Summe der Gewichte über die Anzahl der zu kodierenden Kategorien <span class="math inline">\(i\)</span> null ist, d.h. <span class="math inline">\(\sum\limits_{i} c_i = 0\)</span>.</p>
 <p>Die jeweilige Kodierung mit 0 in einer Indikatorvariablen sorgt dafür, dass eine Gruppe bzw. ein Fall <em>nicht</em> mit in einen Kontrast eingeht.</p>
 <p>Bei <em>multiplen</em> Kontrasten (d.h. mindestens zwei kontrastkodierten Variablen) können wir <strong>orthogonale</strong> (d.h. unkorrelierte) und <strong>nicht orthogonalen</strong> (d.h. korrelierte) Kontraste unterscheiden.</p>
@@ -2455,9 +2424,6 @@ Alternativ könnten wir auch <code>recode()</code> oder <code>case_when()</code>
 <span id="cb131-4"><a href="#cb131-4" aria-hidden="true" tabindex="-1"></a>                                  <span class="fu">rep</span>(<span class="dv">0</span>, <span class="dv">48</span>)) <span class="co"># Other (3) &amp; NA; nicht von Interesse</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>rep(Gewichtung, Gruppengröße)</code>: Die jeweilige Gewichtung einer Gruppe (bzw. Kombination von Gruppen) richtet sich nach ihrer Größe.</p>
-<div class="cell">
-
-</div>
 <details>
 <summary>
 Wie genau funktioniert <code>rep()</code>?
@@ -2514,9 +2480,6 @@ Residual standard error: 28490 on 1348 degrees of freedom
 Multiple R-squared:  0.0006381, Adjusted R-squared:  -0.0001032 
 F-statistic: 0.8608 on 1 and 1348 DF,  p-value: 0.3537</code></pre>
 </div>
-</div>
-<div class="cell">
-
 </div>
 In unserem Regressionsmodell mit dem Kontrast Männer vs.&nbsp;Frauen entspricht der <strong>Interzept <span class="math inline">\(b_0\)</span></strong> dem Mittelwert der Gruppenmittelwerte der <em>betrachteten</em> Gruppen (d.h. Männer und Frauen) und das <strong>partiellen Steigungsgewichte <span class="math inline">\(b_1\)</span></strong> dem Unterschied in den Mittelwerten der betrachteten Gruppen.
 </details>
@@ -2600,9 +2563,6 @@ In unserem Regressionsmodell mit dem Kontrast Männer vs.&nbsp;Frauen entspricht
 <summary>
 <code>mutate()</code>: Summary-Variablen als Funktion von anderen Variablen erstellen
 </summary>
-<div class="cell">
-
-</div>
 <p>Wenn wir neue Variablen erstellen wollen, die Funktionen von bestehenden Variablen sind, können wir die Funktion <code>mutate()</code> aus dem Paket <strong>dplyr</strong> nutzen. Besonders nützlich hierbei ist, dass wir mit dem Parameter <code>.keep</code> festlegen können, welche Variablen wir im (neu erstellten) Datensatz behalten wollen.</p>
 <p>Nachdem wir schon den Mittelwert der Skale berechnet haben (<code>mean</code>), wollen wir noch eine neue Variable erstellen, die den z-standardisierten Mittelwert der Personen widergibt.</p>
 <div class="cell">
@@ -2657,9 +2617,6 @@ In <code>lm()</code> wird listwise deletion angewendet, d.h. dass jede Zeile, di
 <p>Dazu nutzen wir einen Datensatz, der im Rahmen eines Projektes zur Untersuchung des Zusammenhangs des Bedürfnisses nach Privatsphäre und verschiedenen Persönlichkeitseigenschaften erhoben wurde. Mehr Informationen zum Projekt und zur Publikation finden wir <a href="https://osf.io/7ncpk/" target="_blank">hier</a>.</p>
 <p>Den <a href="https://osf.io/t4be6/" target="_blank"><strong>Datensatz</strong></a> sowie das dazugehörige <a href="https://osf.io/38qwz/" target="_blank"><strong>Codebuch</strong></a> finden wir im <strong>O</strong>pen <strong>S</strong>cience <strong>F</strong>ramework. Mehr Informationen zu OSF, der Replikationskrise und der Open Science Bewegung finden wir <a href="http://methods-berlin.com/de/replikationskrise_open_science/" target="_blank">hier</a>.</p>
 <p>Den Datensatz können wir, nachdem wir ihn heruntergeladen haben, folgendermaßen in R einlesen:</p>
-<div class="cell">
-
-</div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb144"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb144-1"><a href="#cb144-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"Dateipfad/data.csv"</span>) <span class="co"># hier den eigenen Dateipfad einfügen</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -3379,9 +3336,6 @@ Es gibt insgesamt 18 Items zu gesellschaftlichen und interpersonellen Bedürfnis
 Lösung
 </summary>
 <div class="cell">
-
-</div>
-<div class="cell">
 <div class="sourceCode cell-code" id="cb180"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb180-1"><a href="#cb180-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Vorauswahl von Bedürfnis-Variablen mittels des gemeinsamen Wortstammes:</span></span>
 <span id="cb180-2"><a href="#cb180-2" aria-hidden="true" tabindex="-1"></a>all_needs <span class="ot">&lt;-</span> data[,<span class="fu">c</span>(<span class="dv">1</span>, <span class="co"># id</span></span>
 <span id="cb180-3"><a href="#cb180-3" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">grep</span>(<span class="st">"nee"</span>, <span class="fu">names</span>(data)))] <span class="co"># alle Bedürfnis-Variablen</span></span>
@@ -3894,11 +3848,11 @@ other attached packages:
 
 loaded via a namespace (and not attached):
  [1] jsonlite_1.8.4    highr_0.10        compiler_4.3.0    crayon_1.5.2     
- [5] webshot_0.5.4     tidyselect_1.2.0  xml2_1.3.3        stringr_1.5.0    
+ [5] webshot_0.5.4     tidyselect_1.2.0  xml2_1.3.4        stringr_1.5.0    
  [9] systemfonts_1.0.4 scales_1.2.1      yaml_2.3.7        fastmap_1.1.1    
 [13] R6_2.5.1          generics_0.1.3    htmlwidgets_1.6.2 tibble_3.2.1     
 [17] munsell_0.5.0     svglite_2.1.1     pillar_1.9.0      tzdb_0.3.0       
-[21] rlang_1.1.0       utf8_1.2.3        stringi_1.7.12    xfun_0.39        
+[21] rlang_1.1.1       utf8_1.2.3        stringi_1.7.12    xfun_0.39        
 [25] viridisLite_0.4.1 cli_3.6.1         withr_2.5.0       magrittr_2.0.3   
 [29] digest_0.6.31     rvest_1.0.3       rstudioapi_0.14   hms_1.1.3        
 [33] lifecycle_1.0.3   vctrs_0.6.2       evaluate_0.20     glue_1.6.2       
@@ -3940,9 +3894,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -4007,6 +3975,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {

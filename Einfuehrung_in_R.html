@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.475">
+<meta name="generator" content="quarto-1.3.340">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -17,9 +17,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -46,43 +47,13 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -134,11 +105,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Einführung in R</span></h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Installation.html">Einführung in R</a></li><li class="breadcrumb-item"><a href="./Einfuehrung_in_R.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Einführung in R</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
       </button>
     </div>
   </nav>
@@ -146,135 +122,161 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">R Lernplattform</a> 
     </div>
       </div>
-      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
         </div>
-      </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Inhalte</span></a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Inhalte</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Einführung in R</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Einführung in R</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Installation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Installation und Aktualisierung von R und RStudio</span></a>
+  <a href="./Installation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Installation und Aktualisierung von R und RStudio</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Einfuehrung_in_R.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Einführung in R</span></a>
+  <a href="./Einfuehrung_in_R.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Einführung in R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Einfuehrung_in_RStudio.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Einführung in RStudio</span></a>
+  <a href="./Einfuehrung_in_RStudio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Einführung in RStudio</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Pakete.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Pakete</span></a>
+  <a href="./Pakete.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Pakete</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Daten-importieren.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Daten importieren</span></a>
+  <a href="./Daten-importieren.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Daten importieren</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Fehlermeldungen.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Fehlermeldungen</span></a>
+  <a href="./Fehlermeldungen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Fehlermeldungen</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Datenvorbereitung.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Datenvorbereitung</span></a>
+  <a href="./Datenvorbereitung.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Datenvorbereitung</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Fehlende-Werte.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Fehlende Werte</span></a>
+  <a href="./Fehlende-Werte.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Fehlende Werte</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Grafiken.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Grafiken</span></a>
+  <a href="./Grafiken.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Grafiken</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Weiterführende Themen in R</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Weiterführende Themen in R</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Wide-and-Long-Format.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Wide- &amp; Long-Format</span></a>
+  <a href="./Wide-and-Long-Format.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Wide- &amp; Long-Format</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Markdown.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">R Markdown</span></a>
+  <a href="./Markdown.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">R Markdown</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Git.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Git und GitLab</span></a>
+  <a href="./Git.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Git und GitLab</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Vertiefungen zu den Veranstaltungen Methodenlehre I und II</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Vertiefungen zu den Veranstaltungen Methodenlehre I und II</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Voraussetzungspruefung.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Annahmen der Multiplen Linearen Regression</span></a>
+  <a href="./Missings.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Sind die Missings zufällig?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Outputs-ALM-FAQ.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Outputs - ALM - FAQ</span></a>
+  <a href="./Voraussetzungspruefung.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Annahmen der Multiplen Linearen Regression</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Outputs-ALM-FAQ.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Outputs - ALM - FAQ</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">Projekt-Dokumentation</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text">Projekt-Dokumentation</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Zur-Lernplattform-Beitragen.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Zur R-Lernplattform Beitragen</span></a>
+  <a href="./Zur-Lernplattform-Beitragen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Zur R-Lernplattform Beitragen</span></span></a>
   </div>
 </li>
       </ul>
@@ -282,27 +284,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#einleitung" id="toc-einleitung" class="nav-link active" data-scroll-target="#einleitung"><span class="toc-section-number">3.0.1</span>  Einleitung</a></li>
-  <li><a href="#funktionen-pakete" id="toc-funktionen-pakete" class="nav-link" data-scroll-target="#funktionen-pakete"><span class="toc-section-number">3.1</span>  Funktionen &amp; Pakete</a>
+  <li><a href="#einleitung" id="toc-einleitung" class="nav-link active" data-scroll-target="#einleitung"><span class="header-section-number">3.0.1</span> Einleitung</a></li>
+  <li><a href="#funktionen-pakete" id="toc-funktionen-pakete" class="nav-link" data-scroll-target="#funktionen-pakete"><span class="header-section-number">3.1</span> Funktionen &amp; Pakete</a>
   <ul class="collapse">
-  <li><a href="#funktionen" id="toc-funktionen" class="nav-link" data-scroll-target="#funktionen"><span class="toc-section-number">3.1.1</span>  Funktionen</a></li>
-  <li><a href="#pakete" id="toc-pakete" class="nav-link" data-scroll-target="#pakete"><span class="toc-section-number">3.1.2</span>  Pakete</a></li>
+  <li><a href="#funktionen" id="toc-funktionen" class="nav-link" data-scroll-target="#funktionen"><span class="header-section-number">3.1.1</span> Funktionen</a></li>
+  <li><a href="#pakete" id="toc-pakete" class="nav-link" data-scroll-target="#pakete"><span class="header-section-number">3.1.2</span> Pakete</a></li>
   </ul></li>
-  <li><a href="#daten" id="toc-daten" class="nav-link" data-scroll-target="#daten"><span class="toc-section-number">3.2</span>  Daten</a>
+  <li><a href="#daten" id="toc-daten" class="nav-link" data-scroll-target="#daten"><span class="header-section-number">3.2</span> Daten</a>
   <ul class="collapse">
-  <li><a href="#datentypen" id="toc-datentypen" class="nav-link" data-scroll-target="#datentypen"><span class="toc-section-number">3.2.1</span>  Datentypen</a></li>
-  <li><a href="#datenstrukturen" id="toc-datenstrukturen" class="nav-link" data-scroll-target="#datenstrukturen"><span class="toc-section-number">3.2.2</span>  Datenstrukturen</a></li>
-  <li><a href="#objekte" id="toc-objekte" class="nav-link" data-scroll-target="#objekte"><span class="toc-section-number">3.2.3</span>  Objekte</a></li>
+  <li><a href="#datentypen" id="toc-datentypen" class="nav-link" data-scroll-target="#datentypen"><span class="header-section-number">3.2.1</span> Datentypen</a></li>
+  <li><a href="#datenstrukturen" id="toc-datenstrukturen" class="nav-link" data-scroll-target="#datenstrukturen"><span class="header-section-number">3.2.2</span> Datenstrukturen</a></li>
+  <li><a href="#objekte" id="toc-objekte" class="nav-link" data-scroll-target="#objekte"><span class="header-section-number">3.2.3</span> Objekte</a></li>
   </ul></li>
-  <li><a href="#weitere-hilfen" id="toc-weitere-hilfen" class="nav-link" data-scroll-target="#weitere-hilfen"><span class="toc-section-number">3.3</span>  Weitere Hilfen</a>
+  <li><a href="#weitere-hilfen" id="toc-weitere-hilfen" class="nav-link" data-scroll-target="#weitere-hilfen"><span class="header-section-number">3.3</span> Weitere Hilfen</a>
   <ul class="collapse">
-  <li><a href="#andere-lernplattformen-und-übungen" id="toc-andere-lernplattformen-und-übungen" class="nav-link" data-scroll-target="#andere-lernplattformen-und-übungen"><span class="toc-section-number">3.3.1</span>  Andere Lernplattformen und Übungen</a></li>
+  <li><a href="#andere-lernplattformen-und-übungen" id="toc-andere-lernplattformen-und-übungen" class="nav-link" data-scroll-target="#andere-lernplattformen-und-übungen"><span class="header-section-number">3.3.1</span> Andere Lernplattformen und Übungen</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -312,7 +315,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Einführung in R</span></h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Einführung in R</span></h1>
 </div>
 
 
@@ -336,9 +339,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><em><strong>Achtung</strong></em>: Voraussetzung zur Bearbeitung des Kapitels ist, dass wir (zumindest) <a href="./Installation.html">R installiert</a> haben.</p>
 </blockquote>
 <p>Weiterführend ist es sinnvoll, sich die <a href="./Einfuehrung_in_RStudio.html">Einführung in RStudio</a> anzuschauen.</p>
-<div class="cell">
-
-</div>
 </section>
 <section id="funktionen-pakete" class="level2 page-columns page-full" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="funktionen-pakete"><span class="header-section-number">3.1</span> Funktionen &amp; Pakete</h2>
@@ -348,9 +348,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </blockquote>
 <section id="funktionen" class="level3" data-number="3.1.1">
 <h3 data-number="3.1.1" class="anchored" data-anchor-id="funktionen"><span class="header-section-number">3.1.1</span> Funktionen</h3>
-<div class="cell">
-
-</div>
 <blockquote class="blockquote">
 <p>Funktionen sind <strong>(Unter)Programme</strong>, die eine gewisse Funktionalität haben, d.h. eine <strong>bestimmte Aufgabe</strong> ausführen.</p>
 </blockquote>
@@ -431,9 +428,6 @@ Wann können wir Parameternamen weglassen (wie bei <code>mean(nums)</code>)?
 </div>
 </div>
 </details>
-<div class="cell">
-
-</div>
 <p>So erleichtern uns Funktionen unsere Arbeit. Zusammengefasst hat die Nutzung von Funktionen folgende Vorteile:</p>
 <ul>
 <li><strong>Organisation</strong><br>
@@ -528,9 +522,6 @@ Diese Informationen finden wir in der Dokumentation, welche wir unter <a href=".
 </div>
 </div>
 </div>
-<div class="cell">
-
-</div>
 <blockquote class="blockquote">
 <p><em><strong>Achtung</strong></em>: Die Gliederung nach “Datentyp” und “Datenstruktur” sind getreu des <a href="https://cran.r-project.org/doc/manuals/r-release/R-intro.html" target="_blank">Manuals</a> von R. Man stößt in anderen Quellen teils auf abweichende Benennungen.</p>
 </blockquote>
@@ -543,56 +534,48 @@ Diese Informationen finden wir in der Dokumentation, welche wir unter <a href=".
 <p>Nachfolgend finden wir eine Übersicht dieser Datentypen.</p>
 <div class="cell">
 <div class="cell-output-display">
-
-<table class="table" style="margin-left: auto; margin-right: auto;">
- <thead>
-  <tr>
-   <th style="text-align:center;color: white !important;background-color: #009193 !important;"> Art der Daten </th>
-   <th style="text-align:center;color: white !important;background-color: #009193 !important;"> Werte </th>
-   <th style="text-align:center;color: white !important;background-color: #009193 !important;"> Operationen </th>
-   <th style="text-align:center;color: white !important;background-color: #009193 !important;"> Datentyp in <span style="font-family: Consolas,monaco,monospace;">R </span>
-</th>
-   <th style="text-align:center;color: white !important;background-color: #009193 !important;">  </th>
-  </tr>
- </thead>
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th" style="text-align: center; color: white !important; background-color: #009193 !important;">Art der Daten</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; color: white !important; background-color: #009193 !important;">Werte</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; color: white !important; background-color: #009193 !important;">Operationen</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; color: white !important; background-color: #009193 !important;">Datentyp in <span style="font-family: Consolas,monaco,monospace;">R </span></th>
+<th data-quarto-table-cell-role="th" style="text-align: center; color: white !important; background-color: #009193 !important;"></th>
+</tr>
+</thead>
 <tbody>
-  <tr>
-   <td style="text-align:center;background-color: white !important;"> Zeichen(ketten) </td>
-   <td style="text-align:center;background-color: white !important;"> z.B. "Ball" oder '@' </td>
-   <td style="text-align:center;background-color: white !important;"> gleich oder ungleich </td>
-   <td style="text-align:center;background-color: white !important;width: 8em; font-weight: bold;background-color: #ECECEC !important;"> <span style="font-family: Consolas,monaco,monospace;">character </span>
-</td>
-   <td style="text-align:center;font-weight: bold;background-color: #ECECEC !important;background-color: white !important;">  </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;background-color: white !important;"> Wahrheitswerte </td>
-   <td style="text-align:center;background-color: white !important;"> TRUE, FALSE </td>
-   <td style="text-align:center;background-color: white !important;"> (einige) Logische Operatoren </td>
-   <td style="text-align:center;background-color: white !important;width: 8em; font-weight: bold;background-color: #ECECEC !important;"> <span style="font-family: Consolas,monaco,monospace;">logical </span>
-</td>
-   <td style="text-align:center;font-weight: bold;background-color: #ECECEC !important;background-color: white !important;"> <span style="display:none;">_ </span>
-</td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> Ganze Zahlen </td>
-   <td style="text-align:center;"> z.B. 2 </td>
-   <td style="text-align:center;"> Arithmetische und Logische Operatoren </td>
-   <td style="text-align:center;width: 8em; font-weight: bold;background-color: #ECECEC !important;"> <span style="font-family: Consolas,monaco,monospace;">integer </span>
-</td>
-   <td style="text-align:center;font-weight: bold;background-color: #ECECEC !important;"> <span style="font-family: Consolas,monaco,monospace;">numeric </span>
-</td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> Kommazahlen </td>
-   <td style="text-align:center;"> z.B. 3.4 </td>
-   <td style="text-align:center;"> Arithmetische und Logische Operatoren </td>
-   <td style="text-align:center;width: 8em; font-weight: bold;background-color: #ECECEC !important;"> <span style="font-family: Consolas,monaco,monospace;">double </span>
-</td>
-   <td style="text-align:center;font-weight: bold;background-color: #ECECEC !important;"> <span style="font-family: Consolas,monaco,monospace;">numeric </span>
-</td>
-  </tr>
+<tr class="odd">
+<td style="text-align: center; background-color: white !important;">Zeichen(ketten)</td>
+<td style="text-align: center; background-color: white !important;">z.B. "Ball" oder '@'</td>
+<td style="text-align: center; background-color: white !important;">gleich oder ungleich</td>
+<td style="text-align: center; background-color: white !important; width: 8em; font-weight: bold; background-color: #ECECEC !important;"><span style="font-family: Consolas,monaco,monospace;">character </span></td>
+<td style="text-align: center; font-weight: bold; background-color: #ECECEC !important; background-color: white !important;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center; background-color: white !important;">Wahrheitswerte</td>
+<td style="text-align: center; background-color: white !important;">TRUE, FALSE</td>
+<td style="text-align: center; background-color: white !important;">(einige) Logische Operatoren</td>
+<td style="text-align: center; background-color: white !important; width: 8em; font-weight: bold; background-color: #ECECEC !important;"><span style="font-family: Consolas,monaco,monospace;">logical </span></td>
+<td style="text-align: center; font-weight: bold; background-color: #ECECEC !important; background-color: white !important;"><span style="display:none;">_ </span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Ganze Zahlen</td>
+<td style="text-align: center;">z.B. 2</td>
+<td style="text-align: center;">Arithmetische und Logische Operatoren</td>
+<td style="text-align: center; width: 8em; font-weight: bold; background-color: #ECECEC !important;"><span style="font-family: Consolas,monaco,monospace;">integer </span></td>
+<td style="text-align: center; font-weight: bold; background-color: #ECECEC !important;"><span style="font-family: Consolas,monaco,monospace;">numeric </span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Kommazahlen</td>
+<td style="text-align: center;">z.B. 3.4</td>
+<td style="text-align: center;">Arithmetische und Logische Operatoren</td>
+<td style="text-align: center; width: 8em; font-weight: bold; background-color: #ECECEC !important;"><span style="font-family: Consolas,monaco,monospace;">double </span></td>
+<td style="text-align: center; font-weight: bold; background-color: #ECECEC !important;"><span style="font-family: Consolas,monaco,monospace;">numeric </span></td>
+</tr>
 </tbody>
 </table>
+
 
 </div>
 </div>
@@ -605,9 +588,6 @@ Es gibt in R noch zwei weitere Datentypen, mit denen wir uns aber nicht weiter b
 <blockquote class="blockquote">
 <p><em><strong>Achtung</strong></em>: Kommazahlen werden mit <strong>.</strong> und nicht mit <strong>,</strong> dargestellt, weil Kommata genutzt werden, um Argumente einer Funktion voneinander zu trennen.</p>
 </blockquote>
-<div class="cell">
-
-</div>
 <details>
 <summary>
 Logische Operatoren in R
@@ -615,63 +595,77 @@ Logische Operatoren in R
 <p>Ein logischer Operator ist ein Operator, dessen Ergebnis ein Wahrheitswert (logical; <code>TRUE</code> oder <code>FALSE</code>) ist. <!--Wir können logische Operatoren auf Daten vom Typ$^1$ numeric, aber auch selbst auf Daten vom Typ logical anwenden. --></p>
 <div class="cell">
 <div class="cell-output-display">
-
-<table style="width:100%; margin-left: auto; margin-right: auto;" class="table">
- <thead>
-  <tr>
-   <th style="text-align:left;color: white !important;background-color: #009193 !important;"> Operator </th>
-   <th style="text-align:left;color: white !important;background-color: #009193 !important;"> Vergleich </th>
-   <th style="text-align:left;color: white !important;background-color: #009193 !important;"> Beispiel </th>
-  </tr>
- </thead>
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th" style="text-align: left; color: white !important; background-color: #009193 !important;">Operator</th>
+<th data-quarto-table-cell-role="th" style="text-align: left; color: white !important; background-color: #009193 !important;">Vergleich</th>
+<th data-quarto-table-cell-role="th" style="text-align: left; color: white !important; background-color: #009193 !important;">Beispiel</th>
+</tr>
+</thead>
 <tbody>
-  <tr>
-   <td style="text-align:left;background-color: white !important;"> &lt; </td>
-   <td style="text-align:left;background-color: white !important;"> kleiner </td>
-   <td style="text-align:left;background-color: #ECECEC !important;"> 1 &lt; 1<br>FALSE </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;background-color: white !important;"> &lt;= </td>
-   <td style="text-align:left;background-color: white !important;"> kleiner gleich </td>
-   <td style="text-align:left;background-color: #ECECEC !important;"> 1 &lt;= 1<br>TRUE </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;background-color: white !important;"> &gt; </td>
-   <td style="text-align:left;background-color: white !important;"> größer </td>
-   <td style="text-align:left;background-color: #ECECEC !important;"> 2 &gt; 1<br>TRUE </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;background-color: white !important;"> &gt;= </td>
-   <td style="text-align:left;background-color: white !important;"> größer gleich </td>
-   <td style="text-align:left;background-color: #ECECEC !important;"> 1 &gt;= 3<br>FALSE </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;background-color: white !important;"> == </td>
-   <td style="text-align:left;background-color: white !important;"> (genau) gleich </td>
-   <td style="text-align:left;background-color: #ECECEC !important;"> TRUE == FALSE<br>FALSE </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;background-color: white !important;"> != </td>
-   <td style="text-align:left;background-color: white !important;"> ungleich </td>
-   <td style="text-align:left;background-color: #ECECEC !important;"> TRUE != FALSE<br>TRUE </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;background-color: white !important;"> ! </td>
-   <td style="text-align:left;background-color: white !important;"> nicht (Negation von Bedingungen) </td>
-   <td style="text-align:left;background-color: #ECECEC !important;"> !TRUE<br>FALSE </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;background-color: white !important;"> | oder || </td>
-   <td style="text-align:left;background-color: white !important;"> oder </td>
-   <td style="text-align:left;background-color: #ECECEC !important;"> 5 &gt; 3 | 5 == 4<br>TRUE </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;background-color: white !important;"> &amp; oder &amp;&amp; </td>
-   <td style="text-align:left;background-color: white !important;"> und </td>
-   <td style="text-align:left;background-color: #ECECEC !important;"> 5 &gt; 3 &amp; 9 &lt; 8<br>FALSE </td>
-  </tr>
+<tr class="odd">
+<td style="text-align: left; background-color: white !important;">&lt;</td>
+<td style="text-align: left; background-color: white !important;">kleiner</td>
+<td style="text-align: left; background-color: #ECECEC !important;">1 &lt; 1<br>
+FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; background-color: white !important;">&lt;=</td>
+<td style="text-align: left; background-color: white !important;">kleiner gleich</td>
+<td style="text-align: left; background-color: #ECECEC !important;">1 &lt;= 1<br>
+TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; background-color: white !important;">&gt;</td>
+<td style="text-align: left; background-color: white !important;">größer</td>
+<td style="text-align: left; background-color: #ECECEC !important;">2 &gt; 1<br>
+TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; background-color: white !important;">&gt;=</td>
+<td style="text-align: left; background-color: white !important;">größer gleich</td>
+<td style="text-align: left; background-color: #ECECEC !important;">1 &gt;= 3<br>
+FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; background-color: white !important;">==</td>
+<td style="text-align: left; background-color: white !important;">(genau) gleich</td>
+<td style="text-align: left; background-color: #ECECEC !important;">TRUE == FALSE<br>
+FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; background-color: white !important;">!=</td>
+<td style="text-align: left; background-color: white !important;">ungleich</td>
+<td style="text-align: left; background-color: #ECECEC !important;">TRUE != FALSE<br>
+TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; background-color: white !important;">!</td>
+<td style="text-align: left; background-color: white !important;">nicht (Negation von Bedingungen)</td>
+<td style="text-align: left; background-color: #ECECEC !important;">!TRUE<br>
+FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; background-color: white !important;">| oder ||</td>
+<td style="text-align: left; background-color: white !important;">oder</td>
+<td style="text-align: left; background-color: #ECECEC !important;">5 &gt; 3 | 5 == 4<br>
+TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; background-color: white !important;">&amp; oder &amp;&amp;</td>
+<td style="text-align: left; background-color: white !important;">und</td>
+<td style="text-align: left; background-color: #ECECEC !important;">5 &gt; 3 &amp; 9 &lt; 8<br>
+FALSE</td>
+</tr>
 </tbody>
 </table>
+
 
 </div>
 </div>
@@ -751,64 +745,61 @@ Recap: Messniveaus
 <p>Nachfolgend finden wir eine Tabelle der möglichen Unterscheidungen der jeweiligen Messniveaus.</p>
 <div class="cell">
 <div class="cell-output-display">
-
-<table class="table" style="margin-left: auto; margin-right: auto;">
- <thead>
-  <tr>
-   <th style="text-align:left;font-weight: bold;color: white !important;background-color: #009193 !important;line-height:1.5;">   </th>
-   <th style="text-align:left;font-weight: bold;color: white !important;background-color: #009193 !important;line-height:1.5;"> <span style="line-height:0.1;">(Un-)
-Gleichheit </span>
-</th>
-   <th style="text-align:left;font-weight: bold;color: white !important;background-color: #009193 !important;line-height:1.5;"> Rangordnung </th>
-   <th style="text-align:left;font-weight: bold;color: white !important;background-color: #009193 !important;line-height:1.5;"> Abstände </th>
-   <th style="text-align:left;font-weight: bold;color: white !important;background-color: #009193 !important;line-height:1.5;"> Verhältnisse </th>
-   <th style="text-align:left;font-weight: bold;color: white !important;background-color: #009193 !important;line-height:1.5;"> natürliche
-Einheit </th>
-  </tr>
- </thead>
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold; color: white !important; background-color: #009193 !important; line-height: 1.5;"></th>
+<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold; color: white !important; background-color: #009193 !important; line-height: 1.5;"><span style="line-height:0.1;">(Un-) Gleichheit </span></th>
+<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold; color: white !important; background-color: #009193 !important; line-height: 1.5;">Rangordnung</th>
+<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold; color: white !important; background-color: #009193 !important; line-height: 1.5;">Abstände</th>
+<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold; color: white !important; background-color: #009193 !important; line-height: 1.5;">Verhältnisse</th>
+<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold; color: white !important; background-color: #009193 !important; line-height: 1.5;">natürliche Einheit</th>
+</tr>
+</thead>
 <tbody>
-  <tr>
-   <td style="text-align:left;font-weight: bold;color: white !important;background-color: #009193 !important;"> Nominal </td>
-   <td style="text-align:left;width: 7em; "> X </td>
-   <td style="text-align:left;width: 7em; ">  </td>
-   <td style="text-align:left;width: 7em; ">  </td>
-   <td style="text-align:left;width: 7em; ">  </td>
-   <td style="text-align:left;width: 7em; ">  </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;font-weight: bold;color: white !important;background-color: #009193 !important;"> Ordinal </td>
-   <td style="text-align:left;width: 7em; "> X </td>
-   <td style="text-align:left;width: 7em; "> X </td>
-   <td style="text-align:left;width: 7em; ">  </td>
-   <td style="text-align:left;width: 7em; ">  </td>
-   <td style="text-align:left;width: 7em; ">  </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;font-weight: bold;color: white !important;background-color: #009193 !important;"> Intervall </td>
-   <td style="text-align:left;width: 7em; "> X </td>
-   <td style="text-align:left;width: 7em; "> X </td>
-   <td style="text-align:left;width: 7em; "> X </td>
-   <td style="text-align:left;width: 7em; ">  </td>
-   <td style="text-align:left;width: 7em; ">  </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;font-weight: bold;color: white !important;background-color: #009193 !important;"> Verhältnis </td>
-   <td style="text-align:left;width: 7em; "> X </td>
-   <td style="text-align:left;width: 7em; "> X </td>
-   <td style="text-align:left;width: 7em; "> X </td>
-   <td style="text-align:left;width: 7em; "> X </td>
-   <td style="text-align:left;width: 7em; ">  </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;font-weight: bold;color: white !important;background-color: #009193 !important;"> Absolut </td>
-   <td style="text-align:left;width: 7em; "> X </td>
-   <td style="text-align:left;width: 7em; "> X </td>
-   <td style="text-align:left;width: 7em; "> X </td>
-   <td style="text-align:left;width: 7em; "> X </td>
-   <td style="text-align:left;width: 7em; "> X </td>
-  </tr>
+<tr class="odd">
+<td style="text-align: left; font-weight: bold; color: white !important; background-color: #009193 !important;">Nominal</td>
+<td style="text-align: left; width: 7em;">X</td>
+<td style="text-align: left; width: 7em;"></td>
+<td style="text-align: left; width: 7em;"></td>
+<td style="text-align: left; width: 7em;"></td>
+<td style="text-align: left; width: 7em;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; font-weight: bold; color: white !important; background-color: #009193 !important;">Ordinal</td>
+<td style="text-align: left; width: 7em;">X</td>
+<td style="text-align: left; width: 7em;">X</td>
+<td style="text-align: left; width: 7em;"></td>
+<td style="text-align: left; width: 7em;"></td>
+<td style="text-align: left; width: 7em;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; font-weight: bold; color: white !important; background-color: #009193 !important;">Intervall</td>
+<td style="text-align: left; width: 7em;">X</td>
+<td style="text-align: left; width: 7em;">X</td>
+<td style="text-align: left; width: 7em;">X</td>
+<td style="text-align: left; width: 7em;"></td>
+<td style="text-align: left; width: 7em;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; font-weight: bold; color: white !important; background-color: #009193 !important;">Verhältnis</td>
+<td style="text-align: left; width: 7em;">X</td>
+<td style="text-align: left; width: 7em;">X</td>
+<td style="text-align: left; width: 7em;">X</td>
+<td style="text-align: left; width: 7em;">X</td>
+<td style="text-align: left; width: 7em;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; font-weight: bold; color: white !important; background-color: #009193 !important;">Absolut</td>
+<td style="text-align: left; width: 7em;">X</td>
+<td style="text-align: left; width: 7em;">X</td>
+<td style="text-align: left; width: 7em;">X</td>
+<td style="text-align: left; width: 7em;">X</td>
+<td style="text-align: left; width: 7em;">X</td>
+</tr>
 </tbody>
 </table>
+
 
 </div>
 </div>
@@ -826,46 +817,68 @@ Einheit </th>
 <p>Die verschiedenen Messniveaus können mit unterschiedlichen Datentypen repräsentiert werden. Hauptsächlich nutzt man dafür <strong>character</strong> und <strong>numeric</strong>. Nachfolgend finden wir eine Übersicht der möglichen Kodierungen der Messniveaus.</p>
 <div class="cell">
 <div class="cell-output-display">
-
-<table style="width:100%; margin-left: auto; margin-right: auto;border-bottom: 0;" class="table">
- <thead>
-<tr>
-<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; color: white !important;padding-right: 4px; padding-left: 4px; background-color: #009193 !important;" colspan="2"><div style=""><span style="display:none;">_</span></div></th>
-<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; color: white !important;padding-right: 4px; padding-left: 4px; background-color: #009193 !important;" colspan="5"><div style="">Art der Skala:</div></th>
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th colspan="2" data-quarto-table-cell-role="th" style="text-align: center; border-bottom: hidden; padding-bottom: 0; padding-left: 3px; padding-right: 3px; color: white !important; padding-right: 4px; padding-left: 4px; background-color: #009193 !important;"><div style="">
+<span style="display:none;">_</span>
+</div></th>
+<th colspan="5" data-quarto-table-cell-role="th" style="text-align: center; border-bottom: hidden; padding-bottom: 0; padding-left: 3px; padding-right: 3px; color: white !important; padding-right: 4px; padding-left: 4px; background-color: #009193 !important;"><div style="">
+Art der Skala:
+</div></th>
 </tr>
-  <tr>
-   <th style="text-align:center;color: white !important;background-color: #009193 !important;">  </th>
-   <th style="text-align:center;color: white !important;background-color: #009193 !important;">  </th>
-   <th style="text-align:center;color: white !important;background-color: #009193 !important;"> Nominal- </th>
-   <th style="text-align:center;color: white !important;background-color: #009193 !important;"> Ordinal- </th>
-   <th style="text-align:center;color: white !important;background-color: #009193 !important;"> Intervall- </th>
-   <th style="text-align:center;color: white !important;background-color: #009193 !important;"> Verhältnis- </th>
-   <th style="text-align:center;color: white !important;background-color: #009193 !important;"> Absolut- </th>
-  </tr>
- </thead>
+<tr class="odd">
+<th data-quarto-table-cell-role="th" style="text-align: center; color: white !important; background-color: #009193 !important;"></th>
+<th data-quarto-table-cell-role="th" style="text-align: center; color: white !important; background-color: #009193 !important;"></th>
+<th data-quarto-table-cell-role="th" style="text-align: center; color: white !important; background-color: #009193 !important;">Nominal-</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; color: white !important; background-color: #009193 !important;">Ordinal-</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; color: white !important; background-color: #009193 !important;">Intervall-</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; color: white !important; background-color: #009193 !important;">Verhältnis-</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; color: white !important; background-color: #009193 !important;">Absolut-</th>
+</tr>
+</thead>
 <tbody>
-  <tr>
-   <td style="text-align:center;font-weight: bold;color: white !important;background-color: #009193 !important;"> Datentyp: </td>
-   <td style="text-align:center;font-weight: bold;color: white !important;background-color: #009193 !important;"> <span style="font-family: Consolas,monaco,monospace;">character</span> </td>
-   <td style="text-align:center;"> X </td>
-   <td style="text-align:center;"> X<sup>2</sup> </td>
-   <td style="text-align:center;">  </td>
-   <td style="text-align:center;">  </td>
-   <td style="text-align:center;">  </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;color: white !important;background-color: #009193 !important;"> Datentyp: </td>
-   <td style="text-align:center;font-weight: bold;color: white !important;background-color: #009193 !important;"> <span style="font-family: Consolas,monaco,monospace;">numeric</span> </td>
-   <td style="text-align:center;"> X<sup>1</sup> </td>
-   <td style="text-align:center;"> X<sup>2</sup> </td>
-   <td style="text-align:center;"> X </td>
-   <td style="text-align:center;"> X </td>
-   <td style="text-align:center;"> X </td>
-  </tr>
-</tbody>
-<tfoot><tr><td style="padding: 0; " colspan="100%">
-<sup>1</sup> Faktorisieren (unordered factor) notwendig <i>wenn</i> keine Indikatorvariable(n) genutzt) <sup>2</sup> Faktorisieren (ordered factor) notwendig</td></tr></tfoot>
+<tr class="odd">
+<td style="text-align: center; font-weight: bold; color: white !important; background-color: #009193 !important;">Datentyp:</td>
+<td style="text-align: center; font-weight: bold; color: white !important; background-color: #009193 !important;"><span style="font-family: Consolas,monaco,monospace;">character</span></td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">X<sup>2</sup></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center; font-weight: bold; color: white !important; background-color: #009193 !important;">Datentyp:</td>
+<td style="text-align: center; font-weight: bold; color: white !important; background-color: #009193 !important;"><span style="font-family: Consolas,monaco,monospace;">numeric</span></td>
+<td style="text-align: center;">X<sup>1</sup></td>
+<td style="text-align: center;">X<sup>2</sup></td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">X</td>
+</tr>
+</tbody><tfoot>
+<tr class="even">
+<td style="text-align: center; padding: 0;"><sup>1</sup> Faktorisieren (unordered factor) notwendig <em>wenn</em> keine Indikatorvariable(n) genutzt) <sup>2</sup> Faktorisieren (ordered factor) notwendig</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tfoot>
+
 </table>
+
 
 </div>
 </div>
@@ -919,50 +932,57 @@ Damit werden wir uns erst später beschäftigen. Anwendung findet die konditiona
 </section>
 <section id="datenstrukturen" class="level3 page-columns page-full" data-number="3.2.2">
 <h3 data-number="3.2.2" class="anchored" data-anchor-id="datenstrukturen"><span class="header-section-number">3.2.2</span> Datenstrukturen</h3>
-<div class="cell">
-
-</div>
 <blockquote class="blockquote">
 <p>Die Datenstruktur bestimmt die <strong>Organisation</strong> und <strong>Speicherung</strong> von Daten(typen), und folglich auch, welche Funktionen wir anwenden können.</p>
 </blockquote>
 <p>Datenstrukturen können nach Dimensionalität und enthaltenen Datentypen klassifiziert werden. Nachfolgend befindet sich eine Übersicht der in R enthaltenen Datenstrukturen.</p>
 <div class="cell page-columns page-full">
 <div class="cell-output-display column-body">
-
-<table style="width:100%; margin-left: auto; margin-right: auto;" class="table">
- <thead>
-<tr>
-<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; color: white !important;padding-right: 4px; padding-left: 4px; background-color: #009193 !important;" colspan="2"><div style=""><span style="display:none;">_</span></div></th>
-<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; color: white !important;padding-right: 4px; padding-left: 4px; background-color: #009193 !important;" colspan="2"><div style="">Beinhaltet unterschiedliche Datentypen?</div></th>
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th colspan="2" data-quarto-table-cell-role="th" style="text-align: center; border-bottom: hidden; padding-bottom: 0; padding-left: 3px; padding-right: 3px; color: white !important; padding-right: 4px; padding-left: 4px; background-color: #009193 !important;"><div style="">
+<span style="display:none;">_</span>
+</div></th>
+<th colspan="2" data-quarto-table-cell-role="th" style="text-align: center; border-bottom: hidden; padding-bottom: 0; padding-left: 3px; padding-right: 3px; color: white !important; padding-right: 4px; padding-left: 4px; background-color: #009193 !important;"><div style="">
+Beinhaltet unterschiedliche Datentypen?
+</div></th>
 </tr>
-  <tr>
-   <th style="text-align:center;color: white !important;background-color: #009193 !important;">  </th>
-   <th style="text-align:center;color: white !important;background-color: #009193 !important;">  </th>
-   <th style="text-align:center;color: white !important;background-color: #009193 !important;"> nein (homogen) </th>
-   <th style="text-align:center;color: white !important;background-color: #009193 !important;"> ja (heterogen) </th>
-  </tr>
- </thead>
+<tr class="odd">
+<th data-quarto-table-cell-role="th" style="text-align: center; color: white !important; background-color: #009193 !important;"></th>
+<th data-quarto-table-cell-role="th" style="text-align: center; color: white !important; background-color: #009193 !important;"></th>
+<th data-quarto-table-cell-role="th" style="text-align: center; color: white !important; background-color: #009193 !important;">nein (homogen)</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; color: white !important; background-color: #009193 !important;">ja (heterogen)</th>
+</tr>
+</thead>
 <tbody>
-  <tr>
-   <td style="text-align:center;font-weight: bold;color: white !important;background-color: #009193 !important;width: 10em; "> Anzahl der Dimensionen </td>
-   <td style="text-align:center;font-weight: bold;color: white !important;background-color: #009193 !important;"> 1 </td>
-   <td style="text-align:center;"> Vektor </td>
-   <td style="text-align:center;"> Liste </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;color: white !important;background-color: #009193 !important;width: 10em; "> Anzahl der Dimensionen </td>
-   <td style="text-align:center;font-weight: bold;color: white !important;background-color: #009193 !important;"> 2 </td>
-   <td style="text-align:center;"> Matrix </td>
-   <td style="text-align:center;"> Data Frame </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;color: white !important;background-color: #009193 !important;width: 10em; "> Anzahl der Dimensionen </td>
-   <td style="text-align:center;font-weight: bold;color: white !important;background-color: #009193 !important;"> n </td>
-   <td style="text-align:center;"> Array </td>
-   <td style="text-align:center;">  </td>
-  </tr>
+<tr class="odd">
+<td style="text-align: center; font-weight: bold; color: white !important; background-color: #009193 !important; width: 10em;">Anzahl der Dimensionen</td>
+<td style="text-align: center; font-weight: bold; color: white !important; background-color: #009193 !important;">1</td>
+<td style="text-align: center;">Vektor</td>
+<td style="text-align: center;">Liste</td>
+</tr>
+<tr class="even">
+<td style="text-align: center; font-weight: bold; color: white !important; background-color: #009193 !important; width: 10em;">Anzahl der Dimensionen</td>
+<td style="text-align: center; font-weight: bold; color: white !important; background-color: #009193 !important;">2</td>
+<td style="text-align: center;">Matrix</td>
+<td style="text-align: center;">Data Frame</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center; font-weight: bold; color: white !important; background-color: #009193 !important; width: 10em;">Anzahl der Dimensionen</td>
+<td style="text-align: center; font-weight: bold; color: white !important; background-color: #009193 !important;">n</td>
+<td style="text-align: center;">Array</td>
+<td style="text-align: center;"></td>
+</tr>
 </tbody>
 </table>
+
 
 </div>
 </div>
@@ -1143,9 +1163,6 @@ Wie genau funktioniert <code>rep()</code>?
 </div>
 <section id="spezialfall-faktor" class="level5" data-number="3.2.2.1.1">
 <h5 data-number="3.2.2.1.1" class="anchored" data-anchor-id="spezialfall-faktor"><span class="header-section-number">3.2.2.1.1</span> Spezialfall Faktor</h5>
-<div class="cell">
-
-</div>
 <p>Ein Faktor ist ein spezieller Vektor, der genutzt wird, um <strong>diskrete Klassifikationen</strong> zu kodieren.</p>
 <p>Mit der Funktion <code>factor()</code> können wir Vektoren in ungeordnete und geordnete Faktoren umwandeln.</p>
 <p><strong>Unsortierte</strong> Faktoren können <strong>nominalskalierte</strong> Merkmale kodieren.</p>
@@ -1264,9 +1281,6 @@ Vpn_2 3 4</code></pre>
 </section>
 <section id="liste" class="level4" data-number="3.2.2.3">
 <h4 data-number="3.2.2.3" class="anchored" data-anchor-id="liste"><span class="header-section-number">3.2.2.3</span> Liste</h4>
-<div class="cell">
-
-</div>
 <p>Listen bestehen aus <strong>geordneten</strong> Sammlungen von Objekten (Komponenten) <strong>unterschiedlichen Datentyps</strong>. Diese Objekte können wiederum selbst Vektoren, Matrizen oder Dataframes sein. Listen haben nur eine Dimension.</p>
 <p>Mit <code>list()</code> können wir eigene Listen erstellen.</p>
 <div class="cell">
@@ -1321,9 +1335,6 @@ $vorerfahrung
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  TRUE FALSE FALSE</code></pre>
 </div>
-</div>
-<div class="cell">
-
 </div>
 <p>Listen werden uns häufiger als Output statistischer Funktionen begegnen.</p>
 </section>
@@ -1403,9 +1414,6 @@ Fall_1  1  A</code></pre>
 </section>
 <section id="objekte" class="level3" data-number="3.2.3">
 <h3 data-number="3.2.3" class="anchored" data-anchor-id="objekte"><span class="header-section-number">3.2.3</span> Objekte</h3>
-<div class="cell">
-
-</div>
 <blockquote class="blockquote">
 <p>“Everything that exists in R is an object”<br>
 - John Chambers (Entwicklungsteam von R)</p>
@@ -1436,7 +1444,6 @@ Bestehende Objekte können de facto nicht mehr umbenannt werden. Wir können sie
 </section>
 <section id="weitere-hilfen" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="weitere-hilfen"><span class="header-section-number">3.3</span> Weitere Hilfen</h2>
-
 <!--
 
 ### Kurzbefehle
@@ -1451,45 +1458,45 @@ Nachfolgend finden wir einige Kurzbefehle für die beiden Betriebssysteme Window
 ::: {.cell-output-display}
 
 `````{=html}
-<table style="width:100%; margin-left: auto; margin-right: auto;" class="table">
- <thead>
-  <tr>
-   <th style="text-align:left;color: white !important;background-color: #009193 !important;">   </th>
-   <th style="text-align:center;color: white !important;background-color: #009193 !important;"> Windows </th>
-   <th style="text-align:center;color: white !important;background-color: #009193 !important;"> Mac </th>
-  </tr>
- </thead>
+
+<table class="table" data-quarto-postprocess="true" style="width:100%; margin-left: auto; margin-right: auto;">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th" style="text-align: left; color: white !important; background-color: #009193 !important;"></th>
+<th data-quarto-table-cell-role="th" style="text-align: center; color: white !important; background-color: #009193 !important;">Windows</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; color: white !important; background-color: #009193 !important;">Mac</th>
+</tr>
+</thead>
 <tbody>
-  <tr>
-   <td style="text-align:left;width: 10em; font-weight: bold;color: white !important;background-color: #009193 !important;"> Code der aktuellen Linie bzw. markierten Code ausführen </td>
-   <td style="text-align:center;width: 15em; background-color: white !important;"> <span class="keybord">**Strg** + <span class="keybord">**enter** </span></span>
-</td>
-   <td style="text-align:center;width: 15em; background-color: white !important;"> <span class="keybord">**cmd** + <span class="keybord">**enter** </span></span>
-</td>
-  </tr>
-  <tr>
-   <td style="text-align:left;width: 10em; font-weight: bold;color: white !important;background-color: #009193 !important;"> Code bis zur aktuellen Linie ausführen </td>
-   <td style="text-align:center;width: 15em; background-color: white !important;"> <span class="keybord">**alt** + <span class="keybord">**Strg** + <span class="keybord">**B** </span></span></span>
-</td>
-   <td style="text-align:center;width: 15em; background-color: white !important;"> <span class="keybord">**alt** + <span class="keybord">**cmd** + <span class="keybord">**B** </span></span></span>
-</td>
-  </tr>
-  <tr>
-   <td style="text-align:left;width: 10em; font-weight: bold;color: white !important;background-color: #009193 !important;"> Skript speichern </td>
-   <td style="text-align:center;width: 15em; background-color: white !important;"> <span class="keybord">**Strg** + <span class="keybord">**S** </span></span>
-</td>
-   <td style="text-align:center;width: 15em; background-color: white !important;"> <span class="keybord">**cmd** + <span class="keybord">**S** </span></span>
-</td>
-  </tr>
-  <tr>
-   <td style="text-align:left;width: 10em; font-weight: bold;color: white !important;background-color: #009193 !important;color: black !important;background-color: #ECECEC !important;"> Dateipfad kopieren </td>
-   <td style="text-align:center;color: black !important;background-color: #ECECEC !important;width: 15em; background-color: white !important;"> <span class="keybord">**shift** + *Rechtsklick auf Datei*<br>dann *Als Pfad kopieren* </span>
-</td>
-   <td style="text-align:center;color: black !important;background-color: #ECECEC !important;width: 15em; background-color: white !important;"> <span class="keybord">**alt** + <span class="keybord">**cmd** + <span class="keybord">**C** </span></span></span>
-</td>
-  </tr>
+<tr class="odd">
+<td style="text-align: left; width: 10em; font-weight: bold; color: white !important; background-color: #009193 !important;">Code der aktuellen Linie bzw. markierten Code ausführen</td>
+<td style="text-align: center; width: 15em; background-color: white !important;"><span class="keybord">**Strg** + <span class="keybord">**enter** </span></span></td>
+<td style="text-align: center; width: 15em; background-color: white !important;"><span class="keybord">**cmd** + <span class="keybord">**enter** </span></span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; width: 10em; font-weight: bold; color: white !important; background-color: #009193 !important;">Code bis zur aktuellen Linie ausführen</td>
+<td style="text-align: center; width: 15em; background-color: white !important;"><span class="keybord">**alt** + <span class="keybord">**Strg** + <span class="keybord">**B** </span></span></span></td>
+<td style="text-align: center; width: 15em; background-color: white !important;"><span class="keybord">**alt** + <span class="keybord">**cmd** + <span class="keybord">**B** </span></span></span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; width: 10em; font-weight: bold; color: white !important; background-color: #009193 !important;">Skript speichern</td>
+<td style="text-align: center; width: 15em; background-color: white !important;"><span class="keybord">**Strg** + <span class="keybord">**S** </span></span></td>
+<td style="text-align: center; width: 15em; background-color: white !important;"><span class="keybord">**cmd** + <span class="keybord">**S** </span></span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; width: 10em; font-weight: bold; color: white !important; background-color: #009193 !important; color: black !important; background-color: #ECECEC !important;">Dateipfad kopieren</td>
+<td style="text-align: center; color: black !important; background-color: #ECECEC !important; width: 15em; background-color: white !important;"><span class="keybord">**shift** + *Rechtsklick auf Datei*<br />
+dann *Als Pfad kopieren* </span></td>
+<td style="text-align: center; color: black !important; background-color: #ECECEC !important; width: 15em; background-color: white !important;"><span class="keybord">**alt** + <span class="keybord">**cmd** + <span class="keybord">**C** </span></span></span></td>
+</tr>
 </tbody>
 </table>
+
 
 `````
 
@@ -1542,11 +1549,11 @@ other attached packages:
 
 loaded via a namespace (and not attached):
  [1] jsonlite_1.8.4    compiler_4.3.0    webshot_0.5.4     tidyselect_1.2.0 
- [5] xml2_1.3.3        stringr_1.5.0     parallel_4.3.0    systemfonts_1.0.4
+ [5] xml2_1.3.4        stringr_1.5.0     parallel_4.3.0    systemfonts_1.0.4
  [9] scales_1.2.1      yaml_2.3.7        fastmap_1.1.1     lattice_0.21-8   
 [13] R6_2.5.1          generics_0.1.3    knitr_1.42        htmlwidgets_1.6.2
 [17] tibble_3.2.1      munsell_0.5.0     svglite_2.1.1     pillar_1.9.0     
-[21] rlang_1.1.0       utf8_1.2.3        stringi_1.7.12    xfun_0.39        
+[21] rlang_1.1.1       utf8_1.2.3        stringi_1.7.12    xfun_0.39        
 [25] viridisLite_0.4.1 cli_3.6.1         magrittr_2.0.3    digest_0.6.31    
 [29] rvest_1.0.3       grid_4.3.0        rstudioapi_0.14   lifecycle_1.0.3  
 [33] nlme_3.1-162      vctrs_0.6.2       mnormt_2.1.1      evaluate_0.20    
@@ -1588,9 +1595,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -1655,6 +1676,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {

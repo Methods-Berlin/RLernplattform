@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.475">
+<meta name="generator" content="quarto-1.3.340">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>R Lernplattform - 16&nbsp; Zur R-Lernplattform Beitragen</title>
+<title>R Lernplattform - 17&nbsp; Zur R-Lernplattform Beitragen</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -17,9 +17,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -46,43 +47,13 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -130,11 +101,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Zur R-Lernplattform Beitragen</span></h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Zur-Lernplattform-Beitragen.html">Projekt-Dokumentation</a></li><li class="breadcrumb-item"><a href="./Zur-Lernplattform-Beitragen.html"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Zur R-Lernplattform Beitragen</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
       </button>
     </div>
   </nav>
@@ -142,135 +118,161 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">R Lernplattform</a> 
     </div>
       </div>
-      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
         </div>
-      </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Inhalte</span></a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Inhalte</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Einführung in R</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Einführung in R</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Installation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Installation und Aktualisierung von R und RStudio</span></a>
+  <a href="./Installation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Installation und Aktualisierung von R und RStudio</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Einfuehrung_in_R.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Einführung in R</span></a>
+  <a href="./Einfuehrung_in_R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Einführung in R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Einfuehrung_in_RStudio.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Einführung in RStudio</span></a>
+  <a href="./Einfuehrung_in_RStudio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Einführung in RStudio</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Pakete.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Pakete</span></a>
+  <a href="./Pakete.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Pakete</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Daten-importieren.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Daten importieren</span></a>
+  <a href="./Daten-importieren.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Daten importieren</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Fehlermeldungen.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Fehlermeldungen</span></a>
+  <a href="./Fehlermeldungen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Fehlermeldungen</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Datenvorbereitung.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Datenvorbereitung</span></a>
+  <a href="./Datenvorbereitung.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Datenvorbereitung</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Fehlende-Werte.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Fehlende Werte</span></a>
+  <a href="./Fehlende-Werte.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Fehlende Werte</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Grafiken.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Grafiken</span></a>
+  <a href="./Grafiken.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Grafiken</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Weiterführende Themen in R</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Weiterführende Themen in R</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Wide-and-Long-Format.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Wide- &amp; Long-Format</span></a>
+  <a href="./Wide-and-Long-Format.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Wide- &amp; Long-Format</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Markdown.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">R Markdown</span></a>
+  <a href="./Markdown.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">R Markdown</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Git.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Git und GitLab</span></a>
+  <a href="./Git.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Git und GitLab</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Vertiefungen zu den Veranstaltungen Methodenlehre I und II</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Vertiefungen zu den Veranstaltungen Methodenlehre I und II</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Voraussetzungspruefung.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Annahmen der Multiplen Linearen Regression</span></a>
+  <a href="./Missings.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Sind die Missings zufällig?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Outputs-ALM-FAQ.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Outputs - ALM - FAQ</span></a>
+  <a href="./Voraussetzungspruefung.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Annahmen der Multiplen Linearen Regression</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Outputs-ALM-FAQ.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Outputs - ALM - FAQ</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">Projekt-Dokumentation</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text">Projekt-Dokumentation</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Zur-Lernplattform-Beitragen.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Zur R-Lernplattform Beitragen</span></a>
+  <a href="./Zur-Lernplattform-Beitragen.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Zur R-Lernplattform Beitragen</span></span></a>
   </div>
 </li>
       </ul>
@@ -278,29 +280,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#was-finde-ich-im-projekt" id="toc-was-finde-ich-im-projekt" class="nav-link active" data-scroll-target="#was-finde-ich-im-projekt"><span class="toc-section-number">16.1</span>  Was finde ich im Projekt?</a></li>
-  <li><a href="#themen-bearbeiten" id="toc-themen-bearbeiten" class="nav-link" data-scroll-target="#themen-bearbeiten"><span class="toc-section-number">16.2</span>  Themen bearbeiten</a>
+  <li><a href="#was-finde-ich-im-projekt" id="toc-was-finde-ich-im-projekt" class="nav-link active" data-scroll-target="#was-finde-ich-im-projekt"><span class="header-section-number">17.1</span> Was finde ich im Projekt?</a></li>
+  <li><a href="#themen-bearbeiten" id="toc-themen-bearbeiten" class="nav-link" data-scroll-target="#themen-bearbeiten"><span class="header-section-number">17.2</span> Themen bearbeiten</a>
   <ul class="collapse">
-  <li><a href="#code-hinzufügen" id="toc-code-hinzufügen" class="nav-link" data-scroll-target="#code-hinzufügen"><span class="toc-section-number">16.2.1</span>  Code hinzufügen</a></li>
-  <li><a href="#daten-hinzufügen" id="toc-daten-hinzufügen" class="nav-link" data-scroll-target="#daten-hinzufügen"><span class="toc-section-number">16.2.2</span>  Daten hinzufügen</a></li>
-  <li><a href="#bilder-hinzufügen" id="toc-bilder-hinzufügen" class="nav-link" data-scroll-target="#bilder-hinzufügen"><span class="toc-section-number">16.2.3</span>  Bilder hinzufügen</a></li>
-  <li><a href="#links-hinzufügen" id="toc-links-hinzufügen" class="nav-link" data-scroll-target="#links-hinzufügen"><span class="toc-section-number">16.2.4</span>  Links hinzufügen</a></li>
-  <li><a href="#paket-hinzufügen" id="toc-paket-hinzufügen" class="nav-link" data-scroll-target="#paket-hinzufügen"><span class="toc-section-number">16.2.5</span>  Paket hinzufügen</a></li>
-  <li><a href="#html-tags" id="toc-html-tags" class="nav-link" data-scroll-target="#html-tags"><span class="toc-section-number">16.2.6</span>  HTML tags</a></li>
+  <li><a href="#code-hinzufügen" id="toc-code-hinzufügen" class="nav-link" data-scroll-target="#code-hinzufügen"><span class="header-section-number">17.2.1</span> Code hinzufügen</a></li>
+  <li><a href="#daten-hinzufügen" id="toc-daten-hinzufügen" class="nav-link" data-scroll-target="#daten-hinzufügen"><span class="header-section-number">17.2.2</span> Daten hinzufügen</a></li>
+  <li><a href="#bilder-hinzufügen" id="toc-bilder-hinzufügen" class="nav-link" data-scroll-target="#bilder-hinzufügen"><span class="header-section-number">17.2.3</span> Bilder hinzufügen</a></li>
+  <li><a href="#links-hinzufügen" id="toc-links-hinzufügen" class="nav-link" data-scroll-target="#links-hinzufügen"><span class="header-section-number">17.2.4</span> Links hinzufügen</a></li>
+  <li><a href="#paket-hinzufügen" id="toc-paket-hinzufügen" class="nav-link" data-scroll-target="#paket-hinzufügen"><span class="header-section-number">17.2.5</span> Paket hinzufügen</a></li>
+  <li><a href="#html-tags" id="toc-html-tags" class="nav-link" data-scroll-target="#html-tags"><span class="header-section-number">17.2.6</span> HTML tags</a></li>
   </ul></li>
-  <li><a href="#neues-thema-erstellen" id="toc-neues-thema-erstellen" class="nav-link" data-scroll-target="#neues-thema-erstellen"><span class="toc-section-number">16.3</span>  Neues Thema erstellen</a></li>
-  <li><a href="#webseite-erstellen" id="toc-webseite-erstellen" class="nav-link" data-scroll-target="#webseite-erstellen"><span class="toc-section-number">16.4</span>  Webseite erstellen</a>
+  <li><a href="#neues-thema-erstellen" id="toc-neues-thema-erstellen" class="nav-link" data-scroll-target="#neues-thema-erstellen"><span class="header-section-number">17.3</span> Neues Thema erstellen</a></li>
+  <li><a href="#webseite-erstellen" id="toc-webseite-erstellen" class="nav-link" data-scroll-target="#webseite-erstellen"><span class="header-section-number">17.4</span> Webseite erstellen</a>
   <ul class="collapse">
-  <li><a href="#online-version-erstellen" id="toc-online-version-erstellen" class="nav-link" data-scroll-target="#online-version-erstellen"><span class="toc-section-number">16.4.1</span>  Online-Version erstellen</a></li>
-  <li><a href="#offline-version-erstellen" id="toc-offline-version-erstellen" class="nav-link" data-scroll-target="#offline-version-erstellen"><span class="toc-section-number">16.4.2</span>  Offline-Version erstellen</a></li>
-  <li><a href="#fehler-beheben" id="toc-fehler-beheben" class="nav-link" data-scroll-target="#fehler-beheben"><span class="toc-section-number">16.4.3</span>  Fehler beheben</a></li>
-  <li><a href="#sec-dependencies" id="toc-sec-dependencies" class="nav-link" data-scroll-target="#sec-dependencies"><span class="toc-section-number">16.4.4</span>  Alle Dependencies installieren</a></li>
+  <li><a href="#online-version-erstellen" id="toc-online-version-erstellen" class="nav-link" data-scroll-target="#online-version-erstellen"><span class="header-section-number">17.4.1</span> Online-Version erstellen</a></li>
+  <li><a href="#offline-version-erstellen" id="toc-offline-version-erstellen" class="nav-link" data-scroll-target="#offline-version-erstellen"><span class="header-section-number">17.4.2</span> Offline-Version erstellen</a></li>
+  <li><a href="#fehler-beheben" id="toc-fehler-beheben" class="nav-link" data-scroll-target="#fehler-beheben"><span class="header-section-number">17.4.3</span> Fehler beheben</a></li>
+  <li><a href="#sec-dependencies" id="toc-sec-dependencies" class="nav-link" data-scroll-target="#sec-dependencies"><span class="header-section-number">17.4.4</span> Alle Dependencies installieren</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -310,7 +313,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Zur R-Lernplattform Beitragen</span></h1>
+<h1 class="title"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Zur R-Lernplattform Beitragen</span></h1>
 </div>
 
 
@@ -326,8 +329,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </header>
 
 <p>Dieses Repository enthält alle Dateien, die für die Erstellung der R-Lernplattform notwendig sind. Die Webseite ist als <a href="https://quarto.org/docs/books/">Quarto Book</a> Projekt angelegt und kann beliebig erweitert und überarbeitet werden.</p>
-<section id="was-finde-ich-im-projekt" class="level2" data-number="16.1">
-<h2 data-number="16.1" class="anchored" data-anchor-id="was-finde-ich-im-projekt"><span class="header-section-number">16.1</span> Was finde ich im Projekt?</h2>
+<section id="was-finde-ich-im-projekt" class="level2" data-number="17.1">
+<h2 data-number="17.1" class="anchored" data-anchor-id="was-finde-ich-im-projekt"><span class="header-section-number">17.1</span> Was finde ich im Projekt?</h2>
 <p>Die wichtigsten Dokumente sind die Quarto Markdown Dateien. Diese enden mit .qmd und in ihnen sind die tatsächlichen Inhalte der Website gespeichert. Beispielsweise findest Du in “Installation.qmd” die Infos zur Installation von R und RStudio. Im Dokument “Einfuehrung_in_R.qmd” befindet sich<br>
 dann die Einführung in R.</p>
 <p><strong>Wichtig</strong>: Die .qmd - Dateien landen <strong>nicht</strong> automatisch auf der Webseite! Damit das Thema, das in der .qmd Datei behandelt wird, auch auf der Webseite landet, müssen wir erst die _quarto.yml Datei öffnen. Dort finden wir beispielsweise folgende Auflistung:</p>
@@ -363,8 +366,8 @@ dann die Einführung in R.</p>
 <p>Im Ordner “data” befinden sich alle Datensätze, die zur Erstellung der Webseite notwendig sind. Diese werden in den Beispiel-Analysen verwendet (z.B. um das Einlesen von Datensätzen zu veanschaulichen).</p>
 <p>Die restlichen Dateien sind notwendig für Quarto. Den größten Teil hiervon können wir ignorieren. Für uns (manchmal) relevant sind hier eigentlich nur “style.scss” und “DESCRIPTION”. In “style.scss” wird das Aussehen der Webseite definiert. Diese Datei ist aktuell einfach von der alten Webseite übernommen, was dazu führt, dass der bisherige Stil beibehalten wird. In “DESCRIPTION” geben wir (unter anderem) an, welche R Pakete wir in den einzelnen .qmd Dateien nutzen. Wenn wir beispielsweise lavaan nutzen wollen, müssen wir hier lavaan zu den Paketen hinzufügen (siehe unten). Wenn wir das vergessen, kommt es zu Fehlern beim erstellen der Webseite!</p>
 </section>
-<section id="themen-bearbeiten" class="level2 page-columns page-full" data-number="16.2">
-<h2 data-number="16.2" class="anchored" data-anchor-id="themen-bearbeiten"><span class="header-section-number">16.2</span> Themen bearbeiten</h2>
+<section id="themen-bearbeiten" class="level2 page-columns page-full" data-number="17.2">
+<h2 data-number="17.2" class="anchored" data-anchor-id="themen-bearbeiten"><span class="header-section-number">17.2</span> Themen bearbeiten</h2>
 <p>Themen können entweder direkt auf GitHub bearbeitet werden oder lokal auf dem eigenen Rechner. Wenn Du Themen auf Deinem Rechner bearbeiten möchtest, musst Du Dich mit git und GitHub auskennen. Im Folgenden werden wir uns auf die Bearbeitung direkt in GitHub konzentrieren.</p>
 <p>Angenommen Dir fällt ein Fehler in der Einführung in R auf. Um den Fehler zu beheben, öffne das Dokument “Einfuehrung_in_R.qmd” in GitHub.</p>
 <p><img src="figures/documentation/open_qmd.png" class="img-fluid"></p>
@@ -373,8 +376,8 @@ dann die Einführung in R.</p>
 <p>Du kannst nun das Dokument verändern. Wenn Du alle Veränderungen vorgenommen hast, dann klicke auf commit (scrolle nach ganz unten).</p>
 <p><img src="figures/documentation/commit_qmd.png" class="img-fluid"></p>
 <p>Die Veränderungen sind nun gespeichert! <strong>Wichtig</strong>: Die Webseite wird nicht automatisch aktualisiert. Hier ist zur Zeit noch etwas Handarbeit erfordert. Das ist eine bewusste Entscheidung, um sicher zu stellen, dass keine unfertigen Seiten aus Versehen online gehen.</p>
-<section id="code-hinzufügen" class="level3" data-number="16.2.1">
-<h3 data-number="16.2.1" class="anchored" data-anchor-id="code-hinzufügen"><span class="header-section-number">16.2.1</span> Code hinzufügen</h3>
+<section id="code-hinzufügen" class="level3" data-number="17.2.1">
+<h3 data-number="17.2.1" class="anchored" data-anchor-id="code-hinzufügen"><span class="header-section-number">17.2.1</span> Code hinzufügen</h3>
 <p>Wenn man Code hinzufügen möchte, funktioniert das identisch wie in RMarkdown also, z.B. so:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>modell <span class="ot">&lt;-</span> <span class="fu">lm</span>(noten <span class="sc">~</span> stunden)</span>
@@ -382,15 +385,15 @@ dann die Einführung in R.</p>
 </div>
 <p>Wir können mit zusätzlichen Code chunk options festlegen, ob der Code z.B. ausgeführt (eval=TRUE oder eval=FALSE) oder überhaupt angezeigt (echo=TRUE oder echo=FALSE) werden soll. Im obigen Fall haben wir keine Variablen <code>noten</code> und <code>stunden</code>. Daher kann der Code nicht ausgeführt werden; sonst kommt es zu einem Fehler. Deshalb setzen wir <code>eval=FALSE</code>. Mehr infos gibt es <a href="https://bookdown.org/yihui/rmarkdown/r-code.html">hier</a>.</p>
 </section>
-<section id="daten-hinzufügen" class="level3" data-number="16.2.2">
-<h3 data-number="16.2.2" class="anchored" data-anchor-id="daten-hinzufügen"><span class="header-section-number">16.2.2</span> Daten hinzufügen</h3>
+<section id="daten-hinzufügen" class="level3" data-number="17.2.2">
+<h3 data-number="17.2.2" class="anchored" data-anchor-id="daten-hinzufügen"><span class="header-section-number">17.2.2</span> Daten hinzufügen</h3>
 <p>Wenn Du einen Datensatz für Deine RMarkdown-Datei brauchst, der nicht in R oder einem Paket enthalten ist, dann speichere diesen im Ordner “data”. Anschließend kannst Du ihn folgendermaßen in Deiner RMarkdown Datei einlesen:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>mein_datensatz <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/mein_datensatz.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="bilder-hinzufügen" class="level3" data-number="16.2.3">
-<h3 data-number="16.2.3" class="anchored" data-anchor-id="bilder-hinzufügen"><span class="header-section-number">16.2.3</span> Bilder hinzufügen</h3>
+<section id="bilder-hinzufügen" class="level3" data-number="17.2.3">
+<h3 data-number="17.2.3" class="anchored" data-anchor-id="bilder-hinzufügen"><span class="header-section-number">17.2.3</span> Bilder hinzufügen</h3>
 <p>Wenn Du Bilder für Deine RMarkdown-Datei brauchst, dann speichere diese im Ordner “figures”. Anschließend kannst Du diese beispielsweise folgendermaßen nutzen:</p>
 <pre><code>![](figures/mein_thema/mein_bild.png)</code></pre>
 <p>Eventuell musst du auch hierfür auch einen neuen Ordner erstellen (hier: den Ordner mein_thema). Wenn Du diesen online in GitHub erstellen willst, dann musst Du aktuell folgendermaßen vorgehen:</p>
@@ -413,24 +416,24 @@ dann die Einführung in R.</p>
 <p>Anschließend können wir auf Commit klicken und haben nun einen neuen Ordner. Unsere Bilder können wir über “Upload files” einfach von unserem PC hochladen. Oder per Drag &amp; Drop einfügen.</p>
 <p><img src="figures/documentation/upload_file.png" class="img-fluid"></p>
 </section>
-<section id="links-hinzufügen" class="level3" data-number="16.2.4">
-<h3 data-number="16.2.4" class="anchored" data-anchor-id="links-hinzufügen"><span class="header-section-number">16.2.4</span> Links hinzufügen</h3>
+<section id="links-hinzufügen" class="level3" data-number="17.2.4">
+<h3 data-number="17.2.4" class="anchored" data-anchor-id="links-hinzufügen"><span class="header-section-number">17.2.4</span> Links hinzufügen</h3>
 <p>Wenn Du intern auf ein anderes Thema referenzieren möchtest, kannst Du einen Link einfügen. Dies geht mit:</p>
 <pre><code>[text, den die Leser:innen sehen](Name_der_qmd_Datei.qmd)</code></pre>
 <p>Beispielsweise führt folgender Link zur <a href="./Einfuehrung_in_R.html">Einführung in R</a>. Als Rohtext steht hier:</p>
 <pre><code>Beispielsweise führt folgender Link zur [Einführung in R](Einfuehrung_in_R.qmd).</code></pre>
 <p>Für Links zu Subkapitel, können wir einen Hashtag nutzen: <code>[about](about.qmd#section)</code></p>
 </section>
-<section id="paket-hinzufügen" class="level3" data-number="16.2.5">
-<h3 data-number="16.2.5" class="anchored" data-anchor-id="paket-hinzufügen"><span class="header-section-number">16.2.5</span> Paket hinzufügen</h3>
+<section id="paket-hinzufügen" class="level3" data-number="17.2.5">
+<h3 data-number="17.2.5" class="anchored" data-anchor-id="paket-hinzufügen"><span class="header-section-number">17.2.5</span> Paket hinzufügen</h3>
 <p>Wenn Dein neues Thema auch ein neues R-Paket benötigt, dann musst Du dieses im Dokument <code>DESCRIPTION</code> zu <code>Imports:</code> hinzufügen (so wie beispielsweise dplyr).</p>
 <blockquote class="blockquote">
 <p><strong>Wichtig</strong>: Wenn wir ein R Paket verwenden und dieses <em>nicht</em> zur DESCRIPTION hinzufügen, dann kann die Webseite nicht erstellt werden! Die Webseite wird von GitHub erstellt und dafür muss GitHub wissen, welche Pakete installiert werden müssen.</p>
 </blockquote>
 <p>Wenn wir die Webseite auf unserem eigenen Rechner erstellen wollen, können wir wie im Kapitel <span class="quarto-unresolved-ref">?sec-introduction</span> beschrieben vorgehen.</p>
 </section>
-<section id="html-tags" class="level3 page-columns page-full" data-number="16.2.6">
-<h3 data-number="16.2.6" class="anchored" data-anchor-id="html-tags"><span class="header-section-number">16.2.6</span> HTML tags</h3>
+<section id="html-tags" class="level3 page-columns page-full" data-number="17.2.6">
+<h3 data-number="17.2.6" class="anchored" data-anchor-id="html-tags"><span class="header-section-number">17.2.6</span> HTML tags</h3>
 <p>Markdown erlaubt es, html-tags zu verwenden, um die Formatierung des Textes weiter anzupassen. Beispielsweise können wir so die Textfarbe und die Schriftgröße anpassen. Da dies jedoch schnell zu relativ unübersichtlichen Dokumenten führt, haben wir uns entschieden, die Nutzung von html-tags einzuschränken. Das soll es auch ermöglichen, das Anpassen und Erweitern bestehender Themen einfacher zu gestalten. Folgende html-tags dürfen genutzt werden:</p>
 <p><code>&lt;details&gt;&lt;summary&gt;&lt;/summary&gt;&lt;/details&gt;</code>: Erlaubt das Erstellen aufklappbarer Textelemente.</p>
 <details>
@@ -450,8 +453,8 @@ Wenn man <a href="#wichtiges%20Wort">hier</a> klickt, kann man jetzt per Link zu
 <p><code>&lt;kbd&gt;Taste&lt;/kbd&gt;</code>: Erlaubt es bei Kurzbefehlen die Tasten hervorzuheben. Beispiel: “So kann man bei einem Mac mit <kbd>cmd</kbd> + <kbd>C</kbd> markierten Text kopieren.”</p>
 </section>
 </section>
-<section id="neues-thema-erstellen" class="level2" data-number="16.3">
-<h2 data-number="16.3" class="anchored" data-anchor-id="neues-thema-erstellen"><span class="header-section-number">16.3</span> Neues Thema erstellen</h2>
+<section id="neues-thema-erstellen" class="level2" data-number="17.3">
+<h2 data-number="17.3" class="anchored" data-anchor-id="neues-thema-erstellen"><span class="header-section-number">17.3</span> Neues Thema erstellen</h2>
 <p>Es gibt mehrere Wege, ein neues Thema zu erstellen. Wir können, wie oben beschrieben, eine neue Datei direkt in GitHub erstellen.</p>
 <p><img src="figures/documentation/create_new_file.png" class="img-fluid"></p>
 <p>Dieser können wir nun beispielsweise den Namen “Mein-neues-Thema.qmd” geben und sie direkt in GitHub bearbeiten. Wenn wir dies tun, können wir aber den R Code nicht ausführen; das geschieht erst, wenn die Webseite erstellt wird.</p>
@@ -465,16 +468,16 @@ Wenn man <a href="#wichtiges%20Wort">hier</a> klickt, kann man jetzt per Link zu
 <p><img src="figures/documentation/upload_file.png" class="img-fluid"></p>
 <p>Unser neues Thema wurde nun hinzugefügt!</p>
 </section>
-<section id="webseite-erstellen" class="level2" data-number="16.4">
-<h2 data-number="16.4" class="anchored" data-anchor-id="webseite-erstellen"><span class="header-section-number">16.4</span> Webseite erstellen</h2>
-<section id="online-version-erstellen" class="level3" data-number="16.4.1">
-<h3 data-number="16.4.1" class="anchored" data-anchor-id="online-version-erstellen"><span class="header-section-number">16.4.1</span> Online-Version erstellen</h3>
+<section id="webseite-erstellen" class="level2" data-number="17.4">
+<h2 data-number="17.4" class="anchored" data-anchor-id="webseite-erstellen"><span class="header-section-number">17.4</span> Webseite erstellen</h2>
+<section id="online-version-erstellen" class="level3" data-number="17.4.1">
+<h3 data-number="17.4.1" class="anchored" data-anchor-id="online-version-erstellen"><span class="header-section-number">17.4.1</span> Online-Version erstellen</h3>
 <p>Die Online-Version können wir updaten, indem wir <a href="https://github.com/Methods-Berlin/RLernplattform/actions/workflows/create_quarto_website.yml">hier</a> auf run workflow drücken:</p>
 <p><img src="figures/documentation/create_website.png" class="img-fluid"></p>
 <p>Die Webseite wird nun automatisch erstellt.</p>
 </section>
-<section id="offline-version-erstellen" class="level3" data-number="16.4.2">
-<h3 data-number="16.4.2" class="anchored" data-anchor-id="offline-version-erstellen"><span class="header-section-number">16.4.2</span> Offline-Version erstellen</h3>
+<section id="offline-version-erstellen" class="level3" data-number="17.4.2">
+<h3 data-number="17.4.2" class="anchored" data-anchor-id="offline-version-erstellen"><span class="header-section-number">17.4.2</span> Offline-Version erstellen</h3>
 <p>Wir können aber eine offline-Version erstellen, die wir dann herunterlagen und auf unserem Computer anschauen können. Hierfür werden GitHub Actions genutzt.</p>
 <blockquote class="blockquote">
 <p>Hinweis: Wir haben nur eine begrenzte Rechenkapazität auf GitHub. Bitte erstelle die Webseite nur dann neu, wenn Du alle Änderungen vorgenommen hast, die Du vornehmen wolltest.</p>
@@ -515,16 +518,16 @@ Wenn man <a href="#wichtiges%20Wort">hier</a> klickt, kann man jetzt per Link zu
 <p>Im Ordner wirst Du unter anderem mehrere .html Dateien finden. Öffne eine beliebige dieser Dateien mit Deinem Browser, um die lokale Version der Webseite anzuzeigen.</p>
 <p><img src="figures/documentation/create_book_7.png" class="img-fluid"></p>
 </section>
-<section id="fehler-beheben" class="level3" data-number="16.4.3">
-<h3 data-number="16.4.3" class="anchored" data-anchor-id="fehler-beheben"><span class="header-section-number">16.4.3</span> Fehler beheben</h3>
+<section id="fehler-beheben" class="level3" data-number="17.4.3">
+<h3 data-number="17.4.3" class="anchored" data-anchor-id="fehler-beheben"><span class="header-section-number">17.4.3</span> Fehler beheben</h3>
 <p>Es kommt immer wieder vor, dass beim erstellen der Webseite Fehler auftreten. Diese sehen in RStudio beispielsweise so aus:</p>
 <p><img src="figures/documentation/fehler_1.png" class="img-fluid"></p>
 <p>Wir sehen hier auf der rechten Seite den Hinweis:</p>
 <p><img src="figures/documentation/fehler_2.png" class="img-fluid"></p>
 <p>Dieser Fehler sagt uns, dass wir im Dokument <code>_main.Rmd</code> in Zeile 11731-11733 nach einem Fehler ausschau halten müssen. Noch spezifischer sagt uns der Fehler, dass es das Objekt “noten” nicht gibt. Wenn wir das Dokument <code>_main.Rmd</code> öffnen, finden wir dort in den angegebenen Zeilen: <img src="figures/documentation/fehler_3.png" class="img-fluid"> Dieser Teil des Dokuments <code>_main.Rmd</code> kommt aus dem Dokument <code>15-Interne-Dokumentation.Rmd</code>. Schauen wir dort noch mal genauer nach, dann sehen wir, dass die Variablen <code>noten</code> und <code>stunden</code> gar nicht erstellt wurden und deshalb der Code nicht funktionieren kann. Wir können das Problem lösen, indem wir <code>eval=FALSE</code> hinzufügen.</p>
 </section>
-<section id="sec-dependencies" class="level3" data-number="16.4.4">
-<h3 data-number="16.4.4" class="anchored" data-anchor-id="sec-dependencies"><span class="header-section-number">16.4.4</span> Alle Dependencies installieren</h3>
+<section id="sec-dependencies" class="level3" data-number="17.4.4">
+<h3 data-number="17.4.4" class="anchored" data-anchor-id="sec-dependencies"><span class="header-section-number">17.4.4</span> Alle Dependencies installieren</h3>
 <p>Solltest Du nicht alle Pakete installiert haben, die auf der Webseite genutzt werden, kannst Du entweder die Datei <code>DESCRIPTION</code> öffnen und alle dort aufgeführten Pakete installieren oder Du öffnest die Datei <code>RLernplattform.Rproj</code> in RStudio und führst folgenden Code aus:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(<span class="st">"devtools"</span>))</span>
@@ -565,9 +568,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -632,6 +649,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -674,7 +777,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./Outputs-ALM-FAQ.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Outputs - ALM - FAQ</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Outputs - ALM - FAQ</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
