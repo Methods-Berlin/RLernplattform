@@ -321,7 +321,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>Das Allgemeine Lineare Modell (ALM) umfasst verschiedene inferenzstatistische und varianzanalytische Verfahren, darunter <strong><span class="math inline">\(t\)</span>-Test</strong> (<code>t.test()</code>), <strong>ANOVA</strong> (<code>aov()</code>) und <strong>lineare Regression</strong> (<code>lm()</code>).</p>
+<p>Das Allgemeine Lineare Modell (ALM) umfasst verschiedene inferenzstatistische und varianzanalytische Verfahren, darunter <span class="math inline">\(t\)</span>-Test (<code>t.test()</code>), <strong>ANOVA</strong> (<code>aov()</code>) und <strong>lineare Regression</strong> (<code>lm()</code>).</p>
 <p>Im Folgenden schauen wir uns an, wie die <strong>Outputs</strong> der jeweiligen Funktionen <code>t.test()</code>, <code>aov()</code> und <code>lm()</code> aufgebaut sind und wie diese interpretiert werden. Dafür nutzen wir jeweils dieselben zwei Variablen. Wir werden zudem vor der Durchführung der Methoden deren <strong>Annahmen prüfen</strong>. Abschließend beschäftigen wir uns mit den <strong>Gemeinsamkeiten der Verfahren</strong> (für unseren speziellen Fall von einer metrischen abhängigen Variablen und einer kategorialen unabhängigen Variablen).</p>
 <aside>
 <br>
@@ -358,15 +358,13 @@ Beispieldatensatz für dieses Kapitel
 <p>Wie erhofft liegt die nominalskalierte Variable <code>job</code> als ungeordneter Faktor und die intervallskalierte Variable <code>zf_belastung</code> als numeric vor.</p>
 <p>Mehr Informationen zu Datentypen und angemessener Kodierung finden wir im Kapitel <a href="./Einfuehrung_in_R.html">Einführung in R</a>.</p>
 </details>
-<p><br>
-</p>
 <section id="github-link" class="level2 page-columns page-full" data-number="16.1">
 <h2 data-number="16.1" class="anchored" data-anchor-id="github-link"><span class="header-section-number">16.1</span> <span class="math inline">\(t\)</span>-Test</h2>
 <blockquote class="blockquote">
 <p>Der <span class="math inline">\(t\)</span>-Test untersucht, ob es signifikante Mittelwertsunterschiede in der Population hinsichtlich einer metrischen Variablen gibt. Der Begriff umfasst eine Gruppe von Hypothesentests, darunter den <span class="math inline">\(t\)</span>-Test für unabhängige Stichproben und den <span class="math inline">\(t\)</span>-Test für abhängige Stichproben (Beobachtungspaare).</p>
 </blockquote>
 <p>In unserem Beispiel schauen wir, ob sich Personen mit und ohne <strong>Nebenjob</strong> (<code>job</code>) hinsichtlich der <strong>Zufriedenheit mit der Bewältigung von Studienbelastungen</strong> (<code>zf_belastung</code>) unterscheiden.</p>
-<p>Weil es sich bei Studierenden mit und ohne Nebenjob um zwei voneinander unabhängige Stichproben (d.h. unterschiedliche Personen) handelt, verwenden wir den <strong><span class="math inline">\(t\)</span>-Test für unabhängige Stichproben</strong>.</p>
+<p>Weil es sich bei Studierenden mit und ohne Nebenjob um zwei voneinander unabhängige Stichproben (d.h. unterschiedliche Personen) handelt, verwenden wir den <span class="math inline">\(t\)</span>-Test für unabhängige Stichproben.</p>
 <details>
 <summary>
 Überprüfung der Annahmen des <span class="math inline">\(t\)</span>-Tests
@@ -374,7 +372,7 @@ Beispieldatensatz für dieses Kapitel
 <p><br>
 </p>
 <blockquote class="blockquote">
-<p><em><strong>Achtung</strong></em>: An dieser Stelle sei wieder auf das <a href="./Voraussetzungspruefung.html">ausführliche Skript</a> zur Annahmenprüfung verwiesen. Im Folgenden schauen wir uns jeweils nur ein mögliches Verfahren zur Überprüfung der spezifischen Annahmen an.<br>
+<p><strong><em>Achtung</em></strong>: An dieser Stelle sei wieder auf das <a href="./Voraussetzungspruefung.html">ausführliche Skript</a> zur Annahmenprüfung verwiesen. Im Folgenden schauen wir uns jeweils nur ein mögliches Verfahren zur Überprüfung der spezifischen Annahmen an.<br>
 </p>
 </blockquote>
 <p>Zur Durchführung eines <span class="math inline">\(t\)</span>-Tests für unabhängige Zufallsstichproben müssen folgende Annahmen erfüllt sein:</p>
@@ -434,7 +432,7 @@ Mehr zu Datentypen und -strukturen erfahren wir in [Einführung in R](Einfuehrun
 <p>Mehr Informationen zum Erstellen von Grafiken mit dem Paket <strong>ggplot2</strong> finden wir im Kapitel zu <a href="./Grafiken.html">Grafiken</a>.<br>
 </p>
 <blockquote class="blockquote">
-<p><em><strong>Achtung</strong></em>: Hilfe zur Interpretation von QQ-Plots finden wir hier: <a href="Voraussetzungspruefung.html#sec-Normalverteilung-der-Residuen"><span>Section&nbsp;15.5.1</span></a>.<br>
+<p><strong><em>Achtung</em></strong>: Hilfe zur Interpretation von QQ-Plots finden wir hier: <a href="Voraussetzungspruefung.html#sec-Normalverteilung-der-Residuen"><span>Section&nbsp;15.5.1</span></a>.<br>
 <strong>Hinweis</strong>: Die Residuen in der linearen Regression sind beim <span class="math inline">\(t\)</span>-Test dasselbe wie in den Gruppen zentrierte Werte der <span class="math inline">\(AV\)</span> (d.h. Abweichungen vom gruppenspezifischen Mittelwert) in unserem Beispiel.<br>
 </p>
 </blockquote>
@@ -493,7 +491,7 @@ Mehr Informationen zum Umgang mit fehlenden Werten finden wir im Kapitel <a href
 </ul>
 <details>
 <summary>
-Wir kommen wir auf <span class="math inline">\(N=169\)</span>?
+Wie kommen wir auf <span class="math inline">\(N=169\)</span>?
 </summary>
 <p>Wir haben alle Fälle mit fehlenden Werten auf <em>einer</em> der beiden Variablen ausgeschlossen (<em>casewise deletion</em> durch <code>na.action = "na.exclude"</code>). Wir können diese Bedingung folgendermaßen auf unseren Datensatz anwenden, um <span class="math inline">\(N\)</span> für unsere spezifische Analyse zu berechnen:</p>
 <div class="cell">
@@ -502,7 +500,7 @@ Wir kommen wir auf <span class="math inline">\(N=169\)</span>?
 <pre><code>[1] 169</code></pre>
 </div>
 </div>
-Für mehr Informationen siehe das Kapitel zu <a href="./Fehlende-Werte.html">Fehlenden Werten</a>.
+<p>Für mehr Informationen siehe das Kapitel zu <a href="./Fehlende-Werte.html">Fehlenden Werten</a>.</p>
 </details>
 <ul>
 <li><span style="color:blue"> <code>p-value</code> </span>: in <span class="math inline">\(p\)</span>-Wert umgerechneter empirischer <span class="math inline">\(t\)</span>-Wert <!--, also die Wahrscheinlichkeit, den gegebenen empirischen $t$-Wert oder einen extremeren zu erhalten, wenn die $H_0$ gilt.--><br>
@@ -541,7 +539,7 @@ mehrere Prädiktoren: <em>multiple</em> lineare Regression
 <p><br>
 </p>
 <blockquote class="blockquote">
-<p><em><strong>Achtung</strong></em>: Im Rahmen dieses Kapitels besprechen wir die Annahmen und deren Überprüfung nicht im Detail. Mehr Informationen finden wir im Kapitel zur <a href="./Voraussetzungspruefung.html">Prüfung der Annahmen der multiplen linearen Regression</a>, die denen der einfachen linearen Regression sehr ähnlich ist.<br>
+<p><strong><em>Achtung</em></strong>: Im Rahmen dieses Kapitels besprechen wir die Annahmen und deren Überprüfung nicht im Detail. Mehr Informationen finden wir im Kapitel zur <a href="./Voraussetzungspruefung.html">Prüfung der Annahmen der multiplen linearen Regression</a>, die denen der einfachen linearen Regression sehr ähnlich ist.<br>
 </p>
 </blockquote>
 <p>Folgende vier Annahmen sind bei der einfachen linearen Regression mit der inferenzstatistischen Absicherung verbunden:</p>
@@ -694,7 +692,7 @@ Handelt es sich um eine einfache lineare Regression mit nur einem Prädiktor (wi
 </ul>
 <p><br>
 </p>
-Beides haben wir im Rahmen der Durchführung des <a href="#github-link"><span class="math inline">\(t\)</span>-Test</a> bereits untersucht und Evidenz dafür gefunden.
+<p>Beides haben wir im Rahmen der Durchführung des <a href="#github-link"><span class="math inline">\(t\)</span>-Test</a> bereits untersucht und Evidenz dafür gefunden.</p>
 </details>
 <p><br>
 </p>
@@ -745,15 +743,20 @@ entspricht dem Quotienten <span class="math inline">\(\frac {MQ_{job}} {MQ_e}\)<
 <h2 data-number="16.4" class="anchored" data-anchor-id="github2"><span class="header-section-number">16.4</span> ALM: Zusammenhänge der drei Verfahren</h2>
 <p>Wie bereits eingangs erwähnt, gehören <span class="math inline">\(t\)</span>-Test, lineare Regression und ANOVA alle zum Allgemeinen Linearen Modell (ALM).</p>
 <p>Für den hier betrachteten Spezialfall von nur einer UV mit nur zwei Stufen (und adäquater Kodierung; siehe z.B. <a href="./Datenvorbereitung.html#indikatorvariablen-kodierung-nominaler-merkmale">Indikatorvariablen: Kodierung nominaler Merkmale</a> aus dem Kapitel Datenvorbereitung) kommen die drei Verfahren zum selben Ergebnis bei der Signifikanztestung, obwohl scheinbar andere Hypothesen getestet werden.</p>
-<div class="cell page-columns page-full">
-<div class="cell-output-display column-body">
-<table class="table table-condensed table-sm table-striped small" data-quarto-postprocess="true">
+<!--
+
+::: {.cell .column-body}
+::: {.cell-output-display}
+
+`````{=html}
+
+<table class="table table-condensed" data-quarto-postprocess="true" style="margin-left: auto; margin-right: auto;">
 <colgroup>
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -773,7 +776,7 @@ Empirische Prüfgröße
 <tbody>
 <tr class="odd">
 <td style="text-align: left; width: 15em; font-weight: bold; color: white !important; background-color: #009193 !important;"><em>t</em>-Test für unabhängige Stichproben</td>
-<td style="text-align: left;">Mittelwertsunterschied in den Gruppen <em>H<sub>0</sub></em>: $\mu_1 = \mu_2$ $H_1$: $\mu_1 \neq \mu_2$ (ungerichtet)</td>
+<td style="text-align: left;">Mittelwertsunterschied in den Gruppen <span class="math inline">\(H_{0}\mu_{1}\mu_{2}\)</span> $H_1$: $\mu_1 \neq \mu_2$ (ungerichtet)</td>
 <td style="text-align: left;">-1.278</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;">0.203</td>
@@ -803,11 +806,140 @@ Empirische Prüfgröße
 </table>
 
 
-</div>
-</div>
+`````
+
+:::
+:::
+
+-->
+
+<table class="r-table">
+<thead>
+<tr>
+<th class="empty" colspan="2">
+</th>
+<th colspan="3">
+Empirische Prüfgröße
+</th>
+</tr>
+<tr>
+<th>
+Verfahren
+</th>
+<th>
+getestete Hypothesen
+</th>
+<th>
+<span class="math inline">\(t\)</span>
+</th>
+<th>
+<span class="math inline">\(F\)</span>
+</th>
+<th>
+<span class="math inline">\(p\)</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+<span class="math inline">\(t\)</span>-Test für unabhängige Stichproben
+</th>
+<td>
+<p>
+Mittelwertsunterschied in den Gruppen
+</p>
+<p>
+<span class="math inline">\(H_0\)</span>: <span class="math inline">\(\mu_1 = \mu_2\)</span>
+</p>
+<p>
+<span class="math inline">\(H_1\)</span>: <span class="math inline">\(\mu_1 \neq \mu_2\)</span> <small>(ungerichtet)</small>
+</p>
+</td>
+<td>
+-1.278
+</td>
+<td>
+</td>
+<td>
+0.203
+</td>
+</tr>
+<tr>
+<th rowspan="2">
+einfache lineare Regression
+</th>
+<td>
+<p>
+Steigungskoeffizient <span class="math inline">\(b_1\)</span>
+</p>
+<p>
+<span class="math inline">\(H_0\)</span>: <span class="math inline">\(\beta_1 = 0\)</span>
+</p>
+<p>
+<span class="math inline">\(H_1\)</span>: <span class="math inline">\(\beta_1 \neq 0\)</span> <small>(ungerichtet)</small>
+</p>
+</td>
+<td>
+1.278
+</td>
+<td>
+</td>
+<td>
+0.203
+</td>
+</tr>
+<tr>
+<td>
+<p>
+Determinationskoeffizient <span class="math inline">\(R^2\)</span>
+</p>
+<p>
+<span class="math inline">\(H_0\)</span>: <span class="math inline">\(\rho^2 = 0\)</span>
+</p>
+<p>
+<span class="math inline">\(H_1\)</span>: <span class="math inline">\(\rho^2\)</span> &gt; <span class="math inline">\(0\)</span> <small>(gerichtet)</small>
+</p>
+</td>
+<td>
+</td>
+<td>
+1.633
+</td>
+<td>
+0.203
+</td>
+</tr>
+<tr>
+<th>
+ANOVA
+</th>
+<td>
+<p>
+Mittelwertsunterschied in den Gruppen
+</p>
+<p>
+<span class="math inline">\(H_0\)</span>: <span class="math inline">\(\mu_1 = \mu_2\)</span>
+</p>
+<p>
+<span class="math inline">\(H_1\)</span>: <span class="math inline">\(\mu_1 \neq \mu_2\)</span> <small>(ungerichtet)</small>
+</p>
+</td>
+<td>
+</td>
+<td>
+1.633
+</td>
+<td>
+0.203
+</td>
+</tr>
+</tbody>
+
+</table>
 <p>Wir können <span class="math inline">\(t\)</span>- und <span class="math inline">\(F\)</span>-Werte ineinander überführen durch folgende Formel: <span class="math inline">\(F = t^2 \longrightarrow t^2=1.278^2=1.633=F\)</span>.</p>
 <blockquote class="blockquote">
-<p><em><strong>Achtung</strong></em>: Dass der <span class="math inline">\(t\)</span>-Wert einmal negativ (<span class="math inline">\(t\)</span>-Test) und einmal positiv (einfache lineare Regression) ist liegt daran, dass die Gruppen jeweils vertauscht wurden.<br>
+<p><strong><em>Achtung</em></strong>: Dass der <span class="math inline">\(t\)</span>-Wert einmal negativ (<span class="math inline">\(t\)</span>-Test) und einmal positiv (einfache lineare Regression) ist liegt daran, dass die Gruppen jeweils vertauscht wurden.<br>
 </p>
 </blockquote>
 <p>Das <strong>Allgemeine Lineare Modell</strong> (ALM) umfasst varianzanalytische Verfahren sowie (multiple) Korrelations- und Regressionsrechnung. Dadurch können nicht nur metrische sondern auch kategoriale Merkmale (als <span class="math inline">\(UV\)</span>s) untersucht werden, sofern die kategorialen Merkmale in geeigneter Form kodiert sind.</p>
