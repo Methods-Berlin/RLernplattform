@@ -67,8 +67,8 @@ Mit dem Knit-Button können wir unser Output-Dokument erstellen.
 
 Alternativ können wir zum Knitten einen Kurzbefehl nutzen:
 
-- Windows: shift + ctrl + K
-- Mac: shift + cmd + K
+- Windows: <kbd> Shift </kbd> + <kbd> Ctrl </kbd> + <kbd> K </kbd>
+- Mac: <kbd> Shift </kbd> + <kbd> Cmd </kbd> + <kbd> K </kbd>
 
 Für die Outputformate html und pdf bekommen wir in einem neuen Fenster in R eine Vorschau davon. Für Word Dokumente öffnet sich (ggf.) Microsoft Word.
 
@@ -202,8 +202,8 @@ knitr::include_graphics("figures/Markdown/Bilder/headers 2.png")
 
 > *__Achtung__*: Im R-Skript konnten wir # zum Kommentieren nutzen. Das funktioniert hier auch, aber nur in den Code Chunks. Um Textpassagen auszukommentieren, können wir den html-Kommentar-Tag `<!-- -->` nutzen. Mit folgendem Kurzbefehl können wir sowohl Text als auch Code auskommentieren (funktioniert in html und pdf):
 
-- Windows/Linux: ctrl + shift + C
-- Mac: cmd + shift + C
+- Windows/Linux: <kbd> Ctrl </kbd> + <kbd> Shift </kbd> + <kbd> C </kbd>
+- Mac: <kbd> Cmd </kbd> + <kbd> Shift </kbd> + <kbd> C </kbd>
 
 ### Hervorhebung
 
@@ -281,6 +281,7 @@ Um Formeln als (zentrierten) **Blocksatz** zu schreiben nutzen wir doppelte Doll
 
 `$$ \sigma^2= \sum_{i =1}^{n} \frac{(x_i - \bar{x}) ^2}{n-1} $$` wird zu
 $$ \sigma^2= \sum _{i =1} ^{n} \frac{(x_i - \bar{x}) ^2} {n-1} $$
+
 > *__Achtung__*: Leerzeichen haben im LaTex Code keinen Einfluss. Sie sind hier nur der Übersichtlichkeit halber eingefügt. Wenn wir in den Formeln Leerzeichen ahben wollen, müssen wir dafür speziellen LaTex Code nutzen.
 
 <!-- ### Textfarbe -->
@@ -309,8 +310,8 @@ knitr::include_graphics("figures/Markdown/Bilder/insert chunk.png")
 
 ... oder einen Kurzbefehl nutzen:
 
-- Windows: ctrl + alt + I
-- Mac: alt + cmd + I
+- Windows: <kbd> Ctrl </kbd> + <kbd> Alt </kbd> + <kbd> I </kbd>
+- Mac: <kbd> Alt </kbd> + <kbd> Cmd </kbd> + <kbd> I </kbd>
 
 \
 
@@ -327,8 +328,8 @@ Wenn wir auf den Pfeil ganz rechts klicken, können wir den Code in dem Chunk au
 
 Zum Ausführen des Code Chunks gibt es können wir auch einen Kurzbefehl nutzen:
 
-- Windows: shift + ctrl + Enter
-- Mac: shift + cmd + Enter
+- Windows: <kbd> Shift </kbd> + <kbd> Ctrl </kbd> + <kbd> Enter </kbd>
+- Mac: <kbd> Shift </kbd> + <kbd> Cmd </kbd> + <kbd> Ctrl </kbd>Enter
 
 \
 

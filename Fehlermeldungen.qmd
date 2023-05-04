@@ -70,7 +70,7 @@ Mit Klick auf das <font color ="#FD9612">eingekreiste Icon</font> kann man sich 
 knitr::include_graphics("figures/Fehlermeldungen/Bilder/doc.png")
 ```
 
-Wir bekommen hier (zumeist) folgende Informationen: aus welchem Paket die Funktion ist (oben links in **{ }**), was die Funktion macht (Description), die Funktionsdefinition ggf. mit Defaults (Usage), ihre Parameter mit jeweils gültigen Argumenten (Arguments), weitere Details zur Nutzung (Details), ähnliche Funktionen (See also) und Beispiele zur Nutzung (Examples).
+Wir bekommen hier (zumeist) folgende Informationen: aus welchem Paket die Funktion ist (oben links in **{ }**), was die Funktion macht (**Description**), die Funktionsdefinition ggf. mit Defaults (**Usage**), ihre Parameter mit jeweils gültigen Argumenten (**Arguments**), weitere Details zur Nutzung (**Details**), ähnliche Funktionen (**See also**) und Beispiele zur Nutzung (**Examples**).
 
 <details><summary>*Was sind Parameter, Argumente und Defaults?*</summary>
 Parameter bezeichnet die (formalen) **Variablen einer Funktion** (z.B. `nrow` aus `matrix()`), denen wir unsere (tatsächlichen) Argumente (z.B. `3`), d.h. unseren **Input**,  übergeben. Default bezeichnet ein **voreingestelltes Argument** (z.B. `nrow=1`).
@@ -84,7 +84,7 @@ Mehr Informationen zum Aufbau von Funktionen finden wir in der [Einführung in R
 
 
 
-Eine [detaillierte Einführung zur Nutzung der Dokumentation](Einfuehrung_in_RStudio.qmd#R Dokumentation) befindet sich im Kapitel [Einführung in R Studio](Einfuehrung_in_RStudio.qmd).
+Eine [detaillierte Einführung zur Nutzung der Dokumentation](Einfuehrung_in_RStudio.qmd#r-dokumentation) befindet sich im Kapitel [Einführung in R Studio](Einfuehrung_in_RStudio.qmd).
 
 ### Code Diagnostik
 
@@ -156,7 +156,7 @@ knitr::include_graphics("figures/Fehlermeldungen/Bilder/fehl.png")
 
 Die Information **vor** dem Doppelpunkt gibt uns an, in welcher Funktion der Fehler steckt; die Information **nach** dem Doppelpunkt gibt Aufschluss über die Art des Fehlers. Zweiteres ist für die Fehlersuche (zumeist) von großer Bedeutung.
 
-Im Folgenden konzentrieren wir uns auf eine Art von Fehler, mit der vor allem AnfängerInnen häufig konfrontiert sind: Syntaxfehler.
+Im Folgenden konzentrieren wir uns auf eine Art von Fehler, mit der vor allem AnfängerInnen häufig konfrontiert sind: **Syntaxfehler**.
 
 > Syntaxfehler sind Fehler, die durch eine **Verletzung des formalen Aufbaus einer Funktion** zustande kommen. Manchmal entstehen sie auch nur durch Vertippen.
 
@@ -231,7 +231,7 @@ Hier weist uns R darauf hin, dass das dritte Argument, welches nach dem zweiten 
 
 ## Suchen im Internet
 
-Nun gibt es auch Fehlermeldungen, die wir nicht auf Anhieb verstehen. Dafür kann es vielfältige Ursachen geben. Wenn wir schon in der R-Dokumentation nachgeschaut haben und trotzdem noch ratlos sind, können wir im Internet nach Hilfe suchen. Wir können dafür Suchmaschinen direkt spezielle Foren nutzen.
+Nun gibt es auch Fehlermeldungen, die wir nicht auf Anhieb verstehen. Dafür kann es vielfältige Ursachen geben. Wenn wir schon in der R-Dokumentation nachgeschaut haben und trotzdem noch ratlos sind, können wir im Internet nach Hilfe suchen. Wir können dafür Suchmaschinen oder direkt spezielle Foren nutzen.
 
 __Hierbei gibt es nicht *den einen* Weg, fündig zu werden.__ Häufig gibt es eine Fehlermeldung, die bei verschiedenen Problemen (mit unterschiedlichen Funktionen) angezeigt wird. Dann muss man filtern, welche Seite für das eigene Anliegen relevant sein könnte. Es kann ebenso möglich sein, dass es zu manchen Problemen einfach noch keine Lösung gibt. Dieser Fall ist eher seltener und tritt vor allem bei neueren oder seltener genutzen Paketen auf. 
 
@@ -248,7 +248,7 @@ knitr::include_graphics("figures/Fehlermeldungen/Bilder/fehler.png")
 ```
 
 
-## a\) Passende Suchbegriffe nutzen
+### Passende Suchbegriffe nutzen
 
 Sinnvoll ist es im Suchtext drei Aspekte miteinzubeziehen:
 
@@ -270,7 +270,7 @@ knitr::include_graphics("figures/Fehlermeldungen/Bilder/search words.png")
 Anstatt eine globale Suchmaschine wie google oder ecosia zu nutzen, kann man auch eine spezifisch für Anliegen in R konzipierte Suchmaschine wie <a href="https://rseek.org" target="_blank">**rseek**</a> nutzen. Dann kann man im Suchtext den Namen des Programms weglassen, beispielsweise nur *cor.test x numerischer Vektor* suchen.
 
 
-## b\) Ergebnisse filtern
+### Ergebnisse filtern
 
 Nachfolgend sehen wir die ersten fünf Ergebnisse der Suche.
 
@@ -289,7 +289,7 @@ Der zweite Link weist gleich zwei **Übereinstimmungen** auf: Wir wollten einen 
 
 Schauen wir uns also das <a href="https://stackoverflow.com/questions/43497128/r-error-in-correlation-test-x-must-be-a-numeric-vector" target="_blank">zweite Ergebnis</a> an.
 
-## c\) Lösungsvorschläge ausprobieren
+### Lösungsvorschläge ausprobieren
 
 In Foren findet man in aller Regel oben die Problembeschreibung und darunter die geposteten Lösungsvorschläge.
 
@@ -304,7 +304,7 @@ str(daten)
 Bei uns scheinen alle Spalten numerisch (`num`) zu sein. Diese Lösung scheint also nicht passend für unser Problem zu sein.
 
 
-## Zurück zu b) Ergebnisse filtern und c) Lösungsvorschläge ausprobieren
+### Zurück zu b) Ergebnisse filtern und c) Lösungsvorschläge ausprobieren
 
 Gehen wir also zurück zu unserer Suche und schauen uns andere Seiten an. So sehen die nächsten fünf Ergebnisse der Suche aus.
 
@@ -371,7 +371,7 @@ Wenn man im ersten Durchlauf nichts gefunden hat, ist es beispielsweise sinnvoll
 
 Manchmal ist ein Fehler so global, dass er bei verschiedenen Funktionen auftaucht. Daher lohnt es sich manchmal auch, eine __Suche *ohne* den Funktionsnamen__ durchzuführen. Spätestens, wenn man bei der Suche mit allen drei Suchbegriffen nichts gefunden hat, ist es sinnvoll, nur mit **Programm** + **Fehlermeldung** zu suchen.
 
-Wir können auch auf **allgemeine <a href="https://www.lifewire.com/google-searches-and-power-tricks-4093009" target="_blank">Tipps zum Suchen im Internet</a>** zurückgreifen, u.a.:
+Wir können auch auf allgemeine **<a href="https://www.lifewire.com/web-search-tricks-to-know-4046148" target="_blank">Tipps zum Suchen im Internet</a>** zurückgreifen, u.a.:
 
 - mit Zitaten exakte Phrasen suchen
   - z.B. *"Fehler in cor.test.default"*
@@ -383,7 +383,7 @@ Wir können auch auf **allgemeine <a href="https://www.lifewire.com/google-searc
   - ausschließen z.B. *"Fehler in cor.test.default" __-str()__*"
   - einschließen z.B. *"Fehler in cor.test.default __+r__"*
 
-Ein weiterer Tipp ist es, **in englisch zu suchen**. Die Wahrscheinlichkeit ist hier viel größer, dass man Lösungsvorschläge findet.
+Ein weiterer Tipp ist es, **auf Englisch zu suchen**. Die Wahrscheinlichkeit ist hier viel größer, dass man Lösungsvorschläge findet.
 
 Wenn man, wie in diesem Kapitel zu sehen, die Fehlermeldungen auf deutsch ausgegeben bekommt, kann man das folgendermaßen auf englisch ändern:
 
@@ -394,7 +394,6 @@ Sys.setenv(LANGUAGE="en")
 
 
 ## Weiterführende Hilfe
-\
 
 Ganz generell kann es sehr hilfreich sein, wenn man ein bisschen mit der Funktion "spielt" - etwas wegnimmt oder verändert - und schaut, ob es dann funktioniert oder wie sich die Fehlermeldung verändert. Das hilft meist, das Problem etwas einzugrenzen - und man lernt nebenbei die Funktion besser kennen.
 

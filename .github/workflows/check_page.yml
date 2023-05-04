@@ -1,26 +1,15 @@
 # The following builds on:
 # https://medium.com/@delucmat/how-to-publish-bookdown-projects-with-github-actions-on-github-pages-6e6aecc7331e
 
-# NOTE: The page is currently created but not uploaded anywhere! If you want to see the
-# page, go to "Actions", click on "create_book" and scroll down until you see "Artifacts".
-# There will be an artifact called "_book". This is our webpage. Download the file and
-# unzip it. Double-Clicking on any of the .html files will open the website locally.
+# This action tries to create the website using the newest version of R and all packages.
+# The action is run once every month. It will not alter the website, but if it fails,
+# this will be visible in the project.
 
-name: create_book
+name: check_newest_versions
 
-# On every push to development, the website will be built locally
 on:
-  push:
-    branches:
-      - development
-  pull_request:
-    branches:
-      - development
-  
-
-permissions:
-  contents: write
-
+  schedule:
+    - cron: '0 0 1 * *' # Runs on the 1st day of every month at midnight UTC
 jobs:
   bookdown:
     runs-on: ${{ matrix.os }}
@@ -50,7 +39,3 @@ jobs:
           quarto::quarto_render(output_format = "html",
                                 as_job = FALSE)
         shell: Rscript {0}
-      - uses: actions/upload-artifact@v3
-        with:
-          name: docs
-          path: docs/
