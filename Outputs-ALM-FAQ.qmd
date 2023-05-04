@@ -190,7 +190,7 @@ Wir erhalten u.a. folgende Informationen:
 
 <details>
 
-<summary>Wir kommen wir auf $N=169$?</summary>
+<summary>Wie kommen wir auf $N=169$?</summary>
 
 Wir haben alle Fälle mit fehlenden Werten auf *einer* der beiden Variablen ausgeschlossen (*casewise deletion* durch `na.action = "na.exclude"`). Wir können diese Bedingung folgendermaßen auf unseren Datensatz anwenden, um $N$ für unsere spezifische Analyse zu berechnen:
 
