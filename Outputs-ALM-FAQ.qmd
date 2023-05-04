@@ -52,7 +52,6 @@ Mehr Informationen zu Datentypen und angemessener Kodierung finden wir im Kapite
 
 </details>
 
-\
 
 ## $t$-Test {#github-link}
 
