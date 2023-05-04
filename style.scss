@@ -334,3 +334,32 @@ text-output {
   padding: 0.2em;
   font-family: "Courier", monospace;
 }
+
+.r-table {
+  tr {
+    border-bottom: 1px solid lightgrey;
+    &:hover {
+      color: initial;
+      background: #FFF168;
+    }
+  }
+
+  th {
+    background-color: #009193;
+    color: white;
+    font-weight: bold;
+  }
+
+  th, td {
+    padding: 8px;
+  }
+
+  small {
+    font-size: 0.75em;
+    color: gray;
+  }
+
+  .empty {
+    visibility: hidden;
+  }
+}

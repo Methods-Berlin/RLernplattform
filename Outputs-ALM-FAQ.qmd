@@ -1,20 +1,22 @@
 # Outputs - ALM - FAQ
 
-Das Allgemeine Lineare Modell (ALM) umfasst verschiedene inferenzstatistische  und varianzanalytische Verfahren, darunter **$t$-Test** (`t.test()`), **ANOVA** (`aov()`) und **lineare Regression** (`lm()`).
+Das Allgemeine Lineare Modell (ALM) umfasst verschiedene inferenzstatistische und varianzanalytische Verfahren, darunter $t$-Test (`t.test()`), **ANOVA** (`aov()`) und **lineare Regression** (`lm()`).
 
-Im Folgenden schauen wir uns an, wie die **Outputs** der jeweiligen Funktionen `t.test()`, `aov()` und `lm()` aufgebaut sind und wie diese interpretiert werden. Dafür nutzen wir jeweils dieselben zwei Variablen. Wir werden zudem vor der Durchführung der Methoden deren **Annahmen prüfen**.  Abschließend beschäftigen wir uns mit den **Gemeinsamkeiten der Verfahren** (für unseren speziellen Fall von einer metrischen abhängigen Variablen und einer kategorialen unabhängigen Variablen).  
+Im Folgenden schauen wir uns an, wie die **Outputs** der jeweiligen Funktionen `t.test()`, `aov()` und `lm()` aufgebaut sind und wie diese interpretiert werden. Dafür nutzen wir jeweils dieselben zwei Variablen. Wir werden zudem vor der Durchführung der Methoden deren **Annahmen prüfen**. Abschließend beschäftigen wir uns mit den **Gemeinsamkeiten der Verfahren** (für unseren speziellen Fall von einer metrischen abhängigen Variablen und einer kategorialen unabhängigen Variablen).
 
 <aside>\
 \
-Wir gehen nur knapp auf die Prüfung der Annahmen ein. Eine ausführlichere Einleitung  befindet sich [hier](Voraussetzungspruefung.qmd).</aside>
+Wir gehen nur knapp auf die Prüfung der Annahmen ein. Eine ausführlichere Einleitung befindet sich [hier](Voraussetzungspruefung.qmd).</aside>
 
 <!--Zur Veranschaulichung untersuchen wir, ob sich Studierende mit und ohne Nebenjob signifikant in ihrer Zufriedenheit mit der Bewältigung von Studienbelastungen unterscheiden. Diese ungerichtete $H_1$ überprüfen wir mit einem Signifikanzniveau von $\alpha = 0.05$. -->
 
-<details><summary>Beispieldatensatz für dieses Kapitel</summary>
+<details>
+
+<summary>Beispieldatensatz für dieses Kapitel</summary>
 
 Wir schauen uns im folgenden den Datensatz `erstis` an. Dieser enthalt Daten aus einer Erhebung mit Erstsemesterstudierenden der Psychologie. Das zugehörige Codebook finden wir <a href="https://www.beltz.de/fileadmin/beltz/downloads/OnlinematerialienPVU/R_fuer_Einsteiger/Datensatz%20Erstis_Codebook.pdf" target="_blank">hier</a>.
 
-Den Datensatz laden wir mit der `load()`-Funktion in unsere Environment: 
+Den Datensatz laden wir mit der `load()`-Funktion in unsere Environment:
 
 ```{r}
 #| echo: false
@@ -29,9 +31,9 @@ load(url("http://www.beltz.de/fileadmin/beltz/downloads/
 ```
 
 Wir wollen untersuchen, ob sich das Vorhandenseins eines **Nebenjobs** (`job`) auf die **Zufriedenheit mit der Bewältigung von Studienbelastungen** (`zf_belastung`, erster Messzeitpunkt) auswirkt.
- 
-Dazu speichern wir beide Variablen in einem neuen Datensatz. 
- 
+
+Dazu speichern wir beide Variablen in einem neuen Datensatz.
+
 ```{r}
 #| eval: true
 # Daten aus erstis in neuem Dataframe speichern und umbennenen
@@ -49,27 +51,29 @@ Wie erhofft liegt die nominalskalierte Variable `job` als ungeordneter Faktor un
 Mehr Informationen zu Datentypen und angemessener Kodierung finden wir im Kapitel [Einführung in R](Einfuehrung_in_R.qmd).
 
 </details>
-\
+
 
 ## $t$-Test {#github-link}
 
-> Der $t$-Test untersucht, ob es signifikante Mittelwertsunterschiede in der Population hinsichtlich einer metrischen Variablen gibt. Der Begriff umfasst eine Gruppe von Hypothesentests, darunter den $t$-Test für unabhängige Stichproben und den $t$-Test für abhängige Stichproben (Beobachtungspaare). 
+> Der $t$-Test untersucht, ob es signifikante Mittelwertsunterschiede in der Population hinsichtlich einer metrischen Variablen gibt. Der Begriff umfasst eine Gruppe von Hypothesentests, darunter den $t$-Test für unabhängige Stichproben und den $t$-Test für abhängige Stichproben (Beobachtungspaare).
 
-In unserem Beispiel schauen wir, ob sich Personen mit und ohne  **Nebenjob** (`job`) hinsichtlich der **Zufriedenheit mit der Bewältigung von Studienbelastungen** (`zf_belastung`) unterscheiden.
+In unserem Beispiel schauen wir, ob sich Personen mit und ohne **Nebenjob** (`job`) hinsichtlich der **Zufriedenheit mit der Bewältigung von Studienbelastungen** (`zf_belastung`) unterscheiden.
 
-Weil es sich bei Studierenden mit und ohne Nebenjob um zwei voneinander unabhängige Stichproben (d.h. unterschiedliche Personen) handelt, verwenden wir den __$t$-Test für unabhängige Stichproben__. 
+Weil es sich bei Studierenden mit und ohne Nebenjob um zwei voneinander unabhängige Stichproben (d.h. unterschiedliche Personen) handelt, verwenden wir den $t$-Test für unabhängige Stichproben.
 
+<details>
 
+<summary>Überprüfung der Annahmen des $t$-Tests</summary>
 
-<details><summary>Überprüfung der Annahmen des $t$-Tests</summary>\
+\
 
-> *__Achtung__*:  An dieser Stelle sei wieder auf das [ausführliche Skript](Voraussetzungspruefung.qmd) zur Annahmenprüfung verwiesen. Im Folgenden schauen wir uns jeweils nur ein mögliches Verfahren zur Überprüfung der spezifischen Annahmen an.\
+> ***Achtung***: An dieser Stelle sei wieder auf das [ausführliche Skript](Voraussetzungspruefung.qmd) zur Annahmenprüfung verwiesen. Im Folgenden schauen wir uns jeweils nur ein mögliches Verfahren zur Überprüfung der spezifischen Annahmen an.\
 
-Zur Durchführung eines $t$-Tests für unabhängige Zufallsstichproben müssen folgende Annahmen erfüllt sein: 
+Zur Durchführung eines $t$-Tests für unabhängige Zufallsstichproben müssen folgende Annahmen erfüllt sein:
 
-- es muss sich um __einfache, voneinander unabhängige Stichproben__ handeln
-- __Normalverteilung__ des untersuchten Merkmals in beiden Populationen 
-- __Varianzhomogenität__ des untersuchten Merkmals in beiden Populationen
+-   es muss sich um **einfache, voneinander unabhängige Stichproben** handeln
+-   **Normalverteilung** des untersuchten Merkmals in beiden Populationen
+-   **Varianzhomogenität** des untersuchten Merkmals in beiden Populationen
 
 \
 <!--
@@ -86,18 +90,24 @@ str(daten$zf_belastung)
 Unser interessierendes Merkmal `zf_belastung` liegt als numeric vor.
 
 Mehr zu Datentypen und -strukturen erfahren wir in [Einführung in R](Einfuehrung_in_R.qmd).
--->
-Normalverteilung
+--> Normalverteilung
 
 Schauen wir uns dazu jeweils für beide Gruppen von `job` einen **QQ-Plot** an.\
 
 <!-- ```{r, warning=FALSE} -->
+
 <!-- library(ggplot2) -->
+
 <!-- ggplot(data = daten, aes(x = zf_belastung)) + # Koordinatensystem -->
+
 <!--   geom_histogram() + # Histogramm -->
+
 <!--   facet_grid(~ job) # einzelne Plots nach den Ausprägungen von job -->
+
 <!-- # die Kategorie NA fasst die fehlenden Werte auf der Variablen job zusammen -->
+
 <!-- # diese können wir hier unbeachtet lassen -->
+
 <!-- ``` -->
 
 ```{r}
@@ -112,18 +122,18 @@ ggplot(data = daten, aes(sample = zf_belastung)) + # Koordinatensystem
 
 Mehr Informationen zum Erstellen von Grafiken mit dem Paket **ggplot2** finden wir im Kapitel zu [Grafiken](Grafiken.qmd).\
 
-> *__Achtung__*:  Hilfe zur Interpretation von QQ-Plots finden wir hier: @sec-Normalverteilung-der-Residuen.\
-**Hinweis**: Die Residuen in der linearen Regression sind beim $t$-Test dasselbe wie in den Gruppen zentrierte Werte der $AV$ (d.h. Abweichungen vom gruppenspezifischen Mittelwert) in unserem Beispiel.\
+> ***Achtung***: Hilfe zur Interpretation von QQ-Plots finden wir hier: @sec-Normalverteilung-der-Residuen.\
+> **Hinweis**: Die Residuen in der linearen Regression sind beim $t$-Test dasselbe wie in den Gruppen zentrierte Werte der $AV$ (d.h. Abweichungen vom gruppenspezifischen Mittelwert) in unserem Beispiel.\
 
 In beiden Diagrammen weichen die Punkte leicht von der Linie ab, d.h. dass die Daten nicht perfekt normalverteilt sind. Wir können uns aber auf den zentralen Grenzwertsatz stützen, welcher besagt, dass der Mittelwert eines Merkmals bei wachsender Stichprobengröße approximativ normalverteilt ist. Generell gibt es keinen Richtwert, der besagt, wann Stichproben hinreichend groß sind. Mit unseren Stichprobengrößen ($n_{ja} = 87$ und $n_{nein} = 86$) und den geringfügigen Abweichungen von einer Normalverteilung in den beiden Gruppen können wir erwarten, dass die Annahme hinreichend erfüllt ist.\
 
 Varianzhomogenität
 
-> Varianzhomogenität bedeutet, dass die Varianzen in den untersuchten Populationen gleich sind. Wenn dies der Fall ist, sollten sich auch die Stichprobenvarianzen ähneln. 
+> Varianzhomogenität bedeutet, dass die Varianzen in den untersuchten Populationen gleich sind. Wenn dies der Fall ist, sollten sich auch die Stichprobenvarianzen ähneln.
 
 Ist diese Annahme nicht erfüllt, müssen wir auf robustere Methoden, z.B. den Welch's $t$-Test für unabhängige Stichproben, zurückgreifen.
 
-Zur Überprüfung der Varianzhomogenität können wir beispielsweise den __Levene Test__ nutzen. In diesem wird die Nullhypothese überprüft, dass die Populationsvarianzen homogen sind ($\sigma^2_{ja} = \sigma^2_{nein}$). Weil die $H_0$ die Wunschhypothese ist, ist es von größerer Relevanz, diese nicht fälschlicherweise abzulehnen, d.h. einen $\beta$-Fehler zu machen (relativ gesehen zum $\alpha$-Fehler). Wir können das Risiko für einen $\beta$-Fehler nur *indirekt* kontrollieren, indem wir das $\alpha$-Level erhöhen. Daher legen wir unser Signifikanzniveau auf $\alpha=.20$ (zweiseitig) fest.
+Zur Überprüfung der Varianzhomogenität können wir beispielsweise den **Levene Test** nutzen. In diesem wird die Nullhypothese überprüft, dass die Populationsvarianzen homogen sind ($\sigma^2_{ja} = \sigma^2_{nein}$). Weil die $H_0$ die Wunschhypothese ist, ist es von größerer Relevanz, diese nicht fälschlicherweise abzulehnen, d.h. einen $\beta$-Fehler zu machen (relativ gesehen zum $\alpha$-Fehler). Wir können das Risiko für einen $\beta$-Fehler nur *indirekt* kontrollieren, indem wir das $\alpha$-Level erhöhen. Daher legen wir unser Signifikanzniveau auf $\alpha=.20$ (zweiseitig) fest.
 
 Wir führen den Test mit der Funktion `leveneTest()` aus dem Paket **car** durch.
 
@@ -135,22 +145,21 @@ library(car)
 leveneTest(zf_belastung ~ job, daten)
 ```
 
-Da der $p$-Wert (`Pr(>F)`) größer als unser $\alpha$-Level ist, können wir die $H_0$ beibehalten. 
+Da der $p$-Wert (`Pr(>F)`) größer als unser $\alpha$-Level ist, können wir die $H_0$ beibehalten.
 
 Nachdem die Annahmen weitgehend erfüllt erscheinen, können wir den $t$-Test für unabhängige Stichproben anwenden.
 
 </details>
+
 \
 
 Mit der Funktion `t.test()` aus dem Basispaket **stats** können unterschiedliche Arten von $t$-Tests durchgeführt werden. Welches Verfahren verwendet werden soll, legen wir mit den Parametern `paired` und `var.equal` fest.
 
+-   Mit `paired` spezifizieren wir, ob eine **Abhängigkeit der Stichproben** besteht. `TRUE` zu einem $t$-Test für Beobachtungspaare, `FALSE` führt zur Durchführung eines $t$-Tests für unabhängige Stichproben.
 
-- Mit `paired` spezifizieren wir, ob eine **Abhängigkeit der  Stichproben** besteht.
-`TRUE` zu einem $t$-Test für Beobachtungspaare, `FALSE` führt zur Durchführung eines $t$-Tests für unabhängige Stichproben.
+-   Mit `var.equal` spezifizieren wir, ob **Varianzhomogenität** vorliegt. Wenn die Annahme nicht erfüllt ist, legen wir mit `FALSE` fest, dass der Welch's $t$-Test durchgeführt werden soll.
 
-- Mit `var.equal` spezifizieren wir, ob **Varianzhomogenität** vorliegt. Wenn die Annahme nicht erfüllt ist, legen wir mit `FALSE` fest, dass der Welch's $t$-Test durchgeführt werden soll.
-
-Wir wollen einen *ungerichteten* $t$-Test für unabhängige Stichproben durchführen und legen unser Signifikanzlevel $\alpha=.05$ fest. 
+Wir wollen einen *ungerichteten* $t$-Test für unabhängige Stichproben durchführen und legen unser Signifikanzlevel $\alpha=.05$ fest.
 
 ```{r}
 #| label: t-Test
@@ -173,12 +182,15 @@ Mehr Informationen zum Umgang mit fehlenden Werten finden wir im Kapitel [Fehlen
 knitr::include_graphics("figures/Voraussetzungsprüfung/Bilder/t-test.png")
 ```
 
-Wir erhalten u.a. folgende Informationen: 
+Wir erhalten u.a. folgende Informationen:
 
 - <span style="color:red"> `t` </span>: empirische Prüfgröße des $t$-Tests
 - <span style="color:#59A608"> `df` </span>: Anzahl der Freiheitsgerade der $t$-Verteilung (entspricht $N-2$)\
 
-<details><summary>Wir kommen wir auf $N=169$?</summary>
+<details>
+
+<summary>Wie kommen wir auf $N=169$?</summary>
+
 Wir haben alle Fälle mit fehlenden Werten auf *einer* der beiden Variablen ausgeschlossen (*casewise deletion* durch `na.action = "na.exclude"`). Wir können diese Bedingung folgendermaßen auf unseren Datensatz anwenden, um $N$ für unsere spezifische Analyse zu berechnen:
 
 ```{r}
@@ -186,8 +198,8 @@ nrow(daten[!is.na(daten$job) & !is.na(daten$zf_belastung),])
 ```
 
 Für mehr Informationen siehe das Kapitel zu [Fehlenden Werten](Fehlende-Werte.qmd).
-</details>
 
+</details>
 
 
 - <span style="color:blue"> `p-value` </span>: in $p$-Wert umgerechneter empirischer $t$-Wert <!--, also die Wahrscheinlichkeit, den gegebenen empirischen $t$-Wert oder einen extremeren zu erhalten, wenn die $H_0$ gilt.-->\
@@ -205,7 +217,7 @@ Durch Betrachtung des $p$-Wertes stellen wir fest, dass die Wahrscheinlichkeit u
 <aside>\
 ein Prädiktor: *einfache* lineare Regression;\
 \
-mehrere Prädiktoren: *multiple* lineare Regression</aside> 
+mehrere Prädiktoren: *multiple* lineare Regression</aside>
 
 Wir führen eine einfache lineare Regression durch, in der wir die **Zufriedenheit mit der Bewältigung von Studienbelastungen** (`zf_belastung`) auf das Vorhandensein eines **Nebenjobs** (`job`) zurückführen.
 
@@ -226,11 +238,13 @@ Mehr Informationen zum Umgang mit fehlenden Werten finden wir im Kapitel [Fehlen
 
 Das Ergebnisobjekt `lm_belastung` schauen wir uns erst *nach* der Annahmenprüfung an.
 
+<details>
 
+<summary>Überprüfung der Annahmen der (einfachen) linearen Regression</summary>
 
-<details><summary>Überprüfung der Annahmen der (einfachen) linearen Regression</summary>\
+\
 
-> *__Achtung__*:  Im Rahmen dieses Kapitels besprechen wir die Annahmen und deren Überprüfung nicht im Detail. Mehr Informationen finden wir im Kapitel zur [Prüfung der Annahmen der multiplen linearen Regression](Voraussetzungspruefung.qmd), die denen der einfachen linearen Regression sehr ähnlich ist.\
+> ***Achtung***: Im Rahmen dieses Kapitels besprechen wir die Annahmen und deren Überprüfung nicht im Detail. Mehr Informationen finden wir im Kapitel zur [Prüfung der Annahmen der multiplen linearen Regression](Voraussetzungspruefung.qmd), die denen der einfachen linearen Regression sehr ähnlich ist.\
 
 ```{r}
 #| echo: !expr F
@@ -241,10 +255,10 @@ Das Ergebnisobjekt `lm_belastung` schauen wir uns erst *nach* der Annahmenprüfu
 
 Folgende vier Annahmen sind bei der einfachen linearen Regression mit der inferenzstatistischen Absicherung verbunden:
 
-- __Linearität__
-- __Homoskedastizität__
-- __Normalverteilung__ der Residuen
-- __Unabhängigkeit der Residuen__
+-   **Linearität**
+-   **Homoskedastizität**
+-   **Normalverteilung** der Residuen
+-   **Unabhängigkeit der Residuen**
 
 \
 
@@ -259,6 +273,7 @@ Diese Annahme lässt sich mittels eines **Residualplots** untersuchen. Dieser pl
 #| eval: !expr T
 plot(lm_belastung, which=1)
 ```
+
 Weil wir nur eine kategoriale $UV$ mit zwei Ausprägungen haben, ordnen sich die Punkte in zwei vertikalen Linien an.
 
 Da sich die Lowess Fit Line (rote gestrichelte Linie), welche den generellen (nonparametrischen) Trend der Daten beschreibt, dem Erwartungswert der Residuen bei $y=0$ (schwarze gestrichelten Linie) annähert, können wir annehmen, dass Linearität vorliegt.
@@ -270,7 +285,7 @@ Mehr Informationen zur Lowess Fit Line und zum Residuenplot finden wir im Kapite
 
 > Die Varianz der $y$-Werte, die an einer bestimmten Stelle des Prädiktors vorliegt, ist für alle Prädiktorwerte gleich (Varianzhomogenität).
 
-Diese haben wir bereits im Abschnitt zum [$t$-Test](#github-link) mittels des **Levene-Tests** überprüft. 
+Diese haben wir bereits im Abschnitt zum [$t$-Test](#github-link) mittels des **Levene-Tests** überprüft.
 
 Den Residualplot, den wir gerade zur Überprüfung der Annahme der Linearität genutzt haben, können wir auch zur Überprüfung der Annahme der Homoskedatizität nutzen. Weil die Residuen sich ohne erkennbares Muster um den Erwartungswert der Residuen bei $y=0$ (schwarze gestrichelten Linie) verteilen, nehmen wir Homoskedastizität an.
 
@@ -304,6 +319,7 @@ Zur Überprüfung auf **Clustering**, d.h. systematische Zusammenhänge *zwische
 Da wir keine Hinweise auf Verletzung der Annahmen gefunden haben, schauen wir uns nun die Ergebnisse der einfachen linearen Regression an.
 
 </details>
+
 \
 
 Wir schauen uns die Ergebnis unseres Regressionsmodells mittels `summary()` an:
@@ -325,12 +341,12 @@ Der Output sagt uns, inwiefern wir **Zufriedenheit mit der Bewältigung von Stud
 
 Wir bekommen Auskunft über:
 
-- die Signifikanztests der geschätzten Populationskoeffizienten $\hat b_0$ und $\hat b_1 ... \hat b_k$ (unserer $k$ Prädiktoren) 
-- den Signifikanztest der insgesamt aufgeklärten Varianz des gesamten Regressionsmodells $R^2$
+-   die Signifikanztests der geschätzten Populationskoeffizienten $\hat b_0$ und $\hat b_1 ... \hat b_k$ (unserer $k$ Prädiktoren)
+-   den Signifikanztest der insgesamt aufgeklärten Varianz des gesamten Regressionsmodells $R^2$
 
 In unserem Fall einer einfachen linearen Regression sind die Ergebnisse der Signifikanztestung von Schätzung der Steigung und Schätzung der Varianzaufklärung des Gesamtmodells identisch.
 
-Unter `Coefficients` finden wir Informationen zu den geschätzten **Regressionskoeffizienten** - Intercept und Steigungskoeffizient(en): 
+Unter `Coefficients` finden wir Informationen zu den geschätzten **Regressionskoeffizienten** - Intercept und Steigungskoeffizient(en):
 
 ```{r}
 #| label: lm out o
@@ -361,8 +377,6 @@ $t$-Test des Steigungs-koeffizienten $b_1$:\
 $H_0$: $\beta_1 = 0$\
 $H_1$: $\beta_1 \neq 0$</aside>
 
-
-
 Im unteren Abschnitt finden wir Informationen bezüglich des **Gesamtmodells**:
 
 ```{r}
@@ -386,9 +400,10 @@ Gütemaß für die Schätzgenauigkeit
 \
 Handelt es sich um eine einfache lineare Regression mit nur einem Prädiktor (wie in unserem Fall), führt der $F$-Test des Determinations-koeffizienten zum selben Ergebnis wie der $t$-Test des Steigungs-koeffizienten.</aside> 
 
+```{=html}
 <!-- <aside> __Beachte: Als Sonderform des Allgemeinen Linearen Modells weist der zuvor besprochene *t*-Test einige Zusammenhänge mit der linearen Regression auf. So entspricht der empirische *t*-Wert von `lm()` immer der empirischen Prüfgröße des t-Tests__  __(In unserem Fall t = I0.652I).__  __Potentiell unterschiedliche Vorzeichen haben hierbei keine Bedeutung. Zudem entspricht der *F*-Wert der `lm()`-Funktion (i.d.R.) der quadrierten empirischen Prüfgröße des *t*-Tests (*t²*). Näheres zu den Zusammenhängen des ALM findet ihr [am Ende des Skripts](#github2).__
 </aside> -->
-
+```
 Der Determinationskoeffizienten $R^2 = 0.009685$ sagt aus, dass in unserer Stichprobe knapp 1% der Variation in der **Zufriedenheit mit der Bewältigung von Studienbelastungen** (`zf_belastung`) durch das Vorhandensein eines **Nebenjobs** (`job`) erklärt werden kann. Wir können die $H_0$, dass der Determinationskoeffizient in der Population $0$ ist ($\rho^2 = 0$), durch Betrachtung von $p = 0.203$ beibehalten.
 
 <aside>\
@@ -396,12 +411,11 @@ $F$-Test des Determinations-koeffizienten $R^2$:\
 $H_0: \rho^2 = 0$\
 $H_1: \rho^2 > 0$</aside>
 
-
 ## ANOVA
 
 > Eine ANOVA (Analysis of Variance) überprüft den Einfluss von einer bzw. mehreren kategorialen unabhängigen Variablen (UVs, Faktoren) mit $p$ Faktorstufen auf eine metrische abhängige Variable (AV). Dazu wird eine Varianzdekomposition durchgeführt, welche die Gesamtvarianz in systematische und Fehlervarianz zerlegt.
 
-<!--Basierend auf dem Prinzip der Varianzdekomposition testet sie, inwiefern die Gesamtunterschiedlichkeit in der $AV$ auf die unterschiedlichen Faktorstufen der $UV(s)$ zurückzuführen ist. Hierbei wird die Gesamtvarianz in die systematische Varianz *zwischen* den Gruppen (*"des Gruppierungsfaktors"*) und die Varianz *innerhalb* der Gruppen (*"der Residuen"*) zerlegt und das Verhältnis dieser beiden Varianzanteile zueinander überprüft: Ist die Varianz zwischen den Gruppen im Verhältnis zur Varianz innerhalb der Gruppen groß, wird die Nullhypothese verworfen. --> 
+<!--Basierend auf dem Prinzip der Varianzdekomposition testet sie, inwiefern die Gesamtunterschiedlichkeit in der $AV$ auf die unterschiedlichen Faktorstufen der $UV(s)$ zurückzuführen ist. Hierbei wird die Gesamtvarianz in die systematische Varianz *zwischen* den Gruppen (*"des Gruppierungsfaktors"*) und die Varianz *innerhalb* der Gruppen (*"der Residuen"*) zerlegt und das Verhältnis dieser beiden Varianzanteile zueinander überprüft: Ist die Varianz zwischen den Gruppen im Verhältnis zur Varianz innerhalb der Gruppen groß, wird die Nullhypothese verworfen. -->
 
 Wir wollen in unserem Beispiel überprüfen inwiefern Unterschiede in der **Zufriedenheit mit der Bewältigung von Studienbelastungen** (`zf_belastung`) auf das Vorhandensein eines **Nebenjobs** (`job`) zurückzuführen ist.
 
@@ -414,22 +428,24 @@ Unser Signifikanzlevel legen wir auf $\alpha=.05$ fest.
 # auch im Bortz keine Hinweise auf Annahmenprüfung für ANOVA
 ```
 
+<details>
 
+<summary>Überprüfung der Annahmen der ANOVA</summary>
 
-<details><summary>Überprüfung der Annahmen der ANOVA</summary>
+Vor der Durchführung der ANOVA mit unseren Beispieldaten müssen wir zwei Annahmen prüfen:
 
-Vor der Durchführung der ANOVA mit unseren Beispieldaten müssen wir zwei Annahmen prüfen: 
-
-- __Normalverteilung__ des untersuchten Merkmals in beiden Populationen 
-- __Homoskedastizität__ des untersuchten Merkmals in beiden Populationen
+-   **Normalverteilung** des untersuchten Merkmals in beiden Populationen
+-   **Homoskedastizität** des untersuchten Merkmals in beiden Populationen
 
 \
 
 Beides haben wir im Rahmen der Durchführung des [$t$-Test](#github-link) bereits untersucht und Evidenz dafür gefunden.
+
 </details>
+
 \
 
-Zur Durchführung der ANOVA verwenden wir die `aov()`Funktion. 
+Zur Durchführung der ANOVA verwenden wir die `aov()`Funktion.
 
 ```{r}
 #| eval: false
@@ -451,7 +467,7 @@ summary(anova)
 knitr::include_graphics("figures/Voraussetzungsprüfung/Bilder/aov.png")
 ```
 
-Der Output liefert die folgenden Informationen für den Gruppierungsfaktor (`job`) und für die Residuen (`Residuals`): 
+Der Output liefert die folgenden Informationen für den Gruppierungsfaktor (`job`) und für die Residuen (`Residuals`):
 
 - <span style="color:red"> `Df` </span>: Anzahl der Freiheitsgrade der $F$-Verteilung
   - ... des Gruppierungsfaktor: $df_{job} = p - 1$
@@ -465,20 +481,21 @@ relativieren die Quadratsumme eines Effekts an seinen Freiheitsgraden
 entspricht dem Quotienten $\frac {MQ_{job}} {MQ_e}$
 - <span style="color:purple"> `Pr(>F)` </span>: in $p$-Wert umgerechneter empirischer $F$-Wert
 
+```{=html}
 <!-- 
 <aside> __Beachte: Auch die ANOVA weist als Sonderform des Allgemeinen Linearen Modells  Zusammenhänge mit der linearen Regression auf. Hierbei entspricht der empirische *F*-Wert der aov Funktion dem *F*-Wert des globalen Tests der `lm()`-Funktion.__  __(In unserem Fall F=0.316).__  __Näheres zu den Zusammenhängen des ALM findet ihr [hier](#github2).__
 </aside> 
 -->
+```
+Unser $p$-Wert deutet darauf hin, dass unter Gültigkeit der $H_0$ die Wahrscheinlichkeit, den vorliegenden $F$-Wert von 1.633 oder einen größeren zu erhalten, 20,3% beträgt. Wir kommen somit zu der Testentscheidung, die $H_0$ beizubehalten. Das bedeutet, dass wir davon ausgehen, dass zwischen den Populationen von Studierenden mit und ohne Nebenjob keine überzufälligen Mittelwertsunterschiede bezüglich der Zufriedenheit mit der Bewältigung von Studienbelastungen existieren.
 
-Unser $p$-Wert deutet darauf hin, dass unter Gültigkeit der $H_0$ die Wahrscheinlichkeit, den vorliegenden $F$-Wert von 1.633 oder einen größeren zu erhalten, 20,3% beträgt. Wir kommen somit zu der Testentscheidung, die $H_0$ beizubehalten. Das bedeutet, dass wir davon ausgehen, dass zwischen den Populationen von Studierenden mit und ohne Nebenjob keine überzufälligen Mittelwertsunterschiede bezüglich der Zufriedenheit mit der Bewältigung von Studienbelastungen  existieren.
-
-
-## ALM: Zusammenhänge der drei Verfahren  {#github2}
+## ALM: Zusammenhänge der drei Verfahren {#github2}
 
 Wie bereits eingangs erwähnt, gehören $t$-Test, lineare Regression und ANOVA alle zum Allgemeinen Linearen Modell (ALM).
 
 Für den hier betrachteten Spezialfall von nur einer UV mit nur zwei Stufen (und adäquater Kodierung; siehe z.B. [Indikatorvariablen: Kodierung nominaler Merkmale](Datenvorbereitung.qmd#indikatorvariablen-kodierung-nominaler-merkmale) aus dem Kapitel Datenvorbereitung) kommen die drei Verfahren zum selben Ergebnis bei der Signifikanztestung, obwohl scheinbar andere Hypothesen getestet werden.
 
+<!--
 ```{r}
 #| echo: false
 #| column: body
@@ -487,7 +504,8 @@ library(knitr)
 
 Verfahren <- c("<i>t</i>-Test für unabhängige Stichproben", "einfache lineare Regression",
                "einfache lineare Regression", "ANOVA")
-Hypothesentest <- c("Mittelwertsunterschied in den Gruppen\n\n<i>H<sub>0</sub></i>: $\\mu_1 = \\mu_2$\n\n$H_1$: $\\mu_1 \\neq \\mu_2$ <font size=\"1\">(ungerichtet)", "Steigungskoeffizient $b_1$\n\n$H_0$: $\\beta_1 = 0$\n\n$H_1$: $\\beta_1 \\neq 0$ <font size=\"1\">(ungerichtet)", "Determinationskoeffizient $R^2$\n\n$H_0$: $\\rho^2 = 0$\n\n$H_1$: $\\rho^2$ > $0$ <font size=\"1\">(gerichtet)", "Mittelwertsunterschied in den Gruppen\n\n$H_0$: $\\mu_1 = \\mu_2$\n\n$H_1$: $\\mu_1 \\neq \\mu_2$ <font size=\"1\">(ungerichtet)") 
+Hypothesentest <- c("Mittelwertsunterschied in den Gruppen\n\n
+<math><msub><mi>H</mi><mn>0</mn></msub>: <msub><mi>μ</mi><mn>1</mn></msub> = <msub><mi>μ</mi><mn>2</mn></msub></math>\n\n$H_1$: $\\mu_1 \\neq \\mu_2$ <font size=\"1\">(ungerichtet)", "Steigungskoeffizient $b_1$\n\n$H_0$: $\\beta_1 = 0$\n\n$H_1$: $\\beta_1 \\neq 0$ <font size=\"1\">(ungerichtet)", "Determinationskoeffizient $R^2$\n\n$H_0$: $\\rho^2 = 0$\n\n$H_1$: $\\rho^2$ > $0$ <font size=\"1\">(gerichtet)", "Mittelwertsunterschied in den Gruppen\n\n$H_0$: $\\mu_1 = \\mu_2$\n\n$H_1$: $\\mu_1 \\neq \\mu_2$ <font size=\"1\">(ungerichtet)") 
 "t" <- c("-1.278", "1.278", "", "")
 "F" <- c("", "", "1.633", "1.633")
 "p" <- c("0.203", "0.203", "0.203", "0.203")
@@ -504,12 +522,75 @@ kable(tabelle, escape=FALSE) %>%
               width="15em") %>%
   collapse_rows(columns = 1, valign = "middle")
 ```
+-->
+
+
+<table class="r-table">
+ <thead>
+<tr>
+<th class="empty" colspan="2"> </th>
+<th colspan="3">Empirische Prüfgröße</th>
+</tr>
+  <tr>
+   <th> Verfahren </th>
+   <th> getestete Hypothesen </th>
+   <th> $t$ </th>
+   <th> $F$ </th>
+   <th> $p$ </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <th> $t$-Test für unabhängige Stichproben </th>
+   <td>
+    <p>Mittelwertsunterschied in den Gruppen</p>
+    <p>$H_0$: $\mu_1 = \mu_2$</p>
+    <p>$H_1$: $\mu_1 \neq \mu_2$ <small>(ungerichtet)</small></p>
+</td>
+   <td> -1.278 </td>
+   <td>  </td>
+   <td> 0.203 </td>
+  </tr>
+  <tr>
+   <th rowspan="2"> einfache lineare Regression </th>
+   <td>
+    <p>Steigungskoeffizient $b_1$</p>
+    <p>$H_0$: $\beta_1 = 0$</p>
+    <p>$H_1$: $\beta_1 \neq 0$ <small>(ungerichtet)</small></p>
+</td>
+   <td> 1.278 </td>
+   <td>  </td>
+   <td> 0.203 </td>
+  </tr>
+  <tr>
+   <td>
+    <p>Determinationskoeffizient $R^2$</p>
+    <p>$H_0$: $\rho^2 = 0$</p>
+    <p>$H_1$: $\rho^2$ &gt; $0$ <small>(gerichtet)</small></p>
+</td>
+   <td>  </td>
+   <td> 1.633 </td>
+   <td> 0.203 </td>
+  </tr>
+  <tr>
+   <th> ANOVA </th>
+   <td>
+    <p>Mittelwertsunterschied in den Gruppen</p>
+    <p>$H_0$: $\mu_1 = \mu_2$</p>
+    <p>$H_1$: $\mu_1 \neq \mu_2$ <small>(ungerichtet)</small></p>
+</td>
+   <td>  </td>
+   <td> 1.633 </td>
+   <td> 0.203 </td>
+  </tr>
+</tbody>
+</table>
 
 Wir können $t$- und $F$-Werte ineinander überführen durch folgende Formel: $F = t^2 \longrightarrow t^2=1.278^2=1.633=F$.
 
-> *__Achtung__*:   Dass der $t$-Wert einmal negativ ($t$-Test) und einmal positiv (einfache lineare Regression) ist liegt daran, dass die Gruppen jeweils vertauscht wurden.\
+> ***Achtung***: Dass der $t$-Wert einmal negativ ($t$-Test) und einmal positiv (einfache lineare Regression) ist liegt daran, dass die Gruppen jeweils vertauscht wurden.\
 
-Das __Allgemeine Lineare Modell__ (ALM) umfasst varianzanalytische Verfahren sowie (multiple) Korrelations- und Regressionsrechnung. Dadurch können nicht nur metrische sondern auch kategoriale Merkmale (als $UV$s) untersucht werden, sofern die kategorialen Merkmale in geeigneter Form kodiert sind.
+Das **Allgemeine Lineare Modell** (ALM) umfasst varianzanalytische Verfahren sowie (multiple) Korrelations- und Regressionsrechnung. Dadurch können nicht nur metrische sondern auch kategoriale Merkmale (als $UV$s) untersucht werden, sofern die kategorialen Merkmale in geeigneter Form kodiert sind.
 
 <aside>\
 \
@@ -517,17 +598,17 @@ Mehr Informationen zu Kodierung gibt es im Kapitel [Einführung in R](Einfuehrun
 
 In unserem Fall von einer intervallskalierten $AV$ und einer nominalskalierten $UV$ werden in den drei Verfahren jeweils die Mittelwerte der $AV$ für die jeweiligen $UV$ gebildet. Beim $t$-Test und der einfachen linearen Regression haben wir diese auch ausgegeben bekommen:
 
-- $t$-Test:\
-`mean in group ja` $= 2.67$\
-`mean in group nein` $= 2.80$
-- Einfache lineare Regression:\
-$Intercept = 2.67$\
-$b_1 = 0.131$\
-$Intercept + b_1 = 2.81$
+-   $t$-Test:\
+    `mean in group ja` $= 2.67$\
+    `mean in group nein` $= 2.80$
+-   Einfache lineare Regression:\
+    $Intercept = 2.67$\
+    $b_1 = 0.131$\
+    $Intercept + b_1 = 2.81$
 
 Dadurch sind die getesteten Hypothesen der drei Verfahren in diesem speziellen Fall ($AV$: intervallskaliert, $UV$: nominalskaliert) äquivalent.
 
----
+------------------------------------------------------------------------
 
 Um eine möglichst exakte Replikation der Funktionen zu gewährleisten gibt es im folgenden relevante Angaben zum System (**R-Version**, **Betriebssystem**, **geladene Pakete mit Angaben zur Version**), mit welchem diese Seite erstellt wurde.
 
@@ -536,10 +617,3 @@ sessionInfo()
 ```
 
 Für Informationen zur Interpretation dieses Outputs schaut auch den Abschnitt [Replizierbarkeit von Analysen](Pakete.qmd#replizierbarkeit-von-analysen) des Kapitels zu Paketen an.
-
-
-
-
-
-
-
