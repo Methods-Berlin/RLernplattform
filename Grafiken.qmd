@@ -1047,19 +1047,19 @@ Zusäzlich können wir **zwei Farbmodi** unterscheiden:
 
 Nachfolgend finden wir eine Übersicht, in der die jeweiligen Unterschiede zwischen `col` und `fill` sowie statischen und variablen Farben verdeutlicht werden sollen. Der Code zur Erstellung der jeweiligen Grafik befindet sich über den Abbildungen. 
  
-<table width="100%">
+<table class="r-table">
     <tr>
-        <td width="20%"></td>
-        <td width="40%">statisch</td>
-        <td width="40%">Variablenausprägung</td>
+        <th width="20%"></th>
+        <th width="40%">statisch</th>
+        <th width="40%">Variablenausprägung</th>
     </tr>
     <tr>
-        <td width="20%">fill</td>
+        <th width="20%">fill</th>
         <td width="40%">![](figures/ggplot2/Bilder/static fill.png)</td>
         <td width="40%">![](figures/ggplot2/Bilder/variable fill.png)</td>
     </tr>
     <tr>
-        <td width="20%">col</td>
+        <th width="20%">col</th>
         <td width="40%">![](figures/ggplot2/Bilder/static col.png)</td>
         <td width="40%">![](figures/ggplot2/Bilder/variable col.png)</td>
     </tr>
