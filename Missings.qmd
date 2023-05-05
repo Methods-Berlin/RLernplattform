@@ -1,5 +1,5 @@
 
-## Sind die Missings zufällig?
+# Sind die Missings zufällig?
 
 Im Kapitel [Fehlende Werte](Fehlende-Werte.qmd) wurde bereits erwähnt, dass systematische Missings eine Auswertung verzerren können. Was es aber genau bedeutet, wenn Missings zufällig oder nicht zufällig sind und wie man das überprüfen kann, beleuchten wir in diesem Kapitel.
 
@@ -328,6 +328,7 @@ print(daten[1:3])
 
 > *__Achtung__*:  Im Gegensatz zu `complete.obs` basieren die verschiedenen Korrelationen bei `pairwise.complete.obs` auf Werten aus unterschiedlichen Zeilen *(d.h. von unterschiedlichen Personen)*.
 
+
 ## Literaturempfehlungen
 
 Für ein tiefergehenden Einblick empfehlen wir Euch die folgenden Arbeiten: 
@@ -343,14 +344,13 @@ Für ein tiefergehenden Einblick empfehlen wir Euch die folgenden Arbeiten:
 (für HU-Studierende über <a href="http://ub.hu-berlin.de" target="_blank">ub.hu-berlin.de</a> zugänglich) 
 
 > <a name="schafgra"></a>**Schafer**, J. L., & **Graham**, J. W. (2002). Missing Data: Our View of the State of the Art. *Psychological Methods*, *7*(2), 147-177. <a href="https://psycnet.apa.org/doi/10.1037/1082-989X.7.2.147" target="_blank">https://psycnet.apa.org/doi/10.1037/1082-989X.7.2.147</a>
-## FAQ
 
-Wir haben fehlende Werte (sog. Missings) in unserem Datensatz und wissen nicht, wie wir damit umgehen sollen? In diesem Abschnitt bekommen wir eine kurze Antwort darauf. \
+## FAQ
+Wir haben fehlende Werte (sog. Missings) in unserem Datensatz und wissen nicht, wie wir damit umgehen sollen? In diesem Abschnitt bekommen wir eine kurze Antwort darauf.
 
 Wenn dieser Abschnitt nicht ausreicht, oder wir mehr zu fehlenden Daten wissen möchtest, können wir uns das detaillierte [Einführungskapitel](Fehlende-Werte.qmd) dazu anschauen.
 
-> *__Achtung__*:   Wenn wir Variablen, die Missings enthalten, für eine Analyse nutzen wollen, sollten wir immer daran denken, dass sich damit auch die **Stichprobengröße $N$ für diese _spezifische_ Auswertung ändert**.
----
+> *__Achtung__*: Wenn wir Variablen, die Missings enthalten, für eine Analyse nutzen wollen, sollten wir immer daran denken, dass sich damit auch die Stichprobengröße N für diese spezifische Auswertung ändert.
 
 ### Erkennt R deine Missings?
 
