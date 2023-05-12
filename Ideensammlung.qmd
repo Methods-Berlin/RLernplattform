@@ -2,13 +2,16 @@ Im Folgenden werden Ideen für neue Themen gesammelt.
 
 ## Einführung in R und RStudio
 
-- tidy data
-- Tidyverse
 - Funktionen in R
 - Loops in R
 - Control Flow (if, else) in R
 - Eigenes R Paket schreiben
+
+Kurze Artikel mit Links zu weiterführenden Ressourcen 
+
 - shiny
+- tidy data
+- Tidyverse (https://r4ds.had.co.nz/)
 
 ### Good Practice
 
