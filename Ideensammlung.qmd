@@ -1,27 +1,24 @@
-Im Folgenden werden Ideen für neue Themen gesammelt. 
+Die RLernplattform ist kein abgeschlossenes Projekt. Neue Themen sind daher immer herzlich willkommen. Wichtig ist dabei, das Ziel der RLernplattform im Blick zu behalten: Diese soll **keinen** allumfassenden Rundumschlag für das Thema R und RStudio darstellen sondern vor allem Grundlagen vermitteln. Der Fokus liegt dabei auf den Basics und diese sollten ausführlich behandelt werden. Für fortgeschrittene Themen sollten dagegen nur kurze Artikel geschrieben werden, in denen auf die relevanten Ressourcen verlinkt wird.
 
-## Einführung in R und RStudio
+## Basics
+
+- Goor practices bei der Datenverarbeitung (z.B. sowas wie "Nie den Original-Datensatz überschreiben.", "Alle Veränderungen des Datensatzes in einem Skript; keine Veränderungen mit Excel, SPSS und co.", ...)
+- Ausbauen der R-Übungen
+
+## Fortgeschrittene Themen (sehr kurze Artikel mit Links zu weiterführenden Ressourcen)
 
 - Funktionen in R
 - Loops in R
 - Control Flow (if, else) in R
 - Eigenes R Paket schreiben
-
-Kurze Artikel mit Links zu weiterführenden Ressourcen 
-
 - shiny
 - tidy data
 - Tidyverse (https://r4ds.had.co.nz/)
-
-### Good Practice
-
-- Datenverarbeitung (z.B. sowas wie "Nie den Original-Datensatz überschreiben.", "Alle Veränderungen des Datensatzes in einem Skript; keine Veränderungen mit Excel.", ...)
 - Versionsverwaltung mit git und GitHub
 - Reproduzierbarkeit
 - Style Guide (gut lesbaren Code schreiben)
 
-
-## Spezifische Themen in R
+## Spezifische Themen in R (sehr kurze Artikel mit Links zu weiterführenden Ressourcen)
 
 - Long and wide format in lme4 und lavaan für longitudinal mixed models
 - Modellspezifikation mit lavaan
