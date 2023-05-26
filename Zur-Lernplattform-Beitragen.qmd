@@ -385,7 +385,7 @@ devtools::install_deps()
 
 Mit renv können die Paktete (dependencies) des R Projekte verwaltet werden. Wenn das R Projekt geöffnet wird und renv installiert wurde werden die Pakete automatisch in der richtigen Version geladen. So wird sichergestellt, dass alle mit der gleichen Umgebung arbeiten, andernfalls kann es passieren, dass der Code im Projekt nicht funktioniert wird, weil sich das Verhalten der verschiedenen Versionen der verwendeten Pakete ändert.
 \
-Um renv zu nutzen, muss man das Paket einmalig lokal installieren mit `install.packages(renv)`. Wenn das Projekt der RLernplattform anschließend geöffnet wird, werden automatisch die korrekten Versionen installiert. 
+Um renv zu nutzen, muss man das Paket einmalig lokal installieren mit `install.packages(renv)`. Beim ersten Öffnen muss man dann `renv::restore()` verwenden, um die Pakete auf den aktuellen Stand zu bringen. Wenn das Projekt beim nächsten Mal geöffnet wird, werden automatisch die korrekten Versionen verwendet.  
 \
 Die Dokumentation und eine allgemeine Einführung zu renv findet ihr [hier](https://rstudio.github.io/renv/articles/renv.html).
 
