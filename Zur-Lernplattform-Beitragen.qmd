@@ -365,6 +365,7 @@ Dieser Teil des Dokuments `_main.Rmd` kommt aus dem Dokument `15-Interne-Dokumen
 genauer nach, dann sehen wir, dass die Variablen `noten` und `stunden` gar nicht erstellt wurden und deshalb der Code
 nicht funktionieren kann. Wir können das Problem lösen, indem wir `eval=FALSE` hinzufügen.
 
+<!---
 ### Alle Dependencies installieren {#sec-dependencies}
 
 Solltest Du nicht alle Pakete installiert haben, die auf der Webseite genutzt werden,
@@ -378,5 +379,15 @@ if(!require("devtools"))
 library("devtools")
 devtools::install_deps()
 ```
+--->
+
+## renv
+
+Mit renv können die Paktete (dependencies) des R Projekte verwaltet werden. Wenn das R Projekt geöffnet wird und renv installiert wurde werden die Pakete automatisch in der richtigen Version geladen. So wird sichergestellt, dass alle mit der gleichen Umgebung arbeiten, andernfalls kann es passieren, dass der Code im Projekt nicht funktioniert wird, weil sich das Verhalten der verschiedenen Versionen der verwendeten Pakete ändert.
+\
+Um renv zu nutzen, muss man das Paket einmalig lokal installieren mit `install.packages(renv)`. Wenn das Projekt der RLernplattform anschließend geöffnet wird, werden automatisch die korrekten Versionen installiert. 
+\
+Die Dokumentation und eine allgemeine Einführung zu renv findet ihr [hier](https://rstudio.github.io/renv/articles/renv.html).
+
 
 
