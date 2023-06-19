@@ -79,9 +79,27 @@ Du kannst nun das Dokument verändern. Wenn Du alle Veränderungen vorgenommen h
 
 ![](figures/documentation/commit_qmd.png)
 
-Die Veränderungen sind nun gespeichert! **Wichtig**: Die Webseite wird nicht automatisch aktualisiert. 
-Hier ist zur Zeit noch etwas Handarbeit erfordert. Das ist eine bewusste Entscheidung, um sicher zu stellen,
-dass keine unfertigen Seiten aus Versehen online gehen.
+Wichtig: Nur was auf dem "main" Branch gespeichert ist, wird tastächlich auf der Webseite 
+zu sehen sein. Damit nicht alles direkt auf der Webseite landet, dürfen wir
+nicht direkt den main - Branch verändern. Tatsächlich erlaubt uns GitHub das auch 
+gar nicht. Stattdessen wird uns hier vorgeschlagen, einen neuen Branch zu erstellen 
+(`jhorzek-patch-2`). Wir können dem Branch auch einen passenderen Namen geben (z.B.
+`fix-typo`, wenn wir einen typo korrigieren). Dann drücken wir auf "Propose changes".
+Wir können auf dem neu erstellten Branch `jhorzek-patch-2` auch weitere Veränderungen
+vornehmen.
+
+Wenn wir mit unseren Veränderungen fertig sind, wollen wir diese auf die Webseite 
+übernehmen. Dafür erstellen wir einen sogenannten Pull Request.
+
+![](figures/documentation/create_pull_request.png)
+
+Diesen können wir nun mir "Merge pull request" in den main branch übernehmen:
+
+![](figures/documentation/merge_pull_request.png)
+Wichtig: Bei größeren Veränderungen solltest Du auf Feedback von anderen im Projekt warten
+und nicht direkt mergen!
+
+Wenn der merge durchgeführt wurde, wird die Webseite neu erstellt.
 
 ### Code hinzufügen
 
@@ -283,71 +301,7 @@ hochladen:
 
 Unser neues Thema wurde nun hinzugefügt!
 
-## Webseite erstellen
-
-### Online-Version erstellen
-
-Die Online-Version können wir updaten, indem wir [hier](https://github.com/Methods-Berlin/RLernplattform/actions/workflows/create_quarto_website.yml) auf run workflow drücken:
-
-![](figures/documentation/create_website.png)
-
-Die Webseite wird nun automatisch erstellt.
-
-### Offline-Version erstellen
-
-Wir können aber eine offline-Version 
-erstellen, die wir dann herunterlagen und auf unserem Computer anschauen können.
-Hierfür werden GitHub Actions genutzt. 
-
-> Hinweis: Wir haben nur eine begrenzte Rechenkapazität auf GitHub. Bitte erstelle
-die Webseite nur dann neu, wenn Du alle Änderungen vorgenommen hast, die Du vornehmen
-wolltest.
-
-Das Vorgehen ist aktuell:
-
-1. Klicke auf Actions
-
-![](figures/documentation/actions.png)
-
-2. Klicke auf create_book
-
-![](figures/documentation/create_book_1.png)
-
-3. Klicke auf Run workflow
-
-![](figures/documentation/create_book_2.png)
-
-4. Wähle Run workflow
-
-![](figures/documentation/create_book_3.png)
-
-Das Bookdown Projekt wird nun in eine Webseite übersetzt. Diese ist allerdings nicht online!
-
-Um die Webseite herunter zu laden, ist das Vorgehen:
-
-1. Klicke auf Actions
-
-![](figures/documentation/actions.png)
-
-2. Klicke auf den neuesten Durchgang der create_book Action
-
-![](figures/documentation/create_book_4.png)
-
-3. Scrolle ganz nach unten. Dort findest Du den Ordner docs unter Artefacts
-
-![](figures/documentation/create_book_5.png)
-
-Lade die Datei herunter und entpacke sie auf Deinem Computer. 
-
-![](figures/documentation/create_book_6.png)
-
-Im Ordner wirst Du unter 
-anderem mehrere .html Dateien finden. Öffne eine beliebige dieser Dateien mit Deinem 
-Browser, um die lokale Version der Webseite anzuzeigen.
-
-![](figures/documentation/create_book_7.png)
-
-### Fehler beheben
+## Fehler beheben
 
 Es kommt immer wieder vor, dass beim erstellen der Webseite Fehler auftreten. Diese sehen in RStudio beispielsweise so aus: 
 
@@ -365,22 +319,6 @@ Dieser Teil des Dokuments `_main.Rmd` kommt aus dem Dokument `15-Interne-Dokumen
 genauer nach, dann sehen wir, dass die Variablen `noten` und `stunden` gar nicht erstellt wurden und deshalb der Code
 nicht funktionieren kann. Wir können das Problem lösen, indem wir `eval=FALSE` hinzufügen.
 
-<!---
-### Alle Dependencies installieren {#sec-dependencies}
-
-Solltest Du nicht alle Pakete installiert haben, die auf der Webseite genutzt werden,
-kannst Du entweder die Datei `DESCRIPTION` öffnen und alle dort aufgeführten Pakete 
-installieren oder Du öffnest die Datei `RLernplattform.Rproj` in RStudio und führst
-folgenden Code aus:
-```{r}
-#| eval: false
-if(!require("devtools"))
-  install.packages("devtools")
-library("devtools")
-devtools::install_deps()
-```
---->
-
 ## renv
 
 Mit renv können die Paktete (dependencies) des R Projekte verwaltet werden. Wenn das R Projekt geöffnet wird und renv installiert wurde werden die Pakete automatisch in der richtigen Version geladen. So wird sichergestellt, dass alle mit der gleichen Umgebung arbeiten, andernfalls kann es passieren, dass der Code im Projekt nicht funktioniert wird, weil sich das Verhalten der verschiedenen Versionen der verwendeten Pakete ändert.
@@ -389,5 +327,35 @@ Um renv zu nutzen, muss man das Paket einmalig lokal installieren mit `install.p
 \
 Die Dokumentation und eine allgemeine Einführung zu renv findet ihr [hier](https://rstudio.github.io/renv/articles/renv.html).
 
+## Projekt lokal bearbeiten
 
+Bei größeren Veränderungen ist es sehr viel einfacher, diese auf dem eigenen Rechner
+vorzunehmen. Hierfür kannst Du das Programm [GitHub desktop](https://desktop.github.com/) 
+auf Deinem Rechner installieren. Logge Dich dort mit deinem GitHub account ein.
+Öffne anschließend die GitHub - Seite der RLernplattform im Browser und wähle
+`Code > Open with GitHub Desktop` aus.
 
+![](figures/documentation/open_with_github.png)
+Hinweis: Hierfür muss GitHub Desktop geöffnet sein. GitHub Desktop wird Dich nun
+fragen, wo das Projekt gespeichert werden soll. Wähle einen passenden Ordner aus.
+Im Ordner wirst Du alle Dateien des Projektes finden, inklusive der RLernplattform.Rproj
+Datei. Öffne diese mit RStudio. `renv` wird Dir dabei helfen, die notwendigen Pakete
+zu installieren. Anschließend kannst Du alle Dateien bearbeiten und die Webseite
+lokal bei Dir mit `Render Book > HTML` format erstellen.
+
+![](figures/documentation/render_book.png)
+Commite Deine Veränderungen auf einen neuen branch. Das geht direkt in RStudio im Reiter
+`Git`:
+
+![](figures/documentation/new_branch.png)
+
+Klicke alle Dateien an und wähle "Commit". 
+
+![](figures/documentation/stage_and_commit.png)
+
+Schreibe eine commit - message, die erklärt, welche Veränderungen Du vogenommen hast.
+Drücke dann auf "Commit" und anschießend auif "Push".
+![](figures/documentation/commit_and_push.png)
+
+Deine Veränderungen wurden nun auf GitHub hochgeladen und Du kannst dort
+wie gewohnt einen merge request erstellen.
