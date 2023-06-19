@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.340">
+<meta name="generator" content="quarto-1.3.361">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -91,7 +91,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
@@ -110,7 +111,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Zur-Lernplattform-Beitragen.html">Projekt-Dokumentation</a></li><li class="breadcrumb-item"><a href="./Zur-Lernplattform-Beitragen.html"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Zur R-Lernplattform Beitragen</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -299,13 +300,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#html-tags" id="toc-html-tags" class="nav-link" data-scroll-target="#html-tags"><span class="header-section-number">17.2.6</span> HTML tags</a></li>
   </ul></li>
   <li><a href="#neues-thema-erstellen" id="toc-neues-thema-erstellen" class="nav-link" data-scroll-target="#neues-thema-erstellen"><span class="header-section-number">17.3</span> Neues Thema erstellen</a></li>
-  <li><a href="#webseite-erstellen" id="toc-webseite-erstellen" class="nav-link" data-scroll-target="#webseite-erstellen"><span class="header-section-number">17.4</span> Webseite erstellen</a>
-  <ul class="collapse">
-  <li><a href="#online-version-erstellen" id="toc-online-version-erstellen" class="nav-link" data-scroll-target="#online-version-erstellen"><span class="header-section-number">17.4.1</span> Online-Version erstellen</a></li>
-  <li><a href="#offline-version-erstellen" id="toc-offline-version-erstellen" class="nav-link" data-scroll-target="#offline-version-erstellen"><span class="header-section-number">17.4.2</span> Offline-Version erstellen</a></li>
-  <li><a href="#fehler-beheben" id="toc-fehler-beheben" class="nav-link" data-scroll-target="#fehler-beheben"><span class="header-section-number">17.4.3</span> Fehler beheben</a></li>
-  <li><a href="#sec-dependencies" id="toc-sec-dependencies" class="nav-link" data-scroll-target="#sec-dependencies"><span class="header-section-number">17.4.4</span> Alle Dependencies installieren</a></li>
-  </ul></li>
+  <li><a href="#fehler-beheben" id="toc-fehler-beheben" class="nav-link" data-scroll-target="#fehler-beheben"><span class="header-section-number">17.4</span> Fehler beheben</a></li>
+  <li><a href="#renv" id="toc-renv" class="nav-link" data-scroll-target="#renv"><span class="header-section-number">17.5</span> renv</a></li>
+  <li><a href="#projekt-lokal-bearbeiten" id="toc-projekt-lokal-bearbeiten" class="nav-link" data-scroll-target="#projekt-lokal-bearbeiten"><span class="header-section-number">17.6</span> Projekt lokal bearbeiten</a></li>
   </ul>
 </nav>
     </div>
@@ -376,7 +373,12 @@ dann die Einführung in R.</p>
 <p><img src="figures/documentation/change_qmd.png" class="img-fluid"></p>
 <p>Du kannst nun das Dokument verändern. Wenn Du alle Veränderungen vorgenommen hast, dann klicke auf commit (scrolle nach ganz unten).</p>
 <p><img src="figures/documentation/commit_qmd.png" class="img-fluid"></p>
-<p>Die Veränderungen sind nun gespeichert! <strong>Wichtig</strong>: Die Webseite wird nicht automatisch aktualisiert. Hier ist zur Zeit noch etwas Handarbeit erfordert. Das ist eine bewusste Entscheidung, um sicher zu stellen, dass keine unfertigen Seiten aus Versehen online gehen.</p>
+<p>Wichtig: Nur was auf dem “main” Branch gespeichert ist, wird tastächlich auf der Webseite zu sehen sein. Damit nicht alles direkt auf der Webseite landet, dürfen wir nicht direkt den main - Branch verändern. Tatsächlich erlaubt uns GitHub das auch gar nicht. Stattdessen wird uns hier vorgeschlagen, einen neuen Branch zu erstellen (<code>jhorzek-patch-2</code>). Wir können dem Branch auch einen passenderen Namen geben (z.B. <code>fix-typo</code>, wenn wir einen typo korrigieren). Dann drücken wir auf “Propose changes”. Wir können auf dem neu erstellten Branch <code>jhorzek-patch-2</code> auch weitere Veränderungen vornehmen.</p>
+<p>Wenn wir mit unseren Veränderungen fertig sind, wollen wir diese auf die Webseite übernehmen. Dafür erstellen wir einen sogenannten Pull Request.</p>
+<p><img src="figures/documentation/create_pull_request.png" class="img-fluid"></p>
+<p>Diesen können wir nun mir “Merge pull request” in den main branch übernehmen:</p>
+<p><img src="figures/documentation/merge_pull_request.png" class="img-fluid"> Wichtig: Bei größeren Veränderungen solltest Du auf Feedback von anderen im Projekt warten und nicht direkt mergen!</p>
+<p>Wenn der merge durchgeführt wurde, wird die Webseite neu erstellt.</p>
 <section id="code-hinzufügen" class="level3" data-number="17.2.1">
 <h3 data-number="17.2.1" class="anchored" data-anchor-id="code-hinzufügen"><span class="header-section-number">17.2.1</span> Code hinzufügen</h3>
 <p>Wenn man Code hinzufügen möchte, funktioniert das identisch wie in RMarkdown also, z.B. so:</p>
@@ -435,7 +437,9 @@ dann die Einführung in R.</p>
 </section>
 <section id="html-tags" class="level3 page-columns page-full" data-number="17.2.6">
 <h3 data-number="17.2.6" class="anchored" data-anchor-id="html-tags"><span class="header-section-number">17.2.6</span> HTML tags</h3>
-<p>Markdown erlaubt es, html-tags zu verwenden, um die Formatierung des Textes weiter anzupassen. Beispielsweise können wir so die Textfarbe und die Schriftgröße anpassen. Da dies jedoch schnell zu relativ unübersichtlichen Dokumenten führt, haben wir uns entschieden, die Nutzung von html-tags einzuschränken. Das soll es auch ermöglichen, das Anpassen und Erweitern bestehender Themen einfacher zu gestalten. Folgende html-tags dürfen genutzt werden:</p>
+<p>Markdown erlaubt es, html-tags zu verwenden, um die Formatierung des Textes weiter anzupassen. Beispielsweise können wir so die Textfarbe und die Schriftgröße anpassen. Da dies jedoch schnell zu relativ unübersichtlichen Dokumenten führt, haben wir uns entschieden, die Nutzung von html-tags einzuschränken. Das soll es auch ermöglichen, das Anpassen und Erweitern bestehender Themen einfacher zu gestalten. Folgende html-tags dürfen genutzt werden:<br>
+</p>
+<p><strong>Aufklappbares Textelement</strong></p>
 <p><code>&lt;details&gt;&lt;summary&gt;&lt;/summary&gt;&lt;/details&gt;</code>: Erlaubt das Erstellen aufklappbarer Textelemente.</p>
 <details>
 <summary>
@@ -443,15 +447,75 @@ Dieser Text wird immer angezeigt
 </summary>
 Dieser Text wir nur angezeigt, wenn die Textsektion “aufgeklappt” wird.
 </details>
+<p><br>
+<strong>Side-Note</strong></p>
 <p><code>&lt;aside&gt;&lt;/aside&gt;</code>: Erlaubt das Erstellen von side-notes.</p>
 <aside>
 Dies ist ein Beispiel für ein aside
 </aside>
+<p><br>
+<strong>Wörter referenzieren</strong></p>
 <p><code>&lt;a id="wichtiges Wort"&gt; Wichtiges Wort &lt;/a&gt;</code>: Erlaubt einzelne Wörter wie Überschriften zu referenzieren</p>
-<p><a id="wichtiges Wort"> <strong>Wichtiges Wort</strong> </a><br>
+<p><a id="wichtiges Wort"> <em>Wichtiges Wort</em> </a><br>
 <br>
 Wenn man <a href="#wichtiges%20Wort">hier</a> klickt, kann man jetzt per Link zurück zu dem wichtigen Wort (und z.B. der Definition) springen.</p>
+<p><br>
+<strong>Tasten hervorheben</strong></p>
 <p><code>&lt;kbd&gt;Taste&lt;/kbd&gt;</code>: Erlaubt es bei Kurzbefehlen die Tasten hervorzuheben. Beispiel: “So kann man bei einem Mac mit <kbd>cmd</kbd> + <kbd>C</kbd> markierten Text kopieren.”</p>
+<p><br>
+<strong>Farbiger Text</strong></p>
+<p><code>&lt;span style="color:orange"&gt;&lt;/span&gt;</code>: Erlaubt die farbliche Markierung von Text</p>
+<p><span style="color:orange"> Dieser Text ist orange </span><br>
+Anstatt orange können andere Farben eingesetzt werden. Manche Farben können als englisches Wort eingesetzt werden, andere müssen als html-Code eingesetzt werden (siehe <a href="https://htmlcolors.com/">hier</a>).<br>
+</p>
+<p><strong>Textformatierung in knitr Tabellen</strong></p>
+<p>In R Tabellen, die mit knitr erstellt wurden, funktioniert Markdown nicht (d.h. man kann z.B. nicht mit *** fett markieren und einen Exponenten nicht mit *^ erstellen). Daher müssen hier html-Befehle genutzt werden.<br>
+Einige Beispiele:</p>
+<p>bold: <strong> fett </strong><br>
+italic: <em> kursiv </em><br>
+exponent: x<sup>2</sup><br>
+Index (subscript): y<sub>1</sub><br>
+<br>
+</p>
+<p><strong>html-Tabellen</strong></p>
+<p>Wenn man Bilder oder mehrere Formeln in einer Tabelle darstellen möchte, kann es sinnvoll sein, die Tabelle komplett in hmtl Code zu erstellen. Dafür ist in der scss-Datei eine “class” definiert, die r-table heißt. Damit kann man Tabellen erstellen, die genauso aussehen, wie die von r automatisch erstellten. html-Tabellen sind nach Zeilen sortiert <code>(&lt;tr&gt;)</code>, in jeder Zeile kann mit <code>&lt;th&gt;</code> markiert werden, was eine Überschrift sein soll. Am einfachsten ist es, wenn man die untenstehende Tabelle kopiert und die Inhalte entsprechend einfüllt. Innerhalb der html-Tabelle können Bilder wie gewohnt eingefügt werden. Die Formeln müssen zwischen zwei Dollarzeichen stehen (z.B. <code>$h^2$</code>).<br>
+</p>
+
+<table class="r-table">
+<tbody><tr>
+<th>
+</th>
+<th>
+Überschrift Spalte 1
+</th>
+<th>
+Überschrift Spalte 2
+</th>
+</tr>
+<tr>
+<th>
+Überschrift Zeile 1
+</th>
+<td>
+Inhalt
+</td>
+<td>
+Inhalt
+</td>
+</tr>
+<tr>
+<th>
+Überschrift Zeile 2
+</th>
+<td>
+Inhalt
+</td>
+<td>
+Inhalt
+</td>
+</tr>
+
+</tbody></table>
 </section>
 </section>
 <section id="neues-thema-erstellen" class="level2" data-number="17.3">
@@ -469,76 +533,33 @@ Wenn man <a href="#wichtiges%20Wort">hier</a> klickt, kann man jetzt per Link zu
 <p><img src="figures/documentation/upload_file.png" class="img-fluid"></p>
 <p>Unser neues Thema wurde nun hinzugefügt!</p>
 </section>
-<section id="webseite-erstellen" class="level2" data-number="17.4">
-<h2 data-number="17.4" class="anchored" data-anchor-id="webseite-erstellen"><span class="header-section-number">17.4</span> Webseite erstellen</h2>
-<section id="online-version-erstellen" class="level3" data-number="17.4.1">
-<h3 data-number="17.4.1" class="anchored" data-anchor-id="online-version-erstellen"><span class="header-section-number">17.4.1</span> Online-Version erstellen</h3>
-<p>Die Online-Version können wir updaten, indem wir <a href="https://github.com/Methods-Berlin/RLernplattform/actions/workflows/create_quarto_website.yml">hier</a> auf run workflow drücken:</p>
-<p><img src="figures/documentation/create_website.png" class="img-fluid"></p>
-<p>Die Webseite wird nun automatisch erstellt.</p>
-</section>
-<section id="offline-version-erstellen" class="level3" data-number="17.4.2">
-<h3 data-number="17.4.2" class="anchored" data-anchor-id="offline-version-erstellen"><span class="header-section-number">17.4.2</span> Offline-Version erstellen</h3>
-<p>Wir können aber eine offline-Version erstellen, die wir dann herunterlagen und auf unserem Computer anschauen können. Hierfür werden GitHub Actions genutzt.</p>
-<blockquote class="blockquote">
-<p>Hinweis: Wir haben nur eine begrenzte Rechenkapazität auf GitHub. Bitte erstelle die Webseite nur dann neu, wenn Du alle Änderungen vorgenommen hast, die Du vornehmen wolltest.</p>
-</blockquote>
-<p>Das Vorgehen ist aktuell:</p>
-<ol type="1">
-<li>Klicke auf Actions</li>
-</ol>
-<p><img src="figures/documentation/actions.png" class="img-fluid"></p>
-<ol start="2" type="1">
-<li>Klicke auf create_book</li>
-</ol>
-<p><img src="figures/documentation/create_book_1.png" class="img-fluid"></p>
-<ol start="3" type="1">
-<li>Klicke auf Run workflow</li>
-</ol>
-<p><img src="figures/documentation/create_book_2.png" class="img-fluid"></p>
-<ol start="4" type="1">
-<li>Wähle Run workflow</li>
-</ol>
-<p><img src="figures/documentation/create_book_3.png" class="img-fluid"></p>
-<p>Das Bookdown Projekt wird nun in eine Webseite übersetzt. Diese ist allerdings nicht online!</p>
-<p>Um die Webseite herunter zu laden, ist das Vorgehen:</p>
-<ol type="1">
-<li>Klicke auf Actions</li>
-</ol>
-<p><img src="figures/documentation/actions.png" class="img-fluid"></p>
-<ol start="2" type="1">
-<li>Klicke auf den neuesten Durchgang der create_book Action</li>
-</ol>
-<p><img src="figures/documentation/create_book_4.png" class="img-fluid"></p>
-<ol start="3" type="1">
-<li>Scrolle ganz nach unten. Dort findest Du den Ordner docs unter Artefacts</li>
-</ol>
-<p><img src="figures/documentation/create_book_5.png" class="img-fluid"></p>
-<p>Lade die Datei herunter und entpacke sie auf Deinem Computer.</p>
-<p><img src="figures/documentation/create_book_6.png" class="img-fluid"></p>
-<p>Im Ordner wirst Du unter anderem mehrere .html Dateien finden. Öffne eine beliebige dieser Dateien mit Deinem Browser, um die lokale Version der Webseite anzuzeigen.</p>
-<p><img src="figures/documentation/create_book_7.png" class="img-fluid"></p>
-</section>
-<section id="fehler-beheben" class="level3" data-number="17.4.3">
-<h3 data-number="17.4.3" class="anchored" data-anchor-id="fehler-beheben"><span class="header-section-number">17.4.3</span> Fehler beheben</h3>
+<section id="fehler-beheben" class="level2" data-number="17.4">
+<h2 data-number="17.4" class="anchored" data-anchor-id="fehler-beheben"><span class="header-section-number">17.4</span> Fehler beheben</h2>
 <p>Es kommt immer wieder vor, dass beim erstellen der Webseite Fehler auftreten. Diese sehen in RStudio beispielsweise so aus:</p>
 <p><img src="figures/documentation/fehler_1.png" class="img-fluid"></p>
 <p>Wir sehen hier auf der rechten Seite den Hinweis:</p>
 <p><img src="figures/documentation/fehler_2.png" class="img-fluid"></p>
 <p>Dieser Fehler sagt uns, dass wir im Dokument <code>_main.Rmd</code> in Zeile 11731-11733 nach einem Fehler ausschau halten müssen. Noch spezifischer sagt uns der Fehler, dass es das Objekt “noten” nicht gibt. Wenn wir das Dokument <code>_main.Rmd</code> öffnen, finden wir dort in den angegebenen Zeilen: <img src="figures/documentation/fehler_3.png" class="img-fluid"> Dieser Teil des Dokuments <code>_main.Rmd</code> kommt aus dem Dokument <code>15-Interne-Dokumentation.Rmd</code>. Schauen wir dort noch mal genauer nach, dann sehen wir, dass die Variablen <code>noten</code> und <code>stunden</code> gar nicht erstellt wurden und deshalb der Code nicht funktionieren kann. Wir können das Problem lösen, indem wir <code>eval=FALSE</code> hinzufügen.</p>
 </section>
-<section id="sec-dependencies" class="level3" data-number="17.4.4">
-<h3 data-number="17.4.4" class="anchored" data-anchor-id="sec-dependencies"><span class="header-section-number">17.4.4</span> Alle Dependencies installieren</h3>
-<p>Solltest Du nicht alle Pakete installiert haben, die auf der Webseite genutzt werden, kannst Du entweder die Datei <code>DESCRIPTION</code> öffnen und alle dort aufgeführten Pakete installieren oder Du öffnest die Datei <code>RLernplattform.Rproj</code> in RStudio und führst folgenden Code aus:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(<span class="st">"devtools"</span>))</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">"devtools"</span>)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"devtools"</span>)</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_deps</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-
-
+<section id="renv" class="level2" data-number="17.5">
+<h2 data-number="17.5" class="anchored" data-anchor-id="renv"><span class="header-section-number">17.5</span> renv</h2>
+<p>Mit renv können die Paktete (dependencies) des R Projekte verwaltet werden. Wenn das R Projekt geöffnet wird und renv installiert wurde werden die Pakete automatisch in der richtigen Version geladen. So wird sichergestellt, dass alle mit der gleichen Umgebung arbeiten, andernfalls kann es passieren, dass der Code im Projekt nicht funktioniert wird, weil sich das Verhalten der verschiedenen Versionen der verwendeten Pakete ändert.<br>
+Um renv zu nutzen, muss man das Paket einmalig lokal installieren mit <code>install.packages(renv)</code>. Beim ersten Öffnen muss man dann <code>renv::restore()</code> verwenden, um die Pakete auf den aktuellen Stand zu bringen. Wenn das Projekt beim nächsten Mal geöffnet wird, werden automatisch die korrekten Versionen verwendet.<br>
+<br>
+Die Dokumentation und eine allgemeine Einführung zu renv findet ihr <a href="https://rstudio.github.io/renv/articles/renv.html">hier</a>.</p>
 </section>
+<section id="projekt-lokal-bearbeiten" class="level2" data-number="17.6">
+<h2 data-number="17.6" class="anchored" data-anchor-id="projekt-lokal-bearbeiten"><span class="header-section-number">17.6</span> Projekt lokal bearbeiten</h2>
+<p>Bei größeren Veränderungen ist es sehr viel einfacher, diese auf dem eigenen Rechner vorzunehmen. Hierfür kannst Du das Programm <a href="https://desktop.github.com/">GitHub desktop</a> auf Deinem Rechner installieren. Logge Dich dort mit deinem GitHub account ein. Öffne anschließend die GitHub - Seite der RLernplattform im Browser und wähle <code>Code &gt; Open with GitHub Desktop</code> aus.</p>
+<p><img src="figures/documentation/open_with_github.png" class="img-fluid"> Hinweis: Hierfür muss GitHub Desktop geöffnet sein. GitHub Desktop wird Dich nun fragen, wo das Projekt gespeichert werden soll. Wähle einen passenden Ordner aus. Im Ordner wirst Du alle Dateien des Projektes finden, inklusive der RLernplattform.Rproj Datei. Öffne diese mit RStudio. <code>renv</code> wird Dir dabei helfen, die notwendigen Pakete zu installieren. Anschließend kannst Du alle Dateien bearbeiten und die Webseite lokal bei Dir mit <code>Render Book &gt; HTML</code> format erstellen.</p>
+<p><img src="figures/documentation/render_book.png" class="img-fluid"> Commite Deine Veränderungen auf einen neuen branch. Das geht direkt in RStudio im Reiter <code>Git</code>:</p>
+<p><img src="figures/documentation/new_branch.png" class="img-fluid"></p>
+<p>Klicke alle Dateien an und wähle “Commit”.</p>
+<p><img src="figures/documentation/stage_and_commit.png" class="img-fluid"></p>
+<p>Schreibe eine commit - message, die erklärt, welche Veränderungen Du vogenommen hast. Drücke dann auf “Commit” und anschießend auif “Push”. <img src="figures/documentation/commit_and_push.png" class="img-fluid"></p>
+<p>Deine Veränderungen wurden nun auf GitHub hochgeladen und Du kannst dort wie gewohnt einen merge request erstellen.</p>
+
+
 </section>
 
 </main> <!-- /main -->
