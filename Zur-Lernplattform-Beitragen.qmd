@@ -194,6 +194,9 @@ anpassen. Da dies jedoch schnell zu relativ unübersichtlichen Dokumenten führt
 haben wir uns entschieden, die Nutzung von html-tags einzuschränken. Das soll es
 auch ermöglichen, das Anpassen und Erweitern bestehender Themen einfacher zu gestalten.
 Folgende html-tags dürfen genutzt werden:
+\
+
+**Aufklappbares Textelement**
 
 `<details><summary></summary></details>`: Erlaubt das Erstellen aufklappbarer Textelemente.
 
@@ -201,21 +204,74 @@ Folgende html-tags dürfen genutzt werden:
 Dieser Text wir nur angezeigt, wenn die Textsektion "aufgeklappt" wird.
 </details>
 
+\
+**Side-Note** 
+
 `<aside></aside>`: Erlaubt das Erstellen von side-notes.
 
 <aside>
 Dies ist ein Beispiel für ein aside
 </aside>
 
+\
+**Wörter referenzieren**
 
 `<a id="wichtiges Wort"> Wichtiges Wort </a>`: Erlaubt einzelne Wörter wie Überschriften zu referenzieren
 
-<a id="wichtiges Wort"> **Wichtiges Wort** </a>
+<a id="wichtiges Wort"> *Wichtiges Wort* </a>
 \
 \
 Wenn man [hier](#wichtiges Wort) klickt, kann man jetzt per Link zurück zu dem wichtigen Wort (und z.B. der Definition) springen.
 
+\
+**Tasten hervorheben**
+
 `<kbd>Taste</kbd>`: Erlaubt es bei Kurzbefehlen die Tasten hervorzuheben. Beispiel: "So kann man bei einem Mac mit <kbd>cmd</kbd> + <kbd>C</kbd> markierten Text kopieren."
+
+\
+**Farbiger Text**
+
+`<span style="color:orange"></span>`: Erlaubt die farbliche Markierung von Text
+
+<span style="color:orange"> Dieser Text ist orange </span> \
+Anstatt orange können andere Farben eingesetzt werden. Manche Farben können als englisches Wort eingesetzt werden, andere müssen als html-Code eingesetzt werden (siehe [hier](https://htmlcolors.com/)).
+\
+
+**Textformatierung in knitr Tabellen**
+
+In R Tabellen, die mit knitr erstellt wurden, funktioniert Markdown nicht (d.h. man kann z.B. nicht mit \*** fett markieren und einen Exponenten nicht mit \*^ erstellen). Daher müssen hier html-Befehle genutzt werden. \
+Einige Beispiele:
+
+bold: <strong> fett </strong> \
+italic: <em> kursiv </em> \
+exponent: x<sup>2</sup> \
+Index (subscript): y<sub>1</sub> \
+\
+
+**html-Tabellen**
+
+Wenn man Bilder oder mehrere Formeln in einer Tabelle darstellen möchte, kann es sinnvoll sein, die Tabelle komplett in hmtl Code zu erstellen. Dafür ist in der scss-Datei eine "class" definiert, die r-table heißt. Damit kann man Tabellen erstellen, die genauso aussehen, wie die von r automatisch erstellten. html-Tabellen sind nach Zeilen sortiert `(<tr>)`, in jeder Zeile kann mit `<th>` markiert werden, was eine Überschrift sein soll. Am einfachsten ist es, wenn man die untenstehende Tabelle kopiert und die Inhalte entsprechend einfüllt. Innerhalb der html-Tabelle können Bilder wie gewohnt eingefügt werden. Die Formeln müssen zwischen zwei Dollarzeichen stehen (z.B. `$h^2$`).
+\
+
+<table class="r-table">
+    <tr>
+        <th></th>
+        <th>Überschrift Spalte 1</th>
+        <th>Überschrift Spalte 2</th>
+    </tr>
+    <tr>
+        <th>Überschrift Zeile 1</th>
+        <td>Inhalt</td>
+        <td>Inhalt</td>
+    </tr>
+    <tr>
+        <th>Überschrift Zeile 2</th>
+        <td>Inhalt</td>
+        <td>Inhalt</td>
+    </tr>
+</table> 
+
+
 
 ## Neues Thema erstellen
 
@@ -262,6 +318,14 @@ müssen. Noch spezifischer sagt uns der Fehler, dass es das Objekt "noten" nicht
 Dieser Teil des Dokuments `_main.Rmd` kommt aus dem Dokument `15-Interne-Dokumentation.Rmd`. Schauen wir dort noch mal 
 genauer nach, dann sehen wir, dass die Variablen `noten` und `stunden` gar nicht erstellt wurden und deshalb der Code
 nicht funktionieren kann. Wir können das Problem lösen, indem wir `eval=FALSE` hinzufügen.
+
+## renv
+
+Mit renv können die Paktete (dependencies) des R Projekte verwaltet werden. Wenn das R Projekt geöffnet wird und renv installiert wurde werden die Pakete automatisch in der richtigen Version geladen. So wird sichergestellt, dass alle mit der gleichen Umgebung arbeiten, andernfalls kann es passieren, dass der Code im Projekt nicht funktioniert wird, weil sich das Verhalten der verschiedenen Versionen der verwendeten Pakete ändert.
+\
+Um renv zu nutzen, muss man das Paket einmalig lokal installieren mit `install.packages(renv)`. Beim ersten Öffnen muss man dann `renv::restore()` verwenden, um die Pakete auf den aktuellen Stand zu bringen. Wenn das Projekt beim nächsten Mal geöffnet wird, werden automatisch die korrekten Versionen verwendet.  
+\
+Die Dokumentation und eine allgemeine Einführung zu renv findet ihr [hier](https://rstudio.github.io/renv/articles/renv.html).
 
 ## Projekt lokal bearbeiten
 
