@@ -58,7 +58,7 @@ Die restlichen Dateien sind notwendig für Quarto. Den größten Teil hiervon k�
 Webseite definiert. Diese Datei ist aktuell einfach von der alten Webseite übernommen, was dazu führt, dass der
 bisherige Stil beibehalten wird. In "DESCRIPTION" geben wir (unter anderem) an, welche R Pakete wir 
 in den einzelnen .qmd Dateien nutzen. Wenn wir beispielsweise lavaan nutzen wollen, müssen wir hier lavaan zu
-den Paketen hinzufügen (siehe unten). Wenn wir das vergessen, kommt es zu Fehlern beim erstellen der Webseite!
+den Paketen hinzufügen (siehe unten). Wenn wir das vergessen, kommt es zu Fehlern beim Erstellen der Webseite!
 
 ## Themen bearbeiten
 
