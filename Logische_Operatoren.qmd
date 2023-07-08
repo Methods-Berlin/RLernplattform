@@ -1,0 +1,67 @@
+# Logische Operatoren
+
+Wir haben bereits [logische Werte](Datentypen.qmd#logische-werte-(booleans)) kennen gelernt. Diese sind entweder wahr (`TRUE`) oder falsch (`FALSE`). Logische Werte sind extrem praktisch, weil wir mit ihnen ausdrücken können, ob eine Person Therapie erhält oder älter als 75. Hierfür können wir logische Operatoren nutzen, die wir wahrscheinlich noch aus der Schule kennen. Nehmen wir an, Tina ist 45 Jahre als und erhält keine Therapie. Dann könnten wir dies folgendermaßen ausdrücken:
+
+```{r}
+name     <- "Tina"
+alter    <- 45
+therapie <- FALSE
+```
+
+Wir fragen uns nun, ob Tina älter als 75 ist. Mathematisch fragen wir, ob alter > 75 wahr ist. In R nutzen wir hier daher auch das `>` Zeichen:
+
+```{r}
+alter > 75
+```
+
+Wir bekommen hier direkt mitgeteilt, dass Tina **nicht** über 75 ist. Überprüfe, ob Tina jünger als 45 ist.
+
+<details>
+<summary>Lösung anzeigen</summary>
+
+```{r}
+alter < 45
+```
+</details>
+
+Wir können auch überprüfen, ob Tina exakt 45 Jahre alt ist. Hierfür nutzen wir **zwei** Gleichheitszeichen:
+
+```{r}
+alter == 45
+```
+
+Versuche zu überprüfen, ob Tina 50 Jahre alt oder jünger ist.
+
+<details>
+<summary>Lösung anzeigen</summary>
+
+```{r}
+alter <= 50
+```
+</details>
+
+## Auf Vektor-Elemente zugreifen
+
+Im Kapitel [Vektoren](Vektoren.qmd) haben wir gesehen, wie man einzelne Elemente aus einem Vektor mittels eckiger Klammern anschauen kann:
+
+```{r}
+# Vektor erstellen
+depression <- c(3, 5, 2, 1, 5, 4, 5, 3, 1, 1)
+# Wir zeigen den 5. Wert an:
+depression[5]
+# Wir ändern den 7. Wert:
+depression[7] <- 1
+```
+
+Wir können auch logische Operatoren nutzen, um auf den Vektorinhalt zuzugreifen. Angenommen Personen mit einem Depressions-Wert $>3$ sollten eine Therapie erhalten. Wir könnten erst schauen, welche Personen dies sind:
+```{r}
+therapy <- depression > 3
+print(therapy)
+```
+R gibt uns für jeden Wert im Vektor `depression` aus, ob dieser $>3$ ist (dann erhalten wir `TRUE`) oder $\leq 3$ ist (dann erhalten wir `FALSE`).
+
+Wenn wir nun schauen wollen, welche Werte die Personen haben, die Therapie erhalten sollen, können wir dies folgendermaßen machen:
+```{r}
+depression[therapy]
+```
+R greift nun aus dem `depression` Vektor nur die Werte heraus, bei denen in `therapy` TRUE steht.

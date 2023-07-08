@@ -1,0 +1,129 @@
+# R als Taschenrechner
+
+R ist eigentlich eine Programmiersprache -- tatsächlich sogar [eine ziemlich beliebte](https://survey.stackoverflow.co/2023/#section-most-popular-technologies-programming-scripting-and-markup-languages). Im Gegensatz zu vielen anderen Programmiersprachen liegt der Fokus bei R auf statistischen Berechnungen. 
+
+Um ein Gefühl für R zu bekommen, wollen wir uns R erst einmal als eine Art Taschenrechner vorstellen und ein paar einfache Aufgaben lösen. Öffne RStudio und und tippe `1+1` in das Fenster mit dem Namen `Console` ein. Bestätige Deine Eingabe mit der `Enter`-Taste
+
+```{r}
+#| eval: true
+1+1
+```
+
+<details>
+<summary>Video anzeigen</summary>
+
+![](figures/R_als_Taschenrechner/R_as_calculator.gif)
+
+</details>
+
+Versuche nun folgende Aufgaben mit R zu lösen:
+
+1. 12*54
+2. 43/34
+3. 2^2
+4. log(123)
+
+## Variablen: Werte speichern
+
+Bisher haben wir die gesamte Berechnung auf einmal in die Konsole eingegeben. Manchmal wollen wir aber erst ein Zwischenergebnis berechnen und dann mit diesem weiterarbeiten.
+
+Wollen wir $(1+2+3)/3$ berechnen, könnten wir erst $1+2+3$ addieren und dann durch drei teilen. Hierfür müssen wir das Zwischenergebnis $1+2+3$ zuerst in einer sogenannten Variable speichern. 
+
+Aus der Schule kennen wir vielleicht noch folgende Schreibweise: $x = 1 + 2 + 3$. Wir "speichern" hier das Zwischenergebnis (6) in der  Variable $x$. Das gleiche können wir auch in R machen:
+
+```{r}
+#| eval: true
+x = 1 + 2 + 3
+```
+
+<details>
+<summary>Video anzeigen</summary>
+
+![](figures/R_als_Taschenrechner/saving_variables.gif)
+
+</details>
+
+Wichtig ist, dass Du immer `Enter` drückst wenn Du mit Deiner Eingabe fertig bist, um den Befehl auch auszuführen.
+
+R hat nun die Variable $x$ erstellt und in dieser das Ergebnis von $1+2+3$ gespeichert. Wir können uns das auch direkt ausgeben lassen, indem wir einfach `x` eingeben und `Enter` drücken:
+```{r}
+#| eval: true
+x
+```
+
+<details>
+<summary>Video anzeigen</summary>
+
+![](figures/R_als_Taschenrechner/saving_variables_show.gif)
+
+</details>
+
+Und wir können `x` nun auch in weiteren Berechnungen nutzen:
+
+```{r}
+#| eval: true
+x/3
+```
+<details>
+<summary>Video anzeigen</summary>
+
+![](figures/R_als_Taschenrechner/saving_variables_division.gif)
+
+</details>
+
+Aufgaben:
+
+1. Berechne $12*54/3$ und speichere das Ergebnis in der Variable $a$. Lass Dir das Ergebnis anzeigen
+2. Teile $a$ durch 12
+3. Addiere $-10$ zu a
+4. Zeige den Inhalt von a erneut an. Was fällt Dir auf?
+
+<details>
+<summary>Lösung</summary>
+
+```{r}
+a = 12*54/3
+a
+```
+
+```{r}
+a/12
+```
+
+```{r}
+a - 10
+```
+
+```{r}
+a
+```
+`a` hat sich nicht verändert!
+
+</details>
+
+Probiere nun folgendes aus:
+
+```{r}
+#| eval: false
+b = 3
+b = b + 2
+b
+```
+
+<details>
+<summary>Lösung</summary>
+
+```{r}
+b = 3
+b = b + 2
+b
+```
+
+Diesmal hat sich `b` verändert! Wenn wir eine Variable verändern wollen, müssen wir dies immer explizit machen.
+
+</details>
+
+Zum Abschluss noch zwei Hinweise:
+
+1. In R ist es üblich, statt `a = 1 + 2 + 3` den Zuweisungspfeil `<-` zu nutzen: `a <- 1 + 2 + 3`. Im Prinzip ist es vollkommen egal, welche der beiden Varianten (`=` oder `<-`) du nutzt. Im Rest der RLernplattform werden wir jedoch `<-` verwenden.
+2. Variablen dürfen auch längere Namen als `x` oder `a` haben. Gib ihnen am besten Namen, die für Dich Sinn machen. Zum Beispiel `Summe = 1 + 2 + 3`.

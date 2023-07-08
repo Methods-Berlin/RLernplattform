@@ -1,0 +1,92 @@
+# Skripte
+
+Bisher haben wir direkt in der Console programmiert. Sobald wir RStudio schließen, geht alles, was wir dort eingegeben haben, verloren. Wenn wir unsere Berechnungsschritte speichern wollen, müssen wir ein [Script erstellen](Einfuehrung_in_RStudio.qmd#allgemeines-zu-rstudio). Erstelle jetzt ein neues Skript.
+
+<details>
+<summary>Video anzeigen: Skript erstellen</summary>
+
+![](figures/Skripte/new_script.gif)
+</details>
+
+Ein Skript können wir uns wie ein Aufgabenblatt vorstellen. Dort halten wir fest, was der Computer für uns tun soll. Dieser wird nachher unser Skript von oben nach unten durchgehen und alle Aufgaben lösen.
+Schreiben wir beispielsweise folgendes in unser Skript, dann wird erst  `1+1` berechnet, dann wird Variable `a` mit Wert 2 erstellt und dann Variable `b` mit Wert 3.
+```{r}
+#| eval: false
+1+1
+a <- 2
+b <- 3
+```
+
+## Skripte ausführen
+
+Wenn wir unser Skript erstellt haben, können wir es ausführen. Wir legen nun sozusagen dem Computer unser Aufgabenblatt vor, damit dieser es lösen kann. Hierfür markieren wir alle Zeilen, die wir ausführen wollen und klicken oben rechts auf `Run`.
+Die Ergebnisse werden uns dann in der Console angezeigt.
+
+<details>
+<summary>Video anzeigen: Skript ausführen</summary>
+
+![](figures/Skripte/run_script.gif)
+</details>
+
+Gib nun folgenden Code in dein Skript ein und führe ihn aus:
+```{r}
+#| eval: false
+my_var + 5
+my_var <- 10
+```
+```{r}
+#| echo: false
+#| error: true
+my_var + 5
+my_var <- 10
+```
+Warum bekommen wir einen Fehler angezeigt?
+
+<details>
+<summary>Antwort anzeigen</summary>
+Der Computer führt das Skript von oben nach unten durch: 
+```{r}
+#| eval: false
+# Als erstes versuch der Computer my_var + 5
+# zu berechnen. Aber my_var gibt es noch gar nicht!
+my_var + 5
+# Wir erstellen my_var erst in der nachfolgenden Zeile.
+my_var <- 10
+```
+Der Computer weiß nicht, was `my_var` eigentlich sein soll, weil er das Skript von oben nach unten liest.
+</details>
+
+Versuche, den Fehler zu beheben.
+
+<details>
+<summary>Antwort anzeigen</summary>
+Wir müssen die Variable `my_var` erst erstellen und dann können wir sie nutzen:
+```{r}
+my_var <- 10
+my_var + 5
+```
+</details>
+
+
+## Kommentare
+
+Unser Skript ist ein Aufgabenblatt für den Computer und verwendet daher teilweise recht kryptisch anmutende "Sätze" wie `my_var <- 5`. Das mag für Computer einfach zu lesen sein, aber für uns ist das meist sehr mühselig. Daher ist es sehr wichtig, dass wir Kommentare in unser Skript schreiben, in denen wir erklären, was wir eigentlich machen. Kommentare erstellen wir mit einem `#`
+
+```{r}
+# alles hinter dem Hashtag ist ein Kommentar
+my_var <- 165 # wir speichern den Wert in die Variable mit dem Namen my_var
+```
+
+Füge nun Kommentare zu Deinem Skript hinzu.
+
+## Skript speichern
+
+Der große Vorteil von Skripten ist, dass man diese einfach speichern kann. Wir können unser Skript immer weiter anpassen und erweitern, ohne vorherige Arbeit zu verlieren. Außerdem können wir Skripte mit anderen teilen, sodass diese die Aufgaben ebenfalls von ihrem Computer lösen lassen können. Beispielsweise haben die Autoren des Papers "Mental Health and Social Contact During the COVID-19 Pandemic: An Ecological Momentary Assessment Study" ihre [Daten-Analyse Skripte](https://osf.io/kj5zh) frei verfügbar gemacht.
+
+Um ein Skript zu speicher, klicke auf die Diskette und wähle einen Speicherort aus.
+
+<details>
+<summary>Video anzeigen: Skript speichern</summary>
+
+![](figures/Skripte/save_script.gif)
+</details>

@@ -1,0 +1,124 @@
+# Vektoren
+
+Bisher haben wir mit einzelnen Werten gearbeitet. Beispielsweise haben wir in der Variable `my_var` nur den einzelnen Wert $5$ gespeichert:
+
+```{r}
+my_var <- 5
+```
+
+Sehr häufig wollen wir jedoch mit vielen Werten gleichzeitig arbeiten. Angenommen wir haben die Depressionswerte von 10 Patient:innen erfasst, dann wäre folgendes extrem aufwendig und ineffizient:
+
+```{r}
+depression_patient_in_1  <- 3
+depression_patient_in_2  <- 5
+depression_patient_in_3  <- 2
+depression_patient_in_4  <- 1
+depression_patient_in_5  <- 5
+depression_patient_in_6  <- 4
+depression_patient_in_7  <- 5
+depression_patient_in_8  <- 3
+depression_patient_in_9  <- 1
+depression_patient_in_10 <- 1
+```
+
+Stattdessen wollen wir alle Werte in einer einzelnen Variable mit dem Namen `depression` speichern. Hierfür können wir Vektoren verwenden. Vektoren sind im Prinzip einfach nur eine Aneinanderreihung von Werten. In R erstellen wir diese mit `c()` für "combine". Die einzelnen Werte werden mit Kommata getrennt:
+```{r}
+my_vector <- c(1,2,6,4)
+```
+
+Erstelle einen Vektor mit dem Namen `depression` und speichere die oben genannten Werte der 10 Patient:innen in diesem Vektor.
+
+<details>
+<summary>Lösung anzeigen</summary>
+
+```{r}
+depression <- c(3, 5, 2, 1, 5, 4, 5, 3, 1, 1)
+```
+</details>
+
+Du kannst Dir den Inhalt des Vektors auch anzeigen lassen, indem Du `print(depression)` ausführst.
+
+```{r}
+print(depression)
+```
+
+
+## Elemete aus einem Vektor herausgreifen
+
+Wenn wir nun wissen wollen, welchen Depressionswert die erste Person hat, können wir eckige Klammern nutzen. So bekommen wir den Wert der ersten Person:
+
+```{r}
+depression[1] # Der Wert in der Klammer ist die Person, für die wir den Depressionswert wissen wollen
+```
+
+Greife nun den Wert der 7. Person heraus.
+
+<details>
+<summary>Lösung anzeigen</summary>
+
+```{r}
+depression[7]
+```
+</details>
+
+Was passiert, wenn Du versuchst auf den 75. Wert zuzugreifen?
+
+<details>
+<summary>Lösung anzeigen</summary>
+
+```{r}
+#| error: true
+depression[75]
+```
+Wir bekommen ein `NA` ("Not Available"). R sagt uns also, dass der Wert nicht existiert!
+</details>
+
+Wir können auch auf mehrere Werte auf einmal zugreifen. Hierfür müssen wir einen Vektor an Werten in die eckigen Klammern schreiben:
+
+```{r}
+depression[c(1,4,5)] # wir holen uns hier die Werte 
+# der ersten, vierten und fünften Person
+```
+Beachte das `c()` um die Werte!
+
+## Vektoren ändern
+
+Wir können mit den eckigen Klammern nicht nur einzelne Werte anschauen sondern diese auch ändern:
+
+```{r}
+depression[3] <- 1234
+print(depression)
+```
+
+Ändere den fünften Wert zu `NA`!
+
+<details>
+<summary>Lösung anzeigen</summary>
+
+```{r}
+depression[5] <- NA
+print(depression)
+```
+</details>
+
+## Verschiedene Datentypen
+
+Wir können in Vektoren immer nur [Daten eines Typs](Datentypen.qmd) speichern. Oben haben wir beispielsweise nur Zahlen im Vektor `depression` gespeichert. Wir können auch Text in einem Vektor speichern:
+```{r}
+text_vector <- c("abc", "def", "ghi")
+```
+
+Was passiert, wenn man Text und Zahlen mischt? Probiere es aus!
+<details>
+<summary>Lösung anzeigen</summary>
+
+```{r}
+mix_vector <- c(123, "def", "ghi")
+print(mix_vector)
+```
+Die Zahl `123` wurde automatisch in einen Text übersetzt! Das sehen wir daran, dass um die Zahl nun Anführungszeichen stehen (`"123"`).
+</details>
+
+Die einzige Ausnahme sind `NA`. Fehlende Werte können wir mit allen anderen Datentypen mischen.
+
+Wenn wir verschiedene Datentypen kombinieren wollen, brauchen wir data.frames und Listen. Die schauen wir uns in späteren Kapiteln genauer an. 
