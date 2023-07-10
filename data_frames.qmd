@@ -1,55 +1,66 @@
 # Data.frames
 
-Im Kapitel [Vektoren](Vektoren.qmd) haben wir festgestellt, dass es häufig sinnvoll sein kann, mehrere Datenpunkte in einer Variable zu speichern. Dort hatten wir folgendes Beispiel verwendet:
+Sowohl bei [Vektoren](Vektoren.qmd) als auch bei [Matrizen](Matrizen.qmd) haben wir festgestellt, dass wir immer nur einen bestimmten Datentyp (Text **oder** Zahlen) speichern können. 
+Meistens haben wir jedoch dutzende Variablen in unserem Datensatz, von denen manche Zahlen sind und andere Text.
+Beispielsweise könnte der Y-BOCS Wert als Zahl, die Therapierichtung aber als Text gespeichert sein:
 
 ```{r}
-depression <- c(3, 5, 2, 1, 5, 4, 5, 3, 1, 1)
+ybocs <- matrix(c(3, 4, 2, 0, 2, 0, 3, 2, 1, 1,
+                  0, 4, 3, 4, 2, 2, 1, 2, 2, 4,
+                  3, 4, 3, 3, 0, 3, 3, 3, 4, 0,
+                  1, 3, 3, 0, 1, 3, 2, 0, 0, 3), 
+                nrow = 4, 
+                ncol = 10, 
+                byrow = TRUE)
+therapieform <- c("KVT", "PD", "PD", "KVT")
+```
+In echten Datensätzen hätten wir wahrscheinlich noch sehr viel mehr Variablen.
+Daher ist das Vorgehen oben extrem aufwendig, weil wir so unseren Datensatz auf zig unterschiedliche Variablen aufgeteilt würden.
+
+Data.frames erlauben es uns, verschiedene Datentypen in einer einzigen Tabelle zu speichern.
+Um einen data.frame zu erstellen, können wir unsere ybocs-Variable nehmen und in
+den data.frame - Befehl werfen:
+
+```{r}
+ybocs_df <- data.frame(ybocs)
+print(ybocs_df)
+```
+Wir können den Spalten auch etwas sinnvollere Namen geben, indem wir folgenden Code
+ausführen:
+
+```{r}
+colnames(ybocs_df) <- c("frage 1", "frage 2", "frage 3", "frage 4", "frage 5",
+                        "frage 6", "frage 7", "frage 8", "frage 9", "frage 10")
 ```
 
-Meistens haben wir jedoch nicht nur eine Variable (hier depression) in unserem Datensatz. Stattdessen finden wir dort häufig dutzende Variablen wir Persönlichkeits-Items, Alter, Geschlecht, Therapierichtung und Therapiedauer.
-Diese haben häufig auch noch unterschiedliche Datentypen. Beispielsweise könnte die Therapierichtung als Text gespeichert sein, die Dauer aber als Zahl. Wir könnten nun für jede Variable einen eigenen Vektor erstellen:
+
+
+Wir können nun neue Variablen hinzufügen, indem wir das Dollar-Symbol nutzen:
 
 ```{r}
-depression   <- c(3, 5, 2, 1, 5, 4, 5, 3, 1, 1)
-alter        <- c(45,64,21,54,19,76,34,45,53,25)
-therapieform <- c("KVT", "PD", "PD", "KVT", "KVT", "KVT", "PD", "KVT", "KVT", "PD")
+ybocs_df$therapieform <- therapieform
+print(ybocs_df)
 ```
 
-Das ist aber auf Dauer extrem aufwendig, weil wir so unseren Datensatz auf zig unterschiedliche Variablen aufgeteilt haben. Data.frames erlauben es uns, alle diese Vektoren in einer einzigen Variable zu speichern:
+## Auf Daten eines data.frame zugreifen
+
+Um Daten herauszugreifen, können wir wieder eckige Klammern verwenden. Identisch zu Matrizen haben wir wieder Zeilen und Spalten. Wir müssen nun also sowohl die Zeile als auch die Spalte angeben, deren Element wir herausgreifen wollen:
 
 ```{r}
-depression_data <- data.frame(
-    depression   = c(3, 5, 2, 1, 5, 4, 5, 3, 1, 1),
-    alter        = c(45,64,21,54,19,76,34,45,53,25),
-    therapieform = c("KVT", "PD", "PD", "KVT", "KVT", "KVT", "PD", "KVT", "KVT", "PD")
-)
-print(depression_data)
-```
-Beachte, dass wir hier "=" Zeichen statt der Zuweisungspfeile nutzen! Und vergiss auch die Kommas am Ende der Vektoren nicht.
-
-R hat hier unseren data.fame automatisch als Tabelle angelegt, bei der die Personen in den Zeilen und die Variablen in den Spalten sind. Wir können auf die einzelnen Vektoren im data.frame zugreifen, indem wir das Dollar-Symbol benutzen:
-
-```{r}
-depression_data$depression
-```
-
-Alternativ können wir auch wieder eckige Klammern verwenden. Allerdings haben wir nun zwei Dimensionen: Zeilen und Spalten. Wir müssen nun also sowohl die Zeile als auch die Spalte angeben, deren Element wir herausgreifen wollen:
-
-```{r}
-depression_data[1,3] # ergibt das Element in der ersten Zeile, dritten Spalte
+ybocs_df[1,3] # ergibt das Element in der ersten Zeile, dritten Spalte
 ```
 
 Was passiert, wenn Du folgenden Code ausführst?
 ```{r}
 #| eval: false
-depression_data[1,]
+ybocs_df[1,]
 ```
 
 <details>
 <summary>Lösung anzeigen</summary>
 
 ```{r}
-depression_data[1,]
+ybocs_df[1,]
 ```
 Wir bekommen die gesamte erste Zeile!
 </details>
@@ -57,29 +68,21 @@ Wir bekommen die gesamte erste Zeile!
 Was passiert, wenn Du folgenden Code ausführst?
 ```{r}
 #| eval: false
-depression_data[,1]
+ybocs_df[,1]
 ```
 
 <details>
 <summary>Lösung anzeigen</summary>
 
 ```{r}
-depression_data[,1]
+ybocs_df[,1]
 ```
 Wir bekommen die gesamte erste Spalte!
 </details>
 
-Wir können auch wieder logische Operatoren verwenden, um bestimmte Elemente herauszugreifen.
-Wenn wir uns beispielsweise nur für Personen interessieren, die eine KVT erhalten, geht dies mit:
-```{r}
-depression_data[depression_data$therapieform == "KVT",]
-```
-
-Versuche nur Personen herauszugreifen, die älter als 35 sind.
-<details>
-<summary>Lösung anzeigen</summary>
+Alternativ können wir Spaltennamen nutzen, um ganze Spalten herauszugreifen. Hierfür nutzen
+wir wieder das Dollar-Zeichen:
 
 ```{r}
-depression_data[depression_data$alter > 35,]
+ybocs_df$therapieform
 ```
-</details>

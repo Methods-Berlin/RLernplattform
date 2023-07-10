@@ -12,14 +12,15 @@ book:
       chapters:
         - Installation.qmd
         - Einfuehrung_in_RStudio.qmd
-    - part: "Grundlagen in R: Crashcourse"
+    - part: "Grundlagen in R: Crash Course"
       chapters:
         - R_als_Taschenrechner.qmd
         - Skripte.qmd
         - Datentypen.qmd
         - Vektoren.qmd
-        - Logische_Operatoren.qmd
+        - Matrizen.qmd
         - data_frames.qmd
+        - Logische_Operatoren.qmd
         - Funktionen.qmd
         - Pakete.qmd
     - part: Datenverarbeitung und Analyse

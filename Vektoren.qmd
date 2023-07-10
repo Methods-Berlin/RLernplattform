@@ -6,58 +6,85 @@ Bisher haben wir mit einzelnen Werten gearbeitet. Beispielsweise haben wir in de
 my_var <- 5
 ```
 
-Sehr häufig wollen wir jedoch mit vielen Werten gleichzeitig arbeiten. Angenommen wir haben die Depressionswerte von 10 Patient:innen erfasst, dann wäre folgendes extrem aufwendig und ineffizient:
+Sehr häufig wollen wir jedoch mit vielen Werten gleichzeitig arbeiten. 
+Angenommen wir haben bei einem Patienten den Y-BOCS durchgeführt. Der Y-BOCS ist ein Verfahren zur Erhebung von Zwangs-Symptomen mit 10 Fragen. Für jede Frage bekommen die Patient:innen einen Wert zwischen 0 und 4 zugeordnet. Wenn die Summe über alle 10 Fragen über 16 liegt, spricht man von klinisch 
+signifikanten Zwangssymptomen ([Farris et al., 2013](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3959901/)).
+Wir könnten die 10 Werte des Patienten folgendermaßen erfasst:
 
 ```{r}
-depression_patient_in_1  <- 3
-depression_patient_in_2  <- 5
-depression_patient_in_3  <- 2
-depression_patient_in_4  <- 1
-depression_patient_in_5  <- 5
-depression_patient_in_6  <- 4
-depression_patient_in_7  <- 5
-depression_patient_in_8  <- 3
-depression_patient_in_9  <- 1
-depression_patient_in_10 <- 1
+ybocs_frage_1  <- 3
+ybocs_frage_2  <- 4
+ybocs_frage_3  <- 2
+ybocs_frage_4  <- 0
+ybocs_frage_5  <- 2
+ybocs_frage_6  <- 0
+ybocs_frage_7  <- 3
+ybocs_frage_8  <- 2
+ybocs_frage_9  <- 1
+ybocs_frage_10 <- 1
 ```
 
-Stattdessen wollen wir alle Werte in einer einzelnen Variable mit dem Namen `depression` speichern. Hierfür können wir Vektoren verwenden. Vektoren sind im Prinzip einfach nur eine Aneinanderreihung von Werten. In R erstellen wir diese mit `c()` für "combine". Die einzelnen Werte werden mit Kommata getrennt:
+Berechne die Summe der 10 Y-BOCS Fragen.
+
+<details>
+<summary>Lösung anzeigen</summary>
+
+```{r}
+ybocs_summe <- ybocs_frage_1 + ybocs_frage_2 + ybocs_frage_3 + ybocs_frage_4 + 
+               ybocs_frage_5 + ybocs_frage_6 + ybocs_frage_7 + ybocs_frage_8 + 
+               ybocs_frage_9 + ybocs_frage_10
+ybocs_summe
+```
+</details>
+
+Jeden Wert in einer eigenen Variable zu speichern ist furchtbar aufwendig.
+Vektoren nehmen uns hier sehr viel Arbeit ab. Diese sind im Prinzip einfach nur eine Aneinanderreihung von Werten. In R erstellen wir diese Aneinanderreihungen mit `c()` für "combine". Die einzelnen Werte werden mit Kommata getrennt:
 ```{r}
 my_vector <- c(1,2,6,4)
 ```
 
-Erstelle einen Vektor mit dem Namen `depression` und speichere die oben genannten Werte der 10 Patient:innen in diesem Vektor.
+Falls Du Vektoren noch aus dem Mathe-Unterricht kennst: Wir können uns `my_vec`
+folgendermaßen vorstellen: `my_vec = [1 2 6 4]`.
+
+Erstelle einen Vektor mit dem Namen `ybocs` und speichere die oben genannten 10 Y-BOCS Werte des Patienten in diesem Vektor.
 
 <details>
 <summary>Lösung anzeigen</summary>
 
 ```{r}
-depression <- c(3, 5, 2, 1, 5, 4, 5, 3, 1, 1)
+ybocs <- c(3, 4, 2, 0, 2, 0, 3, 2, 1, 1)
 ```
 </details>
 
-Du kannst Dir den Inhalt des Vektors auch anzeigen lassen, indem Du `print(depression)` ausführst.
+Du kannst Dir den Inhalt des Vektors auch anzeigen lassen, indem Du `print(ybocs)` ausführst.
 
 ```{r}
-print(depression)
+print(ybocs)
 ```
 
+Auf Vektoren können wir nun [Funktionen](Funktionen.qmd) anwenden. Was Funktionen sind, werden wir
+später lernen. Hier kommt schon mal ein Vorgeschmack: Wenn wir die Summe der Y-BOCS
+Werte berechnen wollen, geht dies ganz einfach mit
+```{r}
+sum(ybocs)
+```
 
 ## Elemete aus einem Vektor herausgreifen
 
-Wenn wir nun wissen wollen, welchen Depressionswert die erste Person hat, können wir eckige Klammern nutzen. So bekommen wir den Wert der ersten Person:
+Wenn wir nun wissen wollen, welchen Wert der Patient auf der ersten Frage hat,
+können wir eckige Klammern nutzen:
 
 ```{r}
-depression[1] # Der Wert in der Klammer ist die Person, für die wir den Depressionswert wissen wollen
+ybocs[1] # Der Wert in der Klammer ist die Frage, für die wir den Wert wissen wollen
 ```
 
-Greife nun den Wert der 7. Person heraus.
+Greife nun den Wert der 7. Frage heraus.
 
 <details>
 <summary>Lösung anzeigen</summary>
 
 ```{r}
-depression[7]
+ybocs[7]
 ```
 </details>
 
@@ -68,7 +95,7 @@ Was passiert, wenn Du versuchst auf den 75. Wert zuzugreifen?
 
 ```{r}
 #| error: true
-depression[75]
+ybocs[75]
 ```
 Wir bekommen ein `NA` ("Not Available"). R sagt uns also, dass der Wert nicht existiert!
 </details>
@@ -76,8 +103,8 @@ Wir bekommen ein `NA` ("Not Available"). R sagt uns also, dass der Wert nicht ex
 Wir können auch auf mehrere Werte auf einmal zugreifen. Hierfür müssen wir einen Vektor an Werten in die eckigen Klammern schreiben:
 
 ```{r}
-depression[c(1,4,5)] # wir holen uns hier die Werte 
-# der ersten, vierten und fünften Person
+ybocs[c(1,4,5)] # wir holen uns hier die Werte 
+# der ersten, vierten und fünften Frage
 ```
 Beachte das `c()` um die Werte!
 
@@ -86,8 +113,8 @@ Beachte das `c()` um die Werte!
 Wir können mit den eckigen Klammern nicht nur einzelne Werte anschauen sondern diese auch ändern:
 
 ```{r}
-depression[3] <- 1234
-print(depression)
+ybocs[3] <- 1234
+print(ybocs)
 ```
 
 Ändere den fünften Wert zu `NA`!
@@ -96,14 +123,14 @@ print(depression)
 <summary>Lösung anzeigen</summary>
 
 ```{r}
-depression[5] <- NA
-print(depression)
+ybocs[5] <- NA
+print(ybocs)
 ```
 </details>
 
 ## Verschiedene Datentypen
 
-Wir können in Vektoren immer nur [Daten eines Typs](Datentypen.qmd) speichern. Oben haben wir beispielsweise nur Zahlen im Vektor `depression` gespeichert. Wir können auch Text in einem Vektor speichern:
+Wir können in Vektoren immer nur [Daten eines Typs](Datentypen.qmd) speichern. Oben haben wir beispielsweise nur Zahlen im Vektor `ybocs` gespeichert. Wir können auch Text in einem Vektor speichern:
 ```{r}
 text_vector <- c("abc", "def", "ghi")
 ```

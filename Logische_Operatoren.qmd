@@ -46,22 +46,24 @@ Im Kapitel [Vektoren](Vektoren.qmd) haben wir gesehen, wie man einzelne Elemente
 
 ```{r}
 # Vektor erstellen
-depression <- c(3, 5, 2, 1, 5, 4, 5, 3, 1, 1)
+ybocs <- c(3, 4, 2, 0, 2, 0, 3, 2, 1, 1)
 # Wir zeigen den 5. Wert an:
-depression[5]
+ybocs[5]
 # Wir ändern den 7. Wert:
-depression[7] <- 1
+ybocs[7] <- 1
 ```
 
-Wir können auch logische Operatoren nutzen, um auf den Vektorinhalt zuzugreifen. Angenommen Personen mit einem Depressions-Wert $>3$ sollten eine Therapie erhalten. Wir könnten erst schauen, welche Personen dies sind:
+Wir können auch logische Operatoren nutzen, um auf den Vektorinhalt zuzugreifen. 
+Beispielsweise könnten wir uns fragen, auf welchen der Fragen der Patient einen 
+Wert über 2 hat. Dies geht folgendermaßen:
 ```{r}
-therapy <- depression > 3
-print(therapy)
+ybocs_groesser_2 <- ybocs > 2
+print(ybocs_groesser_2)
 ```
-R gibt uns für jeden Wert im Vektor `depression` aus, ob dieser $>3$ ist (dann erhalten wir `TRUE`) oder $\leq 3$ ist (dann erhalten wir `FALSE`).
+R gibt uns für jeden Wert im Vektor `ybocs` aus, ob dieser $>2$ ist (dann erhalten wir `TRUE`) oder $\leq 2$ ist (dann erhalten wir `FALSE`).
 
-Wenn wir nun schauen wollen, welche Werte die Personen haben, die Therapie erhalten sollen, können wir dies folgendermaßen machen:
+Wenn wir nun schauen wollen, welche Werte auf den Fragen genau erzielt wurden, können wir dies folgendermaßen machen:
 ```{r}
-depression[therapy]
+ybocs[ybocs_groesser_2]
 ```
-R greift nun aus dem `depression` Vektor nur die Werte heraus, bei denen in `therapy` TRUE steht.
+R greift nun aus dem `ybocs` Vektor nur die Werte heraus, bei denen in `ybocs_groesser_2` TRUE steht.

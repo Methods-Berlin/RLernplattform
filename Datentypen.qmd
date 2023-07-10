@@ -4,7 +4,7 @@ Datentypen sind ein etwas komplizierteres Thema, das vor allem zu Beginn häufig
 
 ## Zahlen (numeric)
 
-Wie Du wahrscheinlich schon vermutet hast, sind `12`, `42`, `873485` und `1.87` Zahlen. Hier müssen wir nur beachten, dass R einen Punkt als Trennzeichen zwischen Vor- und Nachkommastelle verwendet. Wollen wir also die Zahl $1,987$ in R schreiben, müssen wir `1.987` eingeben. Formal gibt es noch eine Unterscheidung zwischen Ganzzahlen (Integer) wie $1,2,834,8374589,...$ und Kommazahlen (double) wie $1.345,54.34,...$. Für uns ist diese aber erst einmal egal.
+Wie Du wahrscheinlich schon vermutet hast, sind `12`, `42`, `873485` und `1.87` Zahlen. Hier müssen wir nur beachten, dass R einen Punkt als Trennzeichen zwischen Vor- und Nachkommastelle verwendet. Wollen wir also die Zahl $1,987$ in R schreiben, müssen wir `1.987` eingeben.
 
 ## Text (character)
 
@@ -30,7 +30,7 @@ Probiere einmal, zwei Texte zu addieren.
 ```{r}
 #| error: true
 name <- "Tim"
-name + name
+name + "Müller"
 ```
 Das geht leider auch nicht!
 </details>
@@ -55,7 +55,7 @@ Als Daumenregel können wir uns merken: Wenn Anführungszeichen zu sehen sind, h
 
 ## Logische Werte (Booleans)
 
-Logische Werte können nur wahr *oder*  falsch sein. Beispielsweise können wir mit logischen Werten speichern, ob bei einer Person eine Depression diagnostiziert wurde. In R nutzen wir hierfür die Worte `TRUE`, oder `FALSE`
+Logische Werte können nur wahr **oder** falsch sein. Beispielsweise können wir mit logischen Werten speichern, ob bei einer Person eine Depression diagnostiziert wurde. In R nutzen wir hierfür die Worte `TRUE`, oder `FALSE`.
 
 ```{r}
 depression       <- TRUE
