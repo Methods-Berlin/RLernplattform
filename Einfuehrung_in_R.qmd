@@ -12,7 +12,6 @@ Im Verlauf dieses Kapitels lernen wir, was **Funktionen und Pakete** sind und wi
 
 Weiterführend ist es sinnvoll, sich die [Einführung in RStudio](Einfuehrung_in_RStudio.qmd) anzuschauen.
 
-
 ```{r}
 #| echo: false
 # http://md.psych.bio.uni-goettingen.de/mv/unit/block_intro/block_intro.html#diese_unterlagen_können_sich_bis_zum_start_der_einführungsblocks_im_april_2020_noch_verändern !!!!!!!!!!!!
