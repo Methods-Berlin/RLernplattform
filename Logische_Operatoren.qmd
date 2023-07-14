@@ -1,0 +1,69 @@
+# Logische Operatoren
+
+Wir haben bereits [logische Werte](Datentypen.qmd#logische-werte-(booleans)) kennen gelernt. Diese sind entweder wahr (`TRUE`) oder falsch (`FALSE`). Logische Werte sind extrem praktisch, weil wir mit ihnen ausdrücken können, ob eine Person Therapie erhält oder älter als 75. Hierfür können wir logische Operatoren nutzen, die wir wahrscheinlich noch aus der Schule kennen. Nehmen wir an, Tina ist 45 Jahre als und erhält keine Therapie. Dann könnten wir dies folgendermaßen ausdrücken:
+
+```{r}
+name     <- "Tina"
+alter    <- 45
+therapie <- FALSE
+```
+
+Wir fragen uns nun, ob Tina älter als 75 ist. Mathematisch fragen wir, ob alter > 75 wahr ist. In R nutzen wir hier daher auch das `>` Zeichen:
+
+```{r}
+alter > 75
+```
+
+Wir bekommen hier direkt mitgeteilt, dass Tina **nicht** über 75 ist. Überprüfe, ob Tina jünger als 45 ist.
+
+<details>
+<summary>Lösung anzeigen</summary>
+
+```{r}
+alter < 45
+```
+</details>
+
+Wir können auch überprüfen, ob Tina exakt 45 Jahre alt ist. Hierfür nutzen wir **zwei** Gleichheitszeichen:
+
+```{r}
+alter == 45
+```
+
+Versuche zu überprüfen, ob Tina 50 Jahre alt oder jünger ist.
+
+<details>
+<summary>Lösung anzeigen</summary>
+
+```{r}
+alter <= 50
+```
+</details>
+
+## Auf Vektor-Elemente zugreifen
+
+Im Kapitel [Vektoren](Vektoren.qmd) haben wir gesehen, wie man einzelne Elemente aus einem Vektor mittels eckiger Klammern anschauen kann:
+
+```{r}
+# Vektor erstellen
+ybocs <- c(3, 4, 2, 0, 2, 0, 3, 2, 1, 1)
+# Wir zeigen den 5. Wert an:
+ybocs[5]
+# Wir ändern den 7. Wert:
+ybocs[7] <- 1
+```
+
+Wir können auch logische Operatoren nutzen, um auf den Vektorinhalt zuzugreifen. 
+Beispielsweise könnten wir uns fragen, auf welchen der Fragen der Patient einen 
+Wert über 2 hat. Dies geht folgendermaßen:
+```{r}
+ybocs_groesser_2 <- ybocs > 2
+print(ybocs_groesser_2)
+```
+R gibt uns für jeden Wert im Vektor `ybocs` aus, ob dieser $>2$ ist (dann erhalten wir `TRUE`) oder $\leq 2$ ist (dann erhalten wir `FALSE`).
+
+Wenn wir nun schauen wollen, welche Werte auf den Fragen genau erzielt wurden, können wir dies folgendermaßen machen:
+```{r}
+ybocs[ybocs_groesser_2]
+```
+R greift nun aus dem `ybocs` Vektor nur die Werte heraus, bei denen in `ybocs_groesser_2` TRUE steht.
