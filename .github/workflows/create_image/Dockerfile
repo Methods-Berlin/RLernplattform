@@ -1,6 +1,9 @@
 # We start with the official miniconda image
 FROM r-base
 
+# install cmake
+RUN sudo apt install cmake 
+
 # create a directory to save the packages in
 RUN mkdir r_packages
 

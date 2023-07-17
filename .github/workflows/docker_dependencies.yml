@@ -18,6 +18,6 @@ jobs:
         
       - name: Build Docker with Dependencies
         run: |
-          ls && docker build . --file .github/workflows/Dockerfile --tag ghcr.io/methods-berlin/rlernplattform_dep:latest
+          ls && docker build . --file .github/workflows/create_image/Dockerfile --tag ghcr.io/methods-berlin/rlernplattform_dep:latest
           echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u $ --password-stdin
           docker push ghcr.io/methods-berlin/rlernplattform_dep:latest
