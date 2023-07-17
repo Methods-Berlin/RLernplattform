@@ -2,7 +2,8 @@
 FROM r-base
 
 # install cmake
-RUN apt-get update && apt-get -y install cmake
+RUN apt-get update && apt-get -y install cmake\
+  libssl-dev
 
 # create a directory to save the packages in
 RUN mkdir r_packages
