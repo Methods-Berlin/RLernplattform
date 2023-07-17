@@ -2,7 +2,7 @@
 FROM r-base
 
 # install cmake
-RUN sudo apt install cmake 
+RUN apt-get update && apt-get -y install cmake
 
 # create a directory to save the packages in
 RUN mkdir r_packages
