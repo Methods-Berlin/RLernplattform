@@ -25,8 +25,8 @@ RUN type -p curl >/dev/null || (sudo apt update && sudo apt install curl -y) \
   && sudo apt install gh -y\
   && apt install jq -y 
 
-# install quarto
-RUN R -e "install.packages(c('quarto'))"
+# install quarto and rmarkdown
+RUN R -e "install.packages(c('quarto', 'rmarkdown'))"
 
 # create a directory to save the packages in
 RUN mkdir r_packages
