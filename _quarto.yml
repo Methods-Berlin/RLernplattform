@@ -23,6 +23,7 @@ book:
         - Logische_Operatoren.qmd
         - Funktionen.qmd
         - Pakete.qmd
+        - Fehler.qmd
     - part: Datenverarbeitung und Analyse
       chapters:
         - Daten-importieren.qmd
