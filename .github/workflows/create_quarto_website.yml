@@ -10,9 +10,6 @@ on:
       - main
   workflow_dispatch:
 
-permissions:
-  contents: write
-
 jobs:
   # Step 1: check if any of the dependencies did change and update the 
   # Docker image
@@ -34,10 +31,12 @@ jobs:
   
   # next: create website using docker
   bookdown:
+    needs: update-docker-image
     runs-on: ubuntu-latest
     container:
       image: ghcr.io/methods-berlin/rlernplattform_dep:latest
-
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v2
       - name: Set up pandoc
