@@ -46,6 +46,8 @@ jobs:
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
+          # increase largest individual file size to 5MB
+          git config --global http.postBuffer 5242880
       - name: Set up pandoc
         uses: r-lib/actions/setup-pandoc@v2
       - name: Set up Quarto
