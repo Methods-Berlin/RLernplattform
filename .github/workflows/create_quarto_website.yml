@@ -38,7 +38,10 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+      # Copied from oalders at https://github.com/actions/checkout/issues/1049
+      - name: Allow for file ownership conflicts with Docker and GitHub Actions
+        run: git config --global --add safe.directory '*'
       - name: Set git credentials
         run: |
           git config user.name github-actions
