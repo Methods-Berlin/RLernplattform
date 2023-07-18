@@ -1,4 +1,4 @@
-name: create-docker-image
+name: update-docker-image
 
 # Only run this when the main branch changes
 on:
