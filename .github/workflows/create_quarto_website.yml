@@ -38,26 +38,11 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v3
-      - name: install sudo
-        run: apt-get update && apt-get install -y sudo
-      - name: install gh and jq for quarto
-        run: |
-         type -p curl >/dev/null || (sudo apt update && sudo apt install curl -y)
-         curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
-         && sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
-         && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
-         && sudo apt update \
-         && sudo apt install gh -y\
-         && apt install jq -y         
+      - uses: actions/checkout@v3      
       - name: Set up pandoc
         uses: r-lib/actions/setup-pandoc@v2
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
-      - name: Install dependencies and create book
-        run: |
-          install.packages(c("quarto"))
-        shell: Rscript {0}
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
         with:
