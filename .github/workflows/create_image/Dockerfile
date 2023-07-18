@@ -11,7 +11,8 @@ RUN apt-get update && apt-get -y install cmake\
   libfreetype6-dev\
   libpng-dev\
   libtiff5-dev\
-  libjpeg-dev
+  libjpeg-dev\
+  libxml2-dev
 
 # create a directory to save the packages in
 RUN mkdir r_packages
