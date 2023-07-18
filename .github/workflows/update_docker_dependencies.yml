@@ -18,7 +18,7 @@ jobs:
         
       - name: Update Docker with Dependencies
         run: |
-          ls && docker build . --file .github/workflows/update_image/Dockerfile --tag ghcr.io/methods-berlin/rlernplattform_dep:dev
+          ls && docker build . --file .github/workflows/create_image/Dockerfile --tag ghcr.io/methods-berlin/rlernplattform_dep:latest
           echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u $ --password-stdin
-          docker push ghcr.io/methods-berlin/rlernplattform_dep:dev
+          docker push ghcr.io/methods-berlin/rlernplattform_dep:latest
 
