@@ -7,5 +7,5 @@ COPY renv.lock renv.lock
 # packages are saved in the folder r_packages
 ENV RENV_PATHS_LIBRARY r_packages
 
-# install/update packages and remove those that are no longer used
-RUN R -e "renv::restore(clean = TRUE)"
+# install/update packages
+RUN R -e "renv::restore()"
