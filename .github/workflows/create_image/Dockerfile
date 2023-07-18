@@ -6,7 +6,8 @@ RUN apt-get update && apt-get -y install cmake\
   libssl-dev\
   libcurl4-openssl-dev\
   libfontconfig1-dev\
-  libharfbuzz-dev
+  libharfbuzz-dev\
+  libfribidi-dev
 
 # create a directory to save the packages in
 RUN mkdir r_packages
