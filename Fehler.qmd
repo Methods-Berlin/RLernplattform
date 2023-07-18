@@ -72,7 +72,7 @@ ignoriert werden kann.
 
 ## Obacht!
 
-R has die eine oder andere scharfe Kante. Nicht jeder Fehler beim Programmieren wird uns direkt als solcher angezeigt; teilweise passieren etwas unvorhergesehene Dinge. Im Folgenden code wollen wir beispielsweise aus dem Vektor `x` den ersten und dritten Wert herausgreifen. Ärgerlicherweise haben wir statt `c(TRUE, FALSE, TRUE, FALSE)` nur `c(TRUE, FALSE, TRUE)` geschrieben. Man könnte nun hoffen, dass R einen auf diesen Fehler hinweist. Probiere aus, was tatsächlich passiert.
+R hat die eine oder andere scharfe Kante. Nicht jeder Fehler beim Programmieren wird uns direkt als solcher angezeigt; teilweise passieren etwas unvorhergesehene Dinge. Im Folgenden code wollen wir beispielsweise aus dem Vektor `x` den ersten und dritten Wert herausgreifen. Ärgerlicherweise haben wir statt `c(TRUE, FALSE, TRUE, FALSE)` nur `c(TRUE, FALSE, TRUE)` geschrieben. Man könnte nun hoffen, dass R einen auf diesen Fehler hinweist. Probiere aus, was tatsächlich passiert.
 
 ```{r}
 #| eval: false
