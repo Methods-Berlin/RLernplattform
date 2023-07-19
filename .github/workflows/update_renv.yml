@@ -49,7 +49,7 @@ jobs:
           # print renv status
           renv::status()
           # update renv
-          renv::upgrade(prompt = FALSE)
+          #renv::upgrade(prompt = FALSE)
           # update packages
           renv::update(prompt = FALSE)
           # make snapshot
