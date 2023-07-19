@@ -19,8 +19,8 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: remove renv.lock from docker image
-        run: rm renv.lock
+      - name: get path
+        run: pwd
       # get current project
       - uses: actions/checkout@v3
       - name: list files
