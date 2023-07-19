@@ -44,6 +44,6 @@ jobs:
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
       - name: Install Chromium
-        run: apt-get install chromium-browser
+        run: snap install chromium chromium-ffmpeg
       - name: Render
         uses: quarto-dev/quarto-actions/render@v2
