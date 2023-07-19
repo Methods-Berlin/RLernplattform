@@ -19,35 +19,25 @@ jobs:
     permissions:
       contents: write
     steps:
+      - name: remove renv.lock from docker image
+        run: rm renv.lock
+      # get current project
       - uses: actions/checkout@v3
-        with: 
-          path: 'RLernplattform'
       - name: list files
         run: ls -a
       - name: specify R package paths
         run: |
           current_libs <- .libPaths()
-          file_name <- file("RLernplattform/.Rprofile")
+          file_name <- file(".Rprofile")
           writeLines(paste0(".libPaths(c(",paste0(paste0('"', current_libs, '"'), collapse = ", "), "))"), file_name)
           close(file_name)
         shell: Rscript {0}
-      - name: change directory
-        run: |
-          cd RLernplattform
-          ls -a
       - name: update R packages
         run: renv::restore()
         shell: Rscript {0}
-      - name: change path
-        run: |
-          cd ..
-          ls -a
       - name: Set up pandoc
         uses: r-lib/actions/setup-pandoc@v2
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
       - name: Render
         uses: quarto-dev/quarto-actions/render@v2
-        with:
-          to: html
-          path: RLernplattform 
