@@ -55,19 +55,22 @@ jobs:
           # make snapshot
           renv::snapshot(prompt = FALSE)
         shell: Rscript {0}
-      - name: add changes
-        run: |
-          #git branch update_renv
-          #git checkout update_renv
-          git add renv.lock
-          git add renv/
-          git commit -m "updating renv and packages"
-          #git push origin update_renv
-        #env:
-          #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #- name: add changes
+      #  run: |
+      #    git branch update_renv
+      #    git checkout update_renv
+      #    git add renv.lock
+      #    git add renv/
+      #    git commit -m "updating renv and packages"
+      #    git push origin update_renv
+      #  env:
+      #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
           delete-branch: true
           branch: update-renv
+          add-paths: |
+            renv.lock
+            renv/
 
