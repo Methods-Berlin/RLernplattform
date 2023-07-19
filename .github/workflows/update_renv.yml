@@ -22,8 +22,12 @@ jobs:
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
-          # increase largest individual file size to 5MB
-          git config --global http.postBuffer 5242880
+      - name: specify R package paths
+        run: |
+          current_libs <- .libPaths()
+          file_name <- file(".Rprofile")
+          writeLines(paste0(".libPaths(c(",paste0(paste0('"', current_libs, '"'), collapse = ", "), "))"), file_name)
+          close(file_name)
       - name: check for updates
         run: |
           # update renv
