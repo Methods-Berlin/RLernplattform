@@ -44,20 +44,12 @@ jobs:
           # print renv status
           renv::status()
           # update renv
-          #renv::upgrade(prompt = FALSE)
+          renv::upgrade(prompt = FALSE)
           # update packages
-          #renv::update(prompt = FALSE)
+          renv::update(prompt = FALSE)
           # make snapshot
-          #renv::snapshot(prompt = FALSE)
+          renv::snapshot(prompt = FALSE)
         shell: Rscript {0}
-      - name: Check for file changes
-        run: |
-          if git diff --quiet -- renv.lock renv/; then
-            echo "No changes detected in files."
-            exit 0
-          else
-            echo "Changes detected in files. Committing and pushing..."
-          fi
       - name: add changes
         run: |
           git branch update_renv
