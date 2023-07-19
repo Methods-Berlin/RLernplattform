@@ -1,0 +1,45 @@
+name: update-renv
+
+# Only run this when the main branch changes
+on:
+  workflow_dispatch
+
+jobs:  
+  # next: create website using docker
+  update:
+    needs: update-docker-image
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/methods-berlin/rlernplattform_dep:latest
+    permissions:
+      contents: write
+    steps:
+      # get current project
+      - uses: actions/checkout@v3
+      # Copied from oalders at https://github.com/actions/checkout/issues/1049
+      - name: Allow for file ownership conflicts with Docker and GitHub Actions
+        run: git config --global --add safe.directory '*'
+      - name: Set git credentials
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          # increase largest individual file size to 5MB
+          git config --global http.postBuffer 5242880
+      - name: check for updates
+        run: |
+          # update renv
+          renv::upgrade(prompt = FALSE)
+          # update packages
+          renv::update(prompt = FALSE)
+        shell: Rscript {0}
+      - name: add changes
+        run: |
+          git branch update_renv
+          git checkout update_renv
+          git add renv.lock
+          git add renv/
+          git commit -m "updating renv and packages"
+          git push origin update_renv
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
