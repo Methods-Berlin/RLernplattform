@@ -44,7 +44,7 @@ jobs:
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
       - name: Install chromium
-        run: quarto tools install chromium
+        uses: browser-actions/setup-chrome@v1
       # chromium seems to result in issues. Using a hack by rogerbramon
       # at https://github.com/quarto-dev/quarto-actions/issues/45
       - name: Check chromium
