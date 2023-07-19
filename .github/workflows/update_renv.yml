@@ -46,9 +46,9 @@ jobs:
           # update renv
           renv::upgrade(prompt = FALSE)
           # update packages
-          renv::update(prompt = FALSE)
+          #renv::update(prompt = FALSE)
           # make snapshot
-          renv::snapshot(prompt = FALSE)
+          #renv::snapshot(prompt = FALSE)
         shell: Rscript {0}
       - name: add changes
         run: |
