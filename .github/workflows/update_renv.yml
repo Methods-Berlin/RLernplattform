@@ -23,6 +23,7 @@ jobs:
           ls
       - name: specify R package paths
         run: |
+          print(getwd())
           current_libs <- .libPaths()
           print(current_libs)
           file_name <- file("RLernplattform/.Rprofile")
