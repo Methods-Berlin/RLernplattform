@@ -7,7 +7,6 @@ on:
 jobs:  
   # next: create website using docker
   update:
-    needs: update-docker-image
     runs-on: ubuntu-latest
     container:
       image: ghcr.io/methods-berlin/rlernplattform_dep:latest
