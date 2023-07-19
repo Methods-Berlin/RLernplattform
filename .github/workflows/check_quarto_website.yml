@@ -38,9 +38,16 @@ jobs:
       - name: update R packages
         run: renv::restore()
         shell: Rscript {0}
+      - name: change path
+        run: |
+          cd ..
+          ls -a
       - name: Set up pandoc
         uses: r-lib/actions/setup-pandoc@v2
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
       - name: Render
         uses: quarto-dev/quarto-actions/render@v2
+        with:
+          to: html
+          path: RLernplattform 
