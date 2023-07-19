@@ -15,7 +15,11 @@ jobs:
     steps:
       # get current project
       - uses: actions/checkout@v3
+        with: 
+          path: 'RLernplattform'
       # Copied from oalders at https://github.com/actions/checkout/issues/1049
+      - name: list files
+        run: ls
       - name: Allow for file ownership conflicts with Docker and GitHub Actions
         run: git config --global --add safe.directory '*'
       - name: Set git credentials
@@ -25,10 +29,14 @@ jobs:
       - name: specify R package paths
         run: |
           current_libs <- .libPaths()
-          file_name <- file(".Rprofile")
+          file_name <- file("RLernplattform/.Rprofile")
           writeLines(paste0(".libPaths(c(",paste0(paste0('"', current_libs, '"'), collapse = ", "), "))"), file_name)
           close(file_name)
         shell: Rscript {0}
+      - name: change directory
+        run: |
+          cd RLernplattform
+          ls
       - name: check for updates
         run: |
           # print renv status
