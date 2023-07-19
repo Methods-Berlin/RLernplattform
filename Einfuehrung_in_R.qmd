@@ -1,0 +1,963 @@
+# Einführung in R
+
+### Einleitung
+
+R ist eine kostenlose und quelloffene Statistiksoftware, die in Wissenschaft und Wirtschaft genutzt wird. Wir finden in R eine Fülle an Funktionen, die uns (statistische) Berechnungen und grafische Visualisierungen ermöglichen.
+
+R ist die **grundlegende** Software, die unsere Berechnungen anstellt. RStudio ist eine **zusätzliche** Entwicklungsumgebung, die uns die Arbeit mit R vereinfacht.
+
+Im Verlauf dieses Kapitels lernen wir, was **Funktionen und Pakete** sind und wie wir diese in R nutzen. Danach schauen wir uns an, wie wir **Daten** speichern, um mit ihnen arbeiten zu können. Am Ende des Kapitels finden wir wesentliche **Kurzbefehle** für Windows und Mac und **weiterführende Hilfen**.
+
+> *__Achtung__*: Voraussetzung zur Bearbeitung des Kapitels ist, dass wir (zumindest) [R installiert](Installation.qmd) haben.
+
+Weiterführend ist es sinnvoll, sich die [Einführung in RStudio](Einfuehrung_in_RStudio.qmd) anzuschauen.
+
+
+```{r}
+#| echo: false
+# http://md.psych.bio.uni-goettingen.de/mv/unit/block_intro/block_intro.html#diese_unterlagen_können_sich_bis_zum_start_der_einführungsblocks_im_april_2020_noch_verändern !!!!!!!!!!!!
+```
+
+
+## Funktionen & Pakete
+
+Fangen wir damit an, was Funktionen und Pakete sind, warum wir diese nutzen und wie wir diese in R anwenden können.
+
+> *__Achtung__*:  Alles, was wir in einer Zeile hinter eine Raute (`#`) schreiben, wird nicht als Funktion, sondern als **Kommentar** interpretiert. Unseren Code zu kommentieren ist sehr nützlich, da es uns und Anderen die Nachvollziehbarkeit unseres Vorgehens erleichtert.
+
+### Funktionen
+
+```{r}
+#| echo: false
+# Definition von wikipedia:
+## https://de.wikipedia.org/wiki/Funktion_(Programmierung)
+```
+
+> Funktionen sind **(Unter)Programme**, die eine gewisse Funktionalität haben, d.h. eine **bestimmte Aufgabe** ausführen. 
+
+Warum ist es sinnvoll, Funktionen zu nutzen?
+
+Wenn wir beispielsweise den Mittelwert einer Zahlenreihe errechnen wollen, nutzen wir folgenden Code:
+
+```{r}
+# Mittelwert der Zahlenreihe selbst berechnen
+(4+3+6+2+3)/5
+```
+
+Dabei müssen wir die Zahlen aufsummieren und durch deren Anzahl teilen. Wenn wir weiter mit der Zahlenreihe arbeiten wollen, müssen wir sie außerdem wieder eingeben.
+
+Viel einfacher können wir die Aufgabe ausführen, indem wir vorgefertigte Funktionen nutzen.
+
+```{r}
+# Zahlenreihe (Vektor) erstellen
+nums <- c(4, 3, 6, 2, 3)
+nums
+
+# Mittelwert errechnen lassen
+mean(x = nums)
+```
+
+Wir können Funktionen **variierenden Input** übergeben. Dieser steht immer in Klammern direkt hinter der Funktion. Beispielsweise könnten wir auch den Mittelwert einer anderen Zahlenreihe als `nums` berechnen.
+
+Den Input übergeben wir an einen Parameter. Das ist eine (formale) *Variable* einer Funktion (z.B. `mean(x)`), die in der Funktionsdefinition festgelegt ist. Der tatsächliche *Input* nennt sich Argument (z.B. `mean(x = nums)`). Die Parameter einer Funktion werden mit Kommata getrennt. Schematisch sieht eine Funktion somit folgendermaßen aus: `function(parameter_1 = argument_1, parameter_2 = argument_2, ...)`.
+
+Werfen wir einmal einen Blick in die **Funktionsdefinition von `mean()`**:
+
+```{r}
+#| out.width: 400px
+#| echo: false
+#| fig.align: center
+knitr::include_graphics("figures/Einführung/Bilder/R/mean.png")
+```
+
+Die Funktionsdefinition finden wir in der Dokumentation, welche wir in RStudio unter [Files, Plots, Packages, Help & Viewer](Einfuehrung_in_RStudio.qmd#sec-files-plots-packages-help-viewer).
+
+Manche Parameter besitzen *voreingestellte Argumente* (z.B. `na.rm=FALSE`), diese bezeichnet man als Defaults. Funktionen mit (min. einem) Parameter *ohne* Default (z.B. `mean()`) werden ohne Spezifikation dieser nicht ausgeführt. Beispielsweise *müssen* wir dem Parameter `x` einen Vektor, von dem wir den Mittelwert berechnen wollen, übergeben.
+
+Parameter ermöglichen uns aber nicht nur, eine Aufgabe mit verschiedenen Daten durchzuführen, sondern auch weitere Optionen zu wählen (z.B. `na.rm`: Ausschluss von fehlenden Werten; `trim`: trimmen der Enden der Verteilung der Zahlenreihe vor Berechnung des Mittelwerts). 
+
+Wenn unsere Zahlenreihe beispielsweise fehlende Werte (in R: `NA`) besitzt, müssen wir den Default von `mean(..., na.rm=FALSE)` ändern, sodass fehlende Werte aus der Berechnung entfernt werden.
+
+```{r}
+# fehlenden Wert hinzufügen
+nums <- c(nums, NA)
+nums
+
+# Mittelwert errechnen lassen
+mean(nums) # funktioniert nicht, weil unklar ist, was mit NA passieren soll
+mean(nums, na.rm=TRUE) # funktioniert, weil NA aus Berechnung entfernt wird
+```
+
+<details><summary>Wann können wir Parameternamen weglassen (wie bei `mean(nums)`)?</summary>
+Wir müssen `x=nums` nicht ausschreiben, weil `x` der erste Parameter in der Funktionsdefinition ist, und unser Argument `num` automatisch dem Parameter `x` zugeordnet wird.
+
+Das funktioniert mit jedem Argument solange wir die **Reihenfolge der Parameter in der Funktionsdefinition** beachten.
+
+```{r}
+#| eval: false
+mean(nums, TRUE) 
+# funktioniert nicht (wir würden eine Fehlermeldung erhalten), ...
+# ... weil trim (und nicht na.rm) an zweiter Stelle steht ...
+# ... und trim numerischen Input (eine Zahl zwischen 0 und 0.5) ...
+# ... und na.rm logischen Input (TRUE oder FALSE) verlangt
+```
+
+```{r}
+mean(nums, 0, TRUE) 
+```
+</details>
+
+```{r}
+#| echo: false
+# https://www.learncpp.com/cpp-tutorial/why-functions-are-useful-and-how-to-use-them-effectively/
+```
+
+
+So erleichtern uns Funktionen unsere Arbeit. Zusammengefasst hat die Nutzung von Funktionen folgende Vorteile:
+
+- **Organisation**\
+Programme (z.B. statistische Analysen) können sehr komplex werden. Durch die Nutzung von Funktionen teilen wir unser komplexes Programm in mehrere, kleinere (Unter)Programme (z.B. Vektor erstellen, Mittelwert berechnen, ...).
+- **Wiederverwendbarkeit**\
+Wir können Funktionen immer wieder aufrufen. So wird unser Programm kompakter (**DRY**-Prinzip, Don't Repeat Yourself) und wir reduzieren Fehler durch Kopieren von Code (z.B. Verzählen bei den Elementen durch die wir teilen wollen).
+- **Testen**\
+Weil wir weniger (redundanten) Code haben, können wir schneller Fehler finden (z.B. Tippfehler, fehlende Elemente). 
+- **Erweiterbarkeit**\
+Funktionen können erweitert werden, um verschiedene Szenarien zu händeln. Meist hat das schon jemand für uns gemacht. Wir müssen den Parametern einer Funktion nur verschiedene Argumente übergeben (z.B. `na.rm=TRUE` zum Ausschluss von fehlenden Werten). 
+- **Abstraktion**\
+Wir müssen die Funktion nicht im Detail verstehen. Es reicht zu wissen, wie der *Name* der Funktion ist (`mean()`), welchen *Input* wir übergeben (`x`; `trim` und `na.rm` optional weil mit Default) und welchen *Output* (arithmetisches Mittel) wir bekommen und wo wir die Funktion finden, d.h. aus welchem *Paket* (base) sie stammt. All diese Informationen erhalten wir in der Dokumentation der Funktion z.B. in RStudio unter [Help](Einfuehrung_in_RStudio.qmd#sec-files-plots-packages-help-viewer). 
+
+Auf <a href="https://www.freecodecamp.org" target="_blank">freecodecamp.org</a> finden wir eine kurze Einführung zu R: <a href="https://www.freecodecamp.org/news/r-programming-language-explained/" target="_blank">R Programming Language explained</a>. Es lohnt sich, **vertiefend den Part zu <a href="https://www.freecodecamp.org/news/r-programming-language-explained/#functions-in-r" target="_blank">Funktionen</a> anzuschauen** (~ 10min), um ein besseres Verständnis für die Arbeit mit R zu bekommen.
+
+
+### Pakete
+
+> Funktionen (und Dateien) werden in sogenannten Paketen gespeichert. Dabei sind in einem Paket (häufig) Funktionen, die für einen begrenzten Aufgabenbereich genutzt werden.
+
+Es gibt **Standardpakete**, die man automatisch mit dem Download von R erhält und deren Funktionen und Dateien man einfach nutzen kann. Diese sind **base** (basale Funktionen wie z.B. `c()` und `mean()`, die wir gerade genutzt haben), **datasets** (Beispieldatensätze), **graphics** (Grafiken erstellen), **grDevices** (Farben und Schriften), **methods** (Methoden und Klassen erstellen bzw. Informationen erhalten), **stats** (statistische Methoden) und **utils** (z.B. Informationen zu Add-On Paketen erhalten und diese herunterladen).
+
+Zum Beispiel können wir mit der Funktion `data()` auf die in **datasets** enthaltenen Datensatze zugreifen. 
+
+<aside>data {utils}</aside>
+
+```{r}
+data(women) 
+```
+
+Die Größe des Datensatzes sehen wir mit `dim()`.
+
+<aside>dim {base}</aside>
+
+```{r}
+dim(women)
+```
+
+Der Datensatz **women** enthält 15 Fälle (Zeilen) und zwei Variablen (Spalten). 
+
+Die Namen der Variablen erfahren wir mit `names()`.
+
+<aside>names {base}</aside>
+
+```{r}
+names(women)
+```
+
+
+Mit den Funktionen aus den Standardpaketen können wir schon vieles machen. Weil R **open-source** ist, kann jeder eigene Pakete schreiben und Anderen zugänglich machen. Wir können auf diese **Add-on Pakete**, die andere R-NutzerInnen erstellt haben, über <a href="https://cran.r-project.org" target="_blank">CRAN</a> (Comprehensive R Archive Network) zugreifen. Natürlich können wir selbstgeschriebene Funktionen, die wir häufig nutzen, auch in eigenen Paketen speichern, um sie unkompliziert wieder nutzen zu können oder sie der R-Community zur Verfügung zu stellen.
+
+Add-on Pakete müssen wir einmalig **herunterladen** und jedes Mal, wenn wir sie (in einer R-Session) nutzen wollen, **laden**.
+
+Ein bei PsychologInnen beliebtes Paket ist **psych**. Dieses enthält Funktionen, die häufig in der Persönlichkeitspsychologie und Psychometrie genutzt werden.
+
+Wir können ein Add-on Paket mit folgendem Befehl **herunterladen**:
+
+```{r}
+#| eval: false
+install.packages("psych") # auf Anführungszeichen achten!
+```
+
+Die im Paket enthaltene Funktion `describe()` gibt uns beispielsweise eine kompakte Übersicht relevanter deskriptiv-statistischer Kennwerte von Daten aus. 
+
+<!--Die Daten müssen dafür zweidimensional sein (d.h. als Matrix oder Data Frame vorliegen).   # laut Dok, aber funktioniert auch bei Vektoren 
+<aside>Mehr Informationen zur Organisation von Daten später unter [Datenstrukturen](Einfuehrung_in_R.qmd#Datenstrukturen).</aside>
+-->
+
+Wenn wir enthaltene Funktionen nutzen wollen, müssen wir das Paket zuerst **laden**.
+
+```{r}
+library(psych) # keine Anführungszeichen notwendig
+describe(women)
+```
+
+Mit `describe` erhalten wir folgende Informationen zu jeder Variable im Data Frame bzw. Matrix: Namen, Spaltennummer (`vars`), Anzahl (gültiger) Fälle (`n`), Mittelwert (`mean`), Standarabweichung (`sd`), Median (`median`), getrimmter Mittelwert (`trimmed`), Median Absolute Deviation (`mad`), Minimum (`min`), Maximum (`max`), Schiefe (`skew`), Exzess (`kurtosis`) und Standardfehler des Mittelwerts (`se`).
+
+<aside>Diese Informationen finden wir in der Dokumentation, welche wir unter [Help](Einfuehrung_in_RStudio.qmd#sec-files-plots-packages-help-viewer) in RStudio ansehen können.</aside>
+
+Wenn wir R bzw. RStudio schließen und erneut öffnen, müssen wir zusätzliche Pakete vor der Nutzung erneut laden.
+
+Für **mehr Informationen zu Paketen**, u.a. wie wir diese aktualisieren können, könnt ihr euch dazugehöriges [Kapitel](Pakete.qmd) anschauen.
+
+
+## Daten
+
+Um zu verstehen, wie R arbeitet, benötigen wir ein Verständnis dafür, wie Daten in R repräsentiert werden. Dazu schauen wir uns drei wichtige Konzepte an: **Datentypen**, **Datenstrukturen** und **Objekte**.
+
+Bevor wir uns die einzelnen Konzepte im Detail anschauen, sehen wir nachfolgend eine Veranschaulichung des Zusammenhangs dieser, um bereits eine grobe Vorstellung zu haben, was uns in den folgenden Abschnitten erwartet.
+
+```{r}
+#| out.width: 500px
+#| fig.align: center
+#| echo: false
+knitr::include_graphics("figures/Einführung/Bilder/R/veranschaulichung.png")
+```
+```{r}
+#| include: false
+library(dplyr)
+library(kableExtra)
+```
+
+
+```{r}
+#| echo: false
+#| eval: false
+# https://swcarpentry.github.io/r-novice-inflammation/13-supp-data-structures/
+# https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Simple-manipulations-numbers-and-vectors
+# https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Objects
+## R Dev Team: (Data) Types, Data Structures, Objects
+
+library(kableExtra)
+library(dplyr)
+
+table_data <- as.data.frame(matrix(c("Zeichen", "z.B. \"b\" oder '@'", "Vergleich", "<span style=\"font-family: Consolas,monaco,monospace;\">character", 
+                                     "Wahrheitswerte", "wahr, falsch", "UND, ODER, NICHT", "<span style=\"font-family: Consolas,monaco,monospace;\">logical", 
+                                     "Ganze Zahlen", "z.B. 2", "Addition, Subtraktion, Multiplikation, Division", "<span style=\"font-family: Consolas,monaco,monospace;\">integer", 
+                                     "Kommazahlen", "z.B. 3.4", "Addition, Subtraktion, Multiplikation, Division", "<span style=\"font-family: Consolas,monaco,monospace;\">numeric", 
+                                     "Komplexe Zahlen","z.B. 1+i", "Addition, Subtraktion, Multiplikation, Division", "<span style=\"font-family: Consolas,monaco,monospace;\">complex"
+                                     ),
+                                   nrow = 5, byrow = TRUE))
+colnames(table_data) <- c("Allgemeiner Datentyp", "Werte", "Operationen", "(Primitiver) Datentyp in 
+                                     <span style=\"font-family: Consolas,monaco,monospace;\">R")
+
+table_data %>%
+  kable("html", align="c", escape=FALSE) %>%
+  kable_styling(position="center") %>%
+  row_spec(0, color = "white", background = "#009193") %>%   # bold=FALSE funzt nicht
+  column_spec(4, bold=TRUE) %>%
+  collapse_rows(columns = 3, valign = "middle")
+```
+
+> *__Achtung__*:  Die Gliederung nach "Datentyp" und "Datenstruktur" sind getreu des <a href="https://cran.r-project.org/doc/manuals/r-release/R-intro.html" target="_blank">Manuals</a> von R. Man stößt in anderen Quellen teils auf abweichende Benennungen.
+
+### Datentypen
+
+> Der Datentyp gibt die Art der Daten an, d.h. welche konkreten **Werte**(bereiche) die Daten annehmen können und welche **Operationen** darauf anwendbar sind.
+
+Wir beschäftigen uns in R zumeist mit den folgenden Datentypen: **character**, **logical**, **integer** und  **double**. Die letzten beiden werden (häufig) als **numeric** zusammengefasst.
+
+Nachfolgend finden wir eine Übersicht dieser Datentypen.
+
+```{r}
+#| echo: false
+# Tab auch in Skript DP
+table_data <- as.data.frame(matrix(c("Zeichen(ketten)", "z.B. \"Ball\" oder '@'", "gleich oder ungleich", "<span style=\"font-family: Consolas,monaco,monospace;\">character", "",
+                                     "Wahrheitswerte", "TRUE, FALSE", "(einige) Logische Operatoren", "<span style=\"font-family: Consolas,monaco,monospace;\">logical", "<span style=\"display:none;\">_",
+                                     "Ganze Zahlen", "z.B. 2", "Arithmetische und Logische Operatoren", "<span style=\"font-family: Consolas,monaco,monospace;\">integer", "<span style=\"font-family: Consolas,monaco,monospace;\">numeric",
+                                     "Kommazahlen", "z.B. 3.4", "Arithmetische und Logische Operatoren", "<span style=\"font-family: Consolas,monaco,monospace;\">double", "<span style=\"font-family: Consolas,monaco,monospace;\">numeric"
+                                     ),
+                                   nrow = 4, ncol=5, byrow = TRUE))
+colnames(table_data) <- c("Art der Daten", "Werte", "Operationen", "Datentyp in <span style=\"font-family: Consolas,monaco,monospace;\">R", "")
+
+table_data %>%
+  kable("html", align="c", escape=FALSE) %>%
+  kable_styling(position="center") %>%
+  row_spec(0, color = "white", background = "#009193") %>%   # bold=FALSE funzt nicht
+  column_spec(5, bold=TRUE, background = "#ECECEC",) %>%
+  row_spec(1:2, background = "white") %>%
+  column_spec(4, bold=TRUE, background = "#ECECEC", width="8em") %>%
+  collapse_rows(columns = 5, valign = "middle") %>%
+  collapse_rows(columns = 3, valign = "middle")
+```
+
+<aside>\
+\
+\
+Es gibt in R noch zwei weitere Datentypen, mit denen wir uns aber nicht weiter beschäftigen werden: complex und raw.</aside>
+
+> *__Achtung__*:  Kommazahlen werden mit **.** und nicht mit **,** dargestellt, weil Kommata genutzt werden, um Argumente einer Funktion voneinander zu trennen.
+
+```{r}
+#| echo: false
+# welche log und arithm Operatoren:
+## https://www.statmethods.net/management/operators.html
+```
+
+<details><summary>Logische Operatoren in R</summary>
+Ein logischer Operator ist ein Operator, dessen Ergebnis ein Wahrheitswert (logical; `TRUE` oder `FALSE`) ist. <!--Wir können logische Operatoren auf Daten vom Typ$^1$ numeric, aber auch selbst auf Daten vom Typ logical anwenden. -->
+
+
+```{r}
+#| echo: false
+# beide Tabellen ähnlich wie von
+## https://www.statmethods.net/management/operators.html
+Operator <- c("<", "<=", ">", ">=", "==", "!=", "!", "| oder ||", "& oder &&")
+Vergleich <- c("kleiner", "kleiner gleich", "größer", "größer gleich",
+              "(genau) gleich", "ungleich", "nicht (Negation von Bedingungen)",
+              "oder", "und")
+Beispiel <- c("1 < 1<br>FALSE", "1 <= 1<br>TRUE", "2 > 1<br>TRUE", 
+              "1 >= 3<br>FALSE", "TRUE == FALSE<br>FALSE",
+              "TRUE != FALSE<br>TRUE", "!TRUE<br>FALSE", "5 > 3 | 5 == 4<br>TRUE",
+              "5 > 3 & 9 < 8<br>FALSE")
+tab <- data.frame(Operator, Vergleich, Beispiel)
+tab %>%
+  kable("html", align="l", escape=FALSE, table.attr = "style='width:100%;'") %>%
+  kable_styling(full_width = T) %>%
+  row_spec(0, color = "white", background = "#009193") %>%
+  column_spec(3, background = "#ECECEC") %>%
+  column_spec(1:2, background = "white")
+# wir schauen uns hier nur solche logischen Vektoren an, die Vektoren beliebiger Länge annehmen können z.B. & anstatt &&; zweiteres bewertet nur das erste Element in jedem Argument
+## https://riptutorial.com/de/r/example/13276/logische-operatoren
+```
+<!--
+$^1$ Es gibt hierbei eine kleine Inkonsistenz zwischen Manual und Dokumentation:\
+Laut dem <a href="https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Logical-vectors" target="_blank">Manual</a> sind `==` und `!=` logische Operatoren. In der Dokumentation der logischen Operatoren (`?"&"`) tauchen sie aber nicht auf; nur in der Dokumentation der allgemeinen Syntaxoperatoren (`?Syntax`). In der Dokumentation der logischen Operatoren steht nicht, dass man diese auf Elemente des Typs character anwenden kann. Wir können `==` und `!=` aber auf character anwenden, um zu testen, ob zwei Elemente (z.B. `"a"` und `"A"`) gleich (`"a" == "A"` `FALSE`) bzw. ungleich (`"a" != "A"` `TRUE`) sind.  -->
+</details>
+
+
+
+<details><summary>Arithmetische Operatoren in R</summary>
+Über (die meisten) arithmetischen Operatoren sind wir wohl schon zu Grundschulzeiten gestoßen. Das sind Operatoren, die wir zum Rechnen mit Zahlen (numeric) benötigen. 
+
+| Operator | Rechenoperationen | Beispiel |
+| -------- | ----------------- | -------- |
+| -        | Addition          | `1+2 = 3`|
+| +        | Subtraktion       | `4-3 = 1`|
+| *        | Multiplikation    | `2*3 = 6`|
+| /        | Division          | `5/3 = 1.6667` |
+| ^ oder ** | Exponenzieren | `8^2 = 64`    |
+| %%        | ganzzahliger Rest bei der Division (Modulo)        | `5 %% 3 = 2`    |
+| %/%        | ganzzahliger Quotient       | `5 %/% 3 = 1`    |
+
+
+
+</details>
+
+#### Messniveaus und Datentypen
+
+<details><summary>Recap: Messniveaus</summary>
+Das Messniveau (oder auch Skalenniveau) ist eine wichtige Eigenschaft von Merkmalen (Variablen) von Untersuchungseinheiten. Es beschreibt, welche Informationen in unseren Messwerten abgebildet werden und damit auch welche mathematischen Transformationen mit den Messwerten sinnvoll sind (z.B. das Berechnen von Mittelwerten). Somit begrenzt das Messniveau auch die zulässigen Datenauswertungsverfahren unserer Variablen.
+
+Die Kodierung von **nominalskalierten** Merkmalen ist insofern willkürlich, als dass lediglich auf **Gleichheit versus Ungleichheit** geachtet werden muss (z.B. `1`, `4`, `9` *oder* `A`, `Y`, `M`).
+
+Die Kodierung von **ordinalskalierten** Merkmalen geschieht der Größe nach, d.h. dass die **Rangfolge** der Kodierungen einzelner Gruppen relevant ist (z.B. `1` < `4` < `9` *oder* `A` < `M` < `Y`). Man kann aber auch eine eigene Sortierung festlegen, die nicht der "natürlichen" Rangfolge (Zahlen: aufsteigend; Buchstaben: alphabetisch) entspricht (z.B. `Y` < `A` < `M`). Ein Realschulabschluss ist beispielsweise besser als ein Hauptschulabschluss. Wir können aber nicht festlegen, *wie viel besser* er ist. 
+
+Bei der Kodierung von **intervallskalierten** Merkmalen sind sowohl die Rangfolge als auch die **Abstände** zwischen den Ausprägungen relevant (z.B. `1`, `4`, `7`; jeweils mit gleichem Abstand zueinander; *oder* `1.4`, `1.5`, `2.3`; jeweils mit verschiedenen Abständen zueinander). Ein Beispiel dafür ist die Temperatur in Grad Celsius oder Grad Fahrenheit.
+
+Bei der Kodierung von **verhältnisskalierten** Merkmalen ist zusätzlich noch ein **Nullpunkt** vorhanden. Dieser erlaubt es, dass Quotienten zwischen Werten gebildet werden können. Ein beliebtes Beispiel ist die Kelvin Skala. Bei dieser ist bei 0°K keine Bewegungsenergie mehr vorhanden und 20°K sind halb so viel wie 40°K.
+
+Zu guter Letzt gibt es noch **absolutskalierte** Merkmale, welche sowohl einen eindeutigen Nullpunkt als auch eine **eindeutige Einheit** der Skala (z.B. Anzahl der Kinder) vorweisen kann. Die Kodierung entspricht der natürlichen Einheit.
+
+Nachfolgend finden wir eine Tabelle der möglichen Unterscheidungen der jeweiligen Messniveaus.
+
+```{r}
+#| echo: false
+# https://haozhu233.github.io/kableExtra/awesome_table_in_html.html#column__row_specification
+
+table <-
+  matrix(
+    c(
+      "X", "", "", "", "",
+      "X", "X", "", "", "",
+      "X", "X", "X", "", "",
+      "X", "X", "X", "X", "",
+      "X", "X", "X", "X", "X"
+    ),
+    nrow = 5,
+    ncol = 5,
+    byrow = T
+  )
+colnames(table) <- c("<span style=\"line-height:0.1;\">(Un-)\nGleichheit", "Rangordnung", "Abstände", "Verhältnisse", "natürliche\nEinheit")
+rownames(table) <- c("Nominal", "Ordinal", "Intervall", "Verhältnis", "Absolut")
+
+kable(table, "html", escape = F) %>%
+  kable_styling(full_width = T) %>%
+  column_spec(2:6, width="7em") %>%
+  column_spec(1,        
+              bold = T,
+              color = "white",
+              background = "#009193") %>%
+  row_spec(0,  extra_css = "line-height:1.5;",
+           bold = T,
+           color = "white",
+           background = "#009193")
+```
+
+```{r}
+#| out.width: 400px
+#| fig.align: center
+#| echo: false
+knitr::include_graphics("figures/Einführung/Bilder/R/Skalenniveau.png")
+```
+
+Bildquelle: https://de.wikipedia.org/wiki/Datei:Skalenniveau.png
+
+</details>
+
+
+
+Die verschiedenen Messniveaus können mit unterschiedlichen Datentypen repräsentiert werden. Hauptsächlich nutzt man dafür **character** und **numeric**. Nachfolgend finden wir eine Übersicht der möglichen Kodierungen der Messniveaus.
+
+```{r}
+#| echo: false
+De <- rep("Datentyp:", 2)
+D <- c("<span style=\"font-family: Consolas,monaco,monospace;\">character</span>", "<span style=\"font-family: Consolas,monaco,monospace;\">numeric</span>")
+N <- c("X", "X<sup>1</sup>")
+O <- c("X<sup>2</sup>", "X<sup>2</sup>")
+I <- c("", "X")
+V <- c("", "X")
+A <- c("", "X")
+table_kat <- data.frame(De, D, N, O, I, V, A)
+colnames(table_kat) <- c("", "", "Nominal-", "Ordinal-", 
+              "Intervall-", "Verhältnis-", "Absolut-")
+table_kat %>%
+  kable("html", align="c", escape=FALSE, table.attr = "style='width:100%;'") %>%
+  add_header_above(c("<span style=\"display:none;\">_</span>"=2 , "Art der Skala:" = 5), line=F, color = "white", background = "#009193", escape=FALSE) %>% 
+  kable_styling(full_width = T) %>%
+  row_spec(0, color = "white", background = "#009193") %>%
+  column_spec(1:2, bold=TRUE, color = "white", background = "#009193") %>%
+  collapse_rows(columns = 1, valign = "middle") %>%
+  footnote(number = c("Faktorisieren (unordered factor) notwendig <i>wenn</i> keine Indikatorvariable(n) genutzt)","Faktorisieren (ordered factor) notwendig"), general_title = "", escape = FALSE, footnote_as_chunk = TRUE) 
+```
+
+<aside>\
+\
+\
+\
+\
+\
+\
+Ein Faktor ist eine Art von Vektor. Mehr dazu im nächsten Abschnitt.</aside>
+
+<details><summary>Können Merkmale auch mit logical kodiert werden?</summary>
+Wir könnten auch logische Werte nutzen, um Merkmale zu kodieren, allerdings kann es sich dabei nur um **dichotome nominalskalierte** Merkmale handeln (d.h. diese können nur zwei diskrete Ausprägungen besitzen). 
+
+Logische Werte und Operatoren kommen hauptsächlich in der **Indexierung von Vektoren** (diese lernen wir im nächsten Abschnitt kennen) ...
+
+```{r}
+x <- c(7,4,3,6,1) # Vektor x erstellen
+x
+# Welche Elemente in Vektor x sind größer als 5? 
+x > 5 # Output: logischer Vektor (mit T/F zu jedem Element) ...
+x[x > 5] # ... den wir auf x anwenden können, um die Elemente zu erhalten.
+```
+
+... und der **konditionalen Programmierung** vor. 
+
+```{r}
+for (i in 1:length(x)) { # Für jedes Element in x, begonnen bei 1 ...
+  if (x[i] > 5) {         # ... wenn i-tes Element in x größer als 5 ...
+    x[i] = x[i] * 2         # ... multipliziere Element mit 2
+  }
+}
+x
+```
+
+Damit werden wir uns erst später beschäftigen. Anwendung findet die konditionale Programmierung z.B. wenn wir subsetten, d.h. Elemente, auf die eine *Kondition* (z.B. größer als 5) zutrifft, einer Datenstruktur (z.B. Vektor, Matrix, Dataframe) entnehmen wollen.
+</details>
+
+
+### Datenstrukturen
+
+```{r}
+#| echo: false
+# http://adv-r.had.co.nz/Data-structures.html
+```
+
+> Die Datenstruktur bestimmt die **Organisation** und **Speicherung** von Daten(typen), und folglich auch, welche Funktionen wir anwenden können.
+
+Datenstrukturen können nach Dimensionalität und enthaltenen Datentypen klassifiziert werden. Nachfolgend befindet sich eine Übersicht der in R enthaltenen Datenstrukturen.
+
+```{r}
+#| echo: false
+#| column: body
+x <- c(rep("Anzahl der Dimensionen", 3))
+y <- c("1", "2", "n")
+ho <- c("Vektor", "Matrix", "Array")
+he <- c("Liste", "Data Frame", "")
+table_data_2 <- data.frame(x,y,ho,he)
+colnames(table_data_2) <- c("", "", "nein (homogen)", "ja (heterogen)")
+table_data_2 %>%
+  kable("html", align="c", escape=FALSE, table.attr = "style='width:100%;'") %>%
+  kable_styling(full_width = T) %>%
+  row_spec(0, color = "white", background = "#009193") %>%
+  add_header_above(c("<span style=\"display:none;\">_</span>"=2, "Beinhaltet unterschiedliche Datentypen?"=2), escape=F, line=F,
+                     color = "white", background = "#009193") %>%
+  column_spec(1:2, bold=TRUE, color = "white", background = "#009193") %>%
+  column_spec(1, width = "10em") %>%
+  collapse_rows(columns = 1, valign = "middle")
+```
+<!--
+<aside>\
+\
+\
+Aus Platzgründen werden wir Arrays im Folgenden nicht behandeln.</aside>
+-->
+  
+#### Vektor
+
+Vektoren sind die **elementare** Datenstruktur, aus der sich alle anderen Datenstrukturen zusammensetzen. Sie besitzen nur eine Dimension. Mit `c()` können wir Vektoren erstellen. 
+
+Generell können sie unterschiedlichen Typs sein ...
+
+```{r}
+vek_1 <- c("A", 'B')  # egal ob " oder ' 
+vek_2 <- c(F, T, T)  # Abkürzung von FALSE und TRUE
+```
+
+... aber ein Vektor kann nur **einen Datentyp** beinhalten.
+
+```{r}
+vek_3 <- c(1, "3")  # alles wird zu character
+```
+
+Zahlen können wir auf unterschiedliche Weisen speichern.
+
+```{r}
+vek_4 <- c(1, 2, 3) # ganze Zahlen
+vek_5 <- c(1.3, 4.5) # Kommazahlen
+vek_6 <- c(1L, 4L) # ganze Zahlen
+```
+
+Mit `str()` können wir uns den **Datentyp**, die **Länge** der Dimension (Anzahl der Elemente) und die **ersten 10 Elemente** ausgeben lassen.
+
+```{r}
+str(vek_1)
+# chr --> Datentyp character
+# [1:2] --> enthält zwei Elemente
+# "A" "B" --> ersten zwei (von max. 10) Elementen
+```
+
+
+```{r}
+str(vek_2)
+str(vek_3)
+str(vek_4)
+str(vek_5)
+str(vek_6)
+```
+
+<details><summary>Warum sind die numerischen Vektoren nur vom Typ numeric oder integer?</summary>
+Bei Betrachtung der numerischen Vektoren fällt auf, dass `vek_4` und `vek_5` als numeric und `vek_6` als integer gespeichert wurden.
+
+**Aber warum wurden `vek_4` und `vek_5` als numeric gespeichert, obwohl wir integer (ganze Zahlen) bzw. double (Kommazahlen) erwartet hätten?**
+
+Das liegt daran, dass R *alle Zahlen* (d.h. ganze, reelle und komplexe Zahlen) als numeric zusammenfasst (wie bereits in der Einführung zu [Datentypen](Einfuehrung_in_R.qmd#datentypen) erwähnt), *solange* wir diese nicht explizit (als integer) definieren.
+
+Genau genommen lautete der **exakte Datentyp** von ganzen und reellen Zahlen, die als numeric zusammengefasst sind, double. Mit `typeof()` sehen wir diesen. 
+
+```{r}
+typeof(vek_4)
+typeof(vek_5)
+```
+
+**Warum double (und nicht integer)?**
+
+Wenn wir arithmetische Operatoren (v.a. Division) anwenden, dann werden unsere ganzen Zahlen zu Kommazahlen. Daher werden ganze *und* gebrochene Zahlen in numeric "präventiv" als double gespeichert.
+
+**Und warum ist `vek_6` vom Typ integer?**
+
+Hier haben wir mit dem `L` hinter den (ganzen) Zahlen (`c(1L, 4L)`) *explizit festgelegt*, dass wir diese als integer speichern wollen.
+
+Wenn wir **integer**-Zahlen**folgen** erstellen wollen, können wir das auch mit `Anfang:Ende` machen.
+
+```{r}
+vek_7 <- 2:5
+vek_8 <- c(6:9, 1:4)
+```
+
+```{r}
+str(vek_7)
+str(vek_8)
+```
+
+Generell reicht für uns aber die Unterscheidung zwischen numeric und den anderen, nicht-numerischen Datentypen. Ob integer oder double ist zumeist nicht von Relevanz.
+</details>
+
+
+Wenn wir **Zahlenfolgen** (numeric) erstellen wollen, können wir `seq()` nutzen.
+
+```{r}
+# seq(from,to,by)
+vek_9 <- seq(1,10,2)
+vek_10 <- seq(1,10,0.5)
+```
+
+```{r}
+str(vek_9)
+str(vek_10)
+```
+
+Wenn wir wollen, dass sich **Elemente wiederholen**, können wir die Funktion `rep()` nutzen.
+
+```{r}
+# rep(x, times)
+vek_11 <- rep("A", 10)
+vek_12 <- c(rep(1, 3), rep(2:3, 3))
+```
+
+```{r}
+str(vek_11)
+str(vek_12)
+```
+
+<details><summary>Wie genau funktioniert `rep()`?</summary>
+Dem Parameter `x` übergeben wir die Zeichen(folge), die wir wiederholen wollen; `times` übergeben wir die Anzahl der Wiederholungen der Zeichen*folge* bzw. `each` die Anzahl der Wiederholungen der *einzelnen Zeichen*.
+
+Die Zahl `1` wird 10 mal (`times`) wiederholt:
+
+```{r}
+rep(1, 10) # das gleiche wie: rep(x=1, times=10)
+```
+
+Die Zahlenfolge `0, 1` bzw. die Zeichenfolge `"A", "B` wird 10 mal (`times`) wiederholt:
+
+```{r}
+rep(0:1, 10)
+rep(c("A", "B"), 10)
+```
+
+Wenn wir *erst* 10 mal die `0` bzw. `"A"` und *anschließend* 10 mal die `1` bzw. `"B"` haben wollen, nutzen wir den Parameter `each`.
+
+```{r}
+rep(0:1, each=10) # das gleiche wie c(rep(0, 10), rep(1, 10))
+rep(c("A", "B"), each=10)
+```
+</details>
+
+
+Durch **Indexierung** via `[]` können wir uns einzelne Elemente ausgeben lassen.
+
+```{r}
+vek_1[2] # zweites Element
+vek_5[1] # erstes Element
+```
+
+##### Spezialfall Faktor
+
+```{r}
+#| echo: false
+# https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Factors
+```
+
+
+Ein Faktor ist ein spezieller Vektor, der genutzt wird, um **diskrete Klassifikationen** zu kodieren.
+
+Mit der Funktion `factor()` können wir Vektoren in ungeordnete und geordnete Faktoren umwandeln.
+
+**Unsortierte** Faktoren können **nominalskalierte** Merkmale kodieren.
+
+```{r}
+# Vektor erstellen
+x <- c(1,3,2,3,2)
+y <- c("f", "B", "c", "b", "c")
+
+nominal_x <- factor(x)
+nominal_y <- factor(y)
+```
+
+```{r}
+str(nominal_x)
+str(nominal_y)
+```
+
+Die Zahlen hinter den Ausprägungen zeigen die *interne* Kodierung. Bei numerischen Vektoren wie `nominal_x` entsprechen diese auch den möglichen Ausprägungen.
+
+**Sortierte** Faktoren können **ordinalskalierte** Merkmale kodieren. Um Faktoren zu sortieren, müssen wir dem Parameter `ordered` das Argument `TRUE` übergeben.
+
+```{r}
+ordinal_x <- factor(x, ordered=TRUE)
+ordinal_y <- factor(y, ordered=TRUE)
+```
+
+```{r}
+str(ordinal_x)
+str(ordinal_y)
+```
+
+Wie wir sehen wurde automatisch eine Sortierung festgelegt. Zahlen werden standardmäßig **aufsteigend**; Zeichen **alphabetisch** sortiert (wobei Kleinbuchstaben vor Großbuchstaben auftauchen). Bei den unsortierten Faktoren gab es diese Sortierung auch bereits, allerdings wird diese *nur* zum Darstellen der Ausprägungen genutzt (bei `nominal_` sind die Ausprägungen mit `,` getrennt; bei `ordinal_` mit `<`).
+ 
+Mit dem Parameter `levels` können wir auch **eigene Sortierungen** festlegen. Das übergebene Argument muss selbst ein Vektor mit den möglichen Ausprägungen sein.
+
+```{r}
+ordinal_x.2 <- factor(x, ordered=TRUE, levels=c(3,2,1))
+ordinal_y.2 <- factor(y, ordered=TRUE, levels=c("B", "f", "b", "c"))
+str(ordinal_x.2)
+str(ordinal_y.2)
+```
+
+Jetzt sehen wir auch, dass sich (mit einer anderen als der natürlichen Sortierung) auch die internen Kodierungen geändert haben.
+
+#### Matrix
+
+Matrizen sind **zweidimensionale Vektoren**, die nur **einen Datentyp** beinhalten können. In mathematischen Kontexten werden Matrizen uns häufiger begegnen. 
+
+Wir erstellen sie mit `matrix(data, nrow, ncol)`.
+
+```{r}
+mat_1 <- matrix(data=c(1,2,3,4), # Daten-Vektor
+                nrow=2, # Anzahl Zeilen
+                ncol=2, # Anzahl Spalten
+                # eine Angabe (Zeilen oder Spalten) reicht auch
+                byrow=TRUE) # reihenweise Eintragen der Daten
+```
+
+
+```{r}
+mat_1
+str(mat_1) # [Länge Zeilen, Länge Spalten]
+```
+
+
+Wenn wir einzelne Elemente indexieren wollen, müssen wir **zwei Indizes** angeben, weil Matrizen zweidimensional sind.
+
+<aside>**Z**uerst die **Z**eile,\
+dann die Spalte.</aside>
+
+```{r}
+# [Zeile, Spalte]
+mat_1[1,2] # Zeile 1, Spalte 2
+mat_1[2,1] # Zeile 2, Spalte 1
+```
+
+Wir können auch nur einen Index angeben, um uns die komplette Zeile bzw. Spalte ausgeben zu lassen. Dabei müssen wir aber daran denken, das Komma zu setzen!
+
+```{r}
+mat_1[1,] # komplette erste Zeile
+mat_1[,2] # komplette zweite Spalte
+```
+
+
+Zusätzlich können wir die Spalten und Zeilen von Matrizen benennen. 
+
+```{r}
+colnames(mat_1) <- c("A", "B") # Spalten benennen
+rownames(mat_1) <- c("Vpn_1", "Vpn_2")
+mat_1
+```
+
+
+#### Liste
+
+```{r}
+#| echo: false
+# https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Lists
+# Listen können auch aus Listen bestehen --> too deep
+```
+
+Listen bestehen aus **geordneten** Sammlungen von Objekten (Komponenten) **unterschiedlichen Datentyps**. Diese Objekte können wiederum selbst Vektoren, Matrizen oder Dataframes sein. Listen haben nur eine Dimension.
+
+Mit `list()` können wir eigene Listen erstellen.
+
+```{r}
+list_kurs <- list(kurs="Programmieren",
+                  teilnehmer=3,
+                  namen.teilnehmer=c("Tina", "Paul", "Lena"),
+                  vorerfahrung=c(T, F, F))
+list_kurs
+```
+
+
+```{r}
+str(list_kurs) # "List of ..." gibt die Länge der (einen) Dimension der Liste an
+```
+
+
+Wir können Komponenten bzw. ihre Elemente auf verschiedene Arten **indexieren**.
+
+```{r}
+list_kurs[3] # Name und Elemente der dritten Komponente
+list_kurs[[3]] # nur Elemente der dritten Komponente
+list_kurs[[3]][2] # zweites Element der dritten Komponente
+```
+
+Wir können alle Elemente einer Komponente ebenso mit ihren Namen extrahieren.
+
+```{r}
+list_kurs$vorerfahrung
+```
+
+```{r}
+#| echo: false
+# list_kurs$v würde ausreichen; 
+# 'minimum number of letters needed to identify them uniquely'
+```
+
+Listen werden uns häufiger als Output statistischer Funktionen begegnen.
+
+#### Data Frame
+
+In der Psychologie arbeiten wir zumeist mit Data Frames. Diese haben, wie Matrizen, zwei Dimensionen, aber sie können auch **unterschiedliche Datentypen** beinhalten.
+
+Um Data Frames zu erstellen, spezifizieren wir zuerst Vektoren (unterschiedlichen Typs) und führen diese dann mit `data.frame()` zusammen.
+
+```{r}
+# Vektoren erstellen: 
+eins <- c(1, 3, 2, 1) 
+zwei <- c("A", "A", "B", "B")
+
+# in Data Frame zusammenführen
+df_1 <- data.frame(eins, zwei)
+```
+
+
+```{r}
+df_1
+str(df_1) # obs. = Länge Zeilen, variables = Länge Spalten
+```
+
+Die Benennung der Vektoren wird als Spaltenbenennung übernommen. Per Default werden Daten vom Typ character (z.B. `zwei`) als Faktoren gespeichert (`stringsAsFactors = default.stringsAsFactors()`, was wiederum `TRUE` ist).
+
+Mit `colnames()` bzw. `rownames()` können wir wieder Spalten- bzw. Zeilennamen ändern bzw. hinzufügen.
+
+```{r}
+colnames(df_1) <- c("AV", "UV")
+rownames(df_1) <- c("Fall_1", "Fall_2", "Fall_3", "Fall_4")
+# mit data.frame(..., row.names) könnten wir auch initial Zeilennamen übergeben
+df_1
+```
+
+Wir können mit Indexieren wieder einzelne Elemente oder Spalten bzw. Zeilen extrahieren. Spalten bzw. Zeilen können wir hier auch mit ihren Namen ansprechen.
+
+```{r}
+df_1[3,2] # dritte Zeile, zweite Spalte
+df_1["Fall_3", "UV"] # dritte Zeile, zweite Spalte
+df_1[1,] # erste Zeile
+df_1["Fall_1",] # erste Zeile
+```
+
+
+**Spalten** können wir uns auch mit dem \$-Operator ausgeben lassen mit der Form `df_name$spalten_name`.
+
+```{r}
+df_1$AV
+```
+
+Einige Funktionen verlangen Data Frames als Input. Wir können z.B. Matrizen mittels `as.data.frame()` in Data Frames umwandeln.
+
+### Objekte
+
+```{r}
+#| echo: false
+# https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Other-types-of-objects
+
+# https://adv-r.hadley.nz/base-types.html
+## “Everything that exists in R is an object” John Chambers; 
+# base vs object oriented objects
+```
+
+> “Everything that exists in R is an object”\
+- John Chambers (Entwicklungsteam von R)
+
+R arbeitet mit sogenannten Objekten. Alle Entitäten, mit denen wir in R operieren, sind Objekte. So sind alle Datenstrukturen, die wir gerade kennengelernt haben, Objekte sobald wir ihnen einen Namen zugewiesen haben.
+
+Um ein Objekt zu erstellen, nutzen wir den **Zuweisungspfeil** `<-`.
+
+```{r}
+obj <- c(1, 2, 3)
+```
+
+Wir können uns Objekte anschauen, indem wir ihren Namen ausführen oder indem wir `View()` nutzen. Zweiteres öffnet das Objekt im **Data Viewer** (in RStudio). 
+
+```{r}
+obj
+```
+
+Alle Objekte, die derzeit in R vorhanden sind, bekommen wir mit `ls()` angezeigt. 
+
+Wenn wir Objekte löschen wollen, nutzen wir `rm()`. Mit `rm(objekt_1, objekt_2, ...)` löschen wir einzelne Objekte; mit `rm(list = ls())` löschen wir alle.
+
+Zur **Benennung** von Objekten ist folgendes zu wissen:
+
+- **alle alphanumerischen Zeichen** sowie **.** und **\_** sind erlaubt\
+In Deutsch schließt das Groß- und Kleinbuchstaben des gesamten Alphabets und der Umlaute sowie die Zahlen 0-9 ein. Um Enkodierungsprobleme (u.a. zwischen verschiedenen Systemen) zu reduzieren, sollten wir aber **auf Umlaute verzichten**; auch in der Benennung unserer Ordner außerhalb von R. Namen sollten **nicht mit . oder \_ beginnen**.
+- **Groß- und Kleinschreibung** beachten (case-sensitivity)\
+Das gilt auch für **Funktionen**; z.B. funktioniert `View()` nur, wenn der erste Buchstabe groß geschrieben wird.\
+Bestehende Objekte können de facto nicht mehr umbenannt werden. Wir können sie aber in einem neuen Objekt (mit einem neuen Namen) speichern (und ggf. das alte Objekt löschen).
+
+
+## Weitere Hilfen
+
+<!--
+
+### Kurzbefehle
+
+Nachfolgend finden wir einige Kurzbefehle für die beiden Betriebssysteme Windows und Mac, die unseren Workflow verbessern.
+
+> *__Achtung__*:  Mit dem letzten Kurzbefehl können wir schneller Dateipfade kopieren, was uns das [Einlesen von Daten in R](Daten-importieren.qmd) erleichtert. Dieser Kurzbefehl ist, im Gegensatz zu den anderen, nicht zur Nutzung in R geeignet; er funktioniert **nur** im Explorer (Windows) bzw. Finder (Mac).
+
+
+```{r}
+#| echo: false
+Windows <- c("<span class=\"keybord\">**Strg** + <span class=\"keybord\">**enter**", 
+             "<span class=\"keybord\">**alt** + <span class=\"keybord\">**Strg** + <span class=\"keybord\">**B**",
+             "<span class=\"keybord\">**Strg** + <span class=\"keybord\">**S**", "<span class=\"keybord\">**shift** + *Rechtsklick auf Datei*<br>dann *Als Pfad kopieren*")
+Mac <- c("<span class=\"keybord\">**cmd** + <span class=\"keybord\">**enter**",  
+         "<span class=\"keybord\">**alt** + <span class=\"keybord\">**cmd** + <span class=\"keybord\">**B**", 
+         "<span class=\"keybord\">**cmd** + <span class=\"keybord\">**S**", "<span class=\"keybord\">**alt** + <span class=\"keybord\">**cmd** + <span class=\"keybord\">**C**")
+  
+table_dat <- data.frame(Windows, Mac)
+rownames(table_dat) <- c("Code der aktuellen Linie bzw. markierten Code ausführen",
+                         "Code bis zur aktuellen Linie ausführen",
+                          "Skript speichern", "Dateipfad kopieren")
+
+table_dat %>%
+  kable("html", align="c", escape=FALSE, table.attr = "style='width:100%;'") %>%
+  kable_styling(full_width = T) %>%
+  row_spec(0, color = "white", background = "#009193") %>%   # bold=FALSE funzt nicht
+  column_spec(1, bold=TRUE, color = "white", background = "#009193", width = "10em") %>%
+  row_spec(4, color="black", background = "#ECECEC") %>%
+  column_spec(2:3, width="15em", background="white")
+  
+```
+
+Eine Übersicht weiterer Kurzbefehle für R finden wir in der Leiste ganz oben unter **Help > Keyboard Shortcuts Help** (nicht zu verwechseln mit dem Bereich [help](Einfuehrung_in_RStudio.qmd#files-plots-packages-help--viewer-sec-files-plots-packages-help-viewer), der uns Zugang zur Dokumentation verschafft).
+
+```{r}
+#| echo: false
+# weitere Shortcuts
+
+## Windows:
+# ganzen Code ausführen: **strg + alt + R** 
+# alle offenen Skripte speichern: **strg + alt + S**
+
+## Max:
+# alle offenen Skripte speichern: **Alt ⌥ + CMD ⌘ + S** a
+```
+
+-->
+
+### Andere Lernplattformen und Übungen
+
+Wie bereits im Abschnitt Funktionen erwähnt, können wir auf <a href="https://www.freecodecamp.org" target="_blank">freecodecamp.org</a> eine weiterführende <span class ="highlight">**Vertiefung zu Funktionen** im <a href="https://www.freecodecamp.org/news/r-programming-language-explained/#functions-in-r" target="_blank">gleichnamigen Abschnitt</a> bekommen. Das dauert nur ca. 10min und ist gut investierte Zeit, wenn man wenig Erfahrung mit dem Programmieren hat.
+
+Wenn ihr einen **amüsanten Einstieg** in R haben wollte, schaut euch <a href="https://bookdown.org/ndphillips/YaRrr/" target="_blank">**YaRrr! The Pirate’s Guide to R**</a> (auf englisch) an. Nach einer charismatischen Einführung befinden sich mehrere Abschnitte, teils mit Abschlussübung z.B. zu Skalaren und Vektoren, Vektor-Funktionen, Indexierung, Plotten, uvm.. 
+
+**<a href="https://www.r-exercises.com/category/exercises/" target="_blank">www.r-exercises.com</a>** bietet eine Fülle an **Übungen (mit Lösungen) zu verschiedenen Themenbereichen**, wie z.B. <a href="https://www.r-exercises.com/tag/vectors/" target="_blank">Vektoren</a> und <a href="https://www.r-exercises.com/tag/dataframes/" target="_blank">Data Frames</a>. Mit Ausnahme der mit *Protected* gekennzeichneten Seiten können wir alle nutzen. Rechts unter *Filter by Topic* können wir die Themen filtern.
+
+Wenn ihr den **Umgang mit R direkt in R lernen** wollt, dann schaut euch das **Paket <a href="https://swirlstats.com" target="_blank">swirl</a>** an. Es gibt mehrere Kurse mit mehreren kleinen Einheiten zu absolvieren.
+
+---
+
+Um eine möglichst exakte Replikation der Funktionen zu gewährleisten gibt es im folgenden relevante Angaben zum System (**R-Version**, **Betriebssystem**, **geladene Pakete mit Angaben zur Version**), mit welchem diese Seite erstellt wurde.
+
+```{r}
+sessionInfo()
+```
+
+Für Informationen zur Interpretation dieses Outputs schaut auch den Abschnitt [Replizierbarkeit von Analysen](Pakete.qmd#replizierbarkeit-von-analysen) des Kapitels zu Paketen an.
+
+
+
+
+
+
+
+

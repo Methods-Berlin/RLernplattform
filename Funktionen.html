@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>R Lernplattform - 21&nbsp; Git und GitLab</title>
+<title>R Lernplattform - 11&nbsp; Funktionen</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,8 +64,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Missings.html" rel="next">
-<link href="./Markdown.html" rel="prev">
+<link href="./Pakete.html" rel="next">
+<link href="./Logische_Operatoren.html" rel="prev">
 <link href="./figures/Logo_Favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -75,7 +109,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Wide-and-Long-Format.html">Weiterführende Themen in R</a></li><li class="breadcrumb-item"><a href="./Git.html"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Git und GitLab</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./R_als_Taschenrechner.html">Grundlagen in R: Crash Course</a></li><li class="breadcrumb-item"><a href="./Funktionen.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Funktionen</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -182,7 +216,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Funktionen.html" class="sidebar-item-text sidebar-link">
+  <a href="./Funktionen.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Funktionen</span></span></a>
   </div>
 </li>
@@ -264,7 +298,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Git.html" class="sidebar-item-text sidebar-link active">
+  <a href="./Git.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Git und GitLab</span></span></a>
   </div>
 </li>
@@ -326,28 +360,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#git" id="toc-git" class="nav-link active" data-scroll-target="#git"><span class="header-section-number">21.1</span> Git</a></li>
-  <li><a href="#einführung-in-git" id="toc-einführung-in-git" class="nav-link" data-scroll-target="#einführung-in-git"><span class="header-section-number">21.2</span> Einführung in Git</a>
-  <ul class="collapse">
-  <li><a href="#schritt-0" id="toc-schritt-0" class="nav-link" data-scroll-target="#schritt-0"><span class="header-section-number">21.2.1</span> Schritt 0</a></li>
-  <li><a href="#git-init" id="toc-git-init" class="nav-link" data-scroll-target="#git-init"><span class="header-section-number">21.2.2</span> git init</a></li>
-  <li><a href="#git-add" id="toc-git-add" class="nav-link" data-scroll-target="#git-add"><span class="header-section-number">21.2.3</span> git add</a></li>
-  <li><a href="#git-status" id="toc-git-status" class="nav-link" data-scroll-target="#git-status"><span class="header-section-number">21.2.4</span> git status</a></li>
-  <li><a href="#git-commit" id="toc-git-commit" class="nav-link" data-scroll-target="#git-commit"><span class="header-section-number">21.2.5</span> git commit</a></li>
-  <li><a href="#git-log" id="toc-git-log" class="nav-link" data-scroll-target="#git-log"><span class="header-section-number">21.2.6</span> git log</a></li>
-  <li><a href="#zu-einem-früheren-zustand-zurückkehren" id="toc-zu-einem-früheren-zustand-zurückkehren" class="nav-link" data-scroll-target="#zu-einem-früheren-zustand-zurückkehren"><span class="header-section-number">21.2.7</span> Zu einem früheren Zustand zurückkehren</a></li>
-  <li><a href="#branches" id="toc-branches" class="nav-link" data-scroll-target="#branches"><span class="header-section-number">21.2.8</span> Branches</a></li>
-  <li><a href="#mergen" id="toc-mergen" class="nav-link" data-scroll-target="#mergen"><span class="header-section-number">21.2.9</span> Mergen</a></li>
-  </ul></li>
-  <li><a href="#github-gitlab-gitbucket" id="toc-github-gitlab-gitbucket" class="nav-link" data-scroll-target="#github-gitlab-gitbucket"><span class="header-section-number">21.3</span> GitHub, GitLab, GitBucket, …</a>
-  <ul class="collapse">
-  <li><a href="#ein-neues-projekt-erstellen" id="toc-ein-neues-projekt-erstellen" class="nav-link" data-scroll-target="#ein-neues-projekt-erstellen"><span class="header-section-number">21.3.1</span> Ein neues Projekt erstellen</a></li>
-  <li><a href="#git-clone" id="toc-git-clone" class="nav-link" data-scroll-target="#git-clone"><span class="header-section-number">21.3.2</span> git clone</a></li>
-  <li><a href="#push" id="toc-push" class="nav-link" data-scroll-target="#push"><span class="header-section-number">21.3.3</span> git push</a></li>
-  <li><a href="#pull" id="toc-pull" class="nav-link" data-scroll-target="#pull"><span class="header-section-number">21.3.4</span> git pull</a></li>
-  <li><a href="#branches-archivieren-und-löschen" id="toc-branches-archivieren-und-löschen" class="nav-link" data-scroll-target="#branches-archivieren-und-löschen"><span class="header-section-number">21.3.5</span> Branches archivieren und löschen</a></li>
-  </ul></li>
-  <li><a href="#weitere-ressourcen" id="toc-weitere-ressourcen" class="nav-link" data-scroll-target="#weitere-ressourcen"><span class="header-section-number">21.4</span> Weitere Ressourcen</a></li>
+  <li><a href="#funktionen-in-r" id="toc-funktionen-in-r" class="nav-link active" data-scroll-target="#funktionen-in-r"><span class="header-section-number">11.1</span> Funktionen in R</a></li>
+  <li><a href="#warum-das-ganze" id="toc-warum-das-ganze" class="nav-link" data-scroll-target="#warum-das-ganze"><span class="header-section-number">11.2</span> Warum das Ganze</a></li>
+  <li><a href="#pakete" id="toc-pakete" class="nav-link" data-scroll-target="#pakete"><span class="header-section-number">11.3</span> Pakete</a></li>
   </ul>
 </nav>
     </div>
@@ -356,7 +371,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Git und GitLab</span></h1>
+<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Funktionen</span></h1>
 </div>
 
 
@@ -371,138 +386,124 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="git" class="level2" data-number="21.1">
-<h2 data-number="21.1" class="anchored" data-anchor-id="git"><span class="header-section-number">21.1</span> Git</h2>
-<p>Git ist ein Programm zur Versionsverwaltung von Dateien. Das bedeutet, dass wir damit nachverfolgen können, wie sich Dateien über die Zeit verändert haben. Außerdem können wir auch sehen, wer sie verändert hat und wir können zu früheren Zuständen des Dokuments zurückkehren. Es gibt viele unterschiedliche Systeme zur Versionsverwaltung, aber git ist das am weiten verbreitetste und auch die Grundlage für zum Beispiel gitHub und gitLab. Git ist kostenlos für Windows, Mac und Linux verfügbar. Weitere Informationen zur Installation gibt es <a href="https://git-scm.com/book/de/v2/Erste-Schritte-Git-installieren">hier</a>.</p>
+<p>R gibt uns Zugriff auf eine unfassbar große Anzahl an deskriptiven Statistiken, statistischen Tests und Grafiken. Das liegt an den unzähligen Funktionen, die andere für uns und wir für andere schreiben. Funktionen selbst zu schreiben kann relativ kompliziert werden. Dennoch ist es extrem hilfreich, zumindest rudimentär zu verstehen, wie Funktionen “funktionieren”.</p>
+<p>Funktionen können wir uns wie ein Rezept vorstellen. Wir definieren erst, welche Zutaten eine Person braucht, die das Rezept nachkochen möchte. Beispielsweise braucht man für Spätzle Mehl, Wasser, Eier und Salz. Das Rezept definiert nun die Schritte, in denen diese Zutaten verarbeitet werden. Formal könnte man das Rezept folgendermaßen ausdrücken:</p>
+<pre><code>Zutaten: Mehl, Wasser, Eier, Salz
+
+Schritte: 
+- Setze Wasser auf und bringe es zum Kochen
+- Mische Mehl, Wasser, Eier und Salz
+- Schabe den Teig in das kochende Wasser
+- Schöpfe die fertigen Spätzle ab
+
+Resultat: Spätzle</code></pre>
+<section id="funktionen-in-r" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="funktionen-in-r"><span class="header-section-number">11.1</span> Funktionen in R</h2>
+<p>Im Folgenden gehen wir genauer auf den Aufbau von Funktionen in R ein. Falls Dir die Beschreibung zu kurz oder unverständlich ist, keine Sorge! Ein oberflächliches Verständnis von Funktionen als Rezepte reicht im Folgenden erst einmal.</p>
+<p>Funktionen in R sind sehr ähnlich aufgebaut wie unser obiges Pseudo-Rezept, sehen aber etwas anders aus:</p>
+<pre><code>spaetzle_zubereiten &lt;- function(Mehl, Wasser, Eier, Salz){
+
+    - Setze Wasser auf und bringe es zum Kochen
+    - Mische Mehl, Wasser, Eier und Salz
+    - Schabe den Teig in das kochende Wasser
+    - Schöpfe die fertigen Spätzle ab
+
+    return(Spätzle)
+}</code></pre>
+<p><code>spaetzle_zubereiten</code> ist der Name der Funktion (<code>function</code>), die die Zutaten <code>Mehl, Wasser, Eier, Salz</code> erwartet. Gegeben diese Zutaten werden dann die Schritte des Rezepts durchgeführt. Am Ende erhalten (<code>return</code>) wir dann die Spätzle.</p>
+<p>Die obige Funktion ist kein echtes R. Wir können diese nicht ausführen, sie dient nur zu Demonstrationszwecken. Wir wollen uns daher eine einfachere Funktion anschauen, die wir auch tatsächlich in R nutzen können:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Lies: Summe ist eine Funktion, die zwei Zutaten erwartet: x und y</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>summe <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y){</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Das Rezept hat nur einen Schritt: wir addieren x und y</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># und speichern das Ergebnis in der Variable s.</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    s <span class="ot">&lt;-</span> x <span class="sc">+</span> y </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Wenn man die Funktion summe aufruft, dann bekommt man</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># den Wert der Variable s zurück:</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(s)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Kopiere den Code in ein Skript und führe ihn aus. R speichert dann das “Rezept” <code>summe</code> in seinem “Rezeptbuch”. Das heißt, wenn Du die Zutaten - die Zahlen <code>x</code> und <code>y</code> - hast und beide addieren möchtest, kannst Du hierfür nun das Rezept <code>summe</code> nutzen.</p>
+<details>
+<summary>
+Video anzeigen
+</summary>
+<img src="figures/Funktionen/functions_summe.gif" class="img-fluid">
+</details>
+<p>Funktionen rufen wir folgendermaßen auf:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summe</span>(<span class="at">x =</span> <span class="dv">1</span>,</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">y =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5</code></pre>
+</div>
+</div>
+<p>Wichtig ist, dass wir hier die Zutaten (x und y) übergeben. Wir erhalten das Ergebnis zurück. Die Variablen <code>x</code> und <code>y</code> hätten wir auch vorher definieren können:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summe</span>(<span class="at">x =</span> x,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">y =</span> y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5</code></pre>
+</div>
+</div>
+<p>Sie können sogar andere Namen haben:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>summand_1 <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>summand_2 <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summe</span>(<span class="at">x =</span> summand_1,</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">y =</span> summand_2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5</code></pre>
+</div>
+</div>
+<p>R ist hier im Prinzip egal, ob wir Mehl auch tastächlich “Mehl” nennen oder “farine” dazu sagen. Wichtig ist nur, dass wir am Ende das richtige weiße Pulver als Zutat hinzugeben.</p>
 </section>
-<section id="einführung-in-git" class="level2" data-number="21.2">
-<h2 data-number="21.2" class="anchored" data-anchor-id="einführung-in-git"><span class="header-section-number">21.2</span> Einführung in Git</h2>
-<p>Wir werden im Folgenden alle Befehle in der command line durchführen. Es gibt sehr viele unterschiedliche grafische Oberflächen für git, die einem das Leben erleichtern können. Aber wenn wir online nach Hilfe für git suchen, werden wir immer auf die command line Befehle stoßen und daher wollen wir uns hier auch nur mit diesen beschäftigen.</p>
-<section id="schritt-0" class="level3" data-number="21.2.1">
-<h3 data-number="21.2.1" class="anchored" data-anchor-id="schritt-0"><span class="header-section-number">21.2.1</span> Schritt 0</h3>
-<p>Wir wollen git als erstes sagen, wer wir sind. Das ist wichtig, damit später jeder nachvollziehen kann, wer was am Dokument verändert hat. Hierfür nutzen wir den <code>git&nbsp;config</code> Befehl.</p>
-<ul>
-<li><code>git&nbsp;config&nbsp;--global&nbsp;user.name&nbsp;Mein&nbsp;Name</code></li>
-<li><code>git&nbsp;config&nbsp;--global&nbsp;user.email&nbsp;MeinName@mail.com</code></li>
-</ul>
+<section id="warum-das-ganze" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="warum-das-ganze"><span class="header-section-number">11.2</span> Warum das Ganze</h2>
+<p>Funktionen sind das zentrale Element, mit dem wir (fast) all unsere Probleme in R lösen können. Wenn wir einen Mittelwert berechnen wollen, dann gibt es dafür die <code>mean</code> - Funktion. Brauchen wir eine Standardabweichung, rufen wir die <code>sd</code> - Funktion auf. Mit <code>plot</code> können wir einfache Abbildungen erstellen, mit <code>t.test</code> einen t-Test und mit <code>lm</code> eine lineare Regression durchführen. Tatsächlich gibt es in R tausende und, wenn man <a href="./Pakete.html">Pakete</a> mitzählt, abermillionen kleiner und großer Funktionen, die uns das Leben leichter machen.</p>
+<p>Als Beispiel wollen wir uns die <code>mean</code> - Funktion etwas genauer anschauen. Hierfür erstellen wir wieder einen Vektor:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>depression <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Wir wollen nun den Mittelwert der Depressions-Werte berechnen. Die <code>mean</code>-Funktion macht genau das. Als Zutat erwartet sie nur unseren Vektor <code>depression</code> mit seinen Werten:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(depression)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3</code></pre>
+</div>
+</div>
+<p>Was passiert, wenn Du für folgenden Vektor den Mittelwert berechnen möchtest?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>depression <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="cn">NA</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="cn">NA</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<details>
+<summary>
+Lösung anzeigen
+</summary>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(depression)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NA</code></pre>
+</div>
+</div>
+<p>Wir bekommen ein <code>NA</code>! Der Grund dafür ist, dass wir im Vektor mehrere fehlende Werte (<code>NA</code>) haben. R weiß nicht, was es mit diesen machen soll, daher gibt es uns einen fehlenden Wert zurück. Wir können die fehlenden Werte aber ganz einfach aus der Berechnung entfernen lassen, indem wir <code>na.rm = TRUE</code> zusätzlich in das “Rezept” übergeben:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(depression, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3</code></pre>
+</div>
+</div>
+</details>
+<p>Falls Du mehr über eine Funktion und ihre Zutaten erfahren möchtest, kannst Du die Hilfe nutzen. Gibt hierfür beispielsweise <code>?mean</code> in der Console ein und drücke <code>Enter</code>. Alternativ kannst Du die <a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/mean">online-Version</a> der Dokumentation aufrufen. Unter “Arguments” findest Du dort die Zutaten, die in die Funktion geworfen werden können.</p>
+<p><img src="figures/Funktionen/mean_Dokumentation.png" class="img-fluid"></p>
 </section>
-<section id="git-init" class="level3" data-number="21.2.2">
-<h3 data-number="21.2.2" class="anchored" data-anchor-id="git-init"><span class="header-section-number">21.2.2</span> git init</h3>
-<p>Der erste Schritt ist, git zu sagen, dass wir eine Versionskontrolle starten wollen. Hierfür gehen wir zuerst in den Ordner, in dem die Dateien liegen, die wir “nachverfolgen” wollen. Dort starten wir dann die Kommandozeile und geben den Befehl <code>git&nbsp;init</code> ein (init steht für initialize). Git erstellt nun einen .git-Ordner, der aber nur sichtbar ist, wenn wir verborgene Ordner im Betriebssystem anzeigen lassen. Diesen brauchen wir aber im Folgenden nicht; es macht also nichts, wenn ihr ihn bei euch nicht sehen könnt.</p>
-</section>
-<section id="git-add" class="level3" data-number="21.2.3">
-<h3 data-number="21.2.3" class="anchored" data-anchor-id="git-add"><span class="header-section-number">21.2.3</span> git add</h3>
-<p>Sobald wir git init ausgeführt haben, können wir Dateien zur Versionskontrolle hinzufügen. Hierfür geben wir den Befehl “git add” gefolgt vom Name der Datei ein. Z.B. <code>git&nbsp;add&nbsp;gitTutorial.tex</code>. Die Datei “gitTutorial.tex” wird nun in eine Art “Warteraum” aufgenommen. Man spricht hier von “staged”. Wichtig ist: Wir haben die Datei so noch nicht in git zur Nachverfolgung hinzugefügt! Dateien aus Unterordnern können wir über die relativen Pfadnamen hinzufügen (z.B. figures/git/gitLogo.png). Mit <code>git&nbsp;add&nbsp;.</code> werden alle Dateien im Ordner sowie in allen Unterordnern hinzugefügt. Wir können auch eine .gitignore-Datei anlegen, in der wir festlegen, welche Dateien oder Dateitypen nicht zur Nachverfolgung hinzugefügt werden sollen. Diese können wir in einem Texteditor erstellen und dann unter .gitignore im Ordner speichern</p>
-<ul>
-<li>Hinweis: Wenn wir versehentlich eine Datei in den “Warteraum” aufgenommen haben, können wir sie mit z.B. mit <code>git&nbsp;rm&nbsp;--cached&nbsp;gitTutorial.tex</code> wieder entfernen</li>
-</ul>
-<p>Beispiel für Inhalte einer .gitignore Datei:</p>
-<pre><code># Dateien mit folgenden Dateiendungen werden nicht nachverfolgt:
-.log
-.aux
-.pdf
-.gz
-.out
-# Dateien aus dem Unterordner archive werden nicht nachverfolgt
-/archive</code></pre>
-</section>
-<section id="git-status" class="level3" data-number="21.2.4">
-<h3 data-number="21.2.4" class="anchored" data-anchor-id="git-status"><span class="header-section-number">21.2.4</span> git status</h3>
-<p>Wenn wir <code>git&nbsp;status</code> aufrufen, sehen wir nun unter “Changes to be committed” welche Dateien beim nächsten commit gespeichert werden. Das ist der “Warteraum”. Darunter sehen wir außerdem, welche Dateien nicht hinzugefügt wurden. So können wir noch einmal kontrollieren, ob wir alles wichtige mit add aufgenommen haben.</p>
-<p><img src="figures/git/gitStatus.png" class="img-fluid"></p>
-</section>
-<section id="git-commit" class="level3" data-number="21.2.5">
-<h3 data-number="21.2.5" class="anchored" data-anchor-id="git-commit"><span class="header-section-number">21.2.5</span> git commit</h3>
-<p>Der wichtigste Befehl ist <code>git&nbsp;commit</code>: Mit commit halten wir die aktuelle Version aller Dateien aus dem “Warteraum” fest. Man macht hier also im Prinzip einen Schnappschuss der Dateien im aktuellen Zustand. Zu diesen Zuständen kann man dann immer wieder zurückkehren, wenn man einen Fehler gemacht hat oder schauen möchte, was sich seither verändert hat. Wenn man <code>git&nbsp;commit</code> eingibt, wird man dazu aufgefordert, auch eine commit message zu schreiben. Hier sollte eine Beschreibung der Veränderungen seit dem letzten commit eingetragen werden. Die Beschreibung speichert man mit [Strg + S] und schließt das Fenster mit [Strg + X].</p>
-<ul>
-<li>Hinweis: Unter Windows muss man zuerst <code>i</code> klicken, bevor man eine commit message schreiben kann. Nach dem Eingeben der commit message mit <code>Esc</code> den Bearbeitungsmodus schließen und :wq eingeben, um das Fenster zu schließen.</li>
-<li>alternativ kann man auch <code>git&nbsp;commit&nbsp;-m&nbsp;Dies&nbsp;ist&nbsp;meine&nbsp;commit&nbsp;message</code> eingeben; dann öffnet sich kein neues Fenster für die commit message.</li>
-</ul>
-<p><img src="figures/git/commitMessage.png" class="img-fluid"></p>
-</section>
-<section id="git-log" class="level3" data-number="21.2.6">
-<h3 data-number="21.2.6" class="anchored" data-anchor-id="git-log"><span class="header-section-number">21.2.6</span> git log</h3>
-<p>Mit <code>git&nbsp;log</code> erhaltet ihr eine Übersicht aller commits. Hier können wir auch den “Namen” des commits sehen (die sogenannten Hash-Werte).<br>
-Z.B. d3e1166c891c21ee78dcaf6c7484eaf443957435. Diese brauchen wir, wenn wir zu einem früheren Zustand zurück kehren wollen.</p>
-<p><img src="figures/git/gitLog.png" class="img-fluid"></p>
-</section>
-<section id="zu-einem-früheren-zustand-zurückkehren" class="level3" data-number="21.2.7">
-<h3 data-number="21.2.7" class="anchored" data-anchor-id="zu-einem-früheren-zustand-zurückkehren"><span class="header-section-number">21.2.7</span> Zu einem früheren Zustand zurückkehren</h3>
-<p>Um zu einem früheren Zustand zurückzukehren, müssen wir zuerst im log den Hash-Wert des Commits heraussuchen, zu dem wir zurück wollen (z.B. d3e1166c891c21ee78dcaf6c7484eaf443957435). Mit <code>git&nbsp;checkout d3e1166c891c21ee78dcaf6c7484eaf443957435</code> können wir dann zu diesem Commit zurückkehren. Dabei werden alle Dateien auf den Zustand zurück gesetzt, den sie im Commit d3e1166c891c21ee78dcaf6c7484eaf443957435 hatten. <strong>Wichtig</strong>: Dabei werden die neueren Commits <strong>nicht</strong> überschrieben! Wir können immer wieder zur aktuellsten Version zurückkehren (mit <code>git&nbsp;checkout master</code>).</p>
-</section>
-<section id="branches" class="level3" data-number="21.2.8">
-<h3 data-number="21.2.8" class="anchored" data-anchor-id="branches"><span class="header-section-number">21.2.8</span> Branches</h3>
-<p>Branches sind dann wichtig, wenn wir verschiedene Versionen eines Dokumentes ausprobieren wollen. Zur Zeit befinden wir uns auf dem “master” branch und alle Veränderungen, die wir commiten, landen in diesem master branch. Wenn wir größere Veränderungen an einem R-Skript oder einem Dokument vornehmen, das wir auch mit anderen teilen, kann das aber problematisch sein. Damit wir uns nicht immer den master “zerschießen” können wir branches (also Ableger) nutzen. Um einen solchen branch zu erstellen, geben wir <code>git&nbsp;branch&nbsp;Branchname</code> ein. Wir können zwischen dem master und dem neuen branch mit <code>git&nbsp;checkout&nbsp;Branchname</code> wechseln. Wenn wir wieder zum master zurück wollen, geben wir <code>git&nbsp;checkout&nbsp;master</code> ein.</p>
-<p><strong>Hinweise</strong>:</p>
-<ul>
-<li>Wenn man einfach nur <code>git branch</code> eingibt, bekommt man eine Übersicht über alle existierenden branches. Git markiert außerdem, welcher Branch gerade angezeigt wird.</li>
-<li>Wenn man ein Dokument verändert, aber nicht commitet hat, kann man den branch nicht wechseln. Andernfalls würde man alle Veränderungen verlieren</li>
-</ul>
-</section>
-<section id="mergen" class="level3" data-number="21.2.9">
-<h3 data-number="21.2.9" class="anchored" data-anchor-id="mergen"><span class="header-section-number">21.2.9</span> Mergen</h3>
-<p>Nachdem wir alle Änderungen in einem branch vorgenommen haben, wollen wir nun unseren neuen branch und den master vereinen (merge). Hierfür gehen wir wieder in den master (<code>git&nbsp;checkout&nbsp;master</code>). Dort geben wir nun <code>git&nbsp;merge&nbsp;Branchname</code> ein. Das kann z.B. auch genutzt werden, wenn eine andere Person an unserem Manuskript weiter geschrieben hat und wir nun diese Veränderungen in unser Dokument übernehmen wollen. Dabei schaut Git auch, ob mehrere Personen die selben Textstellen verändert haben. In solchen Fällen kommt es zu einem merge conflict. Git wird versuchen, diese Konflikte zu lösen, aber manchmal müssen wir auch selbst Hand anlegen. Weiter unten wird erklärt, wie man mit merge Konflikten in GitLab umgeht.</p>
-</section>
-</section>
-<section id="github-gitlab-gitbucket" class="level2" data-number="21.3">
-<h2 data-number="21.3" class="anchored" data-anchor-id="github-gitlab-gitbucket"><span class="header-section-number">21.3</span> GitHub, GitLab, GitBucket, …</h2>
-<p>GitHub, GitLab, GitBucket und ähnliche Plattformen sind Webseiten, auf denen wir unser git-Projekt hochladen können, um es anderen zur Verfügung zu stellen oder ein Backup zu haben. Wir werden im Folgenden die HU-eigene <a href="https://scm.cms.hu-berlin.de/">GitLab</a> Instanz nutzen. <strong>Wichtig</strong>: In GitLab können wir Projekte auch so speichern, dass nur wir selbst oder von uns ausgewählte Personen auf die Dokumente Zugriff haben!</p>
-<section id="ein-neues-projekt-erstellen" class="level3" data-number="21.3.1">
-<h3 data-number="21.3.1" class="anchored" data-anchor-id="ein-neues-projekt-erstellen"><span class="header-section-number">21.3.1</span> Ein neues Projekt erstellen</h3>
-<p>Auf GitLab können wir unter “New Project” eine neues Projekt erstellen. Hier können wir auch einstellen, ob ein Projekt nur für uns oder für alle sichtbar sein soll.</p>
-<p><img src="figures/git/newProject.png" class="img-fluid"></p>
-<p>Nachdem wir ein neues Projekt erstellt haben, können wir unser bestehendes git-Projekt hochladen. Die hierfür notwendigen Schritte werden nach dem Erstellen eines neuen Projektes direkt in gitLab angezeigt. Sie sind: <code>git remote add origin https://scm.cms.hu-berlin.de/Nutzername/Projektname.git git push -u origin master</code></p>
-<ul>
-<li><strong>remote</strong> steht für ein repository, das nicht auf dem eigenen Rechner liegt. <code>git remote add origin</code> fügt also ein neues remote repository hinzu, das <code>origin</code> heißt und in <code>https://scm.cms.hu-berlin.de/Nutzername/Projektname.git</code> liegt. Nachfolgend müssen wir nicht mehr die ganze Web-Adresse schreiben, sondern es reicht der Name des remote repository (<code>origin</code>). Wir können das remote repository auch anders nennen (z.B. <code>git remote add GitLabRemote https://scm.cms.hu-berlin.de/Nutzername/Projektname.git</code>). Aber origin hat sich als Standard durchgesetzt.</li>
-<li><code>git push -u origin master</code> lässt sich übersetzen als: lade (git push) den lokalen master in das remote repository mit dem Namen origin. Dabei wird im remote repository ebenfalls der master überschrieben.</li>
-<li>Wenn wir ein gemeinsames Projekt erstellen, können wir andere Personen auf GitLab gezielt zum Projekt hinzu fügen und ihnen bestimmte Rollen zuordnen. Mehr Infos zu den Rollen und ihrer Bedeutung gibt es <a href="https://scm.cms.hu-berlin.de/help/user/permissions">hier</a>.</li>
-</ul>
-</section>
-<section id="git-clone" class="level3" data-number="21.3.2">
-<h3 data-number="21.3.2" class="anchored" data-anchor-id="git-clone"><span class="header-section-number">21.3.2</span> git clone</h3>
-<p>Häufig wollen wir an einem Projekt einer anderen Person weiterarbeiten. Hierfür laden wir das Projekt erst einmal herunter. Zuerst gehen wir in den Ordner, in dem wir das git-Projekt speichern wollen. Dann führen wir dort in der command-line den folgenden Befehl aus: <code>git clone https://scm.cms.hu-berlin.de/orzekjan/git-einfuehrung.git</code></p>
-<p>Git lädt nun das Projekt “git-einfuehrung” herunter und wir können es lokal bearbeiten. Dabei sollten wir zuerst einen neuen Branch erstellen. So können wir sicherstellen, dass wir Veränderungen im Projekt, die von einer anderen Person im origin vorgenommen werden, leichter mit unseren Veränderungen integrieren können.</p>
-<ul>
-<li>Um den Link zum Herunterladen eines Projekts zu finden, kann man auf der Projektseite auf Clone drücken und den HTTPS Link kopieren.</li>
-<li>den lokalen branch zur Bearbeitung erstellen wir wie oben: z.B. mit <code>git branch revisionJO</code>.</li>
-</ul>
-<p><img src="figures/git/cloneProject.png" class="img-fluid"></p>
-<p><img src="figures/git/revisionJO.png" class="img-fluid"></p>
-</section>
-<section id="push" class="level3" data-number="21.3.3">
-<h3 data-number="21.3.3" class="anchored" data-anchor-id="push"><span class="header-section-number">21.3.3</span> git push</h3>
-<p>Nachdem wir ein Repository herunter geladen und verändert haben, können wir es mit <code>git push</code> wieder auf den Server laden. Wenn es sich um ein gemeinsames Projekt handelt, sollte man nicht direkt in den master pushen; sonst überschreibt man eventuell Veränderungen, die andere vorgenommen haben. Stattdessen sollte man den eigenen branch (im Beispiel den branch revisionJO) in einen neuen remote branch pushen. Dies geht mit dem Befehl:</p>
-<p><code>git push origin revisionJO</code></p>
-<p>Der lokale branch revisionJO wird so in das online-Projekt kopiert. Dort gibt es nun ebenfalls einen branch mit dem Namen revisionJO. Wenn der Branch mit diesem Namen bereits vorher existierte, wird er nur aktualisiert.</p>
-<p><img src="figures/git/branches.png" class="img-fluid"></p>
-<p>Bei unseren eigenen Projekten können wir auch direkt in den Master pushen. Das geht mit <code>git push origin master</code>.</p>
-<p>In GitLab können wir nun zu unserem branch wechseln und mit “Create merge request” ein Zusammenführen des masters und des revisionJO-branches anfragen.</p>
-<p><img src="figures/git/revisionJOMerge.png" class="img-fluid"></p>
-<p>Hier können wir auch noch einen ausführlicheren Kommentar hinterlassen, warum wir eine Veränderung vorgenommen haben.</p>
-<p>Alle Veränderungen werden im Reiter “Changes” detailliert aufgeführt:</p>
-<p><img src="figures/git/revisionJOChanges.png" class="img-fluid"></p>
-<p>Im Reiter “Overview” können Projektadministrator_innen nun den Merge annehmen und unsere vorgeschlagenen Veränderungen damit übernehmen oder ablehnen. Außerdem können dort die Veränderungen auch noch einmal diskutiert werden.</p>
-<p><img src="figures/git/mergeRevisionJOAccept.png" class="img-fluid"></p>
-</section>
-<section id="pull" class="level3" data-number="21.3.4">
-<h3 data-number="21.3.4" class="anchored" data-anchor-id="pull"><span class="header-section-number">21.3.4</span> git pull</h3>
-<p>Mit pull können wir unser git repository vom Server auf den Rechner aktualisieren. Wir können dabei festlegen, welchen branch wir herunterladen wollen. Z.B. laden wir mit</p>
-<p><code>git pull origin master</code></p>
-<p>den branch master aus dem Online-Projekt origin herunter. So können wir nach dem merge sicherstellen, dass wir auch wieder die aktuelle Version des master haben.</p>
-</section>
-<section id="branches-archivieren-und-löschen" class="level3" data-number="21.3.5">
-<h3 data-number="21.3.5" class="anchored" data-anchor-id="branches-archivieren-und-löschen"><span class="header-section-number">21.3.5</span> Branches archivieren und löschen</h3>
-<p>Nachdem man den branch revisionJO in den master gemerged haben, ist üblich, den alten branch zu löschen. So vermeidet man, am Ende sehr viele branches zu haben, die alle nicht mehr genutzt werden. Den branch revisionJO löscht man mit:</p>
-<p><code>git branch -d revisionJO</code></p>
-<p>Wenn man den branch vorher archivieren möchte, geht dies mit:</p>
-<p><code>git tag archive/revisionJO revisionJO</code></p>
-<p>So wird ein Ordner archive erstellt, in dem der branch revisionJO gespeichert ist. Wir können den branch nun löschen, aber er ist weiterhin im Ordner archive hinterlegt. Um alle tags anzuzeigen, können wir einfach <code>git tag</code> eingeben. Dort sehen wir nun auch den neu angelegten archive Ordner.</p>
-<p>Um den branch revisionJO wieder herzustellen, können wir <code>git checkout -b revisionJO archive/revisionJO</code> eingeben.</p>
-</section>
-</section>
-<section id="weitere-ressourcen" class="level2" data-number="21.4">
-<h2 data-number="21.4" class="anchored" data-anchor-id="weitere-ressourcen"><span class="header-section-number">21.4</span> Weitere Ressourcen</h2>
-<p>Einfache Einführung: <a href="https://www.youtube.com/watch?v=SWYqp7iY_Tc">Git &amp; GitHub Crash Course For Beginners</a></p>
+<section id="pakete" class="level2" data-number="11.3">
+<h2 data-number="11.3" class="anchored" data-anchor-id="pakete"><span class="header-section-number">11.3</span> Pakete</h2>
+<p>Wenn wir R installieren, bekommen wir bereits ein Rezeptbuch mit Funktionen direkt mitgeliefert. Dieses umfasst viele ganz basale Dinge wie “Tomatensoße”, “Brot” oder “Kartoffelpüree”. Gaumenfreuden wie Linsen mit Spätzle fehlen hier leider. Glücklicherweise gibt es unzählige zusätzliche Rezeptbücher, die wir kostenlos herunterladen können. In R nennen wir diese Rezeptbücher “Pakete”. So wie Rezeptbücher Sammlungen von Rezepten sind, sind Pakete Sammlungen von Funktionen. Mit diesen Funktionen können wir sehr fortgeschrittene Datenanalysen durchführen - von Strukturgleichungsmodellen über Modellbasierte Partitionierung bis hin zu Deep Learning. Wir können so sicherstellen, dass wir für unsere inhaltlichen Fragestellungen (z.B. “Welche Therapie wirkt bei Depressionen?”) immer die korrekte Analysemethode zur Verfügung haben.</p>
+<p>Im Folgenden solltest Du Dir vor allem folgendes merken: Pakete sind Rezeptbücher. In ihnen finden wir Rezepte, die wir “Funktionen” nennen und die alle von uns irgendwelche Zutaten haben wollen. Wenn wir diese Zutaten an das Rezept übergeben, werden sie automatisch verarbeitet und wir bekommen das Ergebnis (z.B. einen Kuchen) zurück. Wie man Pakete installiert, lädt und nutzt werden wir im Detail im Kapitel <a href="./Pakete.html">Pakete</a> besprechen.</p>
 
 
 </section>
@@ -743,13 +744,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./Markdown.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">R Markdown</span></span>
+      <a href="./Logische_Operatoren.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Logische Operatoren</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Missings.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Sind die Missings zufällig?</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./Pakete.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Pakete</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
