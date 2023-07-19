@@ -48,17 +48,25 @@ jobs:
           git config user.email github-actions@github.com
           # increase largest individual file size to 5MB
           git config --global http.postBuffer 5242880
-      - name: Set up pandoc
-        uses: r-lib/actions/setup-pandoc@v2
-      - name: Set up Quarto
-        uses: quarto-dev/quarto-actions/setup@v2
+          
       - name: specify R package paths
         run: |
+          print(getwd())
           current_libs <- .libPaths()
-          file_name <- file(".Rprofile")
+          print("Library locations:")
+          print(current_libs)
+          file_name <- file("RLernplattform/.Rprofile")
           writeLines(paste0(".libPaths(c(",paste0(paste0('"', current_libs, '"'), collapse = ", "), "))"), file_name)
-          close(file_name)
-        shell: Rscript {0}
+          close(file_name)          
+        shell: Rscript {0} 
+        working-directory: ..
+        
+      - name: Set up pandoc
+        uses: r-lib/actions/setup-pandoc@v2
+        
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+        
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
         with:
