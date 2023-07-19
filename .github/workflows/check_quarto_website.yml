@@ -2,7 +2,7 @@
 # https://medium.com/@delucmat/how-to-publish-bookdown-projects-with-github-actions-on-github-pages-6e6aecc7331e
 # https://quarto.org/docs/publishing/github-pages.html#executing-code
 
-name: create_website
+name: check_website
 
 on:
   pull_request:
