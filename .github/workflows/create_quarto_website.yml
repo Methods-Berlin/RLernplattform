@@ -52,6 +52,13 @@ jobs:
         uses: r-lib/actions/setup-pandoc@v2
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
+      - name: specify R package paths
+        run: |
+          current_libs <- .libPaths()
+          file_name <- file(".Rprofile")
+          writeLines(paste0(".libPaths(c(",paste0(paste0('"', current_libs, '"'), collapse = ", "), "))"), file_name)
+          close(file_name)
+        shell: Rscript {0}
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
         with:
