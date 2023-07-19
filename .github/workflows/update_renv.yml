@@ -28,8 +28,11 @@ jobs:
           file_name <- file(".Rprofile")
           writeLines(paste0(".libPaths(c(",paste0(paste0('"', current_libs, '"'), collapse = ", "), "))"), file_name)
           close(file_name)
+        shell: Rscript {0}
       - name: check for updates
         run: |
+          # print renv status
+          renv::status()
           # update renv
           renv::upgrade(prompt = FALSE)
           # update packages
