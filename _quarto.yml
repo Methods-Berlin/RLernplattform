@@ -8,12 +8,24 @@ book:
   favicon: figures/Logo_Favicon.png
   chapters:
     - index.qmd
-    - part: "Einführung in R"
+    - part: Installation und Benutzeroberfläche
       chapters:
         - Installation.qmd
-        - Einfuehrung_in_R.qmd
         - Einfuehrung_in_RStudio.qmd
+    - part: "Grundlagen in R: Crash Course"
+      chapters:
+        - R_als_Taschenrechner.qmd
+        - Skripte.qmd
+        - Datentypen.qmd
+        - Vektoren.qmd
+        - Matrizen.qmd
+        - data_frames.qmd
+        - Logische_Operatoren.qmd
+        - Funktionen.qmd
         - Pakete.qmd
+        - Fehler.qmd
+    - part: Datenverarbeitung und Analyse
+      chapters:
         - Daten-importieren.qmd
         - Datenvorbereitung.qmd
         - Fehlende-Werte.qmd

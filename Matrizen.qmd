@@ -1,0 +1,146 @@
+# Matrizen
+
+Im Kapitel [Vektoren](Vektoren.qmd) haben wir eine Möglichkeit kennen gelernt,
+mehrere Werte "aneinander zu reihen" und in einer neuen Variable zu speichern.
+Als Beispiel hatten wir die Y-BOCS Werte eines Patienten in der Variable 
+`ybocs` gespeichert:
+
+```{r}
+ybocs <- c(3, 4, 2, 0, 2, 0, 3, 2, 1, 1)
+```
+
+Häufig haben wir es aber mit Daten von mehr als einer Person zu tun. Beispielsweise
+haben [Farris et al. (2013)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3959901/)
+die Y-BOCS Werte von 288 Patient:innen analysiert. Selbst mit Vektoren wäre das
+extrem aufwendig:
+
+```{r}
+ybocs_person_1 <- c(3, 4, 2, 0, 2, 0, 3, 2, 1, 1)
+ybocs_person_2 <- c(0, 4, 3, 4, 2, 2, 1, 2, 2, 4)
+ybocs_person_3 <- c(3, 4, 3, 3, 0, 3, 3, 3, 4, 0)
+ybocs_person_4 <- c(1, 3, 3, 0, 1, 3, 2, 0, 0, 3) 
+#    .          .               .
+#    .          .               .
+#    .          .               .
+ybocs_person_288 <- c(4, 4, 2, 3, 2, 0, 3, 1, 2, 2)
+```
+
+Stattdessen nutzen wir hier üblicherweise Tabellen, um die Daten zu speichern:
+
+```{r}
+#| echo: false
+ybocs <- matrix(c(ybocs_person_1,
+                  ybocs_person_2,
+                  ybocs_person_3,
+                  ybocs_person_4,
+                  sample(0:4,10*(288-5), replace = TRUE),
+                  ybocs_person_288
+), nrow = 288, byrow = TRUE,
+dimnames = list(paste0("person ", 1:288), paste0("frage ", 1:10)))
+head(ybocs)
+```
+
+Matrizen sind eine Form solcher Tabellen: Sie sind wie Vektoren, aber haben sowohl
+Zeilen als auch Spalten. Matrizen erstellen wir mit `matrix()`:
+
+```{r}
+m <- matrix(
+  # Werte, die in der Matrix stehen sollen:
+  data = c(1, 2, 3,
+           4, 5, 6),
+  # Wie viele Zeilen hat die Matrix?
+  nrow = 2, 
+  # Wie viele Spalten hat die Matrix?
+  ncol = 3)
+m
+```
+Fällt Dir etwas auf? Die Werte sind anders angeordnet als wir wahrscheinlich vermutet
+haben. Der Grund hierfür ist, dass R "in Spalten denkt". Das heißt, R füllt unsere
+Matrix spaltenweise auf. Wenn wir stattdessen zeilenweise vorgehen wollen, müssen
+wir den Befehl etwas anpassen:
+
+```{r}
+m <- matrix(
+  # Werte, die in der Matrix stehen sollen:
+  data = c(1, 2, 3,
+           4, 5, 6),
+  # Wie viele Zeilen hat die Matrix?
+  nrow = 2, 
+  # Wie viele Spalten hat die Matrix?
+  ncol = 3,
+  # Zeilenweises auffüllen
+  byrow = TRUE)
+m
+```
+Schon besser!
+
+Erstelle nun eine neue Matrix mit dem Namen `ybocs`, in der die ersten vier Personen aus unserem Y-BOCS
+Datensatz gespeichert sind.
+
+<details>
+<summary>Lösung anzeigen</summary>
+
+```{r}
+ybocs <- matrix(c(3, 4, 2, 0, 2, 0, 3, 2, 1, 1,
+                  0, 4, 3, 4, 2, 2, 1, 2, 2, 4,
+                  3, 4, 3, 3, 0, 3, 3, 3, 4, 0,
+                  1, 3, 3, 0, 1, 3, 2, 0, 0, 3), 
+                nrow = 4, 
+                ncol = 10, 
+                byrow = TRUE)
+ybocs
+```
+</details>
+
+## Werte aus einer Tabelle herausgreifen
+
+Um auf Werte einer Tabelle zuzugreifen, müssen wir wieder die Eckigen Klammern verwenden.
+[Bei einem Vektor ging dies folgendermaßen](Vektoren.qmd#Elemete aus einem Vektor herausgreifen):
+```{r}
+my_vector <- c(1,2,6,4)
+# erstes Element herausgreifen:
+my_vector[1]
+```
+Unsere Matrizen haben nun aber sowohl Zeilen als auch Spalten!
+```{r}
+print(ybocs)
+```
+Wir müssen daher auch sowohl die Zeile als auch die Spalte angeben, in der der
+uns interessierende Wert steht. Wollen wir beispielsweise den Wert der ersten
+Person (erste Zeile) auf der 3. Frage (3. Spalte), müssen wir folgendes eingeben:
+```{r}
+ybocs[1, 3]
+```
+Wir schreiben hier also `ybocs[zeile, spalte]`. Wir können auch alle Werte der ersten
+Person auf einmal herausgreifen. Hierfür lassen wir die Spalte (die Frage) frei:
+```{r}
+ybocs[1, ]
+```
+Wenn wir alle Werte einer Frage haben wollen, lassen wir die Zeile frei:
+```{r}
+ybocs[ , 3] # Werte der dritten Frage
+```
+
+Versuche nun den Wert der 4. Person auf der 10. Frage herauszugreifen.
+<details>
+<summary>Lösung anzeigen</summary>
+
+```{r}
+ybocs[4, 10]
+```
+</details>
+
+Genauso wie Vektoren können auch Matrizen nur Daten von einem Typ speichern. 
+Ersetze den Wert in Zeile 4, Spalte 1 der `ybocs` Matrix durch "abc". Was passiert
+mit der Matrix?
+
+<details>
+<summary>Lösung anzeigen</summary>
+
+```{r}
+ybocs[4, 1] <- "abc"
+ybocs
+```
+Alle Werte wurden zu Text umgewandelt! Wir können Text und Zahlen nicht in einer Matrix
+speichern!
+</details>

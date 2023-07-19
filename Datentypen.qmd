@@ -1,0 +1,85 @@
+# Datentypen
+
+Datentypen sind ein etwas komplizierteres Thema, das vor allem zu Beginn häufiger zu Verwirrung führen kann. Für uns ist zuerst einmal die Unterscheidung von Zahlen und Text relevant. Außerdem wollen wir uns logische Werte, fehlende Werte und Faktoren noch kurz anschauen.
+
+## Zahlen (numeric)
+
+Wie Du wahrscheinlich schon vermutet hast, sind `12`, `42`, `873485` und `1.87` Zahlen. Hier müssen wir nur beachten, dass R einen Punkt als Trennzeichen zwischen Vor- und Nachkommastelle verwendet. Wollen wir also die Zahl $1,987$ in R schreiben, müssen wir `1.987` eingeben.
+
+## Text (character)
+
+R kann nicht nur Zahlen verarbeiten, sondern auch Text (Zeichenfolgen). Wenn wir beispielsweise den Namen "Tim" in der Variable `name` speichern wollen, müssen wir diesen in R in Anführungszeichen schreiben:
+
+```{r}
+name <- "Tim"
+name
+```
+
+Wenn wir Zahlen und Text mischen, kann es zu Fehlern kommen:
+```{r}
+#| error: true
+name <- "Tim"
+name + 123
+```
+Hier will R uns mitteilen, dass Text und Zahlen nicht einfach addiert werden können.
+Probiere einmal, zwei Texte zu addieren.
+
+<details>
+<summary>Lösung anzeigen</summary>
+
+```{r}
+#| error: true
+name <- "Tim"
+name + "Müller"
+```
+Das geht leider auch nicht!
+</details>
+
+Was ist "123"? 
+```{r}
+what_is_this <- "123"
+```
+Handelt es sich um Text oder um eine Zahl?
+
+<details>
+<summary>Lösung anzeigen</summary>
+
+Es handelt sich um Text. Um das zu überprüfen, können wir beispielsweise versuchen, eine Zahl zu addieren:
+```{r}
+#| error: true
+"123" + 5
+```
+Das geht nicht, weil R `"123"` als Text sieht und `5` als Zahl.
+Als Daumenregel können wir uns merken: Wenn Anführungszeichen zu sehen sind, handelt es sich um Text!
+</details>
+
+## Logische Werte (Booleans)
+
+Logische Werte können nur wahr **oder** falsch sein. Beispielsweise können wir mit logischen Werten speichern, ob bei einer Person eine Depression diagnostiziert wurde. In R nutzen wir hierfür die Worte `TRUE`, oder `FALSE`.
+
+```{r}
+depression       <- TRUE
+anxiety_disorder <- FALSE
+```
+
+## Fehlende Werte
+
+Fehlende Werte sind in der Psychologie leider sehr häufig. Diese kommen beispielsweise vor, wenn Teilnehmer:innen eine Studie abbrechen oder vergessen, auf eine der Fragen zu antworten.
+Da fehlende Werte so häufig sind, gibt es in R eine einfache Möglichkeit, diese auszudrücken: Die Werte sind "Not Available" oder `NA`. Wenn beispielsweise eine Depressions-Diagnose fehlt, können wir dies speichern mit:
+
+```{r}
+depression       <- NA
+anxiety_disorder <- FALSE
+```
+
+
+## Faktoren (Factor)
+
+Faktoren können nur wenige vorgegenbene Ausprägungen annehmen. Wenn wir beispielsweise das Geschlecht von Personen mit den Kategorieren "männlich", "weiblich" und "non-binär" erfassen, können wir dies folgendermaßen mit einem Faktor speichern:
+
+```{r}
+gender <- factor("männlich", 
+                 levels = c("männlich", "weiblich", "non-binär"))
+```
+
+Wir besprechen in den kommenden Kapiteln noch im Detail, was das `c()` bedeutet und was es mit `factor()` auf sich hat.
