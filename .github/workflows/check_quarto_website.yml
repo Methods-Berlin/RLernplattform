@@ -45,7 +45,7 @@ jobs:
         uses: quarto-dev/quarto-actions/setup@v2
       - name: Install Chromium
         run: |
-          apt install snapd
+          apt-get -y install snapd
           snap install chromium chromium-ffmpeg
       - name: Render
         uses: quarto-dev/quarto-actions/render@v2
