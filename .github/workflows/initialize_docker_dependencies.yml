@@ -2,7 +2,10 @@ name: initialize-docker-image
 
 # Only run this when the main branch changes
 on:
-  workflow_dispatch
+  schedule:
+    # läuft jeden zweiten Monat
+    - cron:  '0 9 5 1,3,5,7,9,11 *'
+  workflow_dispatch:
 
 jobs:
 
