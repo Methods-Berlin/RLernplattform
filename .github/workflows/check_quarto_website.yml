@@ -23,14 +23,7 @@ jobs:
         with: 
           path: 'RLernplattform'
       - name: list files
-        run: ls
-      # Copied from oalders at https://github.com/actions/checkout/issues/1049
-      - name: Allow for file ownership conflicts with Docker and GitHub Actions
-        run: git config --global --add safe.directory '*'
-      - name: Set git credentials
-        run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
+        run: ls -a
       - name: specify R package paths
         run: |
           current_libs <- .libPaths()
@@ -49,5 +42,12 @@ jobs:
         uses: r-lib/actions/setup-pandoc@v2
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
+        # Copied from oalders at https://github.com/actions/checkout/issues/1049
+      - name: Allow for file ownership conflicts with Docker and GitHub Actions
+        run: git config --global --add safe.directory '*'
+      - name: Set git credentials
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
       - name: Render
         uses: quarto-dev/quarto-actions/render@v2
