@@ -39,13 +39,16 @@ jobs:
       - name: update R packages
         run: renv::restore()
         shell: Rscript {0}
+        
+      # chromium seems to result in issues. Using a hack by rogerbramon
+      # at https://github.com/quarto-dev/quarto-actions/issues/45
+      - name: Check chromium
+        run: |
+          echo $(which chromium-browser)
+          $(which chromium-browser) --headless https://www.chromestatus.com
       - name: Set up pandoc
         uses: r-lib/actions/setup-pandoc@v2
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
-      - name: Install Chromium
-        run: |
-          apt-get -y install snapd
-          snap install chromium chromium-ffmpeg
       - name: Render
         uses: quarto-dev/quarto-actions/render@v2
