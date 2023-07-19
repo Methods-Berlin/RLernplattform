@@ -303,6 +303,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#fehler-beheben" id="toc-fehler-beheben" class="nav-link" data-scroll-target="#fehler-beheben"><span class="header-section-number">17.4</span> Fehler beheben</a></li>
   <li><a href="#renv" id="toc-renv" class="nav-link" data-scroll-target="#renv"><span class="header-section-number">17.5</span> renv</a></li>
   <li><a href="#projekt-lokal-bearbeiten" id="toc-projekt-lokal-bearbeiten" class="nav-link" data-scroll-target="#projekt-lokal-bearbeiten"><span class="header-section-number">17.6</span> Projekt lokal bearbeiten</a></li>
+  <li><a href="#github-actions" id="toc-github-actions" class="nav-link" data-scroll-target="#github-actions"><span class="header-section-number">17.7</span> GitHub Actions</a></li>
   </ul>
 </nav>
     </div>
@@ -547,6 +548,7 @@ Inhalt
 Um renv zu nutzen, muss man das Paket einmalig lokal installieren mit <code>install.packages(renv)</code>. Beim ersten Öffnen muss man dann <code>renv::restore()</code> verwenden, um die Pakete auf den aktuellen Stand zu bringen. Wenn das Projekt beim nächsten Mal geöffnet wird, werden automatisch die korrekten Versionen verwendet.<br>
 <br>
 Die Dokumentation und eine allgemeine Einführung zu renv findet ihr <a href="https://rstudio.github.io/renv/articles/renv.html">hier</a>.</p>
+<p>Die R pakete sollten von Zeit zu Zeit aktualisiert werden. Lade hierfür das Projekt herunter und führe <code>renv::update()</code> durch. Das aktualisiert alle im Projekt verwendeten Pakete. Lade dein aktualisiertes Projekt anschließend wieder auf GitHub hoch und erstelle einen pull request.</p>
 </section>
 <section id="projekt-lokal-bearbeiten" class="level2" data-number="17.6">
 <h2 data-number="17.6" class="anchored" data-anchor-id="projekt-lokal-bearbeiten"><span class="header-section-number">17.6</span> Projekt lokal bearbeiten</h2>
@@ -558,6 +560,24 @@ Die Dokumentation und eine allgemeine Einführung zu renv findet ihr <a href="ht
 <p><img src="figures/documentation/stage_and_commit.png" class="img-fluid"></p>
 <p>Schreibe eine commit - message, die erklärt, welche Veränderungen Du vogenommen hast. Drücke dann auf “Commit” und anschießend auif “Push”. <img src="figures/documentation/commit_and_push.png" class="img-fluid"></p>
 <p>Deine Veränderungen wurden nun auf GitHub hochgeladen und Du kannst dort wie gewohnt einen merge request erstellen.</p>
+</section>
+<section id="github-actions" class="level2" data-number="17.7">
+<h2 data-number="17.7" class="anchored" data-anchor-id="github-actions"><span class="header-section-number">17.7</span> GitHub Actions</h2>
+<p>Die Webseite wird automatisch von GitHub erstellt. Hierfür verwenden wir <a href="https://github.com/features/actions">GitHub actions</a>, die im Ordner <a href="https://github.com/Methods-Berlin/RLernplattform/tree/main/.github/workflows">.github/workflows</a> definiert sind. Die wichtigsten actions sind folgende:</p>
+<ul>
+<li><a href="https://github.com/Methods-Berlin/RLernplattform/blob/main/.github/workflows/create_quarto_website.yml">create_website</a> holt die aktuelle Version der .qmd - Dateien vom <a href="https://github.com/Methods-Berlin/RLernplattform/tree/main">main branch</a> und erstellt basierend auf diesen die Webseite. Dies geschieht in zwei Schritte:
+<ul>
+<li><ol type="1">
+<li>Der Schritt “update-docker-image” schaut, ob sich die Versionen der R-Pakete verändert haben oder neue Pakete hinzugekommen sind. Ist dies der Fall, dann wird ein neuer Schnappschuss dieser Pakete erstellt und gespeichert. Dieser Schnappschuss kann dann anschließend genutzt werden, um die Webseite zu erstellen. Der Grund für diesen Schritt ist, dass nur relativ selten neue Pakete zur Plattform hinzukommen. Daher können wir meist einen Schnappschuss erstellen und diesen mehrere Monate lang nutzen, was das Erstellen der Webseite extrem viel schneller macht.</li>
+</ol></li>
+<li><ol start="2" type="1">
+<li>Der Schritt “bookdown” erstellt die Webseite. Hierfür wird der Schnappschuss der Pakete aus Schritt 1 genutzt. Die Webseite wird dann automatisch hochgeladen.</li>
+</ol></li>
+</ul></li>
+<li><a href="https://github.com/Methods-Berlin/RLernplattform/blob/main/.github/workflows/check_quarto_website.yml">check_website</a> funktioniert ähnlich wie create_website und wird jedes mal ausgeführt, wenn ein pull-request erstellt wird. check_website überpüft, ob die Veränderungen in Projekt dazu geführt haben, dass die Webseite nicht mehr erstellt werden kann.</li>
+<li><a href="https://github.com/Methods-Berlin/RLernplattform/blob/main/.github/workflows/initialize_docker_dependencies.yml">initialize_docker_dependencies</a> erstellt einen neuen Schnappschuss der im Projekt verwendeten Pakete. Wenn es beim Erstellen der Webseite zu Problemen kommt, kann es sinnvoll sein, den Schnappschuss erneut zu erstellen. Gehe hierfür im Projekt auf <a href="https://github.com/Methods-Berlin/RLernplattform/actions">Actions</a> und wähle links <a href="https://github.com/Methods-Berlin/RLernplattform/actions/workflows/initialize_docker_dependencies.yml">initialize docker image</a> aus. Klicke dann auf “Run workflow”. Der Schnappschuss der Pakete wird nun neu erstellt.</li>
+<li><a href="https://github.com/Methods-Berlin/RLernplattform/blob/main/.github/workflows/update_renv.yml">update-renv</a> ist eine monatlich durchgeführte action, die renv und alle Pakete im Projekt auf Updates überprüft. Falls es updates gibt, wird ein pull-request erstellt.</li>
+</ul>
 
 
 </section>
