@@ -2,7 +2,10 @@ name: update-renv
 
 # Only run this when the main branch changes
 on:
-  workflow_dispatch
+  schedule:
+    # läuft jede Woche am Montag
+    - cron:  '0 9 * * 1'
+  workflow_dispatch:
 
 jobs:  
   # next: create website using docker
