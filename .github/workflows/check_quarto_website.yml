@@ -1,0 +1,45 @@
+# The following builds on:
+# https://medium.com/@delucmat/how-to-publish-bookdown-projects-with-github-actions-on-github-pages-6e6aecc7331e
+# https://quarto.org/docs/publishing/github-pages.html#executing-code
+
+name: create_website
+
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:  
+  # next: create website using docker
+  check-page:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/methods-berlin/rlernplattform_dep:latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+      # Copied from oalders at https://github.com/actions/checkout/issues/1049
+      - name: Allow for file ownership conflicts with Docker and GitHub Actions
+        run: git config --global --add safe.directory '*'
+      - name: Set git credentials
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+      - name: update R packages
+        run: renv::restore()
+        shell: Rscript {0}
+      - name: specify R package paths
+        run: |
+          current_libs <- .libPaths()
+          file_name <- file(".Rprofile")
+          writeLines(paste0(".libPaths(c(",paste0(paste0('"', current_libs, '"'), collapse = ", "), "))"), file_name)
+          close(file_name)
+        shell: Rscript {0}
+      - name: Set up pandoc
+        uses: r-lib/actions/setup-pandoc@v2
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+      - name: Render
+        uses: quarto-dev/quarto-actions/render@v2
