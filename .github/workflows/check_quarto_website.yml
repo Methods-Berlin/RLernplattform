@@ -27,11 +27,15 @@ jobs:
         run: ls -a
       - name: specify R package paths
         run: |
+          print(getwd())
           current_libs <- .libPaths()
-          file_name <- file(".Rprofile")
+          print("Library locations:")
+          print(current_libs)
+          file_name <- file("RLernplattform/.Rprofile")
           writeLines(paste0(".libPaths(c(",paste0(paste0('"', current_libs, '"'), collapse = ", "), "))"), file_name)
-          close(file_name)
-        shell: Rscript {0}
+          close(file_name)          
+        shell: Rscript {0} 
+        working-directory: ..
       - name: update R packages
         run: renv::restore()
         shell: Rscript {0}
@@ -39,5 +43,7 @@ jobs:
         uses: r-lib/actions/setup-pandoc@v2
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
+      - name: Install Chromium
+        run: quarto install tool chromium
       - name: Render
         uses: quarto-dev/quarto-actions/render@v2
