@@ -44,6 +44,8 @@ jobs:
           current_libs <- .libPaths()
           print(current_libs)
           
+          # restore
+          renv::restore()
           # print renv status
           renv::status()
           # update renv
