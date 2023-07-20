@@ -29,15 +29,15 @@ jobs:
           close(file_name)          
         shell: Rscript {0} 
         working-directory: ..
-      # Copied from oalders at https://github.com/actions/checkout/issues/1049
       - name: list files
         run: ls
-      - name: Allow for file ownership conflicts with Docker and GitHub Actions
-        run: git config --global --add safe.directory '*'
-      - name: Set git credentials
-        run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
+      # Copied from oalders at https://github.com/actions/checkout/issues/1049
+      #- name: Allow for file ownership conflicts with Docker and GitHub Actions
+      #  run: git config --global --add safe.directory '*'
+      #- name: Set git credentials
+      #  run: |
+      #    git config user.name github-actions
+      #    git config user.email github-actions@github.com
       - name: check for updates
         run: |
           # check if libs were correctly set
