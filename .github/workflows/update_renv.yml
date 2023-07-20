@@ -81,6 +81,6 @@ jobs:
         run: git status
       # create pull request into main branch
       - name: create pull request
-        run: gh pr create -B main -H update_renv --title 'Updating R packages in renv' --body 'Next steps: Wait for the tests to finish and merge the branch into main. Delete the update_renv branch afterwards.'
+        run: gh pr create -B main -H update_renv --title 'Updating R packages in renv' --body 'Wait for the tests to finish and merge the branch into main. Delete the update_renv branch afterwards.'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
