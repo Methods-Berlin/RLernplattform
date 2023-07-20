@@ -61,9 +61,23 @@ jobs:
           git checkout update_renv
           git add renv.lock
           git add renv/
-          git commit -m "updating renv and packages"
-          git push origin update_renv
+          # only commit if there are changes
+          # adapted from marekventur at https://stackoverflow.com/questions/22040113/how-to-let-jenkins-git-commit-only-if-there-are-changes
+          (git commit -am "updating renv and packages" && git push origin update_renv) || echo "No changes to commit"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-
+  create-pull-request:
+    runs-on: ubuntu-latest
+    needs: update
+    permissions:
+      contents: write
+    steps:
+      # get update_renv - branch
+      - uses: actions/checkout@v3
+        with:
+          ref: 'update_renv'
+      # create pull request into main branch
+      - run: |
+         gh pr create --base main --title "Updating R packages in renv" --body "Next steps: Wait for the tests to finish and merge the branch into main. Delete the update_renv branch afterwards."
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
