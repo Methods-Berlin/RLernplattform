@@ -500,11 +500,15 @@ dann die Einführung in R.</p>
 </section>
 <section id="paket-hinzufügen" class="level3" data-number="25.2.5">
 <h3 data-number="25.2.5" class="anchored" data-anchor-id="paket-hinzufügen"><span class="header-section-number">25.2.5</span> Paket hinzufügen</h3>
-<p>Wenn Dein neues Thema auch ein neues R-Paket benötigt, dann musst Du dieses im Dokument <code>DESCRIPTION</code> zu <code>Imports:</code> hinzufügen (so wie beispielsweise dplyr).</p>
-<blockquote class="blockquote">
-<p><strong>Wichtig</strong>: Wenn wir ein R Paket verwenden und dieses <em>nicht</em> zur DESCRIPTION hinzufügen, dann kann die Webseite nicht erstellt werden! Die Webseite wird von GitHub erstellt und dafür muss GitHub wissen, welche Pakete installiert werden müssen.</p>
-</blockquote>
-<p>Wenn wir die Webseite auf unserem eigenen Rechner erstellen wollen, können wir wie im Kapitel <span class="quarto-unresolved-ref">?sec-introduction</span> beschrieben vorgehen.</p>
+<p>Wenn Dein neues Thema auch ein neues R-Paket benötigt, führe folgende Schritte aus:</p>
+<ol type="1">
+<li>Lade die aktuelle Version des Projektes von GitHub herunter</li>
+<li>Führe <code>renv::restore()</code> durch, um die aktuell verwendeten Paket-Versionen zu installieren</li>
+<li>Füge Dein neues Thema mit dem neuen R-Pakte hinzu</li>
+<li>Füge Dein R-Paket im Dokument <code>DESCRIPTION</code> zu <code>Imports:</code> hinzu (so wie beispielsweise dplyr).</li>
+<li>Führe <code>renv::snapshot()</code> durch, um die Version Deines neu hinzugefügten R-Pakets festzuhalten</li>
+<li>Lade Dein aktualisiertes Projekt auf GitHub hoch und erstelle einen Pull-Request</li>
+</ol>
 </section>
 <section id="html-tags" class="level3 page-columns page-full" data-number="25.2.6">
 <h3 data-number="25.2.6" class="anchored" data-anchor-id="html-tags"><span class="header-section-number">25.2.6</span> HTML tags</h3>
@@ -618,7 +622,7 @@ Inhalt
 Um renv zu nutzen, muss man das Paket einmalig lokal installieren mit <code>install.packages(renv)</code>. Beim ersten Öffnen muss man dann <code>renv::restore()</code> verwenden, um die Pakete auf den aktuellen Stand zu bringen. Wenn das Projekt beim nächsten Mal geöffnet wird, werden automatisch die korrekten Versionen verwendet.<br>
 <br>
 Die Dokumentation und eine allgemeine Einführung zu renv findet ihr <a href="https://rstudio.github.io/renv/articles/renv.html">hier</a>.</p>
-<p>Die R pakete sollten von Zeit zu Zeit aktualisiert werden. Lade hierfür das Projekt herunter und führe <code>renv::update()</code> durch. Das aktualisiert alle im Projekt verwendeten Pakete. Lade dein aktualisiertes Projekt anschließend wieder auf GitHub hoch und erstelle einen pull request.</p>
+<p>Die RLernplattform aktualisiert die Paketversionen automatisch und testet, ob die Plattform auch mit den neuesten Versionen erstellt werden kann. Wenn Du das Projekt bei Dir lokal installiert hast, solltest Du daher ab und an die neueste Version von GitHub herunterladen und <code>renv::restore()</code> durchführen.</p>
 </section>
 <section id="projekt-lokal-bearbeiten" class="level2" data-number="25.6">
 <h2 data-number="25.6" class="anchored" data-anchor-id="projekt-lokal-bearbeiten"><span class="header-section-number">25.6</span> Projekt lokal bearbeiten</h2>
@@ -645,8 +649,8 @@ Die Dokumentation und eine allgemeine Einführung zu renv findet ihr <a href="ht
 </ol></li>
 </ul></li>
 <li><a href="https://github.com/Methods-Berlin/RLernplattform/blob/main/.github/workflows/check_quarto_website.yml">check_website</a> funktioniert ähnlich wie create_website und wird jedes mal ausgeführt, wenn ein pull-request erstellt wird. check_website überpüft, ob die Veränderungen in Projekt dazu geführt haben, dass die Webseite nicht mehr erstellt werden kann.</li>
-<li><a href="https://github.com/Methods-Berlin/RLernplattform/blob/main/.github/workflows/initialize_docker_dependencies.yml">initialize_docker_dependencies</a> erstellt einen neuen Schnappschuss der im Projekt verwendeten Pakete. Wenn es beim Erstellen der Webseite zu Problemen kommt, kann es sinnvoll sein, den Schnappschuss erneut zu erstellen. Gehe hierfür im Projekt auf <a href="https://github.com/Methods-Berlin/RLernplattform/actions">Actions</a> und wähle links <a href="https://github.com/Methods-Berlin/RLernplattform/actions/workflows/initialize_docker_dependencies.yml">initialize docker image</a> aus. Klicke dann auf “Run workflow”. Der Schnappschuss der Pakete wird nun neu erstellt.</li>
-<li><a href="https://github.com/Methods-Berlin/RLernplattform/blob/main/.github/workflows/update_renv.yml">update-renv</a> ist eine monatlich durchgeführte action, die renv und alle Pakete im Projekt auf Updates überprüft. Falls es updates gibt, wird ein pull-request erstellt.</li>
+<li><a href="https://github.com/Methods-Berlin/RLernplattform/blob/main/.github/workflows/initialize_docker_dependencies.yml">initialize_docker_dependencies</a> erstellt alle zwei Monate einen neuen Schnappschuss der im Projekt verwendeten Pakete. Dieser Schritt wird durchgeführt, um die neuesten Versionen von R, git, etc zu installieren. Wenn es beim Erstellen der Webseite zu Problemen kommt, kann es sinnvoll sein, den Schnappschuss zu erneuern. Gehe hierfür im Projekt auf <a href="https://github.com/Methods-Berlin/RLernplattform/actions">Actions</a> und wähle links <a href="https://github.com/Methods-Berlin/RLernplattform/actions/workflows/initialize_docker_dependencies.yml">initialize docker image</a> aus. Klicke dann auf “Run workflow”. Der Schnappschuss der Pakete wird nun neu erstellt.</li>
+<li><a href="https://github.com/Methods-Berlin/RLernplattform/blob/main/.github/workflows/update_renv.yml">update-renv</a> ist eine wöchentlich durchgeführte action, die renv und alle Pakete im Projekt auf Updates überprüft. Falls es updates gibt, wird ein pull-request erstellt.</li>
 </ul>
 
 
