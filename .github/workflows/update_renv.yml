@@ -70,7 +70,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: update
     permissions:
-      contents: write
+        pull-requests: write
     steps:
       # get update_renv - branch
       - uses: actions/checkout@v3
