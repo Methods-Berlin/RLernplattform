@@ -63,7 +63,7 @@ jobs:
           git add renv/
           # only commit if there are changes
           # adapted from marekventur at https://stackoverflow.com/questions/22040113/how-to-let-jenkins-git-commit-only-if-there-are-changes
-          (git commit -am "updating renv and packages" && git push origin update_renv) || echo "No changes to commit"
+          (git commit -m "updating renv and packages" && git push origin update_renv) || echo "No changes to commit"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   create-pull-request:
