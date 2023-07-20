@@ -32,12 +32,12 @@ jobs:
       - name: list files
         run: ls
       # Copied from oalders at https://github.com/actions/checkout/issues/1049
-      #- name: Allow for file ownership conflicts with Docker and GitHub Actions
-      #  run: git config --global --add safe.directory '*'
-      #- name: Set git credentials
-      #  run: |
-      #    git config user.name github-actions
-      #    git config user.email github-actions@github.com
+      - name: Allow for file ownership conflicts with Docker and GitHub Actions
+        run: git config --global --add safe.directory '*'
+      - name: Set git credentials
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
       - name: check for updates
         run: |
           # check if libs were correctly set
@@ -55,20 +55,15 @@ jobs:
           # make snapshot
           renv::snapshot(prompt = FALSE)
         shell: Rscript {0}
-      #- name: add changes
-      #  run: |
-      #    git branch update_renv
-      #    git checkout update_renv
-      #    git add renv.lock
-      #    git add renv/
-      #    git commit -m "updating renv and packages"
-      #    git push origin update_renv
-      #  env:
-      #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v5
-        with:
-          add-paths: |
-            renv.lock
-            renv/
+      - name: add changes
+        run: |
+          git branch update_renv
+          git checkout update_renv
+          git add renv.lock
+          git add renv/
+          git commit -m "updating renv and packages"
+          git push origin update_renv
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 
