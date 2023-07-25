@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>R Lernplattform - 6&nbsp; Datentypen</title>
+<title>R Lernplattform - 2&nbsp; Quick Start: Installation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -64,8 +30,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Vektoren.html" rel="next">
-<link href="./Skripte.html" rel="prev">
+<link href="./Einfuehrung_in_RStudio.html" rel="next">
+<link href="./index.html" rel="prev">
 <link href="./figures/Logo_Favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -97,8 +63,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -111,7 +75,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Quick_Start_Installation.html">Grundlagen in R: Crash Course</a></li><li class="breadcrumb-item"><a href="./Datentypen.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Datentypen</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Quick_Start_Installation.html">Grundlagen in R: Crash Course</a></li><li class="breadcrumb-item"><a href="./Quick_Start_Installation.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Quick Start: Installation</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -153,7 +117,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Quick_Start_Installation.html" class="sidebar-item-text sidebar-link">
+  <a href="./Quick_Start_Installation.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Quick Start: Installation</span></span></a>
   </div>
 </li>
@@ -177,7 +141,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Datentypen.html" class="sidebar-item-text sidebar-link active">
+  <a href="./Datentypen.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Datentypen</span></span></a>
   </div>
 </li>
@@ -353,24 +317,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#zahlen-numeric" id="toc-zahlen-numeric" class="nav-link active" data-scroll-target="#zahlen-numeric"><span class="header-section-number">6.1</span> Zahlen (numeric)</a></li>
-  <li><a href="#text-character" id="toc-text-character" class="nav-link" data-scroll-target="#text-character"><span class="header-section-number">6.2</span> Text (character)</a></li>
-  <li><a href="#logische-werte-booleans" id="toc-logische-werte-booleans" class="nav-link" data-scroll-target="#logische-werte-booleans"><span class="header-section-number">6.3</span> Logische Werte (Booleans)</a></li>
-  <li><a href="#fehlende-werte" id="toc-fehlende-werte" class="nav-link" data-scroll-target="#fehlende-werte"><span class="header-section-number">6.4</span> Fehlende Werte</a></li>
-  <li><a href="#faktoren-factor" id="toc-faktoren-factor" class="nav-link" data-scroll-target="#faktoren-factor"><span class="header-section-number">6.5</span> Faktoren (Factor)</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Datentypen</span></h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Quick Start: Installation</span></h1>
 </div>
 
 
@@ -385,89 +339,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>Datentypen sind ein etwas komplizierteres Thema, das vor allem zu Beginn häufiger zu Verwirrung führen kann. Für uns ist zuerst einmal die Unterscheidung von Zahlen und Text relevant. Außerdem wollen wir uns logische Werte, fehlende Werte und Faktoren noch kurz anschauen.</p>
-<section id="zahlen-numeric" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="zahlen-numeric"><span class="header-section-number">6.1</span> Zahlen (numeric)</h2>
-<p>Wie Du wahrscheinlich schon vermutet hast, sind <code>12</code>, <code>42</code>, <code>873485</code> und <code>1.87</code> Zahlen. Hier müssen wir nur beachten, dass R einen Punkt als Trennzeichen zwischen Vor- und Nachkommastelle verwendet. Wollen wir also die Zahl <span class="math inline">\(1,987\)</span> in R schreiben, müssen wir <code>1.987</code> eingeben.</p>
-</section>
-<section id="text-character" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="text-character"><span class="header-section-number">6.2</span> Text (character)</h2>
-<p>R kann nicht nur Zahlen verarbeiten, sondern auch Text (Zeichenfolgen). Wenn wir beispielsweise den Namen “Tim” in der Variable <code>name</code> speichern wollen, müssen wir diesen in R in Anführungszeichen schreiben:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>name <span class="ot">&lt;-</span> <span class="st">"Tim"</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>name</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "Tim"</code></pre>
+<p>R, wie wir es im Studium verwenden wollen, besteht aus zwei Programmen:</p>
+<pre><code>1. R: Das Basisprogramm und sozusagen der Motor, der alle Berechnungen ausführt.
+2. RStudio: Eine integrierte Entwicklungsumgebung und grafische Benutzeroberfläche für R.</code></pre>
+<p>Theoretisch müssen wir RStudio nicht installieren, um R zu benutzen. Allerdings erleichtert RStudio die Arbeit mit R erheblich.</p>
+<p>R kann für die Betriebssysteme Windows, macOS und Linux heruntergeladen werden. Leider gibt es keine passende R-Version für Tablets mit den Betriebssystemen Android oder iPadOS. Tablet-Benutzer:innen können stattdessen auf eine <a href="https://posit.cloud/">Cloud-basierte Version</a> zurückgreifen. Wir empfehlen die Installation und Nutzung auf einem Computer, wenn dies möglich ist.</p>
+<p>Die Basisversion von R kann <a href="https://cran.r-project.org/">hier</a> heruntergeladen werden. Achte darauf, dass du die richtige Version für dein Betriebssystem auswählst.</p>
+<p>Während der Installation wirst du gefragt, welche Komponenten installiert werden sollen. Wir empfehlen, alle Komponenten außer den „Message translations“ zu installieren. Die Message Translations würden Teile von R (aber nicht RStudio) ins Deutsche übersetzen. Dies mag zunächst wünschenswert erscheinen, aber später bei der Arbeit mit R wirst du wahrscheinlich oft nach R-Hinweisen und Fehlermeldungen googlen müssen. Leider findet man im Internet oft nur wenig zu übersetzten Hinweisen und Fehlermeldungen, da R von den allermeisten Anwender:innen in englischer Sprache verwendet wird.</p>
+<p>So sollte der Dialog in Windows aussehen:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Quick_Start_Installation/Message_translations.png" class="img-fluid figure-img" width="300"></p>
+</figure>
 </div>
 </div>
-<p>Wenn wir Zahlen und Text mischen, kann es zu Fehlern kommen:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>name <span class="ot">&lt;-</span> <span class="st">"Tim"</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>name <span class="sc">+</span> <span class="dv">123</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in name + 123: non-numeric argument to binary operator</code></pre>
 </div>
-</div>
-<p>Hier will R uns mitteilen, dass Text und Zahlen nicht einfach addiert werden können. Probiere einmal, zwei Texte zu addieren.</p>
-<details>
-<summary>
-Lösung anzeigen
-</summary>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>name <span class="ot">&lt;-</span> <span class="st">"Tim"</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>name <span class="sc">+</span> <span class="st">"Müller"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in name + "Müller": non-numeric argument to binary operator</code></pre>
-</div>
-</div>
-Das geht leider auch nicht!
-</details>
-<p>Was ist “123”?</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>what_is_this <span class="ot">&lt;-</span> <span class="st">"123"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Handelt es sich um Text oder um eine Zahl?</p>
-<details>
-<summary>
-Lösung anzeigen
-</summary>
-<p>Es handelt sich um Text. Um das zu überprüfen, können wir beispielsweise versuchen, eine Zahl zu addieren:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="st">"123"</span> <span class="sc">+</span> <span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in "123" + 5: non-numeric argument to binary operator</code></pre>
-</div>
-</div>
-Das geht nicht, weil R <code>"123"</code> als Text sieht und <code>5</code> als Zahl. Als Daumenregel können wir uns merken: Wenn Anführungszeichen zu sehen sind, handelt es sich um Text!
-</details>
-</section>
-<section id="logische-werte-booleans" class="level2" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="logische-werte-booleans"><span class="header-section-number">6.3</span> Logische Werte (Booleans)</h2>
-<p>Logische Werte können nur wahr <strong>oder</strong> falsch sein. Beispielsweise können wir mit logischen Werten speichern, ob bei einer Person eine Depression diagnostiziert wurde. In R nutzen wir hierfür die Worte <code>TRUE</code>, oder <code>FALSE</code>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>depression       <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>anxiety_disorder <span class="ot">&lt;-</span> <span class="cn">FALSE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="fehlende-werte" class="level2" data-number="6.4">
-<h2 data-number="6.4" class="anchored" data-anchor-id="fehlende-werte"><span class="header-section-number">6.4</span> Fehlende Werte</h2>
-<p>Fehlende Werte sind in der Psychologie leider sehr häufig. Diese kommen beispielsweise vor, wenn Teilnehmer:innen eine Studie abbrechen oder vergessen, auf eine der Fragen zu antworten. Da fehlende Werte so häufig sind, gibt es in R eine einfache Möglichkeit, diese auszudrücken: Die Werte sind “Not Available” oder <code>NA</code>. Wenn beispielsweise eine Depressions-Diagnose fehlt, können wir dies speichern mit:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>depression       <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>anxiety_disorder <span class="ot">&lt;-</span> <span class="cn">FALSE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="faktoren-factor" class="level2" data-number="6.5">
-<h2 data-number="6.5" class="anchored" data-anchor-id="faktoren-factor"><span class="header-section-number">6.5</span> Faktoren (Factor)</h2>
-<p>Faktoren können nur wenige vorgegenbene Ausprägungen annehmen. Wenn wir beispielsweise das Geschlecht von Personen mit den Kategorieren “männlich”, “weiblich” und “non-binär” erfassen, können wir dies folgendermaßen mit einem Faktor speichern:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>gender <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="st">"männlich"</span>, </span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"männlich"</span>, <span class="st">"weiblich"</span>, <span class="st">"non-binär"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Wir besprechen in den kommenden Kapiteln noch im Detail, was das <code>c()</code> bedeutet und was es mit <code>factor()</code> auf sich hat.</p>
+<p>Nachdem du R installiert hast, kannst du die Benutzeroberfläche RStudio <a href="https://posit.co/download/rstudio-desktop/">hier</a> herunterladen und installieren.</p>
+<p>Wenn du Probleme mit der Installation haben solltest, kannst du auch einen Blick in <a href="./Installation.html">diese ausführlichere Anleitung</a> werfen.</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -705,13 +597,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./Skripte.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Skripte</span></span>
+      <a href="./index.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Willkommen auf der R-Lernplattform!</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Vektoren.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Vektoren</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./Einfuehrung_in_RStudio.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Einführung in RStudio</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
