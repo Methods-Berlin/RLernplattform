@@ -1,4 +1,4 @@
-# Einführung in RStudio
+# RStudio
 
 Im Rahmen dieses Kapitels schauen wir uns an, wie die Benutzeroberfläche der Entwicklungsumgebung RStudio aufgebaut ist und wie sie uns den Umgang mit der (grundlegenden) Software R erleichtert. Wir lernen die vier grundlegenden Bereiche (Panels) von RStudio kennen und werden uns besonders die R-Dokumentation genauer anschauen. In dieser finden wir viele wertvolle Informationen zu Funktionen. Am Ende finden wir noch eine Übersicht über Kurzbefehle, die uns die Arbeit mit R zusätzlich erleichtern.
 

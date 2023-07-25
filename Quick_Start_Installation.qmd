@@ -2,8 +2,8 @@
 
 R, wie wir es im Studium verwenden wollen, besteht aus zwei Programmen:
 
-    1. R: Das Basisprogramm und sozusagen der Motor, der alle Berechnungen ausführt.
-    2. RStudio: Eine integrierte Entwicklungsumgebung und grafische Benutzeroberfläche für R.
+1. R: Das Basisprogramm und sozusagen der Motor, der alle Berechnungen ausführt.
+2. RStudio: Eine integrierte Entwicklungsumgebung und grafische Benutzeroberfläche für R.
 
 Theoretisch müssen wir RStudio nicht installieren, um R zu benutzen. Allerdings erleichtert RStudio die Arbeit mit R erheblich.
 
