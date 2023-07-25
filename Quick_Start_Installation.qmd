@@ -1,0 +1,25 @@
+# Quick Start: Installation
+
+R, wie wir es im Studium verwenden wollen, besteht aus zwei Programmen:
+
+    1. R: Das Basisprogramm und sozusagen der Motor, der alle Berechnungen ausführt.
+    2. RStudio: Eine integrierte Entwicklungsumgebung und grafische Benutzeroberfläche für R.
+
+Theoretisch müssen wir RStudio nicht installieren, um R zu benutzen. Allerdings erleichtert RStudio die Arbeit mit R erheblich.
+
+R kann für die Betriebssysteme Windows, macOS und Linux heruntergeladen werden. Leider gibt es keine passende R-Version für Tablets mit den Betriebssystemen Android oder iPadOS. Tablet-Benutzer:innen können stattdessen auf eine [Cloud-basierte Version](https://posit.cloud/) zurückgreifen. Wir empfehlen die Installation und Nutzung auf einem Computer, wenn dies möglich ist.
+
+Die Basisversion von R kann [hier](https://cran.r-project.org/) heruntergeladen werden. Achte darauf, dass du die richtige Version für dein Betriebssystem auswählst.
+
+Während der Installation wirst du gefragt, welche Komponenten installiert werden sollen. Wir empfehlen, alle Komponenten außer den „Message translations“ zu installieren. Die Message Translations würden Teile von R (aber nicht RStudio) ins Deutsche übersetzen. Dies mag zunächst wünschenswert erscheinen, aber später bei der Arbeit mit R wirst du wahrscheinlich oft nach R-Hinweisen und Fehlermeldungen googlen müssen. Leider findet man im Internet oft nur wenig zu übersetzten Hinweisen und Fehlermeldungen, da R von den allermeisten Anwender:innen in englischer Sprache verwendet wird.
+
+So sollte der Dialog in Windows aussehen:
+
+
+```{r, out.width = "300px", echo=FALSE, fig.align='center'}
+knitr::include_graphics("figures/Quick_Start_Installation/Message_translations.png")
+```
+
+Nachdem du R installiert hast, kannst du die Benutzeroberfläche RStudio [hier](https://posit.co/download/rstudio-desktop/) herunterladen und installieren.
+
+Wenn du Probleme mit der Installation haben solltest, kannst du auch einen Blick in [diese ausführlichere Anleitung](Installation.qmd) werfen. 
