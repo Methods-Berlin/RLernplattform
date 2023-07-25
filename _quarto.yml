@@ -8,7 +8,7 @@ book:
   favicon: figures/Logo_Favicon.png
   chapters:
     - index.qmd
-    - part: "Grundlagen in R: Crash Course"
+    - part: "R Crash Course"
       chapters:
         - Quick_Start_Installation.qmd
         - Einfuehrung_in_RStudio.qmd
