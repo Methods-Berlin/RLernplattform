@@ -16,7 +16,7 @@ Während der Installation wirst du gefragt, welche Komponenten installiert werde
 So sollte der Dialog in Windows aussehen:
 
 
-```{r, out.width = "300px", echo=FALSE, fig.align='center'}
+```{r, echo=FALSE, fig.align='center'}
 knitr::include_graphics("figures/Quick_Start_Installation/Message_translations.png")
 ```
 
