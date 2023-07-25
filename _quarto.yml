@@ -8,12 +8,10 @@ book:
   favicon: figures/Logo_Favicon.png
   chapters:
     - index.qmd
-    - part: Installation und Benutzeroberfläche
-      chapters:
-        - Installation.qmd
-        - Einfuehrung_in_RStudio.qmd
     - part: "Grundlagen in R: Crash Course"
       chapters:
+        - Quick_Start_Installation.qmd
+        - Einfuehrung_in_RStudio.qmd
         - R_als_Taschenrechner.qmd
         - Skripte.qmd
         - Datentypen.qmd
@@ -33,6 +31,7 @@ book:
         - Fehlermeldungen.qmd
     - part: "Weiterführende Themen in R"
       chapters:
+        - Installation.qmd
         - Wide-and-Long-Format.qmd
         - Markdown.qmd
         - Git.qmd
