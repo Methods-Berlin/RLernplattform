@@ -52,9 +52,7 @@ Hier schreiben wir Code und Kommentare.
 knitr::include_graphics("figures/Einführung/Bilder/RStudio/skript.png")
 ```
 
-Eine Zeile mit R-Code kann entweder mit dem Tastaturkürzeln **strg** + **enter**\ (Windows) oder **cmd** + **enter**\ (macOS) ausgeführt werden. Alternativ können wir auch den Cursor in die gewünschte Zeile setzen und auf den Run-Knopf klicken.
-
-Mehrere Zeile Code können ausgeführt werden, in dem wir sie markieren und über das jeweilige Tastenkürzel benutzen oder Run klicken.
+Eine Zeile mit R-Code kann entweder mit dem Tastaturkürzeln **strg** + **enter**\ (Windows) oder **cmd** + **enter**\ (macOS) ausgeführt werden. Alternativ können wir auch den Cursor in die gewünschte Zeile setzen und auf den Run-Knopf klicken. Mehrere Zeile Code können ausgeführt werden, in dem wir sie markieren und über das jeweilige Tastenkürzel ausführen oder Run klicken.
 
 ```{r}
 #| out.width: 700px
@@ -63,18 +61,19 @@ Mehrere Zeile Code können ausgeführt werden, in dem wir sie markieren und übe
 knitr::include_graphics("figures/Einführung/Bilder/RStudio/run.png")
 ```
 
-Alle Zeichen, die in einer Zeile nach einem '#' erscheinen, sind Kommentare. Kommentare sind nützlich, um besser zu verstehen, was im Skript passiert. Vor allem in längeren Skripten sind Kommentare besonders hilfreich, wenn man nach längerer Zeit zu einem Skript zurückkehrt oder seine Skripte mit anderen Personen teilen möchte.
+Alle Zeichen, die in einer Zeile nach einem '#' erscheinen, sind Kommentare. Kommentare sind nützlich, um besser zu verstehen, was im Skript passiert. Kommentare sind besonders hilfreich, wenn man nach längerer Zeit zu einem Skript zurückkehrt oder seine Skripte mit anderen Personen teilen möchte.
+
+Unter File > Save As... kann das Skript an einem beliebigen Ort gespeichert werden. Wurde das Skript bereits gespeichert, können Änderungen in der gleichen Datei mit File > Save gespeichert werden.
 
 <aside>**Skript Speichern**:\
 Win: **Strg** + **S**\
 Mac: **cmd** + **S**</aside>
 
-
 ## Konsole
 
 Ausgeführter R-Code wird mitsamt Ergebnis in der Konsole angezeigt. Wir können in der Konsole auch direkt R-Code eingeben und ausführen lassen.
 
-Es kommt vor, dass R noch auf eine Eingabe von uns wartet (z.B. weil wir die schließende Klammer einer Funktion vergessen haben). In diesem Fall wird in der Konsole ein `+` angezeigt. Hängen wir fest, können wir die Eingabe mit der **esc**-Taste abbrechen.
+Es kann vorkommen, dass R noch auf eine Eingabe von uns wartet (z.B. weil wir die schließende Klammer einer Funktion vergessen haben). In diesem Fall wird in der Konsole ein `+` angezeigt. Hängen wir fest, können wir die Eingabe mit der **esc**-Taste abbrechen.
 
 ```{r}
 #| out.width: 700px
@@ -82,6 +81,5 @@ Es kommt vor, dass R noch auf eine Eingabe von uns wartet (z.B. weil wir die sch
 #| echo: false
 knitr::include_graphics("figures/Einführung/Bilder/RStudio/Konsole.png")
 ```
-Wir bekommen in der Konsole einen Hinweis, wenn wir eine **eindeutig unvollständige Funktion**, d.h. wenn wir *nur* am Ende einer Funktion die schließende Klammer vergessen haben, ausführen wollen. Dann wird uns in der Konsole in der nachfolgenden Zeile ein `+` ausgegeben.
 
-Der Inhalt der Konsole wird nach jedem Schließen des Programms gelöscht und kann nicht ohne weiteres gespeichert werden. Deswegen ist es wichtig, die eigene Arbeit in Skripten zu speichern.
+Der Inhalt der Konsole wird nach jedem Schließen des Programms gelöscht und kann nicht ohne weiteres gespeichert werden. Deswegen empfiehlt es sich, die eigene Arbeit in Skripten zu speichern.
