@@ -350,44 +350,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#pakete-installieren" id="toc-pakete-installieren" class="nav-link active" data-scroll-target="#pakete-installieren"><span class="header-section-number">12.1</span> Pakete Installieren</a>
+  <li><a href="#pakete-installieren" id="toc-pakete-installieren" class="nav-link active" data-scroll-target="#pakete-installieren"><span class="header-section-number">12.1</span> Pakete installieren</a></li>
+  <li><a href="#pakete-laden" id="toc-pakete-laden" class="nav-link" data-scroll-target="#pakete-laden"><span class="header-section-number">12.2</span> Pakete laden</a></li>
+  <li><a href="#pakete-aktualisieren" id="toc-pakete-aktualisieren" class="nav-link" data-scroll-target="#pakete-aktualisieren"><span class="header-section-number">12.3</span> Pakete aktualisieren</a></li>
+  <li><a href="#fortgeschrittene-themen" id="toc-fortgeschrittene-themen" class="nav-link" data-scroll-target="#fortgeschrittene-themen"><span class="header-section-number">12.4</span> Fortgeschrittene Themen</a>
   <ul class="collapse">
-  <li><a href="#über-die-funktion-install.packages" id="toc-über-die-funktion-install.packages" class="nav-link" data-scroll-target="#über-die-funktion-install.packages"><span class="header-section-number">12.1.1</span> Über die Funktion <code>install.packages()</code></a></li>
-  <li><a href="#über-das-icon-install-oder-den-menüpunkt-install-packages" id="toc-über-das-icon-install-oder-den-menüpunkt-install-packages" class="nav-link" data-scroll-target="#über-das-icon-install-oder-den-menüpunkt-install-packages"><span class="header-section-number">12.1.2</span> Über das Icon Install oder den Menüpunkt Install Packages…</a></li>
-  </ul></li>
-  <li><a href="#pakete-laden" id="toc-pakete-laden" class="nav-link" data-scroll-target="#pakete-laden"><span class="header-section-number">12.2</span> Pakete Laden</a>
-  <ul class="collapse">
-  <li><a href="#über-die-funktion-library" id="toc-über-die-funktion-library" class="nav-link" data-scroll-target="#über-die-funktion-library"><span class="header-section-number">12.2.1</span> Über die Funktion <code>library()</code></a></li>
-  <li><a href="#über-das-häkchen-setzen-in-der-system-library" id="toc-über-das-häkchen-setzen-in-der-system-library" class="nav-link" data-scroll-target="#über-das-häkchen-setzen-in-der-system-library"><span class="header-section-number">12.2.2</span> Über das Häkchen-Setzen in der System Library</a></li>
-  <li><a href="#maskierung-wenn-verschiedene-pakete-gleich-benannte-funktionen-enthalten" id="toc-maskierung-wenn-verschiedene-pakete-gleich-benannte-funktionen-enthalten" class="nav-link" data-scroll-target="#maskierung-wenn-verschiedene-pakete-gleich-benannte-funktionen-enthalten"><span class="header-section-number">12.2.3</span> Maskierung: Wenn verschiedene Pakete gleich benannte Funktionen enthalten</a></li>
-  </ul></li>
-  <li><a href="#pakete-aktualisieren" id="toc-pakete-aktualisieren" class="nav-link" data-scroll-target="#pakete-aktualisieren"><span class="header-section-number">12.3</span> Pakete Aktualisieren</a>
-  <ul class="collapse">
-  <li><a href="#über-die-funktion-update.packages" id="toc-über-die-funktion-update.packages" class="nav-link" data-scroll-target="#über-die-funktion-update.packages"><span class="header-section-number">12.3.1</span> Über die Funktion <code>update.packages()</code></a></li>
-  <li><a href="#über-das-icon-update-oder-den-menüpunkt-check-for-package-updates" id="toc-über-das-icon-update-oder-den-menüpunkt-check-for-package-updates" class="nav-link" data-scroll-target="#über-das-icon-update-oder-den-menüpunkt-check-for-package-updates"><span class="header-section-number">12.3.2</span> Über das Icon Update oder den Menüpunkt Check for Package Updates…</a></li>
-  <li><a href="#entwicklerpakete-runterladen" id="toc-entwicklerpakete-runterladen" class="nav-link" data-scroll-target="#entwicklerpakete-runterladen"><span class="header-section-number">12.3.3</span> Entwicklerpakete runterladen</a></li>
-  </ul></li>
-  <li><a href="#wichtige-hinweise-zur-replizierbarkeit" id="toc-wichtige-hinweise-zur-replizierbarkeit" class="nav-link" data-scroll-target="#wichtige-hinweise-zur-replizierbarkeit"><span class="header-section-number">12.4</span> Wichtige Hinweise zur Replizierbarkeit</a>
-  <ul class="collapse">
-  <li><a href="#replizierbarkeit-von-r-skripten" id="toc-replizierbarkeit-von-r-skripten" class="nav-link" data-scroll-target="#replizierbarkeit-von-r-skripten"><span class="header-section-number">12.4.1</span> Replizierbarkeit von R-Skripten</a></li>
-  <li><a href="#replizierbarkeit-von-analysen" id="toc-replizierbarkeit-von-analysen" class="nav-link" data-scroll-target="#replizierbarkeit-von-analysen"><span class="header-section-number">12.4.2</span> Replizierbarkeit von Analysen</a></li>
-  </ul></li>
-  <li><a href="#weitere-hilfen" id="toc-weitere-hilfen" class="nav-link" data-scroll-target="#weitere-hilfen"><span class="header-section-number">12.5</span> Weitere Hilfen</a>
-  <ul class="collapse">
-  <li><a href="#probleme-mit-paketen-und-funktionen" id="toc-probleme-mit-paketen-und-funktionen" class="nav-link" data-scroll-target="#probleme-mit-paketen-und-funktionen"><span class="header-section-number">12.5.1</span> Probleme mit Paketen und Funktionen</a></li>
-  <li><a href="#ältere-paket-versionen-installieren" id="toc-ältere-paket-versionen-installieren" class="nav-link" data-scroll-target="#ältere-paket-versionen-installieren"><span class="header-section-number">12.5.2</span> Ältere Paket-Versionen installieren</a></li>
-  </ul></li>
-  <li><a href="#faq" id="toc-faq" class="nav-link" data-scroll-target="#faq"><span class="header-section-number">12.6</span> FAQ</a>
-  <ul class="collapse">
-  <li><a href="#die-pakete-via-befehl-deinstallieren-und-neu-installieren" id="toc-die-pakete-via-befehl-deinstallieren-und-neu-installieren" class="nav-link" data-scroll-target="#die-pakete-via-befehl-deinstallieren-und-neu-installieren"><span class="header-section-number">12.6.1</span> Die Pakete via Befehl deinstallieren und neu installieren</a></li>
-  <li><a href="#die-neuste-r-version-von-r-und-rstudio-auf-dem-computer-installieren-und-dann-versuchen-das-paket-neu-zu-installieren-bzw.-schritt-1-durchzuführen." id="toc-die-neuste-r-version-von-r-und-rstudio-auf-dem-computer-installieren-und-dann-versuchen-das-paket-neu-zu-installieren-bzw.-schritt-1-durchzuführen." class="nav-link" data-scroll-target="#die-neuste-r-version-von-r-und-rstudio-auf-dem-computer-installieren-und-dann-versuchen-das-paket-neu-zu-installieren-bzw.-schritt-1-durchzuführen."><span class="header-section-number">12.6.2</span> Die neuste R-Version von R und RStudio auf dem Computer installieren und dann versuchen, das Paket neu zu installieren bzw. Schritt 1 durchzuführen.</a></li>
-  <li><a href="#die-pakete-deinstallieren-und-manuell-neu-installieren" id="toc-die-pakete-deinstallieren-und-manuell-neu-installieren" class="nav-link" data-scroll-target="#die-pakete-deinstallieren-und-manuell-neu-installieren"><span class="header-section-number">12.6.3</span> Die Pakete deinstallieren und <em>manuell</em> neu installieren</a></li>
+  <li><a href="#maskierung" id="toc-maskierung" class="nav-link" data-scroll-target="#maskierung"><span class="header-section-number">12.4.1</span> Maskierung</a></li>
+  <li><a href="#pakete-von-github-etc." id="toc-pakete-von-github-etc." class="nav-link" data-scroll-target="#pakete-von-github-etc."><span class="header-section-number">12.4.2</span> Pakete von GitHub etc.</a></li>
   </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -406,358 +381,119 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>Ein Grund, weshalb R von so vielen BenutzerInnen verwendet wird, ist, dass es sich hierbei um eine <strong>Open Source Software</strong> handelt. R ist für alle kostenlos, frei verfügbar und der Quellcode ist öffentlich. Dies ermöglicht es WissenschaftlerInnen und EntwicklerInnen auf der ganzen Welt, ständig neue Funktionen in R zu implementieren und diese mit anderen NutzerInnen über „Pakete“ zu teilen. Wenn wir diese neu entwickelten Funktionen, die nicht ohnehin grundlegend in R vorhanden sind (z.B. über die stets eingeladenen Pakete <em>base</em> und <em>graphics</em>), für unsere Analysen verwenden wollen, müssen wir die Pakete, welche die entsprechenden Funktionen beinhalten, installieren und laden.</p>
-<blockquote class="blockquote">
-<p><strong><em>Hinweis</em></strong>: Pakete, die grundlegend in R enthalten sind, nennt man auch <strong>Standard</strong>- oder <strong>Basispakete</strong>.</p>
-</blockquote>
-<p>In diesem Abschnitt schauen wir uns am Beispiel des Pakets <code>psych</code> an, wie wir zusätzliche Pakete nutzen können. <code>psych</code> ist ein Paket, welches uns ermöglicht, in R Analysemethoden umzusetzen, die besonders häufig in psychologisch-empirischer Forschung eingesetzt werden (z.B. können wir mit der Funktion <code>alpha()</code> die interne Konsistenz von Items eines Tests mit verschiedenen Methoden schätzen).</p>
-<p>Um mit einem zusätzlichen Paket arbeiten zu können, muss dieses eimalig in R installiert werden. In jedem Skript, in welchem wir Funktionen aus dem Paket verwenden, müssen wir das Paket dann laden. Eine Analogie, die wir verwenden können, um uns diesen Ablauf besser vorzustellen, wäre, dass Pakete wie Bücher in einer Bibliothek verstanden werden können. Die Bücher müssen nur einmal gekauft werden (<strong>Installation</strong>), aber wir müssen sie vor jeder Nutzung aus dem Regal holen und aufschlagen (<strong>Laden</strong>). Pakete sollten weiterhin bei Bedarf aktualisiert werden, da EntwicklerInnen ständig daran arbeiten und versuchen, sie zu verbessern.</p>
-<p>Im Folgenden wollen wir also am Beispiel des <code>psych</code>-Pakets nachvollziehen, wie Pakete installiert, geladen und aktualisiert werden können. Dabei schauen wir uns jeweils die zwei grundlegenden Möglichkeiten an: <code>Funktionen</code> ausführen <em>oder</em> die <strong>grafische Benutzeroberfläche</strong> von RStudio nutzen. Für beide Möglichkeiten benötigen wir eine <strong>Internetverbindung</strong> zum Herunterladen der Pakete. Am Ende des Kapitels befinden sich noch wichtige Hinweise zur Replizierbarkeit von Skripten und Analysen.</p>
-<details>
-<summary>
-Was ist eine grafische Benutzeroberfläche?
-</summary>
-Die grafische Benutzeroberfläche, oder auch Benutzungsschnittstelle, wird häufig auch mit GUI (<em><strong>G</strong>raphical <strong>U</strong>ser <strong>I</strong>nterface</em>) abgekürzt. Durch diese können wir mit der Maus auf Symbole und andere Steuerelemente klicken anstatt Funktionen in der Konsole auszuführen. Die grafische Benutzeroberfläche in <strong>RStudio</strong> ist viel besser ausgebaut, weswegen wir diese auch nutzen wollen.
-</details>
-<details>
-<summary>
-Was ist <a id="cran"> CRAN </a>?
-</summary>
-CRAN steht für <em>The Comprehensive R Archive Network</em>. Von hier laden wir <a href="https://cran.r-project.org/">R</a> sowie alle annerkannten Pakete herunterladen können. Wenn wir diese Pakete installieren oder aktualisieren, greift R automatisch auf CRAN zu.
-</details>
-<blockquote class="blockquote">
-<p><strong><em>Hinweis</em></strong>: Wenn wir versuchen, eine Funktion auszuführen, für welche wir das entsprechende Paket <strong>noch nicht installiert <em>und/oder</em> geladen</strong> haben, erhalten wir eine <strong>Fehlermeldung.</strong> Wir bekommen beispielsweise folgende Fehlermeldung, wenn wir die Funktion <code>alpha()</code> aus dem Paket <code>psych</code> nutzen wollen.</p>
-</blockquote>
-<div class="cell">
-<div class="cell-output-display">
-<p><img src="figures/Pakete/Bilder/alpha.png" class="img-fluid" width="420"></p>
-</div>
-</div>
+<p>Im Thema <a href="./Funktionen.html">Funktionen</a> hatten wir gelernt, dass wir uns Pakete wie Rezeptbücher vorstellen können. In diesen finden wir Rezepte wie “Berechne einen Mittelwert” oder “Erstelle eine Grafik”. Da R so beliebt ist, gibt es eine mittlerweile <a href="https://cran.r-project.org/web/packages/available_packages_by_name.html">tausende solcher Rezepbücher</a>.</p>
+<p>Wenn wir R neu installieren, haben wir nur sehr wenige Pakete. Weitere Pakete zu installieren ist jedoch meist sehr einfach.</p>
 <section id="pakete-installieren" class="level2" data-number="12.1">
-<h2 data-number="12.1" class="anchored" data-anchor-id="pakete-installieren"><span class="header-section-number">12.1</span> Pakete Installieren</h2>
-<p>Zuerst einmal schauen wir uns an, wie wir diese zusätzlichen Pakete in R installieren können. Die meisten bekannten Pakete werden über <strong><a href="#cran">CRAN</a></strong> zur Verfügung gestellt und können von dort heruntergeladen werden.</p>
-<p>Zur Installation von Paketen schauen wir uns beide Herangehensweisen, das Nutzen von Funktionen sowie der grafischen Benutzeroberfläche, an.</p>
-<p><strong>Vorweg</strong>: Bei beiden Wegen wird uns nach erfolgreicher Installation folgender Output in der Konsole angezeigt:</p>
-<div class="cell">
-<div class="cell-output-display">
-<p><img src="figures/Pakete/Bilder/install konsole.png" class="img-fluid" width="600"></p>
-</div>
-</div>
-<section id="über-die-funktion-install.packages" class="level3" data-number="12.1.1">
-<h3 data-number="12.1.1" class="anchored" data-anchor-id="über-die-funktion-install.packages"><span class="header-section-number">12.1.1</span> Über die Funktion <code>install.packages()</code></h3>
-<p>Wir können <code>psych</code> installieren, indem wir <code>install.packages("psych", dependencies = TRUE)</code> ausführen. Hierbei ist darauf zu achten, dass wir den Namen des Pakets in <strong>Anführungszeichen</strong> setzen müssen. Mit <code>dependencies=TRUE</code> geben wir an, dass noch nicht installierte Pakete, welche von dem Zielpaket benötigt oder empfohlen werden, ebenfalls installiert werden sollen.</p>
-<blockquote class="blockquote">
-<p><strong><em>Hinweis</em></strong>: Die Funktion <code>install.packages()</code> ist Bestandteil des Standardpakets <strong>utils</strong>.</p>
-</blockquote>
-</section>
-<section id="über-das-icon-install-oder-den-menüpunkt-install-packages" class="level3" data-number="12.1.2">
-<h3 data-number="12.1.2" class="anchored" data-anchor-id="über-das-icon-install-oder-den-menüpunkt-install-packages"><span class="header-section-number">12.1.2</span> Über das Icon Install oder den Menüpunkt Install Packages…</h3>
-<p>Wir können das Paket auch installieren, indem wir im <strong>Packages-Tab</strong> auf das Icon <strong>Install</strong> …</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figures/Pakete/Bilder/install button 1.png" class="img-fluid figure-img" width="275"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>… oder in der Menüleiste am oberen Bildschirmrand auf <strong>Tools</strong> –&gt; <strong>Install Packages…</strong> klicken.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figures/Pakete/Bilder/install packages.png" class="img-fluid figure-img" width="700"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Nun öffnet sich ein neues Fenster, in welchem wir unter dem Reiter <strong>Packages (…)</strong> den Namen des Pakets eingeben können. Anschließen müssen wir noch auf das Icon <strong>Install</strong> klicken.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figures/Pakete/Bilder/install button 2.png" class="img-fluid figure-img" width="300"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Mit dem Häkchen in dem Kästchen bei <strong>Install Dependencies</strong> werden von dem Zielpaket benötigte oder empfohlene bisher nicht installierte Pakete auch heruntergeladen.</p>
-</section>
+<h2 data-number="12.1" class="anchored" data-anchor-id="pakete-installieren"><span class="header-section-number">12.1</span> Pakete installieren</h2>
+<p>Die einfachste Möglichkeit, Pakete zu installieren, finden wir in RStudio. Gehe hierfür auf “Packages” und klicke “Install”. Es öffnet sich ein Fenster, in das Du den Namen des Pakets eingibst, das Du installieren möchtest. Klicke dann auf “Install”. Installiere nun das Paket <strong>praise</strong>.</p>
+<details>
+<summary>
+Video anzeigen
+</summary>
+<p><img src="figures/Pakete/Bilder/install_packages.gif" class="img-fluid"></p>
+</details>
+<p>Alternativ kannst Du direkt in der Konsole den Befehl <code>install.packages("praise")</code> eingeben.</p>
 </section>
 <section id="pakete-laden" class="level2" data-number="12.2">
-<h2 data-number="12.2" class="anchored" data-anchor-id="pakete-laden"><span class="header-section-number">12.2</span> Pakete Laden</h2>
-<p>Nachdem wir das benötigte Paket installiert haben, müssen wir es noch laden. Nur dann können wir die im Paket enthaltenen Funktionen nutzen. Hierzu schauen wir uns wieder die beiden Herangehensweisen, über eine Funktion oder die grafische Benutzeroberfläche, an.</p>
-<p><strong>Vorweg</strong>: Bei beiden Möglichkeiten erscheint nach erfolgreichem Laden des Pakets folgender Output in der Konsole:</p>
+<h2 data-number="12.2" class="anchored" data-anchor-id="pakete-laden"><span class="header-section-number">12.2</span> Pakete laden</h2>
+<p>Passend zu unserer Rezeptbuch-Analogie, befindet sich das Paket <strong>praise</strong> nun in unserer Bibliothek (library). Möchten wir nun eine Funktion (ein Rezept) aus dem Paket <strong>praise</strong> nutzen, gehen wir in unsere library und holen das Paket <strong>praise</strong>. In R geschieht dies mit:</p>
 <div class="cell">
-<div class="cell-output-display">
-<p><img src="figures/Pakete/Bilder/laden konsole.png" class="img-fluid" width="105"></p>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(praise)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-<section id="über-die-funktion-library" class="level3" data-number="12.2.1">
-<h3 data-number="12.2.1" class="anchored" data-anchor-id="über-die-funktion-library"><span class="header-section-number">12.2.1</span> Über die Funktion <code>library()</code></h3>
-<p>Wir können das Paket <code>psych</code> laden, indem wir <code>library(psych)</code> ausführen. Hierbei ist es <strong>nicht</strong> wichtig, den Namen des Pakets in Anführungszeichen zu setzen. Wir können diese auch weglassen.</p>
 <blockquote class="blockquote">
-<p><strong><em>Hinweis</em></strong>: Die Funktion <code>library()</code> ist Bestandteil des Standardpakets <strong>base.</strong></p>
+<p><strong>Wichtig</strong>: Wenn wir RStudio schließen, werden automatisch alle Pakete zurück in die library gelegt. Wir müssen also jedes mal <code>library(praise)</code> ausführen, wenn wir eine Analyse mit den Funktionen aus <strong>praise</strong> durchführen wollen.</p>
 </blockquote>
-<p>Alternativ kann man auch die Syntax <code>paket::funktion()</code>, z.B. <code>psych::alpha()</code>, nutzen. Was dieser Weg für Vorteile hat, erfahren wir im Unterabschnitt <a href="#maskierung-wenn-verschiedene-pakete-gleich-benannte-funktionen-enthalten"><strong>Maskierung</strong></a>.</p>
-</section>
-<section id="über-das-häkchen-setzen-in-der-system-library" class="level3" data-number="12.2.2">
-<h3 data-number="12.2.2" class="anchored" data-anchor-id="über-das-häkchen-setzen-in-der-system-library"><span class="header-section-number">12.2.2</span> Über das Häkchen-Setzen in der System Library</h3>
-<p>Alternativ können wir im <strong>Packages-Tab</strong> ein Häkchen bei dem Paket setzen, welches wir laden wollen. Um das gewünschte Paket schneller zu finden, können wir das Suchfeld nutzen.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figures/Pakete/Bilder/laden button.png" class="img-fluid figure-img" width="275"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="maskierung-wenn-verschiedene-pakete-gleich-benannte-funktionen-enthalten" class="level3" data-number="12.2.3">
-<h3 data-number="12.2.3" class="anchored" data-anchor-id="maskierung-wenn-verschiedene-pakete-gleich-benannte-funktionen-enthalten"><span class="header-section-number">12.2.3</span> Maskierung: Wenn verschiedene Pakete gleich benannte Funktionen enthalten</h3>
-<p>Es kann vorkommen, dass Funktionen aus verschiedenen Paketen die gleiche Bezeichnung haben. Beispielsweise gibt es in <strong>psych</strong> und in <strong>ggplot2</strong> eine Funktion mit dem Namen <code>alpha()</code>. Wenn wir ein Paket laden, und vorher ein anderes Paket geladen wurde, in dem eine gleichnamige Funktion vorkommt, bekommen wir folgende Meldung in der Konsole ausgegeben:</p>
-<div class="cell">
-<div class="cell-output-display">
-<p><img src="figures/Pakete/Bilder/mask.png" class="img-fluid" width="350"></p>
-</div>
-</div>
-<p>Die Funktion des zuletzt eingeladenen Pakets wird mit dem gemeinsamen Funktionsnamen (hier: <code>alpha()</code> aus dem Paket <strong>psych</strong>) aufgerufen. Die Funktion aus dem anderen Paket wird <strong>maskiert</strong>, d.h. wir können sie jetzt erstmal nicht mehr nutzen.</p>
-<p>Nachfolgend schauen wir uns <strong>drei Möglichkeiten an, Probleme mit dem Maskieren von Funktionen handzuhaben</strong>: 1) deaktivieren und neu laden von Paketen, 2) eindeutige Referenzierung von Funktionen und 3) das Paket <strong>conflicted</strong> nutzen.</p>
-<p>Wenn wir die Funktion aus dem anderen Paket (<strong>ggplot2</strong>) nutzen wollen, können wir das Paket erst deaktivieren und dann neu laden. Wir können Pakete deaktivieren, indem wir <code>detach("package:ggplot2", unload = TRUE)</code> nutzen oder indem wir das <a href="#über-das-häkchen-setzen-in-der-system-library">Häkchen neben dem Paket im <strong>Packages-Tab</strong> entfernen</a>.</p>
-<p>Wenn wir das Paket mit der gewünschten Funktion laden, erhalten wir folgende Meldung.</p>
-<div class="cell">
-<div class="cell-output-display">
-<p><img src="figures/Pakete/Bilder/mask 2.png" class="img-fluid" width="350"></p>
-</div>
-</div>
-<p>Es handelt sich um die gleiche Meldung wie oben, nur das nun das Paket <strong>ggplot2</strong> als zweites Paket eingelesen wurde und entsprechend die Funktionen im Paket <strong>psych</strong> maskiert wurden.</p>
-<p>Eine Alternative zu dem Laden und Deaktivieren von Paketen ist die <strong>exakte Referenzierung der Funktion auf das Paket</strong> mittels <code>::</code>. Das schreiben wir zwischen das Paket und die Funktion z.B. <code>psych::alpha()</code> oder <code>ggplot2::alpha()</code>. So weiß R eindeutig, welche Funktion wir nutzen wollen.</p>
-<blockquote class="blockquote">
-<p><strong><em>Hinweis</em></strong>: Es kommt häufiger zu <strong>Problemen bei der Ausführung der Funktionen</strong> <code>filter()</code>, <code>select()</code> und <code>summarise()</code> aus dem Paket <strong>dplyr</strong>, wenn die Pakete <strong>stats</strong> (Basispaket; <code>filter()</code>), <strong>MASS</strong> (<code>select()</code>) oder <strong>plyr</strong> (<code>summarise()</code>) ebenfalls geladen sind. Die eindeutige Auswahl von Funktionen mittels <code>::</code> kann bestehende Probleme lösen. Mehr Informationen zur Problematik finden wir in diesem <a href="https://stackoverflow.com/questions/24202120/dplyrselect-function-clashes-with-massselect" target="_blank">Forumseintrag</a>.</p>
-</blockquote>
-<p>Außerdem können wir das Paket <strong>conflicted</strong> nutzen. Wenn wir dieses zu Beginn laden, wird uns jedes Mal, wenn wir eine Funktion nutzen wollen, die nicht eindeutig <em>einem</em> geladenen Paket zugeordnet werden kann, eine <strong>detaillierte Fehlermeldung</strong> ausgegeben. So können wir Probleme durch die Nutzung falscher Funktionen und/oder Ratlosigkeit bzgl. missverständlicher Fehlermeldungen vermeiden. Wir haben außerdem die Möglichkeit, einmalig bzw. für das gesamte Skript eine von mehreren gleichnamigen Funktionen festzulegen. Mehr Informationen zum Paket und dessen Anwendung finden wir <a href="https://www.tidyverse.org/blog/2018/06/conflicted/" target="_blank">hier</a>.</p>
-</section>
-</section>
-<section id="pakete-aktualisieren" class="level2" data-number="12.3">
-<h2 data-number="12.3" class="anchored" data-anchor-id="pakete-aktualisieren"><span class="header-section-number">12.3</span> Pakete Aktualisieren</h2>
-<p>Pakete werden von Zeit zu Zeit aktualisiert. Wir sollten hin und wieder überprüfen, ob es Updates für unsere installierten Pakete gibt. Das können wir wieder wahlweise mit Funktionen oder der grafischen Benutzeroberfläche machen.</p>
-<section id="über-die-funktion-update.packages" class="level3" data-number="12.3.1">
-<h3 data-number="12.3.1" class="anchored" data-anchor-id="über-die-funktion-update.packages"><span class="header-section-number">12.3.1</span> Über die Funktion <code>update.packages()</code></h3>
-<p>Wir können <code>update.packages()</code> ausführen, und bekommen so für jedes Paket, für das eine aktuellere Version vorliegt, in der Konsole die Frage gestellt, ob wir dieses aktualisieren wollen. Mit <code>Yes</code> oder <code>No</code> bzw. deren Anfangsbuchstaben können wir antworten.</p>
-<blockquote class="blockquote">
-<p><strong><em>Hinweis</em></strong>: Die Funktion <code>update.packages()</code> ist Bestandteil des Standardpakets <strong>utils</strong>.</p>
-</blockquote>
-<div class="cell">
-<div class="cell-output-display">
-<p><img src="figures/Pakete/Bilder/update function 1.png" class="img-fluid" width="600"></p>
-</div>
-</div>
-<p>Es kann vorkommen, dass für einige der Pakete, die wir aktualisieren wollen, noch nicht die Binärcodes der aktuellsten Versionen der Pakete für unser Betriebssystem auf CRAN bereit gestellt wurde.</p>
-<div class="cell">
-<div class="cell-output-display">
-<p><img src="figures/Pakete/Bilder/update function 2.png" class="img-fluid" width="375"></p>
-</div>
-</div>
+<p>Lade nun das Paket <strong>praise</strong> und führe den Befehl <code>praise()</code> aus (der Befehl heißt genauso wie das Paket).</p>
 <details>
 <summary>
-Was sind Binär- und Quellcode?
+Lösung anzeigen
 </summary>
-<strong>Binärcode</strong> ist eine Sprache, die zur Verarbeitung digitaler Informationen, d.h. von Rechnern, genutzt wird (Synonym: Maschinencode). Es heißt <em>binär</em> weil es zwei mögliche Zeichen gibt: 0 und 1. <strong>Quellcode</strong> bezeichnet für Menschen lesbare Programmiersprachen. Quellcode wird in Binärcode übersetzt und kann dann von Rechnern ausgeführt werden.
-</details>
-<p>Wir können die jüngsten Binärcodes für die Pakete herunterladen oder die Quellcodes der aktuellsten Versionen kompilieren. Allerdings müssen wir dafür spezielle Tools in R installiert haben, welche man <strong>unter Mac OS und einer älteren als R-Version 4.0.0 zusätzlich herunterladen</strong> muss (z.B. <a href="https://cran.r-project.org/bin/macosx/tools/" target="_blank">hier</a>). Wir können hier auch pauschal <strong>nein</strong> antworten. Es ist ausreichend dafür ein <code>n</code> in die Konsole zu tippen. Nach einiger Zeit sollten wir erneut versuchen, die aktuellste Version herunterzuladen, da dann häufig auch die Binärcodes zur Verfügung stehen.</p>
-</section>
-<section id="über-das-icon-update-oder-den-menüpunkt-check-for-package-updates" class="level3" data-number="12.3.2">
-<h3 data-number="12.3.2" class="anchored" data-anchor-id="über-das-icon-update-oder-den-menüpunkt-check-for-package-updates"><span class="header-section-number">12.3.2</span> Über das Icon Update oder den Menüpunkt Check for Package Updates…</h3>
-<p>Dazu können wir im <strong>Packages-Tab</strong> auf das Icon <strong>Update</strong> …</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figures/Pakete/Bilder/update 1.png" class="img-fluid figure-img" width="275"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>… oder in der Menüleiste am oberen Bildschirmrand auf <strong>Tools</strong> –&gt; <strong>Check for Package Updates…</strong> klicken.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figures/Pakete/Bilder/check for package updates.png" class="img-fluid figure-img" width="700"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Damit öffnet sich ein neues Fenster, in dem all unsere Pakete angezeigt werden, für die es Aktualisierungen gibt.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figures/Pakete/Bilder/update 2.png" class="img-fluid figure-img" width="350"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Wir sehen hier welche Version eines Pakets wir haben (<strong>Installed</strong>), welche neuere Version verfügbar ist (<strong>Available</strong>) und welche Änderungen in der neueren Version vorgenommen wurden (<strong>NEWS</strong>). Bei letzterem müssen wir das jeweilige Seiten-Symbol klicken und werden auf eine Website verwiesen, in der eine Übersicht der Änderungen zu finden ist.</p>
-<p>Wenn wir alle Pakete aktualisieren wollen, wählen wir <strong>Select All</strong>. Dann müssen wir nur noch auf <strong>Install Updates</strong> klicken.</p>
-<p>Wenn wir Pakete, die wir installieren wollen, derzeit geladen haben, öffnet sich ein Fenster, in dem werden wir gefragt, ob wir R neustarten möchten bevor die gewählten Pakete installiert werden sollen. Wir sollten hier <strong>Ja</strong> anklicken. Manchmal kann es vorkommen, dass uns dieses Fenster immer wieder angezeigt wird. Wenn das der Fall ist, sollten wir auf <strong>Nein</strong> klicken.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figures/Pakete/Bilder/aktualisieren warnung.png" class="img-fluid figure-img" width="350"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Manchmal werden die Updates nicht einfach installiert, sondern der Vorgang wird unterbrochen und wir bekommen eine Meldung in der Konsole angezeigt.</p>
 <div class="cell">
-<div class="cell-output-display">
-<p><img src="figures/Pakete/Bilder/update gui.png" class="img-fluid" width="600"></p>
-</div>
-</div>
-<p>Wir werden auch hier darauf hingewiesen, dass für einige der Pakete, die wir aktualisieren wollen, noch nicht die Binärcodes der aktuellsten Versionen der Pakete für unser Betriebssystem auf CRAN bereit gestellt wurden.</p>
-<p>Wir sollen uns nun entscheiden, ob wir die betroffenen Pakete mit den Quellcodes der aktuellsten Versionen kompilieren wollen. Dafür müssen wir aber gewisse Tools in R implementiert haben, welche man mit Mac OS zusätzlich herunterladen muss (z.B. <a href="https://cran.r-project.org/bin/macosx/tools/" target="_blank">hier</a>) Besser ist es, hier pauschal <strong>nein</strong> anzuwählen. Dafür reicht es auch, ein <code>n</code> in die Konsole zu tippen. Wir haben so aber nicht die aktuellste Version der Pakete und sollten in nächster Zeit erneut versuchen, diese zu aktualisieren.</p>
-</section>
-<section id="entwicklerpakete-runterladen" class="level3" data-number="12.3.3">
-<h3 data-number="12.3.3" class="anchored" data-anchor-id="entwicklerpakete-runterladen"><span class="header-section-number">12.3.3</span> Entwicklerpakete runterladen</h3>
-<p>Das Paket <strong>devtools</strong> enthält verschiedene Funktion zum Installieren von Paketen von verschiedenen Quellen (engl.: <em>repositories</em>, z.B. CRAN).</p>
-<p>Mit diesem können wir u.a. sogenannte <strong>Entwicklerpakete</strong> herunterladen. Das sind Pakete, die man nicht direkt von CRAN runterladen kann (z.B. weil die Dokumentation des Pakets und seiner Funktionen nicht den CRAN-Standards entspricht).</p>
-<p>Solche Entwicklerpakete können häufig von <a href="https://github.com" target="_blank">GitHub</a> runtergeladen werden. Zuerst müssen wir dafür das Paket <strong>devtools</strong> installieren. Dann müssen wir dieses laden und anschließend können wir das gewünschte Zielpaket herunterladen.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"devtools"</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(devtools)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Beispiel: Paket horst</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">install_github</span>(<span class="st">"kthorstmann/horst"</span>) <span class="co"># EntwicklerIn / Paket</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Mit <strong>devtools</strong> kann man auch ältere Versionen von Paketen runterladen. Für mehr Informationen dazu siehe <a href="#ältere-paket-versionen-installieren">Ältere Paket-Versionen installieren</a>.</p>
-</section>
-</section>
-<section id="wichtige-hinweise-zur-replizierbarkeit" class="level2" data-number="12.4">
-<h2 data-number="12.4" class="anchored" data-anchor-id="wichtige-hinweise-zur-replizierbarkeit"><span class="header-section-number">12.4</span> Wichtige Hinweise zur Replizierbarkeit</h2>
-<section id="replizierbarkeit-von-r-skripten" class="level3" data-number="12.4.1">
-<h3 data-number="12.4.1" class="anchored" data-anchor-id="replizierbarkeit-von-r-skripten"><span class="header-section-number">12.4.1</span> Replizierbarkeit von R-Skripten</h3>
-<p>Wir haben beide Möglichkeiten, die Nutzung von Funktionen und die der grafischen Benutzeroberfläche vorgestellt, aber die Verwendung von <strong>Funktionen</strong> ist mit Hinblick auf die Replizierbarkeit von Skripten <strong>zu bevorzugen</strong>. Wenn man die grafische Benutzeroberfläche nutzt, findet man im Skript keine Hinweise darüber, welche Pakete genutzt wurden, d.h. <code>library(paket)</code> erscheint <em>nur</em> in der Konsole und eben nicht im R-Skript.</p>
-</section>
-<section id="replizierbarkeit-von-analysen" class="level3" data-number="12.4.2">
-<h3 data-number="12.4.2" class="anchored" data-anchor-id="replizierbarkeit-von-analysen"><span class="header-section-number">12.4.2</span> Replizierbarkeit von Analysen</h3>
-<p>Es ist sinnvoll, bei Analysen zu vermerken, mit welcher Version eines Pakets wir diese durchgeführt haben. Wenn sich die Funktionen eines Pakets durch Updates ändern, kann das auch die Ergebnisse unserer Analysen beeinflussen. Gleiches gilt auch für zu der Zeit genutzte Versionen von unserem Betriebssystem und von R.</p>
-<p>Mit der Funktion <code>sessionInfo()</code> aus dem Standardpaket <strong>utils</strong> bekommen wir viele wichtige Informationen auf einen Schlag:</p>
-<ul>
-<li><span style="color:#FF9B21"><strong><code>R</code>-Version</strong></span></li>
-<li><span style="color:#0533FF"><strong>Betriebssystem-Version</strong></span></li>
-<li><span style="color:#669C35"><strong>geladene Pakete mit Angaben zur Version</strong></span></li>
-</ul>
-<div class="cell">
-<div class="cell-output-display">
-<p><img src="figures/Pakete/Bilder/sessionInfo.png" class="img-fluid" width="700"></p>
-</div>
-</div>
-<blockquote class="blockquote">
-<p><strong><em>Hinweis</em></strong>: Hiermit werden nur Pakete gelistet, die mit <code>library()</code> oder mit Hilfe des GUIs geladen wurden. Wenn wir die eindeutige Zuweisung von Funktionen zu Paketen aus dem Abschnitt <a href="#maskierung-wenn-verschiedene-pakete-gleich-benannte-funktionen-enthalten">Maskierung</a> nutzen z.B. <code>psych::alpha()</code>, werden unsere genutzten Pakete <strong>nicht</strong> gelistet. In diesem Fall müssten wir die Informationen zu den Versionen der Pakete selbst in Erfahrung bringen.</p>
-</blockquote>
-<p>Für noch detailliertere Informationen zu unseren geladenen Paketen können wir <code>session_info()</code> aus dem Paket <strong>devtools</strong> nutzen.</p>
-<p>Hier sehen wir z.B. bei <strong>source</strong> wo wir die Paket heruntergeladen haben (z.B. CRAN) und bei <strong>version</strong> mit welcher R-Version wir sie erstellt haben (z.B. R 3.6.0).</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figures/Pakete/Bilder/session_info.png" class="img-fluid figure-img" width="350"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-</section>
-<section id="weitere-hilfen" class="level2" data-number="12.5">
-<h2 data-number="12.5" class="anchored" data-anchor-id="weitere-hilfen"><span class="header-section-number">12.5</span> Weitere Hilfen</h2>
-<section id="probleme-mit-paketen-und-funktionen" class="level3" data-number="12.5.1">
-<h3 data-number="12.5.1" class="anchored" data-anchor-id="probleme-mit-paketen-und-funktionen"><span class="header-section-number">12.5.1</span> Probleme mit Paketen und Funktionen</h3>
-<p>Bei Problemen mit dem <strong>Installieren bzw. Updaten oder Laden von Paketen</strong> lohnt es sich, in unserem <a href="#faq">FAQ-Eintrag</a> nachzuschauen.</p>
-<p>Wenn wir bestimmte <strong>Funktionen nicht ausführen können</strong>, obwohl wir das notwendige Paket geladen haben, kann das auf <a href="#maskierung-wenn-verschiedene-pakete-gleich-benannte-funktionen-enthalten">Maskierung</a> von gleichnamigen Funktionen aus verschiedenen geladenen Paketen zurückzuführen sein.</p>
-</section>
-<section id="ältere-paket-versionen-installieren" class="level3" data-number="12.5.2">
-<h3 data-number="12.5.2" class="anchored" data-anchor-id="ältere-paket-versionen-installieren"><span class="header-section-number">12.5.2</span> Ältere Paket-Versionen installieren</h3>
-<p>Manchmal möchten wir ältere Versionen von Paketen nutzen. Das kann z.B. der Fall sein, wenn wir eine Analyse, die mit einer älteren Version eines Pakets durchgeführt wurde, replizieren möchten. <a href="https://support.rstudio.com/hc/en-us/articles/219949047-Installing-older-versions-of-packages">Hier</a> finden wir eine Anleitung, wie wir dafür <code>devtools()</code> oder URLs nutzen können.</p>
-</section>
-</section>
-<section id="faq" class="level2 page-columns page-full" data-number="12.6">
-<h2 data-number="12.6" class="anchored" data-anchor-id="faq"><span class="header-section-number">12.6</span> FAQ</h2>
-<p>Manchmal kann es vorkommen, dass wir bestimmte Pakete nicht laden oder gar nicht erst installieren können. Dafür kann es vielfältige Ursachen geben. Im Folgenden schauen wir uns an, wie man das Problem (mit großer Wahrscheinlichkeit) lösen kann.</p>
-<p><em><strong>Wir führen die folgenden drei Möglichkeiten der Reihe nach durch und überprüfen nach jeder Möglichkeit, ob wir das Paket schon nutzen können.</strong></em><br>
-</p>
-<p>Wir schauen uns das exemplarisch für das Paket <strong>car</strong> an. Du änderst nur noch den Namen des Pakets bzw. der Pakete. Manchmal werden noch weitere Pakete - sog. <em><strong>dependencies</strong></em> - geladen. Diese solltest du in die folgenden Lösungswege auch mit einbeziehen.</p>
-<hr>
-<section id="die-pakete-via-befehl-deinstallieren-und-neu-installieren" class="level3 page-columns page-full" data-number="12.6.1">
-<h3 data-number="12.6.1" class="anchored" data-anchor-id="die-pakete-via-befehl-deinstallieren-und-neu-installieren"><span class="header-section-number">12.6.1</span> Die Pakete via Befehl deinstallieren und neu installieren</h3>
-<p><code>remove.packages('car')</code> bzw. <code>remove.packages(c('car', 'survey'))</code><br>
-<code>install.packages('car', dependencies=TRUE)</code><br>
-</p>
-<aside>
-Hilfe bei der <strong>Installation von Paketen</strong> finden wir <a href="./Pakete.html">hier</a>.
-</aside>
-</section>
-<section id="die-neuste-r-version-von-r-und-rstudio-auf-dem-computer-installieren-und-dann-versuchen-das-paket-neu-zu-installieren-bzw.-schritt-1-durchzuführen." class="level3 page-columns page-full" data-number="12.6.2">
-<h3 data-number="12.6.2" class="anchored" data-anchor-id="die-neuste-r-version-von-r-und-rstudio-auf-dem-computer-installieren-und-dann-versuchen-das-paket-neu-zu-installieren-bzw.-schritt-1-durchzuführen."><span class="header-section-number">12.6.2</span> Die neuste R-Version von <a href="https://cran.r-project.org/">R</a> und <a href="https://posit.co/download/rstudio-desktop/">RStudio</a> auf dem Computer installieren und dann versuchen, das Paket neu zu installieren bzw. Schritt 1 durchzuführen.</h3>
-<p>Achte dabei auf die <strong>Kompatibilität mit deiner Hardware und Software</strong>. Unter Umständen kannst du vielleicht nicht die neueste Version installieren, aber eine neuere als deine aktuelle Version. Ältere Versionen von R finden wir auch unter obigem Link. Ältere Versionen von RStudio finden wir <a href="https://support.rstudio.com/hc/en-us/articles/206569407-Older-Versions-of-RStudio" target="_blank">hier</a>.</p>
-<aside>
-Hilfe bei der <strong>Installation von R und RStudio</strong> finden wir unserem <a href="./Installation.html">Kapitel</a>.
-</aside>
-</section>
-<section id="die-pakete-deinstallieren-und-manuell-neu-installieren" class="level3" data-number="12.6.3">
-<h3 data-number="12.6.3" class="anchored" data-anchor-id="die-pakete-deinstallieren-und-manuell-neu-installieren"><span class="header-section-number">12.6.3</span> Die Pakete deinstallieren und <em>manuell</em> neu installieren</h3>
-<p><code>remove.packages('car')</code> bzw. <code>remove.packages(c('car', 'survey'))</code><br>
-</p>
-<p>Das Paket bzw. die Pakete von <a href="https://cran.r-project.org/web/packages/available_packages_by_name.html" target="_blank">CRAN</a> als zip-Datei/en runterladen, dann öffnen (entpacken), den R Library Ordner lokalisieren (in dem werden alle R-internen Dateien gespeichert) und den/die Paket-Ordner dorthin verschieben.</p>
-<hr>
-<p>Um eine möglichst exakte Replikation der Funktionen zu gewährleisten gibt es im folgenden relevante Angaben zum System (<strong>R-Version</strong>, <strong>Betriebssystem</strong>, <strong>geladene Pakete mit Angaben zur Version</strong>), mit welchem diese Seite erstellt wurde.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(praise)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">praise</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R version 4.3.1 (2023-06-16)
-Platform: x86_64-pc-linux-gnu (64-bit)
-Running under: Debian GNU/Linux trixie/sid
-
-Matrix products: default
-BLAS:   /usr/lib/x86_64-linux-gnu/openblas-pthread/libblas.so.3 
-LAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblasp-r0.3.23.so;  LAPACK version 3.11.0
-
-locale:
- [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
- [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
- [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
- [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
- [9] LC_ADDRESS=C               LC_TELEPHONE=C            
-[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
-
-time zone: Etc/UTC
-tzcode source: system (glibc)
-
-attached base packages:
-[1] stats     graphics  grDevices utils     datasets  methods   base     
-
-other attached packages:
-[1] devtools_2.4.5 usethis_2.2.2 
-
-loaded via a namespace (and not attached):
- [1] miniUI_0.1.1.1    jsonlite_1.8.7    compiler_4.3.1    crayon_1.5.2     
- [5] promises_1.2.0.1  Rcpp_1.0.11       stringr_1.5.0     callr_3.7.3      
- [9] later_1.3.1       yaml_2.3.7        fastmap_1.1.1     mime_0.12        
-[13] R6_2.5.1          knitr_1.43        htmlwidgets_1.6.2 profvis_0.3.8    
-[17] shiny_1.7.4.1     rlang_1.1.1       stringi_1.7.12    cachem_1.0.8     
-[21] httpuv_1.6.11     xfun_0.39         fs_1.6.3          pkgload_1.3.2.1  
-[25] memoise_2.0.1     cli_3.6.1         magrittr_2.0.3    ps_1.7.5         
-[29] digest_0.6.33     processx_3.8.2    rstudioapi_0.15.0 xtable_1.8-4     
-[33] remotes_2.4.2.1   lifecycle_1.0.3   prettyunits_1.1.1 vctrs_0.6.3      
-[37] evaluate_0.21     glue_1.6.2        urlchecker_1.0.1  sessioninfo_1.2.2
-[41] pkgbuild_1.4.2    rmarkdown_2.23    purrr_1.0.1       tools_4.3.1      
-[45] ellipsis_0.3.2    htmltools_0.5.5  </code></pre>
+<pre><code>[1] "You are awe-inspiring!"</code></pre>
 </div>
 </div>
-<p>Für Informationen zur Interpretation dieses Outputs schaut auch den Abschnitt <a href="./Pakete.html#replizierbarkeit-von-analysen">Replizierbarkeit von Analysen</a> des Kapitels zu Paketen an.</p>
+</details>
+<p>Schließe nun RStudio und öffne es erneut. Führe danach <code>praise()</code> aus, ohne vorher <code>library(praise)</code> zu nutzen.</p>
+<details>
+<summary>
+Lösung anzeigen
+</summary>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praise</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in praise(): could not find function "praise"</code></pre>
+</div>
+</div>
+<p>Wir müssen das Paket erst wieder aus der library holen!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(praise)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">praise</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "You are cat's pajamas!"</code></pre>
+</div>
+</div>
+</details>
+</section>
+<section id="pakete-aktualisieren" class="level2" data-number="12.3">
+<h2 data-number="12.3" class="anchored" data-anchor-id="pakete-aktualisieren"><span class="header-section-number">12.3</span> Pakete aktualisieren</h2>
+<p>Pakete werden ständig verbessert, es kommen neue Funktionen hinzu oder es werden Fehler behoben. Daher sollten wir ab und an unsere Pakete aktualisieren.</p>
+<p>Damit es nicht zu Fehlern kommt, sollten wir vor der Aktualisierung RStudio schließen und erneut öffnen. Das Updaten der Pakete erfolgt über den “Packages”-Reiter in RStudio und wird in folgendem Video dargestellt:</p>
+<details>
+<summary>
+Video anzeigen
+</summary>
+<p><img src="figures/Pakete/Bilder/update_packages.gif" class="img-fluid"></p>
+</details>
+<p>Alternativ können wir direkt <code>update.packages()</code> in die Console eingeben.</p>
+<p><strong>Achtung</strong>: Manchmal fragt R uns, ob wir neuere R-Paket versionen “from sources” installieren wollen:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>There is a binary version available but the source version is later:
+       binary source needs_compliation
+praise 1.0.0  1.1.0               TRUE</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Do you want to install from sources the package which needs compilation  (Yes/no/cancel)?</code></pre>
+</div>
+</div>
+<p>Long story short: Wir empfehlen hier “no” in die Console einzugeben. Eine Installation “from sources” kann recht kompliziert sein und die neuste Version des Pakets ist meist innerhalb weniger Tage sowieso ohne Installation “from sources” verfügbar.</p>
+<details>
+<summary>
+Video anzeigen
+</summary>
+<p><img src="figures/Pakete/Bilder/update_from_source.gif" class="img-fluid"></p>
+</details>
+</section>
+<section id="fortgeschrittene-themen" class="level2" data-number="12.4">
+<h2 data-number="12.4" class="anchored" data-anchor-id="fortgeschrittene-themen"><span class="header-section-number">12.4</span> Fortgeschrittene Themen</h2>
+<section id="maskierung" class="level3" data-number="12.4.1">
+<h3 data-number="12.4.1" class="anchored" data-anchor-id="maskierung"><span class="header-section-number">12.4.1</span> Maskierung</h3>
+<p>Es kann vorkommen, dass Funktionen aus verschiedenen Paketen die gleiche Bezeichnung haben. Beispielsweise gibt es in den Paketen <strong>psych</strong> und in <strong>ggplot2</strong> jeweils eine Funktion mit dem Namen <code>alpha()</code>. Installiere nun <strong>psych</strong> und <strong>ggplot2</strong> und führe dann folgende Befehle aus:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'psych'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:ggplot2':
+
+    %+%, alpha</code></pre>
+</div>
+</div>
+<p>Wir bekommen hier eine Warnung, dass die Funktion <code>alpha()</code> aus dem <strong>psych</strong>-Paket die <code>alpha()</code>-Funktion aus dem Paket <strong>ggplot2</strong> maskiert. Das heißt, wenn wir nun die Funktion <code>alpha</code> aufrufen, wird die aus dem <strong>psych</strong> Paket genutzt. Wollen wir stattdessen die <code>alpha()</code>-Funktion aus dem Paket <strong>ggplot2</strong> nutzen, müssen wir dies explizit angeben. Dies funktioniert folgendermaßen:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>ggplot2<span class="sc">::</span><span class="fu">alpha</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Wir geben also <code>Paketname::Funktion</code> ein, wodurch R genau weiß, welche Funktion wir nutzen wollen.</p>
+</section>
+<section id="pakete-von-github-etc." class="level3" data-number="12.4.2">
+<h3 data-number="12.4.2" class="anchored" data-anchor-id="pakete-von-github-etc."><span class="header-section-number">12.4.2</span> Pakete von GitHub etc.</h3>
+<p>Die allermeisten Pakete bekommen wir direkt über R. Manchmal gibt es jedoch auch Pakete, die nur über GitHub oder GitLab verfügbar sind. Häufig finden wir direkt auf der GitHub Seite einen Hinweis, wie das Paket installiert werden kann: <img src="figures/Pakete/Bilder/install_from_github.png" class="img-fluid"> Das klappt manchmal, häufig brauchen wir jedoch zusätzliche Werkzeuge, die wir vorher installieren müssen (z.B. <a href="https://cran.r-project.org/bin/windows/Rtools/">RTools</a> unter Windows, <a href="https://apps.apple.com/de/app/xcode/id497799835?mt=12">Xcode</a> unter macOS oder <a href="https://packages.ubuntu.com/focal/build-essential">build-essential</a> unter Linux). Viel Glück!</p>
 
 
 </section>
