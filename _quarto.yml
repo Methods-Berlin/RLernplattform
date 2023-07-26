@@ -22,6 +22,7 @@ book:
         - Funktionen.qmd
         - Pakete.qmd
         - Fehler.qmd
+        - Hilfe_aus_dem_Netz.qmd
     - part: "Datenaufbereitung"
       chapters:
         - Daten-importieren.qmd
