@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>R Lernplattform - 4&nbsp; R als Taschenrechner</title>
+<title>R Lernplattform - 14&nbsp; Hilfe aus dem Netz</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Skripte.html" rel="next">
-<link href="./Einfuehrung_in_RStudio.html" rel="prev">
+<link href="./Daten-importieren.html" rel="next">
+<link href="./Fehler.html" rel="prev">
 <link href="./figures/Logo_Favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -97,8 +97,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -111,7 +109,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Quick_Start_Installation.html">R Crash Course</a></li><li class="breadcrumb-item"><a href="./R_als_Taschenrechner.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">R als Taschenrechner</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Quick_Start_Installation.html">R Crash Course</a></li><li class="breadcrumb-item"><a href="./Hilfe_aus_dem_Netz.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Hilfe aus dem Netz</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -165,7 +163,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./R_als_Taschenrechner.html" class="sidebar-item-text sidebar-link active">
+  <a href="./R_als_Taschenrechner.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">R als Taschenrechner</span></span></a>
   </div>
 </li>
@@ -225,7 +223,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Hilfe_aus_dem_Netz.html" class="sidebar-item-text sidebar-link">
+  <a href="./Hilfe_aus_dem_Netz.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Hilfe aus dem Netz</span></span></a>
   </div>
 </li>
@@ -352,7 +350,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#variablen-werte-speichern" id="toc-variablen-werte-speichern" class="nav-link active" data-scroll-target="#variablen-werte-speichern"><span class="header-section-number">4.1</span> Variablen: Werte speichern</a></li>
+  <li><a href="#neue-funktionen" id="toc-neue-funktionen" class="nav-link active" data-scroll-target="#neue-funktionen"><span class="header-section-number">14.1</span> Neue Funktionen</a></li>
+  <li><a href="#fehlermeldungen" id="toc-fehlermeldungen" class="nav-link" data-scroll-target="#fehlermeldungen"><span class="header-section-number">14.2</span> Fehlermeldungen</a></li>
+  <li><a href="#hilfe-von-chatbots" id="toc-hilfe-von-chatbots" class="nav-link" data-scroll-target="#hilfe-von-chatbots"><span class="header-section-number">14.3</span> Hilfe von Chatbots</a></li>
   </ul>
 </nav>
     </div>
@@ -361,7 +361,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">R als Taschenrechner</span></h1>
+<h1 class="title"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Hilfe aus dem Netz</span></h1>
 </div>
 
 
@@ -376,131 +376,59 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>R ist eigentlich eine Programmiersprache – tatsächlich sogar <a href="https://survey.stackoverflow.co/2023/#section-most-popular-technologies-programming-scripting-and-markup-languages">eine ziemlich beliebte</a>. Im Gegensatz zu vielen anderen Programmiersprachen liegt der Fokus bei R auf statistischen Berechnungen.</p>
-<p>Um ein Gefühl für R zu bekommen, wollen wir uns R erst einmal als eine Art Taschenrechner vorstellen und ein paar einfache Aufgaben lösen. Öffne RStudio und und tippe <code>1+1</code> in das Fenster mit dem Namen <code>Console</code> ein. Bestätige Deine Eingabe mit der <code>Enter</code>-Taste</p>
+<p>R ist eine Open Source Programmiersprache mit vielen aktiven und engagierten Nutzer:innen. Auf Plattformen wie Stack Overflow, GitHub und speziellen R-Foren werden alle möglichen Probleme, Lösungen und neue Pakete mit nützlichen Zusatzfunktionen diskutiert. Auch als Anfänger:innen können wir mit Leichtigkeit auf dieses Expertenwissen zurückgreifen, in dem wir danach googlen oder einen Chatbot wie ChatGPT, Google Bard oder Bing Chat um Rat fragen.</p>
+<section id="neue-funktionen" class="level2" data-number="14.1">
+<h2 data-number="14.1" class="anchored" data-anchor-id="neue-funktionen"><span class="header-section-number">14.1</span> Neue Funktionen</h2>
+<p>Normalerweise gibt es für fast jedes Problem eine passende R-Funktion. Die Kunst ist, sie zu finden.</p>
+<p>Kehren wir zum Y-BOCS-Beispiel zurück und nehmen wir an, dass wir die Mittelwerte der Symptome von 4 Personen berechnen wollen. Zuerst erstellen wir das data.frame.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">+</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>ybocs <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">1</span>,</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>                  <span class="dv">0</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">4</span>,</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>                  <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">0</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">0</span>,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>                  <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">3</span>), </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">nrow =</span> <span class="dv">4</span>, </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>                <span class="at">ncol =</span> <span class="dv">10</span>, </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>                <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>ybocs_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(ybocs)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(ybocs_df) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"frage 1"</span>, <span class="st">"frage 2"</span>, <span class="st">"frage 3"</span>, <span class="st">"frage 4"</span>, <span class="st">"frage 5"</span>,</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"frage 6"</span>, <span class="st">"frage 7"</span>, <span class="st">"frage 8"</span>, <span class="st">"frage 9"</span>, <span class="st">"frage 10"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Wie berechnen wir nun die Mittelwerte der Personen? Wir könnten auf <code>mean()</code> zurückgreifen und für jede Person einzeln einen Mittelwert berechnen. Das wäre aber ziemlich umständlich. Deshalb schauen wir zunächst, ob wir mit Hilfe von Google eine bessere Lösung finden.</p>
+<p>Bei der Google-Suche ist darauf zu achten, dass wir das Problem so allgemein wie möglich formulieren, am besten auch auf Englisch. Eine spezielle Suche nach “How can I get the Y-BOCS persons means” wird uns wahrscheinlich nicht zum Ziel führen, aber eine allgemein formulierte Frage wie “compute row means of a data.frame in R” klingt vielversprechend.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Hilfe_aus_dem_Netz/google_suche.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Tada! Auf der ersten Seite von Google gibt es viele hilfreiche Tipps. <code>rowMeans()</code> macht genau das, was wir wollen.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rowMeans</span>(ybocs_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
+<pre><code>[1] 1.8 2.4 2.6 1.6</code></pre>
 </div>
 </div>
-<details>
-<summary>
-Video anzeigen
-</summary>
-<p><img src="figures/R_als_Taschenrechner/R_as_calculator.gif" class="img-fluid"></p>
-</details>
-<p>Versuche nun folgende Aufgaben mit R zu lösen:</p>
-<ol type="1">
-<li>12*54</li>
-<li>43/34</li>
-<li>2^2</li>
-<li>log(123)</li>
-</ol>
-<section id="variablen-werte-speichern" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="variablen-werte-speichern"><span class="header-section-number">4.1</span> Variablen: Werte speichern</h2>
-<p>Bisher haben wir die gesamte Berechnung auf einmal in die Konsole eingegeben. Manchmal wollen wir aber erst ein Zwischenergebnis berechnen und dann mit diesem weiterarbeiten.</p>
-<p>Wollen wir <span class="math inline">\((1+2+3)/3\)</span> berechnen, könnten wir erst <span class="math inline">\(1+2+3\)</span> addieren und dann durch drei teilen. Hierfür müssen wir das Zwischenergebnis <span class="math inline">\(1+2+3\)</span> zuerst in einer sogenannten Variable speichern.</p>
-<p>Aus der Schule kennen wir vielleicht noch folgende Schreibweise: <span class="math inline">\(x = 1 + 2 + 3\)</span>. Wir “speichern” hier das Zwischenergebnis (6) in der Variable <span class="math inline">\(x\)</span>. Das gleiche können wir auch in R machen:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">2</span> <span class="sc">+</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<details>
-<summary>
-Video anzeigen
-</summary>
-<p><img src="figures/R_als_Taschenrechner/saving_variables.gif" class="img-fluid"></p>
-</details>
-<p>Wichtig ist, dass Du immer <code>Enter</code> drückst wenn Du mit Deiner Eingabe fertig bist, um den Befehl auch auszuführen.</p>
-<p>R hat nun die Variable <span class="math inline">\(x\)</span> erstellt und in dieser das Ergebnis von <span class="math inline">\(1+2+3\)</span> gespeichert. Wir können uns das auch direkt ausgeben lassen, indem wir einfach <code>x</code> eingeben und <code>Enter</code> drücken:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 6</code></pre>
+</section>
+<section id="fehlermeldungen" class="level2" data-number="14.2">
+<h2 data-number="14.2" class="anchored" data-anchor-id="fehlermeldungen"><span class="header-section-number">14.2</span> Fehlermeldungen</h2>
+<p>Fehlermeldungen in R sind auf den ersten Blick oft kryptisch. Eine kurze Google-Suche nach der Fehlermeldung bringt oft Klarheit. Da die allermeisten Benutzer:innen R in englischer Sprache benutzen, bekommen wir beim Googlen nach englischen Fehlermeldungen viel mehr Hinweise als beim Googlen nach deutschen Fehlermeldungen. Wir empfehlen daher, R in englischer Sprache zu benutzen. Mit <code>Sys.setenv(LANG = "en")</code> kann R auf Englisch umgestellt werden.</p>
+</section>
+<section id="hilfe-von-chatbots" class="level2" data-number="14.3">
+<h2 data-number="14.3" class="anchored" data-anchor-id="hilfe-von-chatbots"><span class="header-section-number">14.3</span> Hilfe von Chatbots</h2>
+<p>Anstatt Suchmaschinen zu benutzen, können wir auch direkt Chatbots wie ChatGPT um Hilfe bitten.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Hilfe_aus_dem_Netz/chatGPT.png" class="img-fluid figure-img"></p>
+</figure>
 </div>
 </div>
-<details>
-<summary>
-Video anzeigen
-</summary>
-<p><img src="figures/R_als_Taschenrechner/saving_variables_show.gif" class="img-fluid"></p>
-</details>
-<p>Und wir können <code>x</code> nun auch in weiteren Berechnungen nutzen:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>x<span class="sc">/</span><span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
 </div>
-</div>
-<details>
-<summary>
-Video anzeigen
-</summary>
-<p><img src="figures/R_als_Taschenrechner/saving_variables_division.gif" class="img-fluid"></p>
-</details>
-<p>Aufgaben:</p>
-<ol type="1">
-<li>Berechne <span class="math inline">\(12*54/3\)</span> und speichere das Ergebnis in der Variable <span class="math inline">\(a\)</span>. Lass Dir das Ergebnis anzeigen</li>
-<li>Teile <span class="math inline">\(a\)</span> durch 12</li>
-<li>Addiere <span class="math inline">\(-10\)</span> zu a</li>
-<li>Zeige den Inhalt von a erneut an. Was fällt Dir auf?</li>
-</ol>
-<details>
-<summary>
-Lösung
-</summary>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">=</span> <span class="dv">12</span><span class="sc">*</span><span class="dv">54</span><span class="sc">/</span><span class="dv">3</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 216</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>a<span class="sc">/</span><span class="dv">12</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 18</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>a <span class="sc">-</span> <span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 206</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 216</code></pre>
-</div>
-</div>
-<p><code>a</code> hat sich nicht verändert!</p>
-</details>
-<p>Probiere nun folgendes aus:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>b <span class="ot">=</span> <span class="dv">3</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">=</span> b <span class="sc">+</span> <span class="dv">2</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<details>
-<summary>
-Lösung
-</summary>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>b <span class="ot">=</span> <span class="dv">3</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">=</span> b <span class="sc">+</span> <span class="dv">2</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 5</code></pre>
-</div>
-</div>
-<p>Diesmal hat sich <code>b</code> verändert! Wenn wir eine Variable verändern wollen, müssen wir dies immer explizit machen.</p>
-</details>
-<p>Zum Abschluss noch zwei Hinweise:</p>
-<ol type="1">
-<li>In R ist es üblich, statt <code>a = 1 + 2 + 3</code> den Zuweisungspfeil <code>&lt;-</code> zu nutzen: <code>a &lt;- 1 + 2 + 3</code>. Im Prinzip ist es vollkommen egal, welche der beiden Varianten (<code>=</code> oder <code>&lt;-</code>) du nutzt. Im Rest der RLernplattform werden wir jedoch <code>&lt;-</code> verwenden.</li>
-<li>Variablen dürfen auch längere Namen als <code>x</code> oder <code>a</code> haben. Gib ihnen am besten Namen, die für Dich Sinn machen. Zum Beispiel <code>Summe = 1 + 2 + 3</code>.</li>
-</ol>
+<p>Der Code von Chatbots sollte sorgfältig geprüft werden, da er nicht immer korrekt ist. Außerdem kennen Chatbots oft neue Funktionen oder Pakete noch nicht.</p>
 
 
 </section>
@@ -741,13 +669,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./Einfuehrung_in_RStudio.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">RStudio</span></span>
+      <a href="./Fehler.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Fehler</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Skripte.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Skripte</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./Daten-importieren.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Daten importieren</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
