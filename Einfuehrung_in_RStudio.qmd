@@ -11,21 +11,9 @@ Beim ersten Öffnen sieht RStudio wie folgt aus:
 knitr::include_graphics("figures/Einführung/Bilder/RStudio/RStudio 1.png")
 ```
 
-Wir wollen nun ein neues R-Skript öffnen, in dem wir Code schreiben können. Dazu klicken wir oben links in der Titelleiste auf File > New File > R Script. Alternativ können wir darunter auf <img src="figures/Einführung/Bilder/RStudio/Button.png" style=" width:4%" /> klicken und wählen R Script aus.
+Zuerst wollen ein neues R-Skript öffnen, in dem wir Code schreiben können. Dazu klicken wir oben links in der Titelleiste auf File > New File > R Script. Alternativ können wir darunter auf <img src="figures/Einführung/Bilder/RStudio/Button.png" style=" width:4%" /> klicken und wählen R Script aus. Im oberen linken Bildschirmbereich öffnet sich ein neues Fenster mit einem leeren R-Skript. Nun gliedert sich die Entwicklungsumgebung <span class="r">RStudio</span> in vier verschiedene Bereiche:\
 
-Im linken oberen Viertel öffnet sich nun ein neues Fenster mit einem leeren R-Skript.
-
-```{r}
-#| out.width: 700px
-#| fig.align: center
-#| eval: false
-#| echo: false
-knitr::include_graphics("figures/Einführung/Bilder/RStudio/RStudio 2.png")
-```
-
-Nun gliedert sich die Entwicklungsumgebung <span class="r">RStudio</span> in **vier verschiedene Bereiche**:\
-
-In das <span class="r script">**Skript**</span> können wir unseren Code schreiben. Wird der Code ausgeführt, erscheint er zusammen mit dem Ergebnis in der <span class="r" style="color:#0533FF;">**Konsole**</span>. Das <span class="r env">**Environment**</span> gibt uns einen Überblick über aktuell geladene Objekte. Eine Übersicht über verschiedene Pakete mit Zusatzinformationen finden wir unter <span class="r" style="color:#669C35;">**Packages**</span> und Informationen zu R und zu bestimmten Funktionen finden wir unter <span class="r" style="color:#669C35;">**Help**</span>.
+In das <span class="r script">**Skript**</span> können wir unseren Code schreiben. Wird der Code ausgeführt, erscheint er zusammen mit dem Ergebnis in der <span class="r" style="color:#0533FF;">**Konsole**</span>. Das <span class="r env">**Environment**</span> gibt uns einen Überblick über aktuell geladene Objekte. Eine Übersicht über verschiedene Pakete mit Zusatzinformationen finden wir unter <span class="r" style="color:#669C35;">**Packages**</span> und Informationen zu R und bestimmten Funktionen finden wir unter <span class="r" style="color:#669C35;">**Help**</span>.
 
 
 ```{r}
@@ -52,7 +40,7 @@ Hier schreiben wir Code und Kommentare.
 knitr::include_graphics("figures/Einführung/Bilder/RStudio/skript.png")
 ```
 
-Eine Zeile mit R-Code kann entweder mit dem Tastaturkürzeln **strg** + **enter**\ (Windows) oder **cmd** + **enter**\ (macOS) ausgeführt werden. Alternativ können wir auch den Cursor in die gewünschte Zeile setzen und auf den Run-Knopf klicken. Mehrere Zeile Code können ausgeführt werden, in dem wir sie markieren und über das jeweilige Tastenkürzel ausführen oder Run klicken.
+Eine Zeile mit R-Code führen wir aus, indem wir den Cursor in die gewünschte Zeile setzen und dann die Tastenkombination **strg** + **enter**\ (Windows) oder **cmd** + **enter**\ (macOS) nutzen oder auf den Run-Knopf obenlinks klicken. Mehrere Zeile Code können ausgeführt werden, in dem wir sie markieren und über das jeweilige Tastenkürzel ausführen oder Run klicken.
 
 ```{r}
 #| out.width: 700px
