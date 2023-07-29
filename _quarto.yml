@@ -22,6 +22,7 @@ book:
         - Funktionen.qmd
         - Pakete.qmd
         - Fehler.qmd
+        - Best_Practice.qmd
     - part: "Datenaufbereitung"
       chapters:
         - Daten-importieren.qmd
