@@ -1,0 +1,192 @@
+---
+title: "Pipe-Operator"
+output: html_document
+date: "2023-08-01"
+---
+
+
+# Pipe-Operator 
+
+Pipe-operator erlaubt die Verkettung mehrerer Funktionen aufeinander, ohne dass man den Output jeder Funktion in ein Objekt speichern muss. Es gibt mehrere Arten von "pipes". Wir werden hier zwei vorstellen: base-Pipe "|>" (auch native pipe) und magrittr-Pipe "%>%". Zuerst schauen wir uns die Idee, Nutzung und Vorteile eines Pipe-Operators anhand des base-Pipes "|>" an.
+
+## Base-Pipe "|>" 
+
+Ein Pipe-operator leitet ("pipes") den Output einer Funktion als Input für die nächste Funktion weiter. Genauer gesagt wird ein Objekt bzw. Ergebnis einer Funktion auf der linken Seite (lhs) des Pipes als erstes Argument an die Funktion auf der rechten Seite (rhs) weitergeleitet. 
+
+Damit gilt: 
+f(x) ist gleich x |> f()  und 
+f(x,y) ist gleich x |> f(y). 
+
+
+Schauen wir uns ein einfaches Beispiel an: 
+
+```{r}
+
+x <- 2.456
+
+round(x, 2)     #der klassische Weg 
+
+x |>  round(2)  # mit piping: der Pipe nimmt das Objekt "x" von seiner linken Seite und leitet es als erstes Argument in die Funktion "round" auf seiner rechten Seite weiter
+
+```
+
+Es ist auch möglich, das Objekt bzw. Ergebnis von der linken Seite als nicht-erstes Argument auf die rechte Seite zu leiten. Das wird mit einem "_" Platzhalter gemacht und dafür muss der gewünschte Ort bzw. das Argument der Funktion explizit genannt werden.
+
+```{r}
+
+y <- 2 
+y |> round(3.4567, digits = _) # wir benutzen y (=2) um eine neue Zahl auf 2 Nachkommastellen zu runden, indem wir das Argument "digits" explizit nennen
+
+y |> round(3.4567, _) # wenn wir das Argument nicht nennen, bekommen wir eine Fehlermeldung: "Error: pipe placeholder can only be used as a named argument"
+
+```
+
+
+Wir können auch dasselbe Ergebnis mit dem ersten Beispiel erzeugen, ohne ein weiteres Objekt "y" zu erstellen, indem wir einen weiteren Pipe hinzufügen: 
+
+```{r}
+
+x  |>  round(0) |>           # x auf 0 Nachkommastellen runden, damit wir eine ganze Zahl bekommen (= 2)
+  round(3.4567, digits = _)  # Zahl auf 2 Nachkommastellen runden, indem wir das Argument "digits" explizit nennen
+
+```
+
+
+Jetzt schauen wir uns an einem anderen Beispiel an, wie wir weitere Pipes bzw. Funktionen aufeinander verketten können. 
+
+Wir wollen einen Vektor erstellen, einen weiteren Vektor anhängen, die Zahlen aufsummieren, die Quadratwurzel ziehen und das Ergebnis als Objekt speichern. 
+
+
+Der klassische Weg: 
+
+```{r}
+
+numbers <- c(1, 2, 3, 4, 5)                            # Vektor erstellen  
+numbers_appended <- append(numbers, values = c(6,7,8)) # Zusätzliche Zahlen an den Vektor anhängen
+sum_numbers <- sum(numbers_appended)                   # Summe berechnen
+result <- sqrt(sum_numbers)                            # Quadratwurzel ziehen
+print(result)                                          # Ergebnis ausgeben lassen
+
+```
+
+Wie wir sehen können, ist diese Art von kodieren zwar gut lesbar und erleichtert die Fehlerbehebung (debugging), resultiert aber in einer großen Anzahl an gespeicherten Objekten und nimmt viel Platz ein. 
+
+Alternativ können wir, um den Code kompakter zu machen, die Funktionen verschachteln (nesten): 
+
+```{r}
+
+result <- sqrt(sum(append(c(1, 2, 3, 4, 5), values = c(6,7,8))))
+print(result)
+
+```
+Damit sieht der Code zwar schöner und kompakter aus, erschwert aber die Lesbarkeit, Verständlichkeit sowie Fehlerbehebung. 
+
+
+Nun schauen wir uns an, wie wir dasselbe mithilfe des Pipe-operators machen können: 
+
+```{r}
+
+result <- c(1, 2, 3, 4, 5) |>  # Vektor erstellen 
+      append(c(6,7,8)) |>      # Zusätzliche Zahlen zum Vektor anhängen
+      sum() |>                 # Summe berechnen
+      sqrt()                   # Quadratwurzel ziehen
+          
+print(result)
+
+```
+
+"|>" wird als "und dann" interpretiert und erlaubt damit, dass der Code sequentiell statt von innen nach außen (inside-out) gelesen wird. 
+
+Analog wird der obige Code-chunk folgend gelesen: Speichere folgendes unter dem Objekt "result": erstelle einen numerischen Vektor UND DANN hänge die Zahlen eines weiteren Vektors an den Vektor an UND DANN berechne die Summe UND DANN ziehe die Quadratwurzel aus der Summe. 
+
+Im Vergleich zu beiden "klassischen" Arten von Kodieren konnten wir anhand der Beispiele sehen, dass die Nutzung eines Pipe-Operators mehrere Vorteile hat:
+
+1) Verbesserte Lesbarkeit und Verständlichkeit
+- Der Code wird in einer schrittweisen Abfolge von Funktionen gelesen (ähnlich wie in natürlicher Sprache), wodurch es leichter wird, den Datenfluss (data flow) zu verfolgen.
+
+2) Effiziente Datenmanipulation
+- Der Pipe-Operator vermeidet unnötige Zwischenvariablen und ermöglicht eine elegante Verkettung von Funktionen.
+
+3) Einfache Anpassung
+- Wenn weitere Funktionen hinzugefügt oder entfernt werden müssen, kann dies leicht durch Hinzufügen oder Entfernen von Funktionsaufrufen im Pipe-Operator erfolgen.
+
+
+## Magrittr-Pipe ("%>%")
+
+Eine Alternative zum base-Pipe-Operator ("|>") is der am meisten verbreitete magrittr-Pipe-Operator ("%>%") aus dem Paket "magrittr". Der magrittr-Pipe funktioniert sehr ähnlich wie der base-Pipe: 
+
+```{r}
+
+x <- 5.678
+
+# base-Pipe 
+x |>  round(2)
+
+# magrittr-Pipe
+x %>% round(2)
+
+```
+
+
+Es gibt allerdings auch einige Unterschiede. Die Wichtigsten sind:    
+
+1) Verfügbarkeit
+- base-Pipe ist in R standardmäßig verfügbar, ohne dass zusätzliche Pakete installiert werden müssen 
+- magrittr-Pipe ist Teil des "magrittr" Pakets und muss separat installiert und geladen werden
+Das Paket gehört allerdings zu den Abhängigkeiten (dependencies) des "dplyr" Pakets. Das bedeutet, dass "magrittr" benötigt wird, damit "dplyr" ordnungsgemäß funktioniert - es wird automatisch installiert, wenn "dplyr" installiert wird. Das heißt, dass wenn das "dplyr" Paket schon installiert ist, dann ist das "magrittr" Paket schon dabei.
+
+2) Funktionsaufruf
+- base-Pipe erfordert den Funktionsaufruf (die Klammern nach der Funktion), z.B. "sqrt()"
+- magrittr-Pipe erfordert keinen Funktionsaufruf, d.h. "sqrt" (ohne die Klammern) funktioniert genauso wie "sqrt()"
+
+```{r}
+
+1:5 |> sum()
+1:5 |> sum   # hier bekommen wir eine Fehlermeldung
+
+1:5 %>% sum  # hier nicht 
+
+```
+
+Entsprechend kann der Code-chunk aus dem vorherigen Beispiel mit dem magrittr-Pipe alternativ auch so aussehen: 
+```{r}
+
+result <- c(1, 2, 3, 4, 5) %>%   
+      append(c(6,7,8)) %>%      
+      sum %>%                 
+      sqrt                   
+          
+print(result)
+
+```
+
+
+3) Platzhalter:
+- base-Pipe verwendet den "_" als Platzhalter, der nur als Argument benutzt werden darf und explizit gennant werden muss
+- magrittr-Pipe verwendet den "." als Platzhalter, der mehr als nur ein Argument fungieren kann
+
+```{r}
+
+x <- 3
+
+# base-Pipe 
+x |> round(3.4567, digits = _) # "_" als Platzhalter & Argument "digits" muss genannt werden
+
+# magrittr-Pipe
+x %>% round(3.4567, .) # "." als Platzhalter & Argument muss nicht genannt werden
+
+```
+
+Wir schauen uns ein weiteres komplexeres Beispiel an, um den Unterschied zwischen den Platzhaltern zu veranschaulichen: 
+```{r}
+
+data <- data.frame(var1 = c(1, 2, 3, 4, 5),
+                   var2 = c(10, 9, 8, 7, 10),
+                   var3 = c(11, 12, 16, 14, 17))
+
+data %>% .$var1 %>% cor(., data$var2) # dies funktioniert
+
+data |>  _$var1 |>  cor(_, data$var2) # dies funktioniert nicht, weil der Platzhalter "_" nur als Argument verwendet werden darf und wir bekommen eine Fehlermeldung
+
+```
+
