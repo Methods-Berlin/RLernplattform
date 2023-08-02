@@ -53,7 +53,8 @@ eignungstest <- read.csv("eignungstest.csv")
 # Datensatz verändern
 eignungstest$positive_affect_1_recoded <- 5-eignungstest$positive_affect
 # veränderten Datensatz in neuer Datei speichern:
-write.csv(eignungstest, "eignungstest_recoded.csv")
+write.csv(eignungstest, 
+          file = "eignungstest_recoded.csv")
 ```
 
 ## Kommentare
