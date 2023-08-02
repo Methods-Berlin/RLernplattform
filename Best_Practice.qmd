@@ -43,13 +43,17 @@ T
 
 ## Datensätze
 
-Am Anfang eines Skripts ist es sinnvoll, den Datensatz, den man benutzen will, einmal neu zuzuweisen. So überschreibt man nicht das Original und kann bei Fehlern immer wieder darauf zurückgreifen. Ihr könnt ihn zum Beispiel 'dat' nennen.
+Der original Datensatz sollte immer im Roh-Zustand vorliegen und nie überschrieben werden. Wenn wir in R Veränderungen am Datensatz vornehmen (z.B. recodieren) und diese speichern wollen,
+dann sollten wir hierfür immer eine Datei erstellen.
 
 ```{r}
 #| eval: false
-
-dat <- eignungstest
-
+# Original-Datensatz einlesen:
+eignungstest <- read.csv("eignungstest.csv")
+# Datensatz verändern
+eignungstest$positive_affect_1_recoded <- 5-eignungstest$positive_affect
+# veränderten Datensatz in neuer Datei speichern:
+write.csv(eignungstest, "eignungstest_recoded.csv")
 ```
 
 ## Kommentare
