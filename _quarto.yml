@@ -23,6 +23,7 @@ book:
         - Pakete.qmd
         - Fehler.qmd
         - Hilfe_aus_dem_Netz.qmd
+        - Best_Practice.qmd
     - part: "Datenaufbereitung"
       chapters:
         - Daten-importieren.qmd

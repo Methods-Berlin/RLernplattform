@@ -6,3 +6,4 @@
 _book/
 docs/
 /.quarto/
+.DS_Store
