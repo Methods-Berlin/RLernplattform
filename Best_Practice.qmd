@@ -1,4 +1,4 @@
-# Style Guide
+# Best Practice
 
 Wenn wir anfangen R häufiger zu benutzen und unsere Skripte mit anderen zu teilen, ist es wichtig, dass diese gut lesbar und verständlich sind. Sonst ist es schwierig, sich in dem Skript zurecht zu finden, und es kann passieren, dass man später selbst nicht mehr weiß, was in dem Skript gemacht wurde.
 
@@ -35,7 +35,6 @@ mathe_abschluss
 
 # schlechte Benennung
 
-AbiSchnitt
 mathematikabschlussnote
 T
 
@@ -44,7 +43,7 @@ T
 ## Datensätze
 
 Der original Datensatz sollte immer im Roh-Zustand vorliegen und nie überschrieben werden. Wenn wir in R Veränderungen am Datensatz vornehmen (z.B. recodieren) und diese speichern wollen,
-dann sollten wir hierfür immer eine Datei erstellen.
+dann sollten wir hierfür immer eine neue Datei erstellen.
 
 ```{r}
 #| eval: false
