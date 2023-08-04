@@ -1,25 +1,3 @@
-```{css echo=FALSE}
-/* Style for the banner */
-.banner {
-  background-color: #009193;
-  color: white;
-  padding: 20px;
-  text-align: center;
-}
-
-/* Style for the section banners */
-.section-banner {
-  background-color: #f8f9fa;
-  padding: 10px;
-  text-align: center;
-}
-```
-
-
-<div class="banner">
-  <img src="figures/Logo_Lernplattform.png" alt="Logo" style="max-width: 100%; height: auto;">
-</div>
-
 # Willkommen auf der R-Lernplattform!
 
 ````{r, include = FALSE}
