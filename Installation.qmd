@@ -304,7 +304,7 @@ knitr::include_graphics("figures/Installation/Bilder/0_ueber_mac.png")
 
 
 
-Falls die Mindestanforderungen **nicht** erfüllt sind, können wir trotzdem auf der gleichen Seite runterscrollen und nachschauen, ob eine **ältere Version** (für Mac OS X **10.9+** oder **10.6-10.8**) vorliegt. Noch ältere R-Versionen für **Mac OS X 10.4 und älter** finden wir <a href="https://cran.r-project.org/bin/macosx/old/index-old.html" target="_blank">hier</a>.
+Falls die Mindestanforderungen **nicht** erfüllt sind, können wir trotzdem auf der gleichen Seite runterscrollen und nachschauen, ob eine **ältere Version** (für Mac OS X **10.9+** oder **10.6-10.8**) vorliegt.
 
 Wenn die .pkg- bzw. .dmg-Datei heruntergeladen wurde, klicken wir auf diese. Dann öffnet sich folgendes Fenster:
   
