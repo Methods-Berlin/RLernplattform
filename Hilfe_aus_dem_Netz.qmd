@@ -1,0 +1,55 @@
+# Hilfe aus dem Netz
+
+R ist eine Open Source Programmiersprache mit vielen aktiven und engagierten Nutzer:innen. Auf Plattformen wie Stack Overflow, GitHub und speziellen R-Foren werden alle möglichen Probleme, Lösungen und neue Pakete mit nützlichen Zusatzfunktionen diskutiert. Auch als Anfänger:innen können wir mit Leichtigkeit auf dieses Expertenwissen zurückgreifen, in dem wir danach googlen oder einen Chatbot wie ChatGPT, Google Bard oder Bing Chat um Rat fragen.
+
+
+## Neue Funktionen
+
+Normalerweise gibt es für fast jedes Problem eine passende R-Funktion. Die Kunst ist, sie zu finden. 
+
+Kehren wir zum Y-BOCS-Beispiel zurück und nehmen wir an, dass wir die Mittelwerte der Symptome von 4 Personen berechnen wollen. Zuerst erstellen wir das data.frame.
+
+
+```{r}
+ybocs <- matrix(c(3, 4, 2, 0, 2, 0, 3, 2, 1, 1,
+                  0, 4, 3, 4, 2, 2, 1, 2, 2, 4,
+                  3, 4, 3, 3, 0, 3, 3, 3, 4, 0,
+                  1, 3, 3, 0, 1, 3, 2, 0, 0, 3), 
+                nrow = 4, 
+                ncol = 10, 
+                byrow = TRUE)
+ybocs_df <- data.frame(ybocs)
+colnames(ybocs_df) <- c("frage 1", "frage 2", "frage 3", "frage 4", "frage 5",
+                        "frage 6", "frage 7", "frage 8", "frage 9", "frage 10")
+```
+
+Wie berechnen wir nun die Mittelwerte der Personen? Wir könnten auf `mean()` zurückgreifen und für jede Person einzeln einen Mittelwert berechnen. Das wäre aber ziemlich umständlich. Deshalb schauen wir zunächst, ob wir mit Hilfe von Google eine bessere Lösung finden.
+
+Bei der Google-Suche ist darauf zu achten, dass wir das Problem so allgemein wie möglich formulieren, am besten auch auf Englisch. Eine spezielle Suche nach "How can I get the Y-BOCS persons means" wird uns wahrscheinlich nicht zum Ziel führen, aber eine allgemein formulierte Frage wie "compute row means of a data.frame in R" klingt vielversprechend.
+
+```{r, echo=FALSE, fig.align='center'}
+knitr::include_graphics("figures/Hilfe_aus_dem_Netz/google_suche.png")
+```
+
+Tada! Auf der ersten Seite von Google gibt es viele hilfreiche Tipps. `rowMeans()` macht genau das, was wir wollen.
+
+```{r}
+rowMeans(ybocs_df)
+```
+
+
+## Fehlermeldungen
+
+Fehlermeldungen in R sind auf den ersten Blick oft kryptisch. Eine kurze Google-Suche nach der Fehlermeldung bringt oft Klarheit. Da die allermeisten Benutzer:innen R in englischer Sprache benutzen, bekommen wir beim Googlen nach englischen Fehlermeldungen viel mehr Hinweise als beim Googlen nach deutschen Fehlermeldungen. Wir empfehlen daher, R in englischer Sprache zu benutzen. Mit `Sys.setenv(LANG = "en")` kann R auf Englisch umgestellt werden.
+
+
+## Hilfe von Chatbots
+
+Anstatt Suchmaschinen zu benutzen, können wir auch direkt Chatbots wie ChatGPT um Hilfe bitten. 
+
+```{r, echo=FALSE, fig.align='center'}
+knitr::include_graphics("figures/Hilfe_aus_dem_Netz/chatGPT.png")
+```
+
+Der Code von Chatbots sollte sorgfältig geprüft werden, da er nicht immer korrekt ist. Außerdem kennen Chatbots oft neue Funktionen oder Pakete noch nicht.
+

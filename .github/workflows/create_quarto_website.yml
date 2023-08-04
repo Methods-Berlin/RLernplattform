@@ -38,11 +38,35 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v3      
+      - uses: actions/checkout@v3
+      # Copied from oalders at https://github.com/actions/checkout/issues/1049
+      - name: Allow for file ownership conflicts with Docker and GitHub Actions
+        run: git config --global --add safe.directory '*'
+      - name: Set git credentials
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          # increase largest individual file size to 5MB
+          git config --global http.postBuffer 5242880
+          
+      - name: specify R package paths
+        run: |
+          print(getwd())
+          current_libs <- .libPaths()
+          print("Library locations:")
+          print(current_libs)
+          file_name <- file("RLernplattform/.Rprofile")
+          writeLines(paste0(".libPaths(c(",paste0(paste0('"', current_libs, '"'), collapse = ", "), "))"), file_name)
+          close(file_name)          
+        shell: Rscript {0} 
+        working-directory: ..
+        
       - name: Set up pandoc
         uses: r-lib/actions/setup-pandoc@v2
+        
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
+        
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
         with:

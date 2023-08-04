@@ -1,0 +1,47 @@
+# The following builds on:
+# https://medium.com/@delucmat/how-to-publish-bookdown-projects-with-github-actions-on-github-pages-6e6aecc7331e
+# https://quarto.org/docs/publishing/github-pages.html#executing-code
+
+name: check_website
+
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:  
+  # next: create website using docker
+  check-page:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/methods-berlin/rlernplattform_dep:latest
+    permissions:
+      contents: write
+    steps:
+      - name: get path
+        run: pwd
+      # get current project
+      - uses: actions/checkout@v3
+      - name: list files
+        run: ls -a
+      - name: specify R package paths
+        run: |
+          print(getwd())
+          current_libs <- .libPaths()
+          print("Library locations:")
+          print(current_libs)
+          file_name <- file("RLernplattform/.Rprofile")
+          writeLines(paste0(".libPaths(c(",paste0(paste0('"', current_libs, '"'), collapse = ", "), "))"), file_name)
+          close(file_name)          
+        shell: Rscript {0} 
+        working-directory: ..
+      - name: update R packages
+        run: renv::restore()
+        shell: Rscript {0}
+      - name: Set up pandoc
+        uses: r-lib/actions/setup-pandoc@v2
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+      - name: Render
+        run: quarto render . 

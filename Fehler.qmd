@@ -1,0 +1,93 @@
+# Fehler
+
+```{r}
+#| error: true
+#| echo: false
+stop("Oh no, an error!")
+```
+
+Fehler sind beim Programmieren alltäglich. In vielen Fällen bekommen wir dann eine Fehlermeldung angezeigt:
+```{r}
+#| error: true
+sum("123")
+```
+Hier will R uns mitteilen, dass wir die Funktion `sum()` nicht auf Text anwenden können. Versuche, den Fehler zu beheben.
+
+<details>
+<summary>Lösung anzeigen</summary>
+
+```{r}
+sum(123)
+```
+
+</details>
+
+Fehler bekommen wir beispielsweise auch, wenn wir ein Paket laden wollen, das es nicht gibt
+```{r}
+#| error: true
+library(psyhc)
+```
+oder eine Funktion nutzen wollen, die nicht existiert:
+
+```{r}
+#| error: true
+sums(c(1,2,3))
+```
+
+Manche Fehlermeldungen sind aber auch etwas komplizierter:
+```{r}
+#| error: true
+mean(y = c(1,2,3))
+```
+Was ist hier schief gelaufen?
+
+<details>
+<summary>Lösung anzeigen</summary>
+
+Wir haben `y` statt `x` geschrieben:
+
+```{r}
+mean(x = c(1,2,3))
+```
+
+</details>
+
+Zum Glück gibt es online sehr viele Ressourcen, die uns dabei helfen können, Fehler zu beheben. Kopiere hierfür einfach Deine Fehlermeldung in eine Suchmaschine Deiner Wahl. Noch einfacher geht es mit ChatGPT und anderen chat-bots. 
+
+## Warnungen
+
+Neben Fehlern gibt es auch Warnungen. Wenig überraschend sollen diese uns warnen, wenn wir möglicherweise einen Fehler gemacht haben. Häufig bekommen wir solche Warnungen:
+
+```
+Warning message:
+`data_frame()` was deprecated in tibble 1.1.0.
+ℹ Please use `tibble()` instead.
+This warning is displayed once every 8 hours.
+Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.
+```
+`data_frame() was deprecated` heißt, dass es eine bessere Alternative zur Funktion `data_frame()` gibt und diese daher bald gelöscht wird. Wir sollen stattdessen `tibble()` nutzen. 
+Es gibt noch tausende andere Warnungen, die in R auftreten können. Hier gilt immer: Die Warnung durchlesen, versuchen zu verstehen und schauen, ob diese tatsächlich relevant ist oder
+ignoriert werden kann.
+
+
+## Obacht!
+
+R hat die eine oder andere scharfe Kante. Nicht jeder Fehler beim Programmieren wird uns direkt als solcher angezeigt; teilweise passieren etwas unvorhergesehene Dinge. Im Folgenden code wollen wir beispielsweise aus dem Vektor `x` den ersten und dritten Wert herausgreifen. Ärgerlicherweise haben wir statt `c(TRUE, FALSE, TRUE, FALSE)` nur `c(TRUE, FALSE, TRUE)` geschrieben. Man könnte nun hoffen, dass R einen auf diesen Fehler hinweist. Probiere aus, was tatsächlich passiert.
+
+```{r}
+#| eval: false
+x <- c(1,2,3,4)
+x[c(TRUE, FALSE, TRUE)]
+```
+
+<details>
+<summary>Lösung anzeigen</summary>
+
+```{r}
+x <- c(1,2,3,4)
+x[c(TRUE, FALSE, TRUE)]
+```
+R hat hier zwar bemerkt, dass `c(TRUE, FALSE, TRUE)` nicht ganz passend ist, weil ein Element fehlt, aber einfach entschieden, den Vektor zu wiederholen (aus `c(TRUE, FALSE, TRUE)` wird `c(TRUE, FALSE, TRUE, TRUE, FALSE, TRUE)`). Für die vier Elemente in `x` gilt nun: `c(TRUE, FALSE, TRUE, TRUE)`.
+</details>
+
+Beim Arbeiten mit R ist es daher sinnvoll, immer aufzupassen und die Ergebnisse auf Plausibilität zu überprüfen.

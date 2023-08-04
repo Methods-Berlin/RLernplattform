@@ -792,7 +792,7 @@ reg_ggP <- lm(formula = weight ~ Time, data = ChickWeight)
 
 # Ergebnisobjekt plotten
 library(ggiraphExtra)
-ggPredict(reg_ggP, se = TRUE, interactive = TRUE)
+ggPredict(reg_ggP, se = TRUE, interactive = FALSE)
 ```
 
 > *__Achtung__*:   Leider ist die Nutzung von `ggPredict()` teilweise noch fehleranfällig, weil von `ggiraphExtra` erst eine Beta-Version vorliegt (Stand: Version 0.2.9). Es kann u.a. zu Problemen kommen, wenn man ordinalskalierte (*ordered factors*) oder nominalskalierte Variablen (*factors*) ins Modell aufnimmt. Trotzdem ist das interaktive Streudiagramm ein sinnvolles Feature, z.B. für Ergebnispräsentation in html-Dokumenten. Man sollte die Weiterentwicklung des Pakets **ggiraphExtra** also verfolgen.

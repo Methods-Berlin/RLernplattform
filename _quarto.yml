@@ -14,14 +14,11 @@ book:
     collapse-level: 1
   chapters:
     - part: Home
-      chapters:
         - index.qmd
-    - part: Installation und Benutzeroberfläche
+    - part: "R Crash Course"
       chapters:
-        - Installation.qmd
+        - Quick_Start_Installation.qmd
         - Einfuehrung_in_RStudio.qmd
-    - part: "Grundlagen in R: Crash Course"
-      chapters:
         - R_als_Taschenrechner.qmd
         - Skripte.qmd
         - Datentypen.qmd
@@ -31,20 +28,22 @@ book:
         - Logische_Operatoren.qmd
         - Funktionen.qmd
         - Pakete.qmd
-    - part: Datenverarbeitung und Analyse
+        - Fehler.qmd
+        - Hilfe_aus_dem_Netz.qmd
+        - Best_Practice.qmd
+    - part: "Datenaufbereitung"
       chapters:
         - Daten-importieren.qmd
         - Datenvorbereitung.qmd
         - Fehlende-Werte.qmd
         - Grafiken.qmd
         - Fehlermeldungen.qmd
-    - part: "Weiterführende Themen in R"
+    - part: "Weiterführende Themen"
       chapters:
+        - Installation.qmd
         - Wide-and-Long-Format.qmd
         - Markdown.qmd
         - Git.qmd
-    - part: "Vertiefungen zu den Veranstaltungen Methodenlehre I und II"
-      chapters:
         - Missings.qmd
         - Voraussetzungspruefung.qmd
         - Outputs-ALM-FAQ.qmd

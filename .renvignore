@@ -1,0 +1,6 @@
+# ignore all data files
+data/
+figures/
+.github/
+# wir müssen auch Fehler.qmd ignorieren, weil hier ein Paket "geladen" wird, das gar nicht existiert
+Fehler.qmd

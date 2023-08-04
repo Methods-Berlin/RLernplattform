@@ -1,0 +1,124 @@
+# Style Guide
+
+Wenn wir anfangen R häufiger zu benutzen und unsere Skripte mit anderen zu teilen, ist es wichtig, dass diese gut lesbar und verständlich sind. Sonst ist es schwierig, sich in dem Skript zurecht zu finden, und es kann passieren, dass man später selbst nicht mehr weiß, was in dem Skript gemacht wurde.
+
+## Benennung
+
+### Dateien
+
+R Skripte sollten so benannt werden, dass erkennbar ist, was sie beinhalten. Sie sollten auf .R enden.
+
+```{r}
+#| eval: false
+# gute Benennung
+
+eignungstest_analyse.R
+erstis_t_test.R
+
+# schlechte Benennung
+
+zeug.R
+erster_versuch.R
+
+```
+
+### Objekte
+
+Objekte in einem Skript sollten aus Kleinbuchstaben bestehen, Wörter kann man durch Unterstriche _ trennen. Die Benennung sollte kurz und eindeutig sein, auch wenn das nicht immer einfach ist. Auch schon existierende Begriffe aus R (Namen von Funktionen etc.) sollte man vermeiden.
+
+```{r}
+#| eval: false
+# gute Benennung
+
+abi_schnitt 
+mathe_abschluss
+
+# schlechte Benennung
+
+AbiSchnitt
+mathematikabschlussnote
+T
+
+```
+
+## Datensätze
+
+Der original Datensatz sollte immer im Roh-Zustand vorliegen und nie überschrieben werden. Wenn wir in R Veränderungen am Datensatz vornehmen (z.B. recodieren) und diese speichern wollen,
+dann sollten wir hierfür immer eine Datei erstellen.
+
+```{r}
+#| eval: false
+# Original-Datensatz einlesen:
+eignungstest <- read.csv("eignungstest.csv")
+# Datensatz verändern
+eignungstest$positive_affect_1_recoded <- 5-eignungstest$positive_affect
+# veränderten Datensatz in neuer Datei speichern:
+write.csv(eignungstest, 
+          file = "eignungstest_recoded.csv")
+```
+
+## Kommentare
+
+Damit eure Skripte gut lesbar sind, ist es hilfreich, wenn ihr mit # Kommentare einfügt. Damit könnt ihr in jedem Schritt kurz erklären, was ihr macht. 
+
+```{r}
+#| eval: false
+
+# Datensatz bereinigen
+
+```
+
+## Syntax
+
+Auch bei der Syntax kann man einige Sachen beachten, damit ein Skript lesbarer ist.
+
+### Objektzuweisung
+
+Wenn ihr ein Objekt definiert, sollte man <- und nicht = benutzen.
+
+```{r}
+#| eval: false
+# Zum Beispiel so
+
+gewicht_geburt <- 3.55
+
+# Nicht so
+
+gewicht_geburt = 3.55
+
+```
+
+
+### Leerzeichen
+
+Vor und hinter (mathematischen) Operatoren (=, +, <- etc.) sollte man ein Leerzeichen setzen.
+
+```{r}
+#| eval: false
+# Zum Beispiel so
+
+schnitt <- mean(noten * LP, na.rm = TRUE)
+
+# Nicht so
+
+schnitt<-mean(noten*LP,na.rm = TRUE)
+
+```
+
+Vor einem Komma kommt kein Leerzeichen, hinter dem Komma schon. Zwischen Klammern kommen keine Leerzeichen.
+
+```{r}
+#| eval: false
+# Zum Beispiel so
+
+schnitt <- mean(noten * LP, na.rm = TRUE)
+eignungstest[5, ]
+
+# Nicht so
+
+schnitt <- mean( noten * LP ,na.rm = TRUE )
+eignungstest[ 5,]
+
+```
+
+Weitere Hinweise zu gutem Style in R findet ihr [hier](http://adv-r.had.co.nz/Style.html).
