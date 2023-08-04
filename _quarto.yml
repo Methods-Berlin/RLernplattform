@@ -6,8 +6,16 @@ book:
   title: "R Lernplattform"
   author: "Methods Group Berlin"
   favicon: figures/Logo_Favicon.png
+  repo-url: https://github.com/Methods-Berlin/RLernplattform
+  repo-actions: [edit, issue]
+  sidebar:
+    style: docked
+    background: light
+    collapse-level: 1
   chapters:
-    - index.qmd
+    - part: Home
+      chapters:
+        - index.qmd
     - part: Installation und Benutzeroberfläche
       chapters:
         - Installation.qmd
@@ -47,5 +55,7 @@ bibliography: references.bib
 
 format:
   html:
-    theme: [cosmo, style.scss]
+    theme:
+     light: [cosmo, style.scss]
+     dark:  [darkly, style.scss]
     prefer-html: true
