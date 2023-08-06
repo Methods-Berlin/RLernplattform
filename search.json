@@ -165,7 +165,7 @@
     "href": "Pakete.html#pakete-laden",
     "title": "12  Pakete",
     "section": "12.2 Pakete laden",
-    "text": "12.2 Pakete laden\nPassend zu unserer Rezeptbuch-Analogie, befindet sich das Paket praise nun in unserer Bibliothek (library). Möchten wir nun eine Funktion (ein Rezept) aus dem Paket praise nutzen, gehen wir in unsere library und holen das Paket praise. In R geschieht dies mit:\n\nlibrary(praise)\n\n\nWichtig: Wenn wir RStudio schließen, werden automatisch alle Pakete zurück in die library gelegt. Wir müssen also jedes mal library(praise) ausführen, wenn wir eine Analyse mit den Funktionen aus praise durchführen wollen.\n\nLade nun das Paket praise und führe den Befehl praise() aus (der Befehl heißt genauso wie das Paket).\n\n\nLösung anzeigen\n\n\nlibrary(praise)\npraise()\n\n[1] \"You are astounding!\"\n\n\n\nSchließe nun RStudio und öffne es erneut. Führe danach praise() aus, ohne vorher library(praise) zu nutzen.\n\n\nLösung anzeigen\n\n\npraise()\n\nError in praise(): could not find function \"praise\"\n\n\nWir müssen das Paket erst wieder aus der library holen!\n\nlibrary(praise)\npraise()\n\n[1] \"You are posh!\""
+    "text": "12.2 Pakete laden\nPassend zu unserer Rezeptbuch-Analogie, befindet sich das Paket praise nun in unserer Bibliothek (library). Möchten wir nun eine Funktion (ein Rezept) aus dem Paket praise nutzen, gehen wir in unsere library und holen das Paket praise. In R geschieht dies mit:\n\nlibrary(praise)\n\n\nWichtig: Wenn wir RStudio schließen, werden automatisch alle Pakete zurück in die library gelegt. Wir müssen also jedes mal library(praise) ausführen, wenn wir eine Analyse mit den Funktionen aus praise durchführen wollen.\n\nLade nun das Paket praise und führe den Befehl praise() aus (der Befehl heißt genauso wie das Paket).\n\n\nLösung anzeigen\n\n\nlibrary(praise)\npraise()\n\n[1] \"You are superior!\"\n\n\n\nSchließe nun RStudio und öffne es erneut. Führe danach praise() aus, ohne vorher library(praise) zu nutzen.\n\n\nLösung anzeigen\n\n\npraise()\n\nError in praise(): could not find function \"praise\"\n\n\nWir müssen das Paket erst wieder aus der library holen!\n\nlibrary(praise)\npraise()\n\n[1] \"You are hunky-dory!\""
   },
   {
     "objectID": "Pakete.html#pakete-aktualisieren",
@@ -217,29 +217,29 @@
     "text": "14.3 Hilfe von Chatbots\nAnstatt Suchmaschinen zu benutzen, können wir auch direkt Chatbots wie ChatGPT um Hilfe bitten.\n\n\n\n\n\n\n\n\n\nDer Code von Chatbots sollte sorgfältig geprüft werden, da er nicht immer korrekt ist. Außerdem kennen Chatbots oft neue Funktionen oder Pakete noch nicht."
   },
   {
-    "objectID": "Best_Practice.html#benennung",
-    "href": "Best_Practice.html#benennung",
+    "objectID": "Best_Practices.html#benennung",
+    "href": "Best_Practices.html#benennung",
     "title": "15  Best Practice",
     "section": "15.1 Benennung",
     "text": "15.1 Benennung\n\n15.1.1 Dateien\nR Skripte sollten so benannt werden, dass erkennbar ist, was sie beinhalten. Sie sollten auf .R enden.\n\n# gute Benennung\n\neignungstest_analyse.R\nerstis_t_test.R\n\n# schlechte Benennung\n\nzeug.R\nerster_versuch.R\n\n\n\n15.1.2 Objekte\nObjekte in einem Skript sollten aus Kleinbuchstaben bestehen, Wörter kann man durch Unterstriche _ trennen. Die Benennung sollte kurz und eindeutig sein, auch wenn das nicht immer einfach ist. Auch schon existierende Begriffe aus R (Namen von Funktionen etc.) sollte man vermeiden.\n\n# gute Benennung\n\nabi_schnitt \nmathe_abschluss\n\n# schlechte Benennung\n\nmathematikabschlussnote\nT"
   },
   {
-    "objectID": "Best_Practice.html#datensätze",
-    "href": "Best_Practice.html#datensätze",
+    "objectID": "Best_Practices.html#datensätze",
+    "href": "Best_Practices.html#datensätze",
     "title": "15  Best Practice",
     "section": "15.2 Datensätze",
     "text": "15.2 Datensätze\nDer original Datensatz sollte immer im Roh-Zustand vorliegen und nie überschrieben werden. Wenn wir in R Veränderungen am Datensatz vornehmen (z.B. recodieren) und diese speichern wollen, dann sollten wir hierfür immer eine neue Datei erstellen.\n\n# Original-Datensatz einlesen:\neignungstest &lt;- read.csv(\"eignungstest.csv\")\n# Datensatz verändern\neignungstest$positive_affect_1_recoded &lt;- 5-eignungstest$positive_affect\n# veränderten Datensatz in neuer Datei speichern:\nwrite.csv(eignungstest, \n          file = \"eignungstest_recoded.csv\")"
   },
   {
-    "objectID": "Best_Practice.html#kommentare",
-    "href": "Best_Practice.html#kommentare",
+    "objectID": "Best_Practices.html#kommentare",
+    "href": "Best_Practices.html#kommentare",
     "title": "15  Best Practice",
     "section": "15.3 Kommentare",
     "text": "15.3 Kommentare\nDamit eure Skripte gut lesbar sind, ist es hilfreich, wenn ihr mit # Kommentare einfügt. Damit könnt ihr in jedem Schritt kurz erklären, was ihr macht.\n\n# Datensatz bereinigen"
   },
   {
-    "objectID": "Best_Practice.html#syntax",
-    "href": "Best_Practice.html#syntax",
+    "objectID": "Best_Practices.html#syntax",
+    "href": "Best_Practices.html#syntax",
     "title": "15  Best Practice",
     "section": "15.4 Syntax",
     "text": "15.4 Syntax\nAuch bei der Syntax kann man einige Sachen beachten, damit ein Skript lesbarer ist.\n\n15.4.1 Objektzuweisung\nWenn ihr ein Objekt definiert, sollte man &lt;- und nicht = benutzen.\n\n# Zum Beispiel so\n\ngewicht_geburt &lt;- 3.55\n\n# Nicht so\n\ngewicht_geburt = 3.55\n\n\n\n15.4.2 Leerzeichen\nVor und hinter (mathematischen) Operatoren (=, +, &lt;- etc.) sollte man ein Leerzeichen setzen.\n\n# Zum Beispiel so\n\nschnitt &lt;- mean(noten * LP, na.rm = TRUE)\n\n# Nicht so\n\nschnitt&lt;-mean(noten*LP,na.rm = TRUE)\n\nVor einem Komma kommt kein Leerzeichen, hinter dem Komma schon. Zwischen Klammern kommen keine Leerzeichen.\n\n# Zum Beispiel so\n\nschnitt &lt;- mean(noten * LP, na.rm = TRUE)\neignungstest[5, ]\n\n# Nicht so\n\nschnitt &lt;- mean( noten * LP ,na.rm = TRUE )\neignungstest[ 5,]\n\nWeitere Hinweise zu gutem Style in R findet ihr hier."
