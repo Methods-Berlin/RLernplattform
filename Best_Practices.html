@@ -445,10 +445,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 data-number="15.1.3" class="anchored" data-anchor-id="kommentare"><span class="header-section-number">15.1.3</span> Kommentare</h3>
 <p>Um eure Skripte lesbarer zu machen, ist es hilfreich, Kommentare mit <code>#</code> einzufügen. Kommentare fassen kurz zusammen, was in eurem Skript passiert.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Skalenmittelwert berechnen</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>ybocs_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(ybocs_df[, <span class="fu">c</span>(<span class="st">"frage 1"</span>, <span class="st">"frage 2"</span>, <span class="st">"frage 3"</span>, <span class="st">"frage 4"</span>,</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                                <span class="st">"frage 5"</span>, <span class="st">"frage 6"</span>, <span class="st">"frage 7"</span>, <span class="st">"frage 8"</span>,</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>                                <span class="st">"frage 9"</span>, <span class="st">"frage 10"</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Y-BOCS Skalenmittelwerte berechnen</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>ybocs_mean <span class="ot">&lt;-</span> <span class="fu">rowMeans</span>(ybocs_df[, <span class="fu">c</span>(<span class="st">"frage 1"</span>, <span class="st">"frage 2"</span>, <span class="st">"frage 3"</span>, <span class="st">"frage 4"</span>,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                                    <span class="st">"frage 5"</span>, <span class="st">"frage 6"</span>, <span class="st">"frage 7"</span>, <span class="st">"frage 8"</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>                                    <span class="st">"frage 9"</span>, <span class="st">"frage 10"</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="objektzuweisung" class="level3" data-number="15.1.4">
