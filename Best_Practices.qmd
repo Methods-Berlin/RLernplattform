@@ -57,10 +57,12 @@ Um eure Skripte lesbarer zu machen, ist es hilfreich, Kommentare mit `#` einzuf√
 ```{r}
 #| eval: false
 
-# Skalenmittelwert berechnen
-ybocs_mean <- mean(ybocs_df[, c("frage 1", "frage 2", "frage 3", "frage 4",
-                                "frage 5", "frage 6", "frage 7", "frage 8",
-                                "frage 9", "frage 10")]
+# Y-BOCS Skalenmittelwerte berechnen
+ybocs_mean <- rowMeans(ybocs_df[, c("frage 1", "frage 2", "frage 3", "frage 4",
+                                    "frage 5", "frage 6", "frage 7", "frage 8",
+                                    "frage 9", "frage 10")])
+
+
 
 ```
 
