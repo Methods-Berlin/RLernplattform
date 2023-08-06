@@ -38,12 +38,10 @@ Objekte in einem Skript sollten klein geschrieben werden, Wörter können durch 
 ```{r}
 #| eval: false
 # gute Benennung
-
 abi_schnitt 
 mathe_abschluss
 
 # schlechte Benennung
-
 mathematikabschlussnote
 T
 
@@ -74,11 +72,9 @@ In R können neue Objekte entweder mit `<-` oder mit `=` erstellt werden. Wickha
 ```{r}
 #| eval: false
 # Zum Beispiel so
-
 gewicht_geburt <- 3.55
 
 # Nicht so
-
 gewicht_geburt = 3.55
 
 ```
@@ -93,11 +89,9 @@ Vor und nach (mathematischen) Operatoren (=, +, -, <, > usw.) muss ein Leerzeich
 ```{r}
 #| eval: false
 # Zum Beispiel so
-
 schnitt <- mean(noten * LP, na.rm = TRUE)
 
 # Nicht so
-
 schnitt<-mean(noten*LP,na.rm = TRUE)
 
 ```
@@ -107,12 +101,10 @@ Vor einem Komma stehen keine Leerzeichen, nach einem Komma schon.
 ```{r}
 #| eval: false
 # Zum Beispiel so
-
 schnitt <- mean(noten * LP, na.rm = TRUE)
 eignungstest[5, ]
 
 # Nicht so
-
 schnitt <- mean( noten * LP ,na.rm = TRUE )
 eignungstest[ 5,]
 
