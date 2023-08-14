@@ -55,6 +55,13 @@ jobs:
           # make snapshot
           renv::snapshot(prompt = FALSE)
         shell: Rscript {0}
+      # check if website can be created
+      - name: Set up pandoc
+        uses: r-lib/actions/setup-pandoc@v2
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+      - name: Render
+        run: quarto render . 
       - name: add changes
         run: |
           git branch update_renv
@@ -81,6 +88,6 @@ jobs:
         run: git status
       # create pull request into main branch
       - name: create pull request
-        run: gh pr create -B main -H update_renv --title 'Updating R packages in renv' --body 'Wait for the tests to finish and merge the branch into main. Delete the update_renv branch afterwards.'
+        run: gh pr create -B main -H update_renv --title 'Updating R packages in renv' --body 'The website could be created. If you want to update, merge the branch into main. Delete the update_renv branch afterwards.'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
