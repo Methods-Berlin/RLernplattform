@@ -32,6 +32,7 @@ book:
         - Fehler.qmd
         - Hilfe_aus_dem_Netz.qmd
         - Best_Practices.qmd
+        - Pipe_Operator.qmd
     - part: "Datenaufbereitung"
       chapters:
         - Daten-importieren.qmd
@@ -48,6 +49,7 @@ book:
         - Missings.qmd
         - Voraussetzungspruefung.qmd
         - Outputs-ALM-FAQ.qmd
+        - magrittr_Pipe.qmd
     - part: "Projekt-Dokumentation"
       chapters:
         - Zur-Lernplattform-Beitragen.qmd
