@@ -1,0 +1,143 @@
+
+# Pipe-Operator 
+
+## Wieso braucht man einen Pipe-Operator? 
+
+Bevor wir in die Formsachen eines Pipe-Operators eingehen und wie genau er funktioniert, schauen wir uns erst einmal an, wieso man überhaupt einen "Pipe" braucht. Dies machen wir am folgenden Beispiel: 
+
+Wir wollen einen Vektor erstellen, einen weiteren Vektor anhängen, die Zahlen aufsummieren, die Quadratwurzel ziehen und das Ergebnis als Objekt speichern. 
+
+
+```{r}
+
+numbers <- c(1, 2, 3, 4, 5)                            # Vektor erstellen  
+numbers_appended <- append(numbers, values = c(6,7,8)) # Zusätzliche Zahlen an den Vektor anhängen
+sum_numbers <- sum(numbers_appended)                   # Summe berechnen
+result <- sqrt(sum_numbers)                            # Quadratwurzel ziehen
+print(result)                                          # Ergebnis ausgeben lassen
+
+```
+
+In diesem Beispiel benutzen wir mehrere Funktionen, sodass wir ein Objekt speichern und das gespeicherte Objekt dann in einer nächsten Funktion benutzen. Wie wir sehen können, resultiert dies auch in diesem relativ einfachen Beispiel in 5 Objekten, welche wir in unserem Environment gespeichert haben. Wenn wir komplexere Dinge machen würden, z.B. eine große Analyse mit vielen Variablen und vielen Schritten oder an einem Projekt mit mehreren Personen arbeiteten, würde dies entsprechend in einer großen Menge an Objekten resultieren. Dies stellt ein Problem dar, nicht nur weil es so viele Objekte gibt, die sinnvoll benannt und navigiert werden müssen, sondern auch, weil der Code sehr lang wird und schwer zu verstehen ist. 
+
+
+Alternativ können wir, um den Code kompakter zu machen, die Funktionen verschachteln (engl. "nesting"): 
+
+```{r}
+
+result <- sqrt(sum(append(c(1, 2, 3, 4, 5), values = c(6,7,8))))
+print(result)
+
+```
+Damit sieht der Code zwar schöner und kompakter aus als vorher, aber es lässt sich noch schwerer lesen und verstehen.
+
+
+An dieser Stelle kommt der Pipe-Operator zunutze. Der Pipe-Operator wurde entwickelt, um genau solche Probleme zu lösen. Der Pipe-operator erlaubt uns, die Funktionen aufeinander zu verketten, ohne das Ergebnis jeder Funktion in ein Objekt speichern zu müssen.
+
+
+## Was ist ein Pipe-Operator?  
+
+Ein Pipe-operator leitet (engl. "pipes") den Output einer Funktion als Input für die nächste Funktion weiter. Genauer gesagt wird ein Objekt bzw. Ergebnis einer Funktion auf der linken Seite (lhs) des Pipes als erstes Argument an die Funktion auf der rechten Seite (rhs) weitergeleitet. 
+
+Damit gilt: 
+f(x) ist gleich x |> f()  und 
+f(x,y) ist gleich x |> f(y). 
+
+
+Entsprechend schreiben wir unser Beispiel von vorher wiefolgt: 
+```{r}
+
+result <- c(1, 2, 3, 4, 5) |>  # Vektor erstellen 
+      append(c(6,7,8)) |>      # Zusätzliche Zahlen zum Vektor anhängen 
+      sum() |>                 # Summe berechnen 
+      sqrt()                   # Quadratwurzel ziehen 
+          
+print(result)
+
+```
+
+"|>" wird als "und dann" interpretiert und erlaubt damit, dass der Code sequentiell statt von innen nach außen (inside-out) gelesen wird, wodurch die Lesbarkeit und Verständlichkeit verbessert wird.  
+
+Analog wird der obige Code-chunk folgend gelesen: Speichere folgendes unter dem Objekt "result": erstelle einen numerischen Vektor UND DANN hänge die Zahlen eines weiteren Vektors an den Vektor an UND DANN berechne die Summe UND DANN ziehe die Quadratwurzel aus der Summe. 
+
+
+Wie wir sehen können, bietet uns die Nutzung eines Pipe-Operators folgende Vorteile:  
+
+1) Verbesserte Lesbarkeit und Verständlichkeit
+- Der Code wird in einer schrittweisen Abfolge von Funktionen gelesen (ähnlich wie in natürlicher Sprache), wodurch es leichter wird, den Datenfluss (data flow) zu verfolgen.
+
+2) Effiziente Datenmanipulation
+- Der Pipe-Operator vermeidet unnötige Zwischenvariablen und ermöglicht eine elegante Verkettung von Funktionen.
+
+3) Einfache Anpassung
+- Wenn weitere Funktionen hinzugefügt oder entfernt werden müssen, kann dies leicht durch Hinzufügen oder Entfernen von Funktionsaufrufen im Pipe-Operator erfolgen.
+
+
+## Wie wendet man den Pipe-Operator an?   
+
+Jetzt werden wir ein paar Beispiele durchgehen, um genauer zu zeigen, wie der "|>" Pipe funktioniert. Wir fangen ganz simpel an, indem wir ein Objekt "x" auf 2 Nachkommastellen runden. 
+
+```{r}
+
+x <- 2.456
+
+round(x, 2)     #der klassische Weg 
+
+x |>  round(2)  # mit piping: der Pipe nimmt das Objekt "x" von seiner linken Seite und leitet es als erstes Argument in die Funktion "round" auf seiner rechten Seite weiter
+
+```
+
+Jetzt bist du dran! Transformiere diesen Code-chunk mithilfe des Pipe-Operators!
+```{r}
+age <- c(25, 30, 22, 28, 35, 40)
+mean_age <- mean(age)
+print(mean_age)
+
+```
+
+<details>
+<summary>Lösung anzeigen</summary>
+```{r}
+
+mean_age <- c(25, 30, 22, 28, 35, 40) |> mean()
+print(mean_age)
+
+```
+</details>
+
+
+Es ist auch möglich, das Objekt bzw. Ergebnis von der linken Seite als nicht-erstes Argument auf die rechte Seite zu leiten. Dies wird mit einem "_" Platzhalter gemacht und dafür muss der gewünschte Ort bzw. das Argument der Funktion explizit genannt werden.
+
+```{r}
+
+y <- 2 
+y |> round(3.4567, digits = _) # wir benutzen y (=2), um eine neue Zahl auf 2 Nachkommastellen zu runden, indem wir das Argument "digits" explizit nennen
+
+y |> round(3.4567, _) # wenn wir das Argument nicht nennen, bekommen wir eine Fehlermeldung: "Error: pipe placeholder can only be used as a named argument"
+
+```
+
+
+Erstelle folgende Matrix mithilfe des Pipe-Operators. Nutze dabei das Objekt "y" aus dem Beispiel als Argument für "nrow". 
+```{r}
+
+m <- matrix(c(8,30,9,7,18,36), nrow = 2, ncol = 3, byrow = TRUE)
+print(m)
+
+```
+
+<details>
+<summary>Lösung anzeigen</summary>
+```{r}
+
+m <- y |> matrix(c(8,30,9,7,18,36), nrow = _, ncol = 3, byrow = TRUE)
+print(m)
+
+```
+</details>
+
+
+## Weiterführende Informationen 
+
+Es gibt mehrere Arten von "pipes". Der Pipe-Operator ("|>"), den wir uns hier angeschaut haben, ist der sogenannte "native" oder "base" Pipe. Dieser Pipe ist in dem "base" R - Paket enthalten. In dem Block "Weiterführende Themen" findest du eine kurze Vorstellung eines alternativen Pipe-Operators:  [magrittr-Pipe ("%>%")](Magrittr-Pipe.qmd).
+
