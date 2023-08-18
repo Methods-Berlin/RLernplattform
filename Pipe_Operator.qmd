@@ -100,9 +100,11 @@ Es ist auch möglich, das Objekt bzw. Ergebnis von der linken Seite als nicht-er
 ```{r}
 #| error: true
 y <- 2 
-y |> round(3.4567, digits = _) # wir benutzen y (=2), um eine neue Zahl auf 2 Nachkommastellen zu runden, indem wir das Argument "digits" explizit nennen
+ # wir benutzen y (=2), um eine neue Zahl auf 2 Nachkommastellen zu runden, indem wir das Argument "digits" explizit nennen
+y |> round(3.4567, digits = _)
 
-y |> round(3.4567, _) # wenn wir das Argument nicht nennen, bekommen wir eine Fehlermeldung: "Error: pipe placeholder can only be used as a named argument"
+# wenn wir das Argument nicht nennen, bekommen wir eine Fehlermeldung:
+y |> round(3.4567, _) 
 
 ```
 
