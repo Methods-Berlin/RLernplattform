@@ -29,6 +29,7 @@ book:
         - Logische_Operatoren.qmd
         - Funktionen.qmd
         - Pakete.qmd
+        - Pipe_Operator.qmd
         - Fehler.qmd
         - Hilfe_aus_dem_Netz.qmd
         - Best_Practices.qmd
@@ -42,6 +43,7 @@ book:
     - part: "Weiterführende Themen"
       chapters:
         - Installation.qmd
+        - magrittr_Pipe.qmd
         - Wide-and-Long-Format.qmd
         - Markdown.qmd
         - Git.qmd
