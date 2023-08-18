@@ -4,7 +4,7 @@
 Eine Alternative zum base-[Pipe-Operator](Pipe_Operator.qmd) ("|>"), den wir im R Crash Course kennengelert haben, ist der am meisten verbreitete magrittr-Pipe-Operator ("%>%") aus dem Paket "magrittr". Der magrittr-Pipe funktioniert sehr ähnlich wie der base-Pipe: 
 
 ```{r}
-
+library(magrittr)
 x <- 5.678
 
 # base-Pipe 
@@ -28,7 +28,7 @@ Das Paket gehört allerdings zu den Abhängigkeiten (dependencies) des "dplyr" P
 - magrittr-Pipe erfordert keinen Funktionsaufruf, d.h. "sqrt" (ohne die Klammern) funktioniert genauso wie "sqrt()"
 
 ```{r}
-
+#| error: true
 1:5 |> sum()
 1:5 |> sum   # hier bekommen wir eine Fehlermeldung
 
@@ -54,7 +54,6 @@ print(result)
 - magrittr-Pipe verwendet den "." als Platzhalter, der mehr als nur ein Argument fungieren kann
 
 ```{r}
-
 x <- 3
 
 # base-Pipe 
@@ -62,18 +61,18 @@ x |> round(3.4567, digits = _) # "_" als Platzhalter & Argument "digits" muss ge
 
 # magrittr-Pipe
 x %>% round(3.4567, .) # "." als Platzhalter & Argument muss nicht genannt werden
-
 ```
 
 Wir schauen uns ein weiteres komplexeres Beispiel an, um den Unterschied zwischen den Platzhaltern zu veranschaulichen: 
 ```{r}
-
+#| error: true
 data <- data.frame(var1 = c(1, 2, 3, 4, 5),
                    var2 = c(10, 9, 8, 7, 10),
                    var3 = c(11, 12, 16, 14, 17))
 
 data %>% .$var1 %>% cor(., data$var2) # dies funktioniert
 
-data |>  _$var1 |>  cor(_, data$var2) # dies funktioniert nicht, weil der Platzhalter "_" nur als Argument verwendet werden darf und wir bekommen eine Fehlermeldung
+data |>  _$var1 |>  cor(_, data$var2) # dies funktioniert nicht, weil der Platzhalter
+# "_" nur als Argument verwendet werden darf und wir bekommen eine Fehlermeldung
 
 ```
