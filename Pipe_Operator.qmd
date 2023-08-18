@@ -118,7 +118,7 @@ print(m)
 <details>
 <summary>Lösung anzeigen</summary>
 ```{r}
-
+y <- 2 
 m <- y |> matrix(c(8,30,9,7,18,36), nrow = _, ncol = 3, byrow = TRUE)
 print(m)
 
