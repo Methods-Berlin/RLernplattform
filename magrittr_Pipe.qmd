@@ -28,7 +28,7 @@ Das Paket gehört allerdings zu den Abhängigkeiten (dependencies) des "dplyr" P
 - magrittr-Pipe erfordert keinen Funktionsaufruf, d.h. "sqrt" (ohne die Klammern) funktioniert genauso wie "sqrt()"
 
 ```{r}
-
+#| error: true
 1:5 |> sum()
 1:5 |> sum   # hier bekommen wir eine Fehlermeldung
 
