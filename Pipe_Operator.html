@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>R Lernplattform - 2&nbsp; Quick Start: Installation</title>
+<title>R Lernplattform - 13&nbsp; Pipe-Operator</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,8 +64,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Einfuehrung_in_RStudio.html" rel="next">
-<link href="./index.html" rel="prev">
+<link href="./Fehler.html" rel="next">
+<link href="./Pakete.html" rel="prev">
 <link href="./figures/Logo_Favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -77,7 +111,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Quick_Start_Installation.html">R Crash Course</a></li><li class="breadcrumb-item"><a href="./Quick_Start_Installation.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Quick Start: Installation</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Quick_Start_Installation.html">R Crash Course</a></li><li class="breadcrumb-item"><a href="./Pipe_Operator.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Pipe-Operator</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -134,7 +168,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Quick_Start_Installation.html" class="sidebar-item-text sidebar-link active">
+  <a href="./Quick_Start_Installation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Quick Start: Installation</span></span></a>
   </div>
 </li>
@@ -200,7 +234,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Pipe_Operator.html" class="sidebar-item-text sidebar-link">
+  <a href="./Pipe_Operator.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Pipe-Operator</span></span></a>
   </div>
 </li>
@@ -347,14 +381,22 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#was-ist-ein-pipe-operator" id="toc-was-ist-ein-pipe-operator" class="nav-link active" data-scroll-target="#was-ist-ein-pipe-operator"><span class="header-section-number">13.1</span> Was ist ein Pipe-Operator?</a></li>
+  <li><a href="#wie-wendet-man-den-pipe-operator-an" id="toc-wie-wendet-man-den-pipe-operator-an" class="nav-link" data-scroll-target="#wie-wendet-man-den-pipe-operator-an"><span class="header-section-number">13.2</span> Wie wendet man den Pipe-Operator an?</a></li>
+  <li><a href="#weiterführende-informationen" id="toc-weiterführende-informationen" class="nav-link" data-scroll-target="#weiterführende-informationen"><span class="header-section-number">13.3</span> Weiterführende Informationen</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Methods-Berlin/RLernplattform/edit/main/Pipe_Operator.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/Methods-Berlin/RLernplattform/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Quick Start: Installation</span></h1>
+<h1 class="title"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Pipe-Operator</span></h1>
 </div>
 
 
@@ -369,29 +411,147 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>R, wie wir es im Studium verwenden wollen, besteht aus zwei Programmen:</p>
+<p>Bevor wir uns mit dem Pipe-Operator im Detail beschäftigen, schauen wir uns erst einmal an, wieso man überhaupt einen “Pipe” braucht. Dies machen wir am folgenden Beispiel:</p>
+<p>Wir wollen einen Vektor erstellen, einen weiteren Vektor anhängen, die Zahlen aufsummieren, die Quadratwurzel ziehen und das Ergebnis als Objekt speichern.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>numbers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)                            <span class="co"># Vektor erstellen  </span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>numbers_appended <span class="ot">&lt;-</span> <span class="fu">append</span>(numbers, <span class="at">values =</span> <span class="fu">c</span>(<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>)) <span class="co"># Zusätzliche Zahlen an den Vektor anhängen</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>sum_numbers <span class="ot">&lt;-</span> <span class="fu">sum</span>(numbers_appended)                   <span class="co"># Summe berechnen</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(sum_numbers)                            <span class="co"># Quadratwurzel ziehen</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(result)                                          <span class="co"># Ergebnis ausgeben lassen</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 6</code></pre>
+</div>
+</div>
+<p>In diesem Beispiel benutzen wir mehrere Funktionen, sodass wir ein Objekt speichern und das gespeicherte Objekt dann in einer nächsten Funktion benutzen. Wie wir sehen können, resultiert dies auch in diesem relativ einfachen Beispiel in 5 Objekten, welche wir in unserem Environment gespeichert haben. Wenn wir komplexere Dinge machen würden, z.B. eine große Analyse mit vielen Variablen und vielen Schritten oder an einem Projekt mit mehreren Personen arbeiteten, würde dies entsprechend in einer großen Menge an Objekten resultieren. Dies stellt ein Problem dar, nicht nur weil es so viele Objekte gibt, die sinnvoll benannt und navigiert werden müssen, sondern auch, weil der Code sehr lang wird und schwer zu verstehen ist.</p>
+<p>Alternativ können wir, um den Code kompakter zu machen, die Funktionen verschachteln (engl. “nesting”):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">sum</span>(<span class="fu">append</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>), <span class="at">values =</span> <span class="fu">c</span>(<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>))))</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 6</code></pre>
+</div>
+</div>
+<p>Damit lässt sich der code jedoch noch schwerer lesen und verstehen.</p>
+<p>An dieser Stelle kommt der Pipe-Operator ins Spiel. Dieser erlaubt uns, mehrere Funktionen nacheinander auf eine Variable (z.B. den Vektor <code>numbers</code>) anzuwenden, ohne das Ergebnis jeder Funktion in ein Objekt speichern zu müssen.</p>
+<section id="was-ist-ein-pipe-operator" class="level2" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="was-ist-ein-pipe-operator"><span class="header-section-number">13.1</span> Was ist ein Pipe-Operator?</h2>
+<p>Ein Pipe-operator leitet (engl. “pipes”) den Output einer Funktion als Input für die nächste Funktion weiter.</p>
+<p>Damit gilt: <code>f(x)</code> ist gleich <code>x |&gt; f()</code> und <code>f(x,y)</code> ist gleich <code>x |&gt; f(y)</code>.</p>
+<p>Entsprechend schreiben wir unser Beispiel von vorher wiefolgt:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>) <span class="sc">|&gt;</span>  <span class="co"># Vektor erstellen </span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>      <span class="fu">append</span>(<span class="fu">c</span>(<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>)) <span class="sc">|&gt;</span>      <span class="co"># Zusätzliche Zahlen zum Vektor anhängen </span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>      <span class="fu">sum</span>() <span class="sc">|&gt;</span>                 <span class="co"># Summe berechnen </span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>      <span class="fu">sqrt</span>()                   <span class="co"># Quadratwurzel ziehen </span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>          </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 6</code></pre>
+</div>
+</div>
+<p>“|&gt;” wird als “und dann” interpretiert und erlaubt damit, dass der Code von oben nach unten gelesen wird, was die Verständlichkeit verbessert.</p>
+<p>Beispielsweise wird der obige code chunk folgendermaßen gelesen: Speichere folgendes Objekt “result”: Erstelle einen numerischen Vektor UND DANN hänge die Zahlen eines weiteren Vektors an den Vektor an UND DANN berechne die Summe UND DANN ziehe die Quadratwurzel aus der Summe.</p>
+<p>Wie wir sehen können, bietet uns die Nutzung eines Pipe-Operators folgende Vorteile:</p>
 <ol type="1">
-<li>R: Das Basisprogramm und sozusagen der Motor, der alle Berechnungen ausführt.</li>
-<li>RStudio: Eine integrierte Entwicklungsumgebung und grafische Benutzeroberfläche für R.</li>
+<li>Verbesserte Lesbarkeit und Verständlichkeit</li>
 </ol>
-<p>Theoretisch müssen wir RStudio nicht installieren, um R zu benutzen. Allerdings erleichtert RStudio die Arbeit mit R erheblich.</p>
-<p>R kann für die Betriebssysteme Windows, macOS und Linux heruntergeladen werden. Leider gibt es keine passende R-Version für Tablets mit den Betriebssystemen Android oder iPadOS. Tablet-Benutzer:innen können stattdessen auf eine <a href="https://posit.cloud/">Cloud-basierte Version</a> zurückgreifen. Wir empfehlen die Installation und Nutzung auf einem Computer, wenn dies möglich ist.</p>
-<p>Die Basisversion von R kann <a href="https://cran.r-project.org/">hier</a> heruntergeladen werden. Achte darauf, dass du die richtige Version für dein Betriebssystem auswählst.</p>
-<p>Während der Installation wirst du gefragt, welche Komponenten installiert werden sollen. Wir empfehlen, alle Komponenten außer den „Message translations“ zu installieren. Die Message Translations würden Teile von R (aber nicht RStudio) ins Deutsche übersetzen. Dies mag zunächst wünschenswert erscheinen, aber später bei der Arbeit mit R wirst du wahrscheinlich oft nach R-Hinweisen und Fehlermeldungen googlen müssen. Leider findet man im Internet oft nur wenig zu übersetzten Hinweisen und Fehlermeldungen, da R von den allermeisten Anwender:innen in englischer Sprache verwendet wird.</p>
-<p>So sollte der Dialog in Windows aussehen:</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figures/Quick_Start_Installation/Message_translations.png" class="img-fluid figure-img"></p>
-</figure>
+<ul>
+<li>Der Code wird in einer schrittweisen Abfolge von Funktionen gelesen (ähnlich wie in natürlicher Sprache), wodurch es leichter wird, den Datenfluss (data flow) zu verfolgen.</li>
+</ul>
+<ol start="2" type="1">
+<li>Effiziente Datenmanipulation</li>
+</ol>
+<ul>
+<li>Der Pipe-Operator vermeidet unnötige Zwischenvariablen und ermöglicht eine elegante Verkettung von Funktionen.</li>
+</ul>
+<ol start="3" type="1">
+<li>Einfache Anpassung</li>
+</ol>
+<ul>
+<li>Wenn weitere Funktionen hinzugefügt oder entfernt werden müssen, kann dies leicht durch Hinzufügen oder Entfernen von Funktionsaufrufen im Pipe-Operator erfolgen.</li>
+</ul>
+</section>
+<section id="wie-wendet-man-den-pipe-operator-an" class="level2" data-number="13.2">
+<h2 data-number="13.2" class="anchored" data-anchor-id="wie-wendet-man-den-pipe-operator-an"><span class="header-section-number">13.2</span> Wie wendet man den Pipe-Operator an?</h2>
+<p>Jetzt werden wir ein paar Beispiele durchgehen, um genauer zu zeigen, wie der “|&gt;” Pipe funktioniert. Wir fangen ganz simpel an, indem wir ein Objekt “x” auf 2 Nachkommastellen runden.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fl">2.456</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(x, <span class="dv">2</span>)     <span class="co">#der klassische Weg </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.46</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>x <span class="sc">|&gt;</span>  <span class="fu">round</span>(<span class="dv">2</span>)  <span class="co"># mit piping: der Pipe nimmt das Objekt "x" von seiner linken Seite und leitet es als erstes Argument in die Funktion "round" auf seiner rechten Seite weiter</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.46</code></pre>
 </div>
 </div>
+<p>Jetzt bist du dran! Transformiere diesen Code-chunk mithilfe des Pipe-Operators!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>age <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">25</span>, <span class="dv">30</span>, <span class="dv">22</span>, <span class="dv">28</span>, <span class="dv">35</span>, <span class="dv">40</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>mean_age <span class="ot">&lt;-</span> <span class="fu">mean</span>(age)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(mean_age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 30</code></pre>
 </div>
-<p>Nachdem du R installiert hast, kannst du die Benutzeroberfläche RStudio <a href="https://posit.co/download/rstudio-desktop/">hier</a> herunterladen und installieren.</p>
-<p>Wenn du Probleme mit der Installation haben solltest, kannst du auch einen Blick in <a href="./Installation.html">diese ausführlichere Anleitung</a> werfen.</p>
+</div>
+<details>
+<summary>
+Lösung anzeigen
+</summary>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>mean_age <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">25</span>, <span class="dv">30</span>, <span class="dv">22</span>, <span class="dv">28</span>, <span class="dv">35</span>, <span class="dv">40</span>) <span class="sc">|&gt;</span> <span class="fu">mean</span>()</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(mean_age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 30</code></pre>
+</div>
+</div>
+</details>
+<p>Es ist auch möglich, das Objekt bzw. Ergebnis von der linken Seite als nicht-erstes Argument auf die rechte Seite zu leiten. Dies wird mit einem “_” Platzhalter gemacht und dafür muss der gewünschte Ort bzw. das Argument der Funktion explizit genannt werden.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">2</span> </span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a> <span class="co"># wir benutzen y (=2), um eine neue Zahl auf 2 Nachkommastellen zu runden, indem wir das Argument "digits" explizit nennen</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>y <span class="sc">|&gt;</span> <span class="fu">round</span>(<span class="fl">3.4567</span>, <span class="at">digits =</span> _)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co"># wenn wir das Argument nicht nennen, bekommen wir eine Fehlermeldung:</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>y <span class="sc">|&gt;</span> <span class="fu">round</span>(<span class="fl">3.4567</span>, _) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error: pipe placeholder can only be used as a named argument (&lt;text&gt;:6:6)</code></pre>
+</div>
+</div>
+<p>Erstelle folgende Matrix mithilfe des Pipe-Operators. Nutze dabei das Objekt “y” aus dem Beispiel als Argument für “nrow”.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">8</span>,<span class="dv">30</span>,<span class="dv">9</span>,<span class="dv">7</span>,<span class="dv">18</span>,<span class="dv">36</span>), <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">3</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(m)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2] [,3]
+[1,]    8   30    9
+[2,]    7   18   36</code></pre>
+</div>
+</div>
+<details>
+<summary>
+Lösung anzeigen
+</summary>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">2</span> </span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> y <span class="sc">|&gt;</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">8</span>,<span class="dv">30</span>,<span class="dv">9</span>,<span class="dv">7</span>,<span class="dv">18</span>,<span class="dv">36</span>), <span class="at">nrow =</span> _, <span class="at">ncol =</span> <span class="dv">3</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(m)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2] [,3]
+[1,]    8   30    9
+[2,]    7   18   36</code></pre>
+</div>
+</div>
+</details>
+</section>
+<section id="weiterführende-informationen" class="level2" data-number="13.3">
+<h2 data-number="13.3" class="anchored" data-anchor-id="weiterführende-informationen"><span class="header-section-number">13.3</span> Weiterführende Informationen</h2>
+<p>Es gibt mehrere Arten von “pipes”. Der Pipe-Operator (“|&gt;”), den wir uns hier angeschaut haben, ist der sogenannte “native” oder “base” Pipe. Dieser Pipe ist in dem “base” R - Paket enthalten. In dem Block “Weiterführende Themen” findest du eine kurze Vorstellung eines alternativen Pipe-Operators: <a href="Magrittr_Pipe.qmd">magrittr-Pipe (“%&gt;%”)</a>.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -744,13 +904,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Willkommen auf der R-Lernplattform!</span></span>
+      <a href="./Pakete.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Pakete</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Einfuehrung_in_RStudio.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">RStudio</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./Fehler.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Fehler</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -758,4 +918,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Methods-Berlin/RLernplattform/edit/main/Quick_Start_Installation.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/Methods-Berlin/RLernplattform/issues/new" class="toc-action">Report an issue</a></p></div></div></div></div></footer></body></html>
+</body></html>

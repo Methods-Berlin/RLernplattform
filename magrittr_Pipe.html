@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>R Lernplattform - 2&nbsp; Quick Start: Installation</title>
+<title>R Lernplattform - 23&nbsp; magrittr-Pipe (“%&gt;%”)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,8 +64,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Einfuehrung_in_RStudio.html" rel="next">
-<link href="./index.html" rel="prev">
+<link href="./Wide-and-Long-Format.html" rel="next">
+<link href="./Installation.html" rel="prev">
 <link href="./figures/Logo_Favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -77,7 +111,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Quick_Start_Installation.html">R Crash Course</a></li><li class="breadcrumb-item"><a href="./Quick_Start_Installation.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Quick Start: Installation</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Installation.html">Weiterführende Themen</a></li><li class="breadcrumb-item"><a href="./magrittr_Pipe.html"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">magrittr-Pipe ("%&gt;%")</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -125,16 +159,16 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
  <span class="menu-text">R Crash Course</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Quick_Start_Installation.html" class="sidebar-item-text sidebar-link active">
+  <a href="./Quick_Start_Installation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Quick Start: Installation</span></span></a>
   </div>
 </li>
@@ -267,13 +301,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
  <span class="menu-text">Weiterführende Themen</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Installation.html" class="sidebar-item-text sidebar-link">
@@ -282,7 +316,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./magrittr_Pipe.html" class="sidebar-item-text sidebar-link">
+  <a href="./magrittr_Pipe.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">magrittr-Pipe (“%&gt;%”)</span></span></a>
   </div>
 </li>
@@ -354,7 +388,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Quick Start: Installation</span></h1>
+<h1 class="title"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">magrittr-Pipe (“%&gt;%”)</span></h1>
 </div>
 
 
@@ -369,27 +403,93 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>R, wie wir es im Studium verwenden wollen, besteht aus zwei Programmen:</p>
+<p>Eine Alternative zum base-<a href="./Pipe_Operator.html">Pipe-Operator</a> (“|&gt;”), den wir im R Crash Course kennengelert haben, ist der am meisten verbreitete magrittr-Pipe-Operator (“%&gt;%”) aus dem Paket “magrittr”. Der magrittr-Pipe funktioniert sehr ähnlich wie der base-Pipe:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magrittr)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fl">5.678</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># base-Pipe </span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>x <span class="sc">|&gt;</span>  <span class="fu">round</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5.68</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># magrittr-Pipe</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>x <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5.68</code></pre>
+</div>
+</div>
+<p>Es gibt allerdings auch einige Unterschiede. Die Wichtigsten sind:</p>
 <ol type="1">
-<li>R: Das Basisprogramm und sozusagen der Motor, der alle Berechnungen ausführt.</li>
-<li>RStudio: Eine integrierte Entwicklungsumgebung und grafische Benutzeroberfläche für R.</li>
+<li>Verfügbarkeit</li>
 </ol>
-<p>Theoretisch müssen wir RStudio nicht installieren, um R zu benutzen. Allerdings erleichtert RStudio die Arbeit mit R erheblich.</p>
-<p>R kann für die Betriebssysteme Windows, macOS und Linux heruntergeladen werden. Leider gibt es keine passende R-Version für Tablets mit den Betriebssystemen Android oder iPadOS. Tablet-Benutzer:innen können stattdessen auf eine <a href="https://posit.cloud/">Cloud-basierte Version</a> zurückgreifen. Wir empfehlen die Installation und Nutzung auf einem Computer, wenn dies möglich ist.</p>
-<p>Die Basisversion von R kann <a href="https://cran.r-project.org/">hier</a> heruntergeladen werden. Achte darauf, dass du die richtige Version für dein Betriebssystem auswählst.</p>
-<p>Während der Installation wirst du gefragt, welche Komponenten installiert werden sollen. Wir empfehlen, alle Komponenten außer den „Message translations“ zu installieren. Die Message Translations würden Teile von R (aber nicht RStudio) ins Deutsche übersetzen. Dies mag zunächst wünschenswert erscheinen, aber später bei der Arbeit mit R wirst du wahrscheinlich oft nach R-Hinweisen und Fehlermeldungen googlen müssen. Leider findet man im Internet oft nur wenig zu übersetzten Hinweisen und Fehlermeldungen, da R von den allermeisten Anwender:innen in englischer Sprache verwendet wird.</p>
-<p>So sollte der Dialog in Windows aussehen:</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figures/Quick_Start_Installation/Message_translations.png" class="img-fluid figure-img"></p>
-</figure>
+<ul>
+<li>base-Pipe ist in R standardmäßig verfügbar, ohne dass zusätzliche Pakete installiert werden müssen</li>
+<li>magrittr-Pipe ist Teil des “magrittr” Pakets und muss separat installiert und geladen werden Das Paket gehört allerdings zu den Abhängigkeiten (dependencies) des “dplyr” Pakets. Das bedeutet, dass “magrittr” benötigt wird, damit “dplyr” ordnungsgemäß funktioniert - es wird automatisch installiert, wenn “dplyr” installiert wird. Das heißt, dass wenn das “dplyr” Paket schon installiert ist, dann ist das “magrittr” Paket schon dabei.</li>
+</ul>
+<ol start="2" type="1">
+<li>Funktionsaufruf</li>
+</ol>
+<ul>
+<li>base-Pipe erfordert den Funktionsaufruf (die Klammern nach der Funktion), z.B. “sqrt()”</li>
+<li>magrittr-Pipe erfordert keinen Funktionsaufruf, d.h. “sqrt” (ohne die Klammern) funktioniert genauso wie “sqrt()”</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">5</span> <span class="sc">|&gt;</span> <span class="fu">sum</span>()</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">5</span> <span class="sc">|&gt;</span> sum   <span class="co"># hier bekommen wir eine Fehlermeldung</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">5</span> <span class="sc">%&gt;%</span> sum  <span class="co"># hier nicht </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error: The pipe operator requires a function call as RHS (&lt;text&gt;:2:8)</code></pre>
 </div>
 </div>
+<p>Entsprechend kann der Code-chunk aus dem vorherigen Beispiel mit dem magrittr-Pipe alternativ auch so aussehen:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>) <span class="sc">%&gt;%</span>   </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>      <span class="fu">append</span>(<span class="fu">c</span>(<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>)) <span class="sc">%&gt;%</span>      </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>      sum <span class="sc">%&gt;%</span>                 </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>      sqrt                   </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>          </span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 6</code></pre>
 </div>
-<p>Nachdem du R installiert hast, kannst du die Benutzeroberfläche RStudio <a href="https://posit.co/download/rstudio-desktop/">hier</a> herunterladen und installieren.</p>
-<p>Wenn du Probleme mit der Installation haben solltest, kannst du auch einen Blick in <a href="./Installation.html">diese ausführlichere Anleitung</a> werfen.</p>
+</div>
+<ol start="3" type="1">
+<li>Platzhalter:</li>
+</ol>
+<ul>
+<li>base-Pipe verwendet den “_” als Platzhalter, der nur als Argument benutzt werden darf und explizit gennant werden muss</li>
+<li>magrittr-Pipe verwendet den “.” als Platzhalter, der mehr als nur ein Argument fungieren kann</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># base-Pipe </span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>x <span class="sc">|&gt;</span> <span class="fu">round</span>(<span class="fl">3.4567</span>, <span class="at">digits =</span> _) <span class="co"># "_" als Platzhalter &amp; Argument "digits" muss genannt werden</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.457</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># magrittr-Pipe</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>x <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="fl">3.4567</span>, .) <span class="co"># "." als Platzhalter &amp; Argument muss nicht genannt werden</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.457</code></pre>
+</div>
+</div>
+<p>Wir schauen uns ein weiteres komplexeres Beispiel an, um den Unterschied zwischen den Platzhaltern zu veranschaulichen:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">var1 =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>),</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>                   <span class="at">var2 =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">9</span>, <span class="dv">8</span>, <span class="dv">7</span>, <span class="dv">10</span>),</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">var3 =</span> <span class="fu">c</span>(<span class="dv">11</span>, <span class="dv">12</span>, <span class="dv">16</span>, <span class="dv">14</span>, <span class="dv">17</span>))</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> .<span class="sc">$</span>var1 <span class="sc">%&gt;%</span> <span class="fu">cor</span>(., data<span class="sc">$</span>var2) <span class="co"># dies funktioniert</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span>  _<span class="sc">$</span>var1 <span class="sc">|&gt;</span>  <span class="fu">cor</span>(_, data<span class="sc">$</span>var2) <span class="co"># dies funktioniert nicht, weil der Platzhalter</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co"># "_" nur als Argument verwendet werden darf und wir bekommen eine Fehlermeldung</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error: pipe placeholder can only be used as a named argument (&lt;text&gt;:7:21)</code></pre>
+</div>
+</div>
 
 
 
@@ -744,13 +844,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Willkommen auf der R-Lernplattform!</span></span>
+      <a href="./Installation.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Installation und Aktualisierung von R und RStudio</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Einfuehrung_in_RStudio.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">RStudio</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./Wide-and-Long-Format.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Wide- &amp; Long-Format</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -758,4 +858,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Methods-Berlin/RLernplattform/edit/main/Quick_Start_Installation.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/Methods-Berlin/RLernplattform/issues/new" class="toc-action">Report an issue</a></p></div></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Methods-Berlin/RLernplattform/edit/main/magrittr_Pipe.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/Methods-Berlin/RLernplattform/issues/new" class="toc-action">Report an issue</a></p></div></div></div></div></footer></body></html>
