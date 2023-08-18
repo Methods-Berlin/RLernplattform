@@ -109,7 +109,7 @@ print(mean_age)
 Es ist auch möglich, das Objekt bzw. Ergebnis von der linken Seite als nicht-erstes Argument auf die rechte Seite zu leiten. Dies wird mit einem "_" Platzhalter gemacht und dafür muss der gewünschte Ort bzw. das Argument der Funktion explizit genannt werden.
 
 ```{r}
-
+#| error: true
 y <- 2 
 y |> round(3.4567, digits = _) # wir benutzen y (=2), um eine neue Zahl auf 2 Nachkommastellen zu runden, indem wir das Argument "digits" explizit nennen
 
