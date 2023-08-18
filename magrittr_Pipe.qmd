@@ -4,7 +4,7 @@
 Eine Alternative zum base-[Pipe-Operator](Pipe_Operator.qmd) ("|>"), den wir im R Crash Course kennengelert haben, ist der am meisten verbreitete magrittr-Pipe-Operator ("%>%") aus dem Paket "magrittr". Der magrittr-Pipe funktioniert sehr ähnlich wie der base-Pipe: 
 
 ```{r}
-
+library(magrittr)
 x <- 5.678
 
 # base-Pipe 
