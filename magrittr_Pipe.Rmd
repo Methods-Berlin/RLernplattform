@@ -1,0 +1,79 @@
+
+# magrittr-Pipe ("%>%")
+
+Eine Alternative zum base-[Pipe-Operator](Pipe_Operator.qmd) ("|>"), den wir im R Crash Course kennengelert haben, ist der am meisten verbreitete magrittr-Pipe-Operator ("%>%") aus dem Paket "magrittr". Der magrittr-Pipe funktioniert sehr ähnlich wie der base-Pipe: 
+
+```{r}
+
+x <- 5.678
+
+# base-Pipe 
+x |>  round(2)
+
+# magrittr-Pipe
+x %>% round(2)
+
+```
+
+
+Es gibt allerdings auch einige Unterschiede. Die Wichtigsten sind:    
+
+1) Verfügbarkeit
+- base-Pipe ist in R standardmäßig verfügbar, ohne dass zusätzliche Pakete installiert werden müssen 
+- magrittr-Pipe ist Teil des "magrittr" Pakets und muss separat installiert und geladen werden
+Das Paket gehört allerdings zu den Abhängigkeiten (dependencies) des "dplyr" Pakets. Das bedeutet, dass "magrittr" benötigt wird, damit "dplyr" ordnungsgemäß funktioniert - es wird automatisch installiert, wenn "dplyr" installiert wird. Das heißt, dass wenn das "dplyr" Paket schon installiert ist, dann ist das "magrittr" Paket schon dabei.
+
+2) Funktionsaufruf
+- base-Pipe erfordert den Funktionsaufruf (die Klammern nach der Funktion), z.B. "sqrt()"
+- magrittr-Pipe erfordert keinen Funktionsaufruf, d.h. "sqrt" (ohne die Klammern) funktioniert genauso wie "sqrt()"
+
+```{r}
+
+1:5 |> sum()
+1:5 |> sum   # hier bekommen wir eine Fehlermeldung
+
+1:5 %>% sum  # hier nicht 
+
+```
+
+Entsprechend kann der Code-chunk aus dem vorherigen Beispiel mit dem magrittr-Pipe alternativ auch so aussehen: 
+```{r}
+
+result <- c(1, 2, 3, 4, 5) %>%   
+      append(c(6,7,8)) %>%      
+      sum %>%                 
+      sqrt                   
+          
+print(result)
+
+```
+
+
+3) Platzhalter:
+- base-Pipe verwendet den "_" als Platzhalter, der nur als Argument benutzt werden darf und explizit gennant werden muss
+- magrittr-Pipe verwendet den "." als Platzhalter, der mehr als nur ein Argument fungieren kann
+
+```{r}
+
+x <- 3
+
+# base-Pipe 
+x |> round(3.4567, digits = _) # "_" als Platzhalter & Argument "digits" muss genannt werden
+
+# magrittr-Pipe
+x %>% round(3.4567, .) # "." als Platzhalter & Argument muss nicht genannt werden
+
+```
+
+Wir schauen uns ein weiteres komplexeres Beispiel an, um den Unterschied zwischen den Platzhaltern zu veranschaulichen: 
+```{r}
+
+data <- data.frame(var1 = c(1, 2, 3, 4, 5),
+                   var2 = c(10, 9, 8, 7, 10),
+                   var3 = c(11, 12, 16, 14, 17))
+
+data %>% .$var1 %>% cor(., data$var2) # dies funktioniert
+
+data |>  _$var1 |>  cor(_, data$var2) # dies funktioniert nicht, weil der Platzhalter "_" nur als Argument verwendet werden darf und wir bekommen eine Fehlermeldung
+
+```
