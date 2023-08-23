@@ -79,7 +79,7 @@ summand_2 <- 4
 summe(x = summand_1,
       y = summand_2)
 ```
-R ist hier im Prinzip egal, ob wir Mehl auch tastächlich "Mehl" nennen oder "farine" dazu sagen. Wichtig ist nur, dass wir am Ende das richtige weiße Pulver als Zutat hinzugeben.
+R ist hier im Prinzip egal, ob wir Mehl auch tastächlich "Mehl" nennen oder "flour" dazu sagen. Wichtig ist nur, dass wir am Ende die richtige Zutat hinzugeben.
 
 ## Warum das Ganze
 
