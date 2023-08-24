@@ -128,5 +128,5 @@ print(m)
 
 ## Weiterführende Informationen 
 
-Es gibt mehrere Arten von "pipes". Der Pipe-Operator ("|>"), den wir uns hier angeschaut haben, ist der sogenannte "native" oder "base" Pipe. Dieser Pipe ist in dem "base" R - Paket enthalten. In dem Block "Weiterführende Themen" findest du eine kurze Vorstellung eines alternativen Pipe-Operators:  [magrittr-Pipe ("%>%")](Magrittr_Pipe.qmd).
+Es gibt mehrere Arten von "pipes". Der Pipe-Operator ("|>"), den wir uns hier angeschaut haben, ist der sogenannte "native" oder "base" Pipe. Dieser Pipe ist in dem "base" R - Paket enthalten. In dem Block "Weiterführende Themen" findest du eine kurze Vorstellung eines alternativen Pipe-Operators:  [magrittr-Pipe ("%>%")](magrittr_Pipe.qmd).
 
