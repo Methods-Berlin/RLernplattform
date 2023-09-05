@@ -10,7 +10,7 @@ RUN apt-get update && apt-get -y upgrade && apt-get -y install cmake\
   libfontconfig1-dev\
   libharfbuzz-dev\
   libfribidi-dev\
-  libfreetype6=2.13.0+dfsg-1\
+  libfreetype6=2.13.0\
   libfreetype6-dev\
   libpng-dev\
   libtiff5-dev\
