@@ -2,7 +2,7 @@
 FROM r-base
 
 # install cmake
-RUN apt-get update && apt-get -y install cmake\
+RUN apt-get update && apt-get -y upgrade && apt-get -y install cmake\
   git\
   sudo\
   libssl-dev\
