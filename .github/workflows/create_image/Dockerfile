@@ -3,7 +3,6 @@ FROM r-base
 
 # install cmake
 RUN apt-get update && apt-get -y upgrade && apt-get -y install 
-  libfreetype-dev=2.13.0+dfsg-1\
   cmake\
   git\
   sudo\
@@ -12,7 +11,6 @@ RUN apt-get update && apt-get -y upgrade && apt-get -y install
   libfontconfig1-dev\
   libharfbuzz-dev\
   libfribidi-dev\
-  #libfreetype\
   libfreetype6-dev\
   libpng-dev\
   libtiff5-dev\
