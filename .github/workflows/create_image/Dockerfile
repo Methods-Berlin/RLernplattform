@@ -1,8 +1,8 @@
 # We start with the official miniconda image
-FROM rocker/r-base
+FROM rocker/tidyverse
 
 # install cmake
-RUN apt-get update && apt-get -y reinstall libfreetype-dev libfreetype6-dev
+#RUN apt-get update && apt-get -y reinstall libfreetype-dev libfreetype6-dev
 
 # install cmake
 RUN apt-get update && apt-get -y install cmake\
