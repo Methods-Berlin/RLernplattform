@@ -2,7 +2,9 @@
 FROM r-base
 
 # install cmake
-RUN apt-get update && apt-get -y upgrade && apt-get -y install cmake\
+RUN apt-get update && apt-get -y upgrade && apt-get -y install 
+  libfreetype-dev=2.13.0+dfsg-1\
+  cmake\
   git\
   sudo\
   libssl-dev\
