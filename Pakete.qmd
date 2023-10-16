@@ -33,6 +33,7 @@ aus dem Paket **praise** nutzen, gehen wir in unsere library
 und holen das Paket **praise**. In R geschieht dies mit:
 
 ```{r}
+#| eval: false
 library(praise)
 ```
 
@@ -46,8 +47,13 @@ genauso wie das Paket).
 <summary>Lösung anzeigen</summary>
 
 ```{r}
+#| eval: false
 library(praise)
 praise()
+```
+```{r}
+#| echo: false
+print("You are magnificent!")
 ```
 
 </details>
@@ -55,21 +61,23 @@ praise()
 Schließe nun RStudio und öffne es erneut. Führe danach `praise()` aus, ohne vorher
 `library(praise)` zu nutzen.
 
-```{r,include=FALSE}
-detach("package:praise", unload = TRUE)
-```
-
-
 <details>
 <summary>Lösung anzeigen</summary>
 
-```{r, error=TRUE}
+```{r}
+#| error: true
 praise()
 ```
+
 Wir müssen das Paket erst wieder aus der library holen!
 ```{r}
+#| eval: false
 library(praise)
 praise()
+```
+```{r}
+#| echo: false
+print("You are delightful!")
 ```
 
 </details>
