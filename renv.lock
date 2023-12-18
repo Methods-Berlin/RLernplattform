@@ -330,10 +330,13 @@
     },
     "brio": {
       "Package": "brio",
-      "Version": "1.1.3",
+      "Version": "1.1.4",
       "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "976cf154dfb043c012d87cddd8bca363"
+      "Repository": "RSPM",
+      "Requirements": [
+        "R"
+      ],
+      "Hash": "68bd2b066e1fe780bbf62fc8bcc36de3"
     },
     "broom": {
       "Package": "broom",
@@ -474,14 +477,14 @@
     },
     "cli": {
       "Package": "cli",
-      "Version": "3.6.1",
+      "Version": "3.6.2",
       "Source": "Repository",
-      "Repository": "CRAN",
+      "Repository": "RSPM",
       "Requirements": [
         "R",
         "utils"
       ],
-      "Hash": "89e6d8219950eac806ae0c489052048a"
+      "Hash": "1216ac65ac55ec0058a6f75d7ca0fd52"
     },
     "clipr": {
       "Package": "clipr",
@@ -576,24 +579,24 @@
     },
     "curl": {
       "Package": "curl",
-      "Version": "5.1.0",
+      "Version": "5.2.0",
       "Source": "Repository",
       "Repository": "RSPM",
       "Requirements": [
         "R"
       ],
-      "Hash": "9123f3ef96a2c1a93927d828b2fe7d4c"
+      "Hash": "ce88d13c0b10fe88a37d9c59dba2d7f9"
     },
     "data.table": {
       "Package": "data.table",
-      "Version": "1.14.8",
+      "Version": "1.14.10",
       "Source": "Repository",
-      "Repository": "CRAN",
+      "Repository": "RSPM",
       "Requirements": [
         "R",
         "methods"
       ],
-      "Hash": "b4c06e554f33344e044ccd7fdca750a9"
+      "Hash": "6ea17a32294d8ca00455825ab0cf71b9"
     },
     "datawizard": {
       "Package": "datawizard",
@@ -610,17 +613,16 @@
     },
     "desc": {
       "Package": "desc",
-      "Version": "1.4.2",
+      "Version": "1.4.3",
       "Source": "Repository",
-      "Repository": "CRAN",
+      "Repository": "RSPM",
       "Requirements": [
         "R",
         "R6",
         "cli",
-        "rprojroot",
         "utils"
       ],
-      "Hash": "6b9602c7ebbe87101a9c8edb6e8b6d21"
+      "Hash": "99b79fcbd6c4d1ce087f5c5c758b384f"
     },
     "devtools": {
       "Package": "devtools",
@@ -776,7 +778,7 @@
     },
     "fansi": {
       "Package": "fansi",
-      "Version": "1.0.5",
+      "Version": "1.0.6",
       "Source": "Repository",
       "Repository": "RSPM",
       "Requirements": [
@@ -784,7 +786,7 @@
         "grDevices",
         "utils"
       ],
-      "Hash": "3e8583a60163b4bc1a80016e63b9959e"
+      "Hash": "962174cf2aeb5b9eea581522286a911f"
     },
     "farver": {
       "Package": "farver",
@@ -910,9 +912,9 @@
     },
     "ggiraph": {
       "Package": "ggiraph",
-      "Version": "0.8.7",
+      "Version": "0.8.8",
       "Source": "Repository",
-      "Repository": "CRAN",
+      "Repository": "RSPM",
       "Requirements": [
         "Rcpp",
         "ggplot2",
@@ -926,7 +928,7 @@
         "uuid",
         "vctrs"
       ],
-      "Hash": "cc4b14781abf296aab585c5c056d9685"
+      "Hash": "120f23937aa0311367eb1d94731660f7"
     },
     "ggiraphExtra": {
       "Package": "ggiraphExtra",
@@ -1790,21 +1792,18 @@
     },
     "pkgbuild": {
       "Package": "pkgbuild",
-      "Version": "1.4.2",
+      "Version": "1.4.3",
       "Source": "Repository",
-      "Repository": "CRAN",
+      "Repository": "RSPM",
       "Requirements": [
         "R",
         "R6",
         "callr",
         "cli",
-        "crayon",
         "desc",
-        "prettyunits",
-        "processx",
-        "rprojroot"
+        "processx"
       ],
-      "Hash": "beb25b32a957a22a5c301a9e441190b3"
+      "Hash": "c0143443203205e6a2760ce553dafc24"
     },
     "pkgconfig": {
       "Package": "pkgconfig",
@@ -1908,16 +1907,16 @@
     },
     "processx": {
       "Package": "processx",
-      "Version": "3.8.2",
+      "Version": "3.8.3",
       "Source": "Repository",
-      "Repository": "CRAN",
+      "Repository": "RSPM",
       "Requirements": [
         "R",
         "R6",
         "ps",
         "utils"
       ],
-      "Hash": "3efbd8ac1be0296a46c55387aeace0f3"
+      "Hash": "82d48b1aec56084d9438dbf98087a7e9"
     },
     "profvis": {
       "Package": "profvis",
@@ -2039,14 +2038,14 @@
     },
     "ragg": {
       "Package": "ragg",
-      "Version": "1.2.6",
+      "Version": "1.2.7",
       "Source": "Repository",
       "Repository": "RSPM",
       "Requirements": [
         "systemfonts",
         "textshaping"
       ],
-      "Hash": "6ba2fa8740abdc2cc148407836509901"
+      "Hash": "90a1b8b7e518d7f90480d56453b4d062"
     },
     "ranger": {
       "Package": "ranger",
@@ -2504,7 +2503,7 @@
     },
     "stringi": {
       "Package": "stringi",
-      "Version": "1.8.2",
+      "Version": "1.8.3",
       "Source": "Repository",
       "Repository": "RSPM",
       "Requirements": [
@@ -2513,7 +2512,7 @@
         "tools",
         "utils"
       ],
-      "Hash": "e68c45f81639001af5f1b15cd3599bbd"
+      "Hash": "058aebddea264f4c99401515182e656a"
     },
     "stringr": {
       "Package": "stringr",
@@ -2550,7 +2549,7 @@
     },
     "svglite": {
       "Package": "svglite",
-      "Version": "2.1.2",
+      "Version": "2.1.3",
       "Source": "Repository",
       "Repository": "RSPM",
       "Requirements": [
@@ -2558,7 +2557,7 @@
         "cpp11",
         "systemfonts"
       ],
-      "Hash": "be5318f6b48c136ecd6b8b5de24cc0ae"
+      "Hash": "124a41fdfa23e8691cb744c762f10516"
     },
     "sys": {
       "Package": "sys",
@@ -2700,13 +2699,13 @@
     },
     "ucminf": {
       "Package": "ucminf",
-      "Version": "1.2.0",
+      "Version": "1.2.1",
       "Source": "Repository",
-      "Repository": "CRAN",
+      "Repository": "RSPM",
       "Requirements": [
         "R"
       ],
-      "Hash": "892048d061cd01149ba86d9e841297ae"
+      "Hash": "48f2c17a0f91a1669cffdc8593aa62b2"
     },
     "urlchecker": {
       "Package": "urlchecker",
@@ -2975,10 +2974,10 @@
     },
     "yaml": {
       "Package": "yaml",
-      "Version": "2.3.7",
+      "Version": "2.3.8",
       "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "0d0056cc5383fbc240ccd0cb584bf436"
+      "Repository": "RSPM",
+      "Hash": "29240487a071f535f5e5d5a323b7afbd"
     },
     "zip": {
       "Package": "zip",
