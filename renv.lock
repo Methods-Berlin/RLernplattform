@@ -4,7 +4,7 @@
     "Repositories": [
       {
         "Name": "CRAN",
-        "URL": "https://packagemanager.posit.co/cran/latest"
+        "URL": "https://p3m.dev/cran/latest"
       }
     ]
   },
@@ -1734,8 +1734,11 @@
       "Package": "pan",
       "Version": "1.9",
       "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "495d032ad6bfc725f37ce89e3d6dadb2"
+      "Repository": "RSPM",
+      "Requirements": [
+        "R"
+      ],
+      "Hash": "aefe2753a8e7277e0fdd6d1d08d1692e"
     },
     "pander": {
       "Package": "pander",
@@ -2774,9 +2777,9 @@
     },
     "vcd": {
       "Package": "vcd",
-      "Version": "1.4-11",
+      "Version": "1.4-12",
       "Source": "Repository",
-      "Repository": "CRAN",
+      "Repository": "RSPM",
       "Requirements": [
         "MASS",
         "R",
@@ -2787,7 +2790,7 @@
         "stats",
         "utils"
       ],
-      "Hash": "bc6c0945029585c46a3a6854d8642ff8"
+      "Hash": "f02d066892ab61a82753a84b2d007af6"
     },
     "vctrs": {
       "Package": "vctrs",
