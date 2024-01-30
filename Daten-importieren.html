@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.549">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -84,7 +84,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -93,12 +99,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
-
 <script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 
@@ -111,12 +117,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Daten-importieren.html">Datenaufbereitung</a></li><li class="breadcrumb-item"><a href="./Daten-importieren.html"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Daten importieren</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Daten-importieren.html">Datenaufbereitung</a></li><li class="breadcrumb-item"><a href="./Daten-importieren.html"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Daten importieren</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -126,12 +132,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">R Lernplattform</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/Methods-Berlin/RLernplattform" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/Methods-Berlin/RLernplattform" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
     </div>
@@ -320,7 +326,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./magrittr_Pipe.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">magrittr-Pipe (“%&gt;%”)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">magrittr-Pipe ("%&gt;%")</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -381,7 +387,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -419,12 +425,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#übung-4-.xlsx" id="toc-übung-4-.xlsx" class="nav-link" data-scroll-target="#übung-4-.xlsx"><span class="header-section-number">17.9.4</span> Übung 4: <strong>.xlsx</strong></a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Methods-Berlin/RLernplattform/edit/main/Daten-importieren.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/Methods-Berlin/RLernplattform/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/Methods-Berlin/RLernplattform/edit/main/Daten-importieren.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Methods-Berlin/RLernplattform/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content page-columns page-full" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Daten-importieren.html">Datenaufbereitung</a></li><li class="breadcrumb-item"><a href="./Daten-importieren.html"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Daten importieren</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Daten importieren</span></h1>
 </div>
@@ -439,14 +445,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
+
 </header>
+
 
 <p>Wir können in R nicht nur selbst Daten erzeugen, sondern selbstverständlich auch externe Dateien unterschiedlichen Typs einlesen. Dabei geschehen in der Regel zwei Dinge: 1) Die Informationen werden ausgelesen und 2) in einem Objekt (oftmals in Form eines Dataframes) gespeichert.</p>
 <p>Im Rahmen dieses Kapitels schauen wir uns an, wie wir Dateien <strong>aus dem Internet herunterladen</strong>, <strong>in unseren Arbeitsordner verschieben</strong> und anschließend <strong>in R einlesen</strong>. Wir lernen außerdem, wie wir unser <strong>Working Directory setzen</strong> können.</p>
 <p>Wir lernen <strong>drei verschiedene Wege zum Einlesen von Dateien</strong> kennen:</p>
 <div class="cell page-columns page-full">
-<div class="cell-output-display column-body">
-<p><img src="figures/Daten-importieren/Bilder/overview.png" class="img-fluid" width="700"></p>
+<div class="cell-output-display page-columns page-full">
+<div class="page-columns page-full">
+<figure class="figure page-columns page-full">
+<p class="page-columns page-full"><img src="figures/Daten-importieren/Bilder/overview.png" class="img-fluid figure-img column-body" width="700"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Die ersten beiden Wege nutzen die <strong>grafische Benutzeroberfläche</strong> der Entwicklungsumgebung <strong>RStudio</strong>, letzterer nutzt direkt <code>Funktionen</code>.</p>
@@ -481,7 +493,7 @@ Das WD müssen wir (in der Regel) in jeder R-Sitzung erneut festlegen.
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="figures/Daten-importieren/Bilder/Herunterladen_1.png" class="img-fluid figure-img" width="400"></p>
+<p><img src="figures/Daten-importieren/Bilder/Herunterladen_1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="400"></p>
 </figure>
 </div>
 </div>
@@ -496,7 +508,7 @@ Das WD müssen wir (in der Regel) in jeder R-Sitzung erneut festlegen.
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="figures/Daten-importieren/Bilder/Herunterladen_Verschieben_1.png" class="img-fluid figure-img" width="400"></p>
+<p><img src="figures/Daten-importieren/Bilder/Herunterladen_Verschieben_1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="400"></p>
 </figure>
 </div>
 </div>
@@ -506,7 +518,7 @@ Das WD müssen wir (in der Regel) in jeder R-Sitzung erneut festlegen.
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="figures/Daten-importieren/Bilder/Herunterladen_Verschieben_2.png" class="img-fluid figure-img" width="400"></p>
+<p><img src="figures/Daten-importieren/Bilder/Herunterladen_Verschieben_2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="400"></p>
 </figure>
 </div>
 </div>
@@ -524,7 +536,7 @@ Das WD müssen wir (in der Regel) in jeder R-Sitzung erneut festlegen.
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="figures/Daten-importieren/Bilder/Safari_Seite_sicher_unter.png" class="img-fluid figure-img" width="400"></p>
+<p><img src="figures/Daten-importieren/Bilder/Safari_Seite_sicher_unter.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="400"></p>
 </figure>
 </div>
 </div>
@@ -534,7 +546,7 @@ Das WD müssen wir (in der Regel) in jeder R-Sitzung erneut festlegen.
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="figures/Daten-importieren/Bilder/Quelltext.png" class="img-fluid figure-img" width="400"></p>
+<p><img src="figures/Daten-importieren/Bilder/Quelltext.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="400"></p>
 </figure>
 </div>
 </div>
@@ -551,7 +563,7 @@ Das WD müssen wir (in der Regel) in jeder R-Sitzung erneut festlegen.
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="figures/Daten-importieren/Bilder/Datenfile_aus_Download_Ordner_kopieren.png" class="img-fluid figure-img" width="400"></p>
+<p><img src="figures/Daten-importieren/Bilder/Datenfile_aus_Download_Ordner_kopieren.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="400"></p>
 </figure>
 </div>
 </div>
@@ -561,7 +573,7 @@ Das WD müssen wir (in der Regel) in jeder R-Sitzung erneut festlegen.
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="figures/Daten-importieren/Bilder/Datenfile_in_den_Zielordner_kopieren.png" class="img-fluid figure-img" width="400"></p>
+<p><img src="figures/Daten-importieren/Bilder/Datenfile_in_den_Zielordner_kopieren.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="400"></p>
 </figure>
 </div>
 </div>
@@ -576,7 +588,7 @@ Das WD müssen wir (in der Regel) in jeder R-Sitzung erneut festlegen.
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="figures/Daten-importieren/Bilder/Importieren_icon_csv_txt_1.png" class="img-fluid figure-img" width="700"></p>
+<p><img src="figures/Daten-importieren/Bilder/Importieren_icon_csv_txt_1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="700"></p>
 </figure>
 </div>
 </div>
@@ -591,7 +603,7 @@ Das WD müssen wir (in der Regel) in jeder R-Sitzung erneut festlegen.
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="figures/Daten-importieren/Bilder/Importieren_icon_csv_txt_2.png" class="img-fluid figure-img" width="700"></p>
+<p><img src="figures/Daten-importieren/Bilder/Importieren_icon_csv_txt_2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="700"></p>
 </figure>
 </div>
 </div>
@@ -607,7 +619,7 @@ Das WD müssen wir (in der Regel) in jeder R-Sitzung erneut festlegen.
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="figures/Daten-importieren/Bilder/environment_neuro.png" class="img-fluid figure-img" width="400"></p>
+<p><img src="figures/Daten-importieren/Bilder/environment_neuro.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="400"></p>
 </figure>
 </div>
 </div>
@@ -647,7 +659,7 @@ Das WD müssen wir (in der Regel) in jeder R-Sitzung erneut festlegen.
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="figures/Daten-importieren/Bilder/Importieren_manuell_1.png" class="img-fluid figure-img" width="700"></p>
+<p><img src="figures/Daten-importieren/Bilder/Importieren_manuell_1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="700"></p>
 </figure>
 </div>
 </div>
@@ -657,7 +669,7 @@ Das WD müssen wir (in der Regel) in jeder R-Sitzung erneut festlegen.
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="figures/Daten-importieren/Bilder/Importieren_manuell_2.png" class="img-fluid figure-img" width="700"></p>
+<p><img src="figures/Daten-importieren/Bilder/Importieren_manuell_2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="700"></p>
 </figure>
 </div>
 </div>
@@ -668,7 +680,7 @@ Das WD müssen wir (in der Regel) in jeder R-Sitzung erneut festlegen.
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="figures/Daten-importieren/Bilder/environment_neuro.png" class="img-fluid figure-img" width="400"></p>
+<p><img src="figures/Daten-importieren/Bilder/environment_neuro.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="400"></p>
 </figure>
 </div>
 </div>
@@ -698,7 +710,7 @@ Einen Dateipfad kopieren
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="figures/Daten-importieren/Bilder/Dateipfad.png" class="img-fluid figure-img" width="600"></p>
+<p><img src="figures/Daten-importieren/Bilder/Dateipfad.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="600"></p>
 </figure>
 </div>
 </div>
@@ -731,7 +743,7 @@ Einen Dateipfad kopieren
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="figures/Daten-importieren/Bilder/Environment_Datenobjekt.png" class="img-fluid figure-img" width="500"></p>
+<p><img src="figures/Daten-importieren/Bilder/Environment_Datenobjekt.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="500"></p>
 </figure>
 </div>
 </div>
@@ -928,7 +940,7 @@ Kurzbefehle zum Kopieren des Dateipfads
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="figures/Daten-importieren/Bilder/Dateipfad.png" class="img-fluid figure-img" width="600"></p>
+<p><img src="figures/Daten-importieren/Bilder/Dateipfad.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="600"></p>
 </figure>
 </div>
 </div>
@@ -2276,19 +2288,18 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] readxl_1.4.3     foreign_0.8-86   kableExtra_1.3.4 knitr_1.45      
+[1] readxl_1.4.3     foreign_0.8-86   kableExtra_1.4.0 knitr_1.45      
 
 loaded via a namespace (and not attached):
- [1] vctrs_0.6.5       httr_1.4.7        svglite_2.1.3     cli_3.6.2        
- [5] rlang_1.1.3       xfun_0.41         highr_0.10        stringi_1.8.3    
- [9] jsonlite_1.8.8    glue_1.7.0        colorspace_2.1-0  htmltools_0.5.7  
-[13] fansi_1.0.6       scales_1.3.0      rmarkdown_2.25    cellranger_1.1.0 
-[17] tibble_3.2.1      evaluate_0.23     munsell_0.5.0     fastmap_1.1.1    
-[21] yaml_2.3.8        lifecycle_1.0.4   stringr_1.5.1     compiler_4.3.2   
-[25] rvest_1.0.3       pkgconfig_2.0.3   htmlwidgets_1.6.4 rstudioapi_0.15.0
-[29] systemfonts_1.0.5 digest_0.6.34     viridisLite_0.4.2 R6_2.5.1         
-[33] utf8_1.2.4        pillar_1.9.0      magrittr_2.0.3    webshot_0.5.5    
-[37] tools_4.3.2       xml2_1.3.6       </code></pre>
+ [1] vctrs_0.6.5       svglite_2.1.3     cli_3.6.2         rlang_1.1.3      
+ [5] xfun_0.41         stringi_1.8.3     highr_0.10        jsonlite_1.8.8   
+ [9] glue_1.7.0        colorspace_2.1-0  htmltools_0.5.7   fansi_1.0.6      
+[13] scales_1.3.0      rmarkdown_2.25    cellranger_1.1.0  tibble_3.2.1     
+[17] evaluate_0.23     munsell_0.5.0     fastmap_1.1.1     yaml_2.3.8       
+[21] lifecycle_1.0.4   stringr_1.5.1     compiler_4.3.2    pkgconfig_2.0.3  
+[25] htmlwidgets_1.6.4 rstudioapi_0.15.0 systemfonts_1.0.5 digest_0.6.34    
+[29] viridisLite_0.4.2 R6_2.5.1          utf8_1.2.4        pillar_1.9.0     
+[33] magrittr_2.0.3    tools_4.3.2       xml2_1.3.6       </code></pre>
 </div>
 </div>
 <p>Für Informationen zur Interpretation dieses Outputs schaut auch den Abschnitt <a href="./Pakete.html#replizierbarkeit-von-analysen">Replizierbarkeit von Analysen</a> des Kapitels zu Paketen an.</p>
@@ -2339,6 +2350,33 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       } else {
         el.classList.add('notransition');
       }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
     }
   }
   const toggleColorMode = (alternate) => {
@@ -2407,13 +2445,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  let localAlternateSentinel = 'default';
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -2492,10 +2532,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -2505,8 +2544,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -2519,6 +2567,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -2562,6 +2729,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -2587,6 +2755,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -2648,12 +2842,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./Best_Practices.html" class="pagination-link">
+      <a href="./Best_Practices.html" class="pagination-link  aria-label=" &lt;span="" practices&lt;="" span&gt;"="">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Best Practices</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Datenvorbereitung.html" class="pagination-link">
+      <a href="./Datenvorbereitung.html" class="pagination-link" aria-label="<span class='chapter-number'>18</span>&nbsp; <span class='chapter-title'>Datenvorbereitung</span>">
         <span class="nav-page-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Datenvorbereitung</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
@@ -2662,4 +2856,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-</body></html>
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/Methods-Berlin/RLernplattform/edit/main/Daten-importieren.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Methods-Berlin/RLernplattform/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

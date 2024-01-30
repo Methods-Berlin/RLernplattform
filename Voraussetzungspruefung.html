@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.549">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -84,7 +84,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -93,12 +99,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
-
 <script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
@@ -106,6 +112,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -115,12 +148,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Installation.html">Weiterführende Themen</a></li><li class="breadcrumb-item"><a href="./Voraussetzungspruefung.html"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Annahmen der Multiplen Linearen Regression</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Installation.html">Weiterführende Themen</a></li><li class="breadcrumb-item"><a href="./Voraussetzungspruefung.html"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Annahmen der Multiplen Linearen Regression</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -130,12 +163,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">R Lernplattform</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/Methods-Berlin/RLernplattform" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/Methods-Berlin/RLernplattform" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
     </div>
@@ -324,7 +357,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./magrittr_Pipe.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">magrittr-Pipe (“%&gt;%”)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">magrittr-Pipe ("%&gt;%")</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -385,7 +418,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -420,12 +453,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#literatur-weiterführende-hilfe" id="toc-literatur-weiterführende-hilfe" class="nav-link" data-scroll-target="#literatur-weiterführende-hilfe"><span class="header-section-number">28.6</span> Literatur &amp; weiterführende Hilfe</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Methods-Berlin/RLernplattform/edit/main/Voraussetzungspruefung.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/Methods-Berlin/RLernplattform/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/Methods-Berlin/RLernplattform/edit/main/Voraussetzungspruefung.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Methods-Berlin/RLernplattform/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content page-columns page-full" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Installation.html">Weiterführende Themen</a></li><li class="breadcrumb-item"><a href="./Voraussetzungspruefung.html"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Annahmen der Multiplen Linearen Regression</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Annahmen der Multiplen Linearen Regression</span></h1>
 </div>
@@ -440,7 +473,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
+
 </header>
+
 
 <p><span style="font-size:30px"> Einleitung </span></p>
 <p>Wenn wir uns den gerichteten Zusammenhang von mehr als zwei Variablen anschauen möchten, können wir dafür die multiple lineare Regression nutzen. Bei dieser können wir <em>eine</em> abhängige Variable (AV, nachfolgend <em>Kriterium</em> genannt) durch <em>mehrere (multiple)</em> unabhängige Variablen (UVs, nachfolgend <em>Prädiktoren</em> genannt) vorhersagen. Grundsätzlich gilt, dass das Kriterium metrisch sein muss (d.h. mindestens intervallskaliert). Die Prädiktoren hingegen können auch kategorial (d.h. dichotom, nominal- oder ordinalskaliert) sein, sofern diese korrekt kodiert werden (z.B. als Dummyvariablen).</p>
@@ -468,44 +503,44 @@ Wie sieht die Regressionsgleichung aus?
 <table data-quarto-postprocess="true" class="table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold; color: white !important; background-color: #009193 !important;"></th>
-<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold; color: white !important; background-color: #009193 !important;">verzerrte Koeffizienten</th>
-<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold; color: white !important; background-color: #009193 !important;">verzerrte Standardfehler</th>
+<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold; color: white !important; background-color: rgba(0, 145, 147, 255) !important;"></th>
+<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold; color: white !important; background-color: rgba(0, 145, 147, 255) !important;">verzerrte Koeffizienten</th>
+<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold; color: white !important; background-color: rgba(0, 145, 147, 255) !important;">verzerrte Standardfehler</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left; color: white !important; background-color: #009193 !important;"><strong>Linearität</strong></td>
+<td style="text-align: left; color: white !important; background-color: rgba(0, 145, 147, 255) !important;">&lt;b&gt;Linearität&lt;/b&gt;</td>
 <td style="text-align: left;">X</td>
 <td style="text-align: left;">X</td>
 </tr>
 <tr class="even">
-<td style="text-align: left; color: white !important; background-color: #009193 !important;"><strong>Exogenität</strong></td>
+<td style="text-align: left; color: white !important; background-color: rgba(0, 145, 147, 255) !important;">&lt;b&gt;Exogenität&lt;/b&gt;</td>
 <td style="text-align: left;">X</td>
 <td style="text-align: left;">X</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left; color: white !important; background-color: #009193 !important;"><strong>Homoskedastizität</strong></td>
+<td style="text-align: left; color: white !important; background-color: rgba(0, 145, 147, 255) !important;">&lt;b&gt;Homoskedastizität&lt;/b&gt;</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;">X</td>
 </tr>
 <tr class="even">
-<td style="text-align: left; color: white !important; background-color: #009193 !important;"><strong>Unabhängigkeit der Residuen</strong></td>
+<td style="text-align: left; color: white !important; background-color: rgba(0, 145, 147, 255) !important;">&lt;b&gt;Unabhängigkeit der Residuen&lt;/b&gt;</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;">X</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left; color: white !important; background-color: #009193 !important;">Normalverteilung der Residuen</td>
+<td style="text-align: left; color: white !important; background-color: rgba(0, 145, 147, 255) !important;">Normalverteilung der Residuen</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;">X</td>
 </tr>
 <tr class="even">
-<td style="text-align: left; color: white !important; background-color: #009193 !important;">Multikollinearität</td>
+<td style="text-align: left; color: white !important; background-color: rgba(0, 145, 147, 255) !important;">Multikollinearität</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;">X</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left; color: white !important; background-color: #009193 !important;">Einflussreiche Datenpunkte</td>
+<td style="text-align: left; color: white !important; background-color: rgba(0, 145, 147, 255) !important;">Einflussreiche Datenpunkte</td>
 <td style="text-align: left;">X</td>
 <td style="text-align: left;"></td>
 </tr>
@@ -620,7 +655,11 @@ Wenn die Annahmen für die multiple lineare Regression in unserem Beispiel nicht
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>lz_inh <span class="ot">&lt;-</span> <span class="fu">lm</span>(daten<span class="sc">$</span>leb_zufr <span class="sc">~</span> daten<span class="sc">$</span>zufr_inhalt, <span class="at">na.action=</span><span class="st">'na.exclude'</span>) <span class="co"># Einfache Regression</span></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(lz_inh) <span class="co"># Einzeichnen Regressionsgerade</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="Voraussetzungspruefung_files/figure-html/bivariate plot 1-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="Voraussetzungspruefung_files/figure-html/bivariate plot 1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Der Plot spricht für einen linearen Zusammenhang zwischen Lebenszufriedenheit (Kriterium) und Zufriedenheit mit Studieninhalten (Prädiktor).</p>
@@ -630,7 +669,11 @@ Wenn die Annahmen für die multiple lineare Regression in unserem Beispiel nicht
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>lz_bed <span class="ot">&lt;-</span> <span class="fu">lm</span>(daten<span class="sc">$</span>leb_zufr <span class="sc">~</span> daten<span class="sc">$</span>zufr_beding, <span class="at">na.action=</span><span class="st">'na.exclude'</span>) <span class="co"># Einfache Regression</span></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(lz_bed) <span class="co"># Einzeichnen Regressionsgerade</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="Voraussetzungspruefung_files/figure-html/bivariate plot 2-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="Voraussetzungspruefung_files/figure-html/bivariate plot 2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Der Plot von Lebenszufriedenheit (Kriterium) und Zufriedenheit mit Studienbedingungen (Prädiktor) weist auf einen linearen Zusammenhang hin.</p>
@@ -644,7 +687,11 @@ Wenn die Annahmen für die multiple lineare Regression in unserem Beispiel nicht
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="Voraussetzungspruefung_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="Voraussetzungspruefung_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Die <strong>gestrichelte Linie</strong> bei <span class="math inline">\(y = 0\)</span> zeigt den Erwartungswert der Residuen. Diese ist immer null und die Residuen sollten sich ohne erkennbares Muster, um diese Linie verteilen.</p>
@@ -655,7 +702,7 @@ Wenn die Annahmen für die multiple lineare Regression in unserem Beispiel nicht
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="figures/Voraussetzungsprüfung/Bilder/non_linearity.png" class="img-fluid figure-img" width="400"></p>
+<p><img src="figures/Voraussetzungsprüfung/Bilder/non_linearity.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="400"></p>
 </figure>
 </div>
 </div>
@@ -731,7 +778,11 @@ Homoskedastizität wird auch Varianzhomogenität genannt.
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="Voraussetzungspruefung_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="Voraussetzungspruefung_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Die <strong>gestrichelte Linie</strong> bei <span class="math inline">\(y = 0\)</span> zeigt den Erwartungswert der Residuen. Diese ist immer null und die Residuen sollten sich ohne erkennbares Muster, um diese Linie verteilen.</p>
@@ -740,7 +791,7 @@ Homoskedastizität wird auch Varianzhomogenität genannt.
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="figures/Voraussetzungsprüfung/Bilder/heteroskedasticity.png" class="img-fluid figure-img" width="400"></p>
+<p><img src="figures/Voraussetzungsprüfung/Bilder/heteroskedasticity.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="400"></p>
 </figure>
 </div>
 </div>
@@ -752,7 +803,11 @@ Homoskedastizität wird auch Varianzhomogenität genannt.
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lm_lz, <span class="at">which =</span> <span class="dv">3</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="Voraussetzungspruefung_files/figure-html/scale location plot-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="Voraussetzungspruefung_files/figure-html/scale location plot-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># dritter Plot der plot()-Funktion für ein lm-Objekt ist der Scale Location Plot</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -809,7 +864,6 @@ Dadurch kommen unterschiedliche Residuen in die Slices und folglich werden auch 
 </div>
 <div class="cell">
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["erstis.zuf.inh.1"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["residuals.lz_inh."],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"1.333333","2":"2.2328207","_rn_":"151"},{"1":"1.666667","2":"-7.7707482","_rn_":"47"},{"1":"1.666667","2":"-4.7707482","_rn_":"180"},{"1":"1.666667","2":"-3.7707482","_rn_":"98"},{"1":"1.666667","2":"5.2292518","_rn_":"31"},{"1":"1.666667","2":"5.2292518","_rn_":"44"},{"1":"2.000000","2":"-8.7743170","_rn_":"118"},{"1":"2.000000","2":"10.2256830","_rn_":"50"},{"1":"2.333333","2":"-8.7778859","_rn_":"40"},{"1":"2.333333","2":"-8.7778859","_rn_":"83"},{"1":"2.333333","2":"-3.7778859","_rn_":"65"},{"1":"2.333333","2":"-2.7778859","_rn_":"17"},{"1":"2.333333","2":"-0.7778859","_rn_":"156"},{"1":"2.333333","2":"0.2221141","_rn_":"141"},{"1":"2.333333","2":"1.2221141","_rn_":"43"},{"1":"2.333333","2":"2.2221141","_rn_":"49"},{"1":"2.333333","2":"3.2221141","_rn_":"52"},{"1":"2.333333","2":"3.2221141","_rn_":"190"},{"1":"2.333333","2":"6.2221141","_rn_":"58"},{"1":"2.666667","2":"-10.7814548","_rn_":"75"},{"1":"2.666667","2":"-9.7814548","_rn_":"76"},{"1":"2.666667","2":"-7.7814548","_rn_":"80"},{"1":"2.666667","2":"-5.7814548","_rn_":"42"},{"1":"2.666667","2":"-0.7814548","_rn_":"185"},{"1":"2.666667","2":"-0.7814548","_rn_":"187"},{"1":"2.666667","2":"1.2185452","_rn_":"81"},{"1":"2.666667","2":"2.2185452","_rn_":"153"},{"1":"2.666667","2":"3.2185452","_rn_":"105"},{"1":"2.666667","2":"4.2185452","_rn_":"32"},{"1":"3.000000","2":"-14.7850237","_rn_":"37"},{"1":"3.000000","2":"-12.7850237","_rn_":"11"},{"1":"3.000000","2":"-8.7850237","_rn_":"56"},{"1":"3.000000","2":"-7.7850237","_rn_":"10"},{"1":"3.000000","2":"-5.7850237","_rn_":"20"},{"1":"3.000000","2":"-5.7850237","_rn_":"84"},{"1":"3.000000","2":"-4.7850237","_rn_":"160"},{"1":"3.000000","2":"-3.7850237","_rn_":"4"},{"1":"3.000000","2":"-3.7850237","_rn_":"48"},{"1":"3.000000","2":"-3.7850237","_rn_":"96"},{"1":"3.000000","2":"-2.7850237","_rn_":"59"},{"1":"3.000000","2":"-2.7850237","_rn_":"74"},{"1":"3.000000","2":"-2.7850237","_rn_":"129"},{"1":"3.000000","2":"-2.7850237","_rn_":"147"},{"1":"3.000000","2":"-1.7850237","_rn_":"1"},{"1":"3.000000","2":"-1.7850237","_rn_":"63"},{"1":"3.000000","2":"-0.7850237","_rn_":"175"},{"1":"3.000000","2":"0.2149763","_rn_":"124"},{"1":"3.000000","2":"0.2149763","_rn_":"159"},{"1":"3.000000","2":"1.2149763","_rn_":"101"},{"1":"3.000000","2":"1.2149763","_rn_":"131"},{"1":"3.000000","2":"2.2149763","_rn_":"51"},{"1":"3.000000","2":"2.2149763","_rn_":"125"},{"1":"3.000000","2":"3.2149763","_rn_":"13"},{"1":"3.000000","2":"3.2149763","_rn_":"136"},{"1":"3.000000","2":"3.2149763","_rn_":"145"},{"1":"3.000000","2":"3.2149763","_rn_":"148"},{"1":"3.000000","2":"4.2149763","_rn_":"66"},{"1":"3.000000","2":"4.2149763","_rn_":"93"},{"1":"3.000000","2":"4.2149763","_rn_":"126"},{"1":"3.000000","2":"4.2149763","_rn_":"162"},{"1":"3.000000","2":"4.2149763","_rn_":"177"},{"1":"3.000000","2":"5.2149763","_rn_":"24"},{"1":"3.000000","2":"5.2149763","_rn_":"114"},{"1":"3.000000","2":"5.2149763","_rn_":"130"},{"1":"3.000000","2":"5.2149763","_rn_":"133"},{"1":"3.000000","2":"6.2149763","_rn_":"33"},{"1":"3.000000","2":"6.2149763","_rn_":"78"},{"1":"3.000000","2":"6.2149763","_rn_":"134"},{"1":"3.000000","2":"6.2149763","_rn_":"150"},{"1":"3.000000","2":"6.2149763","_rn_":"168"},{"1":"3.000000","2":"7.2149763","_rn_":"19"},{"1":"3.000000","2":"7.2149763","_rn_":"116"},{"1":"3.000000","2":"7.2149763","_rn_":"169"},{"1":"3.000000","2":"7.2149763","_rn_":"173"},{"1":"3.000000","2":"10.2149763","_rn_":"25"},{"1":"3.333333","2":"-9.7885926","_rn_":"155"},{"1":"3.333333","2":"-5.7885926","_rn_":"94"},{"1":"3.333333","2":"-5.7885926","_rn_":"184"},{"1":"3.333333","2":"-4.7885926","_rn_":"36"},{"1":"3.333333","2":"-4.7885926","_rn_":"132"},{"1":"3.333333","2":"-3.7885926","_rn_":"38"},{"1":"3.333333","2":"-2.7885926","_rn_":"182"},{"1":"3.333333","2":"-1.7885926","_rn_":"110"},{"1":"3.333333","2":"-1.7885926","_rn_":"149"},{"1":"3.333333","2":"-0.7885926","_rn_":"144"},{"1":"3.333333","2":"0.2114074","_rn_":"138"},{"1":"3.333333","2":"1.2114074","_rn_":"6"},{"1":"3.333333","2":"1.2114074","_rn_":"109"},{"1":"3.333333","2":"1.2114074","_rn_":"183"},{"1":"3.333333","2":"2.2114074","_rn_":"106"},{"1":"3.333333","2":"2.2114074","_rn_":"113"},{"1":"3.333333","2":"2.2114074","_rn_":"120"},{"1":"3.333333","2":"2.2114074","_rn_":"143"},{"1":"3.333333","2":"2.2114074","_rn_":"189"},{"1":"3.333333","2":"3.2114074","_rn_":"54"},{"1":"3.333333","2":"3.2114074","_rn_":"107"},{"1":"3.333333","2":"4.2114074","_rn_":"30"},{"1":"3.333333","2":"4.2114074","_rn_":"163"},{"1":"3.333333","2":"6.2114074","_rn_":"103"},{"1":"3.333333","2":"6.2114074","_rn_":"152"},{"1":"3.333333","2":"8.2114074","_rn_":"179"},{"1":"3.333333","2":"9.2114074","_rn_":"62"},{"1":"3.666667","2":"-10.7921614","_rn_":"108"},{"1":"3.666667","2":"-9.7921614","_rn_":"186"},{"1":"3.666667","2":"-7.7921614","_rn_":"29"},{"1":"3.666667","2":"-6.7921614","_rn_":"127"},{"1":"3.666667","2":"-4.7921614","_rn_":"142"},{"1":"3.666667","2":"-2.7921614","_rn_":"117"},{"1":"3.666667","2":"-1.7921614","_rn_":"77"},{"1":"3.666667","2":"-0.7921614","_rn_":"71"},{"1":"3.666667","2":"-0.7921614","_rn_":"139"},{"1":"3.666667","2":"0.2078386","_rn_":"16"},{"1":"3.666667","2":"0.2078386","_rn_":"18"},{"1":"3.666667","2":"0.2078386","_rn_":"79"},{"1":"3.666667","2":"0.2078386","_rn_":"172"},{"1":"3.666667","2":"1.2078386","_rn_":"67"},{"1":"3.666667","2":"1.2078386","_rn_":"167"},{"1":"3.666667","2":"4.2078386","_rn_":"72"},{"1":"3.666667","2":"4.2078386","_rn_":"104"},{"1":"3.666667","2":"4.2078386","_rn_":"178"},{"1":"3.666667","2":"5.2078386","_rn_":"2"},{"1":"3.666667","2":"5.2078386","_rn_":"191"},{"1":"3.666667","2":"6.2078386","_rn_":"170"},{"1":"4.000000","2":"-14.7957303","_rn_":"154"},{"1":"4.000000","2":"-9.7957303","_rn_":"146"},{"1":"4.000000","2":"-8.7957303","_rn_":"53"},{"1":"4.000000","2":"-7.7957303","_rn_":"100"},{"1":"4.000000","2":"-5.7957303","_rn_":"135"},{"1":"4.000000","2":"-4.7957303","_rn_":"68"},{"1":"4.000000","2":"-4.7957303","_rn_":"86"},{"1":"4.000000","2":"-4.7957303","_rn_":"161"},{"1":"4.000000","2":"-4.7957303","_rn_":"171"},{"1":"4.000000","2":"-3.7957303","_rn_":"15"},{"1":"4.000000","2":"-3.7957303","_rn_":"85"},{"1":"4.000000","2":"-3.7957303","_rn_":"88"},{"1":"4.000000","2":"-3.7957303","_rn_":"90"},{"1":"4.000000","2":"-2.7957303","_rn_":"112"},{"1":"4.000000","2":"-1.7957303","_rn_":"95"},{"1":"4.000000","2":"-0.7957303","_rn_":"23"},{"1":"4.000000","2":"0.2042697","_rn_":"3"},{"1":"4.000000","2":"0.2042697","_rn_":"12"},{"1":"4.000000","2":"0.2042697","_rn_":"55"},{"1":"4.000000","2":"0.2042697","_rn_":"137"},{"1":"4.000000","2":"0.2042697","_rn_":"181"},{"1":"4.000000","2":"1.2042697","_rn_":"14"},{"1":"4.000000","2":"1.2042697","_rn_":"45"},{"1":"4.000000","2":"1.2042697","_rn_":"46"},{"1":"4.000000","2":"1.2042697","_rn_":"57"},{"1":"4.000000","2":"1.2042697","_rn_":"89"},{"1":"4.000000","2":"1.2042697","_rn_":"123"},{"1":"4.000000","2":"2.2042697","_rn_":"28"},{"1":"4.000000","2":"3.2042697","_rn_":"39"},{"1":"4.000000","2":"3.2042697","_rn_":"41"},{"1":"4.000000","2":"3.2042697","_rn_":"122"},{"1":"4.000000","2":"3.2042697","_rn_":"128"},{"1":"4.000000","2":"3.2042697","_rn_":"174"},{"1":"4.000000","2":"4.2042697","_rn_":"21"},{"1":"4.000000","2":"4.2042697","_rn_":"97"},{"1":"4.000000","2":"4.2042697","_rn_":"121"},{"1":"4.000000","2":"4.2042697","_rn_":"166"},{"1":"4.000000","2":"5.2042697","_rn_":"26"},{"1":"4.000000","2":"5.2042697","_rn_":"35"},{"1":"4.000000","2":"6.2042697","_rn_":"165"},{"1":"4.000000","2":"6.2042697","_rn_":"176"},{"1":"4.000000","2":"7.2042697","_rn_":"115"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -949,7 +1003,11 @@ daten$zufr_beding  1.222937  0.5605375 2.181723 3.057982e-02</code></pre>
 <span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">col=</span><span class="st">"grey"</span>, <span class="co"># Farbe</span></span>
 <span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">lty=</span><span class="dv">3</span>) <span class="co"># Linien-Art: gestrichelt</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="Voraussetzungspruefung_files/figure-html/index plot-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="Voraussetzungspruefung_files/figure-html/index plot-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Die Abbildung impliziert, dass die Residuen unabhängig sind. Das entspricht unseren Vorüberlegungen, das wir nur Variablen haben, die zum gleichen Messzeitpunkt erhoben wurden.<br>
@@ -966,7 +1024,11 @@ Exkurs: Grafische Interpretationshilfe für den Index Plot
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">lowess</span>(lm_lz<span class="sc">$</span>residuals), <span class="at">col =</span> <span class="st">"red"</span>)</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h=</span><span class="dv">0</span>, <span class="at">col=</span><span class="st">"darkblue"</span>, <span class="at">lty=</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="Voraussetzungspruefung_files/figure-html/index plot colored-1.png" class="img-fluid" width="500"></p>
+<div>
+<figure class="figure">
+<p><img src="Voraussetzungspruefung_files/figure-html/index plot colored-1.png" class="img-fluid figure-img" width="500"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Die 10 steht dafür, dass wir 10 Messwiederholungen haben. 1 bis 17 kodiert unterschiedliche Farbe. Alternativ können wir auch die Farbnamen in einem Vektor spezifizieren - dann würden wir anstatt <code>1:17</code> z.B. <code>red', 'blue', 'green', ...)</code> einfügen.</p>
@@ -976,7 +1038,11 @@ Exkurs: Grafische Interpretationshilfe für den Index Plot
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">lowess</span>(lm_lz<span class="sc">$</span>residuals), <span class="at">col =</span> <span class="st">"red"</span>)</span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h=</span><span class="dv">0</span>, <span class="at">col=</span><span class="st">"darkblue"</span>, <span class="at">lty=</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="Voraussetzungspruefung_files/figure-html/index plot forms-1.png" class="img-fluid" width="500"></p>
+<div>
+<figure class="figure">
+<p><img src="Voraussetzungspruefung_files/figure-html/index plot forms-1.png" class="img-fluid figure-img" width="500"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Wenn es starke serielle Abhängigkeiten geben würde, würden sich die Fälle sichtlich voneinander unterscheiden bzw. Cluster bilden. Illustriert ist das im folgenden Plot:</p>
@@ -984,7 +1050,7 @@ Exkurs: Grafische Interpretationshilfe für den Index Plot
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Voraussetzungspruefung_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid figure-img" width="400"></p>
+<p><img src="Voraussetzungspruefung_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="400"></p>
 </figure>
 </div>
 </div>
@@ -1069,7 +1135,11 @@ Bei unbalancierter Gruppengröße ist k, die Anzahl der Personen in jeder Gruppe
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(daten<span class="sc">$</span>resid <span class="sc">~</span> daten<span class="sc">$</span>gruppe)</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h=</span><span class="dv">0</span>, <span class="at">col=</span><span class="st">"darkblue"</span>, <span class="at">lty=</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="Voraussetzungspruefung_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="Voraussetzungspruefung_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Die Interpretation hier ist ähnlich zu den Resiualplots: Der Median der einzelnen Gruppen sollte jeweils nah an der gestrichelten Linie bei <span class="math inline">\(y=0\)</span> sein. Zusätzlich sollten die Verteilungen sich stark überlappen.</p>
@@ -1104,7 +1174,11 @@ Bei unbalancierter Gruppengröße ist k, die Anzahl der Personen in jeder Gruppe
 <div class="cell">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(lm_lz<span class="sc">$</span>residuals)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="Voraussetzungspruefung_files/figure-html/unnamed-chunk-31-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="Voraussetzungspruefung_files/figure-html/unnamed-chunk-31-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Optisch sollte ungefähr eine Normalverteilung zu erkennen sein.<br>
@@ -1139,7 +1213,11 @@ Exkurs: Graphische Interpretationshilfe für das Histogramm
 <span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a>      <span class="at">col =</span> <span class="st">"green"</span>, <span class="co">#... in grün ...</span></span>
 <span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">add =</span> <span class="cn">TRUE</span>) <span class="co"># ... die zu bestehendem Plot hinzugefügt wird</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="Voraussetzungspruefung_files/figure-html/hist_advanced-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="Voraussetzungspruefung_files/figure-html/hist_advanced-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 Anhand dieser beiden Linien wird noch deutlicher, dass die Verteilung der Residuen in unserem Beispiel von einer Normalverteilung abweicht.
@@ -1153,7 +1231,11 @@ Anhand dieser beiden Linien wird noch deutlicher, dass die Verteilung der Residu
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="co"># zweiter Plot der plot()-Funktion für ein lm-Objekt ist der QQ-Plot</span></span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="dv">1</span>, <span class="at">col =</span> <span class="st">"blue"</span>) <span class="co"># zur Illustration für unser Beispiel</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="Voraussetzungspruefung_files/figure-html/qq plot-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="Voraussetzungspruefung_files/figure-html/qq plot-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>In der obigen Abbildung werden die theoretischen Quantile der Normalverteilung (<span class="math inline">\(x\)</span>-Achse) gegen die standardisierten Residuen (<span class="math inline">\(y\)</span>-Achse) abgetragen. Wenn die Residuen normalverteilt sind, sollten die Punkte ungefähr auf der winkelhalbierenden Geraden (gestrichelte Linie) liegen. Kleinere Abweichungen, vor allem an den Enden der Geraden (unten links und oben rechts) sind in der Praxis aber nicht ungewöhnlich und oftmals nicht weiter problematisch.</p>
@@ -1298,21 +1380,21 @@ Die <strong>Leverage</strong> ist die absolute Abweichung eines beobachteten Wer
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Voraussetzungspruefung_files/figure-html/unnamed-chunk-38-1.png" class="img-fluid figure-img" width="400"></p>
+<p><img src="Voraussetzungspruefung_files/figure-html/unnamed-chunk-38-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="400"></p>
 </figure>
 </div>
 </div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Voraussetzungspruefung_files/figure-html/unnamed-chunk-38-2.png" class="img-fluid figure-img" width="400"></p>
+<p><img src="Voraussetzungspruefung_files/figure-html/unnamed-chunk-38-2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="400"></p>
 </figure>
 </div>
 </div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Voraussetzungspruefung_files/figure-html/unnamed-chunk-38-3.png" class="img-fluid figure-img" width="400"></p>
+<p><img src="Voraussetzungspruefung_files/figure-html/unnamed-chunk-38-3.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="400"></p>
 </figure>
 </div>
 </div>
@@ -1346,7 +1428,11 @@ Studentisierte gelöschte Residuen werden auch als <strong>externally studentize
 <div class="cell">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">rstudent</span>(lm_lz))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="Voraussetzungspruefung_files/figure-html/unnamed-chunk-39-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="Voraussetzungspruefung_files/figure-html/unnamed-chunk-39-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Es gibt keine einheitlichen Richtlinien darüber, ab wann ein studentisiertes gelöschtes Residuum als extrem groß anzusehen ist. Wir schauen nur, ob einzelne Werte stark vom Cluster der anderen Werte abweichen.</p>
@@ -1356,7 +1442,7 @@ Studentisierte gelöschte Residuen werden auch als <strong>externally studentize
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Voraussetzungspruefung_files/figure-html/unnamed-chunk-40-1.png" class="img-fluid figure-img" width="400"></p>
+<p><img src="Voraussetzungspruefung_files/figure-html/unnamed-chunk-40-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="400"></p>
 </figure>
 </div>
 </div>
@@ -1402,14 +1488,22 @@ Largest |rstudent|:
 <div class="cell">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">hatvalues</span>(lm_lz)[<span class="sc">!</span><span class="fu">is.na</span>(daten<span class="sc">$</span>resid)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="Voraussetzungspruefung_files/figure-html/plot hat values-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="Voraussetzungspruefung_files/figure-html/plot hat values-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>In größeren Datensätzen sollten wir die Hebelwerte der Übersichtlichkeit halber in einem Histogramm visualisieren.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="fu">hatvalues</span>(lm_lz)[<span class="sc">!</span><span class="fu">is.na</span>(daten<span class="sc">$</span>resid)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="Voraussetzungspruefung_files/figure-html/hist hat values-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="Voraussetzungspruefung_files/figure-html/hist hat values-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Wir sollten uns hierbei auf die Inspektion weniger, extremer Werte beschränken und vor allem nur auf solche, die weit entfernt von den restlichen (nah beieinander liegenden Werten) sind.</p>
@@ -1434,7 +1528,11 @@ Largest |rstudent|:
 <div class="cell">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lm_lz, <span class="at">which=</span><span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="Voraussetzungspruefung_files/figure-html/resid lev plot-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="Voraussetzungspruefung_files/figure-html/resid lev plot-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># fünfter Plot der plot()-Funktion für ein lm-Objekt ist der Residuen-Leverage Plot</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1457,7 +1555,7 @@ Largest |rstudent|:
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Voraussetzungspruefung_files/figure-html/plot cd-1.png" class="img-fluid figure-img" width="600"></p>
+<p><img src="Voraussetzungspruefung_files/figure-html/plot cd-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="600"></p>
 </figure>
 </div>
 </div>
@@ -1469,7 +1567,7 @@ Largest |rstudent|:
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Voraussetzungspruefung_files/figure-html/resid lev plot 2-1.png" class="img-fluid figure-img" width="600"></p>
+<p><img src="Voraussetzungspruefung_files/figure-html/resid lev plot 2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="600"></p>
 </figure>
 </div>
 </div>
@@ -1478,7 +1576,7 @@ Largest |rstudent|:
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Voraussetzungspruefung_files/figure-html/sim lev resid plot 1-1.png" class="img-fluid figure-img" width="600"></p>
+<p><img src="Voraussetzungspruefung_files/figure-html/sim lev resid plot 1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="600"></p>
 </figure>
 </div>
 </div>
@@ -1491,7 +1589,7 @@ Die Cooks Distance ist wesentlich größer, sie beträgt fast <span class="math 
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Voraussetzungspruefung_files/figure-html/sim lev resid plot 2-1.png" class="img-fluid figure-img" width="600"></p>
+<p><img src="Voraussetzungspruefung_files/figure-html/sim lev resid plot 2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="600"></p>
 </figure>
 </div>
 </div>
@@ -1504,7 +1602,7 @@ Die Cooks Distance ist etwas größer, aber noch <span class="math inline">\(&lt
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Voraussetzungspruefung_files/figure-html/sim lev resid plot 3-1.png" class="img-fluid figure-img" width="600"></p>
+<p><img src="Voraussetzungspruefung_files/figure-html/sim lev resid plot 3-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="600"></p>
 </figure>
 </div>
 </div>
@@ -1577,17 +1675,17 @@ attached base packages:
 
 other attached packages:
 [1] car_3.1-2        carData_3.0-5    ICC_2.4.0        rmarkdown_2.25  
-[5] knitr_1.45       kableExtra_1.3.4
+[5] knitr_1.45       kableExtra_1.4.0
 
 loaded via a namespace (and not attached):
- [1] vctrs_0.6.5       httr_1.4.7        svglite_2.1.3     cli_3.6.2        
- [5] rlang_1.1.3       xfun_0.41         stringi_1.8.3     jsonlite_1.8.8   
+ [1] vctrs_0.6.5       svglite_2.1.3     cli_3.6.2         rlang_1.1.3      
+ [5] xfun_0.41         stringi_1.8.3     highr_0.10        jsonlite_1.8.8   
  [9] glue_1.7.0        colorspace_2.1-0  htmltools_0.5.7   scales_1.3.0     
 [13] abind_1.4-5       evaluate_0.23     munsell_0.5.0     fastmap_1.1.1    
 [17] yaml_2.3.8        lifecycle_1.0.4   stringr_1.5.1     compiler_4.3.2   
-[21] rvest_1.0.3       htmlwidgets_1.6.4 rstudioapi_0.15.0 systemfonts_1.0.5
-[25] digest_0.6.34     viridisLite_0.4.2 R6_2.5.1          magrittr_2.0.3   
-[29] webshot_0.5.5     tools_4.3.2       xml2_1.3.6       </code></pre>
+[21] htmlwidgets_1.6.4 rstudioapi_0.15.0 systemfonts_1.0.5 digest_0.6.34    
+[25] viridisLite_0.4.2 R6_2.5.1          magrittr_2.0.3    tools_4.3.2      
+[29] xml2_1.3.6       </code></pre>
 </div>
 </div>
 <p>Für Informationen zur Interpretation dieses Outputs schaut auch den Abschnitt <a href="./Pakete.html#replizierbarkeit-von-analysen">Replizierbarkeit von Analysen</a> des Kapitels zu Paketen an.</p>
@@ -1637,6 +1735,33 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       } else {
         el.classList.add('notransition');
       }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
     }
   }
   const toggleColorMode = (alternate) => {
@@ -1705,13 +1830,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  let localAlternateSentinel = 'default';
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -1790,10 +1917,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1803,8 +1929,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1817,6 +1952,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1860,6 +2114,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1885,6 +2140,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1946,12 +2227,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./Missings.html" class="pagination-link">
+      <a href="./Missings.html" class="pagination-link  aria-label=" &lt;span="" die="" missings="" zufällig?&lt;="" span&gt;"="">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Sind die Missings zufällig?</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Outputs-ALM-FAQ.html" class="pagination-link">
+      <a href="./Outputs-ALM-FAQ.html" class="pagination-link" aria-label="<span class='chapter-number'>29</span>&nbsp; <span class='chapter-title'>Outputs - ALM - FAQ</span>">
         <span class="nav-page-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Outputs - ALM - FAQ</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
@@ -1960,4 +2241,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-</body></html>
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/Methods-Berlin/RLernplattform/edit/main/Voraussetzungspruefung.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Methods-Berlin/RLernplattform/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
