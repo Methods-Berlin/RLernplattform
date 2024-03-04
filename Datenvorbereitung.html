@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.549">
+<meta name="generator" content="quarto-1.4.550">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -652,6 +652,7 @@ Verhältnisse
 <p>Nachfolgend finden wir eine Tabelle der möglichen Unterscheidungen der jeweiligen Messiniveaus.</p>
 <div class="cell">
 <div class="cell-output-display">
+<div>
 <table class="table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
@@ -710,6 +711,7 @@ Verhältnisse
 
 </div>
 </div>
+</div>
 </section>
 <section id="datentypen-und-datenstrukturen" class="level4" data-number="18.1.1.2">
 <h4 data-number="18.1.1.2" class="anchored" data-anchor-id="datentypen-und-datenstrukturen"><span class="header-section-number">18.1.1.2</span> Datentypen und Datenstrukturen</h4>
@@ -729,6 +731,7 @@ Wenn wir z.B. eine Variable <span class="math inline">\(X\)</span> haben, welche
 <p>Nachfolgend finden wir eine Übersicht zu den Möglichkeiten der Kodierung von Merkmalen mit verschiedenen Skalenniveaus.</p>
 <div class="cell">
 <div class="cell-output-display">
+<div>
 <table class="table table-sm table-striped small" data-quarto-postprocess="true">
 <colgroup>
 <col style="width: 14%">
@@ -792,6 +795,7 @@ Art der Skala:
 </table>
 
 
+</div>
 </div>
 </div>
 <p>Mit der Funktion <code>str()</code> können wir uns eine kompakte Übersicht der enthaltenen Variablen (d.h. ihr Datentyp bzw. die Datenstruktur Faktor sowie jeweils die ersten 10 Werte) der Datenstruktur (hier: Dataframe) ausgeben lassen. So können wir schauen, ob die Daten auch entsprechend ihres Messniveaus kodiert sind.</p>
@@ -1173,6 +1177,7 @@ gender_uf :  Factor w/ 3 levels "1","2","3": 1 2 2 2 2 2 1 3 2 1 ...</code></pre
 <p><strong>Beispiel 1 Wide-Format: Messzeitpunkte</strong></p>
 <div class="cell">
 <div class="cell-output-display">
+<div>
 <table class="table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
@@ -1201,6 +1206,7 @@ gender_uf :  Factor w/ 3 levels "1","2","3": 1 2 2 2 2 2 1 3 2 1 ...</code></pre
 
 </div>
 </div>
+</div>
 <aside>
 <br>
 <font color="red">Untersuchungseinheit 1</font><br>
@@ -1211,6 +1217,7 @@ gender_uf :  Factor w/ 3 levels "1","2","3": 1 2 2 2 2 2 1 3 2 1 ...</code></pre
 <p><strong>Beispiel 2 Wide-Format: Rater</strong></p>
 <div class="cell">
 <div class="cell-output-display">
+<div>
 <table class="table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
@@ -1239,10 +1246,12 @@ gender_uf :  Factor w/ 3 levels "1","2","3": 1 2 2 2 2 2 1 3 2 1 ...</code></pre
 
 </div>
 </div>
+</div>
 <p>Im <strong>Long</strong>-Format liegen Messungen <em>einer</em> Untersuchungseinheit in <em>mehreren</em> Zeilen vor. Alle Messzeitpunkte bzw. Messungen von unterschiedlichen Ratern liegen in einer Variable vor und die Messzeitpunkte bzw. Rater werden in einer separaten Variable kodiert.</p>
 <p><strong>Beispiel 1 Long-Format: Messzeitpunkte</strong></p>
 <div class="cell">
 <div class="cell-output-display">
+<div>
 <table class="table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
@@ -1288,9 +1297,11 @@ gender_uf :  Factor w/ 3 levels "1","2","3": 1 2 2 2 2 2 1 3 2 1 ...</code></pre
 
 </div>
 </div>
+</div>
 <p><strong>Beispiel 2 Long-Format: Rater</strong></p>
 <div class="cell">
 <div class="cell-output-display">
+<div>
 <table class="table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
@@ -1334,6 +1345,7 @@ gender_uf :  Factor w/ 3 levels "1","2","3": 1 2 2 2 2 2 1 3 2 1 ...</code></pre
 </table>
 
 
+</div>
 </div>
 </div>
 <p>Im Beispieldatensatz <strong>PWE_data</strong> gibt es keine wiederholte Messungen. Psychometrische und demographische Daten wurden <strong>einmalig erhoben</strong>. Hierfür gibt es <strong>keine Notwendigkeit der Formatierung vom Long- ins Wide-Format oder vice-versa</strong>.</p>
@@ -1801,6 +1813,7 @@ Wie kommt man auf die Anzahl der Fälle <span class="math inline">\(N = 6371\)</
 <p>Unten befindet sich eine Übersicht, der wir entnehmen können, welche Methode wir wählen sollten in Abhängigkeit davon, ob die Variablen, die wir extrahieren wollen, ähnlich oder unterschiedlich sind.</p>
 <div class="cell">
 <div class="cell-output-display">
+<div>
 <table class="table table-sm table-striped small" data-quarto-postprocess="true">
 <colgroup>
 <col style="width: 50%">
@@ -1830,6 +1843,7 @@ Die Variablennamen sind ...
 </table>
 
 
+</div>
 </div>
 </div>
 <details>
@@ -1932,6 +1946,7 @@ Wir können den Variablen z.B. <code>colnames(Datensatz) &lt;- c("Var1", "Var2",
 <p>Unten befindet sich eine Übersicht, der wir entnehmen können, welche Methode wir wählen sollten in Abhängigkeit davon, ob die Fälle, die wir extrahieren wollen, ähnlich oder unterschiedlich sind.</p>
 <div class="cell">
 <div class="cell-output-display">
+<div>
 <table class="table table-sm table-striped small" data-quarto-postprocess="true">
 <colgroup>
 <col style="width: 50%">
@@ -1961,6 +1976,7 @@ Die Ausprägungen der Fälle haben ...
 </table>
 
 
+</div>
 </div>
 </div>
 <details>
@@ -2310,6 +2326,7 @@ Wenn wir <code>Temp</code>-Werte mit der gleichen Ausprägung zusätzlich noch n
 </div>
 <div class="cell page-columns page-full">
 <div class="cell-output-display column-body">
+<div>
 <table class="table table-bordered table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
@@ -2350,6 +2367,7 @@ Wenn wir <code>Temp</code>-Werte mit der gleichen Ausprägung zusätzlich noch n
 </table>
 
 
+</div>
 </div>
 </div>
 <p>Für mehr Informationen zu Indikatorvariablen können wir z.B. folgende Quelle nutzen:<br>
@@ -4491,12 +4509,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./Daten-importieren.html" class="pagination-link  aria-label=" &lt;span="" importieren&lt;="" span&gt;"="">
+      <a href="./Daten-importieren.html" class="pagination-link" aria-label="Daten importieren">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Daten importieren</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Fehlende-Werte.html" class="pagination-link" aria-label="<span class='chapter-number'>19</span>&nbsp; <span class='chapter-title'>Fehlende Werte</span>">
+      <a href="./Fehlende-Werte.html" class="pagination-link" aria-label="Fehlende Werte">
         <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Fehlende Werte</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
