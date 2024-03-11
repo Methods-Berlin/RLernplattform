@@ -1,6 +1,6 @@
 {
   "R": {
-    "Version": "4.3.2",
+    "Version": "4.3.3",
     "Repositories": [
       {
         "Name": "CRAN",
@@ -294,9 +294,9 @@
     },
     "bookdown": {
       "Package": "bookdown",
-      "Version": "0.37",
+      "Version": "0.38",
       "Source": "Repository",
-      "Repository": "RSPM",
+      "Repository": "CRAN",
       "Requirements": [
         "R",
         "htmltools",
@@ -307,7 +307,7 @@
         "xfun",
         "yaml"
       ],
-      "Hash": "b1b1c3be5c75309f6107726fa58ee20c"
+      "Hash": "388b27ab03b34a5c9704fb8cd1dae880"
     },
     "boot": {
       "Package": "boot",
@@ -579,13 +579,13 @@
     },
     "curl": {
       "Package": "curl",
-      "Version": "5.2.0",
+      "Version": "5.2.1",
       "Source": "Repository",
-      "Repository": "RSPM",
+      "Repository": "CRAN",
       "Requirements": [
         "R"
       ],
-      "Hash": "ce88d13c0b10fe88a37d9c59dba2d7f9"
+      "Hash": "411ca2c03b1ce5f548345d2fc2685f7a"
     },
     "data.table": {
       "Package": "data.table",
@@ -1604,7 +1604,7 @@
     },
     "naniar": {
       "Package": "naniar",
-      "Version": "1.0.0",
+      "Version": "1.1.0",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
@@ -1615,6 +1615,7 @@
         "forcats",
         "ggplot2",
         "glue",
+        "lifecycle",
         "magrittr",
         "norm",
         "purrr",
@@ -1626,7 +1627,7 @@
         "viridis",
         "visdat"
       ],
-      "Hash": "3a684e715cebd023880a6171e35cd02c"
+      "Hash": "74d1b68ee4d1e076dee034a9ef3acd41"
     },
     "nlme": {
       "Package": "nlme",
@@ -2198,9 +2199,9 @@
     },
     "rmarkdown": {
       "Package": "rmarkdown",
-      "Version": "2.25",
+      "Version": "2.26",
       "Source": "Repository",
-      "Repository": "RSPM",
+      "Repository": "CRAN",
       "Requirements": [
         "R",
         "bslib",
@@ -2211,14 +2212,13 @@
         "jsonlite",
         "knitr",
         "methods",
-        "stringr",
         "tinytex",
         "tools",
         "utils",
         "xfun",
         "yaml"
       ],
-      "Hash": "d65e35823c817f09f4de424fcdfa812a"
+      "Hash": "9b148e7f95d33aac01f31282d49e4f44"
     },
     "robustbase": {
       "Package": "robustbase",
@@ -2536,14 +2536,14 @@
     },
     "systemfonts": {
       "Package": "systemfonts",
-      "Version": "1.0.5",
+      "Version": "1.0.6",
       "Source": "Repository",
-      "Repository": "RSPM",
+      "Repository": "CRAN",
       "Requirements": [
         "R",
         "cpp11"
       ],
-      "Hash": "15b594369e70b975ba9f064295983499"
+      "Hash": "6d538cff441f0f1f36db2209ac7495ac"
     },
     "testthat": {
       "Package": "testthat",
