@@ -295,7 +295,7 @@
     },
     "bookdown": {
       "Package": "bookdown",
-      "Version": "0.38",
+      "Version": "0.39",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
@@ -308,7 +308,7 @@
         "xfun",
         "yaml"
       ],
-      "Hash": "388b27ab03b34a5c9704fb8cd1dae880"
+      "Hash": "cb4f7066855b6f936e8d25edc9a9cff9"
     },
     "boot": {
       "Package": "boot",
@@ -1409,7 +1409,7 @@
     },
     "lme4": {
       "Package": "lme4",
-      "Version": "1.1-35.2",
+      "Version": "1.1-35.3",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
@@ -1431,7 +1431,7 @@
         "stats",
         "utils"
       ],
-      "Hash": "c255dd80a1771f41321db15041feed11"
+      "Hash": "862f9d995f528f3051f524791955b20c"
     },
     "lmtest": {
       "Package": "lmtest",
@@ -1822,7 +1822,7 @@
     },
     "pkgdown": {
       "Package": "pkgdown",
-      "Version": "2.0.8",
+      "Version": "2.0.9",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
@@ -1848,7 +1848,7 @@
         "xml2",
         "yaml"
       ],
-      "Hash": "2e99bcaa58646fc0142d10d6fb67a040"
+      "Hash": "8bf1151ed1a48328d71b937e651117a6"
     },
     "pkgload": {
       "Package": "pkgload",
