@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.554">
+<meta name="generator" content="quarto-1.4.555">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -530,8 +530,7 @@ Die Auffassung darüber, von welchen “anderen Variablen” die Missings in ein
 <p><strong>Übersicht der Arten von Missings</strong></p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div>
-<table class="table table-condensed table-bordered table-sm table-striped small" data-quarto-postprocess="true">
+<table class="table table-condensed table-bordered caption-top table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold; color: white !important; background-color: rgba(0, 145, 147, 255) !important;">Fehlende Werte sind unabhängig von ...</th>
@@ -557,7 +556,6 @@ Die Auffassung darüber, von welchen “anderen Variablen” die Missings in ein
 </table>
 
 
-</div>
 </div>
 </div>
 <p>MCAR ist eine strengere Annahme als MAR. Wenn die Daten MCAR sind, dann sind sie auch MAR. Bei MAR und MNAR kann es zu <strong>Parameterverzerrungen</strong> kommen, wenn man Methoden nutzt, welche die strengere Annahme MCAR voraussetzen.<br>
@@ -743,7 +741,7 @@ Vpn_5     2     0     0</code></pre>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>cor_co <span class="ot">&lt;-</span> <span class="fu">cor</span>(daten[, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>], <span class="at">use =</span> <span class="st">"complete.obs"</span>)</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>cor_co <span class="ot">&lt;-</span> <span class="fu">round</span>(cor_co, <span class="dv">3</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<table class="table">
+<table class="caption-top table">
 <caption>Korrelation mit complete.obs</caption>
 <thead>
 <tr class="header">
@@ -778,7 +776,7 @@ Vpn_5     2     0     0</code></pre>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>cor_pco <span class="ot">&lt;-</span> <span class="fu">cor</span>(daten[, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>],  <span class="at">use =</span> <span class="st">"pairwise.complete.obs"</span>)</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>cor_pco <span class="ot">&lt;-</span> <span class="fu">round</span>(cor_pco, <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<table class="table">
+<table class="caption-top table">
 <caption>Korrelation mit pairwise.complete.obs</caption>
 <thead>
 <tr class="header">
@@ -2999,7 +2997,7 @@ loaded via a namespace (and not attached):
 [13] Matrix_1.7-0      jsonlite_1.8.8    vcd_1.4-12        e1071_1.7-14     
 [17] nnet_7.3-19       laeken_0.5.3      purrr_1.0.2       fansi_1.0.6      
 [21] viridisLite_0.4.2 scales_1.3.0      abind_1.4-5       cli_3.6.2        
-[25] rlang_1.1.3       munsell_0.5.1     withr_3.0.0       norm_1.0-11.1    
+[25] rlang_1.1.4       munsell_0.5.1     withr_3.0.0       norm_1.0-11.1    
 [29] yaml_2.3.8        tools_4.4.0       dplyr_1.1.4       ggplot2_3.5.1    
 [33] ranger_0.16.0     boot_1.3-30       vctrs_0.6.5       R6_2.5.1         
 [37] zoo_1.8-12        proxy_0.4-27      lifecycle_1.0.4   stringr_1.5.1    
