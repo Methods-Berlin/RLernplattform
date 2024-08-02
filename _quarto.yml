@@ -49,7 +49,7 @@ book:
         - Git.qmd
         - Missings.qmd
         - Voraussetzungspruefung.qmd
-        - Outputs-ALM-FAQ.qmd
+        #- Outputs-ALM-FAQ.qmd
     - part: "Projekt-Dokumentation"
       chapters:
         - Zur-Lernplattform-Beitragen.qmd
