@@ -50,9 +50,9 @@ book:
         - Missings.qmd
         - Voraussetzungspruefung.qmd
         - Outputs-ALM-FAQ.qmd
-    - part: "Projekt-Dokumentation"
-      chapters:
-        - Zur-Lernplattform-Beitragen.qmd
+    #- part: "Projekt-Dokumentation"
+      #chapters:
+        #- Zur-Lernplattform-Beitragen.qmd
 bibliography: references.bib
 
 format:
