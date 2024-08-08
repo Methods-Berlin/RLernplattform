@@ -598,13 +598,6 @@ Mehr Informationen zu Kodierung gibt es im Kapitel [Einführung in R](Einfuehrun
 
 In unserem Fall von einer intervallskalierten $AV$ und einer nominalskalierten $UV$ werden in den drei Verfahren jeweils die Mittelwerte der $AV$ für die jeweiligen $UV$ gebildet. Beim $t$-Test und der einfachen linearen Regression haben wir diese auch ausgegeben bekommen:
 
--   $t$-Test:\
-    `mean in group ja` $= 2.67$\
-    `mean in group nein` $= 2.80$
--   Einfache lineare Regression:\
-    $Intercept = 2.67$\
-    $b_1 = 0.131$\
-    $Intercept + b_1 = 2.81$
 
 Dadurch sind die getesteten Hypothesen der drei Verfahren in diesem speziellen Fall ($AV$: intervallskaliert, $UV$: nominalskaliert) äquivalent.
 
