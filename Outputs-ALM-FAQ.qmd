@@ -495,36 +495,6 @@ Wie bereits eingangs erwähnt, gehören $t$-Test, lineare Regression und ANOVA a
 
 Für den hier betrachteten Spezialfall von nur einer UV mit nur zwei Stufen (und adäquater Kodierung; siehe z.B. [Indikatorvariablen: Kodierung nominaler Merkmale](Datenvorbereitung.qmd#indikatorvariablen-kodierung-nominaler-merkmale) aus dem Kapitel Datenvorbereitung) kommen die drei Verfahren zum selben Ergebnis bei der Signifikanztestung, obwohl scheinbar andere Hypothesen getestet werden.
 
-<!--
-```{r}
-#| echo: false
-#| column: body
-library(kableExtra)
-library(knitr)
-
-Verfahren <- c("<i>t</i>-Test für unabhängige Stichproben", "einfache lineare Regression",
-               "einfache lineare Regression", "ANOVA")
-Hypothesentest <- c("Mittelwertsunterschied in den Gruppen\n\n
-<math><msub><mi>H</mi><mn>0</mn></msub>: <msub><mi>μ</mi><mn>1</mn></msub> = <msub><mi>μ</mi><mn>2</mn></msub></math>\n\n$H_1$: $\\mu_1 \\neq \\mu_2$ <font size=\"1\">(ungerichtet)", "Steigungskoeffizient $b_1$\n\n$H_0$: $\\beta_1 = 0$\n\n$H_1$: $\\beta_1 \\neq 0$ <font size=\"1\">(ungerichtet)", "Determinationskoeffizient $R^2$\n\n$H_0$: $\\rho^2 = 0$\n\n$H_1$: $\\rho^2$ > $0$ <font size=\"1\">(gerichtet)", "Mittelwertsunterschied in den Gruppen\n\n$H_0$: $\\mu_1 = \\mu_2$\n\n$H_1$: $\\mu_1 \\neq \\mu_2$ <font size=\"1\">(ungerichtet)") 
-"t" <- c("-1.278", "1.278", "", "")
-"F" <- c("", "", "1.633", "1.633")
-"p" <- c("0.203", "0.203", "0.203", "0.203")
-
-tabelle <- data.frame(Verfahren, Hypothesentest, t, F, p)
-names(tabelle) <- c("Verfahren", "getestete Hypothesen", "<i>t</i>", "<i>F</i>", "<i>p</i>")
-
-kable(tabelle, escape=FALSE) %>%
-  kable_styling(full_width = TRUE, c("condensed")) %>%
-  add_header_above(c(" " = 2, "Empirische Prüfgröße" = 3),
-                   color = "white", background = "#009193") %>%
-  row_spec(0, bold = T, color = "white", background = "#009193") %>%
-  column_spec(1, bold = T, color = "white", background = "#009193", 
-              width="15em") %>%
-  collapse_rows(columns = 1, valign = "middle")
-```
--->
-
-
 <table class="r-table">
  <thead>
 <tr>
