@@ -449,7 +449,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">5</span> <span class="sc">%&gt;%</span> sum  <span class="co"># hier nicht </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
-<pre><code>Error: The pipe operator requires a function call as RHS (&lt;text&gt;:2:8)</code></pre>
+<pre><code>Error in sum: The pipe operator requires a function call as RHS (&lt;input&gt;:2:8)</code></pre>
 </div>
 </div>
 <p>Entsprechend kann der Code-chunk aus dem vorherigen Beispiel mit dem magrittr-Pipe alternativ auch so aussehen:</p>
@@ -496,7 +496,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span>  _<span class="sc">$</span>var1 <span class="sc">|&gt;</span>  <span class="fu">cor</span>(_, data<span class="sc">$</span>var2) <span class="co"># dies funktioniert nicht, weil der Platzhalter</span></span>
 <span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co"># "_" nur als Argument verwendet werden darf und wir bekommen eine Fehlermeldung</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
-<pre><code>Error: pipe placeholder can only be used as a named argument (&lt;text&gt;:7:21)</code></pre>
+<pre><code>Error in cor("_", data$var2): pipe placeholder can only be used as a named argument (&lt;input&gt;:7:21)</code></pre>
 </div>
 </div>
 
