@@ -1119,7 +1119,7 @@
     },
     "gtable": {
       "Package": "gtable",
-      "Version": "0.3.5",
+      "Version": "0.3.6",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
@@ -1128,9 +1128,10 @@
         "glue",
         "grid",
         "lifecycle",
-        "rlang"
+        "rlang",
+        "stats"
       ],
-      "Hash": "e18861963cbc65a27736e02b3cd3c4a0"
+      "Hash": "de949855009e2d4d0e52a844e30617ae"
     },
     "haven": {
       "Package": "haven",
@@ -2098,7 +2099,7 @@
     },
     "quantreg": {
       "Package": "quantreg",
-      "Version": "5.98",
+      "Version": "5.99",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
@@ -2112,7 +2113,7 @@
         "stats",
         "survival"
       ],
-      "Hash": "017561f17632c065388b7062da030952"
+      "Hash": "c6e207b874494a7ac4d52f02dcd7d3af"
     },
     "ragg": {
       "Package": "ragg",
@@ -2362,10 +2363,10 @@
     },
     "rstudioapi": {
       "Package": "rstudioapi",
-      "Version": "0.17.0",
+      "Version": "0.17.1",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "fb9f5fce8f609e9b66f0bea5c783f88a"
+      "Hash": "5f90cd73946d706cfe26024294236113"
     },
     "rversions": {
       "Package": "rversions",
