@@ -11,13 +11,13 @@
   "Packages": {
     "DEoptimR": {
       "Package": "DEoptimR",
-      "Version": "1.1-3",
+      "Version": "1.1-3-1",
       "Source": "Repository",
-      "Repository": "RSPM",
+      "Repository": "CRAN",
       "Requirements": [
         "stats"
       ],
-      "Hash": "72f87e0092e39384aee16df8d67d7410"
+      "Hash": "53a0299b56b4cbe418b12e3b65587211"
     },
     "Deriv": {
       "Package": "Deriv",
@@ -975,7 +975,7 @@
     },
     "ggiraph": {
       "Package": "ggiraph",
-      "Version": "0.8.10",
+      "Version": "0.8.11",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
@@ -992,7 +992,7 @@
         "uuid",
         "vctrs"
       ],
-      "Hash": "15748f4335af873289fbdd31610c3f96"
+      "Hash": "14b3b3b923944afb9542dbef4c68bf4b"
     },
     "ggiraphExtra": {
       "Package": "ggiraphExtra",
@@ -2099,7 +2099,7 @@
     },
     "quantreg": {
       "Package": "quantreg",
-      "Version": "5.99",
+      "Version": "5.99.1",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
@@ -2113,7 +2113,7 @@
         "stats",
         "survival"
       ],
-      "Hash": "c6e207b874494a7ac4d52f02dcd7d3af"
+      "Hash": "c48844cd7961de506a1b4d22b2e082c7"
     },
     "ragg": {
       "Package": "ragg",
