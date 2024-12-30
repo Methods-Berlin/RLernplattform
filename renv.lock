@@ -2062,7 +2062,7 @@
     },
     "psych": {
       "Package": "psych",
-      "Version": "2.4.6.26",
+      "Version": "2.4.12",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
@@ -2076,7 +2076,7 @@
         "parallel",
         "stats"
       ],
-      "Hash": "4448d5f3ac3e2cbf79074391d494637e"
+      "Hash": "b6659cfdaf2545e88959f00bdb0a0951"
     },
     "purrr": {
       "Package": "purrr",
