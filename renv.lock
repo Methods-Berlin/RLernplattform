@@ -79,14 +79,14 @@
     },
     "GPArotation": {
       "Package": "GPArotation",
-      "Version": "2024.3-1",
+      "Version": "2025.3-1",
       "Source": "Repository",
       "Title": "Gradient Projection Factor Rotation",
       "Authors@R": "c(  person(\"Coen\", \"Bernaards\", email = \"cab.gparotation@gmail.com\", role = c(\"aut\",\"cre\")), person(\"Paul\", \"Gilbert\", email = \"pgilbert.ttv9z@ncf.ca\", role = \"aut\"), person(\"Robert\", \"Jennrich\", role = \"aut\") )",
       "Depends": [
         "R (>= 2.0.0)"
       ],
-      "Description": "Gradient Projection Algorithms for Factor Rotation.  For details see ?GPArotation. When using this package, please cite: Bernaards and Jennrich (2005) <doi:10.1177/0013164404272507>. \"Gradient Projection Algorithms and Software  for Arbitrary Rotation Criteria in Factor Analysis\".",
+      "Description": "Gradient Projection Algorithms for Factor Rotation.  For details see ?GPArotation. When using this package, please cite Bernaards and Jennrich (2005) <doi:10.1177/0013164404272507> 'Gradient Projection Algorithms and Software  for Arbitrary Rotation Criteria in Factor Analysis'.",
       "LazyData": "yes",
       "Imports": [
         "stats"
@@ -96,7 +96,7 @@
       "NeedsCompilation": "no",
       "Author": "Coen Bernaards [aut, cre], Paul Gilbert [aut], Robert Jennrich [aut]",
       "Maintainer": "Coen Bernaards <cab.gparotation@gmail.com>",
-      "Repository": "RSPM",
+      "Repository": "CRAN",
       "Encoding": "UTF-8"
     },
     "Hmisc": {
@@ -748,7 +748,7 @@
     },
     "bookdown": {
       "Package": "bookdown",
-      "Version": "0.42",
+      "Version": "0.43",
       "Source": "Repository",
       "Type": "Package",
       "Title": "Authoring Books and Technical Documents with R Markdown",
@@ -773,6 +773,7 @@
         "downlit (>= 0.4.0)",
         "htmlwidgets",
         "jsonlite",
+        "curl",
         "rstudioapi",
         "miniUI",
         "rsconnect (>= 0.4.3)",
@@ -797,7 +798,7 @@
       "VignetteBuilder": "knitr",
       "NeedsCompilation": "no",
       "Author": "Yihui Xie [aut, cre] (<https://orcid.org/0000-0003-0645-5666>), Christophe Dervieux [ctb] (<https://orcid.org/0000-0003-4474-2498>), JJ Allaire [ctb], Albert Kim [ctb], Alessandro Samuel-Rosa [ctb], Andrzej Oles [ctb], Atsushi Yasumoto [ctb] (<https://orcid.org/0000-0002-8335-495X>), Aust Frederik [ctb] (<https://orcid.org/0000-0003-4900-788X>), Bastiaan Quast [ctb], Ben Marwick [ctb], Chester Ismay [ctb], Clifton Franklund [ctb], Daniel Emaasit [ctb], David Shuman [ctb], Dean Attali [ctb], Drew Tyre [ctb], Ellis Valentiner [ctb], Frans van Dunne [ctb], Hadley Wickham [ctb], Jeff Allen [ctb], Jennifer Bryan [ctb], Jonathan McPhers [ctb], JooYoung Seo [ctb] (<https://orcid.org/0000-0002-4064-6012>), Joyce Robbins [ctb], Junwen Huang [ctb], Kevin Cheung [ctb], Kevin Ushey [ctb], Kim Seonghyun [ctb], Kirill Muller [ctb], Luciano Selzer [ctb], Matthew Lincoln [ctb], Maximilian Held [ctb], Michael Sachs [ctb], Michal Bojanowski [ctb], Nathan Werth [ctb], Noam Ross [ctb], Peter Hickey [ctb], Pedro Rafael D. Marinho [ctb] (<https://orcid.org/0000-0003-1591-8300>), Romain Lesur [ctb] (<https://orcid.org/0000-0002-0721-5595>), Sahir Bhatnagar [ctb], Shir Dekel [ctb] (<https://orcid.org/0000-0003-1773-2446>), Steve Simpson [ctb], Thierry Onkelinx [ctb] (<https://orcid.org/0000-0001-8804-4216>), Vincent Fulco [ctb], Yixuan Qiu [ctb], Zhuoer Dong [ctb], Posit Software, PBC [cph, fnd], Bartek Szopka [ctb] (The jQuery Highlight plugin), Zeno Rocha [cph] (clipboard.js library), MathQuill contributors [ctb] (The MathQuill library; authors listed in inst/resources/AUTHORS), FriendCode Inc [cph, ctb] (The gitbook style, with modifications)",
-      "Repository": "RSPM"
+      "Repository": "CRAN"
     },
     "boot": {
       "Package": "boot",
@@ -2484,7 +2485,7 @@
     },
     "fs": {
       "Package": "fs",
-      "Version": "1.6.5",
+      "Version": "1.6.6",
       "Source": "Repository",
       "Title": "Cross-Platform File System Operations Based on 'libuv'",
       "Authors@R": "c( person(\"Jim\", \"Hester\", role = \"aut\"), person(\"Hadley\", \"Wickham\", , \"hadley@posit.co\", role = \"aut\"), person(\"Gábor\", \"Csárdi\", , \"csardi.gabor@gmail.com\", role = c(\"aut\", \"cre\")), person(\"libuv project contributors\", role = \"cph\", comment = \"libuv library\"), person(\"Joyent, Inc. and other Node contributors\", role = \"cph\", comment = \"libuv library\"), person(\"Posit Software, PBC\", role = c(\"cph\", \"fnd\")) )",
@@ -2522,7 +2523,7 @@
       "NeedsCompilation": "yes",
       "Author": "Jim Hester [aut], Hadley Wickham [aut], Gábor Csárdi [aut, cre], libuv project contributors [cph] (libuv library), Joyent, Inc. and other Node contributors [cph] (libuv library), Posit Software, PBC [cph, fnd]",
       "Maintainer": "Gábor Csárdi <csardi.gabor@gmail.com>",
-      "Repository": "RSPM"
+      "Repository": "CRAN"
     },
     "generics": {
       "Package": "generics",
@@ -3287,7 +3288,7 @@
     },
     "httpuv": {
       "Package": "httpuv",
-      "Version": "1.6.15",
+      "Version": "1.6.16",
       "Source": "Repository",
       "Type": "Package",
       "Title": "HTTP and WebSocket Server Library",
@@ -3309,6 +3310,7 @@
       "Suggests": [
         "callr",
         "curl",
+        "jsonlite",
         "testthat",
         "websocket"
       ],
@@ -3317,13 +3319,13 @@
         "Rcpp"
       ],
       "Encoding": "UTF-8",
-      "RoxygenNote": "7.3.1",
+      "RoxygenNote": "7.3.2",
       "SystemRequirements": "GNU make, zlib",
       "Collate": "'RcppExports.R' 'httpuv.R' 'random_port.R' 'server.R' 'staticServer.R' 'static_paths.R' 'utils.R'",
       "NeedsCompilation": "yes",
       "Author": "Joe Cheng [aut], Winston Chang [aut, cre], Posit, PBC fnd [cph], Hector Corrada Bravo [ctb], Jeroen Ooms [ctb], Andrzej Krzemienski [cph] (optional.hpp), libuv project contributors [cph] (libuv library, see src/libuv/AUTHORS file), Joyent, Inc. and other Node contributors [cph] (libuv library, see src/libuv/AUTHORS file; and http-parser library, see src/http-parser/AUTHORS file), Niels Provos [cph] (libuv subcomponent: tree.h), Internet Systems Consortium, Inc. [cph] (libuv subcomponent: inet_pton and inet_ntop, contained in src/libuv/src/inet.c), Alexander Chemeris [cph] (libuv subcomponent: stdint-msvc2008.h (from msinttypes)), Google, Inc. [cph] (libuv subcomponent: pthread-fixes.c), Sony Mobile Communcations AB [cph] (libuv subcomponent: pthread-fixes.c), Berkeley Software Design Inc. [cph] (libuv subcomponent: android-ifaddrs.h, android-ifaddrs.c), Kenneth MacKay [cph] (libuv subcomponent: android-ifaddrs.h, android-ifaddrs.c), Emergya (Cloud4all, FP7/2007-2013, grant agreement no 289016) [cph] (libuv subcomponent: android-ifaddrs.h, android-ifaddrs.c), Steve Reid [aut] (SHA-1 implementation), James Brown [aut] (SHA-1 implementation), Bob Trower [aut] (base64 implementation), Alexander Peslyak [aut] (MD5 implementation), Trantor Standard Systems [cph] (base64 implementation), Igor Sysoev [cph] (http-parser)",
       "Maintainer": "Winston Chang <winston@posit.co>",
-      "Repository": "RSPM"
+      "Repository": "CRAN"
     },
     "httr2": {
       "Package": "httr2",
@@ -4335,25 +4337,26 @@
     },
     "miniUI": {
       "Package": "miniUI",
-      "Version": "0.1.1.1",
+      "Version": "0.1.2",
       "Source": "Repository",
       "Type": "Package",
       "Title": "Shiny UI Widgets for Small Screens",
-      "Authors@R": "c( person(\"Joe\", \"Cheng\", role = c(\"cre\", \"aut\"), email = \"joe@rstudio.com\"), person(family = \"RStudio\", role = \"cph\") )",
+      "Authors@R": "c( person(\"Joe\", \"Cheng\", role = c(\"cre\", \"aut\"), email = \"joe@posit.co\"), person(\"Posit Software, PBC\", role = c(\"cph\", \"fnd\"), comment = c(ROR = \"03wc8by49\")) )",
       "Description": "Provides UI widget and layout functions for writing Shiny apps that work well on small screens.",
       "License": "GPL-3",
-      "LazyData": "TRUE",
+      "URL": "https://github.com/rstudio/miniUI",
+      "BugReports": "https://github.com/rstudio/miniUI/issues",
       "Imports": [
         "shiny (>= 0.13)",
         "htmltools (>= 0.3)",
         "utils"
       ],
-      "RoxygenNote": "5.0.1",
+      "RoxygenNote": "7.3.2",
+      "Encoding": "UTF-8",
       "NeedsCompilation": "no",
-      "Author": "Joe Cheng [cre, aut], RStudio [cph]",
-      "Maintainer": "Joe Cheng <joe@rstudio.com>",
-      "Repository": "RSPM",
-      "Encoding": "UTF-8"
+      "Author": "Joe Cheng [cre, aut], Posit Software, PBC [cph, fnd] (03wc8by49)",
+      "Maintainer": "Joe Cheng <joe@posit.co>",
+      "Repository": "CRAN"
     },
     "minqa": {
       "Package": "minqa",
@@ -5475,7 +5478,7 @@
     },
     "ps": {
       "Package": "ps",
-      "Version": "1.9.0",
+      "Version": "1.9.1",
       "Source": "Repository",
       "Title": "List, Query, Manipulate System Processes",
       "Authors@R": "c( person(\"Jay\", \"Loden\", role = \"aut\"), person(\"Dave\", \"Daeschler\", role = \"aut\"), person(\"Giampaolo\", \"Rodola'\", role = \"aut\"), person(\"Gábor\", \"Csárdi\", , \"csardi.gabor@gmail.com\", role = c(\"aut\", \"cre\")), person(\"Posit Software, PBC\", role = c(\"cph\", \"fnd\")) )",
@@ -6086,11 +6089,11 @@
     },
     "rlang": {
       "Package": "rlang",
-      "Version": "1.1.5",
+      "Version": "1.1.6",
       "Source": "Repository",
       "Title": "Functions for Base Types and Core R and 'Tidyverse' Features",
       "Description": "A toolbox for working with base types, core R features like the condition system, and core 'Tidyverse' features like tidy evaluation.",
-      "Authors@R": "c( person(\"Lionel\", \"Henry\", ,\"lionel@posit.co\", c(\"aut\", \"cre\")), person(\"Hadley\", \"Wickham\", ,\"hadley@posit.co\", \"aut\"), person(given = \"mikefc\", email = \"mikefc@coolbutuseless.com\",  role = \"cph\",  comment = \"Hash implementation based on Mike's xxhashlite\"), person(given = \"Yann\", family = \"Collet\", role = \"cph\",  comment = \"Author of the embedded xxHash library\"), person(given = \"Posit, PBC\", role = c(\"cph\", \"fnd\")) )",
+      "Authors@R": "c( person(\"Lionel\", \"Henry\", ,\"lionel@posit.co\", c(\"aut\", \"cre\")), person(\"Hadley\", \"Wickham\", ,\"hadley@posit.co\", \"aut\"), person(given = \"mikefc\", email = \"mikefc@coolbutuseless.com\", role = \"cph\", comment = \"Hash implementation based on Mike's xxhashlite\"), person(given = \"Yann\", family = \"Collet\", role = \"cph\", comment = \"Author of the embedded xxHash library\"), person(given = \"Posit, PBC\", role = c(\"cph\", \"fnd\")) )",
       "License": "MIT + file LICENSE",
       "ByteCompile": "true",
       "Biarch": "true",
@@ -6104,15 +6107,17 @@
         "cli (>= 3.1.0)",
         "covr",
         "crayon",
+        "desc",
         "fs",
         "glue",
         "knitr",
         "magrittr",
         "methods",
         "pillar",
+        "pkgload",
         "rmarkdown",
         "stats",
-        "testthat (>= 3.0.0)",
+        "testthat (>= 3.2.0)",
         "tibble",
         "usethis",
         "vctrs (>= 0.2.3)",
@@ -6125,12 +6130,13 @@
       "RoxygenNote": "7.3.2",
       "URL": "https://rlang.r-lib.org, https://github.com/r-lib/rlang",
       "BugReports": "https://github.com/r-lib/rlang/issues",
+      "Config/build/compilation-database": "true",
       "Config/testthat/edition": "3",
       "Config/Needs/website": "dplyr, tidyverse/tidytemplate",
       "NeedsCompilation": "yes",
       "Author": "Lionel Henry [aut, cre], Hadley Wickham [aut], mikefc [cph] (Hash implementation based on Mike's xxhashlite), Yann Collet [cph] (Author of the embedded xxHash library), Posit, PBC [cph, fnd]",
       "Maintainer": "Lionel Henry <lionel@posit.co>",
-      "Repository": "RSPM"
+      "Repository": "CRAN"
     },
     "rmarkdown": {
       "Package": "rmarkdown",
@@ -6415,7 +6421,7 @@
     },
     "sass": {
       "Package": "sass",
-      "Version": "0.4.9",
+      "Version": "0.4.10",
       "Source": "Repository",
       "Type": "Package",
       "Title": "Syntactically Awesome Style Sheets ('Sass')",
@@ -6425,7 +6431,7 @@
       "URL": "https://rstudio.github.io/sass/, https://github.com/rstudio/sass",
       "BugReports": "https://github.com/rstudio/sass/issues",
       "Encoding": "UTF-8",
-      "RoxygenNote": "7.3.1",
+      "RoxygenNote": "7.3.2",
       "SystemRequirements": "GNU make",
       "Imports": [
         "fs (>= 1.2.4)",
@@ -6447,7 +6453,7 @@
       "NeedsCompilation": "yes",
       "Author": "Joe Cheng [aut], Timothy Mastny [aut], Richard Iannone [aut] (<https://orcid.org/0000-0003-3925-190X>), Barret Schloerke [aut] (<https://orcid.org/0000-0001-9986-114X>), Carson Sievert [aut, cre] (<https://orcid.org/0000-0002-4958-2844>), Christophe Dervieux [ctb] (<https://orcid.org/0000-0003-4474-2498>), RStudio [cph, fnd], Sass Open Source Foundation [ctb, cph] (LibSass library), Greter Marcel [ctb, cph] (LibSass library), Mifsud Michael [ctb, cph] (LibSass library), Hampton Catlin [ctb, cph] (LibSass library), Natalie Weizenbaum [ctb, cph] (LibSass library), Chris Eppstein [ctb, cph] (LibSass library), Adams Joseph [ctb, cph] (json.cpp), Trifunovic Nemanja [ctb, cph] (utf8.h)",
       "Maintainer": "Carson Sievert <carson@rstudio.com>",
-      "Repository": "RSPM"
+      "Repository": "CRAN"
     },
     "scales": {
       "Package": "scales",
@@ -7278,7 +7284,7 @@
     },
     "tinytex": {
       "Package": "tinytex",
-      "Version": "0.56",
+      "Version": "0.57",
       "Source": "Repository",
       "Type": "Package",
       "Title": "Helper Functions to Install and Maintain TeX Live, and Compile LaTeX Documents",
