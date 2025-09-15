@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.34">
+<meta name="generator" content="quarto-1.8.24">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -70,18 +70,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="./figures/Logo_Favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-befe23ebd2f54d8af2c8a89d1a1611f1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b651517ce65839d647a86e2780455cfb.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-7353130c81d514d5021d011d6be17cca.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-898c6670bc760369dd26613cd3a4aa58.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-7353130c81d514d5021d011d6be17cca.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-4a599c7b2cabf35abf2282cb8bf17052.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-ebe409942ac384bcae9e9b9d8075f827.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-4a599c7b2cabf35abf2282cb8bf17052.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -128,7 +129,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -330,7 +331,9 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">R Lernplattform</a> 
         <div class="sidebar-tools-main">
@@ -667,7 +670,7 @@ Wie sieht die Regressionsgleichung aus?
 <p><strong>Gefahren bei Verletzung der Annahmen und weiterer wichtiger Punkte</strong></p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold; color: white !important; background-color: rgba(0, 145, 147, 255) !important;"></th>
@@ -736,15 +739,15 @@ Beispieldatensatz für dieses Kapitel
 </summary>
 <p>Hier sehen wir, wie wir den Datensatz <code>erstis</code>, an dem wir in diesem Kapitel arbeiten werden, einlesen können.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">url</span>(<span class="st">"http://www.beltz.de/fileadmin/beltz/downloads/</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">url</span>(<span class="st">"http://www.beltz.de/fileadmin/beltz/downloads/</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="st">         OnlinematerialienPVU/R_fuer_Einsteiger/erstis.rda"</span>))</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Zeilenumbruch zwischen der ersten und zweiten Zeile noch entfernen!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Zeilenumbruch zwischen der ersten und zweiten Zeile noch entfernen!</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Die enthaltenen Daten sind aus einer Erhebung mit Erstsemesterstudierenden der Psychologie. Unter diesem <a href="https://www.beltz.de/fileadmin/beltz/downloads/OnlinematerialienPVU/R_fuer_Einsteiger/Datensatz%20Erstis_Codebook.pdf" target="_blank">Link</a> finden wir das Codebuch zum Datensatz.</p>
 <p>Exemplarisch schauen wir uns für dieses Kapitel an, wie gut sich <strong>lz.1</strong> (Lebenszufriedenheit T1) durch <strong>zuf.inh.1</strong> (Zufriedenheit mit Studieninhalten T1) und <strong>zuf.bed.1</strong> (Zufriedenheit mit Studienbedingungen T1) vorhersagen lässt.<br>
 </p>
 <p>Dazu erstellen wir erst einen neuen Datensatz mit diesen Variablen und führen dann die Regression durch.</p>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Daten aus erstis in neuem Dataframe speichern ...</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Daten aus erstis in neuem Dataframe speichern ...</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>daten <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(erstis<span class="sc">$</span>lz<span class="fl">.1</span>, erstis<span class="sc">$</span>zuf.inh<span class="fl">.1</span>, erstis<span class="sc">$</span>zuf.bed<span class="fl">.1</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ... und Spalten umbenennen</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(daten) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"leb_zufr"</span>, <span class="st">"zufr_inhalt"</span>, <span class="st">"zufr_beding"</span>)</span>
@@ -752,21 +755,21 @@ Beispieldatensatz für dieses Kapitel
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Regression durchführen</span></span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>lm_lz <span class="ot">&lt;-</span> <span class="fu">lm</span>(daten<span class="sc">$</span>leb_zufr <span class="sc">~</span> daten<span class="sc">$</span>zufr_inhalt <span class="sc">+</span> daten<span class="sc">$</span>zufr_beding, </span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">na.action =</span> <span class="st">"na.exclude"</span>)</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># mit "na.exclude" schließen wir fehlende Werte aus</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># mit "na.exclude" schließen wir fehlende Werte aus</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Für mehr Informationen dazu, wie <code>lm()</code> und andere Funktionen mit Missings umgehen, können wir uns das Kapitel <a href="./Fehlende-Werte.html">Fehlende Werte</a> anschauen.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Die Residuen brauchen wir später, daher fügen wir sie jetzt ... </span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Die Residuen brauchen wir später, daher fügen wir sie jetzt ... </span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ... schon als Variable zum Datensatz hinzu.</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>daten<span class="sc">$</span>resid <span class="ot">&lt;-</span> <span class="fu">residuals</span>(lm_lz) </span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># wichtig: residuals() oder resid() nehmen</span></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># lm_lz$residuals funktioniert hier nicht, </span></span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># ... weil die Zeilenanzahl geringerer ist ...</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># ... weil Zeilen mit Missings gelöscht werden</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># ... weil Zeilen mit Missings gelöscht werden</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Im Rahmen dieses Kapitels liegt der Fokus nicht auf der inhaltlichen Interpretation der Ergebnisse der multiplen linearen Regressions, sondern darauf, <strong>ob die oben genannten Annahmen erfüllt sind</strong>.</p>
 <p>Nachfolgend sehen wir den Output der <code>lm()</code>-Funktion (<code>lm_lz</code>).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm_lz)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm_lz)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -815,10 +818,10 @@ Wenn die Annahmen für die multiple lineare Regression in unserem Beispiel nicht
 <p><em><strong>Achtung</strong></em>: Auch wenn die bivariaten Streudiagramme auf Linearität hinweisen, sollten wir nicht vergessen, dass auch Interkationen zwischen Prädiktoren zu nicht-linearen Zusammenhängen führen können. Die Nutzung von bivariaten Streudiagramen zur Überprüfung der Annahme der Linearität ist <strong>weder eine notwendige, noch eine hinreichende Bedingung</strong>. Sie sind daher mit Vorsicht zu beurteilen.</p>
 </blockquote>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Lebenszufriedenheit - Zufriedenheit mit Studieninhalten</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Lebenszufriedenheit - Zufriedenheit mit Studieninhalten</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(daten<span class="sc">$</span>zufr_inhalt, daten<span class="sc">$</span>leb_zufr)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>lz_inh <span class="ot">&lt;-</span> <span class="fu">lm</span>(daten<span class="sc">$</span>leb_zufr <span class="sc">~</span> daten<span class="sc">$</span>zufr_inhalt, <span class="at">na.action=</span><span class="st">'na.exclude'</span>) <span class="co"># Einfache Regression</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(lz_inh) <span class="co"># Einzeichnen Regressionsgerade</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(lz_inh) <span class="co"># Einzeichnen Regressionsgerade</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -829,10 +832,10 @@ Wenn die Annahmen für die multiple lineare Regression in unserem Beispiel nicht
 </div>
 <p>Der Plot spricht für einen linearen Zusammenhang zwischen Lebenszufriedenheit (Kriterium) und Zufriedenheit mit Studieninhalten (Prädiktor).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Lebenszufriedenheit - Zufriedenheit mit Studienbedingungen</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Lebenszufriedenheit - Zufriedenheit mit Studienbedingungen</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(daten<span class="sc">$</span>zufr_beding, daten<span class="sc">$</span>leb_zufr)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>lz_bed <span class="ot">&lt;-</span> <span class="fu">lm</span>(daten<span class="sc">$</span>leb_zufr <span class="sc">~</span> daten<span class="sc">$</span>zufr_beding, <span class="at">na.action=</span><span class="st">'na.exclude'</span>) <span class="co"># Einfache Regression</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(lz_bed) <span class="co"># Einzeichnen Regressionsgerade</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(lz_bed) <span class="co"># Einzeichnen Regressionsgerade</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -847,8 +850,8 @@ Wenn die Annahmen für die multiple lineare Regression in unserem Beispiel nicht
 <h4 data-number="28.1.1.2" class="anchored" data-anchor-id="residualplot"><span class="header-section-number">28.1.1.2</span> Residualplot</h4>
 <p>Das wichtigste Werkzeug zur Prüfung der Linearitätsannahme ist der Residualplot. In einem Residualplot werden die vorhergesagten Werte <span class="math inline">\(\hat y_i\)</span> (auf der <span class="math inline">\(x\)</span>-Achse) gegen die Residuen <span class="math inline">\(\hat e_i = y_i - \hat y_i\)</span> (auf der <span class="math inline">\(y\)</span>-Achse) abgetragen.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lm_lz, <span class="at">which =</span> <span class="dv">1</span>) </span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># erster Plot der plot()-Funktion für ein lm-Objekt ist der Residualplot</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lm_lz, <span class="at">which =</span> <span class="dv">1</span>) </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># erster Plot der plot()-Funktion für ein lm-Objekt ist der Residualplot</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
@@ -938,8 +941,8 @@ Homoskedastizität wird auch Varianzhomogenität genannt.
 <h4 data-number="28.3.1.1" class="anchored" data-anchor-id="residualplot-1"><span class="header-section-number">28.3.1.1</span> Residualplot</h4>
 <p>Zur Überprüfung der Homoskedastizität können wir ebenfalls einen Residualplot, wie schon bei der <a href="#überprüfung">Überprüfung der Annahme der Linearität</a>, verwenden.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lm_lz, <span class="at">which =</span> <span class="dv">1</span>) </span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># erster Plot der plot()-Funktion für ein lm-Objekt ist der Residualplot</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lm_lz, <span class="at">which =</span> <span class="dv">1</span>) </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># erster Plot der plot()-Funktion für ein lm-Objekt ist der Residualplot</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
@@ -966,7 +969,7 @@ Homoskedastizität wird auch Varianzhomogenität genannt.
 <h4 data-number="28.3.1.2" class="anchored" data-anchor-id="scale-location-plot"><span class="header-section-number">28.3.1.2</span> Scale Location Plot</h4>
 <p>Mit dem Scale Location Plot schauen wir, ob die Standardabweichung der standardisierten Residuen <span class="math inline">\(\frac{e_i}{s_e}\)</span> über den Bereich der vorhergesagten Werte hinweg gleich bleibt.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lm_lz, <span class="at">which =</span> <span class="dv">3</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lm_lz, <span class="at">which =</span> <span class="dv">3</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -974,7 +977,7 @@ Homoskedastizität wird auch Varianzhomogenität genannt.
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># dritter Plot der plot()-Funktion für ein lm-Objekt ist der Scale Location Plot</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># dritter Plot der plot()-Funktion für ein lm-Objekt ist der Scale Location Plot</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Die standardisierten Residuen sollten auch hier gleichmäßig (zufällig) über den gesamten Bereich streuen. Außerdem sollte die <a href="#loess">Lowess Line</a> möglichst horizontal zur <span class="math inline">\(x\)</span>-Achse sein.</p>
 <p>Auch der Scale Location Plot weist in unserem Beispiel auf ungefähre Varianzhomogenität hin. Das heißt, dass die standardisierten Residuen des Teils vom Kriterium ‘Lebenszufriedenheit’, der nicht durch die Prädiktoren ‘Zufriedenheit mit Studieninhalten’ und ‘Zufriedenheit mit Studienbedingungen’ vorhergesagt werden kann, gleichmäßig über die vorhergesagten Werte vom Kriterium ‘Lebenszufriedenheit’ streut.</p>
@@ -1001,7 +1004,7 @@ Dazu quadrieren wir die einzelnen Residuen, teilen diese jeweils durch die Anzah
 <p><strong>Wenn der Quotient <span class="math inline">\(&gt; 10\)</span> ist <em>oder</em> es systematische Variation gibt, sollten wir korrektive Maßnahmen einleiten</strong></p>
 <p>Nachfolgend schauen wir uns die Umsetzung dazu in R an:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Objekt erzeugen, ...</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Objekt erzeugen, ...</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ... in dem die Residuen nach aufsteigender Größe in X sortiert sind:</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>quant <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(erstis<span class="sc">$</span>zuf.inh<span class="fl">.1</span>, </span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">residuals</span>(lz_inh))[<span class="fu">order</span>(erstis<span class="sc">$</span>zuf.inh<span class="fl">.1</span>, </span>
@@ -1012,7 +1015,7 @@ Dazu quadrieren wir die einzelnen Residuen, teilen diese jeweils durch die Anzah
 <span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co"># ... des zweiten Arguments (hier: Residuen) sortiert</span></span>
 <span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># das Komma am Ende sagt, dass wir Zeilen sortieren wollen</span></span>
 <span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># mit [ ] bekommen wir die Indizes (und nicht die Werte) ausgegeben, ...</span></span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># ... welche wiederum auf den Dataframe angewendet werden</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># ... welche wiederum auf den Dataframe angewendet werden</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Standardmäßig wird so die <em>erste</em> Variable X aufsteigend sortiert, weil <code>order(..., decreasing=FALSE)</code> der Default ist. Mit <code>decreasing=TRUE</code> können wir absteigend sortieren.</p>
 <p><br>
@@ -1025,7 +1028,7 @@ Dadurch kommen unterschiedliche Residuen in die Slices und folglich werden auch 
 </p>
 </blockquote>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>quant <span class="ot">&lt;-</span> <span class="fu">na.exclude</span>(quant) <span class="co"># Missings raus</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>quant <span class="ot">&lt;-</span> <span class="fu">na.exclude</span>(quant) <span class="co"># Missings raus</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
@@ -1037,7 +1040,7 @@ Dadurch kommen unterschiedliche Residuen in die Slices und folglich werden auch 
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Anzahl der Fälle</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Anzahl der Fälle</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(quant) <span class="co"># 165</span></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Einteilung: 3 Gruppen á 41 Personen, 1 Gruppe mit 42 Personen</span></span>
@@ -1053,17 +1056,17 @@ Dadurch kommen unterschiedliche Residuen in die Slices und folglich werden auch 
 <span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>var_slice_4 <span class="ot">&lt;-</span> <span class="fu">sum</span>((slice_4<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span>(<span class="fu">length</span>(slice_4)<span class="sc">-</span><span class="dv">2</span>)))</span>
 <span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a><span class="co"># konditionale Varianzen in Vektor speichern</span></span>
-<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>sort_var <span class="ot">&lt;-</span> <span class="fu">c</span>(var_slice_1 , var_slice_2, var_slice_3, var_slice_4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>sort_var <span class="ot">&lt;-</span> <span class="fu">c</span>(var_slice_1 , var_slice_2, var_slice_3, var_slice_4)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>sort_var</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>sort_var</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 40.79699 25.91895 21.15083 24.16912</code></pre>
 </div>
 </div>
 <p>In unserem Beispiel scheint es keine systematischen Zu- oder Abhnahme in den konditionalen Varianzen der Slices zu geben …</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>((var_slice_1 <span class="sc">/</span> var_slice_3), <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>((var_slice_1 <span class="sc">/</span> var_slice_3), <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1.929</code></pre>
 </div>
@@ -1089,28 +1092,28 @@ Exkurs: WLS-Regression
 Dazu nehmen wir die Residuen aus der OLS-Regression, quadrieren diese und regredieren sie auf unsere Prädiktoren. Die Inversen dieser vorhergesagten quadrierten Residuen sind das unsere Gewichte für die WLS-Regression.</p>
 </blockquote>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>weights_lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(daten<span class="sc">$</span>resid <span class="sc">^</span> <span class="dv">2</span> <span class="sc">~</span> daten<span class="sc">$</span>zufr_inhalt <span class="sc">+</span> daten<span class="sc">$</span>zufr_beding,</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>weights_lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(daten<span class="sc">$</span>resid <span class="sc">^</span> <span class="dv">2</span> <span class="sc">~</span> daten<span class="sc">$</span>zufr_inhalt <span class="sc">+</span> daten<span class="sc">$</span>zufr_beding,</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">na.action =</span> <span class="st">"na.exclude"</span>)</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co"># wieder na.exclude nutzen</span></span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co"># sonst hat der Vektor mit den Gewichten wieder eine geringere Länge </span></span>
 <span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>daten<span class="sc">$</span>gewichte <span class="ot">&lt;-</span> <span class="fu">fitted.values</span>(weights_lm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>daten<span class="sc">$</span>gewichte <span class="ot">&lt;-</span> <span class="fu">fitted.values</span>(weights_lm)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Zur Modellschätzung können wir wieder <code>lm()</code> nutzen. Dafür müssen wir nur zusätzlich den Gewichtsvektor im Argument <code>weights</code> spezifizieren.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># WLS-Regression</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># WLS-Regression</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>lm_wls <span class="ot">&lt;-</span> <span class="fu">lm</span>(daten<span class="sc">$</span>leb_zufr <span class="sc">~</span> daten<span class="sc">$</span>zufr_inhalt <span class="sc">+</span> daten<span class="sc">$</span>zufr_beding,</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">weights =</span> <span class="dv">1</span> <span class="sc">/</span> daten<span class="sc">$</span>gewichte, <span class="at">na.action =</span> <span class="st">"na.exclude"</span>)</span>
 <span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Vergleich der OLS- und WLS-Schätzung</span></span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm_lz)<span class="sc">$</span>coefficients</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm_lz)<span class="sc">$</span>coefficients</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                   Estimate Std. Error  t value     Pr(&gt;|t|)
 (Intercept)       12.791048  2.3391903 5.468152 1.704375e-07
 daten$zufr_inhalt  2.499315  0.6869872 3.638081 3.694881e-04
 daten$zufr_beding  1.312796  0.5743345 2.285769 2.357195e-02</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm_wls)<span class="sc">$</span>coefficients</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm_wls)<span class="sc">$</span>coefficients</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                   Estimate Std. Error  t value     Pr(&gt;|t|)
 (Intercept)       12.889931  2.3951572 5.381664 2.566204e-07
@@ -1161,12 +1164,12 @@ daten$zufr_beding  1.222937  0.5605375 2.181723 3.057982e-02</code></pre>
 <p>Hierbei können wir u.a. visualisieren, ob es zeitliche Abhängigkeiten gibt, z.B. ob Personen, die später an der Befragung teilgenommen haben, systematische Unterschiede in ihrer Lebenszufriedenheit (Kriterium) zeigen.</p>
 <p>Um das besser beurteilen zu können, können wir auch hier wieder die <a href="#loess">Lowess Line</a> einzeichnen. Diese sollte wieder möglichst horizontal zur <span class="math inline">\(x\)</span>-Achse bei <span class="math inline">\(y = 0\)</span> liegen. Beide Linien fügen wir zur Vereinfachung der Beurteilung des Plots hinzu.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lm_lz<span class="sc">$</span>residuals)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lm_lz<span class="sc">$</span>residuals)</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">lowess</span>(lm_lz<span class="sc">$</span>residuals), <span class="at">col =</span> <span class="st">"red"</span>) <span class="co"># Lowess Line einfügen (in rot)</span></span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>( <span class="co"># Linie einzeichnen</span></span>
 <span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">h=</span><span class="dv">0</span>, <span class="co"># h - horizontal, 0 - Schnittpunkt mit y-Achse</span></span>
 <span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">col=</span><span class="st">"grey"</span>, <span class="co"># Farbe</span></span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">lty=</span><span class="dv">3</span>) <span class="co"># Linien-Art: gestrichelt</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">lty=</span><span class="dv">3</span>) <span class="co"># Linien-Art: gestrichelt</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1185,9 +1188,9 @@ Exkurs: Grafische Interpretationshilfe für den Index Plot
 <p>In unserem Fall haben wir zwar keine Messwiederholung, aber wir illustrieren die farbliche Darstellung einmal am gleichen Beispiel.</p>
 <p>Die <strong>Farbe</strong> der geplotteten Elemente können wir mit dem Argument <code>col</code> verändern. Um die Farbe ab einer bestimmten Anzahl an Messungen (d.h. Messwiederholungen für eine Person) jeweils zu verändern, können wir <code>rep()</code> benutzen. Diese Funktion wiederholt das erste Argument <code>x</code> (bzw. die einzelnen Elemente des ersten Arguments) jeweils so oft wie das zweite Argument <code>each</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lm_lz<span class="sc">$</span>residuals, <span class="at">col =</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">17</span>, <span class="at">each =</span> <span class="dv">10</span>))</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lm_lz<span class="sc">$</span>residuals, <span class="at">col =</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">17</span>, <span class="at">each =</span> <span class="dv">10</span>))</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">lowess</span>(lm_lz<span class="sc">$</span>residuals), <span class="at">col =</span> <span class="st">"red"</span>)</span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h=</span><span class="dv">0</span>, <span class="at">col=</span><span class="st">"darkblue"</span>, <span class="at">lty=</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h=</span><span class="dv">0</span>, <span class="at">col=</span><span class="st">"darkblue"</span>, <span class="at">lty=</span><span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1199,9 +1202,9 @@ Exkurs: Grafische Interpretationshilfe für den Index Plot
 <p>Die 10 steht dafür, dass wir 10 Messwiederholungen haben. 1 bis 17 kodiert unterschiedliche Farbe. Alternativ können wir auch die Farbnamen in einem Vektor spezifizieren - dann würden wir anstatt <code>1:17</code> z.B. <code>red', 'blue', 'green', ...)</code> einfügen.</p>
 <p>Mit dem Argument <code>pch</code> können wir analog die <strong>Form der Punkte</strong> ändern.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lm_lz<span class="sc">$</span>residuals, <span class="at">pch =</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">17</span>, <span class="at">each =</span> <span class="dv">10</span>))</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lm_lz<span class="sc">$</span>residuals, <span class="at">pch =</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">17</span>, <span class="at">each =</span> <span class="dv">10</span>))</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">lowess</span>(lm_lz<span class="sc">$</span>residuals), <span class="at">col =</span> <span class="st">"red"</span>)</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h=</span><span class="dv">0</span>, <span class="at">col=</span><span class="st">"darkblue"</span>, <span class="at">lty=</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h=</span><span class="dv">0</span>, <span class="at">col=</span><span class="st">"darkblue"</span>, <span class="at">lty=</span><span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1241,10 +1244,10 @@ Exkurs: Grafische Interpretationshilfe für den Index Plot
 <p>Für unser Beispiel schauen wir uns exemplarisch an, inwieweit Unterschiede in ‘Lebenszufriedenheit’ (Kriterium) durch ‘Gruppenzugehörigkeit im Wintersemester’ (<code>erstis$gruppe</code>) erklärt werden können.</p>
 <p>Dazu fügen wir diese Variable zu unserem Datensatz hinzu.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>daten<span class="sc">$</span>gruppe <span class="ot">&lt;-</span> erstis<span class="sc">$</span>gruppe</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>daten<span class="sc">$</span>gruppe <span class="ot">&lt;-</span> erstis<span class="sc">$</span>gruppe</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ICC)</span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ICCest</span>(daten<span class="sc">$</span>gruppe, daten<span class="sc">$</span>leb_zufr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ICCest</span>(daten<span class="sc">$</span>gruppe, daten<span class="sc">$</span>leb_zufr)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>NAs removed from rows:
  27 140 </code></pre>
@@ -1297,8 +1300,8 @@ Bei unbalancierter Gruppengröße ist k, die Anzahl der Personen in jeder Gruppe
 <p>Zuletzt schauen wir uns die Boxplots der Verteilungen der Residuen in den Gruppen an.</p>
 <p>Zur Erleichterung der Interpretation zeichnen wir wieder mit Hilfe von <code>abline(h=0, col="darkblue", type="l", lty=3)</code> eine Senkrechte bei <span class="math inline">\(y=0\)</span> (weil der erwartete Mittelwert der Residuen <span class="math inline">\(0\)</span> ist).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(daten<span class="sc">$</span>resid <span class="sc">~</span> daten<span class="sc">$</span>gruppe)</span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h=</span><span class="dv">0</span>, <span class="at">col=</span><span class="st">"darkblue"</span>, <span class="at">lty=</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(daten<span class="sc">$</span>resid <span class="sc">~</span> daten<span class="sc">$</span>gruppe)</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h=</span><span class="dv">0</span>, <span class="at">col=</span><span class="st">"darkblue"</span>, <span class="at">lty=</span><span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1337,7 +1340,7 @@ Bei unbalancierter Gruppengröße ist k, die Anzahl der Personen in jeder Gruppe
 <h5 data-number="28.5.1.1.1" class="anchored" data-anchor-id="histogramm"><span class="header-section-number">28.5.1.1.1</span> Histogramm</h5>
 <p>Mit Hilfe eines Histogramms können wir uns die Häufigkeitsverteilung einer metrischen Variable anzeigen lassen. Dafür wird diese in verschiedene Klassen (‘bins’) eingeteilt. Das schauen wir uns für die Residuen an.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(lm_lz<span class="sc">$</span>residuals)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(lm_lz<span class="sc">$</span>residuals)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1361,7 +1364,7 @@ Exkurs: Graphische Interpretationshilfe für das Histogramm
 <p>Um die Normalverteilung besser anschauen zu können, erweitern wir die <span class="math inline">\(x\)</span>-Achse. Das machen wir mit <code>xlim=c(-15, &gt;15)</code>. Die Wahl der Grenzen von <span class="math inline">\(-15\)</span> bis <span class="math inline">\(+ 15\)</span> - ist eine theoretische Überlegung. Bei einer Normalverteilung liegen ~ <span class="math inline">\(99\)</span>% der Werte im Bereich <span class="math inline">\(+/- 3\)</span> Standardabweichungen vom Mittelwert entfernt. Die Standardabweichung der Residuen beträgt ~ 5.105.</p>
 <p>Für eine bessere Übersichtlichkeit stellen wir die <span style="color:orange"> reale </span> Dichtefunktion und die <span style="color:green"> erwartete Dichtefunktion </span> farblich dar.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(lm_lz<span class="sc">$</span>residuals, <span class="co"># Histogramm der Residuen ...</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(lm_lz<span class="sc">$</span>residuals, <span class="co"># Histogramm der Residuen ...</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">prob =</span> <span class="cn">TRUE</span>, <span class="co"># ... als Dichte ...</span></span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">20</span>, <span class="dv">20</span>)) <span class="co"># ... mit veränderter X-Achse</span></span>
 <span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -1376,7 +1379,7 @@ Exkurs: Graphische Interpretationshilfe für das Histogramm
 <span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>    x, <span class="at">mean =</span> <span class="fu">mean</span>(lm_lz<span class="sc">$</span>residuals), <span class="co"># ... auf Basis des Mittelwerts ...</span></span>
 <span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">sd =</span> <span class="fu">sd</span>(lm_lz<span class="sc">$</span>residuals)), <span class="co"># ... und der Standardabweichung der Residuen ...</span></span>
 <span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a>      <span class="at">col =</span> <span class="st">"green"</span>, <span class="co">#... in grün ...</span></span>
-<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">add =</span> <span class="cn">TRUE</span>) <span class="co"># ... die zu bestehendem Plot hinzugefügt wird</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">add =</span> <span class="cn">TRUE</span>) <span class="co"># ... die zu bestehendem Plot hinzugefügt wird</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1392,9 +1395,9 @@ Anhand dieser beiden Linien wird noch deutlicher, dass die Verteilung der Residu
 <h5 data-number="28.5.1.1.2" class="anchored" data-anchor-id="qq-plot"><span class="header-section-number">28.5.1.1.2</span> QQ-Plot</h5>
 <p>Der QQ-Plot (Quantil-Quantil-Plot) plottet die aufsteigend geordneten standardisierten Residuen gegen die korrespondierenden Quantile der Normalverteilung. Dafür werden die Residuen durch den Standardschätzfehler geteilt <span class="math inline">\(\frac {e_i} {\hat {\sigma}}\)</span>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lm_lz, <span class="at">which =</span> <span class="dv">2</span>) </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lm_lz, <span class="at">which =</span> <span class="dv">2</span>) </span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="co"># zweiter Plot der plot()-Funktion für ein lm-Objekt ist der QQ-Plot</span></span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="dv">1</span>, <span class="at">col =</span> <span class="st">"blue"</span>) <span class="co"># zur Illustration für unser Beispiel</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="dv">1</span>, <span class="at">col =</span> <span class="st">"blue"</span>) <span class="co"># zur Illustration für unser Beispiel</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1414,7 +1417,7 @@ Exkurs: Shapiro-Wilk-Test
 <p>Mit dem Shapiro-Wilk-Test kann getestet werden, ob Daten normaltverteilt sind (<span class="math inline">\(H_0\)</span>) oder nicht (<span class="math inline">\(H_1\)</span>).</p>
 <p>Der Test wird mit der Funktion <code>shapiro.test()</code> durchgeführt. Um die Residuen der Regression zu testen, extrahieren wir diese wieder aus dem Ergebnisobjekt mit <code>lm_lz$residuals</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(lm_lz<span class="sc">$</span>residuals)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(lm_lz<span class="sc">$</span>residuals)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Shapiro-Wilk normality test
@@ -1476,8 +1479,8 @@ Indeterminationskoeffizient: <span class="math inline">\(1-R^2_y\)</span>
 <p>Dafür wird eine Regression von Prädiktor <span class="math inline">\(X_j\)</span> auf alle anderen Prädiktoren im Modell gerechnet (d.h. das Kriterium bleibt außen vor) und davon der Kehrwert gebildet. Sie ist somit ein Maß für die <strong>Uniqueness</strong> von <span class="math inline">\(X_j\)</span>. Die Tolreanz wird wie folgt berechnet: <span class="math inline">\(1 - R^2_j\)</span></p>
 <p>In R können wir die Toleranz z.B. über den Kehrwert des Variance Inflation Factors, mit der Funktion <code>vif()</code> aus dem Paket <strong>car</strong>, berechnen. Der Funktion übergeben wir unser lm-Objekt.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">/</span> <span class="fu">vif</span>(lm_lz)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">/</span> <span class="fu">vif</span>(lm_lz)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>daten$zufr_inhalt daten$zufr_beding 
         0.8988664         0.8988664 </code></pre>
@@ -1499,8 +1502,8 @@ Indeterminationskoeffizient: <span class="math inline">\(1-R^2_y\)</span>
 </blockquote>
 <p>Dazu nutzen wir aus dem Paket <strong>car</strong> die Funktion <code>vif()</code>, welcher wir unser lm-Objekt übergeben.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">vif</span>(lm_lz)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">vif</span>(lm_lz)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>daten$zufr_inhalt daten$zufr_beding 
          1.112512          1.112512 </code></pre>
@@ -1591,7 +1594,7 @@ Studentisierte gelöschte Residuen werden auch als <strong>externally studentize
 <p>Für mehr Informationen zu studentisierten gelöschten Residuen <em>(externally studentized residuals)</em> siehe S.399ff im Lehrbuch von Cohen, Cohen, West &amp; Aiken (2003).</p>
 <p>Wir extrahieren diese mit <code>rstudent()</code> aus dem lm-Objekt.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">rstudent</span>(lm_lz))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">rstudent</span>(lm_lz))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1613,7 +1616,7 @@ Studentisierte gelöschte Residuen werden auch als <strong>externally studentize
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(<span class="fu">unname</span>(<span class="fu">rstudent</span>(lm_lz) <span class="sc">&lt;=</span> <span class="sc">-</span><span class="dv">3</span>))  <span class="co"># Indizes aller Werte, die kleiner gleich -3 sind</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(<span class="fu">unname</span>(<span class="fu">rstudent</span>(lm_lz) <span class="sc">&lt;=</span> <span class="sc">-</span><span class="dv">3</span>))  <span class="co"># Indizes aller Werte, die kleiner gleich -3 sind</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  37 154</code></pre>
 </div>
@@ -1626,8 +1629,8 @@ Studentisierte gelöschte Residuen werden auch als <strong>externally studentize
 <p>Alternativ könnten wir auch einen Signifikanztest <em>nur</em> für das größte studentisierte gelöschte Residuum durchführen. Dabei wird dessen p-Wert mit einer Bonferroni-Korrektur angepasst. Dazu wird der p-Wert mit der Stichprobengröße (hier: <span class="math inline">\(N=164\)</span>) multipliziert. Das an der Stichprobengröße relativierte (d.h. durch dieses geteilt) Signifikanzlevel <span class="math inline">\(\alpha\)</span> markiert den kritischen Wert (d.h. das korrigierte Signifkanzlevel).</p>
 <p>Dazu nutzen wir <code>outlierTest()</code> aus dem Paket <strong>car</strong>. Wir nutzen konventionell <span class="math inline">\(\alpha=0.05\)</span>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">outlierTest</span>(lm_lz)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">outlierTest</span>(lm_lz)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>No Studentized residuals with Bonferroni p &lt; 0.05
 Largest |rstudent|:
@@ -1651,7 +1654,7 @@ Largest |rstudent|:
 </p>
 <p>Dazu extrahieren wir die Hebelwerte mit Hilfe der Funktion <code>hatvalues()</code> aus dem lm-Objekt. Damit fehlende Werte (<code>NA</code>) ausgeschlossen werden (ihre Hebelwirkung würde <span class="math inline">\(0\)</span> betragen), wenden wir außerdem <code>[!is.na()]</code> an. <code>is.na()</code> evaluiert, ob die Elemente vorhanden sind (<code>TRUE</code> oder <code>FALSE</code>), <code>!</code> sorgt dafür, dass <em>keine</em> Missings angewählt werden, und <code>[ ]</code> gibt die Indizes aus.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">hatvalues</span>(lm_lz)[<span class="sc">!</span><span class="fu">is.na</span>(daten<span class="sc">$</span>resid)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">hatvalues</span>(lm_lz)[<span class="sc">!</span><span class="fu">is.na</span>(daten<span class="sc">$</span>resid)])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1662,7 +1665,7 @@ Largest |rstudent|:
 </div>
 <p>In größeren Datensätzen sollten wir die Hebelwerte der Übersichtlichkeit halber in einem Histogramm visualisieren.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="fu">hatvalues</span>(lm_lz)[<span class="sc">!</span><span class="fu">is.na</span>(daten<span class="sc">$</span>resid)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="fu">hatvalues</span>(lm_lz)[<span class="sc">!</span><span class="fu">is.na</span>(daten<span class="sc">$</span>resid)])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1674,7 +1677,7 @@ Largest |rstudent|:
 <p>Wir sollten uns hierbei auf die Inspektion weniger, extremer Werte beschränken und vor allem nur auf solche, die weit entfernt von den restlichen (nah beieinander liegenden Werten) sind.</p>
 <p>Den größten Hebelwert und seinen Index können wir uns folgendermaßen ausgeben lassen:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>((<span class="fu">hatvalues</span>(lm_lz)), <span class="at">decreasing=</span><span class="cn">TRUE</span>)[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>((<span class="fu">hatvalues</span>(lm_lz)), <span class="at">decreasing=</span><span class="cn">TRUE</span>)[<span class="dv">1</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       151 
 0.06632099 </code></pre>
@@ -1691,7 +1694,7 @@ Largest |rstudent|:
 <p>Wenn es große Residuen und Hebelwerte gibt, können wir uns weiterführend den Residuen-Leverage Plot anschauen. Dieser plottet die Hebelwerte (<span class="math inline">\(x\)</span>-Achse) gegen die standardisierten Residuen (<span class="math inline">\(y\)</span>-Achse).</p>
 <p>Zur Standardisierung werden die Residuen durch den Standardschätzfehler geteilt <span class="math inline">\(\frac {e_i} {\hat {\sigma}}\)</span></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lm_lz, <span class="at">which=</span><span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lm_lz, <span class="at">which=</span><span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1699,7 +1702,7 @@ Largest |rstudent|:
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># fünfter Plot der plot()-Funktion für ein lm-Objekt ist der Residuen-Leverage Plot</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># fünfter Plot der plot()-Funktion für ein lm-Objekt ist der Residuen-Leverage Plot</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Die <a href="#loess">Lowess Line</a> sollte auch hier wieder flach und nah an der gestrichelten Linie bei <span class="math inline">\(y=0\)</span> sein.</p>
 <p>Die Werte der Person mit dem Index 50 weisen eine leicht erhöhte hohe Cooks Distance auf. Allerdings sind die Grenzen bei 0.5 und 1 nicht einmal sichtbar, weil alle Werte der Cooks Distance relativ klein sind. Auch die <a href="#loess">Lowess Line</a> ist flach an nah bei y=0. Beides spricht dafür, dass in unserem Datensatz keine einflussreichen Datenpunkte, die die Parameter verzerren könnten, enthalten sind.<br>
@@ -1716,7 +1719,7 @@ Largest |rstudent|:
 <p>Im Residuen-Leverage-Plot werden auch Linien der <strong>Cooks Distance</strong> mit den Werten <span class="math inline">\(0.5\)</span> und <span class="math inline">\(1.0\)</span> abgetragen, <strong>wenn</strong> Beobachtungen in die Nähe dieser Grenzen kommen (was im oberen Beispiel nicht der Fall ist).</p>
 <p>Wir können uns folgendermaßen auch nur die Werte der Cooks Distance gegen den Index geplottet anschauen:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lm_lz, <span class="at">which=</span><span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lm_lz, <span class="at">which=</span><span class="dv">4</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -1814,7 +1817,7 @@ Kapitel “Regressionsdiagnostik” (S. 704-725)<br>
 <hr>
 <p>Um eine möglichst exakte Replikation der Funktionen zu gewährleisten gibt es im folgenden relevante Angaben zum System (<strong>R-Version</strong>, <strong>Betriebssystem</strong>, <strong>geladene Pakete mit Angaben zur Version</strong>), mit welchem diese Seite erstellt wurde.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>R version 4.5.1 (2025-06-13)
 Platform: x86_64-pc-linux-gnu
@@ -1847,9 +1850,9 @@ loaded via a namespace (and not attached):
  [5] xfun_0.53          Formula_1.2-5      stringi_1.8.7      textshaping_1.0.3 
  [9] jsonlite_2.0.0     glue_1.8.0         htmltools_0.5.8.1  scales_1.4.0      
 [13] abind_1.4-8        evaluate_1.0.5     fastmap_1.2.0      yaml_2.3.10       
-[17] lifecycle_1.0.4    stringr_1.5.1      compiler_4.5.1     RColorBrewer_1.1-3
+[17] lifecycle_1.0.4    stringr_1.5.2      compiler_4.5.1     RColorBrewer_1.1-3
 [21] htmlwidgets_1.6.4  rstudioapi_0.17.1  systemfonts_1.2.3  farver_2.1.2      
-[25] digest_0.6.37      viridisLite_0.4.2  R6_2.6.1           magrittr_2.0.3    
+[25] digest_0.6.37      viridisLite_0.4.2  R6_2.6.1           magrittr_2.0.4    
 [29] tools_4.5.1        xml2_1.4.0        </code></pre>
 </div>
 </div>
@@ -1923,13 +1926,14 @@ loaded via a namespace (and not attached):
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

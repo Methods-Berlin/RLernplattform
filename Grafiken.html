@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.34">
+<meta name="generator" content="quarto-1.8.24">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -70,18 +70,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="./figures/Logo_Favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-befe23ebd2f54d8af2c8a89d1a1611f1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b651517ce65839d647a86e2780455cfb.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-7353130c81d514d5021d011d6be17cca.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-898c6670bc760369dd26613cd3a4aa58.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-7353130c81d514d5021d011d6be17cca.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-4a599c7b2cabf35abf2282cb8bf17052.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-ebe409942ac384bcae9e9b9d8075f827.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-4a599c7b2cabf35abf2282cb8bf17052.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -126,7 +127,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -328,7 +329,9 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">R Lernplattform</a> 
         <div class="sidebar-tools-main">
@@ -692,10 +695,10 @@ Den <a href="#violinenplot"><strong>Violinenplot</strong></a> schauen wir uns sp
 </aside>
 <p>Zuerst schauen wir uns die grundlegende Funktionsweise von ggplot an. Dann lernen wir, wie wir (bekannte) Grafiken erstellen und modifizieren können. Abschließend erfahren wir, wie wir Grafiken exportieren können. Am Ende befindet sich außerdem eine Auswahl weiterführender Hilfen, die für die Visualisierung der eigenen Daten nützlich sein können.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Paket installieren ...</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Paket installieren ...</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"ggplot2"</span>, <span class="at">dependencies=</span><span class="cn">TRUE</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ... und laden</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <aside>
 <br>
@@ -724,7 +727,7 @@ Beispieldatensatzfür dieses Kapitel
 </summary>
 <p>Im Rahmen des Kapitels werden wir hauptsächlich mit dem Datensatz <code>ChickWeight</code> arbeiten, der standardmäßig im Basispaket <strong>datasets</strong> enthalten ist. Wir laden den Dataframe folgendermaßen in unseren Workspace:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(ChickWeight)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(ChickWeight)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Die Daten stammen aus einem Experiment, in dem der <strong>Einfluss des Futters auf das Wachstum von Küken</strong> untersucht wurde.</p>
 <div class="cell">
@@ -750,7 +753,7 @@ Beispieldatensatzfür dieses Kapitel
 <p>Für den Abschnitt zu Visualisierungsmöglichkeiten bei <a href="#mehr-als-zwei-variablen">mehr als zwei Variablen</a> nutzen wir zusätzlich noch den Datensatz <strong>mpg</strong>, welcher im Paket <strong>ggplot2</strong> enthalten ist.</p>
 <p>Wir laden diesen folgendermaßen in unser Environment:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="ot">&lt;-</span> mpg</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="ot">&lt;-</span> mpg</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -775,12 +778,12 @@ Der Datensatz enthält 11 Variablen zum Benzinverbrauch von Automodellen in den 
 <p>Bevor es losgehen kann, müssen wir erst einmal sicherstellen, dass unsere Daten auch in adäquater Form vorliegen. Um Grafiken mit <code>ggplot()</code> erzeugen zu können, müssen alle genutzen Variablen in einem gemeinsamen Dataframe vorliegen.</p>
 <p>Das können wir folgendermaßen überprüfen:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.data.frame</span>(ChickWeight)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] TRUE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.data.frame</span>(ChickWeight)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] TRUE</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Falls unser Datensatz nicht als Dataframe vorliegt, könnten wir ihn so umwandeln:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>ChickWeight <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(ChickWeight)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>ChickWeight <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(ChickWeight)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>In Abhängigkeit der eigenen Fragestellung müssen die Daten im Long- bzw. Wide-Format vorliegen. Schauen wir uns den Unterschied einmal an der Fragestellung, wie sich das Gewicht der Küken (<code>weight</code>) zu unterschiedlichen Zeitpunkten (<code>Time</code>) verändert, an.</p>
 <p>Wenn wir <code>Time</code> als Prädiktor für <code>weight</code> aufnehmen möchten, müssen die Daten im <strong>Long</strong>-Format vorliegen, damit <code>Time</code> auch als eigene Variable kodiert ist.</p>
@@ -789,7 +792,7 @@ Der Datensatz enthält 11 Variablen zum Benzinverbrauch von Automodellen in den 
 </p>
 <p>Außerdem <em>kann</em> es Probleme geben, wenn nominal- oder ordinalskalierte Variablen (z.B. <code>Diet</code>) im Datensatz nicht als <strong>Faktor</strong> vorliegen. Mit <code>str()</code> können wir uns anschauen, in welchem Daten- bzw. Objekttyp die Variablen eines Dataframes vorliegen.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(ChickWeight) <span class="co"># überprüfen</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(ChickWeight) <span class="co"># überprüfen</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Classes 'nfnGroupedData', 'nfGroupedData', 'groupedData' and 'data.frame':  578 obs. of  4 variables:
  $ weight: num  42 51 59 64 76 93 106 125 149 171 ...
@@ -810,8 +813,8 @@ Der Datensatz enthält 11 Variablen zum Benzinverbrauch von Automodellen in den 
 </div>
 <p>Mit <code>factor()</code> können wir einzelne Spalten faktorisieren.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>ChickWeight<span class="sc">$</span>Diet <span class="ot">&lt;-</span> <span class="fu">factor</span>(ChickWeight<span class="sc">$</span>Diet) <span class="co"># umwandeln</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Diet lag bereits vorher als ungeordneter Faktor vor</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>ChickWeight<span class="sc">$</span>Diet <span class="ot">&lt;-</span> <span class="fu">factor</span>(ChickWeight<span class="sc">$</span>Diet) <span class="co"># umwandeln</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Diet lag bereits vorher als ungeordneter Faktor vor</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="welche-grafik-sollte-ich-für-meine-daten-nehmen" class="level3" data-number="20.1.2">
@@ -839,7 +842,7 @@ Diese werden in <code>geom()</code> festgelegt. Die Formen, mit denen die Daten 
 <h3 data-number="20.2.1" class="anchored" data-anchor-id="ebene-1-grundlegendes-koordinatensystem"><span class="header-section-number">20.2.1</span> Ebene 1: Grundlegendes Koordinatensystem</h3>
 <p>Das Koordinatensystem spezifizieren wir mit <code>ggplot()</code>. Dem Parameter <code>data</code> übergeben wir den <strong>Datensatz (1)</strong>. Das <strong>ästhetische Mapping (2)</strong> legen wir mit <code>aes()</code> fest. Diesem geben wir die Namen der Variablen, die auf der x- und y-Achse dargestellt werden sollen.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight, <span class="fu">aes</span>(<span class="at">x=</span>Time, <span class="at">y=</span>weight))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight, <span class="fu">aes</span>(<span class="at">x=</span>Time, <span class="at">y=</span>weight))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -858,8 +861,8 @@ Wir können <code>aes()</code> aber nicht nur in <code>ggplot()</code>, d.h. dem
 <h3 data-number="20.2.2" class="anchored" data-anchor-id="ebene-2-art-der-grafik"><span class="header-section-number">20.2.2</span> Ebene 2: Art der Grafik</h3>
 <p>Bisher wurde nur das Koordinatensystem mit den jeweiligen Achsengrenzen der Variablen erstellt. Wenn wir die Daten nun plotten möchten, müssen wir noch festlegen, <em>wie</em> die Daten dargestellt werden sollen (z.B. die Häufigkeit als Balken, die bivariate Verteilung als Punkte). Dazu nutzten wir <strong>geometrische Objekte(3)</strong>, die wir mit den <code>geom</code>-Funktionen festlegen (z.B. <code>geom_line()</code> für Linien oder <code>geom_bar()</code> für Balken). Damit ergänzen wir den Plot um eine neue Ebene.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight, <span class="fu">aes</span>(<span class="at">x=</span>Time, <span class="at">y=</span>weight)) <span class="sc">+</span> </span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight, <span class="fu">aes</span>(<span class="at">x=</span>Time, <span class="at">y=</span>weight)) <span class="sc">+</span> </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -886,8 +889,8 @@ Hier sehen wir, wie die 1. Ebene, das grundlegende Koordinatensystem <code>ggplo
 <h4 data-number="20.3.1.1" class="anchored" data-anchor-id="balkendiagramm"><span class="header-section-number">20.3.1.1</span> Balkendiagramm</h4>
 <p>Um ein Balkendiagramm zu erzeugen, nutzen wir <code>geom_bar()</code>. Standardmäßig werden mit <code>geom_bar()</code> <strong>absolute</strong> Häufigkeiten (count) geplottet.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight, <span class="fu">aes</span>(<span class="at">x=</span>Diet)) <span class="sc">+</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight, <span class="fu">aes</span>(<span class="at">x=</span>Diet)) <span class="sc">+</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -898,8 +901,8 @@ Hier sehen wir, wie die 1. Ebene, das grundlegende Koordinatensystem <code>ggplo
 </div>
 <p>Wir können folgendermaßen auch die <strong>relativen</strong> Häufigkeiten (prob) plotten:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight, <span class="fu">aes</span>(<span class="at">x=</span>Diet)) <span class="sc">+</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(prop), <span class="at">group=</span><span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight, <span class="fu">aes</span>(<span class="at">x=</span>Diet)) <span class="sc">+</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(prop), <span class="at">group=</span><span class="dv">1</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -910,9 +913,9 @@ Hier sehen wir, wie die 1. Ebene, das grundlegende Koordinatensystem <code>ggplo
 </div>
 <p>Mit <code>+ coord_flip()</code> können wir das Diagramm <strong>um 90° nach rechts kippen</strong>. Jetzt ist auf der x-Achse die Häufigkeit und auf der y-Achse die Gruppierung abgebildet.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight, <span class="fu">aes</span>(<span class="at">x=</span>Diet)) <span class="sc">+</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight, <span class="fu">aes</span>(<span class="at">x=</span>Diet)) <span class="sc">+</span> </span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span> </span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -924,15 +927,15 @@ Hier sehen wir, wie die 1. Ebene, das grundlegende Koordinatensystem <code>ggplo
 <p>Wir können auch sogenannte <strong>gestapelte Balkendiagramme</strong> (<em>stacked bar plots</em>) anfertigen.</p>
 <p>Dazu müssen erst einen neuen Dataframe erzeugen, in welchem die Gruppennamen sowie die (absoluten) Häufigkeiten der Variablen je als neue Variable gespeichert sind.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Häufigkeitstabelle von Diet erstellen und in Dataframe konvertieren:</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Häufigkeitstabelle von Diet erstellen und in Dataframe konvertieren:</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>freq_Diet <span class="ot">&lt;-</span><span class="fu">as.data.frame</span>(<span class="fu">table</span>(ChickWeight<span class="sc">$</span>Diet))</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># (optional) Spalten umbenennen:</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(freq_Diet) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Futtergruppe"</span>, <span class="st">"Häufigkeit"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(freq_Diet) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Futtergruppe"</span>, <span class="st">"Häufigkeit"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Mit diesem Dataframe erstellen wir nun ein gestapeltes Balkendiagramm:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>freq_Diet, <span class="fu">aes</span>(<span class="at">x=</span><span class="st">""</span>, <span class="at">y=</span>Häufigkeit, <span class="at">fill=</span>Futtergruppe)) <span class="sc">+</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>freq_Diet, <span class="fu">aes</span>(<span class="at">x=</span><span class="st">""</span>, <span class="at">y=</span>Häufigkeit, <span class="at">fill=</span>Futtergruppe)) <span class="sc">+</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -951,16 +954,16 @@ Auf die Integration von Farben, hier durch den Parameter <code>fill</code>, gehe
 <h4 data-number="20.3.1.2" class="anchored" data-anchor-id="kreisdiagramm"><span class="header-section-number">20.3.1.2</span> Kreisdiagramm</h4>
 <p>Um ein Kreisdiagramm zu erstellen, müssen wir, analog zur Erstellung von gestapelten Balkendiagrammen, zuerst einen neuen Dataframe erzeugen, in welchem die Namen und (absoluten) Häufigkeiten der Gruppen der Variablen als neue Variablen vorhanden sind.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Häufigkeitstabelle von Diet erstellen und in Dataframe konvertieren:</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Häufigkeitstabelle von Diet erstellen und in Dataframe konvertieren:</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>freq_Diet <span class="ot">&lt;-</span><span class="fu">as.data.frame</span>(<span class="fu">table</span>(ChickWeight<span class="sc">$</span>Diet))</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co"># (optional) Spalten umbenennen:</span></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(freq_Diet) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Futtergruppe"</span>, <span class="st">"Häufigkeit"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(freq_Diet) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Futtergruppe"</span>, <span class="st">"Häufigkeit"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Auch das weitere Vorgehen überschneidet sich weitest mit dem der Erstellung eines gestapelten Balkendiagrammes. Wir müssen lediglich noch <code>+ coord_polar("y")</code> ergänzen, damit die Anteile der Häufigkeiten in Polarkoordinaten überführt werden.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>freq_Diet, <span class="fu">aes</span>(<span class="at">x=</span><span class="st">""</span>, <span class="at">y=</span>Häufigkeit, <span class="at">fill=</span>Futtergruppe)) <span class="sc">+</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>freq_Diet, <span class="fu">aes</span>(<span class="at">x=</span><span class="st">""</span>, <span class="at">y=</span>Häufigkeit, <span class="at">fill=</span>Futtergruppe)) <span class="sc">+</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span> </span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_polar</span>(<span class="st">"y"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_polar</span>(<span class="st">"y"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1015,48 +1018,48 @@ Richtlinien zur Kategorisierung einer metrischen Variablen
 </ul>
 <p>Schauen wir uns die ungefähre Anzahl der Kategorien nach der Sturges Regel an. Dazu nutzen wir die Funktion <code>nclass.Sturges(1:Stichprobengröße)</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Gibt es fehlende Werte?</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">anyNA</span>(ChickWeight<span class="sc">$</span>weight) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Gibt es fehlende Werte?</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">anyNA</span>(ChickWeight<span class="sc">$</span>weight) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] FALSE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="do">## wenn nein:</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nclass.Sturges</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(ChickWeight))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="do">## wenn nein:</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nclass.Sturges</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(ChickWeight))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 11</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="do">## wenn ja:</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="do">## wenn ja:</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co"># nclass.Sturges(1:table(is.na(ChickWeight$weight))[[2]])</span></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co"># table(is.na(ChickWeight$weight))[[2]] gibt uns die Anzahl der vorhanden werte</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co"># table(is.na(ChickWeight$weight))[[2]] gibt uns die Anzahl der vorhanden werte</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Nach Sturges Regel sollten wir für <code>weight</code> in etwa 11 Kategorien bilden.</p>
 <ul>
 <li>Je größer die Streuung der Variablen, desto breiter können die einzelnen Kategorien sein (d.h. weniger Kategorien).</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(ChickWeight<span class="sc">$</span>weight) <span class="co"># kleinster Wert</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(ChickWeight<span class="sc">$</span>weight) <span class="co"># kleinster Wert</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 35</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(ChickWeight<span class="sc">$</span>weight) <span class="co"># größter Wert</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(ChickWeight<span class="sc">$</span>weight) <span class="co"># größter Wert</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 373</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Variationsbreite (Streuung) = größter minus kleinster Wert:</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(ChickWeight<span class="sc">$</span>weight) <span class="sc">-</span> <span class="fu">min</span>(ChickWeight<span class="sc">$</span>weight) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Variationsbreite (Streuung) = größter minus kleinster Wert:</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(ChickWeight<span class="sc">$</span>weight) <span class="sc">-</span> <span class="fu">min</span>(ChickWeight<span class="sc">$</span>weight) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 338</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># bei Vorhandensein von fehlenden Werten:</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="co"># min(..., na.rm=TRUE) bzw. max(..., na.rm=TRUE)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># bei Vorhandensein von fehlenden Werten:</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="co"># min(..., na.rm=TRUE) bzw. max(..., na.rm=TRUE)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Es ist sinnvoll, zuerst nach Sturges Regel eine Anzahl an Bins zu errechnen, und diese dann ggf. in Abhängigkeit der Variationsbreite des Merkmals zu verändern.</p>
 <p>Generell sollten wir <strong>nicht mehr als 20 Kategorien</strong> bilden. Diese sollten im Regelfall auch ungefähr die gleiche Breite aufweisen.</p>
 </details>
 <p>Wir erstellen ein Histogramm von <code>weight</code> mit den empfohlenen 11 Kategorien, welche wir mit dem Argument <code>bins</code> erstellen.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight, <span class="fu">aes</span>(<span class="at">x=</span>weight)) <span class="sc">+</span> </span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins=</span><span class="dv">11</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight, <span class="fu">aes</span>(<span class="at">x=</span>weight)) <span class="sc">+</span> </span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins=</span><span class="dv">11</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1073,10 +1076,10 @@ Problem der korrekten Darstellung der Variationsbreite
 <p>Dieses Problem demonstrieren wir einmal an obigem Beispiel.</p>
 <p>Mit <code>geom_vline(xintercept)</code> erstellen wir zwei vertikale Linien, die den kleinsten bzw. größten beobachteten Wert von <code>weight</code> markieren. Diese nutzen wir zur Veranschaulichung der Problematik.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight, <span class="fu">aes</span>(<span class="at">x=</span>weight)) <span class="sc">+</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight, <span class="fu">aes</span>(<span class="at">x=</span>weight)) <span class="sc">+</span> </span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins=</span><span class="dv">11</span>) <span class="sc">+</span> </span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="fu">min</span>(ChickWeight<span class="sc">$</span>weight)) <span class="sc">+</span> <span class="co"># kleinster Wert</span></span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="fu">max</span>(ChickWeight<span class="sc">$</span>weight)) <span class="co"># größter Wert</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="fu">max</span>(ChickWeight<span class="sc">$</span>weight)) <span class="co"># größter Wert</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1088,10 +1091,10 @@ Problem der korrekten Darstellung der Variationsbreite
 <p>Wie wir sehen haben wir zwar die gewünschten 11 Kategorien, aber diese sind leider so eingeteilt, dass die äußeren Kategorien über den kleinsten und größten beobachteten Wert von <code>weight</code> hinausgehen (d.h. sie sind zu groß).</p>
 <p>Um das Problem in den Griff zu bekommen, nutzen wir das Argument <code>breaks</code>, mit dem wir die Kategoriengrenzen manuell festlegen. Diesem übergeben wir die Funktion <code>seq(from, to, by)</code>, die uns eine reguläre Sequenz erstellt (damit wir nicht alle Grenzen einzeln eingeben müssen). Auch hier wollen wir wieder die empfohlenen 11 Kategorien haben, daher teilen wir den Range (373-35) von <code>weight</code> durch 11.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight, <span class="fu">aes</span>(<span class="at">x=</span>weight)) <span class="sc">+</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight, <span class="fu">aes</span>(<span class="at">x=</span>weight)) <span class="sc">+</span> </span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">35</span>, <span class="dv">373</span>, (<span class="dv">373-35</span>)<span class="sc">/</span><span class="dv">11</span>)) <span class="sc">+</span> </span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="fu">min</span>(ChickWeight<span class="sc">$</span>weight)) <span class="sc">+</span> <span class="co"># kleinster Wert</span></span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="fu">max</span>(ChickWeight<span class="sc">$</span>weight)) <span class="co"># größter Wert</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="fu">max</span>(ChickWeight<span class="sc">$</span>weight)) <span class="co"># größter Wert</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1108,7 +1111,7 @@ Wie wir an den vertikalen Linien sehen, hält die Breite der Kategorien insgesam
 <h4 data-number="20.3.2.2" class="anchored" data-anchor-id="dichtefunktion"><span class="header-section-number">20.3.2.2</span> Dichtefunktion</h4>
 <p>Die Dichteverteilung einer kontinuierlichen Variablen können wir mit <code>geom_density()</code> einzeichnen. Per Default wird dafür die Gaußsche Dichtefunktion (<code>kernel = "gaussian"</code>) genutzt.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight, <span class="fu">aes</span>(<span class="at">x=</span>weight)) <span class="sc">+</span> <span class="fu">geom_density</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight, <span class="fu">aes</span>(<span class="at">x=</span>weight)) <span class="sc">+</span> <span class="fu">geom_density</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1150,8 +1153,8 @@ Welche Kennwerte werden in Boxplots dargestellt?
 <p>Einen Boxplot erhalten wir mit <code>geom_boxplot()</code>. Wenn wir fehlende Werte in unseren Daten haben, müssen wir noch das Argument <code>na.rm = TRUE</code> ergänzen, welches diese (aus der Grafik) entfernt.</p>
 <p>Wir schauen uns das Gewicht der Küken (<code>weight</code>) zum zweiten Messzeitpunkt (<code>Time 2</code>) in Abhängigkeit der Fütterung (<code>Diet</code>) an.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight[ChickWeight<span class="sc">$</span>Time <span class="sc">==</span> <span class="dv">2</span>,], <span class="fu">aes</span>(<span class="at">x=</span>Diet, <span class="at">y=</span>weight)) <span class="sc">+</span></span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight[ChickWeight<span class="sc">$</span>Time <span class="sc">==</span> <span class="dv">2</span>,], <span class="fu">aes</span>(<span class="at">x=</span>Diet, <span class="at">y=</span>weight)) <span class="sc">+</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1181,11 +1184,11 @@ Zu beachten ist außerdem, dass wir die Indexierung bereits in der grundlegenden
 <p>Generell können wir den Violinenplot mit <code>geom_violin()</code> erstellen. Zusätzlich gibt es hier einen sehr wichtigen Parameter: <code>scale</code>. Mit diesem legen wir fest, ob die einzelnen “Violinen” in der <strong>gleichen Größe</strong> (<code>area</code>; <em>voreingestellt</em>) oder in <strong>Größen proportional zur Anzahl der Beobachtungen in jeder Gruppe</strong> (<code>count</code>) dargestellt werden sollen.</p>
 <p>Wir schauen uns unsere Daten einmal in beiden Modi an.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span> ChickWeight[ChickWeight<span class="sc">$</span>Time <span class="sc">==</span> <span class="dv">2</span>,], <span class="fu">aes</span>(<span class="at">x=</span>Diet, <span class="at">y=</span>weight)) <span class="sc">+</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span> ChickWeight[ChickWeight<span class="sc">$</span>Time <span class="sc">==</span> <span class="dv">2</span>,], <span class="fu">aes</span>(<span class="at">x=</span>Diet, <span class="at">y=</span>weight)) <span class="sc">+</span></span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>(<span class="at">scale =</span> <span class="st">"area"</span>)</span>
 <span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight[ChickWeight<span class="sc">$</span>Time <span class="sc">==</span> <span class="dv">2</span>,], <span class="fu">aes</span>(<span class="at">x=</span>Diet, <span class="at">y=</span>weight)) <span class="sc">+</span> </span>
-<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>(<span class="at">scale =</span> <span class="st">"count"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>(<span class="at">scale =</span> <span class="st">"count"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1232,8 +1235,8 @@ Negativbeispiel
 <p>Beispielsweise vermitteln einzelne Punkte (für die Mittelwerte) mit Fehlerbalken die relevanten Informationen besser.</p>
 <p>Generell um statistische Kennwerte zu ergänzen, nutzen wir die Funktion <code>stat_summary()</code> (mehr dazu <a href="#weitere-statistische-kennwerte-ergänzen">hier</a>). Mit <code>fun.data="mean_cl_normal"</code> bekommen wir Mittelwerte mit 95% Konfindenzintervallen.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight[ChickWeight<span class="sc">$</span>Time <span class="sc">==</span> <span class="dv">21</span>,], <span class="fu">aes</span>(<span class="at">x=</span>Diet, <span class="at">y=</span>weight)) <span class="sc">+</span> </span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data=</span><span class="st">"mean_cl_normal"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight[ChickWeight<span class="sc">$</span>Time <span class="sc">==</span> <span class="dv">21</span>,], <span class="fu">aes</span>(<span class="at">x=</span>Diet, <span class="at">y=</span>weight)) <span class="sc">+</span> </span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data=</span><span class="st">"mean_cl_normal"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1255,9 +1258,9 @@ Positivbeispiel
 </aside>
 <p>Wenn wir zusätzlich noch unsere Informationsdichte erhöhen wollen, d.h. nicht nur den Mittelwert, sondern die <strong>Verteilung in den einzelnen Gruppen</strong> visualisieren wollen, können wir <a href="#violinenplot">Violinenplots</a> integrieren.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight[ChickWeight<span class="sc">$</span>Time <span class="sc">==</span> <span class="dv">21</span>,], <span class="fu">aes</span>(<span class="at">x=</span>Diet, <span class="at">y=</span>weight)) <span class="sc">+</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight[ChickWeight<span class="sc">$</span>Time <span class="sc">==</span> <span class="dv">21</span>,], <span class="fu">aes</span>(<span class="at">x=</span>Diet, <span class="at">y=</span>weight)) <span class="sc">+</span></span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>(<span class="at">scale=</span><span class="st">"count"</span>) <span class="sc">+</span> <span class="fu">stat_summary</span>(<span class="at">fun.data=</span><span class="st">"mean_cl_normal"</span>)</span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Reihenfolge beachten! erst Violinenplot, dann Mittelwerte darüber</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Reihenfolge beachten! erst Violinenplot, dann Mittelwerte darüber</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1286,8 +1289,8 @@ Positivbeispiel
 <p>Mit Streudiagrammen (<em>Scatterplots</em>) können wir Wertepaare zweier kontinuierlicher Variablen grafisch darstellen. Das machen wir mit <code>geom_point()</code>.</p>
 <p>Wir schauen uns im Folgenden den Zusammenhang von Zeit seit dem Schlüpfen (<code>Time</code>) und dem Gewicht in Gramm (<code>weight</code>) der Küken an.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight, <span class="fu">aes</span>(<span class="at">x=</span>Time, <span class="at">y=</span>weight)) <span class="sc">+</span> </span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight, <span class="fu">aes</span>(<span class="at">x=</span>Time, <span class="at">y=</span>weight)) <span class="sc">+</span> </span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1308,8 +1311,8 @@ Wie wir die Datenpunkte in Abhängigkeit einer weiteren kategorialen Variablen e
 <h5 data-number="20.4.2.2.1" class="anchored" data-anchor-id="punkte-modifizieren"><span class="header-section-number">20.4.2.2.1</span> Punkte modifizieren</h5>
 <p>Wir können die Formen <strong>verkleinern</strong> mit dem Parameter <code>size</code> (Breite der Linie in mm), …</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight, <span class="fu">aes</span>(<span class="at">x=</span>Time, <span class="at">y=</span>weight)) <span class="sc">+</span> </span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">0.1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight, <span class="fu">aes</span>(<span class="at">x=</span>Time, <span class="at">y=</span>weight)) <span class="sc">+</span> </span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">0.1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1320,8 +1323,8 @@ Wie wir die Datenpunkte in Abhängigkeit einer weiteren kategorialen Variablen e
 </div>
 <p>… die Form <strong>ändern</strong> mit dem Parameter <code>shape</code>, …</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight, <span class="fu">aes</span>(<span class="at">x=</span>Time, <span class="at">y=</span>weight)) <span class="sc">+</span> </span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight, <span class="fu">aes</span>(<span class="at">x=</span>Time, <span class="at">y=</span>weight)) <span class="sc">+</span> </span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1332,8 +1335,8 @@ Wie wir die Datenpunkte in Abhängigkeit einer weiteren kategorialen Variablen e
 </div>
 <p>… oder die Form <strong>transparent</strong> machen mit dem Parameter <code>alpha</code> (0 &lt; <code>alpha</code> &lt; 1).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight, <span class="fu">aes</span>(<span class="at">x=</span>Time, <span class="at">y=</span>weight)) <span class="sc">+</span> </span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight, <span class="fu">aes</span>(<span class="at">x=</span>Time, <span class="at">y=</span>weight)) <span class="sc">+</span> </span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1351,8 +1354,8 @@ Wie wir die Datenpunkte in Abhängigkeit einer weiteren kategorialen Variablen e
 </blockquote>
 <p>Per default werden die Punkte in 80% der Breite der implizierten Bins (z.B. der Bin von <code>Time 0</code>) geplottet, sodass die Bins optisch noch gut voneinander zu trennen sind. Mit dem Parameter <code>width</code> können wir die Breite anpassen.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight, <span class="fu">aes</span>(<span class="at">x=</span>Time, <span class="at">y=</span>weight)) <span class="sc">+</span> </span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight, <span class="fu">aes</span>(<span class="at">x=</span>Time, <span class="at">y=</span>weight)) <span class="sc">+</span> </span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1362,8 +1365,8 @@ Wie wir die Datenpunkte in Abhängigkeit einer weiteren kategorialen Variablen e
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mehr (aber zu viel) Variation:</span></span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight, <span class="fu">aes</span>(<span class="at">x=</span>Time, <span class="at">y=</span>weight)) <span class="sc">+</span> <span class="fu">geom_jitter</span>(<span class="at">width=</span><span class="dv">1</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mehr (aber zu viel) Variation:</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight, <span class="fu">aes</span>(<span class="at">x=</span>Time, <span class="at">y=</span>weight)) <span class="sc">+</span> <span class="fu">geom_jitter</span>(<span class="at">width=</span><span class="dv">1</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1381,9 +1384,9 @@ Wie wir die Datenpunkte in Abhängigkeit einer weiteren kategorialen Variablen e
 <p>Die Regressionsgerade eines <strong>einfachen</strong> linearen Regressionsmodells können wir mit <code>geom_smooth(method="lm")</code> über unser Streudiagramm legen.</p>
 <p>Per default wird nicht nur eine Regressionsgerade eingezeichnet, sondern auch das 95%-Konfidenzintervall um die Gerade gelegt.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight, <span class="fu">aes</span>(<span class="at">x=</span>Time, <span class="at">y=</span>weight)) <span class="sc">+</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight, <span class="fu">aes</span>(<span class="at">x=</span>Time, <span class="at">y=</span>weight)) <span class="sc">+</span> </span>
 <span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">formula =</span> y <span class="sc">~</span> x, <span class="at">method=</span><span class="st">"lm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">formula =</span> y <span class="sc">~</span> x, <span class="at">method=</span><span class="st">"lm"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1546,14 +1549,14 @@ Paket ggiraphextra: Interaktive Plots und weitere Darstellungen von Regressionsm
 <p>Interaktiv bedeutet, dass wir in den Plot reinzoomen, uns die Funktion der Regressionsgerade sowie die ID und die Prädiktor- und Kriteriumswerte der Personen anzeigen lassen können. Um den Plot interaktiv zu machen, müssen wir <code>interactive=TRUE</code> festlegen.</p>
 <p>Auch hier können wir ein 95%-iges Konfidenzintervall um die Regressionsgerade legen, indem wir <code>se=TRUE</code> spezifizieren. Per Default ist hier (im Gegensatz zu <code>geom_smooth</code>) <em>kein</em> Konfidenzintervall eingezeichnet. Die Visualisierung der (Un)Genauigkeit unseres Regressionsmodells ist allerdings zu empfehlen.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("ggiraphExtra", dependencies=TRUE)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("ggiraphExtra", dependencies=TRUE)</span></span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Regression rechnen:</span></span>
 <span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>reg_ggP <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="at">formula =</span> weight <span class="sc">~</span> Time, <span class="at">data =</span> ChickWeight)</span>
 <span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Ergebnisobjekt plotten</span></span>
 <span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggiraphExtra)</span>
-<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggPredict</span>(reg_ggP, <span class="at">se =</span> <span class="cn">TRUE</span>, <span class="at">interactive =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggPredict</span>(reg_ggP, <span class="at">se =</span> <span class="cn">TRUE</span>, <span class="at">interactive =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1592,13 +1595,13 @@ Die Anordnung von Zeile und Spalte in <code>facet_grid()</code> ist analog zum I
 </aside>
 <p>Wir schauen uns die Gewichtszunahme (<code>weight</code>) über die Zeit (<code>Time</code>) getrennt für die einzelnen Experimentalgruppen (<code>Diet</code>) an.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight, <span class="fu">aes</span>(<span class="at">x=</span>Time, <span class="at">y=</span>weight)) <span class="sc">+</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight, <span class="fu">aes</span>(<span class="at">x=</span>Time, <span class="at">y=</span>weight)) <span class="sc">+</span> </span>
 <span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(Diet <span class="sc">~</span> .) <span class="co"># Zeilen</span></span>
 <span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight, <span class="fu">aes</span>(<span class="at">x=</span>Time, <span class="at">y=</span>weight)) <span class="sc">+</span> </span>
 <span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>( <span class="sc">~</span> Diet) <span class="co"># Spalten</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>( <span class="sc">~</span> Diet) <span class="co"># Spalten</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1617,9 +1620,9 @@ Die Anordnung von Zeile und Spalte in <code>facet_grid()</code> ist analog zum I
 <p>Wir können auch Facetten für <strong>mehrere</strong> kategoriale Variablen erstellen. Das Produkt der Anzahl der Ausprägungen der Variablen gibt die Menge der (Unter)Grafiken an (z.B. drei Variablen mit jeweils zwei Ausprägungen: 2 x 2 x 2 = 8 Grafiken). Wenn wir mehr als zwei Variablen haben, werden Variablen, die zusammen in einer Zeile bzw. einer Spalte gestaffelt werden, mit einem <code>+</code> verbunden. Damit die einzelnen Grafiken aber noch übersichtlich bleiben, sollten wir ihre Anzahl tendenziell gering halten.</p>
 <p>Wir schauen uns aus dem Datensatz <strong>mpg</strong> Histogramme des Hubraums (<code>displ</code>) der Autos an. Die Histogramme sind nach Jahr (<code>year</code>), Antrieb (<code>drv</code>) und Brennstofftrieb (<code>fl</code>) gestaffelt.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>mpg, <span class="fu">aes</span>(<span class="at">x=</span>displ)) <span class="sc">+</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>mpg, <span class="fu">aes</span>(<span class="at">x=</span>displ)) <span class="sc">+</span> </span>
 <span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
-<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(fl <span class="sc">~</span> year <span class="sc">+</span> drv) <span class="co"># Zeilen ~ Spalten</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(fl <span class="sc">~</span> year <span class="sc">+</span> drv) <span class="co"># Zeilen ~ Spalten</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1650,7 +1653,7 @@ Diese Schritte werden im folgenden nur knapp erklärt. Mehr Hilfe finden wir im 
 - Mac: läuft in Konsole, aber nicht in Rmd, daher eval=F gesetzt und Datei ex- und importiert
 - Linux: Code Chunk läuft nicht in Konsole (und wahrscheinlich auch nicht in Rmd-->
 <div class="cell">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="co"># neuer Datensatz nur mit Werten von erster und letzter Messung:</span></span>
 <span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>copy <span class="ot">&lt;-</span> <span class="fu">filter</span>(ChickWeight, Time <span class="sc">==</span> <span class="dv">0</span> <span class="sc">|</span> Time <span class="sc">==</span> <span class="dv">21</span>)</span>
 <span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -1669,14 +1672,14 @@ Diese Schritte werden im folgenden nur knapp erklärt. Mehr Hilfe finden wir im 
 <span id="cb50-17"><a href="#cb50-17" aria-hidden="true" tabindex="-1"></a><span class="co"># nicht mehr benötigte Variablen raus:</span></span>
 <span id="cb50-18"><a href="#cb50-18" aria-hidden="true" tabindex="-1"></a>cont_Chick <span class="ot">&lt;-</span> <span class="fu">select</span>(cont_Chick, <span class="sc">-</span><span class="st">"0"</span>, <span class="sc">-</span><span class="st">"21"</span>, <span class="sc">-</span>Chick)</span>
 <span id="cb50-19"><a href="#cb50-19" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Die ID-Variable "Chick" benötigen wir nicht mehr und sie würde uns die</span></span>
-<span id="cb50-20"><a href="#cb50-20" aria-hidden="true" tabindex="-1"></a>  <span class="co"># im Anschluss erstellte Kontingenztabelle unnötig erweitern.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb50-20"><a href="#cb50-20" aria-hidden="true" tabindex="-1"></a>  <span class="co"># im Anschluss erstellte Kontingenztabelle unnötig erweitern.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Für jeden Alluvial Plot (egal ob längsschnittliche oder querschnittliche Daten genutzt wurden) müssen wir die Daten in eine Kontingenztabelle überführen (damit die Häufigkeiten der Gruppierungskombinationen explizit in einer neuen Spalte gespeichert werden) und anschließend wieder in einen Dataframe umwandeln.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Kontingenztabelle erstellen</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Kontingenztabelle erstellen</span></span>
 <span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>cont_Chick <span class="ot">&lt;-</span> <span class="fu">table</span>(cont_Chick)</span>
 <span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="co"># in Dataframe umwandeln</span></span>
-<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>cont_Chick <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(cont_Chick)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>cont_Chick <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(cont_Chick)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Um besser zu verstehen, warum das sein muss, können wir uns den Datensatz vor und nach der Umwandlung anschauen.<br>
 </p>
@@ -1687,7 +1690,7 @@ Vergleich unseres Dataframes vor und nach der Umwandlung
 <p>Vor der Umwandlung steht jede <strong>Zeile</strong> für eine <strong>Beobachtung</strong> (d.h. ein Küken).</p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table table-condensed caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<table class="table table-condensed caption-top table-sm table-striped small">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th" style="text-align: right; font-weight: bold; color: white !important; background-color: rgba(0, 145, 147, 255) !important;">Diet</th>
@@ -1907,7 +1910,7 @@ Vergleich unseres Dataframes vor und nach der Umwandlung
 <p>Nach der Umwandlung (in eine Kontingenztabelle und wieder zurück in einen Dataframe) steht in jeder <strong>Zeile</strong> eine <strong>Kombination</strong> (welche Futtergruppe <code>Diet</code> und jeweils kleiner oder größer zum ersten und zum zweiten Messzeitpunkt) und die <strong>Anzahl der Beobachtungen</strong>.</p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table table-condensed caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<table class="table table-condensed caption-top table-sm table-striped small">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold; color: white !important; background-color: rgba(0, 145, 147, 255) !important;">Diet</th>
@@ -2020,15 +2023,15 @@ Vergleich unseres Dataframes vor und nach der Umwandlung
 </details>
 <p>Bevor wir den Alluvial Plot erstellen, laden wir das benötigte Paket <strong>ggalluvial</strong> und überprüfen, ob unser neu erstellter Dataframe auch wirklich im korrekten Alluvial Format vorliegt.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggalluvial)</span>
-<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is_alluvia_form</span>(cont_Chick)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggalluvial)</span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is_alluvia_form</span>(cont_Chick)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
 </div>
 <p>Es ist zu empfehlen, den nachfolgenden Code für die eigenen Daten größtenteils zu kopieren. Lediglich in Zeilen (a) und (d) müssen die Argumente von <code>fill</code> bzw. <code>limit</code> angepasst werden.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>cont_Chick, <span class="fu">aes</span>(<span class="at">y=</span>Freq, <span class="at">axis1=</span>t0, <span class="at">axis2=</span>t21)) <span class="sc">+</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>cont_Chick, <span class="fu">aes</span>(<span class="at">y=</span>Freq, <span class="at">axis1=</span>t0, <span class="at">axis2=</span>t21)) <span class="sc">+</span> </span>
 <span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># (a) grundlegender Alluvial Plot:</span></span>
 <span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_alluvium</span>(<span class="fu">aes</span>(<span class="at">fill=</span>Diet)) <span class="sc">+</span></span>
 <span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># (b) Balken zur Visualisierung der Häufigkeiten in t0 und t21:</span></span>
@@ -2038,7 +2041,7 @@ Vergleich unseres Dataframes vor und nach der Umwandlung
 <span id="cb54-8"><a href="#cb54-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># (d) Einfügen bzw. Ändern der Benennung der Variablen t0 und 21:</span></span>
 <span id="cb54-9"><a href="#cb54-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="st">"erste Messung"</span>, <span class="st">"letzte Messung"</span>),</span>
 <span id="cb54-10"><a href="#cb54-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># (e) Verringern der Fläche außerhalb der (äußersten) Strata:</span></span>
-<span id="cb54-11"><a href="#cb54-11" aria-hidden="true" tabindex="-1"></a>                   <span class="at">expand =</span> <span class="fu">c</span>(.<span class="dv">05</span>, .<span class="dv">05</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb54-11"><a href="#cb54-11" aria-hidden="true" tabindex="-1"></a>                   <span class="at">expand =</span> <span class="fu">c</span>(.<span class="dv">05</span>, .<span class="dv">05</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning in to_lodes_form(data = data, axes = axis_ind, discern =
 params$discern): Some strata appear at multiple axes.
@@ -2090,8 +2093,8 @@ In verschiedenen Funktionen ist das Argument zur farblichen Umrandung unterschie
 <p><em><strong>Achtung</strong></em>: Allerdings gibt es Elemente (geoms), die davon ausgenommen sind. Bei <strong>Linien</strong> (z.B. <code>geom_line()</code>) und <strong>Text</strong> (z.B. <code>geom_text()</code>) können wir <strong>nur <code>col</code></strong> nutzen. Bei <strong>Punkten</strong> (z.B. <code>geom_point()</code>) gibt es einige Formen (<strong>21-24</strong>, siehe unten), die <strong><code>col</code> <em>und</em> <code>fill</code></strong> nutzen können. Alle anderen Formen können auch <strong>nur <code>col</code></strong> nutzen. Die Punktform legen wir mit dem Argument <code>shape</code> fest.</p>
 </blockquote>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight, <span class="fu">aes</span>(<span class="at">x=</span>Time, <span class="at">y=</span>weight)) <span class="sc">+</span> </span>
-<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape=</span><span class="dv">23</span>, <span class="at">fill=</span><span class="st">"red"</span>, <span class="at">col=</span><span class="st">"blue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight, <span class="fu">aes</span>(<span class="at">x=</span>Time, <span class="at">y=</span>weight)) <span class="sc">+</span> </span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape=</span><span class="dv">23</span>, <span class="at">fill=</span><span class="st">"red"</span>, <span class="at">col=</span><span class="st">"blue"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2181,11 +2184,11 @@ Grafische Elemente transparent machen
 <p>Wir können einzelne Elemente einer Grafik transparent machen. Wenn wir die Grafik exportieren wollen, müssen wir nicht nur in der Erstellung der Grafik sondern auch beim Export angeben, dass ein bestimmtes Element transparent sein soll. Nur Grafiken im <strong>PNG</strong>-Format können transparent sein.</p>
 <p>Folgendermaßen können wir beispielsweise den <strong>Hintergrund der Grafik</strong> (<code>plot.background</code>) transparent machen:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(ChickWeight[ChickWeight<span class="sc">$</span>Time <span class="sc">==</span> <span class="dv">8</span>,], <span class="fu">aes</span>(Diet, weight)) <span class="sc">+</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(ChickWeight[ChickWeight<span class="sc">$</span>Time <span class="sc">==</span> <span class="dv">8</span>,], <span class="fu">aes</span>(Diet, weight)) <span class="sc">+</span> </span>
 <span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>(<span class="at">scale =</span> <span class="st">"count"</span>) <span class="sc">+</span></span>
 <span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"transparent"</span>)) <span class="co"># Erstellung</span></span>
 <span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb57-5"><a href="#cb57-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"Grafik_transp.png"</span>, <span class="at">bg =</span> <span class="st">"transparent"</span>) <span class="co"># Export</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb57-5"><a href="#cb57-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"Grafik_transp.png"</span>, <span class="at">bg =</span> <span class="st">"transparent"</span>) <span class="co"># Export</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -2207,9 +2210,9 @@ Grafische Elemente transparent machen
 <p>Auf <a href="http://colorbrewer2.org/#type=sequential&amp;scheme=BuGn&amp;n=3" target="_blank"><strong>colorbrewer2.org</strong></a> finden wir jeweils angemessene Farbkombinationen zur Kodierung von kategorialen Daten. Teilweise sind diese Farbpaletten bereits in ggplot2 implementiert z.B. in der Funktion <code>scale_colour_brewer()</code> bzw. <code>scale_fill_brewer()</code>, mit der wir Farbanpassungen vornehmen können.</p>
 <p>Für kategoriale Daten ist <code>type="qual"</code> <em>(qualitative)</em> am besten geeignet, da es Paletten mit sehr unterschiedliche Farben nutzt. Es gibt noch <code>"seq"</code> <em>(sequential)</em> und <code>"div"</code> <em>(diverging)</em>, mit denen wir eine Reihenfolge bzw. eine Grenze farblich darstellen können. Für mehr Informationen lohnt es sich auf der <a href="http://colorbrewer2.org/#type=sequential&amp;scheme=BuGn&amp;n=3" target="_blank">Webseite</a> nachzuschauen. Dort sehen wir z.B. auch die verschiedenen Paletten, die wir mit dem Parameter <code>palette</code> ändern können.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(ChickWeight[ChickWeight<span class="sc">$</span>Time <span class="sc">==</span> <span class="dv">8</span>,], <span class="fu">aes</span>(Diet, weight)) <span class="sc">+</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(ChickWeight[ChickWeight<span class="sc">$</span>Time <span class="sc">==</span> <span class="dv">8</span>,], <span class="fu">aes</span>(Diet, weight)) <span class="sc">+</span> </span>
 <span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>(<span class="at">scale =</span> <span class="st">"count"</span>, <span class="fu">aes</span>(<span class="at">fill=</span>Diet)) <span class="sc">+</span> </span>
-<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">type=</span><span class="st">"qual"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">type=</span><span class="st">"qual"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2230,11 +2233,11 @@ Grafische Elemente transparent machen
 <p>Wenn es sich um eine kategoriale Variable handelt, die wir mit <code>fill</code> farblich kodiert haben, können wir die Änderungen mit <code>scale_fill_discrete(name, labels)</code> vornehmen.</p>
 <p>Dem Parameter <code>name</code> übergeben wir den Titel der Legende, <code>labels</code> einen Vektor mit den Namen der Bezeichnung der Ausprägungen.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight, <span class="fu">aes</span>(<span class="at">x=</span>Diet)) <span class="sc">+</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight, <span class="fu">aes</span>(<span class="at">x=</span>Diet)) <span class="sc">+</span></span>
 <span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">fill =</span> Diet)) <span class="sc">+</span>                <span class="co"># fill ...</span></span>
 <span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_discrete</span>(<span class="at">name =</span> <span class="st">"Fütterung"</span>,     <span class="co"># ... deswegen _fill_</span></span>
 <span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Diät 1"</span>, <span class="st">"Diät 2"</span>, </span>
-<span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">"Diät 3"</span>, <span class="st">"Diät 4"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">"Diät 3"</span>, <span class="st">"Diät 4"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2250,8 +2253,8 @@ Grafische Elemente transparent machen
 <h4 data-number="20.6.2.2" class="anchored" data-anchor-id="position"><span class="header-section-number">20.6.2.2</span> Position</h4>
 <p>Die Position der Legende können wir mit <code>theme(legend.position)</code> ändern. Wir können zwischen oben (<code>"top"</code>), unten (<code>"bottom"</code>), links (<code>"left"</code>) und rechts (<code>"right"</code>) wählen. Mit <code>"none"</code> können wir die Legende entfernen.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight, <span class="fu">aes</span>(<span class="at">x=</span>Diet)) <span class="sc">+</span> <span class="fu">geom_bar</span>() <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">fill =</span> Diet)) <span class="sc">+</span> </span>
-<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight, <span class="fu">aes</span>(<span class="at">x=</span>Diet)) <span class="sc">+</span> <span class="fu">geom_bar</span>() <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">fill =</span> Diet)) <span class="sc">+</span> </span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2269,8 +2272,8 @@ Grafische Elemente transparent machen
 <h4 data-number="20.6.3.1" class="anchored" data-anchor-id="überschrift"><span class="header-section-number">20.6.3.1</span> Überschrift</h4>
 <p>Um dem Plot (nur) eine Überschrift zu verpassen nutzen wir <code>ggtitle()</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight, <span class="fu">aes</span>(<span class="at">x=</span>Time, <span class="at">y=</span>weight)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Gewichtsveränderung über die Zeit"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight, <span class="fu">aes</span>(<span class="at">x=</span>Time, <span class="at">y=</span>weight)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Gewichtsveränderung über die Zeit"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2284,8 +2287,8 @@ Grafische Elemente transparent machen
 <h4 data-number="20.6.3.2" class="anchored" data-anchor-id="achsenbeschriftung"><span class="header-section-number">20.6.3.2</span> Achsenbeschriftung</h4>
 <p>Wenn wir (nur) die Beschriftung der x- oder y-Achse ändern möchten (z.B. weil diese anders benannt werden sollen als die Variablen im Datensatz), können wir <code>xlab()</code> bzw. <code>ylab()</code> nutzen.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight, <span class="fu">aes</span>(<span class="at">x=</span>Time, <span class="at">y=</span>weight)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Zeit in Tagen"</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"Gewicht in Gramm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight, <span class="fu">aes</span>(<span class="at">x=</span>Time, <span class="at">y=</span>weight)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Zeit in Tagen"</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"Gewicht in Gramm"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2299,9 +2302,9 @@ Grafische Elemente transparent machen
 <h4 data-number="20.6.3.3" class="anchored" data-anchor-id="überschrift-achsenbeschriftung-und-bildunterschrift"><span class="header-section-number">20.6.3.3</span> Überschrift, Achsenbeschriftung und Bildunterschrift</h4>
 <p>Wir können sowohl eine Überschrift als auch Achsenbeschriftungen ergänzen, indem wir <code>labs(title, x, y)</code> nutzen. Außerdem können wir der Grafik mit <code>caption</code> noch eine Bildunterschrift verpassen.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight, <span class="fu">aes</span>(<span class="at">x=</span>Time, <span class="at">y=</span>weight)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight, <span class="fu">aes</span>(<span class="at">x=</span>Time, <span class="at">y=</span>weight)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
 <span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span><span class="st">"Gewichtsveränderung über die Zeit"</span>, </span>
-<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Zeit in Tagen"</span>, <span class="at">y =</span> <span class="st">"Gewicht in Gramm"</span>, <span class="at">caption=</span><span class="st">"Weitere Notizen"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Zeit in Tagen"</span>, <span class="at">y =</span> <span class="st">"Gewicht in Gramm"</span>, <span class="at">caption=</span><span class="st">"Weitere Notizen"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2325,7 +2328,7 @@ Grafische Elemente transparent machen
 <p>Zusätzlich können wir die <strong>Ausrichtung</strong> des Texts anpassen. Dazu nutzen wir <code>hjust</code> (<strong>h</strong>orizontal) und <code>vjust</code> (<strong>v</strong>ertikale) (Bsp. 2 und 4), welchen wir einen Wert zwischen 0 und 1 übergeben (Default: <code>hjust=0.5</code> und <code>vjust=0.5</code>). Wir können auch Werte außerhalb von 0 bis 1 spezifizieren; allerdings wird in der Dokumentation davon abgeraten (ohne weitere Begründung; mehr Informationen dazu in der Dokumentation von <em>ggplot2-specs</em>).</p>
 <p><strong>Beispiel 1 und 2</strong> zeigen die Gewichtsveränderung (x-Achse: <code>Time</code>, y-Achse: <code>weight</code>) über die Zeit von Küken 1 (<code>ChickWeight$Chick == 1</code>). Wir beschriften die Datenpunkte mit den jeweiligen Messzeitpunkten (<code>aes(label=Time)</code>).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight[ChickWeight<span class="sc">$</span>Chick <span class="sc">==</span> <span class="dv">1</span>,], </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight[ChickWeight<span class="sc">$</span>Chick <span class="sc">==</span> <span class="dv">1</span>,], </span>
 <span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x=</span>Time, <span class="at">y=</span>weight, <span class="at">label=</span>Time)) <span class="sc">+</span> </span>
 <span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
 <span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>()</span>
@@ -2333,7 +2336,7 @@ Grafische Elemente transparent machen
 <span id="cb64-6"><a href="#cb64-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight[ChickWeight<span class="sc">$</span>Chick <span class="sc">==</span> <span class="dv">1</span>,], </span>
 <span id="cb64-7"><a href="#cb64-7" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x=</span>Time, <span class="at">y=</span>weight)) <span class="sc">+</span> </span>
 <span id="cb64-8"><a href="#cb64-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb64-9"><a href="#cb64-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label=</span>Time), <span class="at">vjust=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb64-9"><a href="#cb64-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label=</span>Time), <span class="at">vjust=</span><span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2351,13 +2354,13 @@ Grafische Elemente transparent machen
 </div>
 <p><strong>Beispiel 3 und 4</strong> zeigen die Gewichtsverteilung der Küken in den Futtergruppen (x-Achse: <code>Diet</code>, y-Achse: <code>weight</code>) zum letzten Messzeitpunkt (<code>Time 21</code>). Wir beschriften die Datenpunkte mit den jeweiligen Nummern der Küken (<code>aes(label=Chick)</code>).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight[ChickWeight<span class="sc">$</span>Time <span class="sc">==</span> <span class="dv">21</span>,], </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight[ChickWeight<span class="sc">$</span>Time <span class="sc">==</span> <span class="dv">21</span>,], </span>
 <span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x=</span>Diet, <span class="at">y=</span>weight, <span class="at">label=</span>Chick)) <span class="sc">+</span> </span>
 <span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_label</span>()</span>
 <span id="cb65-4"><a href="#cb65-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb65-5"><a href="#cb65-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight[ChickWeight<span class="sc">$</span>Time <span class="sc">==</span> <span class="dv">21</span>,], </span>
 <span id="cb65-6"><a href="#cb65-6" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x=</span>Diet, <span class="at">y=</span>weight)) <span class="sc">+</span> </span>
-<span id="cb65-7"><a href="#cb65-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_label</span>(<span class="fu">aes</span>(<span class="at">label=</span>Chick), <span class="at">hjust=</span><span class="fl">1.2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb65-7"><a href="#cb65-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_label</span>(<span class="fu">aes</span>(<span class="at">label=</span>Chick), <span class="at">hjust=</span><span class="fl">1.2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2383,7 +2386,7 @@ Grafische Elemente transparent machen
 <p><strong>Beispiel 1</strong> zeigt die Gewichtsveränderung (x-Achse: <code>Time</code>, y-Achse: <code>weight</code>) über die Zeit von Küken 1 (<code>ChickWeight$Chick == 1</code>).</p>
 <p><strong>Beispiel 2</strong> zeigt die Gewichtsverteilung der Küken in den Futtergruppen (x-Achse: <code>Diet</code>, y-Achse: <code>weight</code>) zum letzten Messzeitpunkt (<code>Time 21</code>).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight[ChickWeight<span class="sc">$</span>Chick <span class="sc">==</span> <span class="dv">1</span>,], </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight[ChickWeight<span class="sc">$</span>Chick <span class="sc">==</span> <span class="dv">1</span>,], </span>
 <span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x=</span>Time, <span class="at">y=</span>weight)) <span class="sc">+</span> </span>
 <span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
 <span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="at">geom =</span> <span class="st">"text"</span>, <span class="at">label=</span><span class="st">"Küken 1"</span>, <span class="at">x=</span><span class="dv">5</span>, <span class="at">y=</span><span class="dv">200</span>)</span>
@@ -2391,7 +2394,7 @@ Grafische Elemente transparent machen
 <span id="cb66-6"><a href="#cb66-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight[ChickWeight<span class="sc">$</span>Time <span class="sc">==</span> <span class="dv">21</span>,], </span>
 <span id="cb66-7"><a href="#cb66-7" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x=</span>Diet, <span class="at">y=</span>weight)) <span class="sc">+</span> </span>
 <span id="cb66-8"><a href="#cb66-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb66-9"><a href="#cb66-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="at">geom=</span><span class="st">"label"</span>, <span class="at">label=</span><span class="st">"Messzeitpunkt 21"</span>, <span class="at">x=</span><span class="fl">1.7</span>, <span class="at">y=</span><span class="dv">370</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb66-9"><a href="#cb66-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="at">geom=</span><span class="st">"label"</span>, <span class="at">label=</span><span class="st">"Messzeitpunkt 21"</span>, <span class="at">x=</span><span class="fl">1.7</span>, <span class="at">y=</span><span class="dv">370</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2419,11 +2422,11 @@ Grafische Elemente transparent machen
 <p>Mit <code>levels()</code> können wir uns nicht nur die verschiedenen Stufen eines Faktors ausgeben lassen. Wir können die Funktion außerdem nutzen, um die Benennung der Stufen zu ändern.</p>
 <p>Im Folgenden ändern wir die Benennungen der Gruppen von <code>Diet</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>ChickWeight<span class="sc">$</span>Diet_name <span class="ot">&lt;-</span> ChickWeight<span class="sc">$</span>Diet <span class="co"># Kopie von `Diet` als neue Spalte</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>ChickWeight<span class="sc">$</span>Diet_name <span class="ot">&lt;-</span> ChickWeight<span class="sc">$</span>Diet <span class="co"># Kopie von `Diet` als neue Spalte</span></span>
 <span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(ChickWeight<span class="sc">$</span>Diet_name) <span class="ot">&lt;-</span>  <span class="fu">c</span>(<span class="st">"Diät 1"</span>, <span class="st">"Diät 2"</span>, </span>
 <span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a>                                    <span class="st">"Diät 3"</span>, <span class="st">"Diät 4"</span>)</span>
 <span id="cb67-4"><a href="#cb67-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb67-5"><a href="#cb67-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight, <span class="fu">aes</span>(<span class="at">x=</span>Diet_name, <span class="at">y=</span>weight)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb67-5"><a href="#cb67-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight, <span class="fu">aes</span>(<span class="at">x=</span>Diet_name, <span class="at">y=</span>weight)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2439,19 +2442,19 @@ Grafische Elemente transparent machen
 <p>Die Sortierung des Faktors können wir mit der Funktion <code>factor()</code> ändern. Dem Parameter <code>x</code> übergeben wir die Variable; <code>levels</code> einen character-Vektor mit der neuen Sortierung.</p>
 <p>Wir ändern die Reihenfolge der Gruppen von <code>Diet</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Kopie von `Diet` erstellen (optional):</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Kopie von `Diet` erstellen (optional):</span></span>
 <span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>ChickWeight<span class="sc">$</span>Diet_sort <span class="ot">&lt;-</span> ChickWeight<span class="sc">$</span>Diet </span>
 <span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Änderung der Reihenfolge:</span></span>
-<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a>ChickWeight<span class="sc">$</span>Diet_sort <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="at">x=</span>ChickWeight<span class="sc">$</span>Diet_sort, <span class="at">levels=</span><span class="fu">c</span>(<span class="st">"3"</span>, <span class="st">"4"</span>, <span class="st">"2"</span>, <span class="st">"1"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a>ChickWeight<span class="sc">$</span>Diet_sort <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="at">x=</span>ChickWeight<span class="sc">$</span>Diet_sort, <span class="at">levels=</span><span class="fu">c</span>(<span class="st">"3"</span>, <span class="st">"4"</span>, <span class="st">"2"</span>, <span class="st">"1"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight, <span class="fu">aes</span>(<span class="at">x=</span>Diet, <span class="at">y=</span>weight)) <span class="sc">+</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight, <span class="fu">aes</span>(<span class="at">x=</span>Diet, <span class="at">y=</span>weight)) <span class="sc">+</span></span>
 <span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span> </span>
 <span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"unbearbeitet"</span>)</span>
 <span id="cb69-4"><a href="#cb69-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb69-5"><a href="#cb69-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight, <span class="fu">aes</span>(<span class="at">x=</span>Diet_sort, <span class="at">y=</span>weight)) <span class="sc">+</span></span>
 <span id="cb69-6"><a href="#cb69-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span> </span>
-<span id="cb69-7"><a href="#cb69-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"bearbeitet"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb69-7"><a href="#cb69-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"bearbeitet"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2478,10 +2481,10 @@ Grafische Elemente transparent machen
 <a href="#index">Hier</a> wird das Indexieren der Daten erklärt.
 </aside>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight[ChickWeight<span class="sc">$</span>Time <span class="sc">==</span> <span class="dv">0</span>,], <span class="fu">aes</span>(<span class="at">x=</span>Diet, <span class="at">y=</span>weight)) <span class="sc">+</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight[ChickWeight<span class="sc">$</span>Time <span class="sc">==</span> <span class="dv">0</span>,], <span class="fu">aes</span>(<span class="at">x=</span>Diet, <span class="at">y=</span>weight)) <span class="sc">+</span></span>
 <span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span>
 <span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight[ChickWeight<span class="sc">$</span>Time <span class="sc">==</span> <span class="dv">21</span>,], <span class="fu">aes</span>(<span class="at">x=</span>Diet, <span class="at">y=</span>weight)) <span class="sc">+</span></span>
-<span id="cb70-4"><a href="#cb70-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb70-4"><a href="#cb70-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2508,11 +2511,11 @@ Grafische Elemente transparent machen
 <p>Das <strong>Problem</strong> hierbei ist, dass sich die Streubreiten von <code>weight</code>, und damit die Achsengrenzen von y, zu beiden Zeitpunkten stark unterscheiden. Dadurch könnten wir einen falschen Eindruck von den Daten bekommen.</p>
 <p>Um das zu verhindern, können wir die Achsengrenzen anpassen. Das machen wir mit <code>xlim()</code> und <code>ylim()</code>. Diesen übergeben wir jeweils einen numerischen Vektor, der den unteren und den oberen Grenzwert der Achse enthält.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight[ChickWeight<span class="sc">$</span>Time <span class="sc">==</span> <span class="dv">0</span>,], <span class="fu">aes</span>(<span class="at">x=</span>Diet, <span class="at">y=</span>weight)) <span class="sc">+</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight[ChickWeight<span class="sc">$</span>Time <span class="sc">==</span> <span class="dv">0</span>,], <span class="fu">aes</span>(<span class="at">x=</span>Diet, <span class="at">y=</span>weight)) <span class="sc">+</span></span>
 <span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">ylim</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">375</span>))</span>
 <span id="cb71-3"><a href="#cb71-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb71-4"><a href="#cb71-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight[ChickWeight<span class="sc">$</span>Time <span class="sc">==</span> <span class="dv">21</span>,], <span class="fu">aes</span>(<span class="at">x=</span>Diet, <span class="at">y=</span>weight)) <span class="sc">+</span></span>
-<span id="cb71-5"><a href="#cb71-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">ylim</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">375</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb71-5"><a href="#cb71-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">ylim</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">375</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2542,8 +2545,8 @@ Grafische Elemente transparent machen
 <p><em><strong>Achtung</strong></em>: Etwaige Änderungen der Achsengrenzen müssen wir dann aber auch in <code>scale_y_continuous(limits)</code> machen.</p>
 </blockquote>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight[ChickWeight<span class="sc">$</span>Time <span class="sc">==</span> <span class="dv">21</span>,], <span class="fu">aes</span>(<span class="at">x=</span>Diet, <span class="at">y=</span>weight)) <span class="sc">+</span></span>
-<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">scale_y_continuous</span>(<span class="at">limits=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">375</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight[ChickWeight<span class="sc">$</span>Time <span class="sc">==</span> <span class="dv">21</span>,], <span class="fu">aes</span>(<span class="at">x=</span>Diet, <span class="at">y=</span>weight)) <span class="sc">+</span></span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">scale_y_continuous</span>(<span class="at">limits=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">375</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2563,7 +2566,7 @@ Grafische Elemente transparent machen
 <a href="#index">Hier</a> wird das Indexieren der Daten erklärt.
 </aside>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Maxima von weight (zu Time 21) herausfinden:</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Maxima von weight (zu Time 21) herausfinden:</span></span>
 <span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a>min <span class="ot">&lt;-</span> <span class="fu">min</span>(ChickWeight<span class="sc">$</span>weight, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span>
 <span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a>max <span class="ot">&lt;-</span> <span class="fu">min</span>(ChickWeight<span class="sc">$</span>weight, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span>
 <span id="cb73-4"><a href="#cb73-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -2572,7 +2575,7 @@ Grafische Elemente transparent machen
 <span id="cb73-7"><a href="#cb73-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Min &amp; Max:</span></span>
 <span id="cb73-8"><a href="#cb73-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept=</span><span class="fu">c</span>(min, max)) <span class="sc">+</span></span>
 <span id="cb73-9"><a href="#cb73-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Mittelwert:</span></span>
-<span id="cb73-10"><a href="#cb73-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept=</span><span class="fu">mean</span>(ChickWeight<span class="sc">$</span>weight[ChickWeight<span class="sc">$</span>Time <span class="sc">==</span> <span class="dv">21</span>]), <span class="at">col=</span><span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb73-10"><a href="#cb73-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept=</span><span class="fu">mean</span>(ChickWeight<span class="sc">$</span>weight[ChickWeight<span class="sc">$</span>Time <span class="sc">==</span> <span class="dv">21</span>]), <span class="at">col=</span><span class="st">"red"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2590,9 +2593,9 @@ Grafische Elemente transparent machen
 <p>Per Default wird mit <code>stat_summary()</code> (ohne Spezifikation von Argumenten) der Mittelwert (als Punkt), umschlossen vom Standardfehler des Mittelwerts (als Linie), eingezeichnet.</p>
 <p>Wir können dem Parameter <code>fun</code> aber auch die Argumente <code>"median"</code> oder <code>"mean"</code> übergeben. Letzteres zeichnet ebenfalls den Mittelwert ein (aber ohne Standardfehler). Wenn wir die Extrema einfügen wollen, nutzen wir <code>fun.min = "min"</code> und <code>fun.max = "max"</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight[ChickWeight<span class="sc">$</span>Time <span class="sc">==</span> <span class="dv">10</span>,], <span class="fu">aes</span>(<span class="at">x=</span>Diet, <span class="at">y=</span>weight)) <span class="sc">+</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight[ChickWeight<span class="sc">$</span>Time <span class="sc">==</span> <span class="dv">10</span>,], <span class="fu">aes</span>(<span class="at">x=</span>Diet, <span class="at">y=</span>weight)) <span class="sc">+</span> </span>
 <span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">stat_summary</span>(<span class="at">col=</span><span class="st">"blue"</span>) <span class="sc">+</span> <span class="co"># Mittelwert + SE: blau</span></span>
-<span id="cb74-3"><a href="#cb74-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun =</span> <span class="st">"median"</span>, <span class="at">col=</span><span class="st">"red"</span>, <span class="at">pch=</span><span class="dv">3</span>) <span class="co"># Median: rotes Kreuz</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb74-3"><a href="#cb74-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun =</span> <span class="st">"median"</span>, <span class="at">col=</span><span class="st">"red"</span>, <span class="at">pch=</span><span class="dv">3</span>) <span class="co"># Median: rotes Kreuz</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>No summary function supplied, defaulting to `mean_se()`</code></pre>
 </div>
@@ -2609,8 +2612,8 @@ Grafische Elemente transparent machen
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight[ChickWeight<span class="sc">$</span>Time <span class="sc">==</span> <span class="dv">10</span>,], <span class="fu">aes</span>(<span class="at">x=</span>Diet, <span class="at">y=</span>weight)) <span class="sc">+</span> </span>
-<span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun =</span> <span class="st">"mean"</span>, <span class="at">fun.min =</span> <span class="st">"min"</span>, <span class="at">fun.max =</span> <span class="st">"max"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight[ChickWeight<span class="sc">$</span>Time <span class="sc">==</span> <span class="dv">10</span>,], <span class="fu">aes</span>(<span class="at">x=</span>Diet, <span class="at">y=</span>weight)) <span class="sc">+</span> </span>
+<span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun =</span> <span class="st">"mean"</span>, <span class="at">fun.min =</span> <span class="st">"min"</span>, <span class="at">fun.max =</span> <span class="st">"max"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2626,9 +2629,9 @@ Grafische Elemente transparent machen
 <p>Es gibt einige Optionen, den Hintergrund des Koordinatensystems zu verändern.Standarmäßig haben wir einen grauen Hintergrund mit weißen Rasterlinien; das entspricht der Einstellung <code>theme_grey()</code>.</p>
 <p>Wenn wir beispielsweise einen weißen Hintergrund mit grauen Rasterlinien haben möchten, nutzen wir dafür <code>theme_minimal()</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight, <span class="fu">aes</span>(<span class="at">x=</span>Time, <span class="at">y=</span>weight)) <span class="sc">+</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ChickWeight, <span class="fu">aes</span>(<span class="at">x=</span>Time, <span class="at">y=</span>weight)) <span class="sc">+</span> </span>
 <span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb78-3"><a href="#cb78-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb78-3"><a href="#cb78-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2725,7 +2728,7 @@ Die Standardmaße 398 x 375 px entsprechen 14,04 x 13,23 cm (B x H).
 <h3 data-number="20.12.2" class="anchored" data-anchor-id="ggsave"><span class="header-section-number">20.12.2</span> <code>ggsave()</code></h3>
 <p>Mit ggplot2 erstellte Grafiken können wir mit <code>ggsave()</code> exportieren. Schauen wir uns einmal an, was wir in der Funktion spezifizieren können.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(</span>
 <span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">filename =</span> <span class="st">"Grafik.png"</span>, <span class="co"># Name und Bildformat der zu exportierenden Grafik</span></span>
 <span id="cb79-3"><a href="#cb79-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">path =</span> <span class="st">"/Users/..."</span>,</span>
 <span id="cb79-4"><a href="#cb79-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">plot =</span> <span class="fu">last_plot</span>(), <span class="co"># letzter Plot als Default oder alternativ Name der Grafik in R</span></span>
@@ -2733,7 +2736,7 @@ Die Standardmaße 398 x 375 px entsprechen 14,04 x 13,23 cm (B x H).
 <span id="cb79-6"><a href="#cb79-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">9</span>, <span class="co"># Höhe</span></span>
 <span id="cb79-7"><a href="#cb79-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">units =</span> <span class="st">"cm"</span>, <span class="co"># in welcher Einheit angegeben</span></span>
 <span id="cb79-8"><a href="#cb79-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">dpi =</span> <span class="dv">72</span> <span class="co"># Default; äquivalent zu: dpi = "screen"</span></span>
-<span id="cb79-9"><a href="#cb79-9" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb79-9"><a href="#cb79-9" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Das gewünschte <span style="color:#E63B7A"><strong>Bildformat</strong></span> können wir einfach als Endung an den <span style="color:#942192"><strong>Namen der Grafik</strong></span> anhängen. Beides übergeben wir in <code>" "</code> an das Argument <code>filename</code>. Wir haben hier mehr Auswahl an möglichen Outputformaten. Es gibt z.B. PNG, PDF, JPEG, TIFF, EPS, PS, TEX und SVG.</p>
 <p>Wir legen mit dem Argument <code>plot</code> fest, welche Grafik wird exportieren wollen. Das funktioniert nur wenn wir diese vorher in einer Variablen gespeichert haben (z.B. <code>name &lt;- ggplot(...)</code>). Dann erscheint der Name auch im Global Environment (oberer rechtes Panel in R). Standarmäßig wird der zuletzt erstellte Plot exportiert, wenn wir das Argument <code>plot</code> weglassen (oder <code>plot=last_plot()</code> eingeben).</p>
@@ -2752,10 +2755,10 @@ Manchmal müssen wir mit den Maßen ein bisschen herumspielen, bis wir die perfe
 <p>Es gibt im Paket <strong>ggplot2</strong> auch eine einfacher handzuhabende Variante zu <code>ggplot()</code> - das ist <code>qplot()</code> (“quick plot”). Diese ist an den Aufbau der base graphics Funktion <code>plot()</code> angelehnt. Mit ihr können wir verschiedenen Grafiken erstellen, aber sie ist weniger flexibel und modifizierbar als <code>ggplot()</code>.</p>
 <p>Wir erstellen exemplarisch ein Streudiagramm vom Gewicht der Küken (<code>weight</code>) in Abhängigkeit der Zeit (<code>Time</code>) und ergänzen eine Überschrift sowie Achsenbeschriftungen.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(<span class="at">x=</span>Time, <span class="at">y=</span>weight, <span class="at">data=</span>ChickWeight, <span class="at">geom=</span><span class="st">"point"</span>, </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(<span class="at">x=</span>Time, <span class="at">y=</span>weight, <span class="at">data=</span>ChickWeight, <span class="at">geom=</span><span class="st">"point"</span>, </span>
 <span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">main=</span><span class="st">"Gewichtsveränderung über die Zeit"</span>,</span>
 <span id="cb80-3"><a href="#cb80-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">xlab=</span><span class="st">"Zeit in Tagen"</span>,</span>
-<span id="cb80-4"><a href="#cb80-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">ylab=</span><span class="st">"Gewicht in Gramm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb80-4"><a href="#cb80-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">ylab=</span><span class="st">"Gewicht in Gramm"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: `qplot()` was deprecated in ggplot2 3.4.0.</code></pre>
 </div>
@@ -2802,7 +2805,7 @@ Im Internet finden wir zahlreiche Seiten, die uns die Erstellung von Grafiken in
 <hr>
 <p>Um eine möglichst exakte Replikation der Funktionen zu gewährleisten gibt es im folgenden relevante Angaben zum System (<strong>R-Version</strong>, <strong>Betriebssystem</strong>, <strong>geladene Pakete mit Angaben zur Version</strong>), mit welchem diese Seite erstellt wurde.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb82"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>R version 4.5.1 (2025-06-13)
 Platform: x86_64-pc-linux-gnu
@@ -2828,27 +2831,27 @@ attached base packages:
 
 other attached packages:
 [1] ggalluvial_0.12.5  ggiraphExtra_0.3.0 lsr_0.5.2          knitr_1.50        
-[5] kableExtra_1.4.0   dplyr_1.1.4        ggplot2_3.5.2     
+[5] kableExtra_1.4.0   dplyr_1.1.4        ggplot2_4.0.0     
 
 loaded via a namespace (and not attached):
  [1] gtable_0.3.6       mycor_0.1.1        xfun_0.53          htmlwidgets_1.6.4 
  [5] insight_1.4.2      lattice_0.22-7     vctrs_0.6.5        tools_4.5.1       
  [9] generics_0.1.4     tibble_3.3.0       cluster_2.1.8.1    pkgconfig_2.0.3   
 [13] Matrix_1.7-3       data.table_1.17.8  checkmate_2.3.3    RColorBrewer_1.1-3
-[17] uuid_1.2-1         lifecycle_1.0.4    compiler_4.5.1     farver_2.1.2      
-[21] stringr_1.5.1      sjmisc_2.8.11      textshaping_1.0.3  htmltools_0.5.8.1 
-[25] yaml_2.3.10        htmlTable_2.4.3    Formula_1.2-5      tidyr_1.3.1       
-[29] pillar_1.11.0      MASS_7.3-65        Hmisc_5.2-3        rpart_4.1.24      
-[33] nlme_3.1-168       sjlabelled_1.2.0   tidyselect_1.2.1   digest_0.6.37     
-[37] stringi_1.8.7      reshape2_1.4.4     purrr_1.1.0        labeling_0.4.3    
-[41] splines_4.5.1      fastmap_1.2.0      grid_4.5.1         colorspace_2.1-1  
-[45] cli_3.6.5          magrittr_2.0.3     base64enc_0.1-3    utf8_1.2.6        
-[49] foreign_0.8-90     withr_3.0.2        scales_1.4.0       backports_1.5.0   
-[53] rmarkdown_2.29     nnet_7.3-20        gridExtra_2.3      evaluate_1.0.5    
-[57] viridisLite_0.4.2  mgcv_1.9-3         rlang_1.1.6        ggiraph_0.9.0     
-[61] Rcpp_1.1.0         glue_1.8.0         ppcor_1.1          xml2_1.4.0        
-[65] svglite_2.2.1      rstudioapi_0.17.1  jsonlite_2.0.0     R6_2.6.1          
-[69] plyr_1.8.9         systemfonts_1.2.3 </code></pre>
+[17] S7_0.2.0           uuid_1.2-1         lifecycle_1.0.4    compiler_4.5.1    
+[21] farver_2.1.2       stringr_1.5.2      sjmisc_2.8.11      textshaping_1.0.3 
+[25] htmltools_0.5.8.1  yaml_2.3.10        htmlTable_2.4.3    Formula_1.2-5     
+[29] tidyr_1.3.1        pillar_1.11.0      MASS_7.3-65        Hmisc_5.2-3       
+[33] rpart_4.1.24       nlme_3.1-168       sjlabelled_1.2.0   tidyselect_1.2.1  
+[37] digest_0.6.37      stringi_1.8.7      reshape2_1.4.4     purrr_1.1.0       
+[41] labeling_0.4.3     splines_4.5.1      fastmap_1.2.0      grid_4.5.1        
+[45] colorspace_2.1-1   cli_3.6.5          magrittr_2.0.4     base64enc_0.1-3   
+[49] utf8_1.2.6         foreign_0.8-90     withr_3.0.2        scales_1.4.0      
+[53] backports_1.5.0    rmarkdown_2.29     nnet_7.3-20        gridExtra_2.3     
+[57] evaluate_1.0.5     viridisLite_0.4.2  mgcv_1.9-3         rlang_1.1.6       
+[61] ggiraph_0.9.0      Rcpp_1.1.0         glue_1.8.0         ppcor_1.1         
+[65] xml2_1.4.0         svglite_2.2.1      rstudioapi_0.17.1  jsonlite_2.0.0    
+[69] R6_2.6.1           plyr_1.8.9         systemfonts_1.2.3 </code></pre>
 </div>
 </div>
 <p>Für Informationen zur Interpretation dieses Outputs schaut auch den Abschnitt <a href="./Pakete.html#replizierbarkeit-von-analysen">Replizierbarkeit von Analysen</a> des Kapitels zu Paketen an.</p>
@@ -2922,13 +2925,14 @@ loaded via a namespace (and not attached):
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
