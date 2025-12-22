@@ -639,7 +639,8 @@ window.Quarto = {
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>name <span class="ot">&lt;-</span> <span class="st">"Tim"</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>name <span class="sc">+</span> <span class="dv">123</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-error">
-<pre><code>Error in name + 123: non-numeric argument to binary operator</code></pre>
+<pre><code>Error in `name + 123`:
+! non-numeric argument to binary operator</code></pre>
 </div>
 </div>
 <p>Hier will R uns mitteilen, dass Text und Zahlen nicht einfach addiert werden können. Probiere einmal, zwei Texte zu addieren.</p>
@@ -651,7 +652,8 @@ Lösung anzeigen
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>name <span class="ot">&lt;-</span> <span class="st">"Tim"</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>name <span class="sc">+</span> <span class="st">"Müller"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-error">
-<pre><code>Error in name + "Müller": non-numeric argument to binary operator</code></pre>
+<pre><code>Error in `name + "Müller"`:
+! non-numeric argument to binary operator</code></pre>
 </div>
 </div>
 Das geht leider auch nicht!
@@ -669,7 +671,8 @@ Lösung anzeigen
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="st">"123"</span> <span class="sc">+</span> <span class="dv">5</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-error">
-<pre><code>Error in "123" + 5: non-numeric argument to binary operator</code></pre>
+<pre><code>Error in `"123" + 5`:
+! non-numeric argument to binary operator</code></pre>
 </div>
 </div>
 Das geht nicht, weil R <code>"123"</code> als Text sieht und <code>5</code> als Zahl. Als Daumenregel können wir uns merken: Wenn Anführungszeichen zu sehen sind, handelt es sich um Text!

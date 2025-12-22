@@ -589,14 +589,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div class="cell">
 <div class="cell-output cell-output-error">
-<pre><code>Error: Oh no, an error!</code></pre>
+<pre><code>Error:
+! Oh no, an error!</code></pre>
 </div>
 </div>
 <p>Fehler sind beim Programmieren alltäglich. In vielen Fällen bekommen wir dann eine Fehlermeldung angezeigt:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="st">"123"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-error">
-<pre><code>Error in sum("123"): invalid 'type' (character) of argument</code></pre>
+<pre><code>Error in `sum()`:
+! invalid 'type' (character) of argument</code></pre>
 </div>
 </div>
 <p>Hier will R uns mitteilen, dass wir die Funktion <code>sum()</code> nicht auf Text anwenden können. Versuche, den Fehler zu beheben.</p>
@@ -615,21 +617,24 @@ Lösung anzeigen
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psyhc)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-error">
-<pre><code>Error in library(psyhc): there is no package called 'psyhc'</code></pre>
+<pre><code>Error in `library()`:
+! there is no package called 'psyhc'</code></pre>
 </div>
 </div>
 <p>oder eine Funktion nutzen wollen, die nicht existiert:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sums</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-error">
-<pre><code>Error in sums(c(1, 2, 3)): could not find function "sums"</code></pre>
+<pre><code>Error in `sums()`:
+! could not find function "sums"</code></pre>
 </div>
 </div>
 <p>Manche Fehlermeldungen sind aber auch etwas komplizierter:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="at">y =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-error">
-<pre><code>Error in mean.default(y = c(1, 2, 3)): argument "x" is missing, with no default</code></pre>
+<pre><code>Error in `mean.default()`:
+! argument "x" is missing, with no default</code></pre>
 </div>
 </div>
 <p>Was ist hier schief gelaufen?</p>
