@@ -604,37 +604,6 @@
       "Repository": "RSPM",
       "Encoding": "UTF-8"
     },
-    "TTR": {
-      "Package": "TTR",
-      "Version": "0.24.4",
-      "Source": "Repository",
-      "Type": "Package",
-      "Title": "Technical Trading Rules",
-      "Authors@R": "c( person(given=\"Joshua\", family=\"Ulrich\", role=c(\"cre\",\"aut\"), email=\"josh.m.ulrich@gmail.com\"), person(given=c(\"Ethan\",\"B.\"), family=\"Smith\", role=\"ctb\") )",
-      "Imports": [
-        "xts (>= 0.10-0)",
-        "zoo",
-        "curl"
-      ],
-      "LinkingTo": [
-        "xts"
-      ],
-      "Enhances": [
-        "quantmod"
-      ],
-      "Suggests": [
-        "RUnit"
-      ],
-      "Description": "A collection of over 50 technical indicators for creating technical trading rules. The package also provides fast implementations of common rolling-window functions, and several volatility calculations.",
-      "License": "GPL (>= 2)",
-      "URL": "https://github.com/joshuaulrich/TTR",
-      "BugReports": "https://github.com/joshuaulrich/TTR/issues",
-      "NeedsCompilation": "yes",
-      "Author": "Joshua Ulrich [cre, aut], Ethan B. Smith [ctb]",
-      "Maintainer": "Joshua Ulrich <josh.m.ulrich@gmail.com>",
-      "Repository": "CRAN",
-      "Encoding": "UTF-8"
-    },
     "UpSetR": {
       "Package": "UpSetR",
       "Version": "1.4.0",
@@ -2728,7 +2697,7 @@
     },
     "forecast": {
       "Package": "forecast",
-      "Version": "9.0.0",
+      "Version": "9.0.1",
       "Source": "Repository",
       "Title": "Forecasting Functions for Time Series and Linear Models",
       "Description": "Methods and tools for displaying and analysing univariate time series forecasts including exponential smoothing via state space models and automatic ARIMA modelling.",
@@ -2745,10 +2714,9 @@
         "magrittr",
         "nnet",
         "parallel",
-        "Rcpp (>= 0.11.0)",
+        "Rcpp (>= 0.12.4)",
         "stats",
         "timeDate",
-        "tseries",
         "urca",
         "withr",
         "zoo"
@@ -2765,7 +2733,7 @@
         "uroot"
       ],
       "LinkingTo": [
-        "Rcpp (>= 0.11.0)",
+        "Rcpp (>= 0.12.4)",
         "RcppArmadillo (>= 0.2.35)"
       ],
       "LazyData": "yes",
@@ -2959,11 +2927,11 @@
     },
     "gdtools": {
       "Package": "gdtools",
-      "Version": "0.4.4",
+      "Version": "0.5.0",
       "Source": "Repository",
-      "Title": "Utilities for Graphical Rendering and Fonts Management",
+      "Title": "Font Metrics and Font Management Utilities for R Graphics",
       "Authors@R": "c( person(\"David\", \"Gohel\", , \"david.gohel@ardata.fr\", role = c(\"aut\", \"cre\")), person(\"Hadley\", \"Wickham\", , \"hadley@rstudio.com\", role = \"aut\"), person(\"Lionel\", \"Henry\", , \"lionel@rstudio.com\", role = \"aut\"), person(\"Jeroen\", \"Ooms\", , \"jeroen@berkeley.edu\", role = \"aut\", comment = c(ORCID = \"0000-0002-4035-0289\")), person(\"Yixuan\", \"Qiu\", role = \"ctb\"), person(\"R Core Team\", role = \"cph\", comment = \"Cairo code from X11 device\"), person(\"ArData\", role = \"cph\"), person(\"RStudio\", role = \"cph\") )",
-      "Description": "Tools are provided to compute metrics of formatted strings and to check the availability of a font.  Another set of functions is provided to support the collection of fonts from 'Google Fonts' in a cache. Their use is simple within 'R Markdown' documents and 'shiny' applications but also with graphic productions generated with the 'ggiraph', 'ragg' and 'svglite' packages or with tabular productions from the 'flextable' package.",
+      "Description": "Compute text metrics (width, ascent, descent) using 'Cairo' and 'FreeType', independently of the active graphic device. Font lookup is delegated to 'systemfonts'. Additional utilities let users register 'Google Fonts' or bundled 'Liberation' fonts, check font availability, and assemble 'htmlDependency' objects so that fonts are correctly embedded in 'Shiny' applications, 'R Markdown' documents, and 'htmlwidgets' outputs such as 'ggiraph'.",
       "License": "GPL-3 | file LICENSE",
       "URL": "https://davidgohel.github.io/gdtools/",
       "BugReports": "https://github.com/davidgohel/gdtools/issues",
@@ -4382,7 +4350,7 @@
     },
     "later": {
       "Package": "later",
-      "Version": "1.4.5",
+      "Version": "1.4.6",
       "Source": "Repository",
       "Type": "Package",
       "Title": "Utilities for Scheduling Functions to Execute Later with Event Loops",
@@ -4987,12 +4955,12 @@
     },
     "mirai": {
       "Package": "mirai",
-      "Version": "2.5.3",
+      "Version": "2.6.0",
       "Source": "Repository",
       "Type": "Package",
       "Title": "Minimalist Async Evaluation Framework for R",
       "Authors@R": "c( person(\"Charlie\", \"Gao\", , \"charlie.gao@posit.co\", role = c(\"aut\", \"cre\"), comment = c(ORCID = \"0000-0002-0750-061X\")), person(\"Joe\", \"Cheng\", , \"joe@posit.co\", role = \"ctb\"), person(\"Posit Software, PBC\", role = c(\"cph\", \"fnd\"), comment = c(ROR = \"03wc8by49\")), person(\"Hibiki AI Limited\", role = \"cph\") )",
-      "Description": "Designed for simplicity, a 'mirai' evaluates an R expression asynchronously, locally or distributed over the network. Built on 'nanonext' and 'NNG' for modern networking and concurrency, scales efficiently to millions of tasks over thousands of parallel processes. Provides optimal scheduling over fast 'IPC', TCP, and TLS connections, integrating with SSH or cluster managers. Implements event-driven promises for reactive programming, and supports custom serialization for cross-language data types.",
+      "Description": "Evaluates R expressions asynchronously and in parallel, locally or distributed across networks. An official parallel cluster type for R. Built on 'nanonext' and 'NNG', its non-polling, event-driven architecture scales from a laptop to thousands of processes across high-performance computing clusters and cloud platforms.  Features FIFO scheduling with task cancellation, promises for reactive programming, 'OpenTelemetry' distributed tracing, and custom serialization for cross-language data types.",
       "License": "MIT + file LICENSE",
       "URL": "https://mirai.r-lib.org, https://github.com/r-lib/mirai",
       "BugReports": "https://github.com/r-lib/mirai/issues",
@@ -5000,13 +4968,14 @@
         "R (>= 3.6)"
       ],
       "Imports": [
-        "nanonext (>= 1.7.2)"
+        "nanonext (>= 1.8.0)"
       ],
       "Suggests": [
         "cli",
         "litedown",
         "otel",
-        "otelsdk"
+        "otelsdk",
+        "secretbase"
       ],
       "Enhances": [
         "parallel",
@@ -5535,12 +5504,12 @@
     },
     "nanonext": {
       "Package": "nanonext",
-      "Version": "1.7.2",
+      "Version": "1.8.0",
       "Source": "Repository",
       "Type": "Package",
-      "Title": "NNG (Nanomsg Next Gen) Lightweight Messaging Library",
+      "Title": "Lightweight Toolkit for Messaging, Concurrency and the Web",
       "Authors@R": "c( person(\"Charlie\", \"Gao\", , \"charlie.gao@posit.co\", role = c(\"aut\", \"cre\"), comment = c(ORCID = \"0000-0002-0750-061X\")), person(\"Posit Software, PBC\", role = c(\"cph\", \"fnd\"), comment = c(ROR = \"03wc8by49\")), person(\"Hibiki AI Limited\", role = \"cph\"), person(\"R Consortium\", role = \"fnd\") )",
-      "Description": "R binding for NNG (Nanomsg Next Gen), a successor to ZeroMQ. NNG is a socket library for reliable, high-performance messaging over in-process, IPC, TCP, WebSocket and secure TLS transports. Implements 'Scalability Protocols', a standard for common communications patterns including publish/subscribe, request/reply and service discovery. As its own threaded concurrency framework, provides a toolkit for asynchronous programming and distributed computing. Intuitive 'aio' objects resolve automatically when asynchronous operations complete, and synchronisation primitives allow R to wait upon events signalled by concurrent threads.",
+      "Description": "R binding for NNG (Nanomsg Next Gen), a successor to ZeroMQ. A toolkit for messaging, concurrency and the web. High-performance socket messaging over in-process, IPC, TCP, WebSocket and secure TLS transports implements 'Scalability Protocols', a standard for common communications patterns including publish/subscribe, request/reply and survey. A threaded concurrency framework with intuitive 'aio' objects that resolve automatically upon completion of asynchronous operations, and synchronisation primitives that allow R to wait on events signalled by concurrent threads. A unified HTTP server hosting REST endpoints, WebSocket connections and streaming on a single port, with a built-in HTTP client.",
       "License": "MIT + file LICENSE",
       "URL": "https://nanonext.r-lib.org, https://github.com/r-lib/nanonext",
       "BugReports": "https://github.com/r-lib/nanonext/issues",
@@ -5561,7 +5530,7 @@
       "Config/usethis/last-upkeep": "2025-04-23",
       "Encoding": "UTF-8",
       "RoxygenNote": "7.3.3",
-      "SystemRequirements": "'libnng' >= 1.9 and 'libmbedtls' >= 2.5, or 'cmake' and 'xz' to compile NNG and/or Mbed TLS included in package sources",
+      "SystemRequirements": "'libnng' >= 1.9 and 'libmbedtls' >= 2.5, or 'cmake' to compile NNG and/or Mbed TLS included in package sources",
       "NeedsCompilation": "yes",
       "Author": "Charlie Gao [aut, cre] (ORCID: <https://orcid.org/0000-0002-0750-061X>), Posit Software, PBC [cph, fnd] (ROR: <https://ror.org/03wc8by49>), Hibiki AI Limited [cph], R Consortium [fnd]",
       "Maintainer": "Charlie Gao <charlie.gao@posit.co>",
@@ -6716,62 +6685,6 @@
       "Author": "Hadley Wickham [aut, cre] (ORCID: <https://orcid.org/0000-0003-4757-117X>), Lionel Henry [aut], Posit Software, PBC [cph, fnd] (ROR: <https://ror.org/03wc8by49>)",
       "Maintainer": "Hadley Wickham <hadley@posit.co>",
       "Repository": "CRAN"
-    },
-    "quadprog": {
-      "Package": "quadprog",
-      "Version": "1.5-8",
-      "Source": "Repository",
-      "Type": "Package",
-      "Title": "Functions to Solve Quadratic Programming Problems",
-      "Date": "2019-11-20",
-      "Author": "S original by Berwin A. Turlach <Berwin.Turlach@gmail.com>  R port by Andreas Weingessel <Andreas.Weingessel@ci.tuwien.ac.at> Fortran contributions from Cleve Moler (dposl/LINPACK and (a modified version of) dpodi/LINPACK)",
-      "Maintainer": "Berwin A. Turlach <Berwin.Turlach@gmail.com>",
-      "Description": "This package contains routines and documentation for solving quadratic programming problems.",
-      "Depends": [
-        "R (>= 3.1.0)"
-      ],
-      "License": "GPL (>= 2)",
-      "NeedsCompilation": "yes",
-      "Repository": "CRAN",
-      "Encoding": "UTF-8"
-    },
-    "quantmod": {
-      "Package": "quantmod",
-      "Version": "0.4.28",
-      "Source": "Repository",
-      "Type": "Package",
-      "Title": "Quantitative Financial Modelling Framework",
-      "Authors@R": "c( person(given=c(\"Jeffrey\",\"A.\"), family=\"Ryan\", role=c(\"aut\",\"cph\")), person(given=c(\"Joshua\",\"M.\"), family=\"Ulrich\", role=c(\"cre\",\"aut\"), email=\"josh.m.ulrich@gmail.com\"), person(given=c(\"Ethan\",\"B.\"), family=\"Smith\", role=\"ctb\"), person(given=\"Wouter\", family=\"Thielen\", role=\"ctb\"), person(given=\"Paul\", family=\"Teetor\", role=\"ctb\"), person(given=\"Steve\", family=\"Bronder\", role=\"ctb\") )",
-      "Depends": [
-        "R (>= 3.2.0)",
-        "xts(>= 0.9-0)",
-        "zoo",
-        "TTR(>= 0.2)",
-        "methods"
-      ],
-      "Imports": [
-        "curl",
-        "jsonlite(>= 1.1)"
-      ],
-      "Suggests": [
-        "DBI",
-        "RMySQL",
-        "RSQLite",
-        "timeSeries",
-        "xml2",
-        "downloader",
-        "tinytest"
-      ],
-      "Description": "Specify, build, trade, and analyse quantitative financial trading strategies.",
-      "LazyLoad": "yes",
-      "License": "GPL-3",
-      "URL": "https://www.quantmod.com/, https://github.com/joshuaulrich/quantmod",
-      "BugReports": "https://github.com/joshuaulrich/quantmod/issues",
-      "NeedsCompilation": "no",
-      "Author": "Jeffrey A. Ryan [aut, cph], Joshua M. Ulrich [cre, aut], Ethan B. Smith [ctb], Wouter Thielen [ctb], Paul Teetor [ctb], Steve Bronder [ctb]",
-      "Maintainer": "Joshua M. Ulrich <josh.m.ulrich@gmail.com>",
-      "Repository": "CRAN",
-      "Encoding": "UTF-8"
     },
     "quantreg": {
       "Package": "quantreg",
@@ -7957,10 +7870,10 @@
     },
     "sp": {
       "Package": "sp",
-      "Version": "2.2-0",
+      "Version": "2.2-1",
       "Source": "Repository",
       "Title": "Classes and Methods for Spatial Data",
-      "Authors@R": "c(person(\"Edzer\", \"Pebesma\", role = c(\"aut\", \"cre\"), email = \"edzer.pebesma@uni-muenster.de\"), person(\"Roger\", \"Bivand\", role = \"aut\", email = \"Roger.Bivand@nhh.no\"), person(\"Barry\", \"Rowlingson\", role = \"ctb\"), person(\"Virgilio\", \"Gomez-Rubio\", role = \"ctb\"), person(\"Robert\", \"Hijmans\", role = \"ctb\"), person(\"Michael\", \"Sumner\", role = \"ctb\"), person(\"Don\", \"MacQueen\", role = \"ctb\"), person(\"Jim\", \"Lemon\", role = \"ctb\"), person(\"Finn\", \"Lindgren\", role = \"ctb\"), person(\"Josh\", \"O'Brien\", role = \"ctb\"), person(\"Joseph\", \"O'Rourke\", role = \"ctb\"), person(\"Patrick\", \"Hausmann\", role = \"ctb\"))",
+      "Authors@R": "c(person(\"Edzer\", \"Pebesma\", role = c(\"aut\", \"cre\"), email = \"edzer.pebesma@uni-muenster.de\"), person(\"Roger\", \"Bivand\", role = \"aut\", email = \"Roger.Bivand@nhh.no\"), person(\"Barry\", \"Rowlingson\", role = \"ctb\"), person(\"Virgilio\", \"Gomez-Rubio\", role = \"ctb\"), person(\"Robert\", \"Hijmans\", role = \"ctb\"), person(\"Michael\", \"Sumner\", role = \"ctb\"), person(\"Don\", \"MacQueen\", role = \"ctb\"), person(\"Jim\", \"Lemon\", role = \"ctb\"), person(\"Finn\", \"Lindgren\", role = \"ctb\"), person(\"Josh\", \"O'Brien\", role = \"ctb\"), person(\"Joseph\", \"O'Rourke\", role = \"ctb\"), person(\"Patrick\", \"Hausmann\", role = \"ctb\"), person(\"Sebastian\", \"Meyer\", role = \"ctb\"))",
       "Depends": [
         "R (>= 3.5.0)",
         "methods"
@@ -7992,9 +7905,9 @@
       "Collate": "bpy.colors.R AAA.R Class-CRS.R CRS-methods.R Class-Spatial.R Spatial-methods.R projected.R Class-SpatialPoints.R SpatialPoints-methods.R Class-SpatialPointsDataFrame.R SpatialPointsDataFrame-methods.R Class-SpatialMultiPoints.R SpatialMultiPoints-methods.R Class-SpatialMultiPointsDataFrame.R SpatialMultiPointsDataFrame-methods.R Class-GridTopology.R Class-SpatialGrid.R Class-SpatialGridDataFrame.R Class-SpatialLines.R SpatialLines-methods.R Class-SpatialLinesDataFrame.R SpatialLinesDataFrame-methods.R Class-SpatialPolygons.R Class-SpatialPolygonsDataFrame.R SpatialPolygons-methods.R SpatialPolygonsDataFrame-methods.R GridTopology-methods.R SpatialGrid-methods.R SpatialGridDataFrame-methods.R SpatialPolygons-internals.R point.in.polygon.R SpatialPolygons-displayMethods.R zerodist.R image.R stack.R bubble.R mapasp.R select.spatial.R gridded.R asciigrid.R spplot.R over.R spsample.R recenter.R dms.R gridlines.R spdists.R rbind.R flipSGDF.R chfids.R loadmeuse.R compassRose.R surfaceArea.R spOptions.R subset.R disaggregate.R sp_spat1.R merge.R aggregate.R elide.R sp2Mondrian.R",
       "VignetteBuilder": "knitr",
       "NeedsCompilation": "yes",
-      "Author": "Edzer Pebesma [aut, cre], Roger Bivand [aut], Barry Rowlingson [ctb], Virgilio Gomez-Rubio [ctb], Robert Hijmans [ctb], Michael Sumner [ctb], Don MacQueen [ctb], Jim Lemon [ctb], Finn Lindgren [ctb], Josh O'Brien [ctb], Joseph O'Rourke [ctb], Patrick Hausmann [ctb]",
+      "Author": "Edzer Pebesma [aut, cre], Roger Bivand [aut], Barry Rowlingson [ctb], Virgilio Gomez-Rubio [ctb], Robert Hijmans [ctb], Michael Sumner [ctb], Don MacQueen [ctb], Jim Lemon [ctb], Finn Lindgren [ctb], Josh O'Brien [ctb], Joseph O'Rourke [ctb], Patrick Hausmann [ctb], Sebastian Meyer [ctb]",
       "Maintainer": "Edzer Pebesma <edzer.pebesma@uni-muenster.de>",
-      "Repository": "RSPM",
+      "Repository": "CRAN",
       "Encoding": "UTF-8"
     },
     "stringi": {
@@ -8539,32 +8452,6 @@
       "Author": "Yihui Xie [aut, cre, cph] (ORCID: <https://orcid.org/0000-0003-0645-5666>), Posit Software, PBC [cph, fnd], Christophe Dervieux [ctb] (ORCID: <https://orcid.org/0000-0003-4474-2498>), Devon Ryan [ctb] (ORCID: <https://orcid.org/0000-0002-8549-0971>), Ethan Heinzen [ctb], Fernando Cagua [ctb]",
       "Maintainer": "Yihui Xie <xie@yihui.name>",
       "Repository": "CRAN"
-    },
-    "tseries": {
-      "Package": "tseries",
-      "Version": "0.10-59",
-      "Source": "Repository",
-      "Title": "Time Series Analysis and Computational Finance",
-      "Authors@R": "c(person(\"Adrian\", \"Trapletti\", role = \"aut\", email = \"adrian@trapletti.org\"), person(\"Kurt\", \"Hornik\", role = c(\"aut\", \"cre\"), email = \"Kurt.Hornik@R-project.org\", comment = c(ORCID = \"0000-0003-4198-9911\")), person(\"Blake\", \"LeBaron\", role = \"ctb\", comment = \"BDS test code\"))",
-      "Description": "Time series analysis and computational finance.",
-      "Depends": [
-        "R (>= 3.4.0)"
-      ],
-      "Imports": [
-        "graphics",
-        "stats",
-        "utils",
-        "quadprog",
-        "zoo",
-        "quantmod (>= 0.4-9)",
-        "jsonlite"
-      ],
-      "License": "GPL-2 | GPL-3",
-      "NeedsCompilation": "yes",
-      "Author": "Adrian Trapletti [aut], Kurt Hornik [aut, cre] (ORCID: <https://orcid.org/0000-0003-4198-9911>), Blake LeBaron [ctb] (BDS test code)",
-      "Maintainer": "Kurt Hornik <Kurt.Hornik@R-project.org>",
-      "Repository": "CRAN",
-      "Encoding": "UTF-8"
     },
     "tzdb": {
       "Package": "tzdb",
@@ -9207,11 +9094,11 @@
     },
     "xgboost": {
       "Package": "xgboost",
-      "Version": "3.1.3.1",
+      "Version": "3.2.0.1",
       "Source": "Repository",
       "Type": "Package",
       "Title": "Extreme Gradient Boosting",
-      "Date": "2026-01-05",
+      "Date": "2026-02-10",
       "Authors@R": "c( person(\"Tianqi\", \"Chen\", role = c(\"aut\"), email = \"tianqi.tchen@gmail.com\"), person(\"Tong\", \"He\", role = c(\"aut\"), email = \"hetong007@gmail.com\"), person(\"Michael\", \"Benesty\", role = c(\"aut\"), email = \"michael@benesty.fr\"), person(\"Vadim\", \"Khotilovich\", role = c(\"aut\"), email = \"khotilovich@gmail.com\"), person(\"Yuan\", \"Tang\", role = c(\"aut\"), email = \"terrytangyuan@gmail.com\", comment = c(ORCID = \"0000-0001-5243-233X\")), person(\"Hyunsu\", \"Cho\", role = c(\"aut\"), email = \"chohyu01@cs.washington.edu\"), person(\"Kailong\", \"Chen\", role = c(\"aut\")), person(\"Rory\", \"Mitchell\", role = c(\"aut\")), person(\"Ignacio\", \"Cano\", role = c(\"aut\")), person(\"Tianyi\", \"Zhou\", role = c(\"aut\")), person(\"Mu\", \"Li\", role = c(\"aut\")), person(\"Junyuan\", \"Xie\", role = c(\"aut\")), person(\"Min\", \"Lin\", role = c(\"aut\")), person(\"Yifeng\", \"Geng\", role = c(\"aut\")), person(\"Yutian\", \"Li\", role = c(\"aut\")), person(\"Jiaming\", \"Yuan\", role = c(\"aut\", \"cre\"), email = \"jm.yuan@outlook.com\"), person(\"David\", \"Cortes\", role = c(\"aut\")), person(\"XGBoost contributors\", role = c(\"cph\"), comment = \"base XGBoost implementation\") )",
       "Maintainer": "Jiaming Yuan <jm.yuan@outlook.com>",
       "Description": "Extreme Gradient Boosting, which is an efficient implementation of the gradient boosting framework from Chen & Guestrin (2016) <doi:10.1145/2939672.2939785>. This package is its R interface. The package includes efficient linear model solver and tree learning algorithms. The package can automatically do parallel computation on a single machine which could be more than 10 times faster than existing gradient boosting packages. It supports various objective functions, including regression, classification and ranking. The package is made to be extensible, so that users are also allowed to define their own objectives easily.",
@@ -9350,41 +9237,6 @@
       "NeedsCompilation": "no",
       "Author": "David B. Dahl [aut], David Scott [aut, cre], Charles Roosen [aut], Arni Magnusson [aut], Jonathan Swinton [aut], Ajay Shah [ctb], Arne Henningsen [ctb], Benno Puetz [ctb], Bernhard Pfaff [ctb], Claudio Agostinelli [ctb], Claudius Loehnert [ctb], David Mitchell [ctb], David Whiting [ctb], Fernando da Rosa [ctb], Guido Gay [ctb], Guido Schulz [ctb], Ian Fellows [ctb], Jeff Laake [ctb], John Walker [ctb], Jun Yan [ctb], Liviu Andronic [ctb], Markus Loecher [ctb], Martin Gubri [ctb], Matthieu Stigler [ctb], Robert Castelo [ctb], Seth Falcon [ctb], Stefan Edwards [ctb], Sven Garbade [ctb], Uwe Ligges [ctb]",
       "Encoding": "UTF-8"
-    },
-    "xts": {
-      "Package": "xts",
-      "Version": "0.14.1",
-      "Source": "Repository",
-      "Type": "Package",
-      "Title": "eXtensible Time Series",
-      "Authors@R": "c( person(given=c(\"Jeffrey\",\"A.\"), family=\"Ryan\", role=c(\"aut\",\"cph\")), person(given=c(\"Joshua\",\"M.\"), family=\"Ulrich\", role=c(\"cre\",\"aut\"), email=\"josh.m.ulrich@gmail.com\"), person(given=\"Ross\", family=\"Bennett\", role=\"ctb\"), person(given=\"Corwin\", family=\"Joy\", role=\"ctb\") )",
-      "Depends": [
-        "R (>= 3.6.0)",
-        "zoo (>= 1.7-12)"
-      ],
-      "Imports": [
-        "methods"
-      ],
-      "LinkingTo": [
-        "zoo"
-      ],
-      "Suggests": [
-        "timeSeries",
-        "timeDate",
-        "tseries",
-        "chron",
-        "tinytest"
-      ],
-      "LazyLoad": "yes",
-      "Description": "Provide for uniform handling of R's different time-based data classes by extending zoo, maximizing native format information preservation and allowing for user level customization and extension, while simplifying cross-class interoperability.",
-      "License": "GPL (>= 2)",
-      "URL": "https://joshuaulrich.github.io/xts/, https://github.com/joshuaulrich/xts",
-      "BugReports": "https://github.com/joshuaulrich/xts/issues",
-      "Encoding": "UTF-8",
-      "NeedsCompilation": "yes",
-      "Author": "Jeffrey A. Ryan [aut, cph], Joshua M. Ulrich [cre, aut], Ross Bennett [ctb], Corwin Joy [ctb]",
-      "Maintainer": "Joshua M. Ulrich <josh.m.ulrich@gmail.com>",
-      "Repository": "CRAN"
     },
     "yaml": {
       "Package": "yaml",
